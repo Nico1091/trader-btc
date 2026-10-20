@@ -1,0 +1,13 @@
+# Secretos: nunca entran al historial
+claves-*.env
+*.env
+AUTORIZO-DINERO-REAL.txt
+# Datos y diario: locales, grandes o privados
+datos/
+diario/
+estado.json
+panel.html
+*.log
+__pycache__/
+PARAR
+PAUSA

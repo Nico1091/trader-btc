@@ -1,0 +1,6 @@
+{
+  "simbolo": "BTCUSDT",
+  "claves_testnet": "C:\\Users\\ni109\\Ingresos\\trader-btc\\claves-testnet.env",
+  "capital_cop": 40000,
+  "nota": "Las claves no van aquí: solo la ruta del archivo donde ya están. Dinero real bloqueado salvo AUTORIZO-DINERO-REAL.txt con la fecha del día."
+}
