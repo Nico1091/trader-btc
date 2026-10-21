@@ -29,7 +29,14 @@ import time
 import traceback
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-sys.stdout.reconfigure(encoding="utf-8")
+if sys.stdout is None or sys.stderr is None:      # pythonw (sin consola): salida y errores al registro
+    os.makedirs(os.path.join(os.path.dirname(os.path.abspath(__file__)), "diario"), exist_ok=True)
+    _registro = open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "diario", "agente.log"), "a",
+                     encoding="utf-8", buffering=1)
+    sys.stdout = sys.stdout or _registro
+    sys.stderr = sys.stderr or _registro
+else:
+    sys.stdout.reconfigure(encoding="utf-8")
 
 import contexto as cx  # noqa: E402
 import datos  # noqa: E402
@@ -45,6 +52,28 @@ RUTA_ESTADO = os.path.join(CARPETA, "estado.json")
 RUTA_PANEL = os.path.join(CARPETA, "panel.html")
 SEG, MIN, HORA = 1000, 60_000, 3_600_000
 CAPITAL = 9.7
+
+
+def sin_freno_de_windows():
+    """Windows 11 frena los procesos sin ventana (EcoQoS) y el agente se atrasaba frente al
+    mercado. Se le pide la velocidad normal (SetProcessInformation, ProcessPowerThrottling)."""
+    if os.name != "nt":
+        return False
+    try:
+        import ctypes
+        from ctypes import wintypes
+
+        class Estado(ctypes.Structure):
+            _fields_ = [("Version", wintypes.ULONG), ("ControlMask", wintypes.ULONG), ("StateMask", wintypes.ULONG)]
+
+        k32 = ctypes.WinDLL("kernel32", use_last_error=True)
+        k32.GetCurrentProcess.restype = wintypes.HANDLE
+        k32.SetProcessInformation.argtypes = [wintypes.HANDLE, ctypes.c_int, ctypes.c_void_p, wintypes.DWORD]
+        k32.SetProcessInformation.restype = wintypes.BOOL
+        e = Estado(1, 0x1, 0x0)          # versión 1; controla la velocidad de ejecución; sin freno
+        return bool(k32.SetProcessInformation(k32.GetCurrentProcess(), 4, ctypes.byref(e), ctypes.sizeof(e)))
+    except Exception:
+        return False
 
 
 def ahora_bogota():
@@ -320,6 +349,9 @@ class Agente:
         self.ultimo_t = None
         self.ultimo_panel = 0.0
         self.reproducir = reproducir
+        self.sincrono = bool(reproducir)          # en la repetición, las métricas se piden en el momento
+        self._parar_fondo = threading.Event()
+        self.sin_freno = None
         if not reproducir:
             self._restaurar()
 
@@ -444,18 +476,43 @@ class Agente:
             self.estadisticas["minutos_pedidos"] += 1
         if len(self.v1m.t) > 6 * 1440 + 120:
             self.v1m = datos.recortar(self.v1m, self.v1m.t[-(6 * 1440 + 60)], m + MIN)
-        if m % HORA == 0:                         # la vela de 1 h que cerró, tal cual la da Binance
+        if self.sincrono:                         # repetición: igual que el banco, en el instante
+            if m % HORA == 0:
+                self._horas(m)
+            self._metricas()
+            if (m // MIN) % 30 == 0:
+                self._financiacion()
+        self._rehacer_ctx()                       # en vivo, el hilo de fondo ya trajo lo nuevo
+
+    def _horas(self, m):
+        """Las velas de 1 h cerradas que falten, tal cual las da Binance."""
+        try:
+            for f in self.mercado.klines("BTCUSDT", "1h", m - 3 * HORA, 5):
+                if f[0] + HORA <= m and (not len(self.v1h.t) or f[0] > self.v1h.t[-1]):
+                    for campo, valor in zip(("t", "o", "h", "l", "c", "v", "tb", "n"), f):
+                        getattr(self.v1h, campo).append(valor)
+        except Exception as e:
+            self.diario.evento(m, "error_1h", detalle=str(e)[:160])
+
+    def _fondo(self):
+        """La API de Binance puede tardar segundos: nunca se la espera dentro del ciclo de cada
+        segundo. Este hilo trae interés abierto (cada minuto, 5 s después del cambio), velas de
+        1 h (cada 10 min) y financiación (cada 30 min)."""
+        ultima_fin = ultima_1h = time.time()
+        while not self._parar_fondo.is_set():
+            self._parar_fondo.wait(60 - time.time() % 60 + 5)
+            if self._parar_fondo.is_set():
+                break
             try:
-                for f in self.mercado.klines("BTCUSDT", "1h", m - 3 * HORA, 5):
-                    if f[0] + HORA <= m and (not len(self.v1h.t) or f[0] > self.v1h.t[-1]):
-                        for campo, valor in zip(("t", "o", "h", "l", "c", "v", "tb", "n"), f):
-                            getattr(self.v1h, campo).append(valor)
+                self._metricas()
+                if time.time() - ultima_1h >= 600:
+                    self._horas((self.ultimo_t + SEG) // HORA * HORA)
+                    ultima_1h = time.time()
+                if time.time() - ultima_fin >= 1800:
+                    self._financiacion()
+                    ultima_fin = time.time()
             except Exception as e:
-                self.diario.evento(m, "error_1h", detalle=str(e)[:160])
-        self._metricas()
-        if (m // MIN) % 30 == 0:
-            self._financiacion()
-        self._rehacer_ctx()
+                self.diario.evento(self.ultimo_t or 0, "error_fondo", detalle=str(e)[:200])
 
     # ---------- un segundo ----------
     def procesar(self, t, fila_u, fila_f, en_vivo):
@@ -533,6 +590,7 @@ class Agente:
                 lv.cerrar_ya(self.ultimo_t, self.serie.c[-1], "REINICIO", self.diario)
         self.mercado.arrancar_flujos()
         threading.Thread(target=self.externo.correr, daemon=True, name="contexto-tor").start()
+        threading.Thread(target=self._fondo, daemon=True, name="binance-fondo").start()
         print(f"{ahora_bogota():%H:%M:%S} Agente en marcha (papel). Panel: {RUTA_PANEL}", flush=True)
 
     def _rellenar(self, hasta_t):
@@ -579,20 +637,10 @@ class Agente:
             lv.cerrar_ya(self.ultimo_t, precio, "PARADA", self.diario)
         self.guardar_estado()
         os.remove(parar)
+        self._parar_fondo.set()
         self.mercado.parar()
         self.externo.parar()
         print(f"{ahora_bogota():%H:%M:%S} Agente detenido; estado guardado.", flush=True)
-
-    def _vela_fd(self, t):
-        """La vela de BTC/FDUSD del segundo t por la API; si no está, una vela quieta (sin operaciones)."""
-        try:
-            lote = self.mercado.klines("BTCFDUSD", "1s", t, 1)
-            if lote and lote[0][0] == t:
-                return lote[0]
-        except Exception:
-            pass
-        self.estadisticas["fdusd_quietas"] += 1
-        return (t,) + (self.serie_fd.c[-1],) * 4 + (0.0, 0.0, 0.0)
 
     def _consumir(self):
         """Procesa en orden los segundos que ya tienen las dos velas; rellena huecos por la API."""
@@ -606,9 +654,10 @@ class Agente:
             mas_nuevo = max(self.pendientes)
             if mas_nuevo - t < 3 * SEG:
                 break                                     # todavía puede llegar
-            if "BTCUSDT" in par:                          # solo falta la de BTC/FDUSD
-                del self.pendientes[t]
-                self.procesar(t, par["BTCUSDT"], self._vela_fd(t), en_vivo=True)
+            if "BTCUSDT" in par:                          # solo falta la de BTC/FDUSD: vela quieta,
+                del self.pendientes[t]                    # sin esperar a la API (no abre ni cierra nada)
+                self.estadisticas["fdusd_quietas"] += 1
+                self.procesar(t, par["BTCUSDT"], (t,) + (self.serie_fd.c[-1],) * 4 + (0.0, 0.0, 0.0), en_vivo=True)
                 continue
             if mas_nuevo - t > 6 * HORA:                  # el equipo estuvo apagado: se arranca de nuevo
                 self._reiniciar_datos(mas_nuevo)
@@ -640,9 +689,12 @@ def main():
         return 1
     parar = os.path.join(CARPETA, "PARAR")
     espera = 30
+    sin_freno = sin_freno_de_windows()
     while not os.path.exists(parar):
         try:
             agente = Agente()
+            agente.sin_freno = sin_freno
+            agente.estadisticas["windows_sin_freno"] = int(sin_freno)
             agente.arrancar()
             agente.bucle()
             return 0

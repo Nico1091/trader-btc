@@ -22,8 +22,10 @@ SEG, MIN, HORA = 1000, 60_000, 3_600_000
 NAN = float("nan")
 CONTADO = "https://data-api.binance.vision/api/v3"
 FUTUROS = "https://fapi.binance.com"
+# El libro va como foto de 5 niveles por segundo (depth5@1000ms): el bookTicker de BTCUSDT manda
+# cientos de mensajes por segundo y, con Windows frenando el proceso oculto, retrasaba las velas.
 WS_CONTADO = ("wss://data-stream.binance.vision/stream?streams=btcusdt@kline_1s/btcfdusd@kline_1s/"
-              "btcusdt@bookTicker/btcfdusd@bookTicker")
+              "btcusdt@depth5@1000ms/btcfdusd@depth5@1000ms")
 WS_FUTUROS = "wss://fstream.binance.com/market/stream?streams=btcusdt@markPrice@1s/btcusdt@forceOrder"
 
 
@@ -187,9 +189,15 @@ class Mercado:
             k = datos["k"]
             if k.get("x"):
                 self.cola.put(("vela", k["s"], fila_kline(k)))
-        elif flujo.endswith("@bookTicker"):
-            self.libro[datos["s"]] = {"compra": float(datos["b"]), "venta": float(datos["a"]),
-                                      "llegada_ms": int(time.time() * 1000)}
+        elif "@depth5" in flujo:
+            try:
+                self.libro[flujo.split("@")[0].upper()] = {
+                    "compra": float(datos["bids"][0][0]), "venta": float(datos["asks"][0][0]),
+                    "compra_btc_5": round(sum(float(q) for _, q in datos["bids"]), 5),
+                    "venta_btc_5": round(sum(float(q) for _, q in datos["asks"]), 5),
+                    "llegada_ms": int(time.time() * 1000)}
+            except (KeyError, IndexError, ValueError):
+                pass
 
     def _futuros(self, m):
         datos = m.get("data", {})
