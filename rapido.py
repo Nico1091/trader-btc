@@ -35,10 +35,18 @@ NAN = float("nan")
 BOGOTA = dt.timezone(dt.timedelta(hours=-5))
 
 RASGOS = (
-    "r10", "r60", "r300", "vol300", "z60", "fl10", "fl60", "fl300", "rv60", "rn60", "pr300", "pr3600",
-    "tend1h", "pend1h", "rsi15m", "pos15m", "rsi1m", "patron1m", "atr1m", "vwap", "r1d", "r3d",
+    "r10", "r60", "r300", "vol300", "vol3600", "z60", "fl10", "fl60", "fl300", "rv60", "rn60", "pr300",
+    "pr3600", "tend1h", "pend1h", "rsi15m", "pos15m", "rsi1m", "patron1m", "atr1m", "vwap", "r1d", "r3d",
     "oi1h", "fin", "hs", "hc", "retroceso", "techo", "barrido_baja", "barrido_alza",
 )
+I_VOL3600 = RASGOS.index("vol3600")
+
+
+def barrera_de(vol3600, segundos, k, minima):
+    """Barrera (objetivo = stop, en fracción) que se ajusta a la volatilidad de la última hora:
+    k desvíos del recorrido esperado en `segundos`, nunca por debajo de `minima`."""
+    sigma_seg = vol3600 / 100 / 60.0 if vol3600 == vol3600 else 0.0      # vol3600 = σ·√3600 en %
+    return max(minima, k * sigma_seg * math.sqrt(segundos))
 VENTANA_MIN = 3600                     # segundos de historia que exige el rasgo más largo
 
 
@@ -100,6 +108,8 @@ def rasgos_segundo(s, i, ctx):
     r300 = (x - lc[i - 300]) * 100
     var300 = pr2[i + 1] - pr2[i - 299]
     vol300 = math.sqrt(var300) * 100 if var300 > 0 else 0.0
+    var3600 = pr2[i + 1] - pr2[i - 3599]
+    vol3600 = math.sqrt(var3600) * 100 if var3600 > 0 else 0.0
     z60 = r60 / (vol300 * 0.4472135954999579) if vol300 > 1e-9 else 0.0     # sqrt(60/300)
     fin_ = i + 1
 
@@ -125,7 +135,7 @@ def rasgos_segundo(s, i, ctx):
     techo = 1.0 if pos15m >= 0.9 else 0.0
     barrido_baja = 1.0 if (z60 <= -3 and fl60 < -0.1) else 0.0
     barrido_alza = 1.0 if (z60 >= 3 and fl60 > 0.1) else 0.0
-    return [r10, r60, r300, vol300, z60, fl10, fl60, fl300, rv60, rn60, pr300, pr3600,
+    return [r10, r60, r300, vol300, vol3600, z60, fl10, fl60, fl300, rv60, rn60, pr300, pr3600,
             tend1h, pend1h, k["rsi15m"], pos15m, k["rsi1m"], k["patron1m"], k["atr1m"], k["vwap"],
             k["r1d"], k["r3d"], k["oi1h"], k["fin"], k["hs"], k["hc"],
             retroceso, techo, barrido_baja, barrido_alza]
@@ -278,31 +288,29 @@ def recorrer(s, p, j0):
     return "TIEMPO", j, c[j] * (1 - p.desliz) if p.largo else c[j] * (1 + p.desliz)
 
 
-def etiquetas(s, puntos, barrera, segundos, desliz=0.0001):
-    """Para cada decisión i: (y_largo, y_corto, ret_largo, ret_corto) con barreras simétricas.
-
-    y = 1 si el ciclo tocó su objetivo antes que su stop dentro del tiempo; ret = retorno bruto
-    (sin comisiones) del ciclo con salida por objetivo, stop o tiempo.
-    """
-    out = []
-    for i in puntos:
-        j0 = i + 1
-        if j0 >= s.largo:
-            out.append(None)
-            continue
-        e = s.o[j0]
-        filas = []
-        for largo in (True, False):
-            entrada = e * (1 + desliz) if largo else e * (1 - desliz)
-            if largo:
-                p = Posicion(True, entrada, entrada * (1 + barrera), entrada * (1 - barrera), j0 + segundos - 1, desliz)
-            else:
-                p = Posicion(False, entrada, entrada * (1 - barrera), entrada * (1 + barrera), j0 + segundos - 1, desliz)
-            motivo, j, precio = recorrer(s, p, j0)
-            ret = (precio / entrada - 1) if largo else (entrada / precio - 1)
-            filas.append((1 if motivo == "OBJETIVO" else 0, ret))
-        out.append((filas[0][0], filas[1][0], filas[0][1], filas[1][1]))
-    return out
+def primer_toque(s, j0, barrera, segundos):
+    """Hacia dónde se mueve primero el precio desde la apertura del segundo j0: +1 si sube
+    `barrera` (atravesándola 1 pb), -1 si baja lo mismo, 0 si no toca ninguna en `segundos`
+    (o si toca las dos en el mismo segundo). Simétrico y sin comisiones: es la pregunta de
+    dirección pura, separada de la de costos."""
+    e = s.o[j0]
+    arriba, abajo = e * (1 + barrera) * 1.0001, e * (1 - barrera) * 0.9999
+    h, l = s.h, s.l
+    bmax, bmin, bok, off = s.bmax, s.bmin, s.bok, s.desfase
+    fin = min(j0 + segundos - 1, s.largo - 1)
+    j = j0
+    while j <= fin:
+        r = j - off
+        if r >= 0 and r % 60 == 0 and j + 59 <= fin:
+            b = r // 60
+            if b < len(bok) and bok[b] and bmin[b] > abajo and bmax[b] < arriba:
+                j += 60
+                continue
+        sube, baja = h[j] >= arriba, l[j] <= abajo
+        if sube or baja:
+            return 0 if (sube and baja) else (1 if sube else -1)
+        j += 1
+    return 0
 
 
 # ---------------------------------------------------------------- instrumentos y libros
@@ -488,11 +496,11 @@ class Libro:
         return libre
 
 
-def simular_libro(s_dec, s_ej, desde, hasta, decidir, inst, gestion, barrera, segundos, etiqueta=""):
+def simular_libro(s_dec, s_ej, desde, hasta, decidir, inst, gestion, segundos):
     """Recorre los segundos [desde, hasta) del libro: decide, entra, sale, anota.
 
     s_dec: serie con la que se decidió (BTCUSDT). s_ej: serie donde se ejecuta (la misma, o
-    BTCFDUSD). decidir(i) -> "largo" | "corto" | None (ya incluye la probabilidad y el umbral).
+    BTCFDUSD). decidir(i) -> (lado, barrera) o None; ya incluye probabilidad, costos y margen.
     """
     lib = Libro(inst, gestion)
     o, h, l, c, t = s_ej.o, s_ej.h, s_ej.l, s_ej.c, s_ej.t
@@ -500,8 +508,12 @@ def simular_libro(s_dec, s_ej, desde, hasta, decidir, inst, gestion, barrera, se
     while i < hasta - 1:
         if lib.detenido:
             break
-        lado = decidir(i)
-        if lado is None or (lado == "largo" and not inst.largo) or (lado == "corto" and not inst.corto):
+        d = decidir(i)
+        if d is None:
+            i += 1
+            continue
+        lado, barrera = d
+        if (lado == "largo" and not inst.largo) or (lado == "corto" and not inst.corto):
             i += 1
             continue
         volver = lib.frenos(t[i] + SEG, c[i])
@@ -569,38 +581,55 @@ def resumen_libro(lib, precio_final, dias):
     return base
 
 
-def decisor(PL, PS, base, umbral_largo, umbral_corto, permitir_corto, sin_filtro=False):
-    """Función de decisión sobre arreglos de probabilidad (índice relativo a `base`).
+def esperanza(b, h, d, costo_gana, costo_pierde):
+    """Ganancia esperada por ciclo (fracción del nocional) en largo y en corto.
 
-    sin_filtro=True es «operar siempre»: entra en cada segundo libre por el lado más probable,
-    sin exigir la probabilidad mínima. Sirve para ver qué pasa operando seguido sin seguridad.
+    b: barrera; h: probabilidad de tocar alguna barrera en el tiempo; d: probabilidad de que,
+    si toca, sea la de arriba. Un ciclo que termina por tiempo se cuenta como retorno bruto
+    nulo que paga entrada y salida de tomador (costo_pierde).
     """
+    gana, pierde = b - costo_gana, b + costo_pierde
+    largo = h * (d * gana - (1 - d) * pierde) - (1 - h) * costo_pierde
+    corto = h * ((1 - d) * gana - d * pierde) - (1 - h) * costo_pierde
+    return largo, corto
+
+
+def decisor_ev(B, H, D, base, inst, margen, sin_filtro=False):
+    """Decide sobre arreglos por segundo (índice relativo a `base`): entra si la ganancia
+    esperada después de comisiones supera `margen`. sin_filtro=True es «operar siempre»: entra
+    en cada segundo libre por el lado de mayor esperanza, aunque sea negativa."""
+    costo_gana, costo_pierde = inst.costos()
+
     def decidir(i):
         k = i - base
-        if k < 0 or k >= len(PL):
+        if k < 0 or k >= len(D):
             return None
-        pl = PL[k]
-        if pl != pl:
+        d = D[k]
+        if d != d:
             return None
-        ps = PS[k] if permitir_corto else -1.0
+        b = B[k]
+        el, ec = esperanza(b, H[k], d, costo_gana, costo_pierde)
+        if not inst.corto:
+            ec = -1.0
         if sin_filtro:
-            return "largo" if pl >= ps else "corto"
-        ml, mc = pl - umbral_largo, ps - umbral_corto
-        if ml > 0 and ml >= mc:
-            return "largo"
-        if mc > 0:
-            return "corto"
+            return ("largo", b) if el >= ec else ("corto", b)
+        if el > margen and el >= ec:
+            return "largo", b
+        if ec > margen:
+            return "corto", b
         return None
     return decidir
 
 
-def decisor_azar(semilla, tasa, permitir_corto):
+def decisor_azar(semilla, tasa, B, base, permitir_corto):
+    """Entradas al azar con la misma barrera que habría usado el sistema en ese segundo."""
     rnd = random.Random(semilla)
 
     def decidir(i):
-        if rnd.random() >= tasa:
+        k = i - base
+        if k < 0 or k >= len(B) or rnd.random() >= tasa:
             return None
         if permitir_corto and rnd.random() < 0.5:
-            return "corto"
-        return "largo"
+            return "corto", B[k]
+        return "largo", B[k]
     return decidir

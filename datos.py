@@ -239,7 +239,18 @@ def cargar_metricas():
     return m
 
 
-def cargar_financiacion():
+def financiacion_rest(desde_ms, cliente=None):
+    """Tasas cobradas desde `desde_ms` por la API pública de futuros de Binance (red directa,
+    regla del 19/10). Los archivos de data.binance.vision son mensuales: el mes en curso solo
+    está aquí."""
+    from red import Cliente
+    c = cliente or Cliente("directo", plazo=15, reintentos=3, etiqueta="financiacion")
+    filas = c.json("https://fapi.binance.com/fapi/v1/fundingRate",
+                   {"symbol": "BTCUSDT", "startTime": int(desde_ms), "limit": 1000})
+    return [(int(f["fundingTime"]), float(f["fundingRate"])) for f in filas]
+
+
+def cargar_financiacion(completar=False):
     t, tasa = array.array("q"), array.array("d")
     for r in _archivos_verificados("financiacion"):
         with zipfile.ZipFile(r) as z:
@@ -251,4 +262,23 @@ def cargar_financiacion():
                     except (KeyError, ValueError):
                         continue
     orden = sorted(range(len(t)), key=lambda k: t[k])
-    return array.array("q", (t[k] for k in orden)), array.array("d", (tasa[k] for k in orden))
+    t, tasa = array.array("q", (t[k] for k in orden)), array.array("d", (tasa[k] for k in orden))
+    if completar:
+        ruta = os.path.join(CRUDOS, "financiacion-rest.json")
+        ultimo = t[-1] if len(t) else 0
+        try:
+            nuevas = financiacion_rest(ultimo + 60_000)
+            os.makedirs(CRUDOS, exist_ok=True)
+            with open(ruta, "w", encoding="utf-8") as f:
+                json.dump({"bajado": dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds"), "filas": nuevas}, f)
+        except Exception:                             # sin red: se usa lo último guardado
+            nuevas = []
+            if os.path.exists(ruta):
+                with open(ruta, encoding="utf-8") as f:
+                    nuevas = [tuple(x) for x in json.load(f)["filas"]]
+        for tf, r in nuevas:
+            if tf > ultimo + 60_000:
+                t.append(tf)
+                tasa.append(r)
+                ultimo = tf
+    return t, tasa

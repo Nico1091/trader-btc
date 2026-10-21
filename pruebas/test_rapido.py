@@ -69,6 +69,32 @@ class Recorrido(unittest.TestCase):
         p = rp.Posicion(True, e, e * 1.003, e * 0.997, 100 + 1799)
         self.assertEqual(rp.recorrer(s, p, 100), recorrer_lento(s, p, 100))
 
+    def test_primer_toque_igual_a_segundo_a_segundo(self):
+        v = velas_aleatorias(20_000, semilla=21, t0=T0 + 7 * SEG)
+        s = rp.Serie(v, rasgos=False)
+        rnd = random.Random(4)
+        for _ in range(500):
+            j0 = rnd.randint(0, 18_000)
+            b = rnd.choice((0.0005, 0.001, 0.003))
+            T = rnd.choice((60, 300, 1800))
+            arriba, abajo = s.o[j0] * (1 + b) * 1.0001, s.o[j0] * (1 - b) * 0.9999
+            esperado = 0
+            for j in range(j0, min(j0 + T - 1, s.largo - 1) + 1):
+                sube, baja = s.h[j] >= arriba, s.l[j] <= abajo
+                if sube or baja:
+                    esperado = 0 if (sube and baja) else (1 if sube else -1)
+                    break
+            self.assertEqual(rp.primer_toque(s, j0, b, T), esperado)
+
+    def test_esperanza_y_barrera(self):
+        self.assertAlmostEqual(rp.esperanza(0.002, 1.0, 0.5, 0.0, 0.0)[0], 0.0)
+        el, ec = rp.esperanza(0.002, 0.8, 0.7, 0.0004, 0.0008)
+        self.assertAlmostEqual(el, 0.8 * (0.7 * 0.0016 - 0.3 * 0.0028) - 0.2 * 0.0008)
+        self.assertLess(ec, el)
+        self.assertAlmostEqual(rp.barrera_de(0.6, 900, 1.0, 0.001), 0.0001 * 30)    # σ = 0,01 % por segundo
+        self.assertEqual(rp.barrera_de(0.06, 900, 1.0, 0.001), 0.001)               # mínimo
+        self.assertEqual(rp.barrera_de(float("nan"), 900, 1.0, 0.001), 0.001)
+
     def test_empate_en_el_mismo_segundo_es_stop(self):
         v = velas_aleatorias(200, semilla=2)
         s = rp.Serie(v, rasgos=False)
@@ -184,7 +210,7 @@ class Libros(unittest.TestCase):
                 getattr(v, campo).append(valor)
         s = rp.Serie(v, rasgos=False)
         inst = rp.Instrumento("prueba", com_creador=0.0, entrada_creador=True, espera_creador=10)
-        lib, _ = rp.simular_libro(s, s, 0, 400, lambda i: "largo", inst, rp.Gestion(capital=10.0), 0.002, 60)
+        lib, _ = rp.simular_libro(s, s, 0, 400, lambda i: ("largo", 0.002), inst, rp.Gestion(capital=10.0), 60)
         self.assertEqual(lib.ciclos, [])
         self.assertGreater(lib.intentos_sin_llenar, 10)
 
