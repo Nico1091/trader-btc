@@ -57,10 +57,16 @@ def _pct(x, signo=True):
     return f'<span class="{clase}">{x:+.2f} %</span>' if signo else f"{x:.1f} %"
 
 
-def _libro(clave, nombre, d, dec, capital_inicial, tanda, precio):
+def _pesos(x):
+    return f"{x:,.0f}".replace(",", ".")
+
+
+def _libro(clave, nombre, d, dec, capital_inicial, tanda, precio, tasa=None):
     capital = d["efectivo"]
     ultimos = [c for c in d.get("ultimos", []) if not c.get("relleno")]
     valor = capital + (d.get("polvo", 0) * precio if precio else 0)
+    en_pesos = f'<div class="par"><span>En pesos (tasa del inicio)</span><span class="num">{_pesos(valor * tasa)} COP</span></div>' \
+        if tasa else ""
     cambio = (valor / capital_inicial - 1) * 100
     ganadas = sum(1 for c in ultimos if c.get("ganancia_usdt", 0) > 0)
     acierto = f"{ganadas / len(ultimos) * 100:.0f} % de los últimos {len(ultimos)}" if ultimos else "—"
@@ -72,7 +78,7 @@ def _libro(clave, nombre, d, dec, capital_inicial, tanda, precio):
     elif d.get("valido") is False:
         aviso = '<p class="nota aviso">Sin ventaja demostrada en validación: queda en papel para medir.</p>'
     partes = [f'<div class="tarjeta"><h2>{_e(nombre)}</h2>{aviso}',
-              f'<div class="grande">{valor:.4f} USDT</div>',
+              f'<div class="grande">{valor:.4f} USDT</div>', en_pesos,
               f'<div class="par"><span>Desde el inicio</span><span>{_pct(cambio)}</span></div>',
               f'<div class="par"><span>Ciclos cerrados</span><span class="num">{d["ciclos"]}</span></div>',
               f'<div class="par"><span>Acierto</span><span>{acierto}</span></div>',
@@ -123,10 +129,14 @@ def escribir(ruta, estado, instrumentos, capital_inicial):
     ctx = estado.get("contexto", {})
     precio = estado.get("precio")
     titulo = "Pausa: no abre ciclos nuevos" if estado.get("pausa") else "Operando en papel, ciclo tras ciclo"
+    cap = estado.get("capital") or {}
+    tasa = cap.get("tasa_cop_por_usdt")
+    base = (f' · cada libro empezó con {_pesos(cap["cop"])} COP = {cap["usdt"]:.2f} USDT '
+            f'({_pesos(tasa)} COP por USDT en Binance P2P)') if tasa and cap.get("cop") else ""
     cab = (f'<h1>Agente de trading seguido</h1><p class="sub">{titulo} · mercado {_e(estado.get("hora_mercado") or "—")} '
-           f'· BTC {precio:,.2f} USDT</p>' if precio else '<h1>Agente de trading seguido</h1><p class="sub">Calentando…</p>')
-    tarjetas = "".join(_libro(k, libros[k].get("nombre") or k, libros[k], decisiones.get(k), capital_inicial, tanda, precio)
-                       for k in libros)
+           f'· BTC {precio:,.2f} USDT{base}</p>' if precio else '<h1>Agente de trading seguido</h1><p class="sub">Calentando…</p>')
+    tarjetas = "".join(_libro(k, libros[k].get("nombre") or k, libros[k], decisiones.get(k), capital_inicial, tanda, precio,
+                              tasa) for k in libros)
     # contexto
     filas = []
     fg = ctx.get("miedo_codicia")

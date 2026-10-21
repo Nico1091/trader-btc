@@ -29,6 +29,21 @@ WS_CONTADO = ("wss://data-stream.binance.vision/stream?streams=btcusdt@kline_1s/
 WS_FUTUROS = "wss://fstream.binance.com/market/stream?streams=btcusdt@markPrice@1s/btcusdt@forceOrder"
 
 
+def tasa_p2p_cop(monto_cop, avisos=20):
+    """Cuántos pesos cuesta un USDT comprándolo en Binance P2P con `monto_cop` (mediana de los
+    primeros avisos de venta a compradores). Es lo que de verdad le darían por sus pesos."""
+    import statistics
+    c = Cliente("directo", plazo=15, reintentos=2, etiqueta="p2p")
+    cuerpo = json.dumps({"asset": "USDT", "fiat": "COP", "tradeType": "BUY", "page": 1, "rows": avisos,
+                         "payTypes": [], "publisherType": None, "transAmount": str(int(monto_cop))}).encode()
+    _, _, datos = c.pedir("POST", "https://p2p.binance.com/bapi/c2c/v2/friendly/c2c/adv/search",
+                          {"Content-Type": "application/json"}, cuerpo)
+    precios = [float(a["adv"]["price"]) for a in (json.loads(datos).get("data") or [])]
+    if len(precios) < 5:
+        raise ValueError("Binance P2P devolvió muy pocos avisos de USDT/COP")
+    return statistics.median(precios), min(precios), len(precios)
+
+
 class SerieViva:
     """Velas de 1 s en crecimiento. Guarda `guardar` segundos (por omisión, 4 horas)."""
 

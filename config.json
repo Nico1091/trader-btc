@@ -2,5 +2,9 @@
   "simbolo": "BTCUSDT",
   "claves_testnet": "C:\\Users\\ni109\\Ingresos\\trader-btc\\claves-testnet.env",
   "capital_cop": 40000,
-  "nota": "Las claves no van aquí: solo la ruta del archivo donde ya están. Dinero real bloqueado salvo AUTORIZO-DINERO-REAL.txt con la fecha del día."
+  "nota": "Las claves no van aquí: solo la ruta del archivo donde ya están. Dinero real bloqueado salvo AUTORIZO-DINERO-REAL.txt con la fecha del día.",
+  "tasa_cop_por_usdt": 3177.85,
+  "capital_usdt": 12.5871,
+  "tasa_fuente": "Binance P2P, compra de USDT con COP por 40000 pesos: mediana de 20 avisos (el mejor, 3166.0)",
+  "tasa_fecha": "2026-10-20T20:42:53-05:00"
 }

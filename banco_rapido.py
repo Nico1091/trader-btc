@@ -210,7 +210,10 @@ def main():
     log(f"Probabilidades listas ({time.time() - inicio:.0f} s)")
 
     # ---------------- libros en validación: elegir configuración y margen por instrumento
-    gestion = rp.Gestion(capital=9.7, tanda=rp.tanda_por_capital(9.7))
+    with open(os.path.join(CARPETA, "config.json"), encoding="utf-8") as f:
+        capital = float(json.load(f).get("capital_usdt", 9.7))      # 40.000 COP a la tasa P2P guardada
+    log(f"Capital por libro: {capital} USDT")
+    gestion = rp.Gestion(capital=capital, tanda=rp.tanda_por_capital(capital))
     resultados = {"validacion": {}, "final": {}}
     elegidos = {}
     dias_val = (tramos["validacion"][1] - tramos["validacion"][0]) / DIA

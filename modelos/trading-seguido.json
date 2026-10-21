@@ -1,5 +1,5 @@
 {
- "generado": "2026-10-20T20:04:45-05:00",
+ "generado": "2026-10-20T21:03:24-05:00",
  "tramos": {
   "desarrollo": [
    1777593600000,
@@ -58,7 +58,7 @@
    "margen": 0.0005,
    "valido": false,
    "validacion": {
-    "retorno_pct": -2.17,
+    "retorno_pct": -2.28,
     "ciclos": 7
    }
   },
@@ -71,21 +71,21 @@
    "margen": 0.0,
    "valido": true,
    "validacion": {
-    "retorno_pct": 1.03,
+    "retorno_pct": 1.14,
     "ciclos": 30
    }
   },
   "futuros": {
    "config": [
-    300,
+    900,
     1.0,
-    0.001
+    0.0015
    ],
    "margen": 0.0,
    "valido": false,
    "validacion": {
-    "retorno_pct": -9.04,
-    "ciclos": 26
+    "retorno_pct": 2.47,
+    "ciclos": 10
    }
   }
  },

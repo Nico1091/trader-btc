@@ -51,7 +51,27 @@ RUTA_MODELOS = os.path.join(CARPETA, "modelos", "trading-seguido.json")
 RUTA_ESTADO = os.path.join(CARPETA, "estado.json")
 RUTA_PANEL = os.path.join(CARPETA, "panel.html")
 SEG, MIN, HORA = 1000, 60_000, 3_600_000
-CAPITAL = 9.7
+with open(os.path.join(CARPETA, "config.json"), encoding="utf-8") as _f:
+    CONFIG = json.load(_f)
+# Capital de cada libro: los 40.000 COP de Nicolás convertidos a USDT con la tasa de Binance P2P
+# guardada en config.json (se calcula una vez; así un reinicio no cambia la base de la prueba).
+CAPITAL = float(CONFIG.get("capital_usdt", 9.7))
+CAPITAL_COP = CONFIG.get("capital_cop")
+TASA_COP = CONFIG.get("tasa_cop_por_usdt")
+_candado = None
+
+
+def instancia_unica():
+    """Nunca dos agentes a la vez (el arranque con Windows y uno abierto a mano escribirían el
+    mismo diario): el primero bloquea agente.lock y los demás salen."""
+    global _candado
+    import msvcrt
+    _candado = open(os.path.join(CARPETA, "agente.lock"), "a+")
+    try:
+        msvcrt.locking(_candado.fileno(), msvcrt.LK_NBLCK, 1)
+        return True
+    except OSError:
+        return False
 
 
 def sin_freno_de_windows():
@@ -377,6 +397,8 @@ class Agente:
              "hora_mercado": bogota(t).isoformat(timespec="seconds") if t else None,
              "modo": "PAPEL", "pausa": os.path.exists(os.path.join(CARPETA, "PAUSA")),
              "precio": precio, "modelos_generados": self.modelo.generado,
+             "capital": {"cop": CAPITAL_COP, "usdt": CAPITAL, "tasa_cop_por_usdt": TASA_COP,
+                         "fuente": CONFIG.get("tasa_fuente"), "fecha": CONFIG.get("tasa_fecha")},
              "libros": {k: lv.a_dict() for k, lv in self.libros.items()},
              "decision": {k: lv.ultima_decision for k, lv in self.libros.items()},
              "salud": dict(self.mercado.salud, segundos_procesados=self.estadisticas["segundos"],
@@ -687,6 +709,9 @@ def main():
     if not os.path.exists(RUTA_MODELOS):
         print("Falta modelos/trading-seguido.json: corra antes  python -u -I banco_rapido.py")
         return 1
+    if not instancia_unica():
+        print(f"{ahora_bogota():%H:%M:%S} Ya hay un agente en marcha: este no arranca.", flush=True)
+        return 0
     parar = os.path.join(CARPETA, "PARAR")
     espera = 30
     sin_freno = sin_freno_de_windows()
