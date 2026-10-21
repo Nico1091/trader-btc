@@ -117,6 +117,8 @@ def main():
     usados = {}
     for clave, e in modelo.instrumentos.items():
         usados.setdefault(tuple(e["config"]), [])
+    if modelo.testigo:
+        usados.setdefault(tuple(modelo.testigo["config"]), [])
     arr = {cfg: (array.array("d"), array.array("d"), array.array("d")) for cfg in usados}
     for i in range(i0, s.largo - 1):
         x = rp.rasgos_segundo(s, i, ctx.en(s.t[i] + SEG))
@@ -136,6 +138,12 @@ def main():
         lib, _ = rp.simular_libro(s, sf if clave == "fdusd" else s, i0, s.largo - 1,
                                   rp.decisor_ev(B, H, D, i0, inst, e["margen"]), inst, gestion, cfg[0])
         banco[clave] = ciclos_clave(lib.ciclos)
+    if modelo.testigo:
+        cfg = tuple(modelo.testigo["config"])
+        inst = rp.INSTRUMENTOS[modelo.testigo["instrumento"]]
+        B, H, D = arr[cfg]
+        lib, _ = rp.simular_libro(s, s, i0, s.largo - 1, rp.decisor_ev(B, H, D, i0, inst, 0, True), inst, gestion, cfg[0])
+        banco["testigo"] = ciclos_clave(lib.ciclos)
     print(f"banco: {', '.join(f'{k} {len(v)} ciclos' for k, v in banco.items())} ({time.time() - inicio:.0f} s)", flush=True)
 
     # ---------------- camino del agente (código real)

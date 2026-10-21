@@ -109,6 +109,7 @@ class ModeloVivo:
             d = json.load(f)
         self.generado = d["generado"]
         self.instrumentos = d["instrumentos"]
+        self.testigo = d.get("testigo")
         self.modelos = {}
         for m in d["modelos"].values():
             cfg = tuple(m["config"])
@@ -125,8 +126,11 @@ class ModeloVivo:
 class LibroVivo:
     """Un libro en papel con los mismos pasos que rapido.simular_libro, segundo a segundo."""
 
-    def __init__(self, clave, inst, gestion, cfg, margen):
+    def __init__(self, clave, inst, gestion, cfg, margen, valido=True, siempre=False, nombre=None):
         self.clave, self.inst, self.cfg, self.margen = clave, inst, tuple(cfg), margen
+        self.valido = valido                    # False: en validación no mostró ventaja
+        self.siempre = siempre                  # testigo: entra en cada segundo libre, sin filtro
+        self.nombre = nombre or inst.nombre
         self.libro = rp.Libro(inst, gestion)
         self.estado = "libre"                   # libre | apertura | orden | posicion
         self.pend = None
@@ -146,6 +150,8 @@ class LibroVivo:
             ec = -1.0
         self.ultima_decision = {"barrera": b, "prob_mov": h, "prob_sube": d, "esperanza_largo": el,
                                 "esperanza_corto": ec if self.inst.corto else None}
+        if self.siempre:
+            return ("largo", b, el) if el >= ec else ("corto", b, ec)
         if el > self.margen and el >= ec:
             return "largo", b, el
         if ec > self.margen:
@@ -153,7 +159,8 @@ class LibroVivo:
         return None
 
     # ---------- un segundo ----------
-    def segundo(self, t, o, h, l, c, ev, permitir, motivo_bloqueo, diario, en_vivo):
+    def segundo(self, t, o, h, l, c, ev, permitir, motivo_bloqueo, diario, en_vivo, real=None):
+        self._real = real                         # auditor: mejor precio real del momento
         inst, lib = self.inst, self.libro
         if self.estado == "apertura":
             p, self.pend, self.estado = self.pend, None, "libre"
@@ -223,8 +230,16 @@ class LibroVivo:
             self.pos = rp.Posicion(False, entrada, entrada * (1 - b), entrada * (1 + b), fin, self.inst.desliz)
         self.pos_meta = {"q": q, "t_in": t, "creador": creador, "p": p}
         self.estado = "posicion"
+        auditor = {}
+        r = getattr(self, "_real", None) or {}
+        if "venta" in r:                          # contado: lo que costaba de verdad en el libro
+            referencia = r["venta"] if largo else r["compra"]
+            auditor = {"real_compra": r["compra"], "real_venta": r["venta"],
+                       "papel_vs_real_pb": round((entrada / referencia - 1) * 1e4 * (1 if largo else -1), 2)}
+        elif "marca" in r:                        # futuros: precio de marca del segundo
+            auditor = {"real_marca": r["marca"], "papel_vs_marca_pb": round((entrada / r["marca"] - 1) * 1e4, 2)}
         diario.evento(t, "entrada", libro=self.clave, lado=p["lado"], precio=entrada, cantidad=q,
-                      objetivo=self.pos.tp, stop=self.pos.sl, creador=creador)
+                      objetivo=self.pos.tp, stop=self.pos.sl, creador=creador, **auditor)
 
     def _cerrar(self, t, motivo, precio, diario, en_vivo):
         m, lib = self.pos_meta, self.libro
@@ -252,7 +267,9 @@ class LibroVivo:
     # ---------- persistencia ----------
     def a_dict(self):
         lib = self.libro
-        return {"efectivo": lib.efectivo, "polvo": lib.polvo, "ciclos": len(lib.ciclos), "tandas": lib.tandas,
+        return {"nombre": self.nombre, "valido": self.valido, "siempre": self.siempre,
+                "config": list(self.cfg), "margen": self.margen,
+                "efectivo": lib.efectivo, "polvo": lib.polvo, "ciclos": len(lib.ciclos), "tandas": lib.tandas,
                 "detenido": lib.detenido, "inicio_tanda": lib.inicio_tanda, "omitidas": lib.omitidas,
                 "sin_llenar": lib.intentos_sin_llenar, "bloqueos": dict(self.bloqueos),
                 "ultimos": lib.ciclos[-25:],
@@ -285,7 +302,11 @@ class Agente:
         self.libros = {}
         for clave, inst in rp.INSTRUMENTOS.items():
             e = self.modelo.instrumentos[clave]
-            self.libros[clave] = LibroVivo(clave, inst, gestion, e["config"], e["margen"])
+            self.libros[clave] = LibroVivo(clave, inst, gestion, e["config"], e["margen"], e.get("valido", True))
+        if self.modelo.testigo:
+            t = self.modelo.testigo
+            self.libros["testigo"] = LibroVivo("testigo", rp.INSTRUMENTOS[t["instrumento"]], gestion, t["config"],
+                                               0.0, True, True, "Seguido sin filtro (testigo, contado)")
         self.ctx = None
         self.v1m = self.v1h = None
         self.met = datos.Metricas()
@@ -458,18 +479,23 @@ class Agente:
         self.ultimo_ev = evs
         pausa = os.path.exists(os.path.join(CARPETA, "PAUSA"))
         bloqueo = self.externo.bloqueo(t + SEG) if en_vivo else None
+        libros_reales = getattr(self.mercado, "libro", {}) or {}
         for clave, lv in self.libros.items():
             o, h, l, c = (fila_f if clave == "fdusd" else fila_u)[1:5]
             motivo = "pausa" if pausa else (bloqueo or ("relleno" if not en_vivo else None))
+            if clave == "futuros":
+                real = getattr(self.mercado, "marca", None) if en_vivo else None
+            else:
+                real = libros_reales.get("BTCFDUSD" if clave == "fdusd" else "BTCUSDT") if en_vivo else None
             lv.segundo(t, o, h, l, c, evs.get(lv.cfg), en_vivo and not pausa and bloqueo is None, motivo,
-                       self.diario, en_vivo)
+                       self.diario, en_vivo, real)
         if self.reproducir is None:
             self.diario.vela("BTCUSDT", fila_u)
             self.diario.vela("BTCFDUSD", fila_f)
         if (t + SEG) % MIN == 0 and evs:
             fila = {"hora": bogota(t + SEG).isoformat(timespec="seconds"), "precio": fila_u[4]}
             for cfg, (b, hh, d) in evs.items():
-                etiqueta = f"{cfg[0]}s"
+                etiqueta = f"{cfg[0]}s_k{cfg[1]}_min{cfg[2] * 100:.2f}"
                 fila.update({f"barrera_{etiqueta}": round(b, 6), f"mov_{etiqueta}": round(hh, 4),
                              f"sube_{etiqueta}": round(d, 4)})
             for clave, lv in self.libros.items():

@@ -22,7 +22,8 @@ SEG, MIN, HORA = 1000, 60_000, 3_600_000
 NAN = float("nan")
 CONTADO = "https://data-api.binance.vision/api/v3"
 FUTUROS = "https://fapi.binance.com"
-WS_CONTADO = "wss://data-stream.binance.vision/stream?streams=btcusdt@kline_1s/btcfdusd@kline_1s/btcusdt@bookTicker"
+WS_CONTADO = ("wss://data-stream.binance.vision/stream?streams=btcusdt@kline_1s/btcfdusd@kline_1s/"
+              "btcusdt@bookTicker/btcfdusd@bookTicker")
 WS_FUTUROS = "wss://fstream.binance.com/market/stream?streams=btcusdt@markPrice@1s/btcusdt@forceOrder"
 
 
@@ -109,7 +110,7 @@ class Mercado:
     def __init__(self):
         self.rest = Cliente("directo", plazo=15, reintentos=3, etiqueta="trader-vivo")
         self.cola = queue.Queue(maxsize=100_000)
-        self.libro = {}                       # mejor compra/venta de BTCUSDT
+        self.libro = {}                       # mejor compra/venta por símbolo (BTCUSDT, BTCFDUSD)
         self.marca = {}                       # precio de marca y financiación estimada
         self.liquidaciones = collections.deque(maxlen=5000)    # (t_ms, lado, cantidad_btc, precio)
         self.salud = {"ws_contado": "sin conectar", "ws_futuros": "sin conectar", "reconexiones": 0,
@@ -187,8 +188,8 @@ class Mercado:
             if k.get("x"):
                 self.cola.put(("vela", k["s"], fila_kline(k)))
         elif flujo.endswith("@bookTicker"):
-            self.libro = {"compra": float(datos["b"]), "venta": float(datos["a"]),
-                          "llegada_ms": int(time.time() * 1000)}
+            self.libro[datos["s"]] = {"compra": float(datos["b"]), "venta": float(datos["a"]),
+                                      "llegada_ms": int(time.time() * 1000)}
 
     def _futuros(self, m):
         datos = m.get("data", {})

@@ -65,7 +65,13 @@ def _libro(clave, nombre, d, dec, capital_inicial, tanda, precio):
     ganadas = sum(1 for c in ultimos if c.get("ganancia_usdt", 0) > 0)
     acierto = f"{ganadas / len(ultimos) * 100:.0f} % de los últimos {len(ultimos)}" if ultimos else "—"
     en_tanda = d["ciclos"] % tanda
-    partes = [f'<div class="tarjeta"><h2>{_e(nombre)}</h2>',
+    nombre = d.get("nombre") or nombre
+    aviso = ""
+    if d.get("siempre"):
+        aviso = '<p class="nota">Testigo: entra en cada segundo libre, sin filtro de seguridad. Muestra qué pasa operando seguido.</p>'
+    elif d.get("valido") is False:
+        aviso = '<p class="nota aviso">Sin ventaja demostrada en validación: queda en papel para medir.</p>'
+    partes = [f'<div class="tarjeta"><h2>{_e(nombre)}</h2>{aviso}',
               f'<div class="grande">{valor:.4f} USDT</div>',
               f'<div class="par"><span>Desde el inicio</span><span>{_pct(cambio)}</span></div>',
               f'<div class="par"><span>Ciclos cerrados</span><span class="num">{d["ciclos"]}</span></div>',
@@ -119,8 +125,8 @@ def escribir(ruta, estado, instrumentos, capital_inicial):
     titulo = "Pausa: no abre ciclos nuevos" if estado.get("pausa") else "Operando en papel, ciclo tras ciclo"
     cab = (f'<h1>Agente de trading seguido</h1><p class="sub">{titulo} · mercado {_e(estado.get("hora_mercado") or "—")} '
            f'· BTC {precio:,.2f} USDT</p>' if precio else '<h1>Agente de trading seguido</h1><p class="sub">Calentando…</p>')
-    tarjetas = "".join(_libro(k, instrumentos[k].nombre, libros[k], decisiones.get(k), capital_inicial, tanda, precio)
-                       for k in libros if k in instrumentos)
+    tarjetas = "".join(_libro(k, libros[k].get("nombre") or k, libros[k], decisiones.get(k), capital_inicial, tanda, precio)
+                       for k in libros)
     # contexto
     filas = []
     fg = ctx.get("miedo_codicia")
@@ -159,7 +165,7 @@ def escribir(ruta, estado, instrumentos, capital_inicial):
                 ciclos.append((c.get("t_salida", 0), clave, c))
     ciclos.sort(reverse=True)
     filas_ciclos = "".join(
-        f'<tr><td>{_hora(t)}</td><td>{_e(instrumentos[k].nombre.split(" (")[0])}</td><td>{lados.get(c.get("lado"), "")}</td>'
+        f'<tr><td>{_hora(t)}</td><td>{_e((libros[k].get("nombre") or k).split(" (")[0])}</td><td>{lados.get(c.get("lado"), "")}</td>'
         f'<td>{_e(c.get("motivo"))}</td><td>{c.get("entrada", 0):.2f}</td><td>{c.get("salida", 0):.2f}</td>'
         f'<td class="{"sube" if c.get("ganancia_usdt", 0) > 0 else "baja"}">{c.get("ganancia_usdt", 0):+.4f}</td></tr>'
         for t, k, c in ciclos[:14])

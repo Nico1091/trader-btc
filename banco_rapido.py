@@ -219,7 +219,7 @@ def main():
     f_desde, f_hasta = s.indice(tramos["final"][0]), min(s.indice(tramos["final"][1]), s.largo - 1)
     for clave_inst, inst in rp.INSTRUMENTOS.items():
         s_ej = sf if clave_inst == "fdusd" else s
-        mejor = None
+        candidatos = []
         for cfg in CONFIGS:
             B, Hs, Ds = ARR[cfg]
             for margen in MARGENES:
@@ -230,15 +230,34 @@ def main():
                 resultados["validacion"][f"{clave_inst}|{cfg}|{margen}"] = r
                 log(f"[val] {clave_inst} {cfg} margen {margen * 1e4:.0f} pb: ciclos {r['ciclos']}, "
                     f"acierto {r.get('acierto_pct')}, retorno {r['retorno_pct']} %")
-                puntaje = r["retorno_pct"] if r["ciclos"] >= 30 else -1e9 + r["ciclos"]
-                if mejor is None or puntaje > mejor[0]:
-                    mejor = (puntaje, cfg, margen)
-        elegidos[clave_inst] = mejor
+                candidatos.append((r["retorno_pct"], r["ciclos"], cfg, margen))
+        # Válida: al menos 30 ciclos y sin pérdida en validación. Si ninguna lo es, el libro queda
+        # marcado «sin ventaja demostrada» y sigue en papel con la mejor de al menos 5 ciclos.
+        validas = [c for c in candidatos if c[1] >= 30 and c[0] >= 0]
+        if validas:
+            r_, n_, cfg, margen = max(validas, key=lambda c: c[0])
+            valido = True
+        else:
+            con_ciclos = [c for c in candidatos if c[1] >= 5] or candidatos
+            r_, n_, cfg, margen = max(con_ciclos, key=lambda c: c[0])
+            valido = False
+        elegidos[clave_inst] = (r_, cfg, margen, valido, n_)
+        log(f"Elegido {clave_inst}: {cfg} margen {margen * 1e4:.0f} pb ({n_} ciclos, {r_} % en validación) "
+            f"{'VÁLIDO' if valido else 'SIN VENTAJA DEMOSTRADA'}")
 
     # ---------------- tramo final: se mira una vez
+    # Testigo: «seguido sin filtro» en contado con ciclos de hasta 5 minutos: así se vería operar seguido.
+    cfg_t = CONFIGS[0]
+    B, Hs, Ds = ARR[cfg_t]
+    testigo, pft = rp.simular_libro(s, s, f_desde, f_hasta, rp.decisor_ev(B, Hs, Ds, i_a, rp.INSTRUMENTOS["contado"], 0, True),
+                                    rp.INSTRUMENTOS["contado"], gestion, cfg_t[0])
+    resultados["final"]["testigo_seguido"] = {"instrumento": rp.INSTRUMENTOS["contado"].nombre, "config": list(cfg_t),
+                                              "operar_siempre": rp.resumen_libro(testigo, pft, dias_fin)}
+    log(f"[final] testigo seguido {cfg_t}: {resultados['final']['testigo_seguido']['operar_siempre']['ciclos']} ciclos, "
+        f"{resultados['final']['testigo_seguido']['operar_siempre']['retorno_pct']} %")
     for clave_inst, inst in rp.INSTRUMENTOS.items():
         s_ej = sf if clave_inst == "fdusd" else s
-        _, cfg, margen = elegidos[clave_inst]
+        _, cfg, margen, valido, _ = elegidos[clave_inst]
         B, Hs, Ds = ARR[cfg]
         lib, pf = rp.simular_libro(s, s_ej, f_desde, f_hasta, rp.decisor_ev(B, Hs, Ds, i_a, inst, margen),
                                    inst, gestion, cfg[0])
@@ -257,7 +276,8 @@ def main():
                 azar.append(rp.resumen_libro(la, pfa, dias_fin))
         rets = sorted(a["retorno_pct"] for a in azar)
         resultados["final"][clave_inst] = {
-            "instrumento": inst.nombre, "config": list(cfg), "margen": margen, "con_seguridad": r,
+            "instrumento": inst.nombre, "config": list(cfg), "margen": margen, "valido_en_validacion": valido,
+            "con_seguridad": r,
             "operar_siempre": r_siempre,
             "azar": {"libros": len(azar), "retorno_mediana": statistics.median(rets) if rets else None,
                      "retorno_p10": rets[int(len(rets) * 0.1)] if rets else None,
@@ -277,7 +297,10 @@ def main():
     with open(os.path.join(CARPETA, "modelos", f"trading-seguido{sufijo}.json"), "w", encoding="utf-8") as f:
         json.dump({"generado": generado, "tramos": {k: [v[0], v[1]] for k, v in tramos.items()},
                    "rasgos": NOMBRES,
-                   "instrumentos": {k: {"config": list(e[1]), "margen": e[2]} for k, e in elegidos.items()},
+                   "instrumentos": {k: {"config": list(e[1]), "margen": e[2], "valido": e[3],
+                                        "validacion": {"retorno_pct": e[0], "ciclos": e[4]}}
+                                    for k, e in elegidos.items()},
+                   "testigo": {"instrumento": "contado", "config": list(CONFIGS[0])},
                    "modelos": {f"{c[0]}|{c[1]}|{c[2]}": {"config": list(c), "movimiento": H.a_dict(),
                                                          "direccion": D.a_dict()}
                                for c, (H, D, _, _) in modelos.items()}},
