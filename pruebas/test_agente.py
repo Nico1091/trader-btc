@@ -96,7 +96,7 @@ class Huecos(unittest.TestCase):
         u[T0 + 3 * SEG] = fila(T0 + 3 * SEG, 80_000.0, bajo=79_000.0)       # en el hueco cae el precio
         a = agente_de_prueba(u, self.f, T0, None)
         a.mercado.u = u
-        lv = a.libros["testigo"]
+        lv = a.libros["contado"]
         lv.estado = "posicion"
         lv.pos = rp.Posicion(True, 80_000.0, 80_400.0, 79_600.0, T0 + 600 * SEG, 0.0)
         lv.pos_meta = {"q": 0.0001, "t_in": T0 - 10 * SEG, "creador": False,
@@ -152,11 +152,73 @@ class Huecos(unittest.TestCase):
         self.assertEqual(lv.estado, "libre")
 
 
+class LibroDeClaude(unittest.TestCase):
+    def preparar(self, barras_extra):
+        import time as _t
+        u = {T0 + k * SEG: fila(T0 + k * SEG) for k in range(-100, 0)}
+        for k, (precio, bajo, alto) in enumerate(barras_extra):
+            u[T0 + k * SEG] = fila(T0 + k * SEG, precio, bajo, alto)
+        f = {t: fila(t, 80_100.0) for t in u}
+        a = agente_de_prueba(u, f, T0, None)
+        return a, u, f, _t.time()
+
+    def correr(self, a, u, f, desde, hasta):
+        for k in range(desde, hasta):
+            t = T0 + k * SEG
+            a.procesar(t, u[t], f[t], en_vivo=True)
+
+    def test_venta_en_corto_con_objetivo_stop_y_tiempo_propios(self):
+        barras = [(80_000.0, None, None), (80_000.0, None, 80_000.2)] + [(80_000.0, None, None)] * 3 + \
+                 [(79_900.0, 79_800.0, None)] + [(79_900.0, None, None)] * 4
+        a, u, f, ahora = self.preparar(barras)
+        lc = a.libros["claude"]
+        lc.recibir({"id": "cc-1", "accion": "vender", "objetivo_pct": 0.2, "stop_pct": 0.15, "minutos": 10,
+                    "creada": ahora, "razon": "prueba"})
+        self.correr(a, u, f, 0, 10)
+        ciclo = lc.libro.ciclos[-1]
+        self.assertEqual((ciclo["lado"], ciclo["motivo"]), ("corto", "OBJETIVO"))
+        self.assertAlmostEqual(ciclo["entrada"], 80_000.1)                  # límite = cierre + 1 tic, atravesado
+        self.assertAlmostEqual(ciclo["salida"], 80_000.1 * (1 - 0.002))
+        self.assertEqual(ciclo["t_entrada"], T0 + SEG)
+        abierta = [e for e in a.diario.eventos if e[1] == "orden_claude_abierta"][0][2]
+        self.assertAlmostEqual(abierta["stop"], 80_000.1 * 1.0015)
+        self.assertTrue(abierta["hasta"].endswith(rp.BOGOTA and
+                                                  ag.bogota(T0 + SEG + 599 * SEG).isoformat(timespec="seconds")[-8:]))
+
+    def test_cerrar_y_orden_vieja(self):
+        barras = [(80_000.0, None, None), (80_000.0, 79_999.8, None)] + [(80_050.0, None, None)] * 6
+        a, u, f, ahora = self.preparar(barras)
+        lc = a.libros["claude"]
+        lc.recibir({"id": "cc-2", "accion": "comprar", "objetivo_pct": 1.0, "stop_pct": 0.3, "minutos": 60,
+                    "creada": ahora, "razon": "prueba"})
+        self.correr(a, u, f, 0, 3)
+        self.assertEqual(lc.estado, "posicion")
+        lc.recibir({"id": "cc-3", "accion": "cerrar", "creada": ahora})
+        self.correr(a, u, f, 3, 4)
+        self.assertEqual(lc.libro.ciclos[-1]["motivo"], "CIERRE_CLAUDE")
+        self.assertEqual(lc.estado, "libre")
+        lc.recibir({"id": "cc-4", "accion": "comprar", "objetivo_pct": 1.0, "stop_pct": 0.3, "minutos": 60,
+                    "creada": ahora - 500, "razon": "vieja"})
+        self.correr(a, u, f, 4, 8)
+        self.assertEqual(lc.estado, "libre")                                  # la vieja no se ejecuta
+        self.assertTrue([e for e in a.diario.eventos if e[1] == "orden_vencida"])
+
+    def test_validar_orden(self):
+        import time as _t
+        ahora = _t.time()
+        bien = {"accion": "comprar", "objetivo_pct": 0.3, "stop_pct": 0.2, "minutos": 15, "creada": ahora}
+        self.assertIsNone(ag.validar_orden(bien, ahora))
+        self.assertIn("stop_pct", ag.validar_orden(dict(bien, stop_pct=0.5), ahora))   # no cabe en el 3 %
+        self.assertIn("vieja", ag.validar_orden(dict(bien, creada=ahora - 400), ahora))
+        self.assertIsNone(ag.validar_orden({"accion": "esperar", "creada": ahora}, ahora))
+        self.assertIsNotNone(ag.validar_orden({"accion": "apostar", "creada": ahora}, ahora))
+
+
 class EstadoGuardado(unittest.TestCase):
     def test_se_recupera_y_cierra_lo_que_quedo_abierto(self):
         with tempfile.TemporaryDirectory() as carpeta:
             ruta = os.path.join(carpeta, "estado.json")
-            guardado = {"libros": {"testigo": {
+            guardado = {"libros": {"contado": {
                 "efectivo": 8.5, "polvo": 0.000009, "ciclos": 37, "tandas": [], "detenido": "",
                 "inicio_tanda": 9.7, "omitidas": {"pausas_por_perdidas": 2}, "sin_llenar": 0, "bloqueos": {"pausa": 4},
                 "ultimos": [{"lado": "largo", "ganancia_usdt": -0.01, "t_salida": T0}],
@@ -171,7 +233,7 @@ class EstadoGuardado(unittest.TestCase):
                 a = ag.Agente()
             finally:
                 ag.RUTA_ESTADO = original
-            lv = a.libros["testigo"]
+            lv = a.libros["contado"]
             self.assertEqual(len(lv.libro.ciclos), 37)                  # la cuenta de tandas sigue
             self.assertAlmostEqual(lv.libro.efectivo, 8.5)
             self.assertEqual(lv.libro.omitidas["pausas_por_perdidas"], 2)

@@ -73,7 +73,17 @@ def _libro(clave, nombre, d, dec, capital_inicial, tanda, precio, tasa=None):
     en_tanda = d["ciclos"] % tanda
     nombre = d.get("nombre") or nombre
     aviso = ""
-    if d.get("siempre"):
+    if d.get("ordenes") is not None:
+        ult = (d.get("ordenes") or [])[-1:] or [None]
+        o = ult[0]
+        if o:
+            detalle = (f'{_e(o["accion"])} · objetivo {o.get("objetivo_pct", "—")} % · stop {o.get("stop_pct", "—")} % · '
+                       f'{o.get("minutos", "—")} min' if o["accion"] in ("comprar", "vender") else _e(o["accion"]))
+            aviso = (f'<p class="nota">Decide Claude Code desde su sesión, sin API. Última orden: {detalle}. '
+                     f'{_e(o.get("razon", ""))}</p>')
+        else:
+            aviso = '<p class="nota">Decide Claude Code desde su sesión, sin API. Todavía no hay órdenes.</p>'
+    elif d.get("siempre"):
         aviso = '<p class="nota">Testigo: entra en cada segundo libre, sin filtro de seguridad. Muestra qué pasa operando seguido.</p>'
     elif d.get("valido") is False:
         aviso = '<p class="nota aviso">Sin ventaja demostrada en validación: queda en papel para medir.</p>'

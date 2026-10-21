@@ -203,7 +203,7 @@ def main():
     banco = {k: partir(v) for k, v in banco.items()}
     vivo_ = {k: partir(v) for k, v in vivo_.items()}
     fallos = 0
-    for clave in banco:
+    for clave in [k for k in banco if k in vivo_]:
         b, v = banco[clave], vivo_[clave]
         iguales = sum(1 for x, y in zip(b, v) if x == y)
         estado = "IGUALES" if b == v else "DISTINTOS"

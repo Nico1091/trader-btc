@@ -259,9 +259,12 @@ class LibroVivo:
             self.estado, self.pend = "orden", p
         else:
             self.estado, self.pend = "apertura", p
+        def r4(v):
+            return round(v, 4) if v is not None else None
+
         diario.evento(t, "decision", libro=self.clave, lado=lado, barrera=round(b, 6),
-                      prob_mov=round(self.ultima_decision["prob_mov"], 4),
-                      prob_sube=round(self.ultima_decision["prob_sube"], 4), esperanza_pb=round(esperanza * 1e4, 2),
+                      prob_mov=r4(self.ultima_decision.get("prob_mov")),
+                      prob_sube=r4(self.ultima_decision.get("prob_sube")), esperanza_pb=round(esperanza * 1e4, 2),
                       limite=p.get("limite"))
 
     def _abrir(self, t, entrada, p, creador, diario):
@@ -339,6 +342,91 @@ class LibroVivo:
         lib.ciclos = [{"ganancia_usdt": 0.0, "relleno": True}] * relleno + previos   # el conteo de tandas sigue
 
 
+RUTA_ORDEN = os.path.join(CARPETA, "orden-claude.json")
+RUTA_RESUMEN = os.path.join(CARPETA, "resumen-claude.txt")
+LIMITES_ORDEN = {"objetivo_pct": (0.08, 2.0), "stop_pct": (0.08, 0.35), "minutos": (2, 240)}
+
+
+def validar_orden(o, ahora_s):
+    """None si la orden sirve; si no, el motivo. Límites: stop hasta 0,35 % porque la orden mínima
+    de futuros (0,001 BTC, unos 83 USDT) con el 3 % de 12,59 USDT no admite más."""
+    if o.get("accion") not in ("comprar", "vender", "esperar", "cerrar"):
+        return "acción desconocida"
+    if abs(ahora_s - float(o.get("creada", 0))) > 180:
+        return "orden vieja (más de 3 minutos)"
+    if o["accion"] in ("comprar", "vender"):
+        for campo, (lo, hi) in LIMITES_ORDEN.items():
+            v = o.get(campo)
+            if not isinstance(v, (int, float)) or not lo <= v <= hi:
+                return f"{campo} fuera de {lo}-{hi}"
+    return None
+
+
+class LibroClaude(LibroVivo):
+    """El libro que decide Claude Code desde la sesión, como pidió Nicolás el 20/10 («haz de cuenta
+    que eres literalmente tú, Claude Code, tomando esas decisiones»; sin API). El agente solo
+    ejecuta: entrada con orden límite que se llena si el precio la atraviesa, objetivo, stop y
+    tiempo que fija la orden, con las mismas comisiones, frenos y tandas que los demás libros."""
+
+    def __init__(self, gestion):
+        import dataclasses
+        inst = dataclasses.replace(rp.INSTRUMENTOS["futuros"], nombre="Claude decide (futuros BTCUSDT)",
+                                   espera_creador=30)
+        super().__init__("claude", inst, gestion, (240 * 60, 0.0, 0.0), 0.0, True, False,
+                         "Claude decide (futuros BTCUSDT)")
+        self.orden = None
+        self.ordenes = collections.deque(maxlen=12)
+        self._en_curso = None
+
+    def recibir(self, orden):
+        self.ordenes.append(orden)
+        self.orden = orden
+
+    def decidir(self, ev):
+        o, self.orden = self.orden, None
+        if not o or o["accion"] not in ("comprar", "vender"):
+            return None
+        self._en_curso = o
+        self.ultima_decision = {"barrera": o["stop_pct"] / 100, "prob_mov": None, "prob_sube": None,
+                                "esperanza_largo": None, "esperanza_corto": None, "orden": o.get("id")}
+        return ("largo" if o["accion"] == "comprar" else "corto"), o["stop_pct"] / 100, 0.0
+
+    def segundo(self, t, o, h, l, c, ev, permitir, motivo_bloqueo, diario, en_vivo, real=None):
+        if self.orden and self.orden["accion"] == "cerrar":
+            orden, self.orden = self.orden, None
+            if self.estado == "posicion":
+                self.cerrar_ya(t, c, "CIERRE_CLAUDE", diario)
+                return
+            if self.estado == "orden":
+                self.pend, self.estado = None, "libre"
+                diario.evento(t, "orden_cancelada", libro=self.clave, id=orden.get("id"))
+        elif self.orden and self.orden["accion"] == "esperar":
+            self.orden = None
+        elif self.orden and time.time() - float(self.orden.get("creada", 0)) > 120:
+            diario.evento(t, "orden_vencida", libro=self.clave, id=self.orden.get("id"),
+                          motivo=motivo_bloqueo or "no se pudo ejecutar a tiempo")
+            self.orden = None
+        super().segundo(t, o, h, l, c, ev, permitir, motivo_bloqueo, diario, en_vivo, real)
+
+    def _abrir(self, t, entrada, p, creador, diario):
+        o = self._en_curso or {}
+        super()._abrir(t, entrada, p, creador, diario)
+        if self.estado == "posicion" and o:
+            tp, sl = o["objetivo_pct"] / 100, o["stop_pct"] / 100
+            pos = self.pos
+            pos.tp = entrada * (1 + tp) if pos.largo else entrada * (1 - tp)
+            pos.sl = entrada * (1 - sl) if pos.largo else entrada * (1 + sl)
+            pos.fin = t + (int(o["minutos"] * 60) - 1) * SEG
+            self.pos_meta["orden"] = o.get("id")
+            diario.evento(t, "orden_claude_abierta", id=o.get("id"), objetivo=pos.tp, stop=pos.sl,
+                          hasta=bogota(pos.fin).isoformat(timespec="seconds"), razon=o.get("razon", ""))
+
+    def a_dict(self):
+        d = super().a_dict()
+        d["ordenes"] = list(self.ordenes)
+        return d
+
+
 class Agente:
     def __init__(self, reproducir=None):
         self.diario = Diario()
@@ -352,10 +440,14 @@ class Agente:
         for clave, inst in rp.INSTRUMENTOS.items():
             e = self.modelo.instrumentos[clave]
             self.libros[clave] = LibroVivo(clave, inst, gestion, e["config"], e["margen"], e.get("valido", True))
-        if self.modelo.testigo:
+        # El testigo (operar siempre, sin pensar) se retiró el 20/10: perdía por diseño y Nicolás
+        # pidió que decida Claude. Se puede volver a poner con "testigo": true en config.json.
+        if self.modelo.testigo and CONFIG.get("testigo", False):
             t = self.modelo.testigo
             self.libros["testigo"] = LibroVivo("testigo", rp.INSTRUMENTOS[t["instrumento"]], gestion, t["config"],
                                                0.0, True, True, "Seguido sin filtro (testigo, contado)")
+        self.libros["claude"] = LibroClaude(gestion)
+        self.ultimo_x = None
         self.ctx = None
         self.v1m = self.v1h = None
         self.met = datos.Metricas()
@@ -418,7 +510,136 @@ class Agente:
             panel.escribir(RUTA_PANEL, d, rp.INSTRUMENTOS, CAPITAL)
         except Exception as e:
             self.diario.evento(t, "panel_error", detalle=str(e)[:200])
+        try:
+            texto = self._resumen_para_claude()
+            with open(RUTA_RESUMEN + ".tmp", "w", encoding="utf-8") as f:
+                f.write(texto + "\n")
+            os.replace(RUTA_RESUMEN + ".tmp", RUTA_RESUMEN)
+        except Exception as e:
+            self.diario.evento(t, "resumen_error", detalle=f"{type(e).__name__}: {str(e)[:200]}")
         self.diario.vaciar()
+
+    # ---------- órdenes de Claude Code ----------
+    def _leer_orden(self, t):
+        try:
+            with open(RUTA_ORDEN, encoding="utf-8") as f:
+                orden = json.load(f)
+        except (OSError, ValueError) as e:
+            self.diario.evento(t, "orden_ilegible", detalle=str(e)[:120])
+            orden = None
+        try:
+            os.remove(RUTA_ORDEN)
+        except OSError:
+            pass
+        if orden is None:
+            return
+        problema = validar_orden(orden, time.time())
+        registro = dict(orden, recibida=bogota(t + SEG).isoformat(timespec="seconds"), rechazo=problema)
+        with open(os.path.join(DIARIO, f"ordenes-claude-{bogota(t):%Y-%m-%d}.jsonl"), "a", encoding="utf-8") as f:
+            f.write(json.dumps(registro, ensure_ascii=False) + "\n")
+        if problema:
+            self.diario.evento(t, "orden_rechazada", id=orden.get("id"), motivo=problema)
+            return
+        self.libros["claude"].recibir(orden)
+        self.diario.evento(t, "orden_recibida", id=orden.get("id"), accion=orden["accion"],
+                           objetivo_pct=orden.get("objetivo_pct"), stop_pct=orden.get("stop_pct"),
+                           minutos=orden.get("minutos"), razon=orden.get("razon", ""))
+
+    def _resumen_para_claude(self):
+        """Lo que leo yo (Claude Code) en cada turno para decidir: corto, en español y con todo
+        lo que pidió Nicolás leer (segundos a días, interés abierto, financiación, liquidaciones,
+        libro, contexto macro y agenda de Trump), más mi libro y las reglas."""
+        s, x = self.serie, self.ultimo_x
+        if x is None or s.largo < 3700:
+            return "Calentando: todavía no hay una hora de datos de 1 s."
+        r = dict(zip(rp.RASGOS, x))
+        i = s.largo - 1
+        t = s.t[i]
+        precio = s.c[i]
+
+        def cambio(seg):
+            return (s.lc[i] - s.lc[i - seg]) * 100
+
+        def f(v, d=2, signo=True):
+            if v is None or v != v:
+                return "—"
+            return (f"{v:+.{d}f}" if signo else f"{v:.{d}f}").replace(".", ",")
+
+        sigma = r["vol3600"] / 60                              # % por segundo
+        diaria = sigma * math.sqrt(86400)
+        libro = self.mercado.libro.get("BTCUSDT", {})
+        marca = self.mercado.marca or {}
+        largos, cortos = self.mercado.liquidado(t - 5 * MIN)
+        largos60, cortos60 = self.mercado.liquidado(t - 60 * MIN)
+        ext = self.externo.resumen()
+        prox = self.externo.proximo(t)
+        lc = self.libros["claude"]
+        lib = lc.libro
+        valor = lib.valor(precio)
+        lineas = [
+            f"RESUMEN PARA DECIDIR · {bogota(t + SEG):%Y-%m-%d %H:%M:%S} hora de Colombia · "
+            f"escrito {ahora_bogota():%H:%M:%S}",
+            f"BTCUSDT {precio:,.2f} | cambio 10 s {f(r['r10'], 3)} % · 1 min {f(r['r60'], 3)} % · 5 min {f(r['r300'], 3)} % · "
+            f"15 min {f(cambio(900))} % · 1 h {f(cambio(3600))} % · 24 h {f(r['r1d'])} % · 3 días {f(r['r3d'])} %",
+            f"Volatilidad: 5 min {f(r['vol300'], 3, False)} % · 1 h {f(r['vol3600'], 2, False)} % (≈ {f(diaria, 2, False)} % diario) · "
+            f"ATR 1 min {f(r['atr1m'], 3, False)} % · movimiento de 1 min = {f(r['z60'], 1)} desvíos",
+            f"Posición en el rango (0 mínimo, 1 máximo): 5 min {f(r['pr300'], 2, False)} · 1 h {f(r['pr3600'], 2, False)} · "
+            f"24 h {f(r['pos15m'], 2, False)}",
+            f"Tendencia: precio vs media de 50 h {f(r['tend1h'])} % · pendiente 48 h {f(r['pend1h'])} % · "
+            f"RSI 1 min {f(r['rsi1m'], 0, False)} · RSI 15 min {f(r['rsi15m'], 0, False)} · vela 1 min (patrón) {f(r['patron1m'], 0)} · "
+            f"distancia al VWAP del día {f(r['vwap'])} %",
+            f"Flujo (compras agresoras, 50 % = neutro): 10 s {f(50 + r['fl10'] * 100, 0, False)} % · 1 min {f(50 + r['fl60'] * 100, 0, False)} % · "
+            f"5 min {f(50 + r['fl300'] * 100, 0, False)} % · volumen 1 min ×{f(math.exp(r['rv60']), 2, False)} del promedio de la hora",
+            f"Futuros: financiación {f((marca.get('financiacion') or 0) * 100, 4)} % cada 8 h · interés abierto 1 h {f(r['oi1h'])} % · "
+            f"base marca/índice {f(((marca.get('marca') or 0) / (marca.get('indice') or 1) - 1) * 100, 3)} % · "
+            f"liquidados 5 min largos {f(largos, 3, False)} / cortos {f(cortos, 3, False)} BTC · 1 h {f(largos60, 2, False)} / {f(cortos60, 2, False)}",
+            f"Libro contado (5 niveles): compra {f(libro.get('compra_btc_5'), 2, False)} BTC · venta {f(libro.get('venta_btc_5'), 2, False)} BTC · "
+            f"mejor {libro.get('compra')} / {libro.get('venta')}",
+            f"Contexto: miedo y codicia {(ext.get('miedo_codicia') or {}).get('valor', '—')} · dólar sintético {ext.get('dolar_sintetico', '—')} · "
+            f"interés abierto Bybit+OKX+Deribit {ext.get('interes_abierto_otras_total_btc', '—')} BTC",
+            ("Próximo freno: " + prox["motivo"][:80] + f" · desde {bogota(prox['desde_ms']):%d/%m %H:%M}") if prox
+            else "Próximo freno: ninguno a la vista",
+        ]
+        fut = self.libros.get("futuros")
+        if fut and fut.cfg in self.ultimo_ev:
+            b, hh, d = self.ultimo_ev[fut.cfg]
+            el, ec = rp.esperanza(b, hh, d, *fut.inst.costos())
+            lineas.append(f"Modelo estadístico (futuros, barrera {f(b * 100, 2, False)} % en 15 min): prob. de movimiento "
+                          f"{f(hh * 100, 0, False)} % · prob. de subir {f(d * 100, 0, False)} % · ganancia esperada neta "
+                          f"largo {f(el * 1e4, 1)} pb / corto {f(ec * 1e4, 1)} pb")
+        estado = "sin posición"
+        if lc.estado == "posicion":
+            p = lc.pos
+            ganancia = (precio / p.entrada - 1) * 100 * (1 if p.largo else -1)
+            estado = (f"{'COMPRADO' if p.largo else 'VENDIDO EN CORTO'} desde {p.entrada:,.2f} · objetivo {p.tp:,.2f} · "
+                      f"stop {p.sl:,.2f} · vence {bogota(p.fin):%H:%M:%S} · va {f(ganancia, 3)} % antes de comisiones")
+        elif lc.estado == "orden":
+            estado = f"orden límite esperando a {lc.pend['limite']:,.2f} ({lc.pend['lado']}) hasta {bogota(lc.pend['expira']):%H:%M:%S}"
+        elif lib.detenido:
+            estado = "DETENIDO: " + lib.detenido
+        elif t < lib.pausa_hasta:
+            estado = f"en pausa hasta {bogota(lib.pausa_hasta):%H:%M:%S}"
+        reales = [c for c in lib.ciclos if not c.get("relleno")]
+        ganados = sum(1 for c in reales if c["ganancia_usdt"] > 0)
+        tasa = TASA_COP or 0
+        lineas += [
+            f"MI LIBRO (Claude, futuros, papel): {valor:.4f} USDT = {valor * tasa:,.0f} COP ({f((valor / CAPITAL - 1) * 100)} %) · "
+            f"ciclos {len(lib.ciclos)} (ganados {ganados}) · {estado}",
+        ]
+        for c in reales[-5:]:
+            lineas.append(f"  ciclo {bogota(c['t_entrada']):%H:%M}-{bogota(c['t_salida']):%H:%M} {c['lado']} {c['motivo']} "
+                          f"{c['ganancia_usdt']:+.4f} USDT ({c['ret_pct']:+.3f} %)")
+        for o in list(lc.ordenes)[-3:]:
+            lineas.append(f"  orden {o.get('id', '')[-6:]}: {o['accion']} {o.get('objetivo_pct', '')}/{o.get('stop_pct', '')} % "
+                          f"{o.get('minutos', '')} min · {o.get('razon', '')[:90]}")
+        lineas += [
+            "Costos: entrada con orden límite 0,02 % (si no la atraviesan en 30 s, se cancela) · objetivo 0,02 % · "
+            "stop o tiempo 0,05 % · ida y vuelta 0,04 % ganando, 0,07 % perdiendo",
+            "Límites: stop 0,08-0,35 % (la orden mínima es 0,001 BTC ≈ 83 USDT y el 3 % de 12,59 USDT no admite más) · "
+            "objetivo 0,08-2 % · 2-240 minutos · frenos 15 % diario y 20 % semanal · tanda de 100 ciclos",
+            'Ordenar: python -I claude_orden.py comprar|vender|esperar|cerrar --objetivo 0.25 --stop 0.2 --minutos 20 --razon "..."',
+        ]
+        return "\n".join(lineas)
 
     # ---------- contexto de minutos, horas y futuros ----------
     def _velas_de(self, filas):
@@ -552,10 +773,13 @@ class Agente:
             x = rp.rasgos_segundo(self.serie, i, self.ctx.en(t + SEG))
         evs = {}
         if x is not None:
+            self.ultimo_x = x
             for lv in self.libros.values():
-                if lv.cfg not in evs:
+                if lv.cfg in self.modelo.modelos and lv.cfg not in evs:
                     evs[lv.cfg] = self.modelo.evaluar(x, lv.cfg)
         self.ultimo_ev = evs
+        if en_vivo and os.path.exists(RUTA_ORDEN):
+            self._leer_orden(t)
         pausa = os.path.exists(os.path.join(CARPETA, "PAUSA"))
         bloqueo = self.externo.bloqueo(t + SEG) if en_vivo else None
         libros_reales = getattr(self.mercado, "libro", {}) or {}
