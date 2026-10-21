@@ -44,6 +44,13 @@ class Rechazo(ErrorRed):
         super().__init__(f"HTTP {estado} en {url}: {resumen}")
 
 
+class _Redireccion(Exception):
+    def __init__(self, estado, destino):
+        super().__init__(f"redirección {estado} a {destino}")
+        self.estado = estado
+        self.destino = destino
+
+
 def _leer_exacto(sock, n):
     datos = bytearray()
     while len(datos) < n:
@@ -152,8 +159,20 @@ class Cliente:
         if c:
             c.close()
 
-    def pedir(self, metodo, url, cabeceras=None, cuerpo=None):
-        """Devuelve (estado, cabeceras_dict, cuerpo_bytes). Lanza Rechazo/ErrorRed al agotar intentos."""
+    def pedir(self, metodo, url, cabeceras=None, cuerpo=None, redirecciones=3):
+        """Devuelve (estado, cabeceras_dict, cuerpo_bytes). Lanza Rechazo/ErrorRed al agotar intentos.
+
+        Sigue hasta 3 redirecciones de GET, solo hacia https y por la misma ruta (Tor o directo).
+        """
+        try:
+            return self._pedir(metodo, url, cabeceras, cuerpo)
+        except _Redireccion as r:
+            if metodo != "GET" or redirecciones <= 0:
+                raise Rechazo(r.estado, b"", url) from None
+            destino = urllib.parse.urljoin(url, r.destino)
+            return self.pedir(metodo, destino, cabeceras, cuerpo, redirecciones - 1)
+
+    def _pedir(self, metodo, url, cabeceras=None, cuerpo=None):
         partes = urllib.parse.urlsplit(url)
         if partes.scheme != "https":
             raise ValueError("solo se permite https")
@@ -193,6 +212,8 @@ class Cliente:
             estado = resp.status
             if 200 <= estado < 300:
                 return estado, cab_resp, datos
+            if estado in (301, 302, 303, 307, 308) and cab_resp.get("location"):
+                raise _Redireccion(estado, cab_resp["location"])
             ultimo = Rechazo(estado, datos, url)
             if estado == 418:
                 raise ultimo                     # Binance ya bloqueó la IP: insistir lo empeora

@@ -1,4 +1,4 @@
-"""Carga de históricos verificados: velas de 1 minuto, agregación a marcos mayores y métricas.
+"""Carga de históricos verificados: velas de 1 minuto y de 1 segundo, agregación a marcos mayores y métricas.
 
 Solo se leen archivos con su marca .ok (suma SHA-256 verificada al bajarlos). Huecos y
 duplicados se cuentan y se informan; nada se rellena inventando precios.
@@ -22,7 +22,7 @@ MIN = 60_000
 class Velas:
     """Columnas paralelas. t = apertura en ms UTC."""
 
-    CAMPOS = ("t", "o", "h", "l", "c", "v", "tb", "i0", "i1")
+    CAMPOS = ("t", "o", "h", "l", "c", "v", "tb", "n", "i0", "i1")
 
     def __init__(self):
         self.t = array.array("q")
@@ -32,6 +32,7 @@ class Velas:
         self.c = array.array("d")
         self.v = array.array("d")
         self.tb = array.array("d")          # volumen comprador agresor (taker buy base)
+        self.n = array.array("d")           # número de operaciones de la vela
         self.i0 = array.array("q")          # primer índice de 1m de la vela (marcos mayores)
         self.i1 = array.array("q")          # último índice de 1m de la vela
         self.calidad = {}
@@ -45,13 +46,13 @@ def _archivos_verificados(subcarpeta):
     return [r for r in rutas if os.path.exists(r + ".ok")]
 
 
-def _ordenar_klines(rutas):
+def _ordenar_klines(rutas, intervalo="1m"):
     """Mensuales primero por mes, luego diarios; un día ya cubierto por su mes se omite."""
     mensuales = {}
     diarios = []
     for r in rutas:
         nombre = os.path.basename(r)[:-4]
-        fecha = nombre.split("-1m-")[1]
+        fecha = nombre.split(f"-{intervalo}-")[1]
         if len(fecha) == 7:
             mensuales[fecha] = r
         else:
@@ -69,8 +70,18 @@ def _huella(rutas):
     return h.hexdigest()
 
 
+_GUARDADOS = ("t", "o", "h", "l", "c", "v", "tb", "n")
+_ANCHO = {"1s": 1000, "1m": MIN}
+
+
 def cargar_1m(subcarpeta="contado-1m"):
-    rutas = _ordenar_klines(_archivos_verificados(subcarpeta))
+    return cargar_velas(subcarpeta, "1m")
+
+
+def cargar_velas(subcarpeta, intervalo="1m"):
+    """Velas de `intervalo` («1s» o «1m») desde los archivos verificados, con caché binaria."""
+    ancho = _ANCHO[intervalo]
+    rutas = _ordenar_klines(_archivos_verificados(subcarpeta), intervalo)
     if not rutas:
         raise FileNotFoundError(f"no hay archivos verificados en datos/crudos/{subcarpeta}")
     huella = _huella(rutas)
@@ -80,9 +91,9 @@ def cargar_1m(subcarpeta="contado-1m"):
     if os.path.exists(meta_ruta):
         with open(meta_ruta, encoding="utf-8") as f:
             meta = json.load(f)
-        if meta.get("huella") == huella:
+        if meta.get("huella") == huella and tuple(meta.get("campos", ())) == _GUARDADOS:
             n = meta["n"]
-            for campo in ("t", "o", "h", "l", "c", "v", "tb"):
+            for campo in _GUARDADOS:
                 arr = getattr(velas, campo)
                 with open(os.path.join(CACHE, f"{subcarpeta}.{campo}.bin"), "rb") as f:
                     arr.fromfile(f, n)
@@ -105,9 +116,9 @@ def cargar_1m(subcarpeta="contado-1m"):
                     if t <= ultimo:
                         duplicados += 1
                         continue
-                    if ultimo >= 0 and t - ultimo > MIN:
+                    if ultimo >= 0 and t - ultimo > ancho:
                         huecos += 1
-                        minutos_faltantes += (t - ultimo) // MIN - 1
+                        minutos_faltantes += (t - ultimo) // ancho - 1
                     ultimo = t
                     velas.t.append(t)
                     velas.o.append(float(fila[1]))
@@ -115,19 +126,35 @@ def cargar_1m(subcarpeta="contado-1m"):
                     velas.l.append(float(fila[3]))
                     velas.c.append(float(fila[4]))
                     velas.v.append(float(fila[5]))
+                    velas.n.append(float(fila[8]))
                     velas.tb.append(float(fila[9]))
     velas.calidad = {
         "archivos": len(rutas), "velas": len(velas.t), "duplicados_descartados": duplicados,
-        "huecos": huecos, "minutos_faltantes": minutos_faltantes,
-        "desde_utc": dt.datetime.utcfromtimestamp(velas.t[0] / 1000).isoformat(),
-        "hasta_utc": dt.datetime.utcfromtimestamp(velas.t[-1] / 1000).isoformat(),
+        "huecos": huecos, ("minutos_faltantes" if intervalo == "1m" else "velas_faltantes"): minutos_faltantes,
+        "desde_utc": dt.datetime.fromtimestamp(velas.t[0] / 1000, dt.timezone.utc).isoformat(),
+        "hasta_utc": dt.datetime.fromtimestamp(velas.t[-1] / 1000, dt.timezone.utc).isoformat(),
     }
-    for campo in ("t", "o", "h", "l", "c", "v", "tb"):
+    for campo in _GUARDADOS:
         with open(os.path.join(CACHE, f"{subcarpeta}.{campo}.bin"), "wb") as f:
             getattr(velas, campo).tofile(f)
     with open(meta_ruta, "w", encoding="utf-8") as f:
-        json.dump({"huella": huella, "n": len(velas.t), "calidad": velas.calidad}, f, indent=1)
+        json.dump({"huella": huella, "n": len(velas.t), "campos": list(_GUARDADOS), "calidad": velas.calidad},
+                  f, indent=1)
     return velas
+
+
+def recortar(v, desde_ms, hasta_ms):
+    """Copia de las velas con t en [desde_ms, hasta_ms)."""
+    import bisect
+    a = bisect.bisect_left(v.t, desde_ms)
+    b = bisect.bisect_left(v.t, hasta_ms)
+    out = Velas()
+    for campo in _GUARDADOS:
+        origen = getattr(v, campo)
+        if len(origen) == len(v.t):
+            getattr(out, campo).extend(origen[a:b])
+    out.calidad = dict(v.calidad, recorte=[desde_ms, hasta_ms])
+    return out
 
 
 def agregar(v1, minutos):
@@ -140,7 +167,8 @@ def agregar(v1, minutos):
     while i < n:
         bloque = v1.t[i] // ancho
         j = i
-        h, l, vol, tb = v1.h[i], v1.l[i], 0.0, 0.0
+        h, l, vol, tb, nn = v1.h[i], v1.l[i], 0.0, 0.0, 0.0
+        tiene_n = len(v1.n) == n
         while j < n and v1.t[j] // ancho == bloque:
             if v1.h[j] > h:
                 h = v1.h[j]
@@ -148,6 +176,8 @@ def agregar(v1, minutos):
                 l = v1.l[j]
             vol += v1.v[j]
             tb += v1.tb[j]
+            if tiene_n:
+                nn += v1.n[j]
             j += 1
         if j - i < minutos:
             incompletas += 1
@@ -158,6 +188,7 @@ def agregar(v1, minutos):
         out.c.append(v1.c[j - 1])
         out.v.append(vol)
         out.tb.append(tb)
+        out.n.append(nn)
         out.i0.append(i)
         out.i1.append(j - 1)
         i = j
