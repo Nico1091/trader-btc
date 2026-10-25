@@ -1,0 +1,2 @@
+[1] VOLUME Volume in forex trading is the number of lots traded in a currency pair within a specific time period.  Its basically the quantity of funds transacted. When volume increases, it then means that a lot of traders are very interested in transacting that currency pair.  Volume is a vital technical indicator as a lot of traders look to it to add depth to their trading and help them make better trading decisions.
+[2] VOLUME

@@ -1,0 +1,4 @@
+[1] FIBONACCI NUMBERS The Fibonacci numbers were discovered by Leonardo Fibonacci an Italian Mathematician. The Fibonacci numbers are:  0,1,1,2,3,5,8,13,21,34,55,89,144,233… Fibonacci discovered than when you divide any number in the Fibonacci sequence by the 1 st , 2 nd  or 3 rd  preceding number, you’ll get what he identified as a Fibonacci ratio or the  G olden ratio. Examples of the Fibonacci ratios are 0.618, 0.50, 0.382, 0.236 etc. The Fibonacci ratios or Golden ratios mysteriously appear in nature, biology, arts, architecture etc. Fibonacci ratios were later discovered in stocks and forex price charts and it’s one of the most powerful tool used by traders in predicting future directions of an asset.
+[2] FIBONACCI NUMBERS IN NATURE
+[3] 
+[4] FIBONACCI NUMBERS IN NATURE

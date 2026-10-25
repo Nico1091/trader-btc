@@ -1,0 +1,1820 @@
+
+2
+	
+	
+	
+	 	
+	 	
+	
+	
+	
+	
+	 	 	
+	
+	 	 	
+	 	 	 	
+	
+	
+   
+ 
+        
+      
+  
+ 
+  
+ 
+      
+  
+        
+    
+   
+      
+   
+    
+   
+  
+    
+    
+ 
+        
+      
+  
+ 
+  
+ 
+      
+  
+        
+    
+   
+      
+   
+    
+   
+  
+Table of Contents
+        
+    
+ 
+        
+      
+    
+     Butterfly Spread………………………………………………………………………..16
+Iron Condor…………………………………………………………………………….13
+Neutral Strategies - High Implied Volatility……………………………………………12
+Trading Options for Income: Options Basics (Free Course)………………………..1 1
+Pro Membership……………………………………………………………………………10
+The NavigationTrading Methodology……………………………………………………6
+Welcome to NavigationTrading!………………………………………………………….4
+Short Strangle…………………………………………………………………………..19
+ Short Straddle…………………………………………………………………………..24
+Neutral Strategies - Low Implied Volatility…………………………………………….29
+Calendar Spread………………………………………………………………………..30
+      Neutral Strategies - High & Low Implied Volatility…………………………………. .33
+                  Iron Duck Options Spread….…….……………………..…………………………….3 4
+Reverse Iron Duck……………………………………………………………..………35
+Bullish Strategies - High Implied Volatility…………………………………………….39
+Covered Call (Covered Stock)………………………………………………………..41
+“Poor Man’s Covered Call…………………………………………………………….42
+Short Put V ertical………………………………………………………………………43
+Short Naked Put………………………………………………………………………..44
+3
+	 	 
+	 	 
+	 	
+	 	 
+	 	 	 	
+ 
+ 
+ 
+ 	
+	 	
+ 	
+	 	
+	 	 	
+	 	
+ 	
+ 
+      
+  
+  
+  
+      
+    
+   
+  
+   
+      
+  
+  
+   
+  
+  
+ 
+Bullish Strategies - Low Implied Volatility…………………………………………….. 45
+   Long Stock……………………………… ……….……………………………… ……..46
+     Long Call…………………………………………..…..…….………………..………..47
+                 Long Call Vertical………………..………………………….……..……………..……48
+                         Bearish Strategies - High Implied Volatility…..……….…….……… …………………49
+                Covered Put (Short Covered Stock)………….……… …….…….…….…………….50
+“Poor Man’s Covered Put………………….……….…………………………………. 51
+Short Call V ertical……………………………………….…………………………….. 52
+   Short Naked Call………… .………….…….…………….…………………… ……….53
+     Bearish Strategies - Low Implied Volatility….…….………… .……… ..…………..….54
+Short Stock……………………………….…………………….………………………. 55
+Long Put…………………………………………………………….………….………. 56
+Long Put V ertical……………………….…….…….…….……….……….……….…. 57
+Position Sizing………………………………………….…………………..………………. 58
+True Diversification………………………………………………….………..…………… 58
+Options Terminology…….….….….………..….…….….…….….…………………..…. 61
+  ��������������������������������������������� �������� ������
+Welcome	to	NavigationTrading!
+You	are	now	part	of	a	growing	group	of	“do	it	yourself”	traders	who	are	trying	
+to	change	the	way	investors	think	about	building	wealth.	But,	because	we	
+don’t	believe	in	using	/inancial	advisors,	stock	tips,	or	traditional	/inancial	
+media,	we	have	to	do	things	differently…we	have	to	do	things	smarter.	We	do	
+that	through	an	art	and	a	science	we	call	Trade	Hacking.
+Definition:
+Trade	–	The	action	of	buying	and	selling
+Hacking	–	An	ef/icient	method	of	modifying	a	task	in	a	skillful	and	clever	way
+At	NavigationTrading,	our	methodology	is	based	on	statistics	and	
+probabilities,	not	hype	or	emotion.	Our	core	strategies	have	been	used	by	
+Market	Makers,	Hedge	Funds	and	Floor	traders	for	many	years.	We	use	actual	
+math	behind	our	strategies.	(Don’t	worry,	you	don’t	need	to	be	an	advanced	
+mathematician	to	be	a	successful	trader.	If	you	made	it	through	math	class	in	
+4th	grade,	you	will	do	just	/ine	:)
+It’s	impossible	to	win	on	every	
+trade,	but	what	if	you	could	
+leverage	the	probabilities,	so	
+that	you	could	win	more	than	
+you	lose?	Rather	than	basing	
+your	trades	on	emotion,	hype,	
+and	worthless	predictions…you	
+simply	check	a	couple	of	data	
+points,	and	execute	the	trade.
+If	the	probabilities	are	IN	YOUR	
+FAVOR,	you	place	a	trade	and	
+then	close	your	laptop	for	the	
+day.
+If	the	probabilities	are	NOT	IN	YOUR	FAVOR,	you	don’t	place	a	trade	and	you	
+close	your	laptop	for	the	day.
+�
+	 	 	 	 	 	 	 	
+ 	 	 	 	 	 	 
+How	would	that	feel?	Pretty	good	right?
+This	book	should	serve	as	your	daily	guide	to	becoming	The	Ultimate	Trade	
+Hacker.
+Let’s	get	started!
+The	NavigationTrading	Team
+h64- ?T U1 '#?$7 ^,@- -64-W '41Y?$ 4$' '41Y#,-W 1#, <#,0' U.4- -6. S4"=.-C4$' 
+$#- U1 )oW U,- 3#-.$-?4001 U1 )QoW :QoW *QoW #" S,<6 S#".l
+�
+The NavigationTrading
+Methodology
+Successful	trading	starts	with	placing	High	Probability	trades.
+There	are	3	simple	rules	to	/inding	High	Probability	trades:
+Rule #1 - Liquidity
+Choose	a	symbol	with	liquid	options	(lots	of	volume,	and	tight	bid/ask	spreads).	
+We	have	done	the	heavy	lifting	for	you!	Download	The	Ultimate	Strategy	Watch	
+List	below.
+Get Instant Access
+https://
+navigationtradin
+g.com/pricing/
+         
+     
+    
+   Trading Options for Income
+    Get access to five free strategy courses!
+Click below for instant access!
+6
+Rule #2 – Implied Volatility (IV)
+FromThe	Ultimate	Strategy	Watch	List,	
+determine	if	the	symbol	has	High	IV,	or	
+Low	IV.
+Implied	Volatility	(IV)	is	our	“Edge”	for	
+taking	consistent	pro/its	out	of	the	market.	
+Since	we	know	that	IV	is	overstated	
+compared	to	actual	volatility	approximately	
+85%	of	the	time,	we	want	to	be	net	sellers	of	
+options	when	IV	is	high.	We	can	still	make	
+money	trading	our	methodology	when	IV	
+is	low,	but	our	pro/its	and	winning	
+percentage	increase	dramatically	when	we	wait	for	opportunities	of	High	
+Implied	Volatility	(Later	in	this	guide,	we	will	teach	you	a	strategy	to	pro/it	in	
+periods	of	low	IV	as	well).
+Think	about	a	professional	hitter	in	the	Major	Leagues.	He	may	get	on	base	by	
+swinging	at	a	pitch	that’s	out	of	the	strike	zone.	But,	the	best	hitters	in	baseball,	
+wait	for	THEIR	pitch,	take	a	good	swing,	and	get	on	base	consistently.
+We	are	not	home	run	hitters!	We	want	to	consistently	hit	singles	and	doubles.	
+Sometimes	we	may	go	through	a	“slump”,	but	we	can’t	get	discouraged.	As	long	as	
+we	stay	mechanical	with	our	trading,	the	probabilities	will	play	out	in	our	favor	
+over	time.
+https://
+navigationtrading.com/
+pricing/
+�
+We created a custom indicator to help you determine 
+the level of Implied Volatility, for each symbol you 
+trade, in a matter of seconds.
+Implied	Volatility	Percentile	(IV%)	-	Measures	the	percentage	of	days	that	a	
+symbol’s	IV	was	lower	than	it’s	current	level	over	the	previous	252	trading	days.	
+(Yellow	Line)
+Implied	Volatility	Rank	(IVR)	-	Implied	Volatility	average,	compared	to	it’s	
+yearly	high	and	low.	(Green	Line)
+Now,	don’t	let	the	jargon	confuse	you.	While	the	underlying	calculations	may	be	
+complex,	we	have	simpli/ied	it	with	the	NavigationTrading	IV	Indicator.
+So,	how	do	we	determine	if	IV	is	high?
+We	created	a	custom	indicator	to	help	you	determine	the	level	of	Implied	
+Volatility,	for	each	symbol	you	trade,	in	a	matter	of	seconds.
+The	NavigationTrading	IV	Indicator	consists	of	two	plotted	lines	(See	chart	
+below):
+Here’s	how	it	works:
+1)	We	draw	a	“line	in	the	sand”	at	the	50%	level
+2)	If	EITHER	the	Green	or	Yellow	line	are	above	50,	we	consider	that	High	IV
+3)	If	BOTH	lines	are	below	50,	we	consider	that	Low	IV
+That’s	it!	Pretty	simple,	right?
+“
+”
+�
+NavigationTrading	IV	Indicator
+The NavigationTrading IV Indicator
+Click below to get the indicator now!
+Get Instant Access
+Now	that	we	have	determined	if	our	symbol	of	choice	has	High	IV	or	Low	IV,	the	
+remainder	of	this	guide	is	all	about	Rule	#3	–	Choosing	the	correct	strategy!
+https://
+navigationtrading.com/
+pricing/
+�
+	 	 	 	 	 	 	 	 
+ 	 
+ 	 	 	 	 	 
+Pro Membership
+	
+	 	 	 	 	 	 	
+	 	 
+	 	 	 	 	 	 	 	 
+	 	 	 	 	 
+	 	 	 
+	 	 	 	 	 	 
+	 	 	 	 	 	 
+	 	 	 	
+	 
+	 
+	
+	 	 	 	 
+	 	 
+	 	 	 	 	 
+A.<.?B. O!M_ R"4'. Z0."-@ M?4 _S4?0 Z$' J#U?0. Z33 
+I0,@ M(!(I( M?'.# &#,"@. R"4?$?$7
+ 
+  
+  
+https://
+pro-trialGet Instant Accessnavigationtrading.com/
+  
+          Get Instant Access
+            
+         
+       
+       
+      
+           
+            
+          
+      
+         ✓ 1"23 423$2" +'"#'%/5
+      ✓ +=2"' +'"#3/&%>+'"#$$&% +'"#'%/5
+       
+       
+      
+           
+            
+          
+      
+        
+     
+       
+       
+      
+           
+            
+          
+      
+      
+✓ !"#$ ;,<= 2-"4-.71
+   
+      
+  
+            
+         
+     
+                  
+  
+    
+                  
+  
+    
+              
+          
+         
+"Look over our shoulder" as we place LIVE trades in our own brokerage account. 
+Our professional training includes step-by-step instructions for trading strategies 
+used by successful Hedge Funds, Floor Traders & Market Makers
+       
+     
+       
+    ✓   
+      
+           
+            
+          
+      
+       
+     
+   
+   
+      
+           
+      
+          
+      
+       
+✓ !"#$% #&%"'( )*# %+#*& & mobile app
+✓ 20+ '"#$% #&%"'( ,%" -%%.
+✓ /,%0*1*0 '"#$% %2'"*%(
+✓ /,%0*1*0 '"#$% %3*'(
+✓ /,%0*1*0 '"#$% #$45('+%2'( ✓ 6*"%0'*72#& /'"#'%8*%(
+✓ 9%%.&: ;*$%7 <,$#'%( '7 "%)*%- #&& '"#$%( ✓ =,'*72( 72 >5'5"%(
+✓ Daily post on all positions and outlook      
+✓ >5&& ,%"A7"+#20% ('#'*('*0( 72 #&& '"#$%(    
+✓ <2&*+*'%$ %+#*& and chat (5,,7"'                   
+✓ Dynamic Calendar Spreads
+   Dynamic Butterfly Spreads
+✓ ?#"2*28( @227520%+%2' !"#$*28 /'"#'%8*e( 
+   
+  
+✓ NavigationTrend Trading (NTT) 
+✓ Hedge Hog Strategy
+✓ Day Trading Options for Income
+��
+Trading Options For Income:
+Options Basics
+Learn	To	Create	A	Consistent	Monthly	Income	
+Trading	Options
+GET	IT	NOW	FOR	FREE!	(COURSE	VALUE	$495)
+Get Instant Access
+Here’s	what’s	included	with	the	course:
+✓The	NavigationTrading	Implied	Volatility	Indicator	-	Load	it	directly	to	
+your	trading	platform!	-	This	is	the	only	indicator	you	need	to	make	
+pro/itable	trades
+✓The	NavigationTrading	Ultimate	Strategy	Watch	List	-	The	most	
+pro/itable	symbols	to	trade...AND	which	ones	to	avoid!
+✓Learn	our	top	5	core	trading	strategies	for	consistent	monthly	income
+✓Learn	to	make	money	trading	15	minutes	per	day.	You	DO	NOT	have	to	be	
+glued	to	your	computer	screen	all	day
+✓Learn	how	to	make	money	on	trades	if	the	market	goes	UP,	DOWN	or	
+SIDEWAYS
+✓How	to	set	up	your	trading	platform,	so	you	can	trade	like	a	PRO
+✓Students	of	our	course	can	get	a	reduced	commission	rate	at	a	top	
+rated	options	broker
+✓2	hours	of	professionally	edited	videos	in,	20	easy	to	follow	lessons
+✓Unlimited	email	support	from	the	instructor	and	his	trading	team
+https://
+navigationtrading.com/
+pricing/
+��
+NEUTRAL Strategies
+HIGH Implied Volatility
+The following strategies can be used when you think the
+price of the underlying symbol will STAY IN A RANGE
+AND
+Implied Volatility Percentile (IV%) is OVER 50
+��
+IRON CONDOR
+Market
+Assumption
+Implied
+Volatility
+Optimal
+Timeframe
+Neutral High 30-60 DTE
+Proﬁt
+Target
+30-50% of 
+Max Proﬁt
+Downside
+Risk
+Deﬁned
+Upside
+Risk
+Deﬁned
+Probability
+of Proﬁt (POP)
+60%+
+Trade	Setup
+-P r o / i t / L o s s +
+Long	Put	Strike
+Short	Put	Strike
+Long	Call	Strike
+Short	Call	Strike
+Time	Decay	(Theta)	POSITIVELY	impacts	this	position
+This	strategy	is	eligible	to	trade	in	an	IRA
+2.00 >$. >RJ &400
++,1 >$. V,"-6." >RJ &400 E2.. !"#$ &#$'#" h4-<6 O?@- T#" Hh?$7 h?'-6LF
+2.00 >$. >RJ I,-
++,1 >$. V,"-6." >RJ I,- E2.. !"#$ &#$'#" h4-<6 O?@- T#" Hh?$7 h?'-6LF
+��
+How I Make Consistent 
+Returns Trading Options
+Learn	To	Create	A	Consistent	Monthly	Income	
+Trading	Iron	Condors
+Click To Learn More
+Here’s	what’s	included	with	the	course:
+✓The	NavigationTrading	Implied	Volatility	Indicator	-	Load	it	directly	to	your	trading	
+platform!	-	This	is	the	only	indicator	you	need	to	make	pro/itable	trades
+✓The	NavigationTrading	Ultimate	Strategy	Watch	List	-	The	most	pro/itable	symbols	
+to	trade...AND	which	ones	to	avoid!
+ 	 	 	 	 	 	 
+ 	 	 	 	 
+ 		 	 	 		 	 			 						 
+	 
+ 	 		 	 		 		 			 	 		 
+ 		 	 	 	 	 	 	 	 						
+ 		 			 	 	 		 	 	 	 	 		
+ 		 	 	 	 		 	 						
+ 
+ 	 	 	 	 
+https://
+navigationtrading.com/
+pricing/
+              
+                 
+!"# $" %&'() *+,* %-".'.+&+$/ 0-"1 2"13"-45 $*'$ #+1 "6)- 789 ": $*) $+;)
+<)'-1 $" ;'=) ;"1)/ $-'3+1, >8 ;+1?$)4 %)- 3'/@ A"? BC DCE *'6) $" .) ,&?)3 $"
+✓ 
+✓
+ 1#," <#S3,-." @<"..$ 400 '41
+✓ O.4"$ 6#X -# S4=. S#$.1 #$ -"4'.@ ?T -6. S4"=.- 7#.@ cIW ;>hN #" 2!;_hZb2 
+✓ f#X -# #3.$ 4$' <0#@. X?$$?$7 -"4'.@( Z$'W S#@- ?S3#"-4$-01W 6#X -# /?\ 4 -"4'.
+ -64- 7#.@ U4'
+✓ Z 0?--0. =$#X -"?<= -# 0.4"$ 1#," I"#U4U?0?-1 #T I"#/?-W U.T#". 1#, .B.$ .$-." -6. -"4'. 
+✓ 2-,'.$-@ #T -6. <#,"@. <4$ 7.- 4 ".',<.' <#SS?@@?#$ "4-. 4- 4 -#3 "4-.' #3-?#$@
+ U"#=."
+✓ :(* 6#,"@ #T 3"#T.@@?#$4001 .'?-.' B?'.#@ ?$W 8P .4@1 -# T#00#X 0.@@#$@ 
+✓ c$0?S?-.' .S4?0 @,33#"- T"#S -6. ?$@-",<-#" 4$' 6?@ -"4'?$7 -.4S
+��
+IRON CONDOR WATCH LIST
+Index/ETFs (Width of Wings)
+SPY – S&P 500 (3 points)
+SPX – S&P 500 (30 points)
+QQQ – Nasdaq (3 points)
+NDX – Nasdaq (30 points)
+IWM – Russell 2000 (3 points)
+RUT – Russell 2000 (30 points)
+DIA – Dow (3 points)
+TLT – 20+ year bond (3 points)
+FXE – Euro Currency (3 points)
+GLD – Gold (3 points) GDXJ –  Junior Gold Miners (3 points)
+XOP –  Oil & Gas ETF (3 points)
+XLF –  Financials ETF (3 points)
+XLU –  Utilities ETF (3 points)
+XLE –  Energy ETF (3 points)
+EWZ –  Brazil (3 points)
+EFA –  EAFE ETF (3 points)
+EEM –  Emerging Markets (3 points)
+FXI – China Large Cap (3 points)
+EWW –  Mexico (3 points)
+SMH – Semiconductor (3 points) IYR –  Real Estate ETF (3 points)
+KRE –  SPDR KBW Regional Banking (3 points) XLP – Consumer Staples Select Sect. SPDR (3 points)
+XBI – SPDR S&P Biotech (3 points) XLI – Industrial Select Sector SPDR Fund (3 points)
+SLV – Silver (3 points) XRT – SPDR S&P Retail (3 points)
+GDX –  Gold Miners (3 points) XLV – Health Care ETF (3 points)
+USO – US Oil Fund (3 points) OIH –  Oil Services ETF (3 points)
+IRON CONDOR WATCH LIST
+Futures (width of wings)
+/ES – S&P 500 (15 points)
+/ZB – 30 year bond (2 points)
+/CL – Crude Oil (1 point)
+/GC – Gold (10 points)
+/NG – Nat Gas (.1 points) /6B – British Pound (.02 points)
+/ZW – Wheat (10 points)
+/ZC – Corn (5 points)
+/ZS – Soybeans (10 points)
+/6E – Euro (.01 points)
+��
+IRON CONDOR WATCH LIST
+Stocks (Width of Wings)
+AAPL – Apple (10 points)
+GS – Goldman Sachs (10 points)MA – MasterCard (10 points)
+AMZN – Amazon (10 points)JNJ – Johnson & Johnson (5 points)
+COST – Costco (10 points)IBM (5 points)
+        
+TSLA – Tesla (10 points)BIDU - Baidu (10 points)
+GOOG – Alphabet (50 points)CAT - Caterpillar (10 points)
+NFLX – Netﬂix (20 points)BABA – Alibaba (10 points)
+V – Visa (5 points)BA – Boeing (15 points)
+NVDA – NVIDIA (10 points)ADBE – Adobe (10 points)
+MCD – McDonald’s (5 points)
+IRON CONDOR OPTIMAL EXITS
+Percent of Max Proﬁt Days In The Trade
+10% 4
+20% 7
+30% 12
+40% 17
+50% 22
+60% 27
+70% 31
+80% 35
+90% 40
+100% Expiration
+HD – Home Depot (5 points) META – Meta Platforms Inc. (5 points)
+��
+BUTTERFLY SPREAD
+Market
+Assumption
+Implied
+Volatility
+Optimal
+Timeframe
+Neutral High 30-60 DTE
+Proﬁt
+Target
+15-25% of 
+Debit Paid
+Downside
+Risk
+Deﬁned
+Upside
+Risk
+Deﬁned
+Probability
+of Proﬁt (POP)
+35-50%
+Trade	Setup
+Buy	One	ITM	Call	(Width	of	Long	Call	should	exceed	expected	move)
+Sell	2	ATM	Calls
+Buy	One	OTM	Call	(Width	of	Long	Call	should	exceed	expected	move)
+You	can	use	either	ALL	Calls,	or	ALL	Puts
+-P r o / i t / L o s s +
+Long	Strike Long	Strike
+Short	Strike
+Time	Decay	(Theta)	POSITIVELY	impacts	this	position
+This	strategy	is	eligible	to	trade	in	an	IRA
+��
+Learn More
+Trading Butterfly Spreads
+For Income
+Learn	To	Create	A	Consistent	Monthly	Income	
+Trading	Butter/ly	Spreads
+Click	Below	To	Learn	More
+Here’s	what’s	included	with	the	course:
+✓The	NavigationTrading	Implied	Volatility	Indicator	-	Load	it	directly	to	your	trading	
+platform!	-	This	is	the	only	indicator	you	need	to	make	pro/itable	trades
+✓The	NavigationTrading	Ultimate	Strategy	Watch	List	-	The	most	pro/itable	symbols	
+to	trade...AND	which	ones	to	avoid!
+✓How	to	place	high	probability	Butter/ly	Spreads,	that	win	over	75%	of	the	time
+✓Learn	to	make	money	trading	15	minutes	per	day.	You	DO	NOT	have	to	be	glued	to	
+your	computer	screen	all	day
+✓Learn	how	to	make	money	on	trades	if	the	market	goes	UP ,	DOWN	or	SIDEWAYS
+✓How	to	open	and	close	winning	trades.	And,	most	importantly,	how	to	/ix	a	trade	
+that	goes	bad
+✓A	little	know	trick	to	learn	your	Probability	of	Pro/it,	before	you	even	enter	the	trade
+✓Lots	of	real	life	examples…using	my	own	money
+✓Students	of	the	course	can	get	a	reduced	commission	rate	at	a	top	rated	options	
+broker
+✓1.5	hours	of	professionally	edited	videos	in,	21	easy	to	follow	lessons
+✓Unlimited	email	support	from	the	instructor	and	his	trading	team
+https://
+navigationtrading.com/
+pricing/
+��
+BUTTERFLY WATCH LIST
+Index/ETFs Futures
+SPY – S&P 500 /ES – S&P 500
+SPX – S&P 500 /ZB – 30 year bond
+QQQ – Nasdaq /CL – Crude Oil
+NDX – Nasdaq /GC – Gold
+IWM – Russell 2000 /NG – Natural Gas
+RUT – Russell 2000 /6E – Euro Currency
+DIA – Dow /6B – British Pound
+TLT – 20+ year bond /ZS – Soybeans
+FXE – Euro Currency /ZC – Corn
+GLD – Gold /ZW – Wheat
+SMH – Semiconductor 
+BUTTERFLY WATCH LIST
+Stocks
+AAPL – Apple MCD – McDonald’s
+ADBE – Adobe NVDA – NVIDIA
+BA – Boeing V – Visa
+BABA – Alibaba NFLX – Netﬂix
+CAT - Caterpillar GOOG – Alphabet
+BIDU - Baidu TSLA – Tesla
+    
+IBM COST – Costco
+JNJ – Johnson & Johnson AMZN – Amazon
+MA – MasterCard GS – Goldman Sachs
+HD – Home Depot META – Meta Platforms Inc.
+��
+SHORT STRANGLE
+Market
+Assumption
+Implied
+Volatility
+Optimal
+Timeframe
+Neutral High 
+Proﬁt
+Target
+30-50% of  
+Max Proﬁt
+Downside
+Risk
+Undeﬁned
+Upside
+Risk
+Undeﬁned
+Probability
+of Proﬁt 
+70%+
+Trade	Setup
+	 	 	 	 	 
+	 	 	 	 	 
+Short	Put	Strike
+-P r o / i t / L o s s +
+Short	Call	Strike
+Time	Decay	(Theta)	POSITIVELY	impacts	this	position
+This	strategy	must	be	traded	in	a	margin	account
+2.00 >$. >RJ &400
+ 2.00 >$. >RJ I,-
+   30-100 DTE
+��
+Learn More
+How To Maximize Y our Profits 
+Trading Options
+Learn	To	Create	A	Consistent	Monthly	Income	
+Trading	Short	Strangles
+Here’s	what’s	included	with	the	course:
+✓ The	NavigationTrading	Implied	Volatility	Indicator	-	Load	it	directly	to	your	trading	
+platform!	-	This	is	the	only	indicator	you	need	to	make	pro/itable	trades
+✓ The	NavigationTrading	Ultimate	Strategy	Watch	List	-	The	most	pro/itable	symbols	
+to	trade...AND	which	ones	to	avoid!
+✓ How	to	place	high	probability	Strangles,	that	win	over	90%	of	the	time
+✓ Learn	to	make	money	trading	15	minutes	per	day.	You	DO	NOT	have	to	be	glued	to	
+your	computer	screen	all	day
+✓ Learn	how	to	make	money	on	trades	if	the	market	goes	UP,	DOWN	or	SIDE-WAYS
+✓ How	to	open	and	close	winning	trades.	And,	most	importantly,	how	to	/ix	a	trade	
+that	goes	bad
+✓ A	little	know	trick	to	learn	your	Probability	of	Pro/it,	before	you	even	enter	the	trade
+✓ Lots	of	real	life	examples…using	my	own	money
+✓ Students	of	the	course	can	get	a	reduced	commission	rate	at	a	top	rated	options	
+broker
+✓ 2	hours	of	professionally	edited	videos	in,	28	easy	to	follow	lessons
+✓ Unlimited	email	support	from	the	instructor	and	his	trading	team
+https://
+navigationtrading.com/
+pricing/
+      
+           
+                    This course is part of our Option Selling and/or Pro Membership
+��
+STRANGLE OPTIMAL EXITS
+Percent of Max Proﬁt Days In The Trade
+10% 3
+20% 6
+30% 10
+40% 15
+50% 19
+60% 24
+70% 28
+80% 32
+90% 35
+100% Expiration
+STRANGLE WATCH LIST
+Index/ETFs
+SPY – S&P 500
+SPX – S&P 500
+QQQ – Nasdaq
+NDX – Nasdaq
+IWM – Russell 2000 
+RUT – Russell 2000
+DIA – Dow
+TLT – 20+ year bond 
+FXE – Euro Currency
+GLD – Gold EWZ - Brazil
+EFA – EAFE ETF
+EEM – Emerging Markets
+FXI – China Large Cap
+EWW – Mexico 
+GDXJ – Junior Gold Miners
+XBI - SPDR S&P Biotech
+SMH - Semiconductor
+SLV – Silver
+GDX – Gold Miners
+USO – US Oil Fund XLE – Energy ETF
+KRE - SPDR KBW Regional Banking
+XLP – Consumer Staples Select Sect. SPDR
+XLI - Industrial Select Sector SPDR Fund
+XRT – SPDR S&P Retail
+XLV – Health Care ETF
+OIH – Oil Services ETF
+IYR – Real Estate ETF
+XOP – Oil & Gas ETF
+XLF – Financials ETF
+XLU – Utilities ETF
+��
+STRANGLE WATCH LIST
+Futures
+/ES – S&P 500
+/ZB – 30 year bonds
+/CL – Crude Oil
+/GC – Gold
+/NG – Natural Gas
+/6E – Euro Currency
+/ZS – Soybeans
+/ZC – Corn
+/ZW – Wheat
+/ZN – 10 year notes
+/6B – British Pound
+��
+STRANGLE WATCH LIST
+Stocks
+AAPL – Apple DIS – Disney
+ADBE – Adobe EBAY
+BA – Boeing FDX – FedEx
+BABA – Alibaba JPM – J.P. Morgan 
+CAT - Caterpillar M – Macy’s
+BIDU - Baidu NFLX – Netﬂix 
+   GOOG – Alphabet 
+IBM TSLA – Tesla 
+JNJ – Johnson & Johnson   
+MA – MasterCard COST – Costco
+MCD – MacDonald’s AMZN – Amazon
+NVDA – NVIDIA ORCL – Oracle
+V – Visa SBUX – Starbucks
+GS – Goldman Sachs TGT – Target
+AMD – Advanced Micro Devices TWTR – Twitter
+BBY – Best Buy X – U.S. Steel
+C – Citigroup MS – Morgan Stanley
+CVS
+CSX – NASDAQ DAL – Delta Air Lines
+META - Meta Platforms Inc.
+HD – Home Depot
+��
+SHORT STRADDLE
+Market
+Assumption
+Implied
+Volatility
+Optimal
+Timeframe
+Neutral High 30-60 DTE
+Proﬁt
+Target
+25% of  
+Max Proﬁt
+Downside
+Risk
+Undeﬁned
+Upside
+Risk
+Undeﬁned
+Probability
+of Proﬁt (POP)
+Approximately
+55%
+Trade	Setup
+Sell	One	ATM	Call
+Sell	One	ATM	Put
+Short	Call	Strike
+Short	Put	Strike
+-P r o / i t / L o s s +
+Time	Decay	(Theta)	POSITIVELY	impacts	this	position
+This	strategy	must	be	traded	in	a	margin	account
+��
+STRADDLE WATCH LIST
+ETFs
+SPY – S&P 500 EWW – Mexico
+SPX – S&P 500 FXI – China Large Cap
+QQQ – Nasdaq EEM – Emerging Markets
+NDX – Nasdaq EFA – EAFE ETF
+IWM – Russell 2000 EWZ - Brazil
+RUT – Russell 2000 XLE – Energy ETF
+DIA – Dow XLU – Utilities ETF
+TLT – 20+ year bond XLF – Financials ETF
+FXE – Euro Currency XOP – Oil & Gas ETF
+GLD – Gold GDXJ – Junior Gold Miners
+XRT – Retail ETF XBI – Biotech ETF
+STRADDLE WATCH LIST
+Futures
+/ES – S&P 500
+/ZB – 30 year bonds
+/CL – Crude Oil
+/GC – Gold
+/NG – Natural Gas
+/6E – Euro Currency
+/ZS – Soybeans
+/ZC – Corn
+/ZW – Wheat
+/ZN – 10 Year Notes
+��
+STRADDLE WATCH LIST
+Stocks
+AAPL – Apple HD – Home Depot
+NFLX – Netﬂix MSFT - Microsoft
+GOOG – Alphabet ORCL - Oracle
+TSLA – Tesla HPQ - HP
+ BKNG – Booking Holdings
+COST – Costco TSLA - Tesla
+AMZN – Amazon TWTR - Twitter
+GS – Goldman Sachs UAL – United Continental
+IBM WFM – Whole Foods
+SBUX - Starbucks X – US Steel
+BA - Boeing XOM - Exxon Mobil
+BABA - Alibaba YHOO - Yahoo
+BIDU - BAIDU DIS - Disney
+C - Citigroup GG – Gold Corp
+CAT - Caterpillar GM – General Motors
+EBAY RIG - Transocean
+FCX – Freeport-McMoRan GG - Goldcorp
+META - Meta Platforms Inc.
+��
+STRANGLE OPTIMAL EXITS
+Percent of Max Proﬁt Days In The Trade
+10% 10
+20% 16
+30% 23
+40% 30
+50% 35
+60% 41
+70% Expiration
+��
+NEUTRAL Strategies
+Low Implied Volatility
+The following strategies can be used when you think the
+price of the underlying symbol will STAY IN A RANGE
+AND
+Implied Volatility Percentile (IV%) is UNDER 50
+��
+CALENDAR SPREAD
+Market
+Assumption
+Implied
+Volatility
+Optimal
+Timeframe
+Neutral Low  
+ 
+Proﬁt
+Target
+15-25% of
+debit paid
+Downside
+Risk
+Deﬁned
+Upside
+Risk
+Deﬁned
+Probability
+of Proﬁt (POP)
+35-50%
+Trade	Setup
+	 	 	 	 	 
+	 	 	 	 	 
+	 	 	 	 	 	 	 	 
+Time	Decay	(Theta)	POSITIVELY	impacts	this	position
+This	strategy	is	eligible	to	trade	in	an	IRA
+-P r o / i t / L o s s +
+Short	Strike
+Long	Strike
+3-90 DTE
+   !"## $%" &'( )*+
+   
+        
+!"# $%& '() *"+
+,In a further dated expiration cycle8
+��
+Learn More
+Trading Calendar Spreads
+For Income
+Learn	To	Create	A	Consistent	Monthly	Income	
+Trading	Calendar	Spreads
+Click	Below	To	Learn	More
+Here’s	what’s	included	with	the	course:
+✓The	NavigationTrading	Implied	Volatility	Indicator	-	Load	it	directly	to	your	trading	
+platform!	-	This	is	the	only	indicator	you	need	to	make	pro/itable	trades
+✓The	NavigationTrading	Ultimate	Strategy	Watch	List	-	The	most	pro/itable	symbols	
+to	trade...AND	which	ones	to	avoid!
+✓How	to	place	high	probability	Calendar	Spreads,	that	win	over	75%	of	the	time
+✓Learn	to	make	money	trading	15	minutes	per	day.	You	DO	NOT	have	to	be	glued	to	
+your	computer	screen	all	day
+✓Learn	how	to	make	money	on	trades	if	the	market	goes	UP ,	DOWN	or	SIDEWAYS
+✓How	to	open	and	close	winning	trades.	And,	most	importantly,	how	to	/ix	a	trade	
+that	goes	bad
+✓A	little	know	trick	to	learn	your	Probability	of	Pro/it,	before	you	even	enter	the	trade
+✓Lots	of	real	life	examples…using	my	own	money
+✓Students	of	the	course	can	get	a	reduced	commission	rate	at	a	top	rated	options	
+broker
+✓1.5	hours	of	professionally	edited	videos	in,	21	easy	to	follow	lessons
+✓Unlimited	email	support	from	the	instructor	and	his	trading	team
+https://
+navigationtrading.com/
+pricing/
+��
+CALENDAR SPREAD WATCH LIST
+ETFs
+SPY – S&P 500 DIA – Dow 
+SPX – S&P 500 TLT – 20+ year bond 
+QQQ – Nasdaq FXE – Euro Currency
+NDX – Nasdaq GLD – Gold
+IWM – Russell 2000 IYR – Real Estate
+RUT – Russell 2000 SMH – Semiconductor
+CALENDAR SPREAD WATCH LIST
+Stocks
+AAPL – Apple MCD – McDonald’s
+ADBE – Adobe NVDA – NVIDIA
+BA –Boeing V – Visa
+BABA – Alibaba NFLX – Netﬂix
+CAT - Caterpillar GOOG – Alphabet 
+BIDU – Baidu TSLA – Tesla 
+      
+IBM COST – Costco 
+JNJ – Johnson & Johnson AMZN – Amazon
+MA – MasterCard GS – Goldman Sachs 
+META - Meta Platforms Inc.HD – Home Depot
+��
+NEUTRAL Strategies
+High or Low Implied 
+Volatility
+The following strategies can be used when you think the
+price of the underlying symbol will STAY IN A RANGE
+��
+IRON DUCK OPTIONS SPREAD
+Market
+Assumption
+Implied
+Volatility
+Optimal
+Timeframe
+Neutral High or 
+Low
+1-21 days
+Proﬁt
+Target
+expiration
+Downside
+Risk
+Deﬁned
+Upside
+Risk
+Deﬁned
+Probability
+of Proﬁt (POP)
+85%+
+Trade	Setup
+Sell	One	Call;	65	Delta
+Buy	One	Call;	One	Strike	Higher
+Sell	One	Put;	15	Delta
+Buy	One	Put;	10	Delta
+Time	Decay	(Theta)	POSITIVELY	impacts	this	position
+This	strategy	is	eligible	to	trade	in	an	IRA
+-P r o / i t / L o s s +
+short	call
+long	call
+short	put
+long	put
+��
+ REVERSE IRON DUCK 
+Market
+Assumption
+Implied
+Volatility
+Optimal
+Timeframe
+Neutral High or 
+Low
+1-21 days
+Proﬁt
+Target
+expiration
+Downside
+Risk
+Deﬁned
+Upside
+Risk
+Deﬁned
+Probability
+of Proﬁt (POP)
+85%+
+Trade	Setup
+Sell	One	Put;	65	Delta
+Buy	One	Put;	One	Strike	Lower
+Sell	One	Call;	15	Delta
+Buy	One	Call;	10	Delta
+Time	Decay	(Theta)	POSITIVELY	impacts	this	position
+This	strategy	is	eligible	to	trade	in	an	IRA
+-P r o / i t / L o s s +
+short	put
+long	put
+short	call
+long	call
+��
+The Iron Duck Options Spread
+Learn	To	Create	A	Consistent	Monthly	Income	
+Trading	Iron	Duck	Options	Spreads
+Here’s	what’s	included	with	the	course:
+✓The	NavigationTrading	Implied	Volatility	Indicator	-	Load	it	directly	to	your	trading	
+platform!	-	This	is	the	only	indicator	you	need	to	make	pro/itable	trades
+✓How	we	structure	trades	to	make	money	over	90%	of	the	time
+✓How	to	pro/it	whether	the	market	goes	UP,	DOWN,	or	SIDEWAYS
+✓The	one	“special	tweak”	to	eliminate	risk	to	one	side	of	the	trade
+✓Our	favorite	setup	to	maximize	pro/its	each	week
+✓The	most	pro/itable	symbols	to	trade	…	and	which	ones	to	avoid
+✓How	to	make	consistent	pro/its	without	any	trade	adjustments
+✓How	we	keep	a	short	bias	in	the	market,	but	eliminate	upside	risk
+✓The	best	way	to	trade	this	strategy	in	a	small	account
+✓Step-by-step	“Cheat	Sheet”	so	you	always	enter	the	trade	correctly
+✓Students	of	the	course	can	get	a	reduced	commission	rate	at	a	top	rated	options	
+broker
+✓Unlimited	email	support	from	the	instructor	and	his	trading	team
+pricing/  
+ Learn More
+                            Available as part of our Iron Duck and/or Pro Membership
+��
+IRON DUCK WATCH LIST
+Index & ETFs
+SPX – S&P 500
+RUT – Russell 2000
+NDX – Nasdaq
+DIA – Dow 
+QQQ – Nasdaq
+IWM – Russell 2000
+SPY – S&P 500
+IRON DUCK WATCH LIST
+Stocks
+AAPL – Apple HD – Home Depot
+ADBE – Adobe LMT – Lockheed Martin Corp.
+BA – Boeing MA – MasterCard
+  MCD – McDonald’s
+BKNG – Booking NFLX – Netﬂix
+CMG – Chipotle Mexican Grill SHOP – Shopify
+COST – Costco TSLA – Tesla 
+GOOG – Alphabet ULTA – Ulta Beauty 
+GS – Goldman Sachs Group UNH – UnitedHealth
+AMZN – Amazon ROKU - Roku Inc.
+BIIB – Biogen
+��
+IRON DUCK WATCH LIST
+Futures
+/ES – S&P 500
+/NQ – Nasdaq
+/ZB – 30 Year Bonds
+/ZN – 10 Year Notes
+/CL – Crude Oil
+/NG – Natural Gas
+/GC – Gold
+/6E – Euro Currency
+/6B – British Pound
+/ZC – Corn
+/ZW – Wheat
+/ZS – Soybeans
+��
+BULLISH Strategies
+HIGH Implied Volatility
+The following strategies can be used when you think the
+price of the underlying symbol will go UP
+AND
+Implied Volatility Percentile (IV%) is OVER 50
+��
+Winning Option Strategies
+For Any Market
+Your	Edge	For	Directional	Trading
+Click To Learn More
+Here’s	what’s	included	with	the	course:
+✓ The	NavigationTrading	Implied	Volatility	Indicator	–	Load	it	directly	onto	
+your	trading	platform!
+✓ Learn	to	make	money	trading	15	minutes	per	day.	You	DO	NOT	have	to	
+be	glued	to	your	computer	screen
+✓  Learn	how	to	make	money	on	trades	if	the	market	goes	UP ,	DOWN	or	
+SIDEWAYS
+✓ How	to	place	High	Probability	Trades,	that	win	in	Bull	or	Bear	markets
+✓ Core	strategies	to	maximize	pro/its,	and	minimize	losses
+✓ A	little	known	trick	to	learn	your	Probability	of	Pro/it,	before	you	even	
+enter	the	trade...
+✓ Lots	of	real	life	trade	examples…step	by	step...using	REAL	MONEY
+✓ Students	of	our	course	can	get	a	reduced	commission	rate	at	a	top	rated	
+options	broker
+✓ Unlimited	email	support	from	the	instructor	and	his	trading	team
+✓ 1.5	hours	of	professionally	edited	videos,	in	20	easy	to	follow	sections
+✓ Don’t	forget	to	check	out	the	BONUS	Section	at	the	end	of	the	course	to	
+learn	about	NavigationALERTS
+✓ 30	Day	Money	Back	“No	Questions	Asked”	Guarantee
+https://
+navigationtrading.com/
+pricing/
+��
+COVERED CALL (COVERED STOCK)
+Market
+Assumption
+Implied
+Volatility
+Optimal
+Timeframe
+Bullish High 30-60 DTE
+Proﬁt
+Target
+15-50% of
+Max Proﬁt
+Downside
+Risk
+Stock Could 
+Go To Zero
+Upside
+Risk
+None
+Probability
+of Proﬁt (POP)
+55%+
+Trade	Setup
+-P r o / i t / L o s s +
+Strike	Price
+Time	Decay	(Theta)	POSITIVELY	impacts	this	position
+This	strategy	is	eligible	to	trade	in	an	IRA
+        !"# $%% &'()*+ ,- &.,/01 &*22 34* 356 7(22
+��
+“POOR MAN’S” COVERED CALL
+Market
+Assumption
+Implied
+Volatility
+Optimal
+Timeframe
+Bullish High See Trade
+Setup Below
+Proﬁt
+Target
+25-50% of
+Max Proﬁt
+Downside
+Risk
+Deﬁned
+Upside
+Risk
+None
+Probability
+of Proﬁt (POP)
+Trade	Setup
+	 	 	 	 	 	 	 
+	 	 	 	 	 	 	 
+-P r o / i t / L o s s
+Long	Price
+Break	Even
+Short	Strike
+Time	Decay	(Theta)	can	be	POSITIVE	when	price	is
+higher	than	break-even	point
+Time	Decay	(Theta)	can	be	NEGATIVE	when	price	is
+lower	than	break-even	point
+This	strategy	is	eligible	to	trade	in	an	IRA
+   
+   
+   
+   
+      
+     
+      Buy One ITM Call (long duration)
+Sell One OTM Call (short duration)
+55%+
+��
+SHORT PUT VERTICAL
+Market
+Assumption
+Implied
+Volatility
+Optimal
+Timeframe
+Bullish High 30-60 DTE
+Proﬁt
+Target
+25-50% of
+Max Proﬁt
+Downside
+Risk
+Deﬁned
+Upside
+Risk
+None
+Probability
+of Proﬁt (POP)
+Trade	Setup
+	 	 	 	 	 	 	 	 	 	 	 	 
+Time	Decay	(Theta)	can	be	POSITIVE	when	price	is
+higher	than	break-even	point
+Time	Decay	(Theta)	can	be	NEGATIVE	when	price	is
+lower	than	break-even	point
+This	strategy	is	eligible	to	trade	in	an	IRA
+-P r o / i t / L o s s
+Long	Strike
+Break	Even
+Short	Strike
+65%+
+                   
+    
+   
+    
+!"## $%" $&' ()*
++), $%" -).*/". $&' ()*
+��
+SHORT NAKED PUT
+Market
+Assumption
+Implied
+Volatility
+Optimal
+Timeframe
+Bullish High 
+Proﬁt
+Target
+25-50% of
+Max Proﬁt
+Downside
+Risk
+Stock Could 
+Go To Zero
+Upside
+Risk
+None
+Probability
+of Proﬁt (POP)
+Trade	Setup
+Time	Decay	(Theta)	POSITIVELY	impacts	this	position
+This	strategy	is	eligible	to	trade	in	an	IRA
+-P r o / i t / L o s s +
+Strike	Price
+70%+  30-100 DTE
+   !"## $%" $&' ()*
+��
+BULLISH Strategies
+Low Implied Volatility
+The following strategies can be used when you think the
+price of the underlying symbol will go UP
+AND
+Implied Volatility Percentile (IV%) is UNDER 50
+��
+LONG STOCK
+Market
+Assumption
+Implied
+Volatility
+Optimal
+Timeframe
+Bullish High or 
+Low
+N/A
+Proﬁt
+Target
+25-50% of
+Debit Paid
+Downside
+Risk
+Stock Could 
+Go To Zero
+Upside
+Risk
+None
+Probability
+of Proﬁt (POP)
+Trade	Setup
+Time	Decay	(Theta)	does	not	impact	this	position
+This	strategy	is	eligible	to	trade	in	an	IRA
+-P r o / i t / L o s s +
+50%
+   !"# $%&'() *+ $,*-.
+��
+LONG CALL
+Market
+Assumption
+Implied
+Volatility
+Optimal
+Timeframe
+Bullish Low 30-60 DTE
+Proﬁt
+Target
+25-50% of
+Max Proﬁt
+Downside
+Risk
+Deﬁned
+Upside
+Risk
+None
+Probability
+of Proﬁt (POP)
+ 
+Trade	Setup
+	 	 	 	 	 
+Time	Decay	(Theta)	NEGATIVELY	impacts	this	position
+This	strategy	is	eligible	to	trade	in	an	IRA
+-P r o / i t / L o s s +
+Long	Strike
+   !"# $%& '() *+,,
+Under 50%
+��
+LONG CALL VERTICAL
+Market
+Assumption
+Implied
+Volatility
+Optimal
+Timeframe
+Bullish Low 30-60 DTE
+Proﬁt
+Target
+25-50% of
+Max Proﬁt
+Downside
+Risk
+Deﬁned
+Upside
+Risk
+None
+Probability
+of Proﬁt (POP)
+Approximately
+50%
+Trade	Setup
+	 	 	 	 	 	 	 	 	 	 	 
+(Select	Strikes	with	similar	distance	from	current	stock	price)
+Time	Decay	(Theta)	can	be	POSITIVE	when	price	is
+higher	than	break-even	point
+Time	Decay	(Theta)	can	be	NEGATIVE	when	price	is
+lower	than	break-even	point
+This	strategy	is	eligible	to	trade	in	an	IRA
+-P r o / i t / L o s s +
+Long	Strike
+Short	Strike
+Break-even
+Market
+Assumption
+Implied
+Volatility
+Optimal
+Timeframe
+Bullish Low 30-60 DTE
+Proﬁt
+Target
+25-50% of
+Max Proﬁt
+Downside
+Risk
+Deﬁned
+Upside
+Risk
+None
+Probability
+of Proﬁt (POP)
+Approximately
+50%
+       !"# $%& '() *+,,- .&,, $%& $() *+,,
+��
+BEARISH Strategies
+HIGH Implied Volatility
+The following strategies can be used when you think the
+price of the underlying symbol will go DOWN
+AND
+Implied Volatility Percentile (IV%) is OVER 50
+��
+COVERED PUT (SHORT COVERED STOCK)
+Market
+Assumption
+Implied
+Volatility
+Optimal
+Timeframe
+Bullish Low 30-60 DTE
+Proﬁt
+Target
+25-50% of
+Max Proﬁt
+Downside
+Risk
+Deﬁned
+Upside
+Risk
+None
+Probability
+of Proﬁt (POP)
+Approximately
+50%
+Trade	Setup
+Market
+Assumption
+Implied
+Volatility
+Optimal
+Timeframe
+Bearish High 30-60 DTE
+Proﬁt
+Target
+25-50% of
+Debit Paid
+Downside
+Risk
+None
+Upside
+Risk
+Undeﬁned
+Probability
+of Proﬁt (POP)
+55%+
+Time	Decay	(Theta)	POSITIVELY	impacts	this	position
+This	strategy	must	be	traded	in	a	margin	account
+-P r o / i t / L o s s +
+Strike	Price
+2.00 E26#"-F 264".@ #T 2-#<=%%
+2.00 >RJ I,-
+��
+“POOR MAN’S” COVERED PUT
+Trade	Setup
+	 	 	 	 	 	 	 
+	 	 	 	 	 	 	 
+Market
+Assumption
+Implied
+Volatility
+Optimal
+Timeframe
+Bearish High See Trade
+Setup 
+Below
+Proﬁt
+Target
+25-50% of
+Max Proﬁt
+Downside
+Risk
+None
+Upside
+Risk
+Undeﬁned
+Probability
+of Proﬁt 
+(POP)
+55%+
+Time	Decay	(Theta)	can	be	POSITIVE	when	price	is
+lower	than	break-even	point
+Time	Decay	(Theta)	can	be	NEGATIVE	when	price	is
+higher	than	break-even	point
+This	strategy	is	eligible	to	trade	in	an	IRA
+-P r o / i t / L o s s +
+Short	Strike
+Break-even
+Long	Strike
+     Buy One ITM Put (long duration)
+     Sell One OTM Put (short duration)
+��
+SHORT CALL VERTICAL
+Trade	Setup
+	 	 	 	 	 
+	 	 	 	 	 	 
+Market
+Assumption
+Implied
+Volatility
+Optimal
+Timeframe
+Bearish High 30-60 DTE
+Proﬁt
+Target
+25-50% of
+Debit Paid
+Downside
+Risk
+None
+Upside
+Risk
+Deﬁned
+Probability
+of Proﬁt 
+(POP)
+65%+
+Time	Decay	(Theta)	can	be	POSITIVE	when	price	is
+lower	than	break-even	point
+Time	Decay	(Theta)	can	be	NEGATIVE	when	price	is
+higher	than	break-even	point
+This	strategy	is	eligible	to	trade	in	an	IRA
+Short	Strike
+Break-even
+Long	Strike
+-P r o / i t / L o s s +
+   
+     
+!"## $%" $&' ()##
+!"# $%& '"()*&( $+, -.//
+��
+SHORT NAKED CALL
+Trade	Setup
+Market
+Assumption
+Implied
+Volatility
+Optimal
+Timeframe
+Bearish High 
+Proﬁt
+Target
+25-50% of
+Debit Paid
+Downside
+Risk
+None
+Upside
+Risk
+Undeﬁned
+Probability
+of Proﬁt 
+(POP)
+70%+
+Strike	Price
+-P r o / i t / L o s s +
+Time	Decay	(Theta)		POSITIVELY	impacts	this	position
+This	strategy	must	be	traded	in	a	margin	account
+   30-100 DTE
+   !"## $%" $&' ()##
+��
+BEARISH Strategies
+LOW Implied Volatility
+The following strategies can be used when you think the
+price of the underlying symbol will go DOWN
+AND
+Implied Volatility Percentile (IV%) is UNDER 50
+��
+SHORT STOCK
+Trade	Setup
+Market
+Assumption
+Implied
+Volatility
+Optimal
+Timeframe
+Bearish N/A N/A
+Proﬁt
+Target
+25-50% of
+Debit Paid
+Downside
+Risk
+None
+Upside
+Risk
+Undeﬁned
+Probability
+of Proﬁt 
+(POP)
+50%
+Time	Decay	(Theta)		does	not	impact	this	position
+This	strategy	must	be	traded	in	a	margin	account
+-P r o / i t / L o s s +
+    !"## $!%&'() !%*'"+ &, !(&-.
+��
+LONG PUT
+Trade	Setup
+	 	 	 	 	 
+Market
+Assumption
+Implied
+Volatility
+Optimal
+Timeframe
+Bearish Low 30-60 DTE
+Proﬁt
+Target
+25-50% of
+Debit Paid
+Downside
+Risk
+None
+Upside
+Risk
+Amount of
+Debit Paid
+Probability
+of Proﬁt 
+(POP)
+Under 
+50%
+Time	Decay	(Theta)		NEGATIVELY	impacts	this	position
+This	strategy	is	eligible	to	trade	in	an	IRA
+-P r o / i t / L o s s +
+Break-Even
+Long	Strike
+  !"# $%& '"(
+��
+LONG PUT VERTICAL
+Trade	Setup
+Buy	One	ITM	Put;	Sell	One	OTM	Put
+Market
+Assumption
+Implied
+Volatility
+Optimal
+Timeframe
+Bearish Low 30-60 
+DTE
+Proﬁt
+Target
+25-50%
+Downside
+Risk
+None
+Upside
+Risk
+Amount of
+Debit Paid
+Probability
+of Proﬁt (POP)
+Approximately 
+50%
+This	strategy	is	eligible	to	trade	in	an	IRA
+-P r o / i t / L o s s +
+Short	Strike
+Break-Even
+Long	Strike
+Time	Decay	(Theta)	can	be	POSITIVE	when	price	is
+lower	than	break-even	point
+Time	Decay	(Theta)	can	be	NEGATIVE	when	price	is
+higher	than	break-even	point
+��
+POSITION SIZING
+The	size	of	our	trades	relative	to	the	amount	of	capital	in	our	trading	account	is	critical	to	
+success	as	a	trader .	I	cannot	emphasize	this	enough.	The	difference	between	a	successful	
+trader ,	and	a	losing	trader	can	be	de/ined	by	the	size	of	the	trade	relative	to	your	account	
+value.	If	you	trade	too	large	for	your	account,	it	is	just	a	matter	of	time	that	you	will	suffer	
+a	signi/icant	loss	that	cripples	your	account.
+Every	day	when	the	market	opens,	it	presents	new	trading	opportunities.	As	a	newer	
+trader,	you	may	initially	suffer	from	a	common	trader	condition	called	FOMOOT	–	
+Fear	Of	Missing	Out	On	Trades.	If	the	condition	isn’t	cared	for,	it	could	be	detrimental	
+to	your	trading	career!
+Trading	is	all	about	math,	and	letting	the	probabilities	play	out	in	your	favor .	If	you	
+trade	too	big,	and	suffer	a	major	loss	in	your	account,	the	probabilities	will	never	play	
+out.
+Here	are	some	rules	to	follow	so	you	can	live	to	trade	another	day:
+◾
+5%	Rule	–	Don’t	allocate	more	than	5%	of	your	trading	capital	to	any	one	
+position.	Preferably	much	less.	We	typically	use	less	than	1%	of	capital	per	trade.
+◾
+50%	Rule	–	Don’t	allocate	more	than	50%	of	your	total	account	value	to	ALL	
+trades.	Remember,	options	use	leverage.	We	can	earn	a	signi/icant	return	with	less	
+capital	at	risk.	We	typically	use	much	less	than	50%	of	our	capital,	so	that	when	IV	
+spikes	to	high	levels,	we	have	the	capital	available	to	take	advantage	of	the	
+opportunity.
+TRUE DIVERSIFICATION
+Many	“Investment	Experts”	say	that	portfolio	diversi/ication	can	reduce	risk.	While	
+this	is	true,	their	interpretation	of	diversi/ication	is	much	different	than	ours.	They	
+conclude	that	having	a	variety	of	LONG	stocks,	bonds	and	cash	as	being	diversi/ied.
+How	does	that	type	of	“diversi/ication”	hold	up	in	periods	of	a	market	meltdown	like	
+we	saw	in	2008?	If	you	were	invested	in	a	401k	or	any	type	of	mutual	fund	portfolio	
+at	the	time,	you	most	likely	saw	losses	of	20%	in	a	very	conservative	portfolio,	all	the	
+way	up	to	60%+	losses	in	a	more	stock	heavy	allocation.
+��
+The	problem	with	this	traditional	diversi/ication	methodology	is	that	when	panic
+enters	the	market	place,	all	of	those	so	called	“diversi/ied	assets”	become	extremely
+correlated.	So,	you	basically	have	a	diversi/ied	allocation	when	markets	are	moving
+up	-	when	you	need	it	the	least.	But,	when	the	market	moves	down	quickly,	the	assets
+become	extremely	correlated,	and	less	diversi/ied	-	when	you	need	it	the	most.
+Let’s	take	a	look	at	the	5	ways	to	create	TRUE	DIVERSIFICATION	that	actually	reduces
+risk	in	all	market	environments:
+1)	Diversify	Your	Symbols	–	Allocate	your	trades	among	multiple	different	stocks,
+ETFs,	Futures	and	Indices.	Many	stocks	and	indexes	move	together.
+2)	Diversify	Your	Asset	Classes	–	Utilize	uncorrelated	assets	such	as	stocks,
+bonds,	gold,	oil,	natural	gas,	currencies,	grains	etc.
+3)	Diversify	Your	Strategy	–	Use	a	mix	of	the	different	strategies	we	teach.
+•B u l l i s h 	 S trategies
+•B e a r i s h 	 S trategies
+•D e l t a 	 N e u tral	Strategies
+•H i g h 	 I V 	 Strategies
+•L o w 	 I V 	 S trategies
+•U n d e / i n e d 	 R i s k 	 S trategies
+•D e / i n e d 	 R i s k 	 S trategies
+4)	Diversify	Your	Time	-	Allocate	your	trades	over	a	period	of	time.	If	you	plan	to
+place	10	trades,	instead	of	placing	them	all	in	one	day,	spread	them	out	over	
+several	days	or	weeks.	So,	as	the	markets	move,	you	can	be	positioned	over	
+different	prices	and	market	environments.
+5)	Diversify	Your	Entry	Price	–	Allocate	your	trades	across	different	prices.	If	you
+plan	to	enter	a	trade	with	20	contracts.	Consider	/irst	entering	with	5.	Wait	for
+price	to	move	a	bit,	then	enter	another	5.	Continue	entering	trades	until	you
+have	on	the	total	intended	position	size.
+��
+	 	 	 	 	 	 	 	 
+ 	 
+ 	 	 	 	 	 
+Pro Membership
+	
+	 	 	 	 	 	 	
+	 	 
+	 	 	 	 	 	 	 	 
+	 	 	 	 	 
+	 	 	 
+	 	 	 	 	 	 
+	 	 	 	 	 	 
+	 	 	 	
+	 
+	 
+	
+	 	 	 	 
+	 	 
+	 	 	 	 	 
+A.<.?B. O!M_ R"4'. Z0."-@ M?4 _S4?0 Z$' J#U?0. Z33 
+I0,@ M(!(I( M?'.# &#,"@. R"4?$?$7
+ 
+  
+  
+https://
+pro-trialGet Instant Accessnavigationtrading.com/
+  
+          Get Instant Access
+            
+         
+       
+       
+      
+           
+            
+          
+      
+         ✓ 1"23 423$2" +'"#'%/5
+      ✓ +=2"' +'"#3/&%>+'"#$$&% +'"#'%/5
+       
+       
+      
+           
+            
+          
+      
+        
+     
+       
+       
+      
+           
+            
+          
+      
+      
+✓ !"#$ ;,<= 2-"4-.71
+   
+      
+  
+            
+         
+     
+                  
+  
+    
+                  
+  
+    
+              
+          
+         
+"Look over our shoulder" as we place LIVE trades in our own brokerage account. 
+Our professional training includes step-by-step instructions for trading strategies 
+used by successful Hedge Funds, Floor Traders & Market Makers
+       
+     
+       
+    ✓   
+      
+           
+            
+          
+      
+       
+     
+   
+   
+      
+           
+      
+          
+      
+       
+✓ !"#$% #&%"'( )*# %+#*& & mobile app
+✓ 20+ '"#$% #&%"'( ,%" -%%.
+✓ /,%0*1*0 '"#$% %2'"*%(
+✓ /,%0*1*0 '"#$% %3*'(
+✓ /,%0*1*0 '"#$% #$45('+%2'( ✓ 6*"%0'*72#& /'"#'%8*%(
+✓ 9%%.&: ;*$%7 <,$#'%( '7 "%)*%- #&& '"#$%( ✓ =,'*72( 72 >5'5"%(
+✓ Daily post on all positions and outlook      
+✓ >5&& ,%"A7"+#20% ('#'*('*0( 72 #&& '"#$%(    
+✓ <2&*+*'%$ %+#*& and chat (5,,7"'                   
+✓ Dynamic Calendar Spreads
+   Dynamic Butterfly Spreads
+✓ ?#"2*28( @227520%+%2' !"#$*28 /'"#'%8*e( 
+   
+  
+✓ NavigationTrend Trading (NTT) 
+✓ Hedge Hog Strategy
+✓ Day Trading Options for Income
+��

@@ -1,6 +1,6 @@
 Encargo de Nicolás (25/10/2026). Revisa SOLO el agente de trading. Su prompt vigente está en PROMPT-AGENTE-TRADING-NUBE.md (es la rutina trig_01HhTpY4sVUqaj1ui3qi7wyQ, que opera en papel en la nube y lleva su REGISTRO JSON al final de cada correo). Respeta todas sus reglas: solo papel, nunca dinero real, claves ni cuentas.
 
-CONTEXTO: lee primero la carpeta contexto/ (último correo de la rutina con su REGISTRO completo de operaciones en papel, y las notas de lo decidido) y INFORME-TRADING-SEGUIDO.md.
+PASO 0, ANTES DE TODO: lee contexto/00-LEER-PRIMERO.md y, en su orden, todo lo que indica (qué es cada cosa, el curso de forex de Nicolás, las conclusiones unificadas, el último correo con el REGISTRO y las notas). Ojo: «arbitraje-cero-gas» NO es lo que se hace; de ahí solo valen las estrategias de trading del curso que se probaron en junio. Escribe un resumen corto de lo que entendiste antes de empezar el punto 1.
 
 1. Revisa las operaciones en papel hechas hasta ahora (si tienes Gmail, busca los correos «Agente de trading —» y lee el último REGISTRO; si no, dilo y reconstruye lo que puedas con datos de data.binance.vision).
 2. Analiza cada patrón de vela (martillo, envolvente, doji, estrella, mechas, etc.): qué significa y si de verdad predice algo en BTC con datos reales y costos de 0,05 %/lado. Con eso mejora las estrategias que funcionan y consolídalas.
