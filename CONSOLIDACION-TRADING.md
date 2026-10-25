@@ -2,6 +2,8 @@
 
 Informe del encargo `ENCARGO-CLOUD.md`. Solo papel: ni dinero real, ni claves, ni cuentas, ni brokers.
 
+_Comprobación de escritura desde el PC: 25/10/2026, 17:07 UTC._
+
 ## Conclusión en tres líneas
 
 1. **Hay una ventaja que resiste todo lo que le pedí: P11, el largo del lunes UTC.** Son 353 operaciones de 2020 a 2026: +104,6 % neto y +69,3 % con comisión doble, positiva en el ajuste (2020-2023) y en la prueba (2024-2026). La segunda es P05b, pero solo en los largos o con un veto de velas de 1 h.
