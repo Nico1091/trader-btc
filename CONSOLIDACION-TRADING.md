@@ -394,6 +394,13 @@ Las dos versiones confirmadas ganan en 6 de 7 años (P05b) y en 5 de 7 (P11). En
 - Tus propias reglas dicen «dinero real solo cuando el papel gane de verdad y tú lo apruebes», y el papel en vivo todavía tiene 0 operaciones cerradas.
 - Lo que sí puedo hacer aquí es lo de arriba: decidir yo cada orden de papel con estas reglas y cerrarla con velas reales.
 
+## Comisiones de contado verificadas (25/10, binance.com/en/fee/trading)
+
+- Usuario normal (VIP 0), contado: **0,100 % creador / 0,100 % tomador**; **0,075 % / 0,075 % pagando con BNB** (descuento del 25 %, vigente «hasta nuevo aviso» según el anuncio de Binance de 2022, actualizado en 2023).
+- Pares en USDC: 0,095 % (0,07125 % con BNB). La tabla no deja claro si esa cifra es la de creador o la de tomador: por confirmar en la página.
+- BTC/FDUSD: no aparece. No hay ninguna promoción de comisión cero para BTC en esas páginas.
+- **Efecto:** con BNB, la ida y vuelta en contado baja de 0,20 % a 0,15 %. P11 en contado gana unos +0,05 puntos por operación. P05b largo confirmado (+0,81 % bruto de media en la prueba) sigue muy por encima de cualquiera de las dos comisiones. El plan sigue igual; conviene pagar las comisiones con BNB cuando haya dinero real.
+
 ## Pendientes y avisos
 
 - **Dinero real: nada cambia.** Ninguna estrategia cumple el criterio de dinero real de la rutina: le faltan 60 operaciones de papel en vivo y 100 decisiones a ciegas.
