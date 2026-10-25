@@ -324,5 +324,5 @@ No edité `PROMPT-AGENTE-TRADING-NUBE.md`: lo decide Nicolás. Estos son los cam
 ## Pendientes y avisos
 
 - **Dinero real: nada cambia.** Ninguna estrategia cumple el criterio de dinero real de la rutina: le faltan 60 operaciones de papel en vivo y 100 decisiones a ciegas.
-- **Telegram:** el resumen se manda con el prefijo «[Trading cloud]» (ver el final de la sesión).
-- **Repositorio:** el código, los CSV y este informe van en la rama `claude/encargo-cloud-md-q0u3ex`. Las velas no se suben: se vuelven a bajar con `consolidacion/descargar_um.py`, que comprueba el SHA-256.
+- **Telegram:** enviado el 25/10 a las 16:30 UTC con el prefijo «[Trading cloud]», con `TELEGRAM_TOKEN` del entorno (el mismo `tg.py` de la rutina). El token no se imprimió ni se guardó.
+- **Repositorio:** el código, los CSV y este informe están en commits de la rama `claude/encargo-cloud-md-q0u3ex`. Desde esta sesión GitHub dejó leer, pero no escribir (`git push` respondió 403). Por eso también se entrega `consolidacion-trader-btc.bundle`, para aplicarlo a mano. Las velas no se suben: se vuelven a bajar con `consolidacion/descargar_um.py`, que comprueba el SHA-256.
