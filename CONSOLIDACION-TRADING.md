@@ -321,6 +321,64 @@ No edité `PROMPT-AGENTE-TRADING-NUBE.md`: lo decide Nicolás. Estos son los cam
 
 ---
 
+## Tarea 8 (pedido de Nicolás, 25/10): operar solo cuando las velas y el mercado confirman
+
+**Pedido:** quedarse solo con lo que acierta, descartar lo que no da y operar únicamente cuando las velas están como dice la estrategia y el mercado se mueve a su favor.
+
+**Bases:** las que sobrevivieron a la tarea 3. P11, P05b solo largo, P05b con veto de 1 h y P05c solo largo.
+
+**Diez filtros de confirmación**, medidos en el instante de la señal con velas ya cerradas:
+- patrón de vela a favor en las últimas 1 o 3 velas de 15 m o de 1 h;
+- impulso a favor en 1, 4 o 24 h;
+- vela de fuerza (cuerpo ≥ 50 % del rango y cierre en el extremo);
+- volumen mayor que 1,5 veces la media;
+- tendencia diaria a favor (cierre sobre la SMA 50).
+
+Son 60 combinaciones. Código en `consolidacion/t8_confirmacion.py`, `t8b_valor_filtro.py` y `t8c_cartera.py`.
+
+**Lo que no funcionó, dicho primero.** La regla fijada antes de mirar era elegir el filtro en 2020-2023 (el de mejor neto con el doble por operación) y comprobarlo en 2024-2026. **Falló:**
+- Para P05b eligió la «vela de fuerza», que en la prueba empeoró: +11,6 % frente a +21,6 % sin filtro, y −2,7 % frente a +27,9 % en la versión con veto.
+- Para P11 eligió el impulso de 1 h, que en la prueba bajó a la mitad: +25,0 % frente a +48,7 %.
+- El impulso de 1 a 4 h no filtra nada en P05b: la señal ya es un rompimiento al alza.
+
+**Lo que sí funcionó.** Dos filtros mejoran en los dos tramos y tienen la lógica del curso: patrón de vela que confirma, y operar a favor de la tendencia mayor. Para saber si el filtro aporta o solo hereda la ventaja de la estrategia, comparé las operaciones filtradas con 5.000 subconjuntos al azar del mismo tamaño sacados de la misma estrategia:
+
+| Estrategia + confirmación | Ajuste 2020-23: ops · media neta · pct frente a subconjuntos | Prueba 2024-26: ops · media neta · pct | Prueba: neto y doble |
+|---|---|---|---|
+| **P05b largo + patrón alcista en las 3 últimas velas de 1 h** (futuros) | 54 de 280 · +0,567 % (base +0,186 %) · 88 | 57 de 216 · **+0,810 %** (base +0,100 %) · **99,9** | +46,2 % · doble +42,2 % |
+| La misma, en contado (0,10 %/lado) | 54 · +0,437 % (base +0,056 %) · 88 | 57 · +0,680 % (base −0,030 %) · 100 | +38,8 % · doble +27,4 % |
+| **P11 + cierre diario sobre la SMA 50** (futuros) | 103 de 206 · +0,417 % (base +0,271 %) · 71 | 83 de 147 · +0,612 % (base +0,331 %) · 92 | +50,8 % · doble +42,5 % (sin filtro: +48,7 % con el doble de operaciones) |
+| P05b + veto 1 h + patrón alcista 1 h | 69 · +0,338 % · 70 | 87 · +0,366 % · 93 | +31,8 % · doble +25,7 % |
+
+**Cuenta de 40.000 pesos en contado** con las tres juntas: P11 con tendencia, P05b largo confirmado y P05c largo. Una posición a la vez, riesgo del 1,5 %, topes de −3 % al día y −6 % a la semana. El tamaño sale de la distancia al stop conocida al entrar.
+
+| Tramo | Operaciones | Aciertos | Saldo final | Por año | Peor saldo | Con el doble de comisión |
+|---|---|---|---|---|---|---|
+| 2020-2023 | 195 (0,95 por semana) | 47 % | 58.931 pesos (+47,3 %) | +10,4 % | 36.884 | 47.095 (+4,2 %/año) |
+| 2024-2026 | 186 (1,28 por semana) | 47 % | 57.943 pesos (+44,9 %) | +14,1 % | 40.000 | 46.493 (+5,5 %/año) |
+
+**Cuánto creerle.**
+- El filtro de la vela alcista de 1 h se miró después de ver los dos tramos y salió de 60 combinaciones. Su percentil en el ajuste (88) no llega a 95.
+- Son 111 operaciones en 6,8 años (unas 0,3 por semana): **muestra débil**.
+- Queda **en prueba**, no como regla. Lo honesto es esperar menos de lo que dice la tabla: entre el resultado con el doble de comisión (+4 a +5 % al año) y el base (+10 a +14 %).
+- La primera prueba real es PP-6 (lunes 26 y martes 27).
+- Una corrección en el camino: la primera versión de la cartera daba +22 % al año porque calculaba el tamaño con la pérdida real, que no se conoce al entrar. Lo arreglé antes de dar cifras.
+
+**Lista final actualizada («operar solo cuando debe»)**
+
+| Estrategia | Cuándo opera | Estado |
+|---|---|---|
+| P11 | Lunes 00:00 UTC, solo si el cierre diario de ayer está sobre la SMA 50 | Sigue (la versión sin filtro también es válida) |
+| P05b largo confirmado | Rompimiento de apertura + 0,5·ATR **y** patrón alcista en las 3 últimas velas de 1 h | En prueba (muestra débil, muy buena en 2024-26) |
+| P05c largo | Rompimiento de apertura + 1·ATR | En prueba |
+| Vela de fuerza, impulso de 1-24 h y volumen como confirmación | — | Descartados: no mejoran en la prueba |
+
+**Operar yo directamente con un MCP de pantalla.** Desde esta sesión no se puede, y aunque se pudiera no lo haría sin tu sí explícito:
+- Esta sesión corre en un servidor de Anthropic, no en tu PC. No ve tu pantalla ni tiene un conector de control de escritorio hacia tu equipo.
+- Para que Claude use tu pantalla haría falta abrir una sesión en tu PC (Claude Code o la app de escritorio con control del equipo).
+- Tus propias reglas dicen «dinero real solo cuando el papel gane de verdad y tú lo apruebes», y el papel en vivo todavía tiene 0 operaciones cerradas.
+- Lo que sí puedo hacer aquí es lo de arriba: decidir yo cada orden de papel con estas reglas y cerrarla con velas reales.
+
 ## Pendientes y avisos
 
 - **Dinero real: nada cambia.** Ninguna estrategia cumple el criterio de dinero real de la rutina: le faltan 60 operaciones de papel en vivo y 100 decisiones a ciegas.

@@ -1,0 +1,4 @@
+com 0.10/lado 2020-2023: 195 ops (0.95/semana), aciertos 47 %, saldo 58,931 COP (+47.3 %, +10.4 %/año), mínimo 36,884
+com 0.10/lado 2024-2026: 186 ops (1.28/semana), aciertos 47 %, saldo 57,943 COP (+44.9 %, +14.1 %/año), mínimo 40,000
+com 0.20/lado 2020-2023: 189 ops (0.93/semana), aciertos 42 %, saldo 47,095 COP (+17.7 %, +4.2 %/año), mínimo 36,588
+com 0.20/lado 2024-2026: 186 ops (1.28/semana), aciertos 42 %, saldo 46,493 COP (+16.2 %, +5.5 %/año), mínimo 40,000

@@ -65,9 +65,36 @@ def cerrar(dia):
         k = np.flatnonzero(lo <= st)
         px, mot = (st, "stop") if len(k) else (cl[-1], "tiempo")
         res.append(("PP-1 P11", 1, ap, px, mot, 0.05, 0.05))
-    # PP-2 (P05b + veto 1h) y PP-3 (P05c largo): primer cierre de 15 m fuera de la banda hasta las 23:45
     c15 = cl[14::15]
     t15 = t[14::15] + 60
+    # PP-1f: PP-1 solo si el cierre diario de ayer está sobre su SMA 50 (consolidación, tarea 8)
+    if dia.weekday() == 0:
+        dd = velas(86400, d0 - dt.timedelta(days=60), d0)
+        dd = dd[dd[:, 0] < d0.timestamp()]
+        sma = dd[-50:, 4].mean()
+        print(f"PP-1f: cierre de ayer {dd[-1, 4]:,.2f} vs SMA 50 {sma:,.2f} -> "
+              + ("opera igual que PP-1" if dd[-1, 4] > sma else "NO opera (tendencia diaria en contra)"))
+    # PP-6: P05b k = 0,5 solo largo, confirmado por un patrón alcista en las 3 últimas velas de 1 h cerradas
+    up6 = ap + 0.5 * atr
+    j6 = next((i for i, x in enumerate(c15[:95]) if x > up6 or x < ap - 0.5 * atr), None)
+    if j6 is None or c15[j6] < up6:
+        print("PP-6 P05b largo confirmado: sin señal larga" + ("" if j6 is None else " (la primera señal fue corta)"))
+    else:
+        ts6 = dt.datetime.fromtimestamp(t15[j6], dt.timezone.utc)
+        if not veto_1h(ts6, -1):  # veto_1h(t, -1) devuelve los patrones ALCISTAS de las 3 últimas velas de 1 h
+            print(f"PP-6 P05b largo confirmado: señal a las {ts6:%H:%M} sin vela alcista de 1 h -> no opera")
+        else:
+            i0 = int(np.searchsorted(t, t15[j6]))
+            f6 = next((i for i in range(i0, min(i0 + 60, len(t))) if lo[i] < up6), None)
+            if f6 is None:
+                print(f"PP-6: señal a las {ts6:%H:%M} sin llenar en 60 min")
+            else:
+                px, mot = cl[-1], "tiempo"
+                for i in range(len(c15)):
+                    if t15[i] > t[f6] + 60 and c15[i] <= ap:
+                        px, mot = c15[i], "stop"; break
+                res.append(("PP-6 P05b largo confirmado", 1, up6, px, mot, 0.02, 0.05))
+    # PP-2 (P05b + veto 1h) y PP-3 (P05c largo): primer cierre de 15 m fuera de la banda hasta las 23:45
     for nombre, kk, solo_largo, veto in (("PP-2 P05b+veto", 0.5, False, True), ("PP-3 P05c largo", 1.0, True, False)):
         up, dn = ap + kk * atr, ap - kk * atr
         j = next((i for i, x in enumerate(c15[:95]) if x > up or (x < dn and not solo_largo) or (solo_largo and x < dn)), None)

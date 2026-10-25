@@ -27,6 +27,15 @@ Si se activan a la vez PP-1 y PP-2 en el mismo lado, solo se cuenta una posició
 
 El martes no hay P11: es una sola operación por semana.
 
+## Añadidas el 25/10 a las 16:32 UTC (antes del resultado): versiones «solo cuando debe»
+
+Salen de la tarea 8 de `CONSOLIDACION-TRADING.md`: operar solo cuando las velas y el mercado confirman la señal. Se cierran con el mismo script.
+
+| Id | Días | Regla | Tamaño |
+|---|---|---|---|
+| PP-1f | Lunes 26 | PP-1 **solo si** el cierre diario del domingo (Coinbase) está sobre su SMA 50. A las 16:30 UTC del domingo, el precio (80.547) estaba bajo la SMA 50 (81.812): si sigue así, **no opera**. | Igual que PP-1 |
+| PP-6 | Lunes 26 y martes 27 | P05b k = 0,5 **solo largo**: primer cierre de 15 m sobre apertura + 0,5·ATR, y **solo si** en las 3 últimas velas de 1 h cerradas hay un patrón alcista del curso. Límite en la banda, 60 min; stop con un cierre de 15 m que vuelve a la apertura; salida a las 23:59 UTC. | 600 pesos de riesgo el lunes; 300 el martes (Reserva Federal) |
+
 ## Qué no hago y por qué
 
 - No pongo más órdenes para llegar a tres al día. Lo medido dice que más frecuencia pierde por comisión (tarea 4).
