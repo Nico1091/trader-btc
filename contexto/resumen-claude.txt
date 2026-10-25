@@ -1,0 +1,16 @@
+RESUMEN PARA DECIDIR · 2026-10-20 21:26:39 hora de Colombia · escrito 21:26:40
+BTCUSDT 82,761.61 | cambio 10 s -0,016 % · 1 min +0,010 % · 5 min -0,046 % · 15 min -0,19 % · 1 h -0,18 % · 24 h +1,37 % · 3 días +1,26 %
+Volatilidad: 5 min 0,065 % · 1 h 0,19 % (≈ 0,95 % diario) · ATR 1 min 0,043 % · movimiento de 1 min = +0,3 desvíos
+Posición en el rango (0 mínimo, 1 máximo): 5 min 0,43 · 1 h 0,06 · 24 h 0,69
+Tendencia: precio vs media de 50 h +0,88 % · pendiente 48 h +0,20 % · RSI 1 min 36 · RSI 15 min 46 · vela 1 min (patrón) +1 · distancia al VWAP del día -0,27 %
+Flujo (compras agresoras, 50 % = neutro): 10 s 16 % · 1 min 63 % · 5 min 54 % · volumen 1 min ×0,60 del promedio de la hora
+Futuros: financiación +0,0052 % cada 8 h · interés abierto 1 h +0,21 % · base marca/índice -0,044 % · liquidados 5 min largos 0,061 / cortos 0,001 BTC · 1 h 0,06 / 0,00
+Libro contado (5 niveles): compra 3,00 BTC · venta 6,05 BTC · mejor 82761.6 / 82761.61
+Contexto: miedo y codicia 63 · dólar sintético 94.935 · interés abierto Bybit+OKX+Deribit 108447 BTC
+Próximo freno: Trump: The President delivers Remarks · desde 21/10 17:50
+Modelo estadístico (futuros, barrera 0,15 % en 15 min): prob. de movimiento 45 % · prob. de subir 49 % · ganancia esperada neta largo -7,3 pb / corto -6,9 pb
+MI LIBRO (Claude, futuros, papel): 12.5871 USDT = 40,000 COP (+0,00 %) · ciclos 0 (ganados 0) · sin posición
+  orden 410809: esperar / %  min · Precio en el piso de la hora con venta agresiva (20 % compras en 10 s); tendencia diaria a
+Costos: entrada con orden límite 0,02 % (si no la atraviesan en 30 s, se cancela) · objetivo 0,02 % · stop o tiempo 0,05 % · ida y vuelta 0,04 % ganando, 0,07 % perdiendo
+Límites: stop 0,08-0,35 % (la orden mínima es 0,001 BTC ≈ 83 USDT y el 3 % de 12,59 USDT no admite más) · objetivo 0,08-2 % · 2-240 minutos · frenos 15 % diario y 20 % semanal · tanda de 100 ciclos
+Ordenar: python -I claude_orden.py comprar|vender|esperar|cerrar --objetivo 0.25 --stop 0.2 --minutos 20 --razon "..."
