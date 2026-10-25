@@ -365,6 +365,20 @@ Son 60 combinaciones. Código en `consolidacion/t8_confirmacion.py`, `t8b_valor_
 - La primera prueba real es PP-6 (lunes 26 y martes 27).
 - Una corrección en el camino: la primera versión de la cartera daba +22 % al año porque calculaba el tamaño con la pérdida real, que no se conoce al entrar. Lo arreglé antes de dar cifras.
 
+**Año por año** (`consolidacion/t8d_por_anio.py`; neto en futuros, suma de % por año):
+
+| Año | P05b largo: base | P05b largo + vela alcista 1 h (ops) | P11: base | P11 + tendencia diaria (ops) |
+|---|---|---|---|---|
+| 2020 | +44,4 | +21,1 (19) | +45,0 | +22,5 (28) |
+| 2021 | +24,1 | +13,2 (15) | +13,0 | +22,9 (32) |
+| 2022 | −29,0 | −11,7 (12) | −8,9 | −7,1 (10) |
+| 2023 | +12,5 | +8,1 (8) | +6,8 | +4,7 (33) |
+| 2024 | +21,1 | +29,6 (19) | +53,1 | +41,2 (33) |
+| 2025 | −0,1 | +7,3 (17) | −19,7 | −1,3 (25) |
+| 2026 | +0,6 | +9,2 (21) | +15,3 | +10,9 (25) |
+
+Las dos versiones confirmadas ganan en 6 de 7 años (P05b) y en 5 de 7 (P11). En los años malos (2022 y 2025) pierden mucho menos que la base: la confirmación protege más de lo que suma. 2022, el año bajista, sigue en negativo en las dos.
+
 **Lista final actualizada («operar solo cuando debe»)**
 
 | Estrategia | Cuándo opera | Estado |
