@@ -36,6 +36,17 @@ Salen de la tarea 8 de `CONSOLIDACION-TRADING.md`: operar solo cuando las velas 
 | PP-1f | Lunes 26 | PP-1 **solo si** el cierre diario del domingo (Coinbase) está sobre su SMA 50. A las 16:30 UTC del domingo, el precio (80.547) estaba bajo la SMA 50 (81.812): si sigue así, **no opera**. | Igual que PP-1 |
 | PP-6 | Lunes 26 y martes 27 | P05b k = 0,5 **solo largo**: primer cierre de 15 m sobre apertura + 0,5·ATR, y **solo si** en las 3 últimas velas de 1 h cerradas hay un patrón alcista del curso. Límite en la banda, 60 min; stop con un cierre de 15 m que vuelve a la apertura; salida a las 23:59 UTC. | 600 pesos de riesgo el lunes; 300 el martes (Reserva Federal) |
 
+## Lectura antes de operar (regla añadida el 25/10, pedida por Nicolás)
+
+Ninguna orden se decide sin haber leído antes las velas que la regla necesita, completas y sin huecos. Si falta alguna, **no se opera** y se anota «lectura insuficiente». El script lo comprueba y lo imprime:
+
+| Para qué | Velas que se leen antes | Mínimo exigido |
+|---|---|---|
+| ATR14 (bandas de P05b y P05c) | Diarias de los 15 días previos | 15 seguidas |
+| Tendencia diaria (PP-1f) | Diarias de los 50 días previos | 50 seguidas |
+| Patrones de vela de 1 h (veto de PP-2, confirmación de PP-6) | De 1 h de las 72 horas previas, solo velas cerradas | 60 seguidas (los patrones usan una media de 20 velas, una tendencia de 10 y las 3 últimas) |
+| Señal y gestión | Cierres de 15 m y velas de 1 min del día | Las 1.440 del día para cerrar |
+
 ## Qué no hago y por qué
 
 - No pongo más órdenes para llegar a tres al día. Lo medido dice que más frecuencia pierde por comisión (tarea 4).

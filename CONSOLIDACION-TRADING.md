@@ -318,6 +318,7 @@ No edité `PROMPT-AGENTE-TRADING-NUBE.md`: lo decide Nicolás. Estos son los cam
 6. **Cierre de la prueba propia.** Añadir a «QUÉ ENTREGA CADA PASADA», punto 2: «Si existen `ORDENES-PRUEBA-PROPIA.md` y `consolidacion/t6_ordenes.py` en el repositorio trader-btc, cierra las órdenes PP-* y AZ-P* del día vencido con el script y anota el resultado». Solo aplica si la rutina tiene el repositorio. Si no, copiar las reglas de PP-1 a PP-5 a sus órdenes condicionadas.
 7. **«CÓMO PROBAR».** Añadir: «Cuando pruebes rejillas, filtros o vetos, elige en el ajuste y mira la prueba una sola vez; di cuántas variantes probaste. N3 (retroceso del curso) ganaba +107 % en el ajuste y perdía −38 % en la prueba».
 8. **Temas.** Marcar como hechos el 10 (réplica de la MEZCLA sin clasificador) y la parte de capital mínimo del 14. Añadir un tema 15: «Comisiones de contado de creador por par (BTCUSDT, BTC/USDC, BTC/FDUSD) leídas en binance.com con fecha. Es lo que más cambia el resultado en contado: N2 pasa de perder a ganar si la comisión de creador baja de 0,10 %».
+9. **Lectura antes de operar (pedido de Nicolás).** Añadir al libro CLAUDE: «Antes de cada decisión, lee y comprueba las velas que la regla necesita, completas y sin huecos: 15 diarias para el ATR14, 50 diarias para la SMA 50, 60 de 1 h cerradas para los patrones y las de 15 m y 1 min del día. Escribe en el diario cuántas leíste. Si falta alguna, no operes». `consolidacion/t6_ordenes.py` ya lo hace así.
 
 ---
 

@@ -26,10 +26,25 @@ def velas(gran, ini, fin):
     return np.array([d[k] for k in sorted(d)], float)
 
 
+class LecturaInsuficiente(Exception):
+    pass
+
+
+def lectura(arr, gran, minimo, que):
+    """Antes de operar: exige al menos `minimo` velas de `gran` segundos, seguidas y sin huecos.
+    Si no las hay, no se opera (se lanza LecturaInsuficiente)."""
+    n = len(arr)
+    huecos = int((np.diff(arr[:, 0]) != gran).sum()) if n > 1 else 0
+    print(f"  lectura {que}: {n} velas de {gran // 60 if gran >= 60 else gran} min, huecos {huecos} (mínimo {minimo})")
+    if n < minimo or huecos:
+        raise LecturaInsuficiente(f"{que}: {n} velas y {huecos} huecos; hacen falta {minimo} seguidas")
+    return arr
+
+
 def niveles(dia):
     d0 = dt.datetime.combine(dia, dt.time(), dt.timezone.utc)
     dd = velas(86400, d0 - dt.timedelta(days=16), d0)
-    dd = dd[dd[:, 0] < d0.timestamp()][-15:]
+    dd = lectura(dd[dd[:, 0] < d0.timestamp()][-15:], 86400, 15, "diarias para el ATR14")
     h, l, c = dd[:, 2], dd[:, 1], dd[:, 4]
     tr = np.maximum(h[1:] - l[1:], np.maximum(abs(h[1:] - c[:-1]), abs(l[1:] - c[:-1])))
     atr = tr[-14:].mean()
@@ -43,7 +58,8 @@ def veto_1h(t_senal, lado):
     sys.path.insert(0, __file__.rsplit("/", 1)[0])
     import pandas as pd
     from lib import patrones
-    h = velas(3600, t_senal - dt.timedelta(hours=40), t_senal)
+    h = velas(3600, t_senal - dt.timedelta(hours=72), t_senal)
+    h = lectura(h[h[:, 0] + 3600 <= t_senal.timestamp()], 3600, 60, "de 1 h para los patrones")  # solo velas cerradas
     df = pd.DataFrame(h[:, [3, 2, 1, 4]], columns=list("ohlc"))
     pat, lado_p = patrones(df)
     ult = pat.iloc[-3:]
@@ -56,6 +72,7 @@ def cerrar(dia):
     d0 = dt.datetime.combine(dia, dt.time(), dt.timezone.utc)
     m = velas(60, d0, d0 + dt.timedelta(days=1))
     m = m[m[:, 0] < (d0 + dt.timedelta(days=1)).timestamp()]
+    lectura(m, 60, 1440, "de 1 min del día (para cerrar)")
     t, lo, hi, op, cl = m[:, 0], m[:, 1], m[:, 2], m[:, 3], m[:, 4]
     print(f"{dia}: apertura {ap:,.2f}, ATR14 {atr:,.2f}, minutos {len(m)}")
     res = []
@@ -70,8 +87,8 @@ def cerrar(dia):
     # PP-1f: PP-1 solo si el cierre diario de ayer está sobre su SMA 50 (consolidación, tarea 8)
     if dia.weekday() == 0:
         dd = velas(86400, d0 - dt.timedelta(days=60), d0)
-        dd = dd[dd[:, 0] < d0.timestamp()]
-        sma = dd[-50:, 4].mean()
+        dd = lectura(dd[dd[:, 0] < d0.timestamp()][-50:], 86400, 50, "diarias para la SMA 50")
+        sma = dd[:, 4].mean()
         print(f"PP-1f: cierre de ayer {dd[-1, 4]:,.2f} vs SMA 50 {sma:,.2f} -> "
               + ("opera igual que PP-1" if dd[-1, 4] > sma else "NO opera (tendencia diaria en contra)"))
     # PP-6: P05b k = 0,5 solo largo, confirmado por un patrón alcista en las 3 últimas velas de 1 h cerradas
@@ -141,4 +158,7 @@ if __name__ == "__main__":
         print(f"apertura {ap:,.2f} ATR14 {atr:,.2f}; P05b {ap - 0.5 * atr:,.2f} / {ap + 0.5 * atr:,.2f}; "
               f"P05c {ap - atr:,.2f} / {ap + atr:,.2f}; stop P11 {ap * 0.97:,.2f}")
     else:
-        cerrar(dia)
+        try:
+            cerrar(dia)
+        except LecturaInsuficiente as e:
+            print("NO SE OPERA NI SE CIERRA: lectura insuficiente ->", e)
