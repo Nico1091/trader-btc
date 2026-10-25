@@ -1,0 +1,58 @@
+OPERACIONES DE LA SEMANA 19-23/10/2026
+P11 (futuros)                            Mon 19 00:00 -> Mon 19 23:59 LARGO entrada 82,077.9 salida 81,903.3 tiempo    bruto -0.21 % neto -0.31 %
+P05b k0,5 (futuros)                      Tue 20 14:16 -> Tue 20 23:59 LARGO entrada 82,946.2 salida 82,984.8 tiempo    bruto +0.05 % neto -0.02 %
+P05b k0,5 (futuros)                      Thu 22 02:31 -> Thu 22 23:59 CORTO entrada 83,003.1 salida 81,384.6 tiempo    bruto +1.95 % neto +1.88 %
+P05b solo largo (futuros)                Tue 20 14:16 -> Tue 20 23:59 LARGO entrada 82,946.2 salida 82,984.8 tiempo    bruto +0.05 % neto -0.02 %
+P05b + veto 1h (futuros)                 Tue 20 14:16 -> Tue 20 23:59 LARGO entrada 82,946.2 salida 82,984.8 tiempo    bruto +0.05 % neto -0.02 %
+P05b + veto 1h (futuros)                 Thu 22 02:31 -> Thu 22 23:59 CORTO entrada 83,003.1 salida 81,384.6 tiempo    bruto +1.95 % neto +1.88 %
+P05c k1,0 (futuros)                      sin operaciones en la semana
+MEZCLA reglas (futuros)                  Mon 19 02:00 -> Tue 20 01:59 CORTO entrada 82,415.0 salida 81,768.1 tiempo    bruto +0.78 % neto +0.68 %
+MEZCLA reglas (futuros)                  Tue 20 02:00 -> Wed 21 01:59 LARGO entrada 81,768.0 salida 82,965.3 tiempo    bruto +1.46 % neto +1.36 %
+MEZCLA reglas (futuros)                  Wed 21 12:00 -> Thu 22 11:59 CORTO entrada 83,463.3 salida 81,699.8 tiempo    bruto +2.11 % neto +2.01 %
+MEZCLA + veto 1h (futuros)               Mon 19 03:00 -> Tue 20 02:59 CORTO entrada 82,682.5 salida 81,765.3 tiempo    bruto +1.11 % neto +1.01 %
+MEZCLA + veto 1h (futuros)               Tue 20 03:00 -> Wed 21 02:59 LARGO entrada 81,765.4 salida 82,770.1 tiempo    bruto +1.23 % neto +1.13 %
+MEZCLA + veto 1h (futuros)               Wed 21 12:00 -> Thu 22 11:59 CORTO entrada 83,463.3 salida 81,699.8 tiempo    bruto +2.11 % neto +2.01 %
+N1 P11 en contado                        Mon 19 00:00 -> Mon 19 23:59 LARGO entrada 82,077.9 salida 81,903.3 tiempo    bruto -0.21 % neto -0.41 %
+N2v P05b largo + veto 1h (contado)       Tue 20 14:16 -> Tue 20 23:59 LARGO entrada 82,946.2 salida 82,984.8 tiempo    bruto +0.05 % neto -0.15 %
+N2c P05c largo (contado)                 sin operaciones en la semana
+N3 retroceso x0,5 2 días (descartada)    Thu 22 02:19 -> Thu 22 16:53 LARGO entrada 83,003.1 salida 80,909.6 stop      bruto -2.52 % neto -2.72 %
+
+RESUMEN POR ESTRATEGIA
+                                        ops  aciertos  fallos  neto  doble
+estrategia                                                                
+P11 (futuros)                         +1.00     +0.00   +1.00 -0.31  -0.41
+P05b k0,5 (futuros)                   +2.00     +1.00   +1.00 +1.86  +1.72
+P05b solo largo (futuros)             +1.00     +0.00   +1.00 -0.02  -0.09
+P05b + veto 1h (futuros)              +2.00     +1.00   +1.00 +1.86  +1.72
+P05c k1,0 (futuros)                   +0.00     +0.00   +0.00 +0.00  +0.00
+MEZCLA reglas (futuros)               +3.00     +3.00   +0.00 +4.06  +3.76
+MEZCLA + veto 1h (futuros)            +3.00     +3.00   +0.00 +4.15  +3.85
+N1 P11 en contado                     +1.00     +0.00   +1.00 -0.41  -0.61
+N2v P05b largo + veto 1h (contado)    +1.00     +0.00   +1.00 -0.15  -0.35
+N2c P05c largo (contado)              +0.00     +0.00   +0.00 +0.00  +0.00
+N3 retroceso x0,5 2 días (descartada) +1.00     +0.00   +1.00 -2.72  -2.92
+
+NETO POR DÍA (filas: estrategia; columnas: día de entrada)
+dia                                    Mon 19  Thu 22  Tue 20  Wed 21
+estrategia                                                           
+P11 (futuros)                           -0.31       ·       ·       ·
+P05b k0,5 (futuros)                         ·   +1.88   -0.02       ·
+P05b solo largo (futuros)                   ·       ·   -0.02       ·
+P05b + veto 1h (futuros)                    ·   +1.88   -0.02       ·
+P05c k1,0 (futuros)                         ·       ·       ·       ·
+MEZCLA reglas (futuros)                 +0.68       ·   +1.36   +2.01
+MEZCLA + veto 1h (futuros)              +1.01       ·   +1.13   +2.01
+N1 P11 en contado                       -0.41       ·       ·       ·
+N2v P05b largo + veto 1h (contado)          ·       ·   -0.15       ·
+N2c P05c largo (contado)                    ·       ·       ·       ·
+N3 retroceso x0,5 2 días (descartada)       ·   -2.72       ·       ·
+
+Azar (5 operaciones de 6 h al azar en la semana, 0,05 %/lado): mediana -0.47 %, p5 -3.43 %, p95 +2.32 %
+
+BTC en la semana (futuros):
+                                 o        h        l        c  cambio_%  rango_%
+2026-10-19 00:00:00+00:00  82077.9  83157.9  81701.0  81903.3     -0.21     1.78
+2026-10-20 00:00:00+00:00  81903.3  83420.0  81146.4  82984.8      1.32     2.80
+2026-10-21 00:00:00+00:00  82984.7  84875.2  82594.8  84050.0      1.28     2.76
+2026-10-22 00:00:00+00:00  84049.9  84330.0  80888.9  81384.6     -3.17     4.25
+2026-10-23 00:00:00+00:00  81384.6  82035.3  80461.6  81160.0     -0.28     1.96
