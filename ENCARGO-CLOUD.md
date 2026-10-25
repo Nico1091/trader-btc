@@ -1,5 +1,7 @@
 Encargo de Nicolás (25/10/2026). Revisa SOLO el agente de trading. Su prompt vigente está en PROMPT-AGENTE-TRADING-NUBE.md (es la rutina trig_01HhTpY4sVUqaj1ui3qi7wyQ, que opera en papel en la nube y lleva su REGISTRO JSON al final de cada correo). Respeta todas sus reglas: solo papel, nunca dinero real, claves ni cuentas.
 
+CONTEXTO: lee primero la carpeta contexto/ (último correo de la rutina con su REGISTRO completo de operaciones en papel, y las notas de lo decidido) y INFORME-TRADING-SEGUIDO.md.
+
 1. Revisa las operaciones en papel hechas hasta ahora (si tienes Gmail, busca los correos «Agente de trading —» y lee el último REGISTRO; si no, dilo y reconstruye lo que puedas con datos de data.binance.vision).
 2. Analiza cada patrón de vela (martillo, envolvente, doji, estrella, mechas, etc.): qué significa y si de verdad predice algo en BTC con datos reales y costos de 0,05 %/lado. Con eso mejora las estrategias que funcionan y consolídalas.
 3. Propón y prueba estrategias nuevas tuyas, pensadas para presupuesto bajo: 40.000 COP diarios que no se deben perder, operando unas tres veces al día o más.
