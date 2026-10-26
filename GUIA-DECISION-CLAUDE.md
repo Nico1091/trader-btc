@@ -30,6 +30,19 @@ Medidas con 3,58 millones de velas de 1 minuto de Binance (2020-2026), ajuste 20
 
 **Contexto** = cierre diario de ayer frente a su SMA 50. Es el único filtro de contexto que mejora en los dos tramos.
 
+## 2b. Dos libros (pedido de Nicolás del 26/10)
+
+Siempre con señal: sin señal de su regla, no hay operación en ningún libro.
+
+- **Libro PRINCIPAL:** P05b por régimen, P11 con contexto y P05c largo. Se opera con el tamaño del plan.
+- **Libro PRUEBA:** estrategias nuevas que se toman o se descartan con datos. Se opera en papel y en porcentaje, separado, para no mezclar resultados.
+  - **N8, miércoles con contexto alcista:** 193 operaciones, +88 % neto y +69 % con el doble. El miércoles salió de mirar los 7 días: puede ser casualidad.
+  - **N9, rango de Asia roto en Londres en el lado del contexto:** 829 operaciones, +160 % neto, pero solo +17,6 % en 2024-2026 (−9 % con el doble). Frágil.
+  - **P05b largo con patrón alcista de vela de 1 h:** la rutina y esta sesión la midieron distinto (percentil 38 frente a 88): se prueba en vivo.
+- **Descartadas el 26/10 antes del papel:** N4 (retroceso a la EMA 20), N5 (RSI + patrón), N6 (50 SMA + precio) y N7 (rompe el máximo o mínimo de ayer). Todas pierden en 2020-2026.
+- **Ascenso y descenso:** una estrategia de PRUEBA pasa a PRINCIPAL con 30 operaciones de papel o más que ganen neto y superen al azar. Se descarta si con 30 no lo logra.
+- `lectura_mercado.py` muestra en la sección «SEÑALES DE HOY» el estado de las 6 estrategias.
+
 ## 3. Cuándo NO operar (medido, no opinión)
 
 - **Lectura incompleta** o con huecos.

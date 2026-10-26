@@ -463,6 +463,21 @@ Con la mitad de las operaciones gana más, y con el doble de comisión pasa de p
 - **La regla elegida en el ajuste** para P05b (en los dos lados) fue la SMA 50. Para P05c, el marco de 3 meses gana un poco por operación (+0,47 % frente a +0,42 %), pero con menos operaciones y menos total. Para P11, la variante elegida (3 de 4 + 5 m) falla en la prueba: +0,22 % por operación frente a +0,33 % sin filtro.
 - **Conclusión:** el estado del mercado sí importa, pero medido con **un solo contexto lento y estable** (el cierre diario frente a su SMA 50), no con varios marcos de dirección a la vez. Los marcos cortos (5 m, 3 h, 16 h) sirven para leer el momento y el riesgo, no como condición para entrar.
 
+## Tarea 12 (pedido de Nicolás, 26/10): 3 estrategias principales y 3 nuevas, siempre con señal
+
+Código en `consolidacion/t12_nuevas.py` y `t12b_nuevas.py`. Todas van en el lado del contexto. Futuros, 0,05 %/lado.
+
+| Nueva | Ajuste 2020-23: ops · neto · doble | Prueba 2024-26: ops · neto · doble | Veredicto |
+|---|---|---|---|
+| N4 retroceso a la EMA 20 + vela de confirmación | 1.026 · −32,2 % · −134,8 % | 737 · −67,3 % · −141,0 % | Descartada |
+| N5 RSI que sale de 30/70 + patrón del curso | 198 · −69,2 % | 154 · −27,8 % | Descartada |
+| N6 50 SMA + precio (curso) | 43 · +11,8 % | 25 · −3,1 % | Descartada (además, muestra mínima) |
+| N7 rompe el máximo o mínimo de ayer | 363 · −25,8 % | 312 · −26,9 % | Descartada |
+| **N8 miércoles con contexto alcista** | 110 · +48,9 % · +37,9 % (pct 92) | 83 · +39,3 % · +31,0 % (pct 87) | **Libro PRUEBA** (salió de mirar los 7 días) |
+| **N9 rango de Asia roto en Londres** | 449 · +142,7 % · +111,3 % (pct 100) | 380 · +17,6 % · −9,0 % (pct 93) | **Libro PRUEBA, frágil** |
+
+La tercera del libro PRUEBA es **P05b largo con patrón alcista de 1 h**, porque la rutina y esta sesión la midieron distinto. `lectura_mercado.py` muestra ahora las señales de hoy de las 6 estrategias (sección «SEÑALES DE HOY»). Con todo, la frecuencia sigue lejos de 3 al día: entre los dos libros salen unas 4 o 5 operaciones por semana con señal.
+
 ## Comisiones de contado verificadas (25/10, binance.com/en/fee/trading)
 
 - Usuario normal (VIP 0), contado: **0,100 % creador / 0,100 % tomador**; **0,075 % / 0,075 % pagando con BNB** (descuento del 25 %, vigente «hasta nuevo aviso» según el anuncio de Binance de 2022, actualizado en 2023).

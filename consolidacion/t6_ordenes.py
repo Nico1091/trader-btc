@@ -132,6 +132,28 @@ def cerrar(dia):
                 if t15[i] > t[f7] + 60 and ((lado7 > 0 and c15[i] <= ap) or (lado7 < 0 and c15[i] >= ap)):
                     px, mot = c15[i], "stop"; break
             res.append(("PP-7 P05b por régimen", lado7, nivel7, px, mot, 0.02, 0.05))
+    # PP-8 (libro PRUEBA, N9): rango de Asia (00:00-07:00 UTC) roto en Londres (07:00-16:00) en el lado del contexto.
+    # Escrita el 26/10 a las 14:35 UTC: el lunes solo cuentan señales posteriores a esa hora.
+    i7 = int(np.searchsorted(t, (d0 + dt.timedelta(hours=7)).timestamp()))
+    ah, al = hi[:i7].max(), lo[:i7].min()
+    nivel8 = ah if lado7 > 0 else al
+    desde8 = max((d0 + dt.timedelta(hours=7)).timestamp(), (d0 + dt.timedelta(hours=14, minutes=35)).timestamp() if str(dia) == "2026-10-26" else 0)
+    j8 = next((i for i, x in enumerate(c15) if desde8 < t15[i] <= (d0 + dt.timedelta(hours=16)).timestamp()
+               and ((lado7 > 0 and x > nivel8) or (lado7 < 0 and x < nivel8))), None)
+    if j8 is None:
+        print(f"PP-8 N9 Asia-Londres ({'largo >' if lado7 > 0 else 'corto <'} {nivel8:,.2f}): sin señal")
+    else:
+        i0 = int(np.searchsorted(t, t15[j8]))
+        f8 = next((i for i in range(i0, min(i0 + 60, len(t))) if (lado7 > 0 and lo[i] < nivel8) or (lado7 < 0 and hi[i] > nivel8)), None)
+        if f8 is None:
+            print("PP-8: señal sin llenar en 60 min")
+        else:
+            medio = (ah + al) / 2
+            px, mot = cl[-1], "tiempo"
+            for i in range(len(c15)):
+                if t15[i] > t[f8] + 60 and lado7 * (c15[i] - medio) <= 0:
+                    px, mot = c15[i], "stop"; break
+            res.append(("PP-8 N9 Asia-Londres", lado7, nivel8, px, mot, 0.02, 0.05))
     # PP-2 (P05b + veto 1h) y PP-3 (P05c largo): primer cierre de 15 m fuera de la banda hasta las 23:45
     for nombre, kk, solo_largo, veto in (("PP-2 P05b+veto", 0.5, False, True), ("PP-3 P05c largo", 1.0, True, False)):
         up, dn = ap + kk * atr, ap - kk * atr

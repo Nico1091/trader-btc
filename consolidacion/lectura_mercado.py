@@ -137,6 +137,62 @@ def png(ruta, v, titulo_alto=0):
                 + chunk(b"IDAT", zlib.compress(raw, 6)) + chunk(b"IEND", b""))
 
 
+def senales(apertura, atr, alcista, cierre_ayer):
+    """Estado de hoy de las 6 estrategias (libro PRINCIPAL y libro PRUEBA). Solo informa: decide Claude."""
+    hoy = int(time.time()) // 86400 * 86400
+    ahora = int(time.time())
+    dia_sem = dt.datetime.fromtimestamp(hoy, dt.timezone.utc).weekday()
+    m = []
+    t0 = hoy
+    while t0 < ahora - 60:  # velas de 1 minuto de hoy (para cierres de 15 m y el rango de Asia)
+        t1 = min(t0 + 300 * 60, ahora)
+        u = f"{API}?granularity=60&start={dt.datetime.fromtimestamp(t0, dt.timezone.utc):%Y-%m-%dT%H:%M:%SZ}&end={dt.datetime.fromtimestamp(t1 - 1, dt.timezone.utc):%Y-%m-%dT%H:%M:%SZ}"
+        try:
+            m += json.loads(urllib.request.urlopen(urllib.request.Request(u, headers={"User-Agent": "lectura"}), timeout=30).read())
+        except Exception:
+            pass
+        t0 = t1
+    m = sorted({x[0]: x for x in m if x[0] + 60 <= ahora}.values())
+    c15 = [(m[i][0] + 60, m[i][4]) for i in range(14, len(m), 15) if (m[i][0] - hoy) % 900 == 840]
+    ctx = "alcista" if alcista else "bajista"
+    L = [f"SEÑALES DE HOY (contexto {ctx}; {len(m)} velas de 1 min leídas). El programa no decide: decide Claude.",
+         "  Libro PRINCIPAL:"]
+    def primero(cond):
+        return next((hh for hh, x in c15 if cond(x)), None)
+    hora = lambda x: dt.datetime.fromtimestamp(x, dt.timezone.utc).strftime("%H:%M")
+    up, dn = apertura + 0.5 * atr, apertura - 0.5 * atr
+    if alcista:
+        x = primero(lambda v: v > up)
+        L.append(f"   P05b por régimen (largo > {up:,.0f}): " + (f"SEÑAL a las {hora(x)}" if x else "sin señal"))
+    else:
+        x = primero(lambda v: v < dn)
+        L.append(f"   P05b por régimen (corto < {dn:,.0f}): " + (f"SEÑAL a las {hora(x)}" if x else "sin señal"))
+    L.append("   P11 lunes con contexto: " + ("no es lunes" if dia_sem != 0 else ("OPERA (compra a las 00:00)" if alcista else "NO opera (contexto bajista)")))
+    if alcista:
+        x = primero(lambda v: v > apertura + atr)
+        L.append(f"   P05c largo (> {apertura + atr:,.0f}): " + (f"SEÑAL a las {hora(x)}" if x else "sin señal"))
+    else:
+        L.append("   P05c largo: no opera (contexto bajista)")
+    L.append("  Libro PRUEBA:")
+    L.append("   N8 miércoles con contexto: " + ("no es miércoles" if dia_sem != 2 else ("OPERA (compra a las 00:00, stop 3 %)" if alcista else "NO opera (contexto bajista)")))
+    asia = [x for x in m if x[0] < hoy + 7 * 3600]
+    if len(asia) >= 400:
+        ah, al = max(x[2] for x in asia), min(x[1] for x in asia)
+        nivel = ah if alcista else al
+        x = next((hh for hh, v in c15 if hoy + 7 * 3600 < hh <= hoy + 16 * 3600 and (v > ah if alcista else v < al)), None)
+        L.append(f"   N9 rango de Asia {al:,.0f}-{ah:,.0f} en Londres ({'largo >' if alcista else 'corto <'} {nivel:,.0f}, 07:00-16:00 UTC): "
+                 + (f"SEÑAL a las {hora(x)}" if x else "sin señal"))
+    else:
+        L.append("   N9 rango de Asia: el rango (00:00-07:00 UTC) aún no está completo")
+    if alcista:
+        x = primero(lambda v: v > up)
+        L.append(f"   P05b largo confirmado (> {up:,.0f} y patrón alcista en las 3 últimas velas de 1 h): "
+                 + (f"rompió a las {hora(x)}; mirar la foto de 1 día para el patrón" if x else "sin señal"))
+    else:
+        L.append("   P05b largo confirmado: no opera (contexto bajista)")
+    return L
+
+
 def main():
     carpeta = sys.argv[1] if len(sys.argv) > 1 else "lectura"
     os.makedirs(carpeta, exist_ok=True)
@@ -177,6 +233,8 @@ def main():
     if apertura:
         lineas.append(f"NIVELES DE HOY (apertura 00:00 UTC {apertura:,.2f}): P05b largo > {apertura + 0.5 * atr:,.2f} · P05b corto < {apertura - 0.5 * atr:,.2f} · "
                       f"P05c largo > {apertura + atr:,.2f} · precio {precio:,.2f} ({(precio / apertura - 1) * 100:+.2f} % desde la apertura)")
+    if apertura:
+        lineas += senales(apertura, atr, d[-1][4] > sma50, d[-1][4])
     lineas.append(f"Lectura {'COMPLETA' if ok and hue == 0 else 'INCOMPLETA: NO OPERAR'} en {time.time() - t0:.1f} s. Fotos en {carpeta}/ (verde sube, rojo baja, azul = media de 20).")
     texto = "\n".join(lineas)
     open(os.path.join(carpeta, "resumen.txt"), "w", encoding="utf-8").write(texto + "\n")

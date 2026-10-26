@@ -62,6 +62,14 @@ Salen de la tarea 8 de `CONSOLIDACION-TRADING.md`: operar solo cuando las velas 
   - 5 min: rechazo cerca de 80.100.
 - **Decisión: esperar.** El contexto es bajista, así que no hay largos. El corto por lectura no tiene respaldo medido (R11 pide una pendiente de −0,1 %/h y está en −0,02 %/h). Sigue PP-7, corto bajo 78.968. Confianza 7.
 
+## Libro PRUEBA: orden añadida el 26/10 a las 14:35 UTC (antes del resultado)
+
+| Id | Días | Regla | Tamaño |
+|---|---|---|---|
+| PP-8 | Lunes 26 (señales después de las 14:35) y martes 27 | **N9, rango de Asia roto en Londres**, en el lado del contexto. Hoy es bajista: corto si un cierre de 15 m baja del mínimo de Asia (00:00-07:00 UTC: **79.255**) entre las 07:00 y las 16:00 UTC. Límite en el nivel válido 60 min, stop con un cierre de 15 m que vuelve sobre el punto medio del rango de Asia (79.766) y salida a las 23:59 UTC | Papel, en porcentaje |
+
+Lectura y fotos de las 14:32 UTC en `lecturas/2026-10-26_1432/`. **Decisión de Claude:** dejar PP-8 condicionada y seguir esperando a mercado. El precio está en 79.925, un 0,84 % sobre el nivel, y la foto de 5 min muestra un rebote: vender ahora sería perseguir el precio.
+
 ## Lectura antes de operar (regla añadida el 25/10, pedida por Nicolás)
 
 Ninguna orden se decide sin haber leído antes las velas que la regla necesita, completas y sin huecos. Si falta alguna, **no se opera** y se anota «lectura insuficiente». El script lo comprueba y lo imprime:

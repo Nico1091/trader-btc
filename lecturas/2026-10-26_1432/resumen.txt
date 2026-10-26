@@ -1,0 +1,18 @@
+LECTURA DEL MERCADO BTC-USD (Coinbase) · 26/10/2026 14:46 UTC · 09:46 Colombia
+5 min    SUBE     +0.36 % | rango 79,337-80,109 (0.97 %) | posición 0.76 | vol/vela 0.31 % (1.6x su media) | pendiente +0.041 %/vela | velas alcistas 6/12 | última vela: sin patrón
+3 horas  BAJA     -0.40 % | rango 79,300-80,436 (1.43 %) | posición 0.55 | vol/vela 0.24 % (1.4x su media) | pendiente -0.008 %/vela | velas alcistas 16/36 | última vela: sin patrón
+16 horas BAJA     -0.67 % | rango 79,255-80,481 (1.55 %) | posición 0.55 | vol/vela 0.32 % (1.2x su media) | pendiente -0.045 %/vela | velas alcistas 29/64 | última vela: envolvente alcista
+1 día    BAJA     -0.87 % | rango 79,255-80,859 (2.02 %) | posición 0.19 | vol/vela 0.51 % (1.1x su media) | pendiente -0.018 %/vela | velas alcistas 10/24 | última vela: sin patrón
+3 meses  SUBE    +25.69 % | rango 62,210-87,397 (40.49 %) | posición 0.71 | vol/vela 2.75 % (0.9x su media) | pendiente -0.162 %/vela | velas alcistas 47/90 | última vela: sin patrón
+CONTEXTO: cierre de ayer 80,053.16 vs SMA 50 diaria 81,802.02 (-2.14 %) -> BAJISTA (largos de P05b y P11 vetados; P05b solo en corto). ATR14 diario 2,170 (2.72 %).
+NIVELES DE HOY (apertura 00:00 UTC 80,053.16): P05b largo > 81,138.38 · P05b corto < 78,967.94 · P05c largo > 82,223.59 · precio 79,924.68 (-0.16 % desde la apertura)
+SEÑALES DE HOY (contexto bajista; 886 velas de 1 min leídas). El programa no decide: decide Claude.
+  Libro PRINCIPAL:
+   P05b por régimen (corto < 78,968): sin señal
+   P11 lunes con contexto: NO opera (contexto bajista)
+   P05c largo: no opera (contexto bajista)
+  Libro PRUEBA:
+   N8 miércoles con contexto: no es miércoles
+   N9 rango de Asia 79,255-80,277 en Londres (corto < 79,255, 07:00-16:00 UTC): sin señal
+   P05b largo confirmado: no opera (contexto bajista)
+Lectura COMPLETA en 2.3 s. Fotos en /tmp/claude-0/-home-user-trader-btc/222978e5-ae90-58fc-a185-df65fa2dac72/scratchpad/lectura3/ (verde sube, rojo baja, azul = media de 20).
