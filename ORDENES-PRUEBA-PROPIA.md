@@ -36,6 +36,12 @@ Salen de la tarea 8 de `CONSOLIDACION-TRADING.md`: operar solo cuando las velas 
 | PP-1f | Lunes 26 | PP-1 **solo si** el cierre diario del domingo (Coinbase) está sobre su SMA 50. A las 16:30 UTC del domingo, el precio (80.547) estaba bajo la SMA 50 (81.812): si sigue así, **no opera**. | Igual que PP-1 |
 | PP-6 | Lunes 26 y martes 27 | P05b k = 0,5 **solo largo**: primer cierre de 15 m sobre apertura + 0,5·ATR, y **solo si** en las 3 últimas velas de 1 h cerradas hay un patrón alcista del curso. Límite en la banda, 60 min; stop con un cierre de 15 m que vuelve a la apertura; salida a las 23:59 UTC. | 600 pesos de riesgo el lunes; 300 el martes (Reserva Federal) |
 
+## Añadida el 26/10 a las 14:30 UTC (antes del resultado): P05b por régimen
+
+| Id | Días | Regla | Tamaño |
+|---|---|---|---|
+| PP-7 | Lunes 26 (solo señales después de las 14:30 UTC) y martes 27 | P05b k = 0,5 **por régimen**. Con el cierre de ayer **bajo** su SMA 50, solo el **corto**: primer cierre de 15 m bajo apertura − 0,5·ATR14 (lunes: **78.967,94**), límite de venta en la banda válido 60 min, stop con un cierre de 15 m que vuelve sobre la apertura y cierre a las 23:59 UTC. Con el cierre sobre la SMA 50, solo el largo. | Futuros, en porcentaje: con 40.000 pesos la orden mínima de futuros arriesgaría del 8 al 19 % de la cuenta, así que el corto no lleva tamaño en pesos |
+
 ## Lectura antes de operar (regla añadida el 25/10, pedida por Nicolás)
 
 Ninguna orden se decide sin haber leído antes las velas que la regla necesita, completas y sin huecos. Si falta alguna, **no se opera** y se anota «lectura insuficiente». El script lo comprueba y lo imprime:

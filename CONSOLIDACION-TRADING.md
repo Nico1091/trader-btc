@@ -404,6 +404,45 @@ Las dos versiones confirmadas ganan en 6 de 7 años (P05b) y en 5 de 7 (P11). En
 - Tus propias reglas dicen «dinero real solo cuando el papel gane de verdad y tú lo apruebes», y el papel en vivo todavía tiene 0 operaciones cerradas.
 - Lo que sí puedo hacer aquí es lo de arriba: decidir yo cada orden de papel con estas reglas y cerrarla con velas reales.
 
+## Tarea 10 (pedido de Nicolás, 26/10): cada lado solo en su contexto
+
+**Qué pasó el lunes 26/10 (hasta las 14:15 UTC):**
+- PP-1, el P11 sin filtro, entró largo en 80.053. Bajó hasta −1,0 % (03:54 UTC) e iba en −0,29 %.
+- PP-1f, el mismo P11 con contexto, **no entró**: el domingo cerró un 2,14 % bajo su SMA 50. El contexto le ahorró la caída a la versión filtrada.
+- P05b y P05c no se activaron.
+- Los cortos que ganaron el domingo eran **testigos al azar**, no una estrategia. En la historia, los cortos sin contexto pierden (P05b −9 %).
+
+**La idea de Nicolás, medida:** cortos solo con contexto bajista y largos solo con contexto alcista. Contexto = cierre diario de ayer frente a su SMA 50. Código en `consolidacion/t10_contexto.py` y `t10b_regimen_anual.py`. Futuros, 0,05 %/lado (creador 0,02 %).
+
+| Estrategia y contexto | Ajuste 2020-23: ops · neto · doble | Prueba 2024-26: ops · neto · doble | Veredicto |
+|---|---|---|---|
+| P05b corto sin contexto | 281 · −7,4 % · −27,0 % | 243 · −1,7 % · −18,7 % | Pierde |
+| **P05b corto solo con contexto bajista** | 130 · **+20,8 %** · +11,7 % | 110 · **+14,1 %** · +6,4 % | **Gana en los dos tramos** (percentil 76 y 86 frente a subconjuntos al azar) |
+| P05c corto con contexto bajista | 40 · −31,3 % | 41 · −7,0 % | Pierde |
+| Lunes en corto con contexto bajista | 98 · +24,4 % | 64 · −25,5 % | Pierde en la prueba |
+| P05b largo con contexto alcista | 174 · +55,4 % · +43,2 % | 131 · +18,0 % · +8,8 % | Gana |
+| P11 largo con contexto alcista | 103 · +43,0 % · +32,7 % | 83 · +50,8 % · +42,5 % | Gana |
+
+**P05b por régimen** (largo sobre la SMA 50, corto bajo ella), año por año, neto en %:
+
+| | 2020 | 2021 | 2022 | 2023 | 2024 | 2025 | 2026 | Total |
+|---|---|---|---|---|---|---|---|---|
+| P05b sin contexto (1.020 ops) | +39,9 | +3,4 | −26,6 | +27,9 | +11,7 | −12,7 | +20,8 | **+64,6** (doble −6,8) |
+| **P05b por régimen (545 ops)** | +58,8 | +12,7 | −12,6 | +17,2 | +21,6 | −9,8 | +20,4 | **+108,4** (doble **+70,2**) |
+| de eso, cortos | +11,5 | +4,7 | −1,7 | +6,4 | +9,1 | −8,9 | +13,9 | +35,0 |
+
+Con la mitad de las operaciones gana más, y con el doble de comisión pasa de perder a ganar. Es la mejora más sólida medida hasta ahora: 545 operaciones, positiva en 5 de 7 años y en los dos tramos. Sigue con años malos (2022 y 2025).
+
+**Límites:**
+- El corto se gana solo con margen fino: +0,13 a +0,16 % por operación.
+- Con 40.000 pesos, el corto exige futuros, y su orden mínima arriesga del 8 al 19 % de la cuenta. Por eso **va en papel y en porcentaje**: en pesos, el contado solo permite largos.
+
+**Los cortos que fallaron también se dicen:** P05c en corto y el lunes en corto pierden aun con contexto. «Las de corto para corto» vale para P05b y no para las demás.
+
+**Sobre el filtro de vela de 1 h:** la rutina, en su pasada del 25/10 a las 20:27, midió percentil 38 en el ajuste; yo, 88. Cada una usó su propia definición de patrones. Mientras no se aclare, el filtro de vela queda como confirmación opcional. La regla que manda es el contexto de la SMA 50, en el que las dos medidas coinciden.
+
+**La rutina se quedó sin cupo.** La pasada del 26/10 a las 14:05 UTC falló por «límite de uso». Tampoco llegaron correos de las 02:00 ni de las 08:00. Desde el 25/10 a las 20:27, nadie ha operado en papel. La nota de memoria de Nicolás ya preveía esto: «si se agota el cupo del plan, bajar a cada 8 h».
+
 ## Comisiones de contado verificadas (25/10, binance.com/en/fee/trading)
 
 - Usuario normal (VIP 0), contado: **0,100 % creador / 0,100 % tomador**; **0,075 % / 0,075 % pagando con BNB** (descuento del 25 %, vigente «hasta nuevo aviso» según el anuncio de Binance de 2022, actualizado en 2023).

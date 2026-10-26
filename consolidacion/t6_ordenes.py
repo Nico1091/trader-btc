@@ -111,6 +111,27 @@ def cerrar(dia):
                     if t15[i] > t[f6] + 60 and c15[i] <= ap:
                         px, mot = c15[i], "stop"; break
                 res.append(("PP-6 P05b largo confirmado", 1, up6, px, mot, 0.02, 0.05))
+    # PP-7: P05b k = 0,5 por régimen (tarea 10). Con el cierre de ayer bajo la SMA 50 solo vale el corto y con el cierre
+    # sobre ella, solo el largo. Escrita el 26/10 a las 14:30 UTC: el lunes solo cuentan señales posteriores a esa hora.
+    dd7 = velas(86400, d0 - dt.timedelta(days=60), d0)
+    dd7 = lectura(dd7[dd7[:, 0] < d0.timestamp()][-50:], 86400, 50, "diarias para el régimen de PP-7")
+    lado7 = 1 if dd7[-1, 4] > dd7[:, 4].mean() else -1
+    desde7 = (d0 + dt.timedelta(hours=14, minutes=30)).timestamp() if str(dia) == "2026-10-26" else d0.timestamp()
+    nivel7 = ap + 0.5 * atr if lado7 > 0 else ap - 0.5 * atr
+    j7 = next((i for i, x in enumerate(c15[:95]) if t15[i] > desde7 and ((lado7 > 0 and x > nivel7) or (lado7 < 0 and x < nivel7))), None)
+    if j7 is None:
+        print(f"PP-7 P05b por régimen ({'largo' if lado7 > 0 else 'corto'}, nivel {nivel7:,.2f}): sin señal")
+    else:
+        i0 = int(np.searchsorted(t, t15[j7]))
+        f7 = next((i for i in range(i0, min(i0 + 60, len(t))) if (lado7 > 0 and lo[i] < nivel7) or (lado7 < 0 and hi[i] > nivel7)), None)
+        if f7 is None:
+            print("PP-7: señal sin llenar en 60 min")
+        else:
+            px, mot = cl[-1], "tiempo"
+            for i in range(len(c15)):
+                if t15[i] > t[f7] + 60 and ((lado7 > 0 and c15[i] <= ap) or (lado7 < 0 and c15[i] >= ap)):
+                    px, mot = c15[i], "stop"; break
+            res.append(("PP-7 P05b por régimen", lado7, nivel7, px, mot, 0.02, 0.05))
     # PP-2 (P05b + veto 1h) y PP-3 (P05c largo): primer cierre de 15 m fuera de la banda hasta las 23:45
     for nombre, kk, solo_largo, veto in (("PP-2 P05b+veto", 0.5, False, True), ("PP-3 P05c largo", 1.0, True, False)):
         up, dn = ap + kk * atr, ap - kk * atr
