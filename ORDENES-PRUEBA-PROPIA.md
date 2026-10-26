@@ -53,6 +53,15 @@ Salen de la tarea 8 de `CONSOLIDACION-TRADING.md`: operar solo cuando las velas 
 - **Contexto:** el cierre de ayer está un 2,14 % bajo la SMA 50: bajista.
 - **Decisión: esperar.** El rebote de 3 horas va contra el contexto diario. No hay largos con contexto bajista, y el único nivel con ventaja (el corto de P05b, bajo 78.968) está un 1,3 % abajo. Sigue en pie PP-7. Confianza en esperar: 7.
 
+## Decisión de Claude del 26/10 a las 14:28 UTC (fotos en `lecturas/2026-10-26_1428/`)
+
+- **Marcador abierto:** PP-1 (P11 sin filtro) va en −0,47 % (79.675). PP-1f no entró. Nada de P05b, P05c ni PP-7 se ha activado (cierres de 15 m de 79.408 a 80.425).
+- **Fotos:**
+  - 1 día: máximos más bajos; rebote a 80.400 y después una vela horaria roja grande de vuelta a 79.600.
+  - 16 h: estructura bajista.
+  - 5 min: rechazo cerca de 80.100.
+- **Decisión: esperar.** El contexto es bajista, así que no hay largos. El corto por lectura no tiene respaldo medido (R11 pide una pendiente de −0,1 %/h y está en −0,02 %/h). Sigue PP-7, corto bajo 78.968. Confianza 7.
+
 ## Lectura antes de operar (regla añadida el 25/10, pedida por Nicolás)
 
 Ninguna orden se decide sin haber leído antes las velas que la regla necesita, completas y sin huecos. Si falta alguna, **no se opera** y se anota «lectura insuficiente». El script lo comprueba y lo imprime:
