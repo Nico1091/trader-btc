@@ -156,9 +156,9 @@ def senales(apertura, atr, alcista, cierre_ayer):
     c15 = [(m[i][0] + 60, m[i][4]) for i in range(14, len(m), 15) if (m[i][0] - hoy) % 900 == 840]
     ctx = "alcista" if alcista else "bajista"
     L = [f"SEÑALES DE HOY (contexto {ctx}; {len(m)} velas de 1 min leídas). El programa no decide: decide Claude.",
-         "  Libro PRINCIPAL:"]
-    def primero(cond):
-        return next((hh for hh, x in c15 if cond(x)), None)
+         "  Libro PRINCIPAL (una posición; P11 lunes 00:00-23:59, P05b y P05c señales 00:00-21:00 UTC):"]
+    def primero(cond, hasta_h=21):  # horario del libro PRINCIPAL: señales de 00:00 a 21:00 UTC (tarea 13)
+        return next((hh for hh, x in c15 if hh <= hoy + hasta_h * 3600 and cond(x)), None)
     hora = lambda x: dt.datetime.fromtimestamp(x, dt.timezone.utc).strftime("%H:%M")
     up, dn = apertura + 0.5 * atr, apertura - 0.5 * atr
     if alcista:
@@ -173,14 +173,14 @@ def senales(apertura, atr, alcista, cierre_ayer):
         L.append(f"   P05c largo (> {apertura + atr:,.0f}): " + (f"SEÑAL a las {hora(x)}" if x else "sin señal"))
     else:
         L.append("   P05c largo: no opera (contexto bajista)")
-    L.append("  Libro PRUEBA:")
+    L.append("  Libro PRUEBA (aparte, una posición propia; N9 07:00-13:00 UTC, N8 miércoles, P05b + vela 00:00-21:00):")
     L.append("   N8 miércoles con contexto: " + ("no es miércoles" if dia_sem != 2 else ("OPERA (compra a las 00:00, stop 3 %)" if alcista else "NO opera (contexto bajista)")))
     asia = [x for x in m if x[0] < hoy + 7 * 3600]
     if len(asia) >= 400:
         ah, al = max(x[2] for x in asia), min(x[1] for x in asia)
         nivel = ah if alcista else al
-        x = next((hh for hh, v in c15 if hoy + 7 * 3600 < hh <= hoy + 16 * 3600 and (v > ah if alcista else v < al)), None)
-        L.append(f"   N9 rango de Asia {al:,.0f}-{ah:,.0f} en Londres ({'largo >' if alcista else 'corto <'} {nivel:,.0f}, 07:00-16:00 UTC): "
+        x = next((hh for hh, v in c15 if hoy + 7 * 3600 < hh <= hoy + 13 * 3600 and (v > ah if alcista else v < al)), None)
+        L.append(f"   N9 rango de Asia {al:,.0f}-{ah:,.0f} en Londres ({'largo >' if alcista else 'corto <'} {nivel:,.0f}, 07:00-13:00 UTC): "
                  + (f"SEÑAL a las {hora(x)}" if x else "sin señal"))
     else:
         L.append("   N9 rango de Asia: el rango (00:00-07:00 UTC) aún no está completo")

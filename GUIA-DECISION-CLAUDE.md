@@ -43,6 +43,29 @@ Siempre con señal: sin señal de su regla, no hay operación en ningún libro.
 - **Ascenso y descenso:** una estrategia de PRUEBA pasa a PRINCIPAL con 30 operaciones de papel o más que ganen neto y superen al azar. Se descarta si con 30 no lo logra.
 - `lectura_mercado.py` muestra en la sección «SEÑALES DE HOY» el estado de las 6 estrategias.
 
+## 2c. Horarios: cada libro aparte, cada contexto en su lado (tarea 13, 26/10)
+
+Horas en UTC; en Colombia son 5 horas menos.
+
+| Libro | Estrategia | Lado según el contexto | Horario de señal | Salida |
+|---|---|---|---|---|
+| PRINCIPAL | P11 | Solo largo, con contexto alcista | Lunes 00:00 (19:00 del domingo en Colombia) | 23:59 o stop 3 % |
+| PRINCIPAL | P05b por régimen | Largo con contexto alcista, corto con bajista | 00:00-21:00 (19:00-16:00 en Colombia) | 23:59 o stop |
+| PRINCIPAL | P05c | Solo largo, con contexto alcista | 00:00-21:00 | 23:59 o stop |
+| PRUEBA | N9 Asia-Londres | El del contexto | **07:00-13:00** (02:00-08:00 en Colombia) | 23:59 o stop |
+| PRUEBA | N8 | Solo largo, con contexto alcista | Miércoles 00:00 | 23:59 o stop 3 % |
+| PRUEBA | P05b largo + vela 1 h | Solo largo, con contexto alcista | 00:00-21:00 | 23:59 o stop |
+
+**Por qué estas horas** (media neta por operación, 2020-2023 / 2024-2026):
+- **P05b y P05c, 21:00 a 24:00:** P05b gana +0,04 / +0,04 % y P05c pierde (−0,43 / −0,12 %). Por eso no se toman señales después de las 21:00.
+- **N9 en Londres (07-13):** +0,37 / +0,11 %. En Nueva York (13-21) pasó a −0,07 % en 2024-2026, así que su ventana se cierra a las 13:00. Ese corte se eligió viendo los dos tramos, así que hay que confirmarlo en el papel.
+
+**Reglas de separación:**
+- Cada libro tiene **su propia posición**, como máximo una a la vez, y su propio marcador contra el azar. Los resultados no se mezclan.
+- **Riesgo total:** como máximo una posición en pesos (libro PRINCIPAL, 1,5 %). El libro PRUEBA va en papel y en porcentaje hasta que una estrategia ascienda.
+- Si los dos libros tienen señal a la vez, se toman las dos en papel, cada una en su libro.
+- **El contexto manda en los dos libros:** con el cierre de ayer bajo su SMA 50, ningún largo de P05b, P05c, P11 ni N8; el único corto permitido es el de P05b y el de N9 en su ventana.
+
 ## 3. Cuándo NO operar (medido, no opinión)
 
 - **Lectura incompleta** o con huecos.

@@ -118,7 +118,8 @@ def cerrar(dia):
     lado7 = 1 if dd7[-1, 4] > dd7[:, 4].mean() else -1
     desde7 = (d0 + dt.timedelta(hours=14, minutes=30)).timestamp() if str(dia) == "2026-10-26" else d0.timestamp()
     nivel7 = ap + 0.5 * atr if lado7 > 0 else ap - 0.5 * atr
-    j7 = next((i for i, x in enumerate(c15[:95]) if t15[i] > desde7 and ((lado7 > 0 and x > nivel7) or (lado7 < 0 and x < nivel7))), None)
+    hasta7 = (d0 + dt.timedelta(hours=21)).timestamp() if str(dia) >= "2026-10-27" else (d0 + dt.timedelta(hours=23, minutes=45)).timestamp()
+    j7 = next((i for i, x in enumerate(c15[:95]) if desde7 < t15[i] <= hasta7 and ((lado7 > 0 and x > nivel7) or (lado7 < 0 and x < nivel7))), None)
     if j7 is None:
         print(f"PP-7 P05b por régimen ({'largo' if lado7 > 0 else 'corto'}, nivel {nivel7:,.2f}): sin señal")
     else:
@@ -138,7 +139,8 @@ def cerrar(dia):
     ah, al = hi[:i7].max(), lo[:i7].min()
     nivel8 = ah if lado7 > 0 else al
     desde8 = max((d0 + dt.timedelta(hours=7)).timestamp(), (d0 + dt.timedelta(hours=14, minutes=35)).timestamp() if str(dia) == "2026-10-26" else 0)
-    j8 = next((i for i, x in enumerate(c15) if desde8 < t15[i] <= (d0 + dt.timedelta(hours=16)).timestamp()
+    fin8 = 13 if str(dia) >= "2026-10-27" else 16  # horario de N9 fijado el 26/10 (tarea 13): Londres 07-13 UTC
+    j8 = next((i for i, x in enumerate(c15) if desde8 < t15[i] <= (d0 + dt.timedelta(hours=fin8)).timestamp()
                and ((lado7 > 0 and x > nivel8) or (lado7 < 0 and x < nivel8))), None)
     if j8 is None:
         print(f"PP-8 N9 Asia-Londres ({'largo >' if lado7 > 0 else 'corto <'} {nivel8:,.2f}): sin señal")

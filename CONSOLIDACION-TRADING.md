@@ -478,6 +478,24 @@ Código en `consolidacion/t12_nuevas.py` y `t12b_nuevas.py`. Todas van en el lad
 
 La tercera del libro PRUEBA es **P05b largo con patrón alcista de 1 h**, porque la rutina y esta sesión la midieron distinto. `lectura_mercado.py` muestra ahora las señales de hoy de las 6 estrategias (sección «SEÑALES DE HOY»). Con todo, la frecuencia sigue lejos de 3 al día: entre los dos libros salen unas 4 o 5 operaciones por semana con señal.
 
+## Tarea 13 (pedido de Nicolás, 26/10): horarios separados por libro
+
+Resultado de cada estrategia según la sesión de entrada (`consolidacion/t13_horarios.py`). Media neta por operación, ajuste / prueba:
+
+| Estrategia | Asia 00-07 | Londres 07-13 | Nueva York 13-21 | 21-24 |
+|---|---|---|---|---|
+| P05b por régimen | +0,51 / +0,18 (77 / 58 ops) | +0,13 / +0,34 | +0,21 / +0,04 | +0,04 / +0,04 |
+| P05c largo con contexto | +0,61 / +1,33 | +0,36 / +0,78 | +0,72 / +0,23 | −0,43 / −0,12 |
+| N9 Asia-Londres | — | +0,37 / +0,11 (308 / 247) | +0,21 / −0,07 (141 / 133) | — |
+| P05b largo + vela 1 h | +2,79 / +0,45 | +0,31 / +1,18 | +0,18 / +0,80 | muestra mínima |
+
+**Horarios fijados:**
+- Libro PRINCIPAL: P11 los lunes a las 00:00; P05b y P05c con señales de 00:00 a 21:00 UTC.
+- Libro PRUEBA: N9 de 07:00 a 13:00 UTC; N8 los miércoles; P05b + vela de 00:00 a 21:00.
+- Cada libro con su propia posición y su propio marcador.
+
+Se aplican desde el martes 27/10 en `lectura_mercado.py` y `t6_ordenes.py`. PP-8 del lunes se queda con la ventana con la que se escribió (07:00-16:00), para no cambiar una orden después de escrita. Detalle en `GUIA-DECISION-CLAUDE.md`, sección 2c.
+
 ## Comisiones de contado verificadas (25/10, binance.com/en/fee/trading)
 
 - Usuario normal (VIP 0), contado: **0,100 % creador / 0,100 % tomador**; **0,075 % / 0,075 % pagando con BNB** (descuento del 25 %, vigente «hasta nuevo aviso» según el anuncio de Binance de 2022, actualizado en 2023).

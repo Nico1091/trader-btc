@@ -70,6 +70,12 @@ Salen de la tarea 8 de `CONSOLIDACION-TRADING.md`: operar solo cuando las velas 
 
 Lectura y fotos de las 14:32 UTC en `lecturas/2026-10-26_1432/`. **Decisión de Claude:** dejar PP-8 condicionada y seguir esperando a mercado. El precio está en 79.925, un 0,84 % sobre el nivel, y la foto de 5 min muestra un rebote: vender ahora sería perseguir el precio.
 
+## Horarios desde el martes 27/10 (fijados el 26/10 a las 14:40 UTC, antes del resultado)
+
+- **Libro PRINCIPAL:** PP-7 (P05b por régimen) solo toma señales de 00:00 a 21:00 UTC.
+- **Libro PRUEBA:** PP-8 (N9) solo de 07:00 a 13:00 UTC.
+- Cada libro lleva su propia posición. Las órdenes del lunes se quedan como se escribieron.
+
 ## Lectura antes de operar (regla añadida el 25/10, pedida por Nicolás)
 
 Ninguna orden se decide sin haber leído antes las velas que la regla necesita, completas y sin huecos. Si falta alguna, **no se opera** y se anota «lectura insuficiente». El script lo comprueba y lo imprime:
