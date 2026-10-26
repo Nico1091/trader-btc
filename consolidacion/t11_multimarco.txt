@@ -1,0 +1,43 @@
+                 base          variante  ops_ajuste  neto_ajuste  doble_ajuste  media_ajuste  pct_ajuste  ops_prueba  neto_prueba  doble_prueba  media_prueba  pct_prueba
+0          P05b largo         (ninguno)         280        52.01         32.41          0.19         NaN         216        21.61          6.49          0.10         NaN
+1          P05b largo            4 de 4         166        36.59         24.97          0.22       59.37         120        -1.11         -9.51         -0.01       17.27
+2          P05b largo            3 de 4         269        33.32         14.49          0.12        2.73         202        15.35          1.21          0.08       21.70
+3          P05b largo           1d y 3m         167        36.50         24.81          0.22       60.43         120        -1.11         -9.51         -0.01       15.60
+4          P05b largo                3m         180        42.94         30.34          0.24       68.03         132         7.98         -1.26          0.06       33.97
+5          P05b largo       4 de 4 + 5m         115        32.95         24.90          0.29       68.97          80       -15.57        -21.17         -0.19        3.03
+6          P05b largo       3 de 4 + 5m         178        46.53         34.07          0.26       72.50         133       -10.21        -19.52         -0.08        3.70
+7          P05b largo      1d y 3m + 5m         116        32.86         24.74          0.28       69.10          80       -15.57        -21.17         -0.19        3.37
+8          P05b largo  SMA50 (tarea 10)         174        55.41         43.23          0.32       84.77         131        17.99          8.82          0.14       64.20
+9          P05b corto         (ninguno)         281        -7.35        -27.02         -0.03         NaN         243        -1.68        -18.69         -0.01         NaN
+10         P05b corto            4 de 4         101       -16.51        -23.58         -0.16       33.83         105        -0.33         -7.68         -0.00       51.80
+11         P05b corto            3 de 4         261         9.29         -8.98          0.04       87.20         222         1.67        -13.87          0.01       64.07
+12         P05b corto           1d y 3m         102        -9.14        -16.28         -0.09       43.57         107         0.19         -7.30          0.00       54.23
+13         P05b corto                3m         111       -10.68        -18.45         -0.10       41.47         116         7.77         -0.35          0.07       71.93
+14         P05b corto       4 de 4 + 5m          71       -22.69        -27.66         -0.32       22.10          63       -11.26        -15.67         -0.18       20.10
+15         P05b corto       3 de 4 + 5m         197         9.88         -3.91          0.05       67.37         145       -20.06        -30.21         -0.14        9.60
+16         P05b corto      1d y 3m + 5m          71       -22.69        -27.66         -0.32       23.93          65       -10.74        -15.29         -0.17       20.27
+17         P05b corto  SMA50 (tarea 10)         130        20.81         11.71          0.16       77.37         110        14.14          6.44          0.13       83.93
+18         P05c largo         (ninguno)          91        33.83         27.46          0.37         NaN          79        33.09         27.56          0.42         NaN
+19         P05c largo            4 de 4          59        36.44         32.31          0.62       89.27          56        26.08         22.16          0.47       64.93
+20         P05c largo            3 de 4          90        37.36         31.06          0.42       94.63          79        33.09         27.56          0.42         NaN
+21         P05c largo           1d y 3m          59        36.44         32.31          0.62       88.63          56        26.08         22.16          0.47       66.50
+22         P05c largo                3m          60        37.28         33.08          0.62       89.87          56        26.08         22.16          0.47       65.17
+23         P05c largo       4 de 4 + 5m          36        27.41         24.89          0.76       88.03          36        22.63         20.11          0.63       86.63
+24         P05c largo       3 de 4 + 5m          60        31.31         27.11          0.52       79.13          51        30.65         27.08          0.60       91.97
+25         P05c largo      1d y 3m + 5m          36        27.41         24.89          0.76       87.23          36        22.63         20.11          0.63       85.57
+26         P05c largo  SMA50 (tarea 10)          59        29.99         25.86          0.51       76.37          58        25.02         20.96          0.43       54.90
+27  Lunes largo (P11)         (ninguno)         206        55.85         35.25          0.27         NaN         147        48.73         34.03          0.33         NaN
+28  Lunes largo (P11)            4 de 4          37        33.76         30.06          0.91       86.90          37         5.80          2.10          0.16       35.00
+29  Lunes largo (P11)            3 de 4          81        26.30         18.20          0.32       57.23          69        37.11         30.21          0.54       80.17
+30  Lunes largo (P11)           1d y 3m          58        10.60          4.80          0.18       42.43          50        27.83         22.83          0.56       78.37
+31  Lunes largo (P11)                3m         113        48.50         37.20          0.43       71.70          81        30.37         22.27          0.37       58.00
+32  Lunes largo (P11)       4 de 4 + 5m          21        41.93         39.83          2.00       98.17          20        -4.78         -6.78         -0.24       15.67
+33  Lunes largo (P11)       3 de 4 + 5m          49        54.05         49.15          1.10       95.13          40         8.77          4.77          0.22       38.17
+34  Lunes largo (P11)      1d y 3m + 5m          33        37.32         34.02          1.13       91.73          28        10.26          7.46          0.37       53.67
+35  Lunes largo (P11)  SMA50 (tarea 10)         103        42.99         32.69          0.42       70.43          83        50.80         42.50          0.61       92.07
+
+ELEGIDA EN EL AJUSTE (mejor media neta con mínimo 40 ops en el ajuste, sin contar la base):
+P05b largo: «SMA50 (tarea 10)» ajuste 174 ops media +0.318 | PRUEBA 131 ops neto +18.0 % doble +8.8 % media +0.137 pct 64 || base prueba media +0.100
+P05b corto: «SMA50 (tarea 10)» ajuste 130 ops media +0.160 | PRUEBA 110 ops neto +14.1 % doble +6.4 % media +0.129 pct 84 || base prueba media -0.007
+P05c largo: «3m» ajuste 60 ops media +0.621 | PRUEBA 56 ops neto +26.1 % doble +22.2 % media +0.466 pct 65 || base prueba media +0.419
+Lunes largo (P11): «3 de 4 + 5m» ajuste 49 ops media +1.103 | PRUEBA 40 ops neto +8.8 % doble +4.8 % media +0.219 pct 38 || base prueba media +0.331

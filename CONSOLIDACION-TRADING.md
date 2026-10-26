@@ -443,6 +443,26 @@ Con la mitad de las operaciones gana más, y con el doble de comisión pasa de p
 
 **La rutina se quedó sin cupo.** La pasada del 26/10 a las 14:05 UTC falló por «límite de uso». Tampoco llegaron correos de las 02:00 ni de las 08:00. Desde el 25/10 a las 20:27, nadie ha operado en papel. La nota de memoria de Nicolás ya preveía esto: «si se agota el cupo del plan, bajar a cada 8 h».
 
+## Tarea 11 (pedido de Nicolás, 26/10): leer el mercado en 5 min, 3 h, 16 h, 1 día y 3 meses antes de operar
+
+**Método** (`consolidacion/t11_multimarco.py`):
+- En el instante de la señal, con velas ya cerradas, se mira hacia dónde fue el precio en 3 h, 16 h, 1 día y 3 meses (90 días), y si la última vela de 5 m acompaña.
+- Ocho variantes: 4 de 4 a favor, 3 de 4, 1 día y 3 meses, solo 3 meses, y cada una con la vela de 5 m. Se comparan con el contexto de la SMA 50 de la tarea 10.
+- La variante se elige en 2020-2023 y la prueba se mira una vez.
+
+**Resultado:** más marcos no dan más seguridad.
+
+| Estrategia | Sin filtro (prueba) | 4 de 4 a favor | 4 de 4 + vela de 5 m | SMA 50 (tarea 10) |
+|---|---|---|---|---|
+| P05b largo | 216 ops · +21,6 % | 120 · **−1,1 %** | 80 · **−15,6 %** | 131 · +18,0 % (doble +8,8 %) |
+| P05b corto | 243 · −1,7 % | 105 · −0,3 % | 63 · −11,3 % | 110 · **+14,1 %** (doble +6,4 %) |
+| P05c largo | 79 · +33,1 % | 56 · +26,1 % | 36 · +22,6 % | 58 · +25,0 % |
+| P11 largo | 147 · +48,7 % | 37 · +5,8 % | 20 · −4,8 % | 83 · **+50,8 %** (doble +42,5 %) |
+
+- **Por qué:** P05b y P11 ya son compras o ventas de impulso. Cuando los cuatro marcos ya van a favor y además la vela de 5 m, el movimiento casi terminó y se entra tarde, en el extremo.
+- **La regla elegida en el ajuste** para P05b (en los dos lados) fue la SMA 50. Para P05c, el marco de 3 meses gana un poco por operación (+0,47 % frente a +0,42 %), pero con menos operaciones y menos total. Para P11, la variante elegida (3 de 4 + 5 m) falla en la prueba: +0,22 % por operación frente a +0,33 % sin filtro.
+- **Conclusión:** el estado del mercado sí importa, pero medido con **un solo contexto lento y estable** (el cierre diario frente a su SMA 50), no con varios marcos de dirección a la vez. Los marcos cortos (5 m, 3 h, 16 h) sirven para leer el momento y el riesgo, no como condición para entrar.
+
 ## Comisiones de contado verificadas (25/10, binance.com/en/fee/trading)
 
 - Usuario normal (VIP 0), contado: **0,100 % creador / 0,100 % tomador**; **0,075 % / 0,075 % pagando con BNB** (descuento del 25 %, vigente «hasta nuevo aviso» según el anuncio de Binance de 2022, actualizado en 2023).
