@@ -54,4 +54,13 @@ Ninguna orden se decide sin haber leído antes las velas que la regla necesita, 
 
 ## Resultado
 
+### Niveles del lunes 26/10 (calculados el 26/10 a las 00:12 UTC con Coinbase; lectura completa: 15 y 50 velas diarias sin huecos)
+
+- Apertura 00:00 UTC: **80.053,16**. ATR14 diario: **2.170,43**.
+- PP-1 (P11): **entra** en 80.053,16 con stop en 77.651,57 (−3 %) y cierre a las 23:59 UTC.
+- PP-1f (P11 con tendencia): **no opera**. El cierre del domingo (80.053,16) quedó un 2,14 % bajo su SMA 50 (81.802,02).
+- PP-2 y PP-6 (P05b): banda 78.967,94 / **81.138,38**. PP-6 solo compra si un cierre de 15 m supera 81.138,38 y hay un patrón alcista en las 3 últimas velas de 1 h.
+- PP-3 (P05c largo): compra solo sobre **82.223,59**.
+
+
 _(Se completa al cerrar con velas de 1 minuto. Si esta sesión ya no sigue viva, lo cierra la rutina en su pasada siguiente con el mismo script.)_

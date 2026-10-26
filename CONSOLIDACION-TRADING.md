@@ -52,6 +52,16 @@ Fuentes: el REGISTRO v5 del correo del 25/10 a las 14:18 UTC y Gmail. No hay cor
 | AZ-002 … AZ-006 | Azar | Cortos de hoy | Abiertas. Marca a las 16:19: +0,29, +0,33, 0,00, −0,27 y −0,35 % bruto | — |
 | AZ-007 / AZ-008 | Azar | Largo 18:49 / lunes 00:00 | Pendientes | — |
 
+**Cierre del domingo 25/10** (`consolidacion/t9_cerrar_25oct.py`, 1.440 velas de 1 minuto de Coinbase sin huecos, cerrado el 26/10 a las 00:12 UTC):
+
+| Id | Resultado |
+|---|---|
+| CL-005 / CL-006 / ORD-004 (P05b) | No se activaron: cierres de 15 m de 79.964,66 a 80.869,47, frente a 79.675,77 / 81.863,57 |
+| ORD-005 (P05c) | No se activó |
+| AZ-002 · AZ-003 · AZ-004 · AZ-005 · AZ-006 (cortos al azar) | +0,75 · +0,79 · +0,46 · +0,19 · +0,11 % neto (cierre a las 23:59, 80.053,16) |
+| AZ-007 (largo al azar, 18:49) | −0,77 % neto |
+| **Marcador en vivo al 25/10** | Estrategias y libro CLAUDE: 0 operaciones. Azar: 7 cerradas, +1,11 % neto. El domingo bajó 0,9 % y los cortos sorteados ganaron por suerte. Todavía no hay comparación posible. |
+
 **Entrenamiento a ciegas** (las únicas decisiones ya resueltas del libro CLAUDE):
 
 | Sesión | Operaciones | Aciertos | Neto | Azar | Percentil |
@@ -302,7 +312,7 @@ Se cierran con `python3 -I consolidacion/t6_ordenes.py cerrar 2026-10-26` (y `20
 - **Lunes 19/10:** P11 da −0,206 % bruto en Coinbase (en Binance, −0,21 %).
 - **Martes 20/10:** P05b da el mismo largo que en Binance.
 
-**Resultado:** pendiente. Al escribir esto es domingo 16:20 UTC. Si la sesión no sigue viva el martes, la rutina puede cerrarlas en su pasada siguiente con el mismo script (ver la tarea 7).
+**Niveles del lunes** (fijados a las 00:12 UTC del 26/10): apertura 80.053,16 y ATR14 2.170,43. PP-1 entra; **PP-1f no opera** (cierre del domingo un 2,14 % bajo su SMA 50). P05b compra sobre 81.138,38 y P05c sobre 82.223,59. **Resultado:** pendiente. Lo cierro el martes a las 00:15 UTC. Si la sesión no sigue viva el martes, la rutina puede cerrarlas en su pasada siguiente con el mismo script (ver la tarea 7).
 
 ---
 
