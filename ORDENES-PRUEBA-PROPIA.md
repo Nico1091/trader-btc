@@ -42,6 +42,17 @@ Salen de la tarea 8 de `CONSOLIDACION-TRADING.md`: operar solo cuando las velas 
 |---|---|---|---|
 | PP-7 | Lunes 26 (solo señales después de las 14:30 UTC) y martes 27 | P05b k = 0,5 **por régimen**. Con el cierre de ayer **bajo** su SMA 50, solo el **corto**: primer cierre de 15 m bajo apertura − 0,5·ATR14 (lunes: **78.967,94**), límite de venta en la banda válido 60 min, stop con un cierre de 15 m que vuelve sobre la apertura y cierre a las 23:59 UTC. Con el cierre sobre la SMA 50, solo el largo. | Futuros, en porcentaje: con 40.000 pesos la orden mínima de futuros arriesgaría del 8 al 19 % de la cuenta, así que el corto no lleva tamaño en pesos |
 
+## Decisión de Claude del 26/10 a las 14:24 UTC, con la lectura de 5 tiempos (`consolidacion/lectura_mercado.py`, fotos en `lecturas/2026-10-26_1424/`)
+
+- **Lectura completa, sin huecos, en 1,6 s.**
+  - 5 min: lateral, con volatilidad a 2,1 veces su media.
+  - 3 h: −0,16 %. Caída a 79.300 y rebote en V.
+  - 16 h: −0,62 %.
+  - 1 día: −0,87 %, con el precio en la posición 0,19 de su rango.
+  - 3 meses: +25,7 %, pero bajo su media de 20 días.
+- **Contexto:** el cierre de ayer está un 2,14 % bajo la SMA 50: bajista.
+- **Decisión: esperar.** El rebote de 3 horas va contra el contexto diario. No hay largos con contexto bajista, y el único nivel con ventaja (el corto de P05b, bajo 78.968) está un 1,3 % abajo. Sigue en pie PP-7. Confianza en esperar: 7.
+
 ## Lectura antes de operar (regla añadida el 25/10, pedida por Nicolás)
 
 Ninguna orden se decide sin haber leído antes las velas que la regla necesita, completas y sin huecos. Si falta alguna, **no se opera** y se anota «lectura insuficiente». El script lo comprueba y lo imprime:
