@@ -138,8 +138,8 @@ def png(ruta, v, titulo_alto=0):
 
 
 def senales(apertura, atr, alcista, cierre_ayer):
-    """Señales de hoy de los dos libros, con el motor comprobado (sistema.py: idéntico al simulador en 2.502 de 2.502
-    comparaciones). Solo informa: decide Claude."""
+    """Señales de hoy de los dos libros, con el motor comprobado (sistema.py: idéntico al simulador en 14.022 de 14.022
+    comparaciones, todo el historial) y el estado de riesgo de la cuenta en pesos. Solo informa: decide Claude."""
     sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
     import sistema
     hoy = dt.datetime.now(dt.timezone.utc).date()
@@ -151,7 +151,10 @@ def senales(apertura, atr, alcista, cierre_ayer):
     conf = (f"CONFIRMACIÓN DE LOS OTROS TIEMPOS (EMA 20, a favor del contexto {'alcista' if D.ctx > 0 else 'bajista'}): "
             f"1 h {'sí' if D.e1h(t, D.ctx) else 'no'} · 4 h {'sí' if D.e4h(t, D.ctx) else 'no'} · 1 día {'sí' if D.e1d(t, D.ctx) else 'no'} · "
             f"patrón del curso a favor en las 3 últimas velas de 1 h: {'sí' if D.patron1h(t, D.ctx) else 'no'}")
-    return ["SEÑALES DE HOY (motor sistema.py; el programa no decide: decide Claude)"] + texto.splitlines()[1:] + [conf]
+    riesgo_txt = sistema.riesgo.texto_estado().splitlines()
+    return (riesgo_txt + ["SEÑALES DE HOY (motor sistema.py; el programa no decide: decide Claude). Si decides operar una señal, "
+                          "registra la orden ANTES del llenado: python3 -I consolidacion/sistema.py orden <ESTRATEGIA> \"razón\""]
+            + texto.splitlines()[1:] + [conf])
 
 
 def main():

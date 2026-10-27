@@ -1,0 +1,41 @@
+VARIANTES REGISTRADAS EN EL PROYECTO (filas de los CSV de consolidacion/; cada fila suele ser variante × tramo)
+  consolidado_BTC.csv: 25
+  consolidado_ETH.csv: 25
+  t10_contexto.csv: 24
+  t11_multimarco.csv: 36
+  t12_nuevas.csv: 18
+  t12b_nuevas.csv: 14
+  t2_velas.csv: 342
+  t3_estrategias.csv: 105
+  t4_presupuesto.csv: 24
+  t8_confirmacion.csv: 62
+  total 675 filas → del orden de 337 variantes distintas, sin contar el banco de alta frecuencia de octubre ni las estrategias del curso de junio. Por eso se dan N = 10, 50, 100 y 300.
+
+=== BTC ===
+estrategia     tramo  dias  sharpe_anual  PSR_vs_0  DSR N=10  DSR N=50  DSR N=100  DSR N=300  p_media  p_Holm
+      P05b 2020-2023  1462         0.560     0.895     0.306     0.098      0.057      0.023    0.067   0.202
+       P11 2020-2023  1462         0.560     0.897     0.304     0.096      0.056      0.023    0.068   0.202
+      P05c 2020-2023  1462         0.833     0.961     0.539     0.260      0.180      0.097    0.007   0.037
+        N9 2020-2023  1462         0.894     0.990     0.610     0.264      0.168      0.076    0.031   0.123
+        N8 2020-2023  1462         0.656     0.923     0.389     0.149      0.094      0.043    0.077   0.202
+      P05b 2024-2026  1028         0.572     0.844     0.259     0.083      0.049      0.021    0.103   0.309
+       P11 2024-2026  1028         1.146     0.988     0.659     0.339      0.237      0.126    0.029   0.115
+      P05c 2024-2026  1028         1.412     0.999     0.853     0.549      0.415      0.243    0.011   0.055
+        N9 2024-2026  1028         0.492     0.810     0.213     0.061      0.035      0.014    0.179   0.309
+        N8 2024-2026  1028         0.948     0.967     0.507     0.214      0.139      0.066    0.104   0.309
+  Lectura: PSR/DSR = probabilidad de que el Sharpe verdadero supere al de referencia; ≥ 0,95 sería evidencia fuerte.
+
+=== ETH ===
+estrategia     tramo  dias  sharpe_anual  PSR_vs_0  DSR N=10  DSR N=50  DSR N=100  DSR N=300  p_media  p_Holm
+      P05b 2020-2023  1462        -0.168     0.372     0.032     0.006      0.003      0.001    0.681   1.000
+       P11 2020-2023  1462        -0.387     0.231     0.013     0.002      0.001      0.000    0.808   1.000
+      P05c 2020-2023  1462        -0.008     0.494     0.056     0.011      0.005      0.002    0.500   1.000
+        N9 2020-2023  1462         0.721     0.958     0.437     0.158      0.096      0.041    0.070   0.352
+        N8 2020-2023  1462         0.526     0.869     0.290     0.097      0.058      0.025    0.122   0.487
+      P05b 2024-2026  1029         0.607     0.856     0.281     0.095      0.058      0.025    0.087   0.229
+       P11 2024-2026  1029         0.686     0.889     0.327     0.117      0.072      0.032    0.138   0.229
+      P05c 2024-2026  1029         1.140     0.980     0.643     0.348      0.253      0.145    0.013   0.064
+        N9 2024-2026  1029         0.848     0.944     0.433     0.171      0.108      0.050    0.057   0.229
+        N8 2024-2026  1029         0.778     0.936     0.378     0.129      0.077      0.032    0.070   0.229
+  Lectura: PSR/DSR = probabilidad de que el Sharpe verdadero supere al de referencia; ≥ 0,95 sería evidencia fuerte.
+

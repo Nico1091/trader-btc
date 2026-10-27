@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "/home/user/trader-btc-investigacion/investigacion/d4_frecuencia.py", line 22, in <module>
+    assert ((V.t[1:] - V.t[:-1]) == pd.Timedelta(minutes=1)).all(), "este experimento supone velas sin huecos"
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+AssertionError: este experimento supone velas sin huecos

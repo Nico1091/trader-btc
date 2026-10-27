@@ -6,8 +6,12 @@ Solo biblioteca estándar: corre igual en el PC, en esta nube y en la rutina. Le
 El programa NO decide: calcula contexto, niveles, confirmaciones y señales, y cierra con velas reales. Decide Claude.
 
 Uso:
-  python3 -I sistema.py estado              -> señales de hoy hasta ahora (para decidir)
-  python3 -I sistema.py cerrar 2026-10-27   -> resultado del día completo, por libro y contra el azar
+  python3 -I sistema.py estado              -> estado de riesgo y señales de hoy hasta ahora (para decidir)
+  python3 -I sistema.py orden P05b "nota"   -> anota la orden de papel que Claude acaba de decidir (con su hora real);
+                                               con --dia AAAA-MM-DD queda como condicionada para ese día
+  python3 -I sistema.py cerrar 2026-10-27   -> resultado del día completo: teórico y EJECUTADO, contra el azar, las sombras
+                                               (stop duro, tendencia) y el estado de riesgo; lo guarda en papel/libro.jsonl
+  python3 -I sistema.py riesgo              -> solo el estado de riesgo de la cuenta de 40.000 pesos
 
 LIBROS (horas UTC):
   PRINCIPAL (papel en futuros, en %; los largos marcados «pesos» también van a la cuenta de 40.000 en contado)
@@ -33,6 +37,7 @@ import urllib.request
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import patrones_std  # noqa: E402
+import riesgo  # noqa: E402
 
 UTC = dt.timezone.utc
 COM = {"creador": 0.02, "tomador": 0.05}  # futuros USDⓈ-M, usuario normal
@@ -214,6 +219,17 @@ class Dia:
         return dict(libro=libro, estrategia=nombre, lado=lado, senal=t_senal, entrada=self.m1[i_e][0], pe=pe,
                     salida=t_s, px=px, motivo=motivo, bruto=bruto, neto=neto, pesos=pesos, nota=nota)
 
+    def salida_stop_duro(self, i_e, ref, lado):
+        """SOMBRA (no se opera): la misma entrada con un stop duro en ref desde el minuto siguiente al llenado; si un
+        minuto abre más allá, sale en la apertura. Mide hacia adelante el cambio 3 de la investigación del 27/10."""
+        for i in range(i_e + 1, len(self.m1)):
+            o, h, l = self.m1[i][3], self.m1[i][2], self.m1[i][1]
+            if lado > 0 and l <= ref:
+                return self.m1[i][0], min(o, ref), "stop duro"
+            if lado < 0 and h >= ref:
+                return self.m1[i][0], max(o, ref), "stop duro"
+        return self.m1[-1][0], self.m1[-1][4], "tiempo"
+
     # --- estrategias
     def p11(self, nombre="P11", libro="PRINCIPAL", dia_sem=0, pesos=True):
         if dt.datetime.fromtimestamp(self.d0, UTC).weekday() != dia_sem:
@@ -289,6 +305,7 @@ class Dia:
             return [], "N9: rango de Asia incompleto"
         ah, al = max(x[2] for x in asia), min(x[1] for x in asia)
         nv, medio = (ah if self.ctx > 0 else al), (ah + al) / 2
+        self.n9_ref = medio
         for tc, x in self.c15:
             if self.d0 + 7 * 3600 < tc <= self.d0 + 13 * 3600 and self.ctx * (x - nv) > 0:
                 i = self._llenado(tc, nv, self.ctx)
@@ -334,11 +351,76 @@ def informe(fuente, dia, ahora=None):
     return D, ops, "\n".join(L)
 
 
+def referencia(D, o):
+    """Referencia del stop conocida al entrar: la apertura (P05b, P05c), el punto medio de Asia (N9) o el 3 % (P11, N8)."""
+    if o["estrategia"] in ("P05b", "P05b+pat", "P05c"):
+        return D.ap
+    if o["estrategia"] == "N9":
+        return D.n9_ref
+    return None
+
+
+def cerrar(fuente, dia, ahora=None, guardar=True):
+    """Cierra el día con sus 1.440 velas: teórico frente a ejecutado, sombras y estado de riesgo. Devuelve el texto."""
+    D, ops, texto = informe(fuente, dia, ahora)
+    if not D.completo:
+        return texto + "\n  AVISO: el día no ha terminado; no se guarda nada en papel/libro.jsonl"
+    L = [texto, "  EJECUCIÓN (cuenta solo si Claude registró la orden con «sistema.py orden» antes del llenado):"]
+    ordenes = riesgo._leer("ordenes.jsonl")
+    dist = {}
+    for o in ops:
+        ref = referencia(D, o)
+        dist[o["estrategia"]] = abs(o["pe"] - ref) / o["pe"] if ref else 0.03
+        ej = riesgo.ejecutada(o, dia, ordenes)
+        if ej is not None:
+            L.append(f"    {o['estrategia']}: {'EJECUTADA' if ej else 'NO EJECUTADA (sin orden a tiempo: no cuenta en el papel real)'} "
+                     f"· neto {o['neto']:+.3f} %")
+    teo = sum(o["neto"] for o in ops if o["estrategia"] != "AZAR")
+    eje = sum(o["neto"] for o in ops if o["estrategia"] != "AZAR" and riesgo.ejecutada(o, dia, ordenes))
+    L.append(f"    total del día (libros en %): teórico {teo:+.3f} · ejecutado {eje:+.3f}")
+    L.append("  SOMBRAS (no se operan; se miden para decidir con datos hacia adelante):")
+    for o in ops:
+        ref = referencia(D, o)
+        if ref is None:
+            continue
+        i_e = (o["entrada"] - D.d0) // 60
+        t_s, px, mot = D.salida_stop_duro(i_e, ref, o["lado"])
+        neto = o["lado"] * (px / o["pe"] - 1) * 100 - COM["creador"] - COM["tomador"]
+        L.append(f"    {o['estrategia']} con stop duro en {ref:,.2f}: sale {dt.datetime.fromtimestamp(t_s, UTC):%H:%M} a "
+                 f"{px:,.2f} ({mot}) · neto {neto:+.3f} % frente a {o['neto']:+.3f} % de la regla actual")
+    largo = D.cierre_ayer > D.sma50
+    dia_ret = (D.m1[-1][4] / D.m1[0][3] - 1) * 100
+    L.append(f"    TENDENCIA (largo si el cierre de ayer > SMA 50; si no, fuera): {'LARGO' if largo else 'FUERA'} · "
+             f"{dia_ret if largo else 0.0:+.3f} % bruto hoy (sus costes solo al cambiar de posición)")
+    if guardar:
+        riesgo.guardar_dia(dia, ops, dist)
+        L.append("  Guardado en papel/libro.jsonl.")
+    L.append(riesgo.texto_estado())
+    return "\n".join(L)
+
+
 if __name__ == "__main__":
     accion = sys.argv[1] if len(sys.argv) > 1 else "estado"
-    dia = dt.date.fromisoformat(sys.argv[2]) if len(sys.argv) > 2 else dt.datetime.now(UTC).date()
     try:
-        _, _, texto = informe(Coinbase(), dia, None if accion == "estado" else int(time.time()))
-        print(texto)
+        if accion == "orden":  # orden ESTRATEGIA [--dia AAAA-MM-DD] "nota" (--dia: condicionada para otro día)
+            estr, resto = sys.argv[2], sys.argv[3:]
+            destino = dt.datetime.now(UTC).date()
+            if len(resto) >= 2 and resto[0] == "--dia":
+                destino, resto = dt.date.fromisoformat(resto[1]), resto[2:]
+            f = riesgo.registrar_orden(estr, destino, " ".join(resto))
+            print(f"Orden registrada: {f['estrategia']} para el {f['dia']} a las {f['hora_utc']} UTC · {f['nota']}")
+        elif accion == "riesgo":
+            print(riesgo.texto_estado())
+        elif accion == "cerrar":
+            dia = dt.date.fromisoformat(sys.argv[2])
+            print(cerrar(Coinbase(), dia, int(time.time())))
+        else:
+            dia = dt.date.fromisoformat(sys.argv[2]) if len(sys.argv) > 2 else dt.datetime.now(UTC).date()
+            print(riesgo.texto_estado())
+            ej, _ = riesgo.estado()
+            if ej["bloqueo"]:
+                print("NO SE ABRE NADA EN LA CUENTA EN PESOS: " + ej["bloqueo"] + " (el papel en % se sigue midiendo)")
+            _, _, texto = informe(Coinbase(), dia, None)
+            print(texto)
     except LecturaInsuficiente as e:
         print("NO SE OPERA: lectura insuficiente ->", e)
