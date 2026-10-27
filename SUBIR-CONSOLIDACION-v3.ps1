@@ -1,14 +1,14 @@
-﻿# SUBIR-CONSOLIDACION.ps1  (versión 2, 27/10/2026)
+﻿# SUBIR-CONSOLIDACION-v3.ps1  (versión 3, 27/10/2026: corrige ${Rama}: y toma el paquete más reciente)
 # Sube a GitHub los commits de la sesión de Claude (rama claude/encargo-cloud-md-q0u3ex) desde el paquete
 # consolidacion-pendientes.bundle. Solo usa git. No cambia la configuración de Windows, del antivirus ni del firewall.
 # Te pide autorización (S/N) antes de cada paso que toca algo.
 #
 # CÓMO EJECUTARLO (Windows pide permiso porque el archivo viene de internet; es normal):
-#   1. Clic derecho en SUBIR-CONSOLIDACION.ps1 -> Propiedades -> marca «Desbloquear» -> Aceptar.
+#   1. Clic derecho en SUBIR-CONSOLIDACION-v3.ps1 -> Propiedades -> marca «Desbloquear» -> Aceptar.
 #   2. Abre PowerShell en la carpeta del archivo (en el Explorador: Archivo -> Abrir Windows PowerShell).
 #   3. Escribe:  Set-ExecutionPolicy -Scope Process -ExecutionPolicy RemoteSigned
 #      (solo vale para esa ventana; PowerShell te pide confirmar: responde S)
-#   4. Escribe:  .\SUBIR-CONSOLIDACION.ps1
+#   4. Escribe:  .\SUBIR-CONSOLIDACION-v3.ps1
 # Si tu antivirus aun así lo bloquea, usa COMANDOS-SUBIR-A-MANO.txt: son los mismos pasos, escritos a mano.
 param(
     [string]$Repo   = "$env:USERPROFILE\Ingresos\trader-btc",
@@ -42,14 +42,15 @@ git --version
 
 Paso "2) Buscando el paquete"
 if (-not $Bundle) {
-    $candidatos = @("$PSScriptRoot\consolidacion-pendientes.bundle",
-                    "$env:USERPROFILE\Downloads\consolidacion-pendientes.bundle",
-                    "$env:USERPROFILE\Descargas\consolidacion-pendientes.bundle")
-    $Bundle = $candidatos | Where-Object { Test-Path $_ } | Select-Object -First 1
+    # El más reciente de los paquetes «consolidacion*.bundle» junto al script o en Descargas (aunque tenga (1), (2)...)
+    $carpetas = @($PSScriptRoot, "$env:USERPROFILE\Downloads", "$env:USERPROFILE\Descargas") | Where-Object { $_ -and (Test-Path $_) }
+    $reciente = Get-ChildItem -Path $carpetas -Filter "consolidacion*.bundle" -File -ErrorAction SilentlyContinue |
+                Sort-Object LastWriteTime -Descending | Select-Object -First 1
+    if ($reciente) { $Bundle = $reciente.FullName }
 }
 if (-not $Bundle -or -not (Test-Path $Bundle)) { Falla "No encuentro consolidacion-pendientes.bundle. Ponlo en la misma carpeta que este script o en Descargas." }
 $Bundle = (Resolve-Path $Bundle).Path
-Write-Host "Paquete: $Bundle"
+Write-Host "Paquete (el más reciente): $Bundle  ($((Get-Item $Bundle).LastWriteTime))"
 
 Paso "3) Repositorio local: $Repo"
 if (-not (Test-Path "$Repo\.git")) {
@@ -91,7 +92,7 @@ if ($actual -ne $Rama) {
     git branch -f $Rama refs/consolidacion/paquete | Out-Null
     Write-Host "Tu rama local $Rama quedó igual que la de GitHub. Para ver los archivos: git checkout $Rama"
 } else {
-    Write-Host "Estás en la rama $Rama: para traer los cambios, escribe  git merge --ff-only refs/consolidacion/paquete" -ForegroundColor Yellow
+    Write-Host "Estás en la rama ${Rama}: para traer los cambios, escribe  git merge --ff-only refs/consolidacion/paquete" -ForegroundColor Yellow
 }
 git update-ref -d refs/consolidacion/paquete
 
