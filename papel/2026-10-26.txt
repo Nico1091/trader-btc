@@ -9,3 +9,11 @@ SISTEMA CONSOLIDADO · 2026-10-26 · contexto BAJISTA (cierre de ayer 80,053.16 
   N8: no es su día
   AZAR: corto a las 03:52
   [AZAR] AZAR CORTO 79,317.43 -> 80,008.79 (tiempo) bruto -0.872 % neto -0.972 %
+  EJECUCIÓN (cuenta solo si Claude registró la orden con «sistema.py orden» antes del llenado):
+    total del día (libros en %): teórico +0.000 · ejecutado +0.000
+  SOMBRAS (no se operan; se miden para decidir con datos hacia adelante):
+    TENDENCIA (largo si el cierre de ayer > SMA 50; si no, fuera): FUERA · +0.000 % bruto hoy (sus costes solo al cambiar de posición)
+  Guardado en papel/libro.jsonl.
+RIESGO · cuenta de 40.000 pesos (contado, 2 % por operación, topes −4 % día / −8 % semana / −20 % total): OPERABLE
+  ejecutado: saldo 40,000 COP (+0.00 %), caída desde el máximo 0.0 %, hoy +0, semana +0, 0 operaciones
+  teórico (todas las señales, como si siempre se hubiera estado a tiempo): saldo 40,000 COP (+0.00 %), 0 operaciones

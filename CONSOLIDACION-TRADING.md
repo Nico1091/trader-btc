@@ -2,6 +2,30 @@
 
 Informe del encargo `ENCARGO-CLOUD.md`. Solo papel: ni dinero real, ni claves, ni cuentas, ni brokers.
 
+## Investigación cuantitativa y cambios aplicados (27/10/2026, tarde)
+
+Esta sección manda sobre la de abajo en lo que diga distinto. El informe completo, con los 12 entregables, cada cifra ligada a su script y la regla de adopción fijada antes de mirar, está en `investigacion/INFORME-INVESTIGACION-QUANT.md` (y `investigacion/PREREGISTRO.md`).
+
+**Lo que se comprobó:**
+- La consolidación se reproduce idéntica.
+- Los % publicados son sumas por operación con el 100 % del nocional, no rentabilidad de la cuenta. La cuenta de 40.000 pesos con 2 % da unos 5.000 a 6.000 COP al año.
+- **En 5 activos nunca mirados, con las reglas sin tocar:**
+  - Solo **P05c** generaliza (positiva en 5 de 5), y depende de pocas operaciones.
+  - **N8 y N9 no generalizan** (2 de 5), y **P11 tampoco** (1 de 5).
+- P05b y P11 se tratan como **propias de BTC**. El parámetro de P05b es un pico aislado.
+- Las cinco estrategias son en buena parte la misma apuesta (correlación de 0,75 a 0,96 los días en que coinciden). La ventaja viene sobre todo del contexto (SMA 50).
+- Corrigiendo por las ~337 variantes que registra el proyecto, ninguna llega a evidencia fuerte (Sharpe deflactado < 0,95).
+- **263 variantes por activo en 7 activos:** ninguna cumple la regla de adopción. Se conservan las reglas.
+- **300 operaciones al mes no tienen ventaja:** ~0 bruto por operación en sesiones de 1 a 8 horas, y las comisiones costarían del 45 al 60 % del capital al mes. Riesgo del 2 %: ni menos (no cabe por el mínimo de 5 USDT) ni más (2,5 % multiplica por 6 la probabilidad de tocar el −20 %).
+
+**Cambios aplicados al código y a los documentos:**
+1. `consolidacion/riesgo.py` (nuevo): los topes de −4 % al día, −8 % a la semana y −20 % total, en código. `sistema.py estado` y `lectura_mercado.py` dicen si la cuenta en pesos está OPERABLE o BLOQUEADA.
+2. **Registro de ejecución.** `sistema.py orden <ESTRATEGIA> "razón"` anota la orden con su hora real. `sistema.py cerrar` separa lo teórico de lo EJECUTADO (orden antes del llenado) y guarda el día en `papel/libro.jsonl`. Cerrar dos veces no duplica.
+3. **Sombras** en `cerrar`, que no se operan: la misma entrada con stop duro, y la regla de tendencia «largo si el cierre de ayer > SMA 50». Son para medir hacia adelante, no para adoptar por backtest.
+4. **Pruebas ampliadas** (`pruebas_sistema.py`): la paridad entre el motor y el simulador cubre todo el historial (14.022 de 14.022; antes 2.502, el 17 %). Hay pruebas nuevas de topes (5 de 5), de ejecución (7 de 7, incluida la orden condicionada de la víspera) y de la sombra con stop duro (137 de 137 iguales a un cálculo independiente). Resultado: SIN FALLAS.
+5. **Testigo al azar** (`sim.azar`): paga la misma comisión de entrada que la operación (antes, siempre tomador). En BTC no cambia nada; en ETH, el percentil de P05b pasa de 82 a 76 y el de P05c de 91 a 90.
+6. `GUIA-DECISION-CLAUDE.md` v3 y `PROMPT-AGENTE-TRADING-NUBE.md` con las etiquetas corregidas, y `PROMPT-MAESTRO-REVISION-TOTAL.md` (nuevo) para revisar y continuar todo el proyecto.
+
 ## Consolidación final (27/10/2026): lo que queda, con el motor corregido
 
 Esta sección manda sobre todas las de abajo. Las tareas 1 a 13 se escribieron con el motor anterior; sus cifras cambian poco (P05b base: +64,6 % → +60,2 %), pero las válidas son estas. La guía de uso diario es `GUIA-DECISION-CLAUDE.md`.

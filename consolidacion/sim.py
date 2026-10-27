@@ -252,18 +252,23 @@ def netos(t, com=0.05, com_creador=0.02):
     return t["bruto"].to_numpy() - entrada - com
 
 
-def azar(V, t, sims=500, semilla=11, com=0.05):
-    """Mismas operaciones (lado y duración) en momentos sorteados, sin stop. Devuelve sumas netas."""
+def azar(V, t, sims=500, semilla=11, com=0.05, com_creador=None):
+    """Mismas operaciones (lado y duración) en momentos sorteados, sin stop. Devuelve sumas netas.
+    La comisión de entrada es la misma que pagó cada operación (creador o tomador): antes el testigo pagaba siempre
+    tomador y eso favorecía a las estrategias en unos 0,03 % por operación (investigación del 27/10, punto 3.8)."""
     if len(t) == 0:
         return np.array([0.0])
     rng = np.random.default_rng(semilla)
     dur = ((t["salida"] - t["entrada"]) / MIN).to_numpy().astype(int)
     lado = t["lado"].to_numpy()
+    if com_creador is None:  # futuros: creador 0,02; en contado (com 0,10 o 0,075) el creador paga lo mismo que el tomador
+        com_creador = 0.02 if com == 0.05 else com
+    entrada = np.where(t["creador"].to_numpy(bool), com_creador, com)
     n = len(V.t)
     sumas = []
     for _ in range(sims):
         i0 = rng.integers(0, n - 1500, len(t))
         i1 = np.minimum(i0 + np.maximum(dur, 1), n - 1)
-        r = lado * (V.c[i1] / V.o[i0] - 1) * 100 - 2 * com
+        r = lado * (V.c[i1] / V.o[i0] - 1) * 100 - entrada - com
         sumas.append(r.sum())
     return np.array(sumas)

@@ -40,9 +40,9 @@ PRINCIPAL P11 con contexto [(base)]         30.2 -16.4 -19.7 -23.9  19.4  -4.2  
 PRINCIPAL P05c largo con contexto [(base)]  12.7  -6.9   4.2  -2.9   4.6  13.4   8.0
 PRUEBA N9 Asia-Londres [mayoría 2 de 3]     57.8  55.4 -18.5  -9.3  -2.7  26.6  27.0
 PRUEBA N8 miércoles con contexto [(base)]   22.3  -2.1  11.8  14.4  17.1  17.6   8.3
-PRINCIPAL P05b por régimen [(base)]: 485 ops | ajuste 271 -25.4 % (doble -44.4) | prueba 214 +43.5 % (doble +28.5) | años positivos 4/7 | percentil frente al azar 82
+PRINCIPAL P05b por régimen [(base)]: 485 ops | ajuste 271 -25.4 % (doble -44.4) | prueba 214 +43.5 % (doble +28.5) | años positivos 4/7 | percentil frente al azar 76
 PRINCIPAL P11 con contexto [(base)]: 189 ops | ajuste 116 -29.9 % (doble -41.5) | prueba 73 +31.7 % (doble +24.4) | años positivos 3/7 | percentil frente al azar 44
-PRINCIPAL P05c largo con contexto [(base)]: 98 ops | ajuste 65 +7.1 % (doble +2.5) | prueba 33 +26.0 % (doble +23.6) | años positivos 5/7 | percentil frente al azar 91
+PRINCIPAL P05c largo con contexto [(base)]: 98 ops | ajuste 65 +7.1 % (doble +2.5) | prueba 33 +26.0 % (doble +23.6) | años positivos 5/7 | percentil frente al azar 90
 PRUEBA N9 Asia-Londres [mayoría 2 de 3]: 468 ops | ajuste 263 +85.5 % (doble +67.1) | prueba 205 +50.9 % (doble +36.5) | años positivos 4/7 | percentil frente al azar 100
 PRUEBA N8 miércoles con contexto [(base)]: 193 ops | ajuste 119 +46.4 % (doble +34.5) | prueba 74 +43.1 % (doble +35.7) | años positivos 6/7 | percentil frente al azar 94
 
