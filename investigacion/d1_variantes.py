@@ -10,7 +10,7 @@ import sys
 
 RUTA, ETQ = sys.argv[1], sys.argv[2]
 sys.argv = [sys.argv[0], RUTA, ETQ]
-sys.path.insert(0, "/home/user/trader-btc-investigacion/consolidacion")
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "consolidacion"))
 import numpy as np  # noqa: E402
 import pandas as pd  # noqa: E402
 import consolidado as C  # noqa: E402

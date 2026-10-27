@@ -304,4 +304,6 @@ def informe():
 
 
 if __name__ == "__main__":
+    if hasattr(sys.stdout, "reconfigure"):  # Windows: con la salida por tubería usa cp1252, sin «−», «≥» ni flechas
+        sys.stdout.reconfigure(encoding="utf-8", errors="replace")
     informe()

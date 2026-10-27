@@ -7,8 +7,22 @@ Metodología (explícita, porque el informe anterior no la daba):
   operación), anualizados con 365 días (cripto opera todos los días). Sortino con la desviación a la baja sobre todos los días.
 - IC 90 % de la media por operación: bootstrap por bloques de meses (respeta la dependencia dentro de cada mes).
 """
+import os
+
 import numpy as np
 import pandas as pd
+
+AQUI = os.path.dirname(os.path.abspath(__file__))
+
+
+def ruta_velas(simbolo):
+    """Archivo .npy de velas de 1 minuto de un símbolo (p. ej. «BTCUSDT»): busca en TRADER_DATOS, en datos/um del
+    repositorio (el PC de Nicolás) y en las carpetas de la nube."""
+    for carpeta in (os.environ.get("TRADER_DATOS"), os.path.join(AQUI, "..", "datos", "um"),
+                    "/home/user/datos-btc", "/home/user/datos-otros"):
+        if carpeta and os.path.exists(os.path.join(carpeta, f"{simbolo}_um_1m.npy")):
+            return os.path.join(carpeta, f"{simbolo}_um_1m.npy")
+    raise FileNotFoundError(f"No encuentro {simbolo}_um_1m.npy: bájalo con consolidacion/descargar_um.py datos/um {simbolo}")
 
 CORTE_PRUEBA = pd.Timestamp("2024-01-01", tz="UTC")
 TRAMOS = {"2020-2023": (pd.Timestamp("2020-01-01", tz="UTC"), CORTE_PRUEBA),
@@ -26,7 +40,7 @@ COSTES = {
 
 
 def cargar(etq):
-    t = pd.read_csv(f"/home/user/trader-btc-investigacion/investigacion/operaciones/ops_{etq}.csv",
+    t = pd.read_csv(os.path.join(AQUI, "operaciones", f"ops_{etq}.csv"),
                     parse_dates=["entrada", "salida", "senal", "dia"])
     for c in ("entrada", "salida", "senal", "dia"):
         if t[c].dt.tz is None:

@@ -4,8 +4,14 @@
 Con 12,59 USDT el mínimo de 5 USDT obliga a poner al menos ~40 % del saldo; se prueban asignaciones de 40, 60 y 100 %.
 Compra y venta a la apertura del día (00:00 UTC, primer minuto). Uso: python3 -I d5b_tendencia_cuenta.py"""
 import math
+import os
+import sys
+
 import numpy as np
 import pandas as pd
+
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from metricas import ruta_velas  # noqa: E402
 
 COP = 3177.85
 CAP0 = 40000 / COP
@@ -13,7 +19,7 @@ ACT = {"BTC": ("datos-btc", 0.00001), "ETH": ("datos-btc", 0.0001)}
 
 
 def diarias(etq):
-    a = np.load(f"/home/user/{ACT[etq][0]}/{etq}USDT_um_1m.npy")
+    a = np.load(ruta_velas(f"{etq}USDT"))
     df = pd.DataFrame(a[:, 1:5], columns=["o", "h", "l", "c"], index=pd.to_datetime(a[:, 0].astype("int64"), unit="ms"))
     return df.resample("1D").agg({"o": "first", "h": "max", "l": "min", "c": "last"}).dropna()
 
@@ -73,4 +79,4 @@ R = pd.DataFrame(filas)[["activo", "asignacion", "comision", "tramo", "anual", "
 pd.set_option("display.width", 200)
 print("T-L en la cuenta de 40.000 pesos (2024-2026 arranca 60 días antes para tener SMA 50; la parada del −20 % detiene la cuenta)")
 print(R.to_string(index=False, float_format=lambda v: f"{v:,.1f}"))
-R.to_csv("/home/user/trader-btc-investigacion/investigacion/d5b_tendencia_cuenta.csv", index=False)
+R.to_csv(os.path.join(os.path.dirname(os.path.abspath(__file__)), "d5b_tendencia_cuenta.csv"), index=False)

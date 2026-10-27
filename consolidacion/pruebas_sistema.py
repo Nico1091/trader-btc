@@ -22,6 +22,8 @@ import patrones_std  # noqa: E402
 import sistema as S  # noqa: E402
 from lib import remuestrear, patrones  # noqa: E402
 
+if hasattr(sys.stdout, "reconfigure"):  # Windows: con la salida por tubería usa cp1252, sin «−»
+    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 RAPIDO = "rápido" in sys.argv
 fallas = []
 

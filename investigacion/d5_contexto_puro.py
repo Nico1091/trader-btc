@@ -10,15 +10,21 @@ Reglas, con velas diarias UTC (posición decidida con el cierre de AYER, aplicad
   B&H   comprar y mantener.
 Costes por cambio de posición: futuros 0,05 %/lado; contado 0,10 %/lado (doble: 0,10 y 0,20).
 Uso: python3 -I d5_contexto_puro.py > d5_contexto_puro.txt"""
+import os
+import sys
+
 import numpy as np
 import pandas as pd
+
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from metricas import ruta_velas  # noqa: E402
 
 ACT = {"BTC": "datos-btc", "ETH": "datos-btc", "SOL": "datos-otros", "BNB": "datos-otros", "XRP": "datos-otros",
        "DOGE": "datos-otros", "ADA": "datos-otros"}
 
 
 def diarias(etq):
-    a = np.load(f"/home/user/{ACT[etq]}/{etq}USDT_um_1m.npy")
+    a = np.load(ruta_velas(f"{etq}USDT"))
     df = pd.DataFrame(a[:, 1:5], columns=["o", "h", "l", "c"], index=pd.to_datetime(a[:, 0].astype("int64"), unit="ms"))
     d = df.resample("1D").agg({"o": "first", "h": "max", "l": "min", "c": "last"}).dropna()
     return d
@@ -69,4 +75,4 @@ for tr in ("2020-2023", "2024-2026"):
         print(f"  {met}")
         print(x.pivot_table(index=["regla", "coste_lado"], columns="activo", values=met)[list(ACT)].to_string(
             float_format=lambda v: f"{v:+.1f}" if met != "sharpe" else f"{v:+.2f}"))
-R.to_csv("/home/user/trader-btc-investigacion/investigacion/d5_contexto_puro.csv", index=False)
+R.to_csv(os.path.join(os.path.dirname(os.path.abspath(__file__)), "d5_contexto_puro.csv"), index=False)

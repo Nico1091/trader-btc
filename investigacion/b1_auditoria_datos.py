@@ -2,11 +2,17 @@
 
 Comprueba, sin modificar nada: orden y duplicados, huecos (minutos que faltan), coherencia OHLC, velas sin volumen,
 saltos extremos entre minutos y la cobertura por año. Uso: python3 -I b1_auditoria_datos.py"""
+import os
+import sys
+
 import numpy as np
 import pandas as pd
 
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from metricas import ruta_velas  # noqa: E402
+
 for s in ("BTCUSDT", "ETHUSDT"):
-    a = np.load(f"/home/user/datos-btc/{s}_um_1m.npy")
+    a = np.load(ruta_velas(s))
     t = a[:, 0].astype("int64")
     o, h, l, c, v = a[:, 1], a[:, 2], a[:, 3], a[:, 4], a[:, 5]
     dt_ = np.diff(t)
