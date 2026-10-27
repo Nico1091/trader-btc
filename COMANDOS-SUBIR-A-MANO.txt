@@ -1,0 +1,40 @@
+COMANDOS PARA SUBIR LOS COMMITS A MANO (sin ningún script; el antivirus no tiene nada que bloquear)
+=========================================================================================
+
+Antes:
+- Ten git instalado (https://git-scm.com/download/win).
+- Deja consolidacion-pendientes.bundle en Descargas.
+- Abre PowerShell (menú Inicio -> escribe PowerShell -> Enter).
+- Copia y pega UNA línea a la vez y espera a que termine.
+
+1) Ir a tu repositorio:
+   cd "$env:USERPROFILE\Ingresos\trader-btc"
+
+   Si dice que la ruta no existe, clónalo primero y vuelve a este paso:
+   git clone https://github.com/Nico1091/trader-btc.git "$env:USERPROFILE\Ingresos\trader-btc"
+
+2) Traer de GitHub la rama actual (git puede abrir el navegador para iniciar sesión con Nico1091):
+   git fetch origin claude/encargo-cloud-md-q0u3ex
+
+   Si el firewall de Windows pregunta por git.exe: «Permitir acceso» (solo usa HTTPS, puerto 443).
+
+3) Comprobar el paquete (debe terminar diciendo que está bien, «is okay»):
+   git bundle verify "$env:USERPROFILE\Downloads\consolidacion-pendientes.bundle"
+
+4) Cargar los commits del paquete:
+   git fetch "$env:USERPROFILE\Downloads\consolidacion-pendientes.bundle" claude/encargo-cloud-md-q0u3ex:refs/consolidacion/paquete
+
+5) Ver qué se va a subir (debe mostrar la lista de commits de Claude):
+   git log --oneline origin/claude/encargo-cloud-md-q0u3ex..refs/consolidacion/paquete
+
+6) Subirlos:
+   git push origin refs/consolidacion/paquete:refs/heads/claude/encargo-cloud-md-q0u3ex
+
+7) Limpiar la referencia temporal:
+   git update-ref -d refs/consolidacion/paquete
+
+Listo. Para comprobarlo, abre:
+https://github.com/Nico1091/trader-btc/tree/claude/encargo-cloud-md-q0u3ex
+
+Si tu carpeta de descargas se llama «Descargas», cambia Downloads por Descargas en los pasos 3 y 4.
+Si un paso da error, copia el mensaje y pásaselo a Claude.
