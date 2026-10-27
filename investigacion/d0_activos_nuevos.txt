@@ -1,0 +1,45 @@
+MEDIA NETA POR OPERACIÓN con comisión DOBLE (%), y número de operaciones
+activo        SOL    BNB    XRP   DOGE    ADA    BTC    ETH
+estrategia                                                 
+P05b       -0.125 +0.215 +0.055 -0.010 +0.012 +0.134 -0.033
+P11        -0.567 -0.095 +0.180 -0.243 -0.657 +0.404 -0.090
+P05c       +0.345 +0.613 +1.208 +2.239 +0.418 +0.629 +0.222
+N9         +0.055 -0.018 -0.004 -0.249 +0.100 +0.153 +0.193
+N8         -0.003 +0.135 -0.401 -0.246 +0.084 +0.357 +0.364
+activo      SOL  BNB  XRP  DOGE  ADA  BTC  ETH
+estrategia                                    
+P05b        534  541  509   473  539  506  485
+P11         157  196  162   132  145  186  189
+P05c        100  108   87    80   94   92   85
+N9          577  632  600   554  598  575  593
+N8          159  194  157   135  149  193  193
+
+SUMA NETA con comisión base (%), 2020-2023 | 2024-2026
+  2020-2023
+activo       SOL    BNB   XRP   DOGE    ADA    BTC   ETH
+estrategia                                              
+P05b       +27.3 +171.4 +61.4 +109.5  +99.1  +74.0 -25.4
+P11        -55.0  +21.8 +40.8  -35.5  -43.9  +43.0 -29.9
+P05c       +27.1  +89.7 +47.7 +175.6  +46.2  +35.2  -0.5
+N9         +34.1  +62.4 +76.2  -94.3 +131.2 +106.1 +94.1
+N8         +10.2  +11.7 -17.9   +4.2  +60.1  +48.9 +46.4
+  2024-2026
+activo       SOL   BNB   XRP  DOGE   ADA   BTC   ETH
+estrategia                                          
+P05b       -56.8 -17.0  +2.3 -81.0 -54.9 +29.4 +43.5
+P11        -18.3 -21.0  +4.5 +16.7 -36.9 +50.8 +31.7
+P05c       +14.4 -15.9 +63.4  +9.1  -0.3 +29.1 +25.3
+N9         +38.2 -29.7 -36.4  -5.1 -29.4 +22.3 +62.1
+N8          +5.2 +33.9 -29.4 -23.9 -32.7 +39.3 +43.1
+
+VEREDICTO PREREGISTRADO (solo los 5 activos nuevos, comisión doble)
+estrategia  ops activos_positivos  media_doble             ic90  media_sin_top5_por_activo  media_2020_23  media_2024_26 generaliza
+      P05b 2596               3/5       +0.031 [-0.163, +0.236]                     -0.239         +0.255         -0.250         NO
+       P11  792               1/5       -0.260 [-0.606, +0.098]                     -0.789         -0.256         -0.265         NO
+      P05c  469               5/5       +0.904 [+0.255, +1.615]                     -0.202         +1.285         +0.315         SÍ
+        N9 2961               2/5       -0.020 [-0.145, +0.107]                     -0.170         +0.060         -0.116         NO
+        N8  794               2/5       -0.073 [-0.480, +0.333]                     -0.641         +0.048         -0.242         NO
+
+COMPROBACIÓN DE LO QUE SOLO SE MIRÓ EN BTC (descriptivo, no preregistrado como criterio):
+  P05b, señales de 17:00-21:00 frente al resto (media doble, ops): {False: {'mean': 0.05194072681366828, 'count': 2224}, True: {'mean': -0.09686357708734004, 'count': 372}}
+  P05c, media doble por lado del contexto: solo largos (por construcción) +0.904
