@@ -16,7 +16,9 @@ param(
     [string]$Rama   = "claude/encargo-cloud-md-q0u3ex",
     [string]$Url    = "https://github.com/Nico1091/trader-btc.git"
 )
-$ErrorActionPreference = "Stop"
+# "Continue": en Windows PowerShell 5.1, con "Stop", los mensajes normales de git por stderr pueden cortar el script.
+# Cada paso de git se comprueba con $LASTEXITCODE.
+$ErrorActionPreference = "Continue"
 
 function Paso($t)  { Write-Host ""; Write-Host "==> $t" -ForegroundColor Cyan }
 function Salir($t) { Write-Host ""; Write-Host $t -ForegroundColor Yellow; Read-Host "Pulsa Enter para cerrar"; exit 1 }
@@ -59,7 +61,7 @@ if (-not (Test-Path "$Repo\.git")) {
     if ($LASTEXITCODE -ne 0) { Falla "No se pudo clonar. Revisa tu sesión de GitHub o el firewall (git usa HTTPS, puerto 443)." }
 }
 Set-Location $Repo
-if (-not (git remote 2>$null | Select-String -SimpleMatch "origin")) {
+if (-not ((git remote) -contains "origin")) {
     Autoriza "El repositorio no tiene remoto 'origin'. Voy a añadir $Url."
     git remote add origin $Url
 }

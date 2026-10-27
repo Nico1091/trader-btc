@@ -13,6 +13,9 @@ Antes:
    Si dice que la ruta no existe, clónalo primero y vuelve a este paso:
    git clone https://github.com/Nico1091/trader-btc.git "$env:USERPROFILE\Ingresos\trader-btc"
 
+   Si en el paso 2 sale «'origin' does not appear to be a git repository», escribe esto y repite el paso 2:
+   git remote add origin https://github.com/Nico1091/trader-btc.git
+
 2) Traer de GitHub la rama actual (git puede abrir el navegador para iniciar sesión con Nico1091):
    git fetch origin claude/encargo-cloud-md-q0u3ex
 
