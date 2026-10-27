@@ -1,0 +1,21 @@
+P05b solo largo (futuros) + vela3_1h
+   ajuste: 54 de 280 ops, media filtrada +0.567 % vs base +0.186 %, percentil frente a subconjuntos al azar 87.7
+   prueba: 57 de 216 ops, media filtrada +0.810 % vs base +0.100 %, percentil frente a subconjuntos al azar 99.9
+P05b solo largo (contado) + vela3_1h
+   ajuste: 54 de 280 ops, media filtrada +0.437 % vs base +0.056 %, percentil frente a subconjuntos al azar 87.8
+   prueba: 57 de 216 ops, media filtrada +0.680 % vs base -0.030 %, percentil frente a subconjuntos al azar 100.0
+P05b + veto 1h (futuros) + vela3_1h
+   ajuste: 69 de 382 ops, media filtrada +0.338 % vs base +0.157 %, percentil frente a subconjuntos al azar 70.3
+   prueba: 87 de 307 ops, media filtrada +0.366 % vs base +0.091 %, percentil frente a subconjuntos al azar 93.4
+P05b + veto 1h (futuros) + tend_d
+   ajuste: 208 de 382 ops, media filtrada +0.176 % vs base +0.157 %, percentil frente a subconjuntos al azar 55.2
+   prueba: 156 de 307 ops, media filtrada +0.213 % vs base +0.091 %, percentil frente a subconjuntos al azar 87.1
+P11 (futuros) + tend_d
+   ajuste: 103 de 206 ops, media filtrada +0.417 % vs base +0.271 %, percentil frente a subconjuntos al azar 71.2
+   prueba: 83 de 147 ops, media filtrada +0.612 % vs base +0.331 %, percentil frente a subconjuntos al azar 92.5
+P11 (contado) + tend_d
+   ajuste: 103 de 206 ops, media filtrada +0.317 % vs base +0.171 %, percentil frente a subconjuntos al azar 69.9
+   prueba: 83 de 147 ops, media filtrada +0.512 % vs base +0.231 %, percentil frente a subconjuntos al azar 92.0
+P05c solo largo (contado) + volumen
+   ajuste: 59 de 91 ops, media filtrada +0.520 % vs base +0.242 %, percentil frente a subconjuntos al azar 91.3
+   prueba: 49 de 79 ops, media filtrada +0.363 % vs base +0.289 %, percentil frente a subconjuntos al azar 69.8

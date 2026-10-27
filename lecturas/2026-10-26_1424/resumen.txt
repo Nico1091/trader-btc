@@ -1,0 +1,9 @@
+LECTURA DEL MERCADO BTC-USD (Coinbase) · 26/10/2026 14:24 UTC · 09:24 Colombia
+5 min    LATERAL  +0.02 % | rango 79,300-80,078 (0.98 %) | posición 0.95 | vol/vela 0.37 % (2.1x su media) | pendiente +0.008 %/vela | velas alcistas 5/12 | última vela: sin patrón
+3 horas  BAJA     -0.16 % | rango 79,300-80,436 (1.43 %) | posición 0.65 | vol/vela 0.22 % (1.3x su media) | pendiente -0.041 %/vela | velas alcistas 17/36 | última vela: sin patrón
+16 horas BAJA     -0.62 % | rango 79,255-80,512 (1.59 %) | posición 0.45 | vol/vela 0.31 % (1.2x su media) | pendiente -0.044 %/vela | velas alcistas 30/64 | última vela: envolvente alcista
+1 día    BAJA     -0.87 % | rango 79,255-80,859 (2.02 %) | posición 0.19 | vol/vela 0.51 % (1.1x su media) | pendiente -0.018 %/vela | velas alcistas 10/24 | última vela: sin patrón
+3 meses  SUBE    +25.69 % | rango 62,210-87,397 (40.49 %) | posición 0.71 | vol/vela 2.75 % (0.9x su media) | pendiente -0.162 %/vela | velas alcistas 47/90 | última vela: sin patrón
+CONTEXTO: cierre de ayer 80,053.16 vs SMA 50 diaria 81,802.02 (-2.14 %) -> BAJISTA (largos de P05b y P11 vetados; P05b solo en corto). ATR14 diario 2,170 (2.71 %).
+NIVELES DE HOY (apertura 00:00 UTC 80,053.16): P05b largo > 81,138.38 · P05b corto < 78,967.94 · P05c largo > 82,223.59 · precio 80,039.90 (-0.02 % desde la apertura)
+Lectura COMPLETA en 1.6 s. Fotos en /tmp/claude-0/-home-user-trader-btc/222978e5-ae90-58fc-a185-df65fa2dac72/scratchpad/lectura/ (verde sube, rojo baja, azul = media de 20).

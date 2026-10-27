@@ -1,0 +1,8 @@
+1. Patrones: 59,736 velas de 1 h, 25,508 patrones; diferencias: 0
+2. Motor en vivo = simulador: 417 días × 6 estrategias = 2502 comparaciones; iguales 2502, distintas 0 (9 s)
+3. Sin mirar el futuro: 80 señales recalculadas con los datos cortados en su instante; con diferencias: 0
+   2026-10-13: Binance [('N9', 1), ('P05b', 1), ('P05b+pat', 1)] · Coinbase [('N9', 1), ('P05b', 1)]
+   2026-10-11: Binance [] · Coinbase [('N9', 1)]
+4. Coinbase frente a Binance: 18 de 20 días con las mismas operaciones (diferencias = precio distinto entre casas, no falla del motor)
+
+RESULTADO: SIN FALLAS
