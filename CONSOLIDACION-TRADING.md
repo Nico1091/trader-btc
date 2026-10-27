@@ -312,7 +312,7 @@ Se cierran con `python3 -I consolidacion/t6_ordenes.py cerrar 2026-10-26` (y `20
 - **Lunes 19/10:** P11 da −0,206 % bruto en Coinbase (en Binance, −0,21 %).
 - **Martes 20/10:** P05b da el mismo largo que en Binance.
 
-**Niveles del lunes** (fijados a las 00:12 UTC del 26/10): apertura 80.053,16 y ATR14 2.170,43. PP-1 entra; **PP-1f no opera** (cierre del domingo un 2,14 % bajo su SMA 50). P05b compra sobre 81.138,38 y P05c sobre 82.223,59. **Resultado:** pendiente. Lo cierro el martes a las 00:15 UTC. Si la sesión no sigue viva el martes, la rutina puede cerrarlas en su pasada siguiente con el mismo script (ver la tarea 7).
+**Niveles del lunes** (fijados a las 00:12 UTC del 26/10): apertura 80.053,16 y ATR14 2.170,43. PP-1 entra; **PP-1f no opera** (cierre del domingo un 2,14 % bajo su SMA 50). P05b compra sobre 81.138,38 y P05c sobre 82.223,59. **Resultado del lunes** (cerrado el 27/10 a las 00:16 UTC): PP-1, el P11 sin filtro, terminó en −0,16 % neto. **PP-1f, con contexto, no operó (0 %)**. Ninguna estrategia con regla tuvo señal, así que no operaron. El testigo al azar AZ-P1 (corto) ganó +0,61 %. Martes: contexto bajista; solo vale el corto de P05b bajo 78.965,46 y el de N9 bajo el mínimo de Asia (07:00-13:00 UTC). Si la sesión no sigue viva el martes, la rutina puede cerrarlas en su pasada siguiente con el mismo script (ver la tarea 7).
 
 ---
 

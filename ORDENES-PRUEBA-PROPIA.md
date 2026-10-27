@@ -94,6 +94,29 @@ Ninguna orden se decide sin haber leído antes las velas que la regla necesita, 
 
 ## Resultado
 
+### Lunes 26/10, cerrado el 27/10 a las 00:16 UTC (1.440 velas de 1 minuto de Coinbase, sin huecos)
+
+| Id | Libro | Resultado |
+|---|---|---|
+| PP-1 (P11 sin filtro) | Referencia | Largo 80.053,16 → 80.008,79 al cierre: **−0,06 % bruto, −0,16 % neto** (−0,26 % en contado). Llegó a estar en −1,0 % |
+| **PP-1f (P11 con contexto)** | PRINCIPAL | **No operó** (cierre del domingo un 2,14 % bajo la SMA 50): **0 %**. El contexto evitó la pérdida de PP-1 |
+| PP-2 (P05b + veto) | Referencia | Sin señal (banda 78.968 / 81.138) |
+| PP-3 (P05c largo) | PRINCIPAL | Sin señal (82.224 no se alcanzó) |
+| PP-6 (P05b largo confirmado) | PRUEBA | Sin señal |
+| PP-7 (P05b por régimen, corto) | PRINCIPAL | Sin señal: el mínimo de cierres de 15 m quedó sobre 78.968 |
+| PP-8 (N9 Asia-Londres, corto) | PRUEBA | Sin señal: no rompió el mínimo de Asia (79.255) después de las 14:35 UTC |
+| AZ-P1 (testigo al azar, corto a las 15:41) | Azar | 80.584,02 → 80.008,79: **+0,71 % bruto, +0,61 % neto** |
+
+**Lectura:** fue un día lateral (de 79.255 a 80.512) con contexto bajista. Las estrategias con regla **no tenían señal y no operaron**, que es lo correcto según lo medido. Solo perdió la versión sin contexto (PP-1). El corto al azar ganó +0,61 %: es una operación, y sirve de testigo, no de señal.
+
+### Martes 27/10: niveles fijados a las 00:16 UTC (lectura completa)
+
+- **Contexto:** bajista. El cierre del lunes (80.008,79) quedó un 2,18 % bajo la SMA 50 (81.795,41). Apertura 80.008,79 y ATR14 2.086,66.
+- **Libro PRINCIPAL** (señales de 00:00 a 21:00 UTC, medio riesgo por la Reserva Federal): PP-7 / PP-4, P05b por régimen, **solo corto bajo 78.965,46**. P05c y los largos no operan.
+- **Libro PRUEBA:** PP-8 (N9) en corto si un cierre de 15 m rompe el mínimo de Asia entre las 07:00 y las 13:00 UTC. PP-6 y PP-5 no operan con contexto bajista.
+- **Testigo:** AZ-P2, largo a las 11:15 UTC.
+
+
 ### Niveles del lunes 26/10 (calculados el 26/10 a las 00:12 UTC con Coinbase; lectura completa: 15 y 50 velas diarias sin huecos)
 
 - Apertura 00:00 UTC: **80.053,16**. ATR14 diario: **2.170,43**.
