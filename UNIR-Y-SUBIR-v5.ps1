@@ -1,4 +1,5 @@
-﻿# UNIR-Y-SUBIR-v4.ps1  (27/10/2026)
+﻿# UNIR-Y-SUBIR-v5.ps1  (27/10/2026: si hay conflicto, muestra el commit de GitHub y, con tu autorización,
+# deja la versión de Claude solo en las líneas en conflicto; el resto de ese commit se conserva)
 # Para cuando GitHub rechaza la subida con «non-fast-forward»: la rama de GitHub tiene commits que el paquete no tiene.
 # Une las dos historias (git merge, sin borrar nada de ninguna) en una carpeta temporal, sin tocar tu copia de trabajo,
 # y sube el resultado. Nunca fuerza la subida. Te pide autorización (S/N) antes de cada paso que toca algo.
@@ -6,8 +7,8 @@
 # CÓMO EJECUTARLO (en Descargas, en una ventana de PowerShell):
 #   cd "$env:USERPROFILE\Downloads"
 #   Set-ExecutionPolicy -Scope Process -ExecutionPolicy RemoteSigned      (responde S)
-#   Unblock-File .\UNIR-Y-SUBIR-v4.ps1
-#   .\UNIR-Y-SUBIR-v4.ps1
+#   Unblock-File .\UNIR-Y-SUBIR-v5.ps1
+#   .\UNIR-Y-SUBIR-v5.ps1
 param(
     [string]$Repo   = "$env:USERPROFILE\Ingresos\trader-btc",
     [string]$Bundle = "",
@@ -63,16 +64,33 @@ git worktree prune
 git worktree add --detach $Temp refs/consolidacion/paquete
 if ($LASTEXITCODE -ne 0) { Falla "No se pudo preparar la carpeta temporal." }
 Set-Location $Temp
+# Autor de la unión: el tuyo si git lo tiene configurado; si no, uno genérico de GitHub (sin tu correo).
+$autor = @()
+if (-not (git config user.name)) { $autor += @("-c", "user.name=Nico1091") }
+if (-not (git config user.email)) { $autor += @("-c", "user.email=Nico1091@users.noreply.github.com") }
 if ($soloGitHub.Count -gt 0) {
-    git merge --no-edit -m "Unir la rama de GitHub con el paquete de la sesión de Claude" "origin/$Rama"
+    git @autor merge --no-edit -m "Unir la rama de GitHub con el paquete de la sesión de Claude" "origin/$Rama"
     if ($LASTEXITCODE -ne 0) {
-        Write-Host ""
-        Write-Host "Hay conflicto en estos archivos:" -ForegroundColor Red
-        git diff --name-only --diff-filter=U
+        $conflictos = @(git diff --name-only --diff-filter=U)
         git merge --abort
-        Set-Location $Repo
-        git worktree remove --force $Temp | Out-Null
-        Falla "No subí nada. Copia la lista de archivos de arriba y pásasela a Claude."
+        if ($conflictos.Count -eq 0) {
+            Set-Location $Repo; git worktree remove --force $Temp | Out-Null
+            Falla "La unión falló sin conflictos (mira el mensaje de arriba). No subí nada; pásaselo a Claude."
+        }
+        Write-Host ""
+        Write-Host "Hay conflicto en: $($conflictos -join ', ')" -ForegroundColor Yellow
+        Write-Host "Esto es lo que cambió el commit que solo está en GitHub en esos archivos (primeras 60 líneas):" -ForegroundColor Cyan
+        git log -p "refs/consolidacion/paquete..origin/$Rama" -- $conflictos | Select-Object -First 60
+        Write-Host ""
+        Write-Host "Si es una prueba de escritura u otra cosa menor, se puede unir dejando la versión de Claude SOLO en las" -ForegroundColor Cyan
+        Write-Host "líneas en conflicto (lo demás de ese commit se conserva). Si ves algo importante, responde N y pásaselo a Claude." -ForegroundColor Cyan
+        Autoriza "Unir resolviendo los conflictos con la versión de Claude."
+        git @autor merge --no-edit -X ours -m "Unir la rama de GitHub con el paquete de la sesión de Claude (conflictos: versión de Claude)" "origin/$Rama"
+        if ($LASTEXITCODE -ne 0) {
+            git merge --abort
+            Set-Location $Repo; git worktree remove --force $Temp | Out-Null
+            Falla "Tampoco se pudo unir así. No subí nada; pásale a Claude el mensaje de arriba."
+        }
     }
 }
 
