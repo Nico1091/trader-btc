@@ -127,7 +127,9 @@ def t_senal(o, nombre):
     """Instante en que se decide: P11 a las 00:00; P05b al cierre de la vela de 15 m de la señal."""
     if nombre.startswith("P11"):
         return o["entrada"]
-    return o["entrada"].floor("15min")  # la vela de la señal cerró como tarde aquí (el llenado viene después)
+    # Corregido el 27/10: se decide en el cierre de la vela de 15 m de la SEÑAL (cuando se pone la orden límite),
+    # no en el llenado. Antes se usaba entrada.floor("15min"), que podía ver velas cerradas después de la señal.
+    return o["senal"] if "senal" in o else o["entrada"].floor("15min")
 
 
 filas = []

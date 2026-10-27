@@ -47,7 +47,7 @@ def banda(V, nivel_fn, desde_h, hasta_h, stop_fn):
         if ifin >= len(V.t) or V.t[ifin] != fin:
             continue
         ref = stop_fn(d, lado)
-        cierres = c15.loc[V.t[ie].floor("15min") + pd.Timedelta(minutes=15): d + pd.Timedelta(hours=23, minutes=30)]
+        cierres = c15.loc[V.t[ie].floor("15min"): d + pd.Timedelta(hours=23, minutes=30)]
         ix, px, mot = ifin, V.c[ifin], "tiempo"
         for tb, row in cierres.iterrows():
             if lado * (row.c - ref) <= 0:

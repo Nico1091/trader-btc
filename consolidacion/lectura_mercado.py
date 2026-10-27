@@ -138,59 +138,20 @@ def png(ruta, v, titulo_alto=0):
 
 
 def senales(apertura, atr, alcista, cierre_ayer):
-    """Estado de hoy de las 6 estrategias (libro PRINCIPAL y libro PRUEBA). Solo informa: decide Claude."""
-    hoy = int(time.time()) // 86400 * 86400
-    ahora = int(time.time())
-    dia_sem = dt.datetime.fromtimestamp(hoy, dt.timezone.utc).weekday()
-    m = []
-    t0 = hoy
-    while t0 < ahora - 60:  # velas de 1 minuto de hoy (para cierres de 15 m y el rango de Asia)
-        t1 = min(t0 + 300 * 60, ahora)
-        u = f"{API}?granularity=60&start={dt.datetime.fromtimestamp(t0, dt.timezone.utc):%Y-%m-%dT%H:%M:%SZ}&end={dt.datetime.fromtimestamp(t1 - 1, dt.timezone.utc):%Y-%m-%dT%H:%M:%SZ}"
-        try:
-            m += json.loads(urllib.request.urlopen(urllib.request.Request(u, headers={"User-Agent": "lectura"}), timeout=30).read())
-        except Exception:
-            pass
-        t0 = t1
-    m = sorted({x[0]: x for x in m if x[0] + 60 <= ahora}.values())
-    c15 = [(m[i][0] + 60, m[i][4]) for i in range(14, len(m), 15) if (m[i][0] - hoy) % 900 == 840]
-    ctx = "alcista" if alcista else "bajista"
-    L = [f"SEÑALES DE HOY (contexto {ctx}; {len(m)} velas de 1 min leídas). El programa no decide: decide Claude.",
-         "  Libro PRINCIPAL (una posición; P11 lunes 00:00-23:59, P05b y P05c señales 00:00-21:00 UTC):"]
-    def primero(cond, hasta_h=21):  # horario del libro PRINCIPAL: señales de 00:00 a 21:00 UTC (tarea 13)
-        return next((hh for hh, x in c15 if hh <= hoy + hasta_h * 3600 and cond(x)), None)
-    hora = lambda x: dt.datetime.fromtimestamp(x, dt.timezone.utc).strftime("%H:%M")
-    up, dn = apertura + 0.5 * atr, apertura - 0.5 * atr
-    if alcista:
-        x = primero(lambda v: v > up)
-        L.append(f"   P05b por régimen (largo > {up:,.0f}): " + (f"SEÑAL a las {hora(x)}" if x else "sin señal"))
-    else:
-        x = primero(lambda v: v < dn)
-        L.append(f"   P05b por régimen (corto < {dn:,.0f}): " + (f"SEÑAL a las {hora(x)}" if x else "sin señal"))
-    L.append("   P11 lunes con contexto: " + ("no es lunes" if dia_sem != 0 else ("OPERA (compra a las 00:00)" if alcista else "NO opera (contexto bajista)")))
-    if alcista:
-        x = primero(lambda v: v > apertura + atr)
-        L.append(f"   P05c largo (> {apertura + atr:,.0f}): " + (f"SEÑAL a las {hora(x)}" if x else "sin señal"))
-    else:
-        L.append("   P05c largo: no opera (contexto bajista)")
-    L.append("  Libro PRUEBA (aparte, una posición propia; N9 07:00-13:00 UTC, N8 miércoles, P05b + vela 00:00-21:00):")
-    L.append("   N8 miércoles con contexto: " + ("no es miércoles" if dia_sem != 2 else ("OPERA (compra a las 00:00, stop 3 %)" if alcista else "NO opera (contexto bajista)")))
-    asia = [x for x in m if x[0] < hoy + 7 * 3600]
-    if len(asia) >= 400:
-        ah, al = max(x[2] for x in asia), min(x[1] for x in asia)
-        nivel = ah if alcista else al
-        x = next((hh for hh, v in c15 if hoy + 7 * 3600 < hh <= hoy + 13 * 3600 and (v > ah if alcista else v < al)), None)
-        L.append(f"   N9 rango de Asia {al:,.0f}-{ah:,.0f} en Londres ({'largo >' if alcista else 'corto <'} {nivel:,.0f}, 07:00-13:00 UTC): "
-                 + (f"SEÑAL a las {hora(x)}" if x else "sin señal"))
-    else:
-        L.append("   N9 rango de Asia: el rango (00:00-07:00 UTC) aún no está completo")
-    if alcista:
-        x = primero(lambda v: v > up)
-        L.append(f"   P05b largo confirmado (> {up:,.0f} y patrón alcista en las 3 últimas velas de 1 h): "
-                 + (f"rompió a las {hora(x)}; mirar la foto de 1 día para el patrón" if x else "sin señal"))
-    else:
-        L.append("   P05b largo confirmado: no opera (contexto bajista)")
-    return L
+    """Señales de hoy de los dos libros, con el motor comprobado (sistema.py: idéntico al simulador en 2.502 de 2.502
+    comparaciones). Solo informa: decide Claude."""
+    sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+    import sistema
+    hoy = dt.datetime.now(dt.timezone.utc).date()
+    try:
+        D, ops, texto = sistema.informe(sistema.Coinbase(), hoy)
+    except sistema.LecturaInsuficiente as e:
+        return [f"SEÑALES DE HOY: NO OPERAR, lectura insuficiente ({e})"]
+    t = int(time.time())
+    conf = (f"CONFIRMACIÓN DE LOS OTROS TIEMPOS (EMA 20, a favor del contexto {'alcista' if D.ctx > 0 else 'bajista'}): "
+            f"1 h {'sí' if D.e1h(t, D.ctx) else 'no'} · 4 h {'sí' if D.e4h(t, D.ctx) else 'no'} · 1 día {'sí' if D.e1d(t, D.ctx) else 'no'} · "
+            f"patrón del curso a favor en las 3 últimas velas de 1 h: {'sí' if D.patron1h(t, D.ctx) else 'no'}")
+    return ["SEÑALES DE HOY (motor sistema.py; el programa no decide: decide Claude)"] + texto.splitlines()[1:] + [conf]
 
 
 def main():

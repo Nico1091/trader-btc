@@ -1,0 +1,11 @@
+SISTEMA CONSOLIDADO · 2026-10-26 · contexto BAJISTA (cierre de ayer 80,053.16 vs SMA 50 81,802.02, -2.14 %) · apertura 80,053.16 · ATR14 2,170
+  lectura diarias (SMA 50, ATR14, EMA 20 diaria, semana): 130 velas, 0 huecos (mínimo 120)
+  lectura de 1 h cerradas (EMA 20 de 1 h y 4 h, patrones): 984 velas, 0 huecos (mínimo 600)
+  lectura de 1 min del día: 1440 velas, 0 huecos (mínimo 1440)
+  P11: NO opera (contexto bajista)
+  P05b (banda 78,968 / 81,138): sin rompimiento
+  P05c: no opera (contexto bajista)
+  N9 (Asia 79,255-80,277; corto < 79,255, 07:00-13:00): sin señal
+  N8: no es su día
+  AZAR: corto a las 03:52
+  [AZAR] AZAR CORTO 79,317.43 -> 80,008.79 (tiempo) bruto -0.872 % neto -0.972 %

@@ -5,7 +5,7 @@ import numpy as np
 
 BASE = "https://data.binance.vision/data/futures/um"
 DEST = sys.argv[1] if len(sys.argv) > 1 else "/home/user/datos-btc"
-SIMBOLO = "BTCUSDT"
+SIMBOLO = sys.argv[2] if len(sys.argv) > 2 else "BTCUSDT"
 
 def bajar(url):
     for i in range(5):

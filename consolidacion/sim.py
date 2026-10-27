@@ -128,13 +128,14 @@ def p05b(V, k=0.5, W=60, lados=(1, -1), veto=None, solo_creador=True):
         ifin = V.i(d + pd.Timedelta(hours=23, minutes=59))
         if ifin >= len(V.t):
             continue
-        # stop: primer cierre de 15 m posterior al llenado que vuelve a la apertura
-        cierres = c15.loc[V.t[ie].floor("15min") + pd.Timedelta(minutes=15): d + pd.Timedelta(hours=23, minutes=30)]
+        # stop: primer cierre de 15 m posterior al llenado que vuelve a la apertura (incluida la vela del llenado,
+        # que cierra después de él; corregido el 27/10: antes se saltaba esa vela)
+        cierres = c15.loc[V.t[ie].floor("15min"): d + pd.Timedelta(hours=23, minutes=30)]
         ix, px, mot = ifin, V.c[ifin], "tiempo"
         for tb, row in cierres.iterrows():
             if (lado > 0 and row["c"] <= ap) or (lado < 0 and row["c"] >= ap):
                 ix = V.i(tb + pd.Timedelta(minutes=14)); px = row["c"]; mot = "stop"; break
-        ops.append(op(V, ie, ix, lado, nivel, px, mot, creador=True))
+        ops.append(op(V, ie, ix, lado, nivel, px, mot, creador=True, senal=t_senal, apertura=ap))
     return ops
 
 

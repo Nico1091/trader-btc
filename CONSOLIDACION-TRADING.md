@@ -2,6 +2,67 @@
 
 Informe del encargo `ENCARGO-CLOUD.md`. Solo papel: ni dinero real, ni claves, ni cuentas, ni brokers.
 
+## Consolidación final (27/10/2026): lo que queda, con el motor corregido
+
+Esta sección manda sobre todas las de abajo. Las tareas 1 a 13 se escribieron con el motor anterior; sus cifras cambian poco (P05b base: +64,6 % → +60,2 %), pero las válidas son estas. La guía de uso diario es `GUIA-DECISION-CLAUDE.md`.
+
+### Fallas encontradas y corregidas
+
+| # | Falla | Efecto | Arreglo |
+|---|---|---|---|
+| 1 | Los filtros de P05b se evaluaban en el momento del **llenado**, no en el de la **señal** | Veían velas cerradas después de decidir. Probable causa de la diferencia con la rutina (percentil 38 frente a 88 en el patrón de 1 h) | Cada operación guarda el instante de su señal y todo se evalúa ahí |
+| 2 | El stop de P05b, P05c y N9 se saltaba el cierre de la vela de 15 m del llenado | El simulador y el cierre en vivo no eran idénticos | Se revisa desde esa vela |
+| 3 | «Mayoría 2 de 3» sumaba booleanos de numpy (verdadero + verdadero = verdadero) | Daba 0 operaciones | Suma de enteros |
+| 4 | La orden PP-7 en vivo buscaba solo el rompimiento del lado del contexto; el simulador usa el primer rompimiento del día | Reglas distintas en vivo y en la prueba | Un solo motor en vivo (`sistema.py`) con las reglas del simulador |
+| 5 | Coinbase devuelve la hora de cada vela como decimal | El motor en vivo se habría caído con la primera señal | Hora como entero; la encontró la prueba 4 |
+| 6 | La cuenta en pesos (25/10) calculaba el tamaño con la pérdida real | Daba +22 %/año en vez de +10-14 % | Tamaño con la distancia al stop conocida al entrar |
+
+**Pruebas (`consolidacion/pruebas_sistema.py`), resultado «SIN FALLAS»:**
+- Patrones de vela en Python puro idénticos a los del simulador: 0 diferencias en 25.508 patrones de BTC y 25.603 de ETH.
+- Motor en vivo idéntico al simulador con las mismas velas: 2.502 de 2.502 comparaciones (417 días: todo 2026 y 120 días sorteados de 2020-2025).
+- Sin mirar el futuro: 80 de 80 señales iguales al cortar los datos en su instante.
+- Coinbase frente a Binance: 18 de 20 días con las mismas operaciones. Las 2 diferencias son señales en el límite por la diferencia de precio entre las dos casas.
+
+### El sistema que queda (velas de 1 minuto de futuros de Binance de 2020 a 2026; comisión real y el doble)
+
+| Libro | Estrategia | Confirmación de otros tiempos | BTC ajuste / prueba | Con el doble | Años + | ETH, mismas reglas |
+|---|---|---|---|---|---|---|
+| PRINCIPAL | P05b por régimen (señal 00-21 UTC) | Ninguna: la suave es neutra y la estricta empeora | 280 ops +74,0 % / 226 +29,4 % | +54,4 / +13,6 | 5/7 | −25 % / +44 % |
+| PRINCIPAL | P11 con contexto | Ninguna: la semana empeora | 103 +43,0 % / 83 +50,8 % | +32,7 / +42,5 | 5/7 | −30 % / +32 % |
+| PRINCIPAL | P05c largo (señal 00-21 UTC) | 1 h, 4 h y 1 día sobre su EMA 20 (adoptada con la regla) | 48 +35,2 % / 44 +29,1 % | +31,8 / +26,1 | 5/7 | −0,5 % / +25 % |
+| PRUEBA | N9 Asia-Londres (07-13 UTC) | Ninguna | 315 +106,1 % / 260 +22,3 % | +84,0 / +4,1 | 5/7 | +94 % / +62 % |
+| PRUEBA | N8 miércoles con contexto | Ninguna | 110 +48,9 % / 83 +39,3 % | +37,9 / +31,0 | 4/7 | +46 % / +43 % |
+
+Todas superan al azar (percentil 97 a 100 en BTC).
+
+**ETH, la prueba más dura contra el sobreajuste** (mismas reglas, sin tocar un parámetro):
+- N9, N8 y el largo de P05b con patrón se sostienen.
+- P05b por régimen y P11 pierden en ETH 2020-2023: su ventaja es propia de BTC y hay que vigilarla.
+
+**Los otros tiempos «confirman un poquito»** (pedido de Nicolás, sin RSI). Se probaron 1 h, 4 h y 1 día sobre su EMA 20, el patrón del curso de 1 h y la semana anterior, con la regla fijada antes de mirar.
+- Exigir que acompañen **todos** solo mejora P05c.
+- Una confirmación suave es neutra en P05b, porque el rompimiento ya la trae.
+- La semana empeora P11 y N8.
+- El patrón de 1 h es lo que permite llevar el largo de P05b al contado.
+
+**Cuenta de 40.000 pesos** (contado, solo largos, 2 % de riesgo, topes de −4 % al día y −8 % a la semana, parada total con −20 %). Lleva P11 con contexto, P05c y P05b largo con patrón de 1 h, las únicas piezas que aguantan el contado con comisión doble:
+
+| | 2020-2023 | 2024-2026 |
+|---|---|---|
+| Con BNB (0,075 %/lado) | +62,8 % (+13,6 %/año), caída máxima 12,0 % | +49,6 % (+15,5 %/año), caída máxima 10,9 % |
+| Con comisión doble (0,15 %/lado) | +38,4 % (+8,8 %/año), caída máxima 16,9 % | +29,1 % (+9,5 %/año), caída máxima 12,4 % |
+
+Con 2,5 % de riesgo, la caída llega al 20,9 % con comisión doble y toca la parada total: por eso 2 %, «un poquito más» que el 1,5 % anterior.
+
+**Lo que esto quiere decir en pesos:** de unos 3.500 a 6.200 pesos al año sobre 40.000, sin arriesgar la cuenta. La frecuencia con señal es de unas 2,2 operaciones por semana en cada libro.
+
+**Programas:**
+- `consolidacion/consolidado.py`: la prueba completa. Se le puede dar el archivo de ETH.
+- `consolidacion/sistema.py`: el motor en vivo, con `estado` y `cerrar`.
+- `consolidacion/lectura_mercado.py`: los 5 tiempos con sus fotos y las señales del motor.
+- `consolidacion/pruebas_sistema.py`: las pruebas.
+- `papel/`: el registro diario del papel.
+
 ## Conclusión en tres líneas
 
 1. **Hay una ventaja que resiste todo lo que le pedí: P11, el largo del lunes UTC.** Son 353 operaciones de 2020 a 2026: +104,6 % neto y +69,3 % con comisión doble, positiva en el ajuste (2020-2023) y en la prueba (2024-2026). La segunda es P05b, pero solo en los largos o con un veto de velas de 1 h.

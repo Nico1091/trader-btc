@@ -1,88 +1,89 @@
-# Guía de decisión de Claude: qué mirar, cuándo operar y cuándo no
+# Guía de decisión de Claude, versión consolidada (27/10/2026)
 
-Pedida por Nicolás el 26/10/2026. Claude decide cada operación. Los programas solo leen datos, resumen y cierran con velas reales. Todo es papel hasta que Nicolás apruebe otra cosa.
+Esta versión reemplaza a las anteriores. Claude decide cada operación. Los programas leen datos, calculan y cierran con velas reales. Todo es papel hasta que Nicolás apruebe otra cosa.
 
-## 1. Antes de decidir: lectura en tiempo real con fotos
+Cifras: velas de 1 minuto de futuros de Binance de 2020 a 2026, ajuste 2020-2023, prueba 2024-2026, comisión real y repetida con el doble. Motor corregido el 27/10. Detalle en `CONSOLIDACION-TRADING.md`, sección «Consolidación final».
 
-1. Correr `python3 -I consolidacion/lectura_mercado.py /tmp/lectura`. Tarda unos 2 segundos. Si dice «INCOMPLETA», **no operar**.
-2. Leer `resumen.txt` y **mirar las 5 fotos**:
+## 1. Antes de decidir (unos 3 segundos)
 
-   | Foto | Qué mirar en ella |
+1. `python3 -I consolidacion/lectura_mercado.py /tmp/lectura`. Da el resumen de los 5 tiempos, sus 5 fotos, el contexto, los niveles de hoy, las **señales de los dos libros** (del motor `sistema.py`, comprobado contra el simulador) y la **confirmación de los otros tiempos**.
+2. Mirar las 5 fotos:
+
+   | Foto | Qué mirar |
    |---|---|
-   | 3 meses (velas diarias) | La tendencia de fondo y si el precio está sobre o bajo su media de 20 |
-   | 1 día (velas de 1 h) | Máximos y mínimos: ¿suben o bajan? |
-   | 16 horas (velas de 15 min) | La estructura de hoy y dónde están los rechazos |
-   | 3 horas (velas de 5 min) | El impulso actual y si hay un rebote o una caída fuerte en curso |
-   | 5 min (última hora) | El riesgo inmediato: velas enormes, mechas de rechazo, volatilidad muy por encima de su media |
+   | 3 meses y 1 día | La tendencia de fondo |
+   | 16 horas | La estructura de hoy |
+   | 3 horas y 5 min | El momento y el riesgo inmediato |
 
-3. Anotar en el diario una línea por tiempo y cómo pesó en la decisión.
+3. Si la lectura dice «NO OPERAR, lectura insuficiente», no se opera.
+4. Anotar en el diario una línea por tiempo y la decisión, antes del resultado.
 
-## 2. Estrategias con datos positivos (las únicas que se operan)
+## 2. Qué se opera: solo lo que dio positivo
 
-Medidas con 3,58 millones de velas de 1 minuto de Binance (2020-2026), ajuste 2020-2023 y prueba 2024-2026, con comisión y con el doble. Detalle en `CONSOLIDACION-TRADING.md`.
+**Contexto** = cierre diario de ayer frente a la media de sus 50 últimos cierres (SMA 50). Decide el lado: con contexto alcista solo largos; con contexto bajista, solo los cortos indicados.
 
-| Estrategia | Cuándo vale | Cifras |
-|---|---|---|
-| **P05b por régimen** | Contexto alcista: largo si un cierre de 15 m supera apertura 00:00 UTC + 0,5·ATR14. Contexto bajista: corto si un cierre de 15 m baja de apertura − 0,5·ATR14. Límite en la banda (60 min), stop con un cierre de 15 m que vuelve a la apertura, salida a las 23:59 UTC | 545 ops, +108 % neto, +70 % con el doble; 5 de 7 años positivos |
-| **P11 con contexto** | Lunes 00:00 UTC, largo, solo si el cierre del domingo está sobre la SMA 50. Stop 3 %, salida a las 23:59 | 186 ops, +94 % neto, +75 % con el doble |
-| P05c largo | Contexto alcista, rompimiento de apertura + 1,0·ATR14 | 170 ops, +67 %, +55 % con el doble (muestra débil) |
-| Vela alcista de 1 h como confirmación de P05b largo | Opcional, solo en contexto alcista | Mejora en mi prueba (pct 99,9); la rutina midió percentil 38 en el ajuste: sin aclarar |
+### Libro PRINCIPAL (papel en futuros, en %)
 
-**Contexto** = cierre diario de ayer frente a su SMA 50. Es el único filtro de contexto que mejora en los dos tramos.
-
-## 2b. Dos libros (pedido de Nicolás del 26/10)
-
-Siempre con señal: sin señal de su regla, no hay operación en ningún libro.
-
-- **Libro PRINCIPAL:** P05b por régimen, P11 con contexto y P05c largo. Se opera con el tamaño del plan.
-- **Libro PRUEBA:** estrategias nuevas que se toman o se descartan con datos. Se opera en papel y en porcentaje, separado, para no mezclar resultados.
-  - **N8, miércoles con contexto alcista:** 193 operaciones, +88 % neto y +69 % con el doble. El miércoles salió de mirar los 7 días: puede ser casualidad.
-  - **N9, rango de Asia roto en Londres en el lado del contexto:** 829 operaciones, +160 % neto, pero solo +17,6 % en 2024-2026 (−9 % con el doble). Frágil.
-  - **P05b largo con patrón alcista de vela de 1 h:** la rutina y esta sesión la midieron distinto (percentil 38 frente a 88): se prueba en vivo.
-- **Descartadas el 26/10 antes del papel:** N4 (retroceso a la EMA 20), N5 (RSI + patrón), N6 (50 SMA + precio) y N7 (rompe el máximo o mínimo de ayer). Todas pierden en 2020-2026.
-- **Ascenso y descenso:** una estrategia de PRUEBA pasa a PRINCIPAL con 30 operaciones de papel o más que ganen neto y superen al azar. Se descarta si con 30 no lo logra.
-- `lectura_mercado.py` muestra en la sección «SEÑALES DE HOY» el estado de las 6 estrategias.
-
-## 2c. Horarios: cada libro aparte, cada contexto en su lado (tarea 13, 26/10)
-
-Horas en UTC; en Colombia son 5 horas menos.
-
-| Libro | Estrategia | Lado según el contexto | Horario de señal | Salida |
+| Estrategia | Regla | Horario UTC | BTC 2020-23 / 2024-26 (neto; con el doble) | ETH, mismas reglas |
 |---|---|---|---|---|
-| PRINCIPAL | P11 | Solo largo, con contexto alcista | Lunes 00:00 (19:00 del domingo en Colombia) | 23:59 o stop 3 % |
-| PRINCIPAL | P05b por régimen | Largo con contexto alcista, corto con bajista | 00:00-21:00 (19:00-16:00 en Colombia) | 23:59 o stop |
-| PRINCIPAL | P05c | Solo largo, con contexto alcista | 00:00-21:00 | 23:59 o stop |
-| PRUEBA | N9 Asia-Londres | El del contexto | **07:00-13:00** (02:00-08:00 en Colombia) | 23:59 o stop |
-| PRUEBA | N8 | Solo largo, con contexto alcista | Miércoles 00:00 | 23:59 o stop 3 % |
-| PRUEBA | P05b largo + vela 1 h | Solo largo, con contexto alcista | 00:00-21:00 | 23:59 o stop |
+| **P05b por régimen** | Primer cierre de 15 m fuera de apertura ± 0,5·ATR14. Opera solo si ese primer rompimiento va en el lado del contexto. Límite en la banda 60 min; stop con un cierre de 15 m que vuelve a la apertura; salida 23:59 | Señal 00:00-21:00 | +74 % / +29 % (+54 / +14); 5 de 7 años | −25 % / +44 %: solo vale en BTC |
+| **P11** | Lunes 00:00, largo, solo con contexto alcista; stop 3 %, salida 23:59 | Lunes | +43 % / +51 % (+33 / +43); 5 de 7 años | −30 % / +32 %: solo vale en BTC |
+| **P05c** | Como P05b con 1,0·ATR14, solo largo, con contexto alcista **y 1 h, 4 h y 1 día sobre su EMA 20** | Señal 00:00-21:00 | +35 % / +29 % (+32 / +26); 5 de 7 años | −0,5 % / +25 %: plana en 2020-23, positiva en 2024-26 |
 
-**Por qué estas horas** (media neta por operación, 2020-2023 / 2024-2026):
-- **P05b y P05c, 21:00 a 24:00:** P05b gana +0,04 / +0,04 % y P05c pierde (−0,43 / −0,12 %). Por eso no se toman señales después de las 21:00.
-- **N9 en Londres (07-13):** +0,37 / +0,11 %. En Nueva York (13-21) pasó a −0,07 % en 2024-2026, así que su ventana se cierra a las 13:00. Ese corte se eligió viendo los dos tramos, así que hay que confirmarlo en el papel.
+### Cuenta de 40.000 pesos (contado BTCUSDT, solo largos, sin apalancamiento)
 
-**Reglas de separación:**
-- Cada libro tiene **su propia posición**, como máximo una a la vez, y su propio marcador contra el azar. Los resultados no se mezclan.
-- **Riesgo total:** como máximo una posición en pesos (libro PRINCIPAL, 1,5 %). El libro PRUEBA va en papel y en porcentaje hasta que una estrategia ascienda.
-- Si los dos libros tienen señal a la vez, se toman las dos en papel, cada una en su libro.
-- **El contexto manda en los dos libros:** con el cierre de ayer bajo su SMA 50, ningún largo de P05b, P05c, P11 ni N8; el único corto permitido es el de P05b y el de N9 en su ventana.
+Solo las piezas que aguantan el contado con comisión doble (0,15 %/lado) en los dos tramos:
 
-## 3. Cuándo NO operar (medido, no opinión)
+| Pieza | BTC 2020-23 / 2024-26 con comisión doble | ETH |
+|---|---|---|
+| P11 con contexto | +22,4 % / +34,2 % | No resiste |
+| P05c largo (3 tiempos a favor) | +24,1 % / +19,0 % | No resiste en 2020-23 |
+| **P05b largo con patrón alcista del curso en las 3 últimas velas de 1 h** | +10,3 % / +14,8 % (muestra pequeña: 61 operaciones) | +2,7 % / +16,9 % |
 
-- **Lectura incompleta** o con huecos.
-- **Largos con contexto bajista** (P05b, P11): el lunes 26/10, PP-1 sin filtro iba en −0,47 % mientras PP-1f, con el filtro, no entró.
-- **Cortos sin contexto bajista, y los cortos de P05c y del lunes**: pierden aun con contexto.
-- **Exigir que todos los tiempos vayan a favor para entrar**: entra tarde; P05b largo pasa de +21,6 % a −1,1 % en la prueba.
-- **A mercado sin señal**: con el rango medio de 1 h bajo 0,30 %, el movimiento esperado no paga tres veces la comisión (reglas R1 y R2 de la rutina).
-- **Persiguiendo un rebote o una caída fuerte** en 3 h o en 5 min contra el contexto diario.
-- **Anuncio de la Reserva Federal**: sin aperturas de 17:00 a 21:00 UTC el 28/10, y medio riesgo el 27 y el 28.
-- **Con los topes tocados**: −3 % en el día, −6 % en la semana o −10 % desde el máximo.
-- **Para cumplir una cuota.** Lo sostenible es de 1 a 2,5 operaciones por semana.
-- **La MEZCLA, los patrones de vela como entrada y el retroceso N3**: descartados con datos.
+Los cortos de P05b y los largos de P05b sin patrón **no** van a pesos: en contado el corto no existe, y el largo sin patrón no aguanta la comisión doble.
 
-## 4. Tamaño
+### Libro PRUEBA (papel, en %, aparte, con su propia posición)
 
-1,5 % de riesgo por operación (600 pesos). Una posición a la vez y máximo 2 entradas por día. En pesos, solo largos de contado. Los cortos van en papel y en porcentaje: con 40.000 pesos, la orden mínima de futuros arriesgaría del 8 al 19 % de la cuenta.
+| Estrategia | Regla | Horario UTC | BTC 2020-23 / 2024-26 | ETH, mismas reglas |
+|---|---|---|---|---|
+| **N9** Asia-Londres | Rango de 00:00-06:59 roto por un cierre de 15 m en el lado del contexto; límite 60 min; stop con un cierre de 15 m de vuelta al punto medio; salida 23:59 | 07:00-13:00 | +106 % / +22 % (con el doble +84 / +4) | +94 % / +62 % (con el doble +71 / +44): **robusta** |
+| **N8** miércoles | Miércoles 00:00, largo, solo con contexto alcista; stop 3 %, salida 23:59 | Miércoles | +49 % / +39 % | +46 % / +43 %, 6 de 7 años: **robusta** |
 
-## 5. Después de cada operación
+Una estrategia de PRUEBA pasa a PRINCIPAL con 30 operaciones de papel o más que ganen neto y superen al azar.
 
-Cerrar con velas reales de 1 minuto. Comparar con el testigo al azar. Anotar por qué ganó o perdió. Revisar las reglas solo con datos (elegir en el ajuste y mirar la prueba una vez).
+## 3. Los otros tiempos confirman «un poquito» (medido, sin RSI)
+
+| Confirmación | Efecto medido | Uso |
+|---|---|---|
+| 1 h o 4 h sobre su EMA 20, en P05b | Neutra: el rompimiento ya la trae (prueba +0,13 → +0,14 % por operación) | Se mira, no se exige |
+| Los 3 tiempos mayores (1 h, 4 h, 1 día) | Mejora P05c (prueba +0,48 → +0,66 % por operación) | **Exigida en P05c** |
+| Los 3 tiempos mayores en P05b o N9 | Empeora: se entra tarde (P05b, prueba +0,13 → +0,08) | No se exige |
+| Patrón del curso en las 3 últimas velas de 1 h | Mejora los largos de P05b en contado | **Exigido para llevar P05b a pesos** |
+| Semana anterior a favor, en P11 y N8 | Empeora (N8, prueba +0,47 → +0,13) | No se usa |
+
+## 4. Riesgo («un poquito más», medido)
+
+- **2 % por operación** (800 pesos). El nocional sale de la distancia al stop conocida al entrar, con tope en el saldo y mínimo de 5 USDT. Una posición a la vez.
+- **Topes:** −4 % en el día (se para el día), −8 % en la semana (se para la semana) y **parada total con −20 % desde el máximo** (vuelta a papel).
+- **Por qué 2 % y no más:**
+
+  | Riesgo | 2020-2023 | 2024-2026 | Comisión doble | Caída máxima |
+  |---|---|---|---|---|
+  | 1,5 % | +10,4 %/año | +11,2 %/año | — | 9 % |
+  | **2 %** | **+13,6 %/año** | **+15,5 %/año** | **+8,8 / +9,5 %/año** | **11-17 %** |
+  | 2,5 % | — | — | Caída del 20,9 % en 2020-2023, que toca la parada total | 20,9 % |
+
+## 5. Cuándo NO operar
+
+- Lectura incompleta.
+- **Contra el contexto:** largos de P05b, P05c, P11 o N8 con contexto bajista; cortos con contexto alcista.
+- Si el primer rompimiento del día fue hacia el lado contrario: P05b ya no opera ese día.
+- Señales de P05b o P05c después de las 21:00 UTC, y de N9 fuera de 07:00-13:00.
+- P05c sin los 3 tiempos mayores a favor.
+- Para cumplir una cuota. Con señal salen unas 2,2 operaciones por semana en el libro PRINCIPAL (P05b 1,4; P11 0,5; P05c 0,3) y 2,2 en el de PRUEBA (N9 1,6; N8 0,5).
+- Con un tope tocado. En la Reserva Federal (28/10), sin aperturas de 17:00 a 21:00 UTC y a medio riesgo el 27 y el 28.
+- **Descartado con datos:** MEZCLA, patrones de vela como entrada, RSI, retroceso a la EMA 20, 50 SMA + precio, ruptura del máximo o mínimo de ayer, N3, cortos de P05c y del lunes, y exigir que todos los tiempos vayan a favor en P05b.
+
+## 6. Después de cada día
+
+`python3 -I consolidacion/sistema.py cerrar AAAA-MM-DD > papel/AAAA-MM-DD.txt`. Cierra cada libro con las 1.440 velas de 1 minuto y lo compara con el testigo al azar del día. Antes de cambiar una regla: `python3 -I consolidacion/pruebas_sistema.py`, que debe terminar en «SIN FALLAS».
