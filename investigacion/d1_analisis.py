@@ -8,11 +8,12 @@ mayoría de los años. La prueba 2024-2026 se informa, pero no decide (está con
 Además: ¿lo que se elegiría en BTC funciona en los otros 6 activos?
 Uso: python3 -I d1_analisis.py > d1_analisis.txt"""
 import glob
+import os
 import numpy as np
 import pandas as pd
 
 pd.set_option("display.width", 250)
-R = pd.concat([pd.read_csv(f) for f in sorted(glob.glob("/home/user/trader-btc-investigacion/investigacion/variantes/registro_variantes_*.csv"))])
+R = pd.concat([pd.read_csv(f) for f in sorted(glob.glob(os.path.join(os.path.dirname(os.path.abspath(__file__)), "variantes", "registro_variantes_*.csv")))])
 R["clave"] = R.apply(lambda r: (f"k={r.k} W={int(r.W)} h={int(r.hora)} {r.salida}" if r.familia == "P05b" else
                                 f"k={r.k} {r.salida}" if r.familia == "P05c" else
                                 f"07-{int(r.hora)} {r.salida}" if r.familia == "N9" else r.salida), axis=1)

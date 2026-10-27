@@ -43,7 +43,7 @@ def sr0(N, T):
 
 print("VARIANTES REGISTRADAS EN EL PROYECTO (filas de los CSV de consolidacion/; cada fila suele ser variante × tramo)")
 tot = 0
-for f in sorted(glob.glob("/home/user/trader-btc-investigacion/consolidacion/*.csv")):
+for f in sorted(glob.glob(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "consolidacion", "*.csv"))):
     n = len(pd.read_csv(f))
     tot += n
     print(f"  {os.path.basename(f)}: {n}")

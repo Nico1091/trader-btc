@@ -400,6 +400,8 @@ def cerrar(fuente, dia, ahora=None, guardar=True):
 
 
 if __name__ == "__main__":
+    if hasattr(sys.stdout, "reconfigure"):  # Windows: con la salida por tubería usa cp1252, sin «−», «≥» ni flechas
+        sys.stdout.reconfigure(encoding="utf-8", errors="replace")
     accion = sys.argv[1] if len(sys.argv) > 1 else "estado"
     try:
         if accion == "orden":  # orden ESTRATEGIA [--dia AAAA-MM-DD] "nota" (--dia: condicionada para otro día)

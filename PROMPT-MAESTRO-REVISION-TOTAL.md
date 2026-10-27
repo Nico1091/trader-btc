@@ -49,6 +49,8 @@ Escríbele en español, de forma analítica, humana y detallada. Le gusta revisa
 | `consolidacion/sistema.py` | Motor en vivo (solo biblioteca estándar; Coinbase o archivo .npy). Comandos: `estado`, `orden`, `cerrar`, `riesgo` |
 | `consolidacion/riesgo.py` | Topes de riesgo en código, registro de órdenes (`papel/ordenes.jsonl`) y libro de cerradas (`papel/libro.jsonl`) |
 | `consolidacion/lectura_mercado.py` | Lectura de 5 tiempos con fotos, estado de riesgo y señales |
+| `consolidacion/velas_ciclo.py`, `pronosticos.py`, `ciegas.py` | Paquete de velas de cada ciclo (Binance futuros o Coinbase), pronósticos de Claude puntuados contra el azar (Brier) y entrenamiento a ciegas. Solo biblioteca estándar |
+| `PROMPT-AGENTE-LOCAL-SESION-LARGA.md` | Prompt para el agente local del PC: sesión de 11 horas o más (comprobar con Binance, auditoría de equipo rojo, lectura vela por vela con pronósticos medidos y plan de 14 días) |
 | `consolidacion/sim.py`, `consolidado.py`, `lib.py` | Simulador, estrategias, selección y la cuenta en pesos |
 | `consolidacion/pruebas_sistema.py` | Las 7 pruebas. Debe decir «SIN FALLAS» |
 | `ORDENES-PRUEBA-PROPIA.md`, `papel/` | Órdenes de papel y cierres diarios |
