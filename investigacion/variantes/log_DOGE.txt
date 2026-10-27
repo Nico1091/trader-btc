@@ -1,0 +1,9 @@
+P05b k 0.3 listo
+P05b k 0.4 listo
+P05b k 0.5 listo
+P05b k 0.6 listo
+P05b k 0.7 listo
+P05c listo
+N9 listo
+P11/N8 listo
+263 variantes guardadas

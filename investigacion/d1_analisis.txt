@@ -1,0 +1,189 @@
+Activos con registro: ['ADA', 'BNB', 'BTC', 'DOGE', 'ETH', 'SOL', 'XRP'] · variantes por activo: {'ADA': 263, 'BNB': 263, 'BTC': 263, 'DOGE': 263, 'ETH': 263, 'SOL': 263, 'XRP': 263}
+
+==================== P05b (BTC): 225 variantes · base «k=0.5 W=60 h=21 actual» ====================
+  base: entreno +0.195 (210 ops, caída 25.6 %) · validación +0.190 (70) · prueba +0.060 (226)
+  mejoran en entreno: 21 · en entreno Y validación: 8 · pasan (a)-(d): 0
+  las 8 mejores en ENTRENAMIENTO (así se elegiría ingenuamente) y cómo les fue después:
+                    clave  entreno 2020-22|ops  entreno 2020-22|media2  entreno 2020-22|caida  valida 2023|ops  valida 2023|media2  prueba 2024-26|ops  prueba 2024-26|media2  prueba 2024-26|caida  pasa_a_d
+k=0.5 W=30 h=21 stop duro                  187                  +0.469                     16               64              +0.167                 210                 +0.125                    14     False
+k=0.5 W=30 h=19 stop duro                  176                  +0.463                     16               56              +0.166                 197                 +0.158                    13     False
+ k=0.5 W=30 h=21 sin stop                  187                  +0.447                     22               64              +0.201                 210                 +0.063                    22     False
+ k=0.5 W=30 h=19 sin stop                  176                  +0.439                     23               56              +0.206                 197                 +0.092                    21     False
+k=0.5 W=30 h=23 stop duro                  197                  +0.433                     16               71              +0.147                 219                 +0.132                    14     False
+ k=0.5 W=30 h=23 sin stop                  197                  +0.412                     23               71              +0.178                 219                 +0.073                    20     False
+k=0.5 W=60 h=21 stop duro                  210                  +0.339                     16               70              +0.134                 226                 +0.082                    15     False
+   k=0.5 W=30 h=21 actual                  187                  +0.332                     21               64              +0.232                 210                 +0.110                    13     False
+  SALIDAS (resto de parámetros como la base): media doble por tramo y caída de entrenamiento
+   salida  entreno 2020-22|media2  entreno 2020-22|caida  valida 2023|media2  prueba 2024-26|media2  prueba 2024-26|caida
+   actual                  +0.195                +25.640              +0.190                 +0.060               +15.488
+ sin stop                  +0.246                +28.309              +0.145                 +0.032               +21.595
+stop duro                  +0.339                +15.805              +0.134                 +0.082               +14.706
+      4 h                  -0.138                +22.312              -0.085                 -0.103               +17.034
+      8 h                  -0.036                +23.039              +0.096                 -0.031               +14.845
+  SENSIBILIDAD k × W (hora 21, salida actual), media doble en ENTRENAMIENTO | en PRUEBA:
+W    30.0   60.0   120.0
+k                       
+0.3 -0.018 -0.008 -0.023
+0.4 -0.013 -0.098 -0.089
+0.5 +0.332 +0.195 +0.129
+0.6 -0.022 -0.172 -0.186
+0.7 +0.137 -0.033 -0.009
+W    30.0   60.0   120.0
+k                       
+0.3 +0.038 +0.057 +0.078
+0.4 +0.240 +0.246 +0.173
+0.5 +0.110 +0.060 +0.062
+0.6 +0.136 +0.112 +0.112
+0.7 +0.099 +0.016 -0.044
+  hora tope (k 0,5, W 60, salida actual): 19 h: entreno +0.172, validación +0.193, prueba +0.086; 21 h: entreno +0.195, validación +0.190, prueba +0.060; 23 h: entreno +0.176, validación +0.149, prueba +0.066
+  WALK-FORWARD (elige la mejor media doble de los años anteriores; aplica al año siguiente):
+    2022: elige «k=0.5 W=30 h=21 sin stop» → -0.269 (52 ops) vs base -0.261 (60)
+    2023: elige «k=0.5 W=30 h=21 stop duro» → +0.167 (64 ops) vs base +0.190 (70)
+    2024: elige «k=0.7 W=30 h=19 sin stop» → +0.367 (42 ops) vs base +0.218 (80)
+    2025: elige «k=0.7 W=30 h=19 sin stop» → +0.176 (46 ops) vs base -0.192 (83)
+    2026: elige «k=0.7 W=30 h=19 sin stop» → +0.178 (42 ops) vs base +0.191 (63)
+    lo elegido supera a la base en 2 de 5 años
+  TRANSFERENCIA: la mejor de entrenamiento en BTC («k=0.5 W=30 h=21 stop duro») frente a la base, media doble de TODO el periodo por activo:
+clave   k=0.5 W=30 h=21 stop duro  k=0.5 W=60 h=21 actual
+activo                                                   
+BTC                        +0.271                  +0.134
+ETH                        -0.020                  -0.033
+SOL                        -0.123                  -0.125
+BNB                        +0.104                  +0.215
+XRP                        +0.074                  +0.055
+DOGE                       -0.047                  -0.010
+ADA                        +0.010                  +0.012
+    mejora en 4 de 7 activos
+
+==================== P05c (BTC): 15 variantes · base «k=1.0 actual» ====================
+  base: entreno +0.269 (30 ops, caída 15.4 %) · validación +1.319 (18) · prueba +0.592 (44)
+  mejoran en entreno: 4 · en entreno Y validación: 0 · pasan (a)-(d): 0
+  las 8 mejores en ENTRENAMIENTO (así se elegiría ingenuamente) y cómo les fue después:
+          clave  entreno 2020-22|ops  entreno 2020-22|media2  entreno 2020-22|caida  valida 2023|ops  valida 2023|media2  prueba 2024-26|ops  prueba 2024-26|media2  prueba 2024-26|caida  pasa_a_d
+k=0.8 stop duro                   44                  +0.594                      8               25              +0.235                  56                 +0.101                    12     False
+ k=0.8 sin stop                   44                  +0.550                      8               25              +0.376                  56                 +0.151                    11     False
+   k=0.8 actual                   44                  +0.524                      8               25              +0.537                  56                 +0.055                    13     False
+ k=1.0 sin stop                   30                  +0.269                     15               18              +1.319                  44                 +0.583                +3.520     False
+   k=1.0 actual                   30                  +0.269                     15               18              +1.319                  44                 +0.592                +3.384     False
+      k=1.0 4 h                   30                  +0.225                 +3.148               18              +0.581                  44                 +0.279                +1.928     False
+      k=0.8 4 h                   44                  +0.166                      5               25              -0.158                  56                 -0.231                    12     False
+k=1.0 stop duro                   30                  +0.125                     20               18              +0.864                  44                 +0.575                +3.786     False
+  SALIDAS (resto de parámetros como la base): media doble por tramo y caída de entrenamiento
+   salida  entreno 2020-22|media2  entreno 2020-22|caida  valida 2023|media2  prueba 2024-26|media2  prueba 2024-26|caida
+   actual                  +0.269                +15.441              +1.319                 +0.592                +3.384
+ sin stop                  +0.269                +15.244              +1.319                 +0.583                +3.520
+stop duro                  +0.125                +20.373              +0.864                 +0.575                +3.786
+      4 h                  +0.225                 +3.148              +0.581                 +0.279                +1.928
+      8 h                  +0.087                 +8.651              +1.053                 +0.376                +3.854
+  WALK-FORWARD (elige la mejor media doble de los años anteriores; aplica al año siguiente):
+    2022: elige «k=0.8 stop duro» → +0.263 (6 ops) vs base -0.630 (3)
+    2023: elige «k=0.8 stop duro» → +0.235 (25 ops) vs base +1.319 (18)
+    2024: elige «k=1.0 sin stop» → +0.505 (21 ops) vs base +0.505 (21)
+    2025: elige «k=1.0 sin stop» → +0.429 (14 ops) vs base +0.458 (14)
+    2026: elige «k=1.0 actual» → +1.005 (9 ops) vs base +1.005 (9)
+    lo elegido supera a la base en 1 de 5 años
+  TRANSFERENCIA: la mejor de entrenamiento en BTC («k=0.8 stop duro») frente a la base, media doble de TODO el periodo por activo:
+clave   k=0.8 stop duro  k=1.0 actual
+activo                               
+BTC              +0.301        +0.629
+ETH              +0.500        +0.222
+SOL              +0.007        +0.345
+BNB              +0.925        +0.613
+XRP              +0.544        +1.208
+DOGE             +2.201        +2.239
+ADA              -0.043        +0.418
+    mejora en 2 de 7 activos
+
+==================== N9 (BTC): 15 variantes · base «07-13 actual» ====================
+  base: entreno +0.407 (230 ops, caída 24.5 %) · validación -0.112 (85) · prueba +0.016 (260)
+  mejoran en entreno: 3 · en entreno Y validación: 2 · pasan (a)-(d): 1
+  las 8 mejores en ENTRENAMIENTO (así se elegiría ingenuamente) y cómo les fue después:
+          clave  entreno 2020-22|ops  entreno 2020-22|media2  entreno 2020-22|caida  valida 2023|ops  valida 2023|media2  prueba 2024-26|ops  prueba 2024-26|media2  prueba 2024-26|caida  pasa_a_d
+   07-11 actual                  176                  +0.613                     24               66              -0.089                 203                 -0.005                    19      True
+ 07-11 sin stop                  176                  +0.581                     39               66              -0.053                 203                 -0.007                    21     False
+07-11 stop duro                  176                  +0.469                     25               66              -0.179                 203                 -0.067                    19     False
+   07-13 actual                  230                  +0.407                     24               85              -0.112                 260                 +0.016                    17     False
+ 07-13 sin stop                  230                  +0.383                     35               85              -0.056                 260                 +0.022                    27     False
+ 07-16 sin stop                  312                  +0.369                     34              133              -0.042                 380                 -0.083                    46     False
+   07-16 actual                  312                  +0.364                     19              133              -0.012                 380                 -0.022                    21     False
+      07-11 8 h                  176                  +0.310                     22               66              -0.067                 203                 -0.062                    21     False
+  SALIDAS (resto de parámetros como la base): media doble por tramo y caída de entrenamiento
+   salida  entreno 2020-22|media2  entreno 2020-22|caida  valida 2023|media2  prueba 2024-26|media2  prueba 2024-26|caida
+   actual                  +0.407                +24.460              -0.112                 +0.016               +17.283
+ sin stop                  +0.383                +34.636              -0.056                 +0.022               +26.922
+stop duro                  +0.272                +28.367              -0.177                 -0.063               +15.970
+      4 h                  +0.006                +19.819              -0.140                 -0.164               +27.998
+      8 h                  +0.105                +25.556              -0.055                 -0.055               +21.605
+   actual                  +0.613                +24.210              -0.089                 -0.005               +19.075
+ sin stop                  +0.581                +38.616              -0.053                 -0.007               +21.241
+stop duro                  +0.469                +24.541              -0.179                 -0.067               +19.480
+      4 h                  +0.084                +18.547              -0.162                 -0.128               +18.323
+      8 h                  +0.310                +21.696              -0.067                 -0.062               +21.265
+   actual                  +0.364                +18.913              -0.012                 -0.022               +21.443
+ sin stop                  +0.369                +34.363              -0.042                 -0.083               +45.673
+stop duro                  +0.283                +20.960              -0.062                 -0.061               +24.092
+      4 h                  +0.040                +15.269              -0.060                 -0.113               +30.459
+      8 h                  +0.125                +20.096              +0.036                 -0.071               +26.838
+  WALK-FORWARD (elige la mejor media doble de los años anteriores; aplica al año siguiente):
+    2022: elige «07-11 sin stop» → +0.470 (43 ops) vs base +0.295 (67)
+    2023: elige «07-11 actual» → -0.089 (66 ops) vs base -0.112 (85)
+    2024: elige «07-11 actual» → +0.190 (77 ops) vs base +0.253 (97)
+    2025: elige «07-11 actual» → -0.115 (66 ops) vs base -0.186 (85)
+    2026: elige «07-11 actual» → -0.135 (60 ops) vs base -0.060 (78)
+    lo elegido supera a la base en 3 de 5 años
+  TRANSFERENCIA: la mejor de entrenamiento en BTC («07-11 actual») frente a la base, media doble de TODO el periodo por activo:
+clave   07-11 actual  07-13 actual
+activo                            
+BTC           +0.227        +0.153
+ETH           +0.196        +0.193
+SOL           -0.035        +0.055
+BNB           +0.019        -0.018
+XRP           -0.019        -0.004
+DOGE          -0.256        -0.249
+ADA           +0.008        +0.100
+    mejora en 3 de 7 activos
+
+==================== P11 (BTC): 4 variantes · base «stop 3.0 %» ====================
+  base: entreno +0.448 (70 ops, caída 11.0 %) · validación +0.041 (33) · prueba +0.512 (83)
+  mejoran en entreno: 0 · en entreno Y validación: 0 · pasan (a)-(d): 0
+  las 8 mejores en ENTRENAMIENTO (así se elegiría ingenuamente) y cómo les fue después:
+     clave  entreno 2020-22|ops  entreno 2020-22|media2  entreno 2020-22|caida  valida 2023|ops  valida 2023|media2  prueba 2024-26|ops  prueba 2024-26|media2  prueba 2024-26|caida  pasa_a_d
+stop 3.0 %                   70                  +0.448                     11               33              +0.041                  83                 +0.512                    10     False
+  sin stop                   70                  +0.367                     18               33              -0.047                  83                 +0.574                    11     False
+stop 5.0 %                   70                  +0.303                     16               33              -0.147                  83                 +0.560                    11     False
+stop 2.0 %                   70                  -0.136                     22               33              -0.085                  83                 +0.403                    12     False
+  WALK-FORWARD (elige la mejor media doble de los años anteriores; aplica al año siguiente):
+    2022: elige «sin stop» → -1.395 (10 ops) vs base -0.806 (10)
+    2023: elige «stop 3.0 %» → +0.041 (33 ops) vs base +0.041 (33)
+    2024: elige «stop 3.0 %» → +1.149 (33 ops) vs base +1.149 (33)
+    2025: elige «stop 3.0 %» → -0.153 (25 ops) vs base -0.153 (25)
+    2026: elige «stop 3.0 %» → +0.336 (25 ops) vs base +0.336 (25)
+    lo elegido supera a la base en 0 de 5 años
+
+==================== N8 (BTC): 4 variantes · base «stop 3.0 %» ====================
+  base: entreno +0.250 (73 ops, caída 18.9 %) · validación +0.530 (37) · prueba +0.373 (83)
+  mejoran en entreno: 2 · en entreno Y validación: 2 · pasan (a)-(d): 2
+  las 8 mejores en ENTRENAMIENTO (así se elegiría ingenuamente) y cómo les fue después:
+     clave  entreno 2020-22|ops  entreno 2020-22|media2  entreno 2020-22|caida  valida 2023|ops  valida 2023|media2  prueba 2024-26|ops  prueba 2024-26|media2  prueba 2024-26|caida  pasa_a_d
+  sin stop                   73                  +0.912                     15               37              +0.704                  83                 +0.441                     9      True
+stop 5.0 %                   73                  +0.678                     16               37              +0.656                  83                 +0.445                     9      True
+stop 3.0 %                   73                  +0.250                     19               37              +0.530                  83                 +0.373                    11     False
+stop 2.0 %                   73                  +0.187                     26               37              +0.462                  83                 +0.327                    13     False
+  WALK-FORWARD (elige la mejor media doble de los años anteriores; aplica al año siguiente):
+    2022: elige «sin stop» → -0.642 (13 ops) vs base -0.642 (13)
+    2023: elige «sin stop» → +0.704 (37 ops) vs base +0.530 (37)
+    2024: elige «sin stop» → +0.949 (36 ops) vs base +0.823 (36)
+    2025: elige «sin stop» → +0.334 (21 ops) vs base +0.334 (21)
+    2026: elige «sin stop» → -0.174 (26 ops) vs base -0.218 (26)
+    lo elegido supera a la base en 4 de 5 años
+  TRANSFERENCIA: la mejor de entrenamiento en BTC («sin stop») frente a la base, media doble de TODO el periodo por activo:
+clave   sin stop  stop 3.0 %
+activo                      
+BTC       +0.670      +0.357
+ETH       +0.636      +0.364
+SOL       +0.596      -0.003
+BNB       +0.473      +0.135
+XRP       -0.490      -0.401
+DOGE      +0.037      -0.246
+ADA       +0.820      +0.084
+    mejora en 6 de 7 activos

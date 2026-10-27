@@ -1,0 +1,1 @@
+Base congelada: 0556636 (rama claude/encargo-cloud-md-q0u3ex). Volver: git checkout 0556636 o borrar este worktree.

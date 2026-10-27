@@ -1,0 +1,12 @@
+=== BTCUSDT: 3,584,160 velas, 2020-01-01 00:00:00 a 2026-10-24 23:59:00
+  minutos esperados 3,584,160 · faltan 0 · duplicados 0 · desordenados 0 · no múltiplos de 60 s 0
+  velas OHLC incoherentes 0 · sin volumen 369 (0.010 %)
+  salto de cierre a cierre: p99,99 1.76 % · máximo 7.34 % (2020-03-13 02:40:00) · minutos con |salto| > 3 %: 94
+  apertura frente al cierre anterior: media 0.0006 % · > 0,5 %: 7
+  velas por año: 2020: 527,040 (100.00 %), 2021: 525,600 (100.00 %), 2022: 525,600 (100.00 %), 2023: 525,600 (100.00 %), 2024: 527,040 (100.00 %), 2025: 525,600 (100.00 %), 2026: 427,680 (81.37 %)
+=== ETHUSDT: 3,585,600 velas, 2020-01-01 00:00:00 a 2026-10-25 23:59:00
+  minutos esperados 3,585,600 · faltan 0 · duplicados 0 · desordenados 0 · no múltiplos de 60 s 0
+  velas OHLC incoherentes 0 · sin volumen 302 (0.008 %)
+  salto de cierre a cierre: p99,99 2.16 % · máximo 25.45 % (2021-05-19 13:11:00) · minutos con |salto| > 3 %: 167
+  apertura frente al cierre anterior: media 0.0014 % · > 0,5 %: 6
+  velas por año: 2020: 527,040 (100.00 %), 2021: 525,600 (100.00 %), 2022: 525,600 (100.00 %), 2023: 525,600 (100.00 %), 2024: 527,040 (100.00 %), 2025: 525,600 (100.00 %), 2026: 429,120 (81.64 %)

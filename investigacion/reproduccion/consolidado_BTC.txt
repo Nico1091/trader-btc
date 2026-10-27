@@ -1,0 +1,67 @@
+=== BTC: 3,584,160 velas de 1 min, 2020-01-01 a 2026-10-24 ===
+PRINCIPAL P05b por régimen: candidata elegida en el ajuste «todos 3 de 3» (media doble aj +0.224 vs base +0.194); prueba media +0.081 vs base +0.130 -> NO se adopta: queda la base
+PRINCIPAL P11 con contexto: candidata elegida en el ajuste «semana a favor» (media doble aj +0.284 vs base +0.317); prueba media +0.636 vs base +0.612 -> NO se adopta: queda la base
+PRINCIPAL P05c largo con contexto: candidata elegida en el ajuste «todos 3 de 3» (media doble aj +0.663 vs base +0.581); prueba media +0.662 vs base +0.478 -> SE ADOPTA
+PRUEBA N9 Asia-Londres: candidata elegida en el ajuste «todos 3 de 3» (media doble aj +0.409 vs base +0.267); prueba media +0.051 vs base +0.086 -> NO se adopta: queda la base
+PRUEBA N8 miércoles con contexto: candidata elegida en el ajuste «semana a favor» (media doble aj +0.359 vs base +0.344); prueba media +0.134 vs base +0.473 -> NO se adopta: queda la base
+
+TODAS LAS VARIANTES (media2 = media neta con comisión doble; pct = percentil frente a subconjuntos al azar de la base)
+                           estrategia      confirmación  ops_aj  neto_aj  doble_aj  media2_aj  pct_aj  ops_pr  neto_pr  doble_pr  media_pr  pct_pr
+0          PRINCIPAL P05b por régimen            (base)     280    73.95     54.35       0.19     NaN     226    29.37     13.55      0.13     NaN
+1          PRINCIPAL P05b por régimen               e1h     275    67.08     47.83       0.17   18.80     220    29.98     14.58      0.14   58.85
+2          PRINCIPAL P05b por régimen               e4h     240    68.16     51.36       0.21   55.65     185     8.83     -4.12      0.05   10.85
+3          PRINCIPAL P05b por régimen  suave 1 de 1h/4h     277    71.31     51.92       0.19   30.35     221    29.63     14.16      0.13   53.00
+4          PRINCIPAL P05b por régimen    mayoría 2 de 3     257    59.78     41.79       0.16   29.60     204    17.55      3.27      0.09   15.95
+5          PRINCIPAL P05b por régimen      todos 3 de 3     226    66.38     50.56       0.22   57.50     163    13.24      1.83      0.08   29.05
+6          PRINCIPAL P05b por régimen         patrón 1h      47    16.99     13.70       0.29   60.50      50    28.76     25.26      0.58   95.35
+7          PRINCIPAL P11 con contexto            (base)     103    42.99     32.69       0.32     NaN      83    50.80     42.50      0.61     NaN
+8          PRINCIPAL P11 con contexto    semana a favor      76    29.21     21.61       0.28   43.60      56    35.61     30.01      0.64   53.15
+9   PRINCIPAL P05c largo con contexto            (base)      51    33.19     29.62       0.58     NaN      53    25.32     21.61      0.48     NaN
+10  PRINCIPAL P05c largo con contexto               e1h      51    33.19     29.62       0.58     NaN      53    25.32     21.61      0.48     NaN
+11  PRINCIPAL P05c largo con contexto               e4h      50    32.89     29.39       0.59   48.50      50    29.05     25.55      0.58   97.90
+12  PRINCIPAL P05c largo con contexto  suave 1 de 1h/4h      51    33.19     29.62       0.58     NaN      53    25.32     21.61      0.48     NaN
+13  PRINCIPAL P05c largo con contexto    mayoría 2 de 3      50    32.89     29.39       0.59   47.60      50    29.05     25.55      0.58   97.90
+14  PRINCIPAL P05c largo con contexto      todos 3 de 3      48    35.18     31.82       0.66   80.95      44    29.15     26.07      0.66   96.30
+15  PRINCIPAL P05c largo con contexto         patrón 1h       6     4.67      4.25       0.71   54.15       8     8.90      8.34      1.11   87.85
+16             PRUEBA N9 Asia-Londres            (base)     315   106.07     84.02       0.27     NaN     260    22.26      4.06      0.09     NaN
+17             PRUEBA N9 Asia-Londres               e1h     269    98.13     79.30       0.29   61.55     222    17.77      2.23      0.08   42.85
+18             PRUEBA N9 Asia-Londres               e4h     215    84.80     69.75       0.32   64.35     167    10.80     -0.89      0.06   40.65
+19             PRUEBA N9 Asia-Londres  suave 1 de 1h/4h     279    95.93     76.40       0.27   49.35     230    18.40      2.30      0.08   41.90
+20             PRUEBA N9 Asia-Londres    mayoría 2 de 3     250   102.30     84.80       0.34   75.75     202    14.27      0.13      0.07   38.60
+21             PRUEBA N9 Asia-Londres      todos 3 de 3     195    93.36     79.71       0.41   82.75     149     7.61     -2.82      0.05   36.05
+22             PRUEBA N9 Asia-Londres         patrón 1h     103     2.38     -4.83      -0.05   12.50      78   -13.63    -19.09     -0.17    4.35
+23   PRUEBA N8 miércoles con contexto            (base)     110    48.89     37.89       0.34     NaN      83    39.28     30.98      0.47     NaN
+24   PRUEBA N8 miércoles con contexto    semana a favor      77    35.32     27.62       0.36   53.70      56     7.52      1.92      0.13    5.30
+
+SISTEMA CONSOLIDADO: cada estrategia con su versión final, año por año (neto en %, futuros 0,05/0,02)
+anio                                              2020  2021  2022  2023  2024  2025  2026
+PRINCIPAL P05b por régimen [(base)]               55.2  12.0 -11.5  18.2  23.1 -10.1  16.4
+PRINCIPAL P11 con contexto [(base)]               22.5  22.9  -7.1   4.7  41.2  -1.3  10.9
+PRINCIPAL P05c largo con contexto [todos 3 de 3]  13.8  -1.9  -1.7  25.0  12.1   7.4   9.7
+PRUEBA N9 Asia-Londres [(base)]                   54.7  30.5  24.5  -3.5  31.3  -9.9   0.8
+PRUEBA N8 miércoles con contexto [(base)]         34.8  -2.2  -7.0  23.3  33.2   9.1  -3.1
+PRINCIPAL P05b por régimen [(base)]: 506 ops | ajuste 280 +74.0 % (doble +54.4) | prueba 226 +29.4 % (doble +13.6) | años positivos 5/7 | percentil frente al azar 100
+PRINCIPAL P11 con contexto [(base)]: 186 ops | ajuste 103 +43.0 % (doble +32.7) | prueba 83 +50.8 % (doble +42.5) | años positivos 5/7 | percentil frente al azar 99
+PRINCIPAL P05c largo con contexto [todos 3 de 3]: 92 ops | ajuste 48 +35.2 % (doble +31.8) | prueba 44 +29.1 % (doble +26.1) | años positivos 5/7 | percentil frente al azar 100
+PRUEBA N9 Asia-Londres [(base)]: 575 ops | ajuste 315 +106.1 % (doble +84.0) | prueba 260 +22.3 % (doble +4.1) | años positivos 5/7 | percentil frente al azar 100
+PRUEBA N8 miércoles con contexto [(base)]: 193 ops | ajuste 110 +48.9 % (doble +37.9) | prueba 83 +39.3 % (doble +31.0) | años positivos 4/7 | percentil frente al azar 97
+
+PIEZAS EN CONTADO (solo largos): neto con 0,075 %/lado (BNB) y con el doble 0,15 %/lado
+  P11 con contexto: ajuste 103 ops +37.8 % (doble +22.4) | prueba 83 ops +46.7 % (doble +34.2) -> ENTRA en la cuenta en pesos
+  P05c largo (final): ajuste 48 ops +31.3 % (doble +24.1) | prueba 44 ops +25.6 % (doble +19.0) -> ENTRA en la cuenta en pesos
+  P05b largo con contexto: ajuste 163 ops +41.8 % (doble +17.4) | prueba 120 ops +5.0 % (doble -13.0) -> fuera: no resiste el contado con comisión doble
+  P05b largo con contexto + patrón 1h: ajuste 30 ops +14.8 % (doble +10.3) | prueba 31 ops +19.5 % (doble +14.8) -> ENTRA en la cuenta en pesos
+
+CUENTA DE 40.000 PESOS con P11 con contexto, P05c largo (final), P05b largo con contexto + patrón 1h (una posición; topes 2x el riesgo al día, 4x a la semana; parada total con -20 %)
+  riesgo 1.5 % · comisión 0.075 · 2020-2023: 151 ops, saldo 58,453 COP (+46.1 %, +10.4 %/año), caída máxima 9.2 %, peor racha 6
+  riesgo 1.5 % · comisión 0.075 · 2024-2026: 136 ops, saldo 53,877 COP (+34.7 %, +11.2 %/año), caída máxima 9.1 %, peor racha 12
+  riesgo 1.5 % · comisión 0.150 · 2020-2023: 148 ops, saldo 51,279 COP (+28.2 %, +6.7 %/año), caída máxima 12.5 %, peor racha 5
+  riesgo 1.5 % · comisión 0.150 · 2024-2026: 135 ops, saldo 47,965 COP (+19.9 %, +6.7 %/año), caída máxima 10.4 %, peor racha 12
+  riesgo 2.0 % · comisión 0.075 · 2020-2023: 159 ops, saldo 65,106 COP (+62.8 %, +13.6 %/año), caída máxima 12.0 %, peor racha 6
+  riesgo 2.0 % · comisión 0.075 · 2024-2026: 136 ops, saldo 59,833 COP (+49.6 %, +15.5 %/año), caída máxima 10.9 %, peor racha 12
+  riesgo 2.0 % · comisión 0.150 · 2020-2023: 157 ops, saldo 55,350 COP (+38.4 %, +8.8 %/año), caída máxima 16.9 %, peor racha 6
+  riesgo 2.0 % · comisión 0.150 · 2024-2026: 136 ops, saldo 51,621 COP (+29.1 %, +9.5 %/año), caída máxima 12.4 %, peor racha 12
+  riesgo 2.5 % · comisión 0.075 · 2020-2023: 159 ops, saldo 69,651 COP (+74.1 %, +15.6 %/año), caída máxima 16.3 %, peor racha 6
+  riesgo 2.5 % · comisión 0.075 · 2024-2026: 136 ops, saldo 65,502 COP (+63.8 %, +19.3 %/año), caída máxima 12.4 %, peor racha 12
+  riesgo 2.5 % · comisión 0.150 · 2020-2023: 143 ops, saldo 48,587 COP (+21.5 %, +5.2 %/año), caída máxima 20.9 %, peor racha 6
+  riesgo 2.5 % · comisión 0.150 · 2024-2026: 136 ops, saldo 54,995 COP (+37.5 %, +12.0 %/año), caída máxima 14.2 %, peor racha 12

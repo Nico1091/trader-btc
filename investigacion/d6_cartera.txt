@@ -1,0 +1,27 @@
+1) LIBRO COMPLETO DE BTC (cada estrategia con 1x nocional; suma simple, sin componer)
+  P05b                               suma  +103.3 pts · peor día -15.63 · caída máx  25.9 pts · Sharpe +0.55
+  P11                                suma   +93.8 pts · peor día  -3.10 · caída máx  24.2 pts · Sharpe +0.78
+  P05c                               suma   +64.3 pts · peor día  -6.67 · caída máx  16.3 pts · Sharpe +1.02
+  N9                                 suma  +128.3 pts · peor día  -5.37 · caída máx  27.1 pts · Sharpe +0.76
+  N8                                 suma   +88.2 pts · peor día  -3.10 · caída máx  19.4 pts · Sharpe +0.76
+  LAS 5 JUNTAS                       suma  +477.9 pts · peor día -15.63 · caída máx  46.2 pts · Sharpe +1.15
+  PRINCIPAL (P05b+P11+P05c)          suma  +261.4 pts · peor día -15.63 · caída máx  35.7 pts · Sharpe +1.00
+  posiciones abiertas a la vez: máximo 4; % del tiempo con 2 o más: 5.5 %, con 3 o más: 1.01 %; exposición neta máxima 4 posiciones en el mismo lado
+  días con 2+ estrategias perdiendo a la vez: 98; con 3+: 7; con 4+: 0
+  los 5 peores días del libro: 2020-03-13 -15.63 (1 pierden); 2020-05-11 -11.48 (3 pierden); 2020-12-27 -9.17 (2 pierden); 2021-01-29 -8.95 (2 pierden); 2020-08-02 -8.46 (1 pierden)
+
+2) N8 Y N9 EN BTC Y ETH COMO CARTERA
+  N9 BTC                             suma  +128.3 pts · peor día  -5.37 · caída máx  27.1 pts · Sharpe +0.76
+  N9 ETH                             suma  +157.1 pts · peor día  -7.12 · caída máx  40.8 pts · Sharpe +0.78
+  N8 BTC                             suma   +88.2 pts · peor día  -3.10 · caída máx  19.4 pts · Sharpe +0.76
+  N8 ETH                             suma   +89.5 pts · peor día  -3.10 · caída máx  24.9 pts · Sharpe +0.63
+  N8+N9 en BTC y ETH (4 piezas)      suma  +463.1 pts · peor día  -8.56 · caída máx  65.0 pts · Sharpe +1.09
+  N8+N9 solo BTC                     suma  +216.5 pts · peor día  -5.37 · caída máx  29.8 pts · Sharpe +1.01
+  correlación del P&L diario:
+        N9 BTC  N9 ETH  N8 BTC  N8 ETH
+N9 BTC   +1.00   +0.47   +0.12   +0.06
+N9 ETH   +0.47   +1.00   +0.13   +0.20
+N8 BTC   +0.12   +0.13   +1.00   +0.58
+N8 ETH   +0.06   +0.20   +0.58   +1.00
+  N9: días con BTC y ETH operando en el mismo lado: 256 de 575 en BTC (45 %)
+  N8: días con BTC y ETH operando en el mismo lado: 170 de 193 en BTC (88 %)
