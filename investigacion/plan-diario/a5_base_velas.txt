@@ -1,0 +1,81 @@
+A5 · base medida por clase de vela (BTC, 3,587,040 velas de 1 m). «Sube» = el cierre 4 velas después es mayor.
+
+== 1m: 3,587,040 velas · base: sube el 49.9 % ==
+   impulso bajista con volumen                    n= 181,618  sube  53.4 %  media +0.006 %  [2020-23 53.6 · 2024-26 53.0]
+   bajista normal                                 n= 404,107  sube  51.5 %  media +0.004 %  [2020-23 51.6 · 2024-26 51.3]
+   bajista fuerte que cierra abajo                n= 622,805  sube  51.0 %  media +0.002 %  [2020-23 51.4 · 2024-26 50.5]
+   rechazo abajo (mecha inferior larga: compran)  n= 476,263  sube  50.3 %  media +0.003 %  [2020-23 50.4 · 2024-26 50.1]
+   sin interés (poco volumen y poco rango)        n= 157,462  sube  49.9 %  media +0.000 %  [2020-23 49.9 · 2024-26 49.8]
+   mucho volumen y poco recorrido (absorción)     n=  37,662  sube  49.5 %  media +0.001 %  [2020-23 49.2 · 2024-26 49.7]
+   rechazo arriba (mecha superior larga: venden)  n= 490,000  sube  49.3 %  media -0.003 %  [2020-23 49.1 · 2024-26 49.4]
+   alcista fuerte que cierra arriba               n= 623,463  sube  48.8 %  media -0.001 %  [2020-23 48.6 · 2024-26 49.1]
+   alcista normal                                 n= 401,561  sube  48.5 %  media -0.003 %  [2020-23 48.3 · 2024-26 48.9]
+   indecisión (doji)                              n=  11,790  sube  47.6 %  media +0.000 %  [2020-23 48.2 · 2024-26 46.6]
+   impulso alcista con volumen                    n= 180,265  sube  46.8 %  media -0.003 %  [2020-23 46.5 · 2024-26 47.3]
+
+== 5m: 717,408 velas · base: sube el 50.3 % ==
+   impulso bajista con volumen                    n=  37,093  sube  55.1 %  media +0.016 %  [2020-23 55.5 · 2024-26 54.6]
+   bajista fuerte que cierra abajo                n=  84,507  sube  52.7 %  media +0.009 %  [2020-23 53.6 · 2024-26 51.7]
+   mucho volumen y poco recorrido (absorción)     n=   3,391  sube  52.3 %  media +0.019 %  [2020-23 52.1 · 2024-26 52.4]
+   bajista normal                                 n= 106,455  sube  52.1 %  media +0.007 %  [2020-23 52.4 · 2024-26 51.5]
+   rechazo arriba (mecha superior larga: venden)  n= 106,266  sube  50.7 %  media +0.003 %  [2020-23 50.6 · 2024-26 50.8]
+   sin interés (poco volumen y poco rango)        n=  38,341  sube  50.1 %  media +0.000 %  [2020-23 50.0 · 2024-26 50.2]
+   rechazo abajo (mecha inferior larga: compran)  n= 108,532  sube  49.7 %  media -0.001 %  [2020-23 50.0 · 2024-26 49.3]
+   indecisión (doji)                              n=   4,005  sube  49.4 %  media -0.004 %  [2020-23 49.8 · 2024-26 48.9]
+   alcista normal                                 n= 105,780  sube  48.2 %  media -0.005 %  [2020-23 47.7 · 2024-26 49.0]
+   alcista fuerte que cierra arriba               n=  86,575  sube  47.8 %  media -0.004 %  [2020-23 47.2 · 2024-26 48.6]
+   impulso alcista con volumen                    n=  36,419  sube  46.7 %  media -0.001 %  [2020-23 46.4 · 2024-26 47.0]
+
+== 15m: 239,136 velas · base: sube el 50.7 % ==
+   impulso bajista con volumen                    n=  13,670  sube  54.4 %  media +0.021 %  [2020-23 55.8 · 2024-26 52.5]
+   bajista fuerte que cierra abajo                n=  22,111  sube  54.0 %  media +0.017 %  [2020-23 54.8 · 2024-26 53.0]
+   bajista normal                                 n=  38,984  sube  52.9 %  media +0.016 %  [2020-23 53.0 · 2024-26 52.8]
+   rechazo arriba (mecha superior larga: venden)  n=  34,625  sube  51.3 %  media +0.013 %  [2020-23 51.6 · 2024-26 51.0]
+   sin interés (poco volumen y poco rango)        n=  15,107  sube  51.1 %  media +0.003 %  [2020-23 50.4 · 2024-26 52.1]
+   indecisión (doji)                              n=   1,646  sube  51.0 %  media +0.008 %  [2020-23 51.0 · 2024-26 50.9]
+   mucho volumen y poco recorrido (absorción)     n=     580  sube  49.8 %  media +0.002 %  [2020-23 51.8 · 2024-26 48.6]
+   rechazo abajo (mecha inferior larga: compran)  n=  36,623  sube  49.3 %  media -0.013 %  [2020-23 49.4 · 2024-26 49.2]
+   alcista normal                                 n=  38,991  sube  48.6 %  media -0.002 %  [2020-23 48.6 · 2024-26 48.6]
+   alcista fuerte que cierra arriba               n=  23,537  sube  48.4 %  media +0.007 %  [2020-23 48.1 · 2024-26 48.9]
+   impulso alcista con volumen                    n=  13,218  sube  46.9 %  media +0.006 %  [2020-23 46.7 · 2024-26 47.2]
+
+== 1h: 59,784 velas · base: sube el 51.1 % ==
+   mucho volumen y poco recorrido (absorción)     n=      65  sube  58.5 %  media +0.150 %  [2020-23 69.0 · 2024-26 50.0]
+   bajista fuerte que cierra abajo                n=   4,041  sube  55.7 %  media +0.052 %  [2020-23 55.9 · 2024-26 55.5]
+   impulso bajista con volumen                    n=   3,966  sube  54.4 %  media +0.027 %  [2020-23 55.9 · 2024-26 52.5]
+   bajista normal                                 n=   9,327  sube  53.5 %  media +0.027 %  [2020-23 53.8 · 2024-26 53.1]
+   indecisión (doji)                              n=     477  sube  51.8 %  media +0.022 %  [2020-23 53.3 · 2024-26 49.5]
+   rechazo arriba (mecha superior larga: venden)  n=   8,888  sube  51.3 %  media +0.046 %  [2020-23 51.3 · 2024-26 51.5]
+   sin interés (poco volumen y poco rango)        n=   5,191  sube  50.7 %  media +0.009 %  [2020-23 50.3 · 2024-26 51.3]
+   rechazo abajo (mecha inferior larga: compran)  n=   9,757  sube  49.5 %  media -0.015 %  [2020-23 49.0 · 2024-26 50.4]
+   impulso alcista con volumen                    n=   3,730  sube  49.5 %  media +0.045 %  [2020-23 48.3 · 2024-26 51.0]
+   alcista normal                                 n=   9,703  sube  49.0 %  media +0.029 %  [2020-23 49.4 · 2024-26 48.2]
+   alcista fuerte que cierra arriba               n=   4,595  sube  48.0 %  media +0.023 %  [2020-23 49.0 · 2024-26 46.9]
+
+== 4h: 14,946 velas · base: sube el 51.6 % ==
+   bajista fuerte que cierra abajo                n=     881  sube  56.9 %  media +0.200 %  [2020-23 57.7 · 2024-26 55.9]
+   bajista normal                                 n=   2,271  sube  54.5 %  media +0.121 %  [2020-23 55.0 · 2024-26 53.6]
+   sin interés (poco volumen y poco rango)        n=   1,456  sube  53.2 %  media +0.085 %  [2020-23 51.8 · 2024-26 54.7]
+   rechazo arriba (mecha superior larga: venden)  n=   2,127  sube  52.8 %  media +0.095 %  [2020-23 52.9 · 2024-26 52.8]
+   impulso alcista con volumen                    n=     951  sube  52.7 %  media +0.312 %  [2020-23 53.9 · 2024-26 51.1]
+   indecisión (doji)                              n=     151  sube  51.0 %  media +0.199 %  [2020-23 50.0 · 2024-26 52.3]
+   impulso bajista con volumen                    n=     994  sube  49.9 %  media -0.105 %  [2020-23 48.6 · 2024-26 51.4]
+   alcista normal                                 n=   2,430  sube  49.5 %  media +0.150 %  [2020-23 49.4 · 2024-26 49.8]
+   rechazo abajo (mecha inferior larga: compran)  n=   2,523  sube  48.8 %  media -0.045 %  [2020-23 49.1 · 2024-26 48.3]
+   alcista fuerte que cierra arriba               n=   1,103  sube  48.6 %  media +0.113 %  [2020-23 49.2 · 2024-26 47.9]
+   mucho volumen y poco recorrido (absorción)     n=      15  sube  46.7 %  media +0.632 %  [2020-23 62.5 · 2024-26 28.6]
+
+== 1d: 2,491 velas · base: sube el 53.1 % ==
+   impulso bajista con volumen                    n=     118  sube  57.6 %  media +0.149 %  [2020-23 59.7 · 2024-26 55.4]
+   bajista normal                                 n=     492  sube  55.5 %  media +0.436 %  [2020-23 54.9 · 2024-26 56.3]
+   rechazo arriba (mecha superior larga: venden)  n=     313  sube  54.9 %  media +0.573 %  [2020-23 55.9 · 2024-26 53.7]
+   sin interés (poco volumen y poco rango)        n=     163  sube  52.8 %  media +0.804 %  [2020-23 54.9 · 2024-26 50.6]
+   alcista normal                                 n=     467  sube  52.2 %  media +0.681 %  [2020-23 51.5 · 2024-26 53.3]
+   rechazo abajo (mecha inferior larga: compran)  n=     407  sube  52.1 %  media +0.516 %  [2020-23 54.6 · 2024-26 48.1]
+   bajista fuerte que cierra abajo                n=     133  sube  51.9 %  media -0.077 %  [2020-23 52.8 · 2024-26 50.8]
+   impulso alcista con volumen                    n=     109  sube  50.5 %  media +0.998 %  [2020-23 50.8 · 2024-26 50.0]
+   alcista fuerte que cierra arriba               n=     220  sube  46.8 %  media +0.761 %  [2020-23 49.6 · 2024-26 42.4]
+   indecisión (doji)                              n=      24  sube  45.8 %  media -1.299 %  [2020-23 46.7 · 2024-26 44.4]
+   mucho volumen y poco recorrido (absorción)     n=       1  sube   0.0 %  media -12.709 %  [2020-23  0.0 · 2024-26  nan]
+
+Guardado: consolidacion/base_velas.json

@@ -1,0 +1,49 @@
+A6 · BTC: apuestas a la reversión tras velas fuertes. Elegir en 2020-23, comprobar en 2024-26.
+
+== 5m: 118,277 apuestas posibles (47.5 por día, una abierta a la vez) ==
+  2020-23 · APUESTA DE DIRECCIÓN: 68,025 apuestas, acierto 53.79 % (empates aparte)
+     pago 80 %: valor esperado -3.17 % por apuesta · Kelly 0.0 % · 1%:RUINA · 2%:RUINA · 5%:RUINA · 10%:RUINA · 25%:RUINA · 50%:RUINA · 100%:RUINA
+     pago 85 %: valor esperado -0.48 % por apuesta · Kelly 0.0 % · 1%:RUINA · 2%:RUINA · 5%:RUINA · 10%:RUINA · 25%:RUINA · 50%:RUINA · 100%:RUINA
+     pago 88 %: valor esperado +1.13 % por apuesta · Kelly 1.3 % · 1%:+0.32%/d c95% · 2%:+0.24%/d c100% · 5%:RUINA · 10%:RUINA · 25%:RUINA · 50%:RUINA · 100%:RUINA
+     pago 92 %: valor esperado +3.28 % por apuesta · Kelly 3.6 % · 1%:+1.32%/d c65% · 2%:+2.23%/d c90% · 5%:+2.32%/d c100% · 10%:RUINA · 25%:RUINA · 50%:RUINA · 100%:RUINA
+     FUTUROS objetivo/stop 0.5 ATR: 68,024 ops, acierto 36.6 %, R medio -1.128 · 1%:RUINA · 2%:RUINA · 5%:RUINA · 10%:RUINA · 25%:RUINA
+     FUTUROS objetivo/stop 1.0 ATR: 68,024 ops, acierto 40.1 %, R medio -0.590 · 1%:RUINA · 2%:RUINA · 5%:RUINA · 10%:RUINA · 25%:RUINA
+  2024-26 · APUESTA DE DIRECCIÓN: 50,252 apuestas, acierto 52.25 % (empates aparte)
+     pago 80 %: valor esperado -5.96 % por apuesta · Kelly 0.0 % · 1%:RUINA · 2%:RUINA · 5%:RUINA · 10%:RUINA · 25%:RUINA · 50%:RUINA · 100%:RUINA
+     pago 85 %: valor esperado -3.34 % por apuesta · Kelly 0.0 % · 1%:RUINA · 2%:RUINA · 5%:RUINA · 10%:RUINA · 25%:RUINA · 50%:RUINA · 100%:RUINA
+     pago 88 %: valor esperado -1.78 % por apuesta · Kelly 0.0 % · 1%:RUINA · 2%:RUINA · 5%:RUINA · 10%:RUINA · 25%:RUINA · 50%:RUINA · 100%:RUINA
+     pago 92 %: valor esperado +0.31 % por apuesta · Kelly 0.3 % · 1%:-0.07%/d c98% · 2%:RUINA · 5%:RUINA · 10%:RUINA · 25%:RUINA · 50%:RUINA · 100%:RUINA
+     FUTUROS objetivo/stop 0.5 ATR: 50,251 ops, acierto 26.1 %, R medio -1.460 · 1%:RUINA · 2%:RUINA · 5%:RUINA · 10%:RUINA · 25%:RUINA
+     FUTUROS objetivo/stop 1.0 ATR: 50,251 ops, acierto 37.5 %, R medio -0.748 · 1%:RUINA · 2%:RUINA · 5%:RUINA · 10%:RUINA · 25%:RUINA
+
+== 15m: 36,862 apuestas posibles (14.8 por día, una abierta a la vez) ==
+  2020-23 · APUESTA DE DIRECCIÓN: 20,996 apuestas, acierto 53.88 % (empates aparte)
+     pago 80 %: valor esperado -3.01 % por apuesta · Kelly 0.0 % · 1%:RUINA · 2%:RUINA · 5%:RUINA · 10%:RUINA · 25%:RUINA · 50%:RUINA · 100%:RUINA
+     pago 85 %: valor esperado -0.32 % por apuesta · Kelly 0.0 % · 1%:-0.11%/d c94% · 2%:RUINA · 5%:RUINA · 10%:RUINA · 25%:RUINA · 50%:RUINA · 100%:RUINA
+     pago 88 %: valor esperado +1.30 % por apuesta · Kelly 1.5 % · 1%:+0.12%/d c74% · 2%:+0.12%/d c97% · 5%:RUINA · 10%:RUINA · 25%:RUINA · 50%:RUINA · 100%:RUINA
+     pago 92 %: valor esperado +3.46 % por apuesta · Kelly 3.8 % · 1%:+0.43%/d c49% · 2%:+0.73%/d c77% · 5%:+0.83%/d c100% · 10%:RUINA · 25%:RUINA · 50%:RUINA · 100%:RUINA
+     FUTUROS objetivo/stop 0.5 ATR: 20,996 ops, acierto 46.1 %, R medio -0.583 · 1%:RUINA · 2%:RUINA · 5%:RUINA · 10%:RUINA · 25%:RUINA
+     FUTUROS objetivo/stop 1.0 ATR: 20,996 ops, acierto 44.1 %, R medio -0.316 · 1%:RUINA · 2%:RUINA · 5%:RUINA · 10%:RUINA · 25%:RUINA
+  2024-26 · APUESTA DE DIRECCIÓN: 15,866 apuestas, acierto 52.58 % (empates aparte)
+     pago 80 %: valor esperado -5.35 % por apuesta · Kelly 0.0 % · 1%:RUINA · 2%:RUINA · 5%:RUINA · 10%:RUINA · 25%:RUINA · 50%:RUINA · 100%:RUINA
+     pago 85 %: valor esperado -2.72 % por apuesta · Kelly 0.0 % · 1%:RUINA · 2%:RUINA · 5%:RUINA · 10%:RUINA · 25%:RUINA · 50%:RUINA · 100%:RUINA
+     pago 88 %: valor esperado -1.15 % por apuesta · Kelly 0.0 % · 1%:-0.24%/d c98% · 2%:RUINA · 5%:RUINA · 10%:RUINA · 25%:RUINA · 50%:RUINA · 100%:RUINA
+     pago 92 %: valor esperado +0.96 % por apuesta · Kelly 1.0 % · 1%:+0.08%/d c74% · 2%:+0.01%/d c98% · 5%:RUINA · 10%:RUINA · 25%:RUINA · 50%:RUINA · 100%:RUINA
+     FUTUROS objetivo/stop 0.5 ATR: 15,866 ops, acierto 44.2 %, R medio -0.724 · 1%:RUINA · 2%:RUINA · 5%:RUINA · 10%:RUINA · 25%:RUINA
+     FUTUROS objetivo/stop 1.0 ATR: 15,866 ops, acierto 43.6 %, R medio -0.376 · 1%:RUINA · 2%:RUINA · 5%:RUINA · 10%:RUINA · 25%:RUINA
+
+== 1h: 8,572 apuestas posibles (3.4 por día, una abierta a la vez) ==
+  2020-23 · APUESTA DE DIRECCIÓN: 4,840 apuestas, acierto 54.16 % (empates aparte)
+     pago 80 %: valor esperado -2.50 % por apuesta · Kelly 0.0 % · 1%:-0.10%/d c84% · 2%:-0.22%/d c98% · 5%:RUINA · 10%:RUINA · 25%:RUINA · 50%:RUINA · 100%:RUINA
+     pago 85 %: valor esperado +0.20 % por apuesta · Kelly 0.2 % · 1%:-0.01%/d c72% · 2%:-0.04%/d c94% · 5%:RUINA · 10%:RUINA · 25%:RUINA · 50%:RUINA · 100%:RUINA
+     pago 88 %: valor esperado +1.83 % por apuesta · Kelly 2.1 % · 1%:+0.05%/d c62% · 2%:+0.06%/d c88% · 5%:RUINA · 10%:RUINA · 25%:RUINA · 50%:RUINA · 100%:RUINA
+     pago 92 %: valor esperado +4.00 % por apuesta · Kelly 4.3 % · 1%:+0.12%/d c41% · 2%:+0.20%/d c71% · 5%:+0.28%/d c99% · 10%:RUINA · 25%:RUINA · 50%:RUINA · 100%:RUINA
+     FUTUROS objetivo/stop 0.5 ATR: 4,840 ops, acierto 49.0 %, R medio -0.269 · 1%:RUINA · 2%:RUINA · 5%:RUINA · 10%:RUINA · 25%:RUINA
+     FUTUROS objetivo/stop 1.0 ATR: 4,840 ops, acierto 46.5 %, R medio -0.165 · 1%:RUINA · 2%:RUINA · 5%:RUINA · 10%:RUINA · 25%:RUINA
+  2024-26 · APUESTA DE DIRECCIÓN: 3,732 apuestas, acierto 52.73 % (empates aparte)
+     pago 80 %: valor esperado -5.08 % por apuesta · Kelly 0.0 % · 1%:-0.20%/d c88% · 2%:-0.43%/d c99% · 5%:RUINA · 10%:RUINA · 25%:RUINA · 50%:RUINA · 100%:RUINA
+     pago 85 %: valor esperado -2.44 % por apuesta · Kelly 0.0 % · 1%:-0.10%/d c73% · 2%:-0.24%/d c94% · 5%:RUINA · 10%:RUINA · 25%:RUINA · 50%:RUINA · 100%:RUINA
+     pago 88 %: valor esperado -0.86 % por apuesta · Kelly 0.0 % · 1%:-0.05%/d c55% · 2%:-0.13%/d c85% · 5%:RUINA · 10%:RUINA · 25%:RUINA · 50%:RUINA · 100%:RUINA
+     pago 92 %: valor esperado +1.25 % por apuesta · Kelly 1.4 % · 1%:+0.03%/d c45% · 2%:+0.02%/d c71% · 5%:-0.19%/d c98% · 10%:RUINA · 25%:RUINA · 50%:RUINA · 100%:RUINA
+     FUTUROS objetivo/stop 0.5 ATR: 3,732 ops, acierto 50.0 %, R medio -0.313 · 1%:RUINA · 2%:RUINA · 5%:RUINA · 10%:RUINA · 25%:RUINA
+     FUTUROS objetivo/stop 1.0 ATR: 3,732 ops, acierto 46.5 %, R medio -0.184 · 1%:RUINA · 2%:RUINA · 5%:RUINA · 10%:RUINA · 25%:RUINA

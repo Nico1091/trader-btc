@@ -1,0 +1,630 @@
+{
+ "fuente": "Binance futuros BTCUSDT 1 m",
+ "adelante": 4,
+ "marcos": {
+  "1m": {
+   "base_sube": 0.4989,
+   "clases": {
+    "impulso_alcista_vol": {
+     "n": 180265,
+     "sube": 0.468,
+     "media": -0.0027,
+     "n_a": 109370,
+     "sube_a": 0.4647,
+     "n_b": 70895,
+     "sube_b": 0.4732
+    },
+    "impulso_bajista_vol": {
+     "n": 181618,
+     "sube": 0.5339,
+     "media": 0.0057,
+     "n_a": 109262,
+     "sube_a": 0.5362,
+     "n_b": 72356,
+     "sube_b": 0.5303
+    },
+    "esfuerzo_sin_resultado": {
+     "n": 37662,
+     "sube": 0.4947,
+     "media": 0.001,
+     "n_a": 16332,
+     "sube_a": 0.4919,
+     "n_b": 21330,
+     "sube_b": 0.4969
+    },
+    "fuerte_alcista": {
+     "n": 623463,
+     "sube": 0.4882,
+     "media": -0.0011,
+     "n_a": 333673,
+     "sube_a": 0.486,
+     "n_b": 289790,
+     "sube_b": 0.4906
+    },
+    "fuerte_bajista": {
+     "n": 622805,
+     "sube": 0.5096,
+     "media": 0.0018,
+     "n_a": 337720,
+     "sube_a": 0.5136,
+     "n_b": 285085,
+     "sube_b": 0.5048
+    },
+    "rechazo_abajo": {
+     "n": 476263,
+     "sube": 0.5026,
+     "media": 0.0028,
+     "n_a": 287276,
+     "sube_a": 0.5037,
+     "n_b": 188987,
+     "sube_b": 0.5009
+    },
+    "rechazo_arriba": {
+     "n": 490000,
+     "sube": 0.4926,
+     "media": -0.0026,
+     "n_a": 297707,
+     "sube_a": 0.4914,
+     "n_b": 192293,
+     "sube_b": 0.4944
+    },
+    "doji": {
+     "n": 11790,
+     "sube": 0.4764,
+     "media": 0.0001,
+     "n_a": 7604,
+     "sube_a": 0.4822,
+     "n_b": 4186,
+     "sube_b": 0.4658
+    },
+    "sin_interes": {
+     "n": 157462,
+     "sube": 0.4989,
+     "media": 0.0001,
+     "n_a": 102532,
+     "sube_a": 0.4994,
+     "n_b": 54930,
+     "sube_b": 0.4979
+    },
+    "normal_alcista": {
+     "n": 401561,
+     "sube": 0.4853,
+     "media": -0.0027,
+     "n_a": 250036,
+     "sube_a": 0.4833,
+     "n_b": 151525,
+     "sube_b": 0.4885
+    },
+    "normal_bajista": {
+     "n": 404107,
+     "sube": 0.515,
+     "media": 0.0037,
+     "n_a": 252288,
+     "sube_a": 0.5163,
+     "n_b": 151819,
+     "sube_b": 0.5127
+    }
+   }
+  },
+  "5m": {
+   "base_sube": 0.5027,
+   "clases": {
+    "impulso_alcista_vol": {
+     "n": 36419,
+     "sube": 0.4665,
+     "media": -0.001,
+     "n_a": 22016,
+     "sube_a": 0.464,
+     "n_b": 14403,
+     "sube_b": 0.4704
+    },
+    "impulso_bajista_vol": {
+     "n": 37093,
+     "sube": 0.5513,
+     "media": 0.0159,
+     "n_a": 22496,
+     "sube_a": 0.555,
+     "n_b": 14597,
+     "sube_b": 0.5456
+    },
+    "esfuerzo_sin_resultado": {
+     "n": 3391,
+     "sube": 0.5231,
+     "media": 0.0192,
+     "n_a": 1311,
+     "sube_a": 0.521,
+     "n_b": 2080,
+     "sube_b": 0.5245
+    },
+    "fuerte_alcista": {
+     "n": 86575,
+     "sube": 0.4784,
+     "media": -0.0036,
+     "n_a": 47920,
+     "sube_a": 0.4725,
+     "n_b": 38655,
+     "sube_b": 0.4858
+    },
+    "fuerte_bajista": {
+     "n": 84507,
+     "sube": 0.5274,
+     "media": 0.0088,
+     "n_a": 46504,
+     "sube_a": 0.5358,
+     "n_b": 38003,
+     "sube_b": 0.5172
+    },
+    "rechazo_abajo": {
+     "n": 108532,
+     "sube": 0.4971,
+     "media": -0.0008,
+     "n_a": 63727,
+     "sube_a": 0.5001,
+     "n_b": 44805,
+     "sube_b": 0.4929
+    },
+    "rechazo_arriba": {
+     "n": 106266,
+     "sube": 0.5068,
+     "media": 0.0029,
+     "n_a": 62619,
+     "sube_a": 0.506,
+     "n_b": 43647,
+     "sube_b": 0.508
+    },
+    "doji": {
+     "n": 4005,
+     "sube": 0.4941,
+     "media": -0.004,
+     "n_a": 2410,
+     "sube_a": 0.4975,
+     "n_b": 1595,
+     "sube_b": 0.489
+    },
+    "sin_interes": {
+     "n": 38341,
+     "sube": 0.5007,
+     "media": 0.0004,
+     "n_a": 23673,
+     "sube_a": 0.4997,
+     "n_b": 14668,
+     "sube_b": 0.5023
+    },
+    "normal_alcista": {
+     "n": 105780,
+     "sube": 0.482,
+     "media": -0.0053,
+     "n_a": 63839,
+     "sube_a": 0.477,
+     "n_b": 41941,
+     "sube_b": 0.4897
+    },
+    "normal_bajista": {
+     "n": 106455,
+     "sube": 0.5206,
+     "media": 0.0074,
+     "n_a": 64213,
+     "sube_a": 0.5244,
+     "n_b": 42242,
+     "sube_b": 0.5147
+    }
+   }
+  },
+  "15m": {
+   "base_sube": 0.5071,
+   "clases": {
+    "impulso_alcista_vol": {
+     "n": 13218,
+     "sube": 0.4693,
+     "media": 0.0065,
+     "n_a": 7795,
+     "sube_a": 0.4672,
+     "n_b": 5423,
+     "sube_b": 0.4722
+    },
+    "impulso_bajista_vol": {
+     "n": 13670,
+     "sube": 0.5443,
+     "media": 0.0211,
+     "n_a": 8007,
+     "sube_a": 0.558,
+     "n_b": 5663,
+     "sube_b": 0.5248
+    },
+    "esfuerzo_sin_resultado": {
+     "n": 580,
+     "sube": 0.4983,
+     "media": 0.0017,
+     "n_a": 216,
+     "sube_a": 0.5185,
+     "n_b": 364,
+     "sube_b": 0.4863
+    },
+    "fuerte_alcista": {
+     "n": 23537,
+     "sube": 0.4844,
+     "media": 0.0069,
+     "n_a": 12806,
+     "sube_a": 0.4806,
+     "n_b": 10731,
+     "sube_b": 0.489
+    },
+    "fuerte_bajista": {
+     "n": 22111,
+     "sube": 0.5397,
+     "media": 0.0168,
+     "n_a": 11774,
+     "sube_a": 0.5484,
+     "n_b": 10337,
+     "sube_b": 0.5297
+    },
+    "rechazo_abajo": {
+     "n": 36623,
+     "sube": 0.4933,
+     "media": -0.0127,
+     "n_a": 22121,
+     "sube_a": 0.4939,
+     "n_b": 14502,
+     "sube_b": 0.4923
+    },
+    "rechazo_arriba": {
+     "n": 34625,
+     "sube": 0.5135,
+     "media": 0.0126,
+     "n_a": 20601,
+     "sube_a": 0.5161,
+     "n_b": 14024,
+     "sube_b": 0.5096
+    },
+    "doji": {
+     "n": 1646,
+     "sube": 0.5097,
+     "media": 0.0082,
+     "n_a": 1007,
+     "sube_a": 0.5104,
+     "n_b": 639,
+     "sube_b": 0.5086
+    },
+    "sin_interes": {
+     "n": 15107,
+     "sube": 0.5106,
+     "media": 0.0032,
+     "n_a": 9215,
+     "sube_a": 0.5041,
+     "n_b": 5892,
+     "sube_b": 0.5209
+    },
+    "normal_alcista": {
+     "n": 38991,
+     "sube": 0.486,
+     "media": -0.0019,
+     "n_a": 23289,
+     "sube_a": 0.4858,
+     "n_b": 15702,
+     "sube_b": 0.4862
+    },
+    "normal_bajista": {
+     "n": 38984,
+     "sube": 0.5292,
+     "media": 0.0156,
+     "n_a": 23385,
+     "sube_a": 0.5304,
+     "n_b": 15599,
+     "sube_b": 0.5275
+    }
+   }
+  },
+  "1h": {
+   "base_sube": 0.5108,
+   "clases": {
+    "impulso_alcista_vol": {
+     "n": 3730,
+     "sube": 0.4952,
+     "media": 0.0452,
+     "n_a": 2084,
+     "sube_a": 0.4832,
+     "n_b": 1646,
+     "sube_b": 0.5103
+    },
+    "impulso_bajista_vol": {
+     "n": 3966,
+     "sube": 0.5441,
+     "media": 0.0271,
+     "n_a": 2224,
+     "sube_a": 0.5589,
+     "n_b": 1742,
+     "sube_b": 0.5253
+    },
+    "esfuerzo_sin_resultado": {
+     "n": 65,
+     "sube": 0.5846,
+     "media": 0.1502,
+     "n_a": 29,
+     "sube_a": 0.6897,
+     "n_b": 36,
+     "sube_b": 0.5
+    },
+    "fuerte_alcista": {
+     "n": 4595,
+     "sube": 0.4805,
+     "media": 0.023,
+     "n_a": 2487,
+     "sube_a": 0.4901,
+     "n_b": 2108,
+     "sube_b": 0.4692
+    },
+    "fuerte_bajista": {
+     "n": 4041,
+     "sube": 0.557,
+     "media": 0.0518,
+     "n_a": 2146,
+     "sube_a": 0.5592,
+     "n_b": 1895,
+     "sube_b": 0.5546
+    },
+    "rechazo_abajo": {
+     "n": 9757,
+     "sube": 0.4953,
+     "media": -0.0148,
+     "n_a": 5909,
+     "sube_a": 0.4898,
+     "n_b": 3848,
+     "sube_b": 0.5039
+    },
+    "rechazo_arriba": {
+     "n": 8888,
+     "sube": 0.5134,
+     "media": 0.0462,
+     "n_a": 5285,
+     "sube_a": 0.5126,
+     "n_b": 3603,
+     "sube_b": 0.5146
+    },
+    "doji": {
+     "n": 477,
+     "sube": 0.5178,
+     "media": 0.0219,
+     "n_a": 287,
+     "sube_a": 0.5331,
+     "n_b": 190,
+     "sube_b": 0.4947
+    },
+    "sin_interes": {
+     "n": 5191,
+     "sube": 0.5072,
+     "media": 0.0091,
+     "n_a": 2983,
+     "sube_a": 0.5032,
+     "n_b": 2208,
+     "sube_b": 0.5127
+    },
+    "normal_alcista": {
+     "n": 9703,
+     "sube": 0.4896,
+     "media": 0.0287,
+     "n_a": 5918,
+     "sube_a": 0.4944,
+     "n_b": 3785,
+     "sube_b": 0.4822
+    },
+    "normal_bajista": {
+     "n": 9327,
+     "sube": 0.5354,
+     "media": 0.0274,
+     "n_a": 5672,
+     "sube_a": 0.5381,
+     "n_b": 3655,
+     "sube_b": 0.5313
+    }
+   }
+  },
+  "4h": {
+   "base_sube": 0.5163,
+   "clases": {
+    "impulso_alcista_vol": {
+     "n": 951,
+     "sube": 0.5268,
+     "media": 0.3118,
+     "n_a": 534,
+     "sube_a": 0.5393,
+     "n_b": 417,
+     "sube_b": 0.5108
+    },
+    "impulso_bajista_vol": {
+     "n": 994,
+     "sube": 0.499,
+     "media": -0.1047,
+     "n_a": 535,
+     "sube_a": 0.486,
+     "n_b": 459,
+     "sube_b": 0.5142
+    },
+    "esfuerzo_sin_resultado": {
+     "n": 15,
+     "sube": 0.4667,
+     "media": 0.6319,
+     "n_a": 8,
+     "sube_a": 0.625,
+     "n_b": 7,
+     "sube_b": 0.2857
+    },
+    "fuerte_alcista": {
+     "n": 1103,
+     "sube": 0.4859,
+     "media": 0.1126,
+     "n_a": 602,
+     "sube_a": 0.4917,
+     "n_b": 501,
+     "sube_b": 0.479
+    },
+    "fuerte_bajista": {
+     "n": 881,
+     "sube": 0.5687,
+     "media": 0.2004,
+     "n_a": 475,
+     "sube_a": 0.5768,
+     "n_b": 406,
+     "sube_b": 0.5591
+    },
+    "rechazo_abajo": {
+     "n": 2523,
+     "sube": 0.4879,
+     "media": -0.0451,
+     "n_a": 1561,
+     "sube_a": 0.4907,
+     "n_b": 962,
+     "sube_b": 0.4834
+    },
+    "rechazo_arriba": {
+     "n": 2127,
+     "sube": 0.5284,
+     "media": 0.0947,
+     "n_a": 1292,
+     "sube_a": 0.5286,
+     "n_b": 835,
+     "sube_b": 0.5281
+    },
+    "doji": {
+     "n": 151,
+     "sube": 0.5099,
+     "media": 0.1987,
+     "n_a": 86,
+     "sube_a": 0.5,
+     "n_b": 65,
+     "sube_b": 0.5231
+    },
+    "sin_interes": {
+     "n": 1456,
+     "sube": 0.5316,
+     "media": 0.085,
+     "n_a": 789,
+     "sube_a": 0.5184,
+     "n_b": 667,
+     "sube_b": 0.5472
+    },
+    "normal_alcista": {
+     "n": 2430,
+     "sube": 0.4955,
+     "media": 0.1496,
+     "n_a": 1481,
+     "sube_a": 0.4936,
+     "n_b": 949,
+     "sube_b": 0.4984
+    },
+    "normal_bajista": {
+     "n": 2271,
+     "sube": 0.5447,
+     "media": 0.1209,
+     "n_a": 1363,
+     "sube_a": 0.5503,
+     "n_b": 908,
+     "sube_b": 0.5363
+    }
+   }
+  },
+  "1d": {
+   "base_sube": 0.5312,
+   "clases": {
+    "impulso_alcista_vol": {
+     "n": 109,
+     "sube": 0.5046,
+     "media": 0.9981,
+     "n_a": 65,
+     "sube_a": 0.5077,
+     "n_b": 44,
+     "sube_b": 0.5
+    },
+    "impulso_bajista_vol": {
+     "n": 118,
+     "sube": 0.5763,
+     "media": 0.149,
+     "n_a": 62,
+     "sube_a": 0.5968,
+     "n_b": 56,
+     "sube_b": 0.5536
+    },
+    "esfuerzo_sin_resultado": {
+     "n": 1,
+     "sube": 0.0,
+     "media": -12.709,
+     "n_a": 1,
+     "sube_a": 0.0,
+     "n_b": 0,
+     "sube_b": null
+    },
+    "fuerte_alcista": {
+     "n": 220,
+     "sube": 0.4682,
+     "media": 0.7608,
+     "n_a": 135,
+     "sube_a": 0.4963,
+     "n_b": 85,
+     "sube_b": 0.4235
+    },
+    "fuerte_bajista": {
+     "n": 133,
+     "sube": 0.5188,
+     "media": -0.0774,
+     "n_a": 72,
+     "sube_a": 0.5278,
+     "n_b": 61,
+     "sube_b": 0.5082
+    },
+    "rechazo_abajo": {
+     "n": 407,
+     "sube": 0.5209,
+     "media": 0.5163,
+     "n_a": 249,
+     "sube_a": 0.5462,
+     "n_b": 158,
+     "sube_b": 0.481
+    },
+    "rechazo_arriba": {
+     "n": 313,
+     "sube": 0.5495,
+     "media": 0.5726,
+     "n_a": 177,
+     "sube_a": 0.5593,
+     "n_b": 136,
+     "sube_b": 0.5368
+    },
+    "doji": {
+     "n": 24,
+     "sube": 0.4583,
+     "media": -1.2992,
+     "n_a": 15,
+     "sube_a": 0.4667,
+     "n_b": 9,
+     "sube_b": 0.4444
+    },
+    "sin_interes": {
+     "n": 163,
+     "sube": 0.5276,
+     "media": 0.8036,
+     "n_a": 82,
+     "sube_a": 0.5488,
+     "n_b": 81,
+     "sube_b": 0.5062
+    },
+    "normal_alcista": {
+     "n": 467,
+     "sube": 0.5225,
+     "media": 0.6808,
+     "n_a": 270,
+     "sube_a": 0.5148,
+     "n_b": 197,
+     "sube_b": 0.533
+    },
+    "normal_bajista": {
+     "n": 492,
+     "sube": 0.5549,
+     "media": 0.4362,
+     "n_a": 293,
+     "sube_a": 0.5495,
+     "n_b": 199,
+     "sube_b": 0.5628
+    }
+   }
+  }
+ }
+}

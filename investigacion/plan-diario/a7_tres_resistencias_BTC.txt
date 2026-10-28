@@ -1,0 +1,103 @@
+A7 · BTC: regla de las 3 resistencias / 3 soportes de Nicolás. Elegir en 2020-23, comprobar en 2024-26.
+
+== 5m: 12,778 señales (5.1 por día; cortos en resistencia 6,591, largos en soporte 6,187) ==
+  2020-23 · apuesta a 2 velas: 7,622 apuestas, acierto 50.5 % (cortos 49.9 %, largos 51.2 %)
+       pago 80: EV -9.1 %, mejor tamaño 2 % -> RUINA
+       pago 85: EV -6.6 %, mejor tamaño 2 % -> RUINA
+       pago 88: EV -5.1 %, mejor tamaño 1 % -> -0.29 %/día, caída 99 %
+       pago 92: EV -3.1 %, mejor tamaño 1 % -> -0.18 %/día, caída 96 %
+  2020-23 · apuesta a 4 velas: 7,622 apuestas, acierto 51.5 % (cortos 50.8 %, largos 52.2 %)
+       pago 80: EV -7.3 %, mejor tamaño 1 % -> RUINA
+       pago 85: EV -4.7 %, mejor tamaño 1 % -> -0.27 %/día, caída 98 %
+       pago 88: EV -3.2 %, mejor tamaño 1 % -> -0.19 %/día, caída 96 %
+       pago 92: EV -1.1 %, mejor tamaño 1 % -> -0.08 %/día, caída 90 %
+  2020-23 · apuesta a 8 velas: 7,622 apuestas, acierto 51.3 % (cortos 51.2 %, largos 51.5 %)
+       pago 80: EV -7.6 %, mejor tamaño 1 % -> RUINA
+       pago 85: EV -5.0 %, mejor tamaño 1 % -> -0.28 %/día, caída 99 %
+       pago 88: EV -3.5 %, mejor tamaño 1 % -> -0.20 %/día, caída 98 %
+       pago 92: EV -1.4 %, mejor tamaño 1 % -> -0.10 %/día, caída 93 %
+  2020-23 · FUTUROS (stop tras la zona, objetivo 1,5×): 7,622 ops, acierto 34.9 %, R medio -0.745 · 1%:RUINA · 2%:RUINA · 5%:RUINA · 10%:RUINA · 25%:RUINA
+  2024-26 · apuesta a 2 velas: 5,156 apuestas, acierto 50.1 % (cortos 49.9 %, largos 50.3 %)
+       pago 80: EV -9.8 %, mejor tamaño 1 % -> RUINA
+       pago 85: EV -7.3 %, mejor tamaño 1 % -> -0.39 %/día, caída 98 %
+       pago 88: EV -5.8 %, mejor tamaño 1 % -> -0.31 %/día, caída 97 %
+       pago 92: EV -3.8 %, mejor tamaño 1 % -> -0.21 %/día, caída 92 %
+  2024-26 · apuesta a 4 velas: 5,156 apuestas, acierto 50.6 % (cortos 50.0 %, largos 51.1 %)
+       pago 80: EV -9.0 %, mejor tamaño 1 % -> RUINA
+       pago 85: EV -6.4 %, mejor tamaño 1 % -> -0.34 %/día, caída 97 %
+       pago 88: EV -4.9 %, mejor tamaño 1 % -> -0.27 %/día, caída 94 %
+       pago 92: EV -2.9 %, mejor tamaño 1 % -> -0.17 %/día, caída 82 %
+  2024-26 · apuesta a 8 velas: 5,156 apuestas, acierto 50.0 % (cortos 49.2 %, largos 50.7 %)
+       pago 80: EV -10.1 %, mejor tamaño 2 % -> RUINA
+       pago 85: EV -7.6 %, mejor tamaño 1 % -> -0.40 %/día, caída 98 %
+       pago 88: EV -6.1 %, mejor tamaño 1 % -> -0.32 %/día, caída 97 %
+       pago 92: EV -4.1 %, mejor tamaño 1 % -> -0.23 %/día, caída 90 %
+  2024-26 · FUTUROS (stop tras la zona, objetivo 1,5×): 5,156 ops, acierto 35.3 %, R medio -0.875 · 1%:RUINA · 2%:RUINA · 5%:RUINA · 10%:RUINA · 25%:RUINA
+
+== 15m: 4,555 señales (1.8 por día; cortos en resistencia 2,427, largos en soporte 2,128) ==
+  2020-23 · apuesta a 2 velas: 2,675 apuestas, acierto 51.8 % (cortos 51.6 %, largos 52.0 %)
+       pago 80: EV -6.7 %, mejor tamaño 1 % -> -0.13 %/día, caída 88 %
+       pago 85: EV -4.1 %, mejor tamaño 1 % -> -0.08 %/día, caída 82 %
+       pago 88: EV -2.6 %, mejor tamaño 1 % -> -0.06 %/día, caída 76 %
+       pago 92: EV -0.5 %, mejor tamaño 1 % -> -0.02 %/día, caída 66 %
+  2020-23 · apuesta a 4 velas: 2,675 apuestas, acierto 49.8 % (cortos 49.0 %, largos 50.8 %)
+       pago 80: EV -10.3 %, mejor tamaño 1 % -> -0.20 %/día, caída 94 %
+       pago 85: EV -7.8 %, mejor tamaño 1 % -> -0.15 %/día, caída 90 %
+       pago 88: EV -6.3 %, mejor tamaño 1 % -> -0.12 %/día, caída 85 %
+       pago 92: EV -4.3 %, mejor tamaño 1 % -> -0.09 %/día, caída 77 %
+  2020-23 · apuesta a 8 velas: 2,675 apuestas, acierto 50.4 % (cortos 49.7 %, largos 51.2 %)
+       pago 80: EV -9.2 %, mejor tamaño 1 % -> -0.18 %/día, caída 93 %
+       pago 85: EV -6.7 %, mejor tamaño 1 % -> -0.13 %/día, caída 87 %
+       pago 88: EV -5.2 %, mejor tamaño 1 % -> -0.10 %/día, caída 81 %
+       pago 92: EV -3.2 %, mejor tamaño 1 % -> -0.07 %/día, caída 69 %
+  2020-23 · FUTUROS (stop tras la zona, objetivo 1,5×): 2,675 ops, acierto 35.4 %, R medio -0.481 · 1%:RUINA · 2%:RUINA · 5%:RUINA · 10%:RUINA · 25%:RUINA
+  2024-26 · apuesta a 2 velas: 1,880 apuestas, acierto 48.2 % (cortos 48.0 %, largos 48.5 %)
+       pago 80: EV -13.2 %, mejor tamaño 1 % -> -0.25 %/día, caída 92 %
+       pago 85: EV -10.8 %, mejor tamaño 1 % -> -0.20 %/día, caída 88 %
+       pago 88: EV -9.3 %, mejor tamaño 1 % -> -0.18 %/día, caída 84 %
+       pago 92: EV -7.4 %, mejor tamaño 1 % -> -0.14 %/día, caída 77 %
+  2024-26 · apuesta a 4 velas: 1,880 apuestas, acierto 50.0 % (cortos 48.7 %, largos 51.6 %)
+       pago 80: EV -10.0 %, mejor tamaño 1 % -> -0.19 %/día, caída 86 %
+       pago 85: EV -7.5 %, mejor tamaño 1 % -> -0.14 %/día, caída 78 %
+       pago 88: EV -5.9 %, mejor tamaño 1 % -> -0.12 %/día, caída 71 %
+       pago 92: EV -3.9 %, mejor tamaño 1 % -> -0.08 %/día, caída 58 %
+  2024-26 · apuesta a 8 velas: 1,880 apuestas, acierto 50.4 % (cortos 48.2 %, largos 53.0 %)
+       pago 80: EV -9.2 %, mejor tamaño 1 % -> -0.18 %/día, caída 85 %
+       pago 85: EV -6.7 %, mejor tamaño 1 % -> -0.13 %/día, caída 76 %
+       pago 88: EV -5.2 %, mejor tamaño 1 % -> -0.10 %/día, caída 70 %
+       pago 92: EV -3.2 %, mejor tamaño 1 % -> -0.07 %/día, caída 59 %
+  2024-26 · FUTUROS (stop tras la zona, objetivo 1,5×): 1,880 ops, acierto 36.5 %, R medio -0.550 · 1%:RUINA · 2%:RUINA · 5%:RUINA · 10%:RUINA · 25%:RUINA
+
+== 1h: 1,117 señales (0.4 por día; cortos en resistencia 594, largos en soporte 523) ==
+  2020-23 · apuesta a 2 velas: 637 apuestas, acierto 51.3 % (cortos 52.3 %, largos 50.3 %)
+       pago 80: EV -7.6 %, mejor tamaño 1 % -> -0.04 %/día, caída 52 %
+       pago 85: EV -5.0 %, mejor tamaño 1 % -> -0.02 %/día, caída 48 %
+       pago 88: EV -3.5 %, mejor tamaño 1 % -> -0.02 %/día, caída 45 %
+       pago 92: EV -1.4 %, mejor tamaño 1 % -> -0.01 %/día, caída 41 %
+  2020-23 · apuesta a 4 velas: 637 apuestas, acierto 49.5 % (cortos 51.1 %, largos 47.7 %)
+       pago 80: EV -11.0 %, mejor tamaño 1 % -> -0.05 %/día, caída 54 %
+       pago 85: EV -8.5 %, mejor tamaño 1 % -> -0.04 %/día, caída 50 %
+       pago 88: EV -7.0 %, mejor tamaño 1 % -> -0.03 %/día, caída 47 %
+       pago 92: EV -5.1 %, mejor tamaño 1 % -> -0.02 %/día, caída 44 %
+  2020-23 · apuesta a 8 velas: 637 apuestas, acierto 50.2 % (cortos 52.3 %, largos 48.0 %)
+       pago 80: EV -9.6 %, mejor tamaño 1 % -> -0.04 %/día, caída 51 %
+       pago 85: EV -7.1 %, mejor tamaño 1 % -> -0.03 %/día, caída 43 %
+       pago 88: EV -5.6 %, mejor tamaño 1 % -> -0.03 %/día, caída 39 %
+       pago 92: EV -3.5 %, mejor tamaño 1 % -> -0.02 %/día, caída 34 %
+  2020-23 · FUTUROS (stop tras la zona, objetivo 1,5×): 637 ops, acierto 37.2 %, R medio -0.295 · 1%:-0.13%/d c87% · 2%:-0.27%/d c98% · 5%:RUINA · 10%:RUINA · 25%:RUINA
+  2024-26 · apuesta a 2 velas: 480 apuestas, acierto 52.5 % (cortos 49.8 %, largos 55.7 %)
+       pago 80: EV -5.5 %, mejor tamaño 1 % -> -0.03 %/día, caída 29 %
+       pago 85: EV -2.9 %, mejor tamaño 1 % -> -0.02 %/día, caída 22 %
+       pago 88: EV -1.3 %, mejor tamaño 1 % -> -0.01 %/día, caída 20 %
+       pago 92: EV +0.8 %, mejor tamaño 1 % -> +0.00 %/día, caída 19 %
+  2024-26 · apuesta a 4 velas: 480 apuestas, acierto 55.4 % (cortos 54.0 %, largos 57.1 %)
+       pago 80: EV -0.2 %, mejor tamaño 1 % -> -0.00 %/día, caída 35 %
+       pago 85: EV +2.5 %, mejor tamaño 2 % -> +0.02 %/día, caída 56 %
+       pago 88: EV +4.2 %, mejor tamaño 5 % -> +0.05 %/día, caída 87 %
+       pago 92: EV +6.4 %, mejor tamaño 5 % -> +0.10 %/día, caída 85 %
+  2024-26 · apuesta a 8 velas: 480 apuestas, acierto 51.2 % (cortos 50.2 %, largos 52.5 %)
+       pago 80: EV -7.8 %, mejor tamaño 1 % -> -0.04 %/día, caída 35 %
+       pago 85: EV -5.2 %, mejor tamaño 1 % -> -0.03 %/día, caída 27 %
+       pago 88: EV -3.7 %, mejor tamaño 1 % -> -0.02 %/día, caída 21 %
+       pago 92: EV -1.6 %, mejor tamaño 1 % -> -0.01 %/día, caída 18 %
+  2024-26 · FUTUROS (stop tras la zona, objetivo 1,5×): 480 ops, acierto 36.0 %, R medio -0.323 · 1%:-0.15%/d c80% · 2%:-0.32%/d c96% · 5%:RUINA · 10%:RUINA · 25%:RUINA
