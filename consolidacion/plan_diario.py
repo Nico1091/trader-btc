@@ -8,9 +8,9 @@ Libros (riesgo = fracción del saldo que se pierde si salta el stop planeado; no
   L2   2 %  (el actual)                          L5  5 %
   LK   medio Kelly de lo ejecutado, tope 10 %     L11 19 % (meta 11 %), paradas −10 % día, −20 % semana, −50 % total
   LC   LIBRO PRINCIPAL desde el 28/10: la mejor combinación de a2_combinaciones.txt (P05c en los 7 activos + P05b, P11
-       y N8 de BTC), 3 % por operación (riesgo bajado a pedido de Nicolás: peor caída histórica 33-43 % en vez de 50-63 %),
-       hasta 3 posiciones; paradas −9 % día, −18 % semana, −45 % total
-  LC5  la misma cartera al 5 % (el óptimo robusto de a1), como sombra para comparar
+       y N8 de BTC) al 5 % por operación, el óptimo robusto de a1 (Nicolás dio «libro abierto» y pidió más riesgo que el 3 %),
+       hasta 3 posiciones; paradas −15 % día, −30 % semana, −60 % total
+  LC8  la misma cartera al 8 %, el máximo crecimiento de la historia (a1 y a3), con caídas de hasta 69-80 %
 Todos con una pérdida máxima del 100 % del saldo por operación (liquidación) y sin abrir tras su parada total.
 
 Uso:
@@ -33,8 +33,8 @@ LIBROS = {
     "L5": dict(riesgo=0.05, dia=0.10, semana=0.20, total=0.40),
     "LK": dict(riesgo=None, dia=0.10, semana=0.20, total=0.40),
     "L11": dict(riesgo=0.19, dia=0.10, semana=0.20, total=0.50),
-    "LC": dict(riesgo=0.03, dia=0.09, semana=0.18, total=0.45, max_abiertas=3),
-    "LC5": dict(riesgo=0.05, dia=0.15, semana=0.30, total=0.60, max_abiertas=3),
+    "LC": dict(riesgo=0.05, dia=0.15, semana=0.30, total=0.60, max_abiertas=3),
+    "LC8": dict(riesgo=0.08, dia=0.24, semana=0.48, total=0.85, max_abiertas=3),
 }
 COSTE = {"creador": 0.02, "tomador": 0.05}
 
@@ -101,7 +101,7 @@ def kelly_medio(rs):
 def simular(ops, libro):
     """Un libro: una posición a la vez (LC admite varias con riesgo abierto ≤ 6 %). Devuelve dict de resultados."""
     p = LIBROS[libro]
-    if not libro.startswith("LC"):  # los libros de una posición son de BTC; la cartera de varios activos es LC y LC5
+    if not libro.startswith("LC"):  # los libros de una posición son de BTC; la cartera de varios activos es LC y LC8
         ops = [o for o in ops if o.get("activo", "BTC") == "BTC"]
     else:  # la cartera: P05c en todos los activos y P05b, P11 y N8 solo en BTC (a2_combinaciones.txt)
         ops = [o for o in ops if o["estrategia"] == "P05c" or (o.get("activo", "BTC") == "BTC" and o["estrategia"] in ("P05b", "P11", "N8"))]
@@ -190,7 +190,7 @@ def informe(ops, titulo, desde=None, hasta=None):
         r = simular(ops, nb)
         mult = r["saldo_cop"] / 40000
         g = mult ** (1 / ndias) - 1 if mult > 0 else -1
-        rr = {"L2": "2 %", "L5": "5 %", "LK": "½ Kelly", "L11": "19 %", "LC": "3 % ×3", "LC5": "5 % ×3"}[nb]
+        rr = {"L2": "2 %", "L5": "5 %", "LK": "½ Kelly", "L11": "19 %", "LC": "5 % ×3", "LC8": "8 % ×3"}[nb]
         L.append(f"{nb:5s}  {rr:7s} {r['saldo_cop']:>16,.0f}   {(r['saldo_cop'] - 40000) / ndias:>+14,.0f}   {g * 100:+8.3f} %"
                  f"   {r['dias_11']:>5d} de {r['dias_con_op']:<5d} {r['peor_dia'] * 100:+7.1f} %   {r['operaciones']:>6d}    {r['parada'] or '-'}")
     return "\n".join(L)
