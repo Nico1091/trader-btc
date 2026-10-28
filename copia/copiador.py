@@ -58,7 +58,7 @@ ALERTAS = os.path.join(AQUI, "alertas")
 TG = os.path.join(os.path.dirname(AQUI), "tg_pc.py")
 METODO_DEF = {"activo": True, "capital_cop": 150000, "margen_pct": 10, "max_abiertas": 5, "apal": 5, "umbral_pct": 30,
               "giro_pct": 3, "objetivo_pct": 5, "max_horas": 96, "alza_pct": 0, "seguimiento_pct": 20, "max_largo_h": 48,
-              "alertas": True, "reiniciar_t": 0}
+              "alertas": True, "reiniciar_t": 0, "monedas": ["BMTUSDT"]}  # su orden: solo la moneda donde él más acierta
 UTC = dt.timezone.utc
 COL = dt.timezone(dt.timedelta(hours=-5))
 CANDADO = threading.Lock()
@@ -317,8 +317,14 @@ def metodo_vuelta(cfg, me):
         me["elegibles_t"] = int(ahora)
     eleg = set(me["elegibles"])
     tick = {t["symbol"]: t for t in fapi("ticker/24hr") if t["symbol"] in eleg and int(t.get("closeTime") or 0) > (ahora - 600) * 1000}
+    lista = set(m["monedas"])  # vacía = todas
     perdida_peor = 0.0
     for k, p in list(me["posiciones"].items()):
+        if lista and p["simbolo"] not in lista and p["simbolo"] in tick:
+            px = float(tick[p["simbolo"]]["lastPrice"])
+            p["actual"] = px
+            metodo_cerrar(me, k, px * (1 - p["lado"] * DESLIZ), TAKER, "fuera de su lista: solo opera " + ", ".join(sorted(lista)), eventos)
+            continue
         try:
             v = fapi(f"klines?symbol={p['simbolo']}&interval=1m&startTime={p['revisado']}&limit=200")
         except Exception:
@@ -373,7 +379,7 @@ def metodo_vuelta(cfg, me):
         candidatos = []
         for s, t in tick.items():
             cambio, ultimo, alto24 = float(t["priceChangePercent"]), float(t["lastPrice"]), float(t["highPrice"])
-            if cambio < m["umbral_pct"]:
+            if cambio < m["umbral_pct"] or (lista and s not in lista):
                 continue
             if ahora - me["avisadas"].get(s, 0) > 12 * 3600:
                 me["avisadas"][s] = int(ahora)
@@ -433,6 +439,7 @@ def seccion_metodo(cfg, tasa):
 <h2 style="margin-top:14px">Cierres</h2><table><tr><th>Hora</th><th>Moneda</th><th>Por qué</th><th>Margen</th><th>Resultado (COP)</th></tr>{cier}</table>
 <h2 style="margin-top:14px">Por día</h2><table><tr><th>Día</th><th>Resultado</th><th>%</th></tr>{diario}</table>
 <form method="post" action="/metodo" style="margin-top:14px"><table>
+<tr><td>Monedas que opera (separadas por coma; vacío = todas)</td><td><input type="text" name="monedas" value="{e(', '.join(m['monedas']))}" style="width:220px"></td></tr>
 <tr><td>Margen por operación (% del saldo)</td><td><input type="number" name="margen_pct" value="{m['margen_pct']:g}" min="1" max="100" step="1"> %</td></tr>
 <tr><td>Máximo de posiciones a la vez</td><td><input type="number" name="max_abiertas" value="{m['max_abiertas']}" min="1" max="20" step="1"></td></tr>
 <tr><td>Preventiva al alza: si sube este % sobre la entrada, corta y apuesta al alza (0 = apagada)</td><td><input type="number" name="alza_pct" value="{m['alza_pct']:g}" min="0" max="200" step="1"> %</td></tr>
@@ -441,8 +448,9 @@ def seccion_metodo(cfg, tasa):
 <tr><td>Avisos a Telegram</td><td><input type="checkbox" name="alertas" {'checked' if m['alertas'] else ''}></td></tr></table>
 <p><button>Guardar</button> <button name="reiniciar" value="1" style="background:#6b7280">Reiniciar la cuenta con {cop(m['capital_cop'])} COP</button></p>
 <div class="nota">Regla medida en su historial: corto a {m['apal']}× cuando una moneda subió ≥ {m['umbral_pct']:g} % en 24 h y ya bajó {m['giro_pct']:g} % desde su máximo;
-cierra al caer {m['objetivo_pct']:g} %; sin stop; margen cruzado. En la historia 2024-2026, monedas como MYX o BTR (que se multiplicaron
-×3 a ×8) borran la cuenta en margen cruzado: por eso la cuenta se liquida entera si las pérdidas abiertas alcanzan el saldo.</div></form></section>"""
+cierra al caer {m['objetivo_pct']:g} %; sin stop; margen cruzado. Solo opera las monedas de la lista: BMT dio 20 de 20 en su historial y
+18 de 18 con esta regla desde marzo de 2025, en rachas (unas pocas por mes cuando se dispara; meses sin ninguna). En otras monedas, como MYX o
+BTR (que se multiplicaron ×3 a ×8), la misma regla borra la cuenta en margen cruzado: por eso se liquida entera si las pérdidas abiertas alcanzan el saldo.</div></form></section>"""
 
 
 # ---------------------------------------------------------------- pantalla
@@ -517,7 +525,7 @@ Se actualiza cada 30 s · {dt.datetime.now(COL):%d/%m/%Y %H:%M} Colombia</div>
 <h2 style="margin:18px 0 10px">Copia de los líderes · cuenta aparte de {cop(cap)} COP</h2>
 <div class="cifras"><div class="c">Saldo<b>{cop(eq)} COP</b></div><div class="c">Desde el inicio<b class="{clase(eq - cap)}">{(eq / cap - 1) * 100:+.2f} %</b></div>
 <div class="c">Hoy<b class="{clase(eq - base_hoy)}">{cop(eq - base_hoy, True)} COP</b></div>
-<div class="c">Por día (media)<b>{((eq / cap) ** (1 / dias) - 1) * 100:+.2f} %</b></div>
+<div class="c">Por día (media)<b>{f"{((eq / cap) ** (1 / dias) - 1) * 100:+.2f} %" if dias >= 1 else f"lleva {dias * 24:.1f} h"}</b></div>
 <div class="c">Cerradas<b>{est.get('cerradas', 0)} · {est.get('ganadas', 0) / max(1, est.get('cerradas', 0)) * 100:.0f} % ganadas</b></div></div>
 <section><h2>Copias abiertas</h2><table><tr><th>Líder</th><th>Moneda</th><th>Lado</th><th>Entrada</th><th>Ahora</th><th>Resultado (COP)</th></tr>{pos}</table></section>
 <section><h2>Últimos cierres</h2><table><tr><th>Hora</th><th>Líder</th><th>Moneda</th><th>Resultado (COP)</th></tr>{cier}</table></section>
@@ -552,6 +560,9 @@ class Pantalla(BaseHTTPRequestHandler):
                     if datos.get(campo):
                         m[campo] = max(lo, min(hi, float(datos[campo][0])))
                 m["max_abiertas"] = int(m.get("max_abiertas", METODO_DEF["max_abiertas"]))
+                if "monedas" in datos or "margen_pct" in datos:  # el campo vacío no llega en el formulario: vacío = todas
+                    nombres = (datos.get("monedas") or [""])[0].replace(",", " ").upper().split()
+                    m["monedas"] = [x if x.endswith("USDT") else x + "USDT" for x in nombres]
                 m["activo"], m["alertas"] = "activo" in datos, "alertas" in datos
                 if datos.get("reiniciar"):
                     m["reiniciar_t"] = int(time.time())
