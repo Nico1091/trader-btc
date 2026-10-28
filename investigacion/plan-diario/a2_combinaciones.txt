@@ -1,0 +1,75 @@
+A2 · 1023 combinaciones de 10 piezas, 5 % de riesgo, hasta 3 posiciones. Elegir en 2020-23, comprobar en 2024-26.
+Columnas: combinación, piezas | 2020-23: crecimiento por día, caída máx., Sharpe | 2024-26: lo mismo | puesto en 2024-26 por crecimiento
+
+== CADA PIEZA SOLA ==
+N9·BTC                                                                          1 | +0.142 %/d  87 % Sh 0.91 | +0.015 %/d  82 % Sh 0.49 | puesto 24-26:  427
+P05b·BTC                                                                        1 | +0.122 %/d  42 % Sh 0.95 | +0.063 %/d  34 % Sh 0.70 | puesto 24-26:  367
+P05c·ALT                                                                        1 | +0.115 %/d  60 % Sh 1.02 | +0.069 %/d  30 % Sh 0.81 | puesto 24-26:  354
+P05b·ALT                                                                        1 | +0.108 %/d  96 % Sh 0.98 | -0.047 %/d  84 % Sh 0.63 | puesto 24-26:  484
+P05c·BTC                                                                        1 | +0.050 %/d  12 % Sh 1.21 | +0.053 %/d   7 % Sh 1.45 | puesto 24-26:  379
+N8·BTC                                                                          1 | +0.045 %/d  31 % Sh 0.72 | +0.056 %/d  18 % Sh 0.95 | puesto 24-26:  374
+P11·BTC                                                                         1 | +0.038 %/d  35 % Sh 0.61 | +0.073 %/d  17 % Sh 1.15 | puesto 24-26:  346
+N8·ALT                                                                          1 | -0.031 %/d  93 % Sh 0.34 | +0.114 %/d  52 % Sh 0.87 | puesto 24-26:  271
+P11·ALT                                                                         1 | -0.192 %/d  97 % Sh -0.33 | -0.086 %/d  75 % Sh -0.14 | puesto 24-26:  499
+N9·ALT                                                                          1 | -100.000 %/d 100 % Sh 1.29 | -0.900 %/d 100 % Sh 0.20 | puesto 24-26:  735
+
+== LAS 15 MEJORES POR RETORNO EN 2020-23 (y cómo les fue después) ==
+P05b·ALT + P05c·ALT + P05b·BTC + P05c·BTC + P11·BTC + N8·BTC                    6 | +0.374 %/d  93 % Sh 1.53 | +0.181 %/d  84 % Sh 1.18 | puesto 24-26:  150
+P05b·ALT + P05c·ALT + P05b·BTC + P11·BTC + N8·BTC                               5 | +0.352 %/d  94 % Sh 1.49 | +0.188 %/d  83 % Sh 1.20 | puesto 24-26:  138
+P05c·ALT + P05b·BTC + P05c·BTC + P11·BTC + N8·BTC + N9·BTC                      6 | +0.344 %/d  88 % Sh 1.34 | +0.261 %/d  73 % Sh 1.26 | puesto 24-26:   57
+P05b·ALT + P05c·ALT + P05b·BTC + P05c·BTC + P11·BTC                             5 | +0.342 %/d  94 % Sh 1.47 | +0.114 %/d  85 % Sh 1.05 | puesto 24-26:  273
+P05c·ALT + P05c·BTC + P11·BTC + N8·BTC + N9·BTC                                 5 | +0.339 %/d  82 % Sh 1.33 | +0.237 %/d  73 % Sh 1.23 | puesto 24-26:   82
+P05b·ALT + P05c·ALT + P05b·BTC + P05c·BTC + N8·BTC                              5 | +0.334 %/d  93 % Sh 1.46 | +0.096 %/d  87 % Sh 1.01 | puesto 24-26:  301
+P05c·ALT + P05b·BTC + P05c·BTC + N8·BTC + N9·BTC                                5 | +0.327 %/d  89 % Sh 1.30 | +0.191 %/d  78 % Sh 1.09 | puesto 24-26:  131
+P05b·ALT + P05c·ALT + P05c·BTC + P11·BTC + N8·BTC                               5 | +0.320 %/d  95 % Sh 1.44 | +0.114 %/d  82 % Sh 1.02 | puesto 24-26:  275
+P05b·ALT + P05c·ALT + P05b·BTC + P11·BTC                                        4 | +0.318 %/d  95 % Sh 1.43 | +0.121 %/d  85 % Sh 1.06 | puesto 24-26:  257
+P05c·ALT + P05c·BTC + N8·BTC + N9·BTC                                           4 | +0.318 %/d  84 % Sh 1.29 | +0.165 %/d  77 % Sh 1.03 | puesto 24-26:  181
+P05c·ALT + P05b·BTC + P05c·BTC + P11·BTC + N9·BTC                               5 | +0.317 %/d  88 % Sh 1.28 | +0.201 %/d  76 % Sh 1.11 | puesto 24-26:  117
+P05b·ALT + P05c·ALT + P05b·BTC + N8·BTC                                         4 | +0.316 %/d  94 % Sh 1.42 | +0.108 %/d  87 % Sh 1.03 | puesto 24-26:  287
+P05c·ALT + P05b·BTC + P11·BTC + N8·BTC + N9·BTC                                 5 | +0.314 %/d  88 % Sh 1.29 | +0.240 %/d  74 % Sh 1.20 | puesto 24-26:   81
+P05c·ALT + P05b·BTC + P05c·BTC + P11·BTC + N8·BTC                               5 | +0.310 %/d  63 % Sh 1.52 | +0.297 %/d  50 % Sh 1.65 | puesto 24-26:   29
+P05c·ALT + P11·BTC + N8·BTC + N9·BTC                                            4 | +0.303 %/d  83 % Sh 1.26 | +0.214 %/d  73 % Sh 1.16 | puesto 24-26:  106
+
+== LAS 15 MEJORES POR RENDIMIENTO (Sharpe) EN 2020-23 ==
+P05c·ALT + N9·ALT + P05c·BTC + N8·BTC + N9·BTC                                  5 | -100.000 %/d 100 % Sh 1.58 | -1.028 %/d 100 % Sh 0.15 | puesto 24-26:  896
+P05c·ALT + N9·ALT + N8·BTC + N9·BTC                                             4 | -100.000 %/d 100 % Sh 1.54 | -1.001 %/d 100 % Sh 0.19 | puesto 24-26:  862
+P05c·ALT + N9·ALT + P05b·BTC + P05c·BTC + N8·BTC + N9·BTC                       6 | -100.000 %/d 100 % Sh 1.54 | -1.107 %/d 100 % Sh 0.06 | puesto 24-26:  974
+P05c·ALT + N9·ALT + P05c·BTC + N9·BTC                                           4 | -100.000 %/d 100 % Sh 1.54 | -1.028 %/d 100 % Sh 0.18 | puesto 24-26:  899
+P05b·ALT + P05c·ALT + P05b·BTC + P05c·BTC + P11·BTC + N8·BTC                    6 | +0.374 %/d  93 % Sh 1.53 | +0.181 %/d  84 % Sh 1.18 | puesto 24-26:  150
+P05c·ALT + P11·ALT + N9·ALT + P05c·BTC + P11·BTC + N8·BTC + N9·BTC              7 | -100.000 %/d 100 % Sh 1.53 | -0.980 %/d 100 % Sh 0.16 | puesto 24-26:  833
+P05c·ALT + N9·ALT + P05c·BTC + P11·BTC + N8·BTC + N9·BTC                        6 | -100.000 %/d 100 % Sh 1.53 | -1.002 %/d 100 % Sh 0.18 | puesto 24-26:  866
+P05c·ALT + P11·ALT + N9·ALT + P05c·BTC + N8·BTC + N9·BTC                        6 | -100.000 %/d 100 % Sh 1.52 | -1.124 %/d 100 % Sh -0.01 | puesto 24-26:  983
+P05c·ALT + P05b·BTC + P05c·BTC + P11·BTC + N8·BTC                               5 | +0.310 %/d  63 % Sh 1.52 | +0.297 %/d  50 % Sh 1.65 | puesto 24-26:   29
+P05c·ALT + P05b·BTC + P05c·BTC + N8·BTC                                         4 | +0.299 %/d  60 % Sh 1.52 | +0.233 %/d  44 % Sh 1.48 | puesto 24-26:   88
+P05c·ALT + N9·ALT + P05b·BTC + P05c·BTC + N9·BTC                                5 | -100.000 %/d 100 % Sh 1.51 | -1.129 %/d 100 % Sh 0.07 | puesto 24-26:  991
+P05c·ALT + N9·ALT + P05b·BTC + P05c·BTC + N8·BTC                                5 | -100.000 %/d 100 % Sh 1.50 | -0.855 %/d 100 % Sh 0.23 | puesto 24-26:  666
+P05c·ALT + N9·ALT + N9·BTC                                                      3 | -100.000 %/d 100 % Sh 1.49 | -1.005 %/d 100 % Sh 0.22 | puesto 24-26:  872
+P05b·ALT + P05c·ALT + P05b·BTC + P11·BTC + N8·BTC                               5 | +0.352 %/d  94 % Sh 1.49 | +0.188 %/d  83 % Sh 1.20 | puesto 24-26:  138
+P05c·ALT + P11·ALT + N9·ALT + P11·BTC + N8·BTC + N9·BTC                         6 | -100.000 %/d 100 % Sh 1.49 | -0.971 %/d 100 % Sh 0.17 | puesto 24-26:  821
+
+== LAS 10 QUE MEJOR SE SOSTIENEN: buen puesto en los dos tramos (suma de puestos) ==
+P05c·ALT + P05b·BTC + P05c·BTC + P11·BTC + N8·BTC                               5 | +0.310 %/d  63 % Sh 1.52 | +0.297 %/d  50 % Sh 1.65 | puesto 24-26:   29
+P05c·ALT + N8·ALT + P05b·BTC + P05c·BTC + P11·BTC + N8·BTC                      6 | +0.226 %/d  87 % Sh 1.25 | +0.414 %/d  66 % Sh 1.81 | puesto 24-26:    1
+P05c·ALT + P05b·BTC + P05c·BTC + P11·BTC + N8·BTC + N9·BTC                      6 | +0.344 %/d  88 % Sh 1.34 | +0.261 %/d  73 % Sh 1.26 | puesto 24-26:   57
+P05b·ALT + P05c·ALT + N8·ALT + P05b·BTC + P05c·BTC + P11·BTC + N8·BTC           7 | +0.260 %/d  97 % Sh 1.39 | +0.281 %/d  83 % Sh 1.39 | puesto 24-26:   37
+P05b·ALT + P05c·ALT + N8·ALT + P05b·BTC + P11·BTC + N8·BTC                      6 | +0.245 %/d  97 % Sh 1.36 | +0.286 %/d  82 % Sh 1.40 | puesto 24-26:   35
+P05c·ALT + N8·ALT + P05b·BTC + P05c·BTC + N8·BTC                                5 | +0.215 %/d  82 % Sh 1.22 | +0.351 %/d  62 % Sh 1.66 | puesto 24-26:   11
+P05c·ALT + N8·ALT + P05b·BTC + P05c·BTC + P11·BTC                               5 | +0.203 %/d  87 % Sh 1.18 | +0.402 %/d  66 % Sh 1.78 | puesto 24-26:    2
+P05c·ALT + P05c·BTC + P11·BTC + N8·BTC + N9·BTC                                 5 | +0.339 %/d  82 % Sh 1.33 | +0.237 %/d  73 % Sh 1.23 | puesto 24-26:   82
+P05c·ALT + N8·ALT + P05b·BTC + P11·BTC + N8·BTC                                 5 | +0.201 %/d  90 % Sh 1.19 | +0.383 %/d  68 % Sh 1.73 | puesto 24-26:    5
+P05c·ALT + P05b·BTC + P11·BTC + N8·BTC                                          4 | +0.271 %/d  74 % Sh 1.42 | +0.260 %/d  53 % Sh 1.53 | puesto 24-26:   59
+
+¿Elegir en 2020-23 sirve para 2024-26? Correlación de puestos (Spearman): +0.73
+Las 50 mejores de 2020-23 quedan en 2024-26 en el puesto mediano 207 de 1023
+
+Cuánto aporta cada pieza (media del crecimiento diario de las combinaciones CON ella menos SIN ella):
+   P05b·ALT   2020-23 +49.7812 %/d · 2024-26 -0.0994 %/d
+   P05c·ALT   2020-23 +0.1204 %/d · 2024-26 +0.0200 %/d
+   P11·ALT    2020-23 -0.1247 %/d · 2024-26 -0.0113 %/d
+   N8·ALT     2020-23 -0.0643 %/d · 2024-26 +0.1303 %/d
+   N9·ALT     2020-23 -50.3374 %/d · 2024-26 -1.0453 %/d
+   P05b·BTC   2020-23 +0.0554 %/d · 2024-26 +0.0468 %/d
+   P05c·BTC   2020-23 +0.0711 %/d · 2024-26 +0.0054 %/d
+   P11·BTC    2020-23 +0.0761 %/d · 2024-26 +0.0978 %/d
+   N8·BTC     2020-23 +0.0580 %/d · 2024-26 +0.0335 %/d
+   N9·BTC     2020-23 -0.0290 %/d · 2024-26 -0.0689 %/d

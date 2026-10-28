@@ -48,12 +48,13 @@ def _escribir(nombre, filas):
 
 
 # ---------------------------------------------------------------- órdenes
-def registrar_orden(estrategia, dia, nota="", t=None):
-    """Claude anota una orden de papel en el momento en que la decide (o una condicionada para más tarde)."""
+def registrar_orden(estrategia, dia, nota="", t=None, activo="BTC"):
+    """Claude anota una orden de papel en el momento en que la decide (o una condicionada para más tarde).
+    activo: BTC por defecto; las de la cartera LC (P05c en ETH, SOL, BNB, XRP, DOGE, ADA) llevan el suyo."""
     t = int(t if t is not None else dt.datetime.now(UTC).timestamp())
     filas = _leer("ordenes.jsonl")
     fila = {"t": t, "hora_utc": dt.datetime.fromtimestamp(t, UTC).strftime("%Y-%m-%d %H:%M:%S"), "dia": str(dia),
-            "estrategia": estrategia, "nota": nota}
+            "estrategia": estrategia, "nota": nota, "activo": activo}
     filas.append(fila)
     _escribir("ordenes.jsonl", filas)
     return fila
@@ -68,16 +69,17 @@ def ejecutada(op, dia, ordenes=None):
         return None
     ordenes = _leer("ordenes.jsonl") if ordenes is None else ordenes
     nombres = {op["estrategia"], op["estrategia"].split("+")[0]}  # una orden de P05b cubre su pieza en pesos (P05b+pat)
+    activo = op.get("activo", "BTC")
     d0 = int(dt.datetime.combine(dt.date.fromisoformat(str(dia)), dt.time(), UTC).timestamp())
-    return any(o["estrategia"] in nombres and o["t"] <= op["entrada"] and (o["dia"] == str(dia) or o["t"] >= d0 - 86400)
-               for o in ordenes)
+    return any(o["estrategia"] in nombres and o.get("activo", "BTC") == activo and o["t"] <= op["entrada"]
+               and (o["dia"] == str(dia) or o["t"] >= d0 - 86400) for o in ordenes)
 
 
 # ---------------------------------------------------------------- libro de operaciones cerradas
-def guardar_dia(dia, ops, distancias):
-    """Reemplaza las operaciones del día en libro.jsonl (idempotente). distancias: estrategia -> distancia al stop."""
+def guardar_dia(dia, ops, distancias, activo="BTC"):
+    """Reemplaza las operaciones del día y del activo en libro.jsonl (idempotente). distancias: estrategia -> distancia."""
     ordenes = _leer("ordenes.jsonl")
-    resto = [r for r in _leer("libro.jsonl") if r["dia"] != str(dia)]
+    resto = [r for r in _leer("libro.jsonl") if not (r["dia"] == str(dia) and r.get("activo", "BTC") == activo)]
     nuevas = []
     for o in ops:
         if o["motivo"] == "abierta":
@@ -85,8 +87,9 @@ def guardar_dia(dia, ops, distancias):
         nuevas.append({"dia": str(dia), "libro": o["libro"], "estrategia": o["estrategia"], "lado": o["lado"],
                        "senal": o["senal"], "entrada": o["entrada"], "salida": o["salida"], "pe": o["pe"], "px": o["px"],
                        "bruto": round(o["bruto"], 6), "neto": round(o["neto"], 6), "motivo": o["motivo"], "pesos": o["pesos"],
-                       "dist": distancias.get(o["estrategia"], 0.03), "ejecutada": ejecutada(o, dia, ordenes)})
-    _escribir("libro.jsonl", sorted(resto + nuevas, key=lambda r: (r["entrada"], r["estrategia"])))
+                       "dist": distancias.get(o["estrategia"], 0.03), "ejecutada": ejecutada(o, dia, ordenes),
+                       "activo": activo})
+    _escribir("libro.jsonl", sorted(resto + nuevas, key=lambda r: (r["entrada"], r.get("activo", "BTC"), r["estrategia"])))
     return nuevas
 
 
@@ -151,7 +154,7 @@ def cuenta(filas, ahora=None):
 
 
 def estado(ahora=None):
-    filas = [r for r in _leer("libro.jsonl") if r["pesos"]]
+    filas = [r for r in _leer("libro.jsonl") if r["pesos"] and r.get("activo", "BTC") == "BTC"]
     ej = cuenta([r for r in filas if r["ejecutada"]], ahora)
     te = cuenta(filas, ahora)
     return ej, te

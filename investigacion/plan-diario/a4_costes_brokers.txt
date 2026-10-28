@@ -1,0 +1,19 @@
+A4 · estrategias medidas con costos de broker CFD frente a Binance futuros (BTC, % del nocional por operación)
+Fuente: ..\operaciones\ops_BTC.csv, 977 operaciones · financiación: 7395 liquidaciones (media 0.0107 % cada 8 h)
+Diferencial CFD: 18,95 USD (FXStreet) y 27,5 USD (DayTrading.com); swap largo −18 %/año, corto +4 %/año (sin verificar)
+
+estrategia tramo      ops   Binance  CFD 18,95   CFD 27,5  noches med.
+P05c       2020-23     48    +0.706     +0.666     +0.625         0.94
+P05c       2024-26     44    +0.652     +0.660     +0.650         0.98
+P11        2020-23    103    +0.384     +0.397     +0.359         0.73
+P11        2024-26     83    +0.595     +0.644     +0.633         0.89
+P05b       2020-23    280    +0.249     +0.224     +0.183         0.80
+P05b       2024-26    226    +0.127     +0.158     +0.147         0.80
+N8         2020-23    110    +0.411     +0.425     +0.386         0.69
+N8         2024-26     83    +0.457     +0.505     +0.493         0.88
+
+Capital mínimo para 2 % de riesgo con lote mínimo de 0,01 BTC (precio de referencia 80.857 USD, marca de Binance del 27/10):
+  P05c: distancia al stop mediana 3.18 % -> capital mínimo 1,287 USD (4,090,031 COP); con 40.000 COP el lote mínimo exige 64x y un riesgo de 205 % por operación
+  P11: distancia al stop mediana 3.00 % -> capital mínimo 1,213 USD (3,854,271 COP); con 40.000 COP el lote mínimo exige 64x y un riesgo de 193 % por operación
+  P05b: distancia al stop mediana 2.02 % -> capital mínimo 816 USD (2,594,375 COP); con 40.000 COP el lote mínimo exige 64x y un riesgo de 130 % por operación
+  N8: distancia al stop mediana 3.00 % -> capital mínimo 1,213 USD (3,854,271 COP); con 40.000 COP el lote mínimo exige 64x y un riesgo de 193 % por operación

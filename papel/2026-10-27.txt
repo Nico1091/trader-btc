@@ -1,0 +1,22 @@
+SISTEMA CONSOLIDADO · 2026-10-27 · contexto BAJISTA (cierre de ayer 80,008.79 vs SMA 50 81,795.41, -2.18 %) · apertura 80,008.79 · ATR14 2,087
+  lectura diarias (SMA 50, ATR14, EMA 20 diaria, semana): 130 velas, 0 huecos (mínimo 120)
+  lectura de 1 h cerradas (EMA 20 de 1 h y 4 h, patrones): 984 velas, 0 huecos (mínimo 600)
+  lectura de 1 min del día: 1440 velas, 0 huecos (mínimo 1440)
+  P11: no es su día
+  P05b (banda 78,965 / 81,052): sin rompimiento
+  P05c: no opera (contexto bajista)
+  N9: SEÑAL a las 10:15
+  N8: no es su día
+  AZAR: corto a las 05:13
+  [PRUEBA] N9 CORTO 79,426.01 -> 80,108.16 (stop) bruto -0.859 % neto -0.929 %
+  [AZAR] AZAR CORTO 79,687.26 -> 80,799.51 (tiempo) bruto -1.396 % neto -1.496 %
+  EJECUCIÓN (cuenta solo si Claude registró la orden con «sistema.py orden» antes del llenado):
+    N9: NO EJECUTADA (sin orden a tiempo: no cuenta en el papel real) · neto -0.929 %
+    total del día (libros en %): teórico -0.929 · ejecutado +0.000
+  SOMBRAS (no se operan; se miden para decidir con datos hacia adelante):
+    N9 con stop duro en 79,837.17: sale 10:45 a 79,837.17 (stop duro) · neto -0.588 % frente a -0.929 % de la regla actual
+    TENDENCIA (largo si el cierre de ayer > SMA 50; si no, fuera): FUERA · +0.000 % bruto hoy (sus costes solo al cambiar de posición)
+  Guardado en papel/libro.jsonl.
+RIESGO · cuenta de 40.000 pesos (contado, 2 % por operación, topes −4 % día / −8 % semana / −20 % total): OPERABLE
+  ejecutado: saldo 40,000 COP (+0.00 %), caída desde el máximo 0.0 %, hoy +0, semana +0, 0 operaciones
+  teórico (todas las señales, como si siempre se hubiera estado a tiempo): saldo 40,000 COP (+0.00 %), 0 operaciones

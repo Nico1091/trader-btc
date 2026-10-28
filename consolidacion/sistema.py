@@ -47,6 +47,10 @@ COM = {"creador": 0.02, "tomador": 0.05}  # futuros USDⓈ-M, usuario normal
 class Coinbase:
     API = "https://api.exchange.coinbase.com/products/BTC-USD/candles"
 
+    def __init__(self, activo="BTC"):
+        self.activo = activo
+        self.API = f"https://api.exchange.coinbase.com/products/{activo}-USD/candles"
+
     def velas(self, gran, ini, fin):
         """Velas [t, low, high, open, close, vol] con ini <= t < fin, ordenadas. ini y fin en segundos UTC."""
         out = {}
@@ -67,6 +71,61 @@ class Coinbase:
                     time.sleep(1 + intento)
             t = t1
         return [out[k] for k in sorted(out)]
+
+
+class BinanceFut:
+    """Futuros USDⓈ-M de Binance, la casa del backtest (28/10/2026). Misma interfaz que Coinbase.velas. Desde el PC
+    responde; desde la nube da 451 (allí se usa Coinbase)."""
+    API = "https://fapi.binance.com/fapi/v1/klines"
+    INTERVALO = {60: "1m", 300: "5m", 900: "15m", 3600: "1h", 14400: "4h", 86400: "1d"}
+
+    def __init__(self, activo="BTC"):
+        self.activo = activo
+        self.simbolo = f"{activo}USDT"
+
+    def velas(self, gran, ini, fin):
+        """Velas [t, low, high, open, close, vol] con ini <= t < fin, ordenadas, paginando de 1.500 en 1.500."""
+        out, t = {}, ini
+        while t < fin:
+            u = (f"{self.API}?symbol={self.simbolo}&interval={self.INTERVALO[gran]}&startTime={t * 1000}"
+                 f"&endTime={(fin - 1) * 1000}&limit=1500")
+            x = None
+            for intento in range(4):
+                try:
+                    r = urllib.request.urlopen(urllib.request.Request(u, headers={"User-Agent": "sistema"}), timeout=30)
+                    x = json.loads(r.read())
+                    break
+                except Exception:
+                    time.sleep(1 + intento)
+            if not x:
+                break
+            for k in x:
+                ts = int(k[0]) // 1000
+                if ini <= ts < fin:
+                    out[ts] = [ts, float(k[3]), float(k[2]), float(k[1]), float(k[4]), float(k[5])]
+            siguiente = int(x[-1][0]) // 1000 + gran
+            if siguiente <= t:
+                break
+            t = siguiente
+        return [out[k] for k in sorted(out)]
+
+
+ACTIVOS_LC = ("BTC", "ETH", "SOL", "BNB", "XRP", "DOGE", "ADA")
+
+
+def fuente_para(activo="BTC", preferida="auto"):
+    """Binance futuros si responde (la casa del backtest); si no, Coinbase. Devuelve (fuente, nombre)."""
+    if preferida in ("auto", "binance"):
+        f = BinanceFut(activo)
+        hoy = int(time.time()) // 86400 * 86400
+        try:
+            if f.velas(86400, hoy - 3 * 86400, hoy):
+                return f, f"Binance futuros {activo}USDT"
+        except Exception:
+            pass
+        if preferida == "binance":
+            raise LecturaInsuficiente(f"Binance no responde para {activo}")
+    return Coinbase(activo), f"Coinbase {activo}-USD"
 
 
 class Npy:
@@ -337,10 +396,15 @@ class Dia:
         return dt.datetime.fromtimestamp(t, UTC).strftime("%H:%M")
 
 
-def informe(fuente, dia, ahora=None):
+def informe(fuente, dia, ahora=None, activo="BTC"):
     D = Dia(fuente, dia, ahora)
     ops, notas = D.todo()
-    L = [f"SISTEMA CONSOLIDADO · {dia} · contexto {'ALCISTA' if D.ctx > 0 else 'BAJISTA' if D.ctx < 0 else 'NEUTRO'} "
+    if activo != "BTC":  # cartera LC: en los demás activos solo P05c, y nunca va a la cuenta en pesos (contado BTC)
+        ops = [dict(o, pesos=False) for o in ops if o["estrategia"] == "P05c"]
+        notas = [n for n in notas if n.startswith("P05c")]
+    for o in ops:
+        o["activo"] = activo
+    L = [f"SISTEMA CONSOLIDADO · {activo} · {dia} · contexto {'ALCISTA' if D.ctx > 0 else 'BAJISTA' if D.ctx < 0 else 'NEUTRO'} "
          f"(cierre de ayer {D.cierre_ayer:,.2f} vs SMA 50 {D.sma50:,.2f}, {(D.cierre_ayer / D.sma50 - 1) * 100:+.2f} %) · "
          f"apertura {D.ap:,.2f} · ATR14 {D.atr:,.0f}"]
     L += ["  " + x for x in D.log]
@@ -360,9 +424,9 @@ def referencia(D, o):
     return None
 
 
-def cerrar(fuente, dia, ahora=None, guardar=True):
+def cerrar(fuente, dia, ahora=None, guardar=True, activo="BTC"):
     """Cierra el día con sus 1.440 velas: teórico frente a ejecutado, sombras y estado de riesgo. Devuelve el texto."""
-    D, ops, texto = informe(fuente, dia, ahora)
+    D, ops, texto = informe(fuente, dia, ahora, activo)
     if not D.completo:
         return texto + "\n  AVISO: el día no ha terminado; no se guarda nada en papel/libro.jsonl"
     L = [texto, "  EJECUCIÓN (cuenta solo si Claude registró la orden con «sistema.py orden» antes del llenado):"]
@@ -393,36 +457,68 @@ def cerrar(fuente, dia, ahora=None, guardar=True):
     L.append(f"    TENDENCIA (largo si el cierre de ayer > SMA 50; si no, fuera): {'LARGO' if largo else 'FUERA'} · "
              f"{dia_ret if largo else 0.0:+.3f} % bruto hoy (sus costes solo al cambiar de posición)")
     if guardar:
-        riesgo.guardar_dia(dia, ops, dist)
+        riesgo.guardar_dia(dia, ops, dist, activo)
         L.append("  Guardado en papel/libro.jsonl.")
     L.append(riesgo.texto_estado())
     return "\n".join(L)
 
 
+def _opciones(args):
+    """Quita de args las opciones --activo X, --todos y --fuente F. Devuelve (args, activos, fuente)."""
+    activos, fuente, resto, i = ["BTC"], "auto", [], 0
+    while i < len(args):
+        if args[i] == "--activo":
+            activos, i = [args[i + 1].upper()], i + 2
+        elif args[i] == "--todos":
+            activos, i = list(ACTIVOS_LC), i + 1
+        elif args[i] == "--fuente":
+            fuente, i = args[i + 1], i + 2
+        else:
+            resto.append(args[i])
+            i += 1
+    return resto, activos, fuente
+
+
 if __name__ == "__main__":
     if hasattr(sys.stdout, "reconfigure"):  # Windows: con la salida por tubería usa cp1252, sin «−», «≥» ni flechas
         sys.stdout.reconfigure(encoding="utf-8", errors="replace")
-    accion = sys.argv[1] if len(sys.argv) > 1 else "estado"
+    args, activos, preferida = _opciones(sys.argv[1:])
+    accion = args[0] if args else "estado"
     try:
-        if accion == "orden":  # orden ESTRATEGIA [--dia AAAA-MM-DD] "nota" (--dia: condicionada para otro día)
-            estr, resto = sys.argv[2], sys.argv[3:]
+        if accion == "orden":  # orden ESTRATEGIA [--activo SOL] [--dia AAAA-MM-DD] "nota" (--dia: condicionada para otro día)
+            estr, resto = args[1], args[2:]
             destino = dt.datetime.now(UTC).date()
             if len(resto) >= 2 and resto[0] == "--dia":
                 destino, resto = dt.date.fromisoformat(resto[1]), resto[2:]
-            f = riesgo.registrar_orden(estr, destino, " ".join(resto))
-            print(f"Orden registrada: {f['estrategia']} para el {f['dia']} a las {f['hora_utc']} UTC · {f['nota']}")
+            for a in activos:
+                f = riesgo.registrar_orden(estr, destino, " ".join(resto), activo=a)
+                print(f"Orden registrada: {f['estrategia']} {a} para el {f['dia']} a las {f['hora_utc']} UTC · {f['nota']}")
         elif accion == "riesgo":
             print(riesgo.texto_estado())
         elif accion == "cerrar":
-            dia = dt.date.fromisoformat(sys.argv[2])
-            print(cerrar(Coinbase(), dia, int(time.time())))
+            dia = dt.date.fromisoformat(args[1])
+            for a in activos:
+                fuente, nombre = fuente_para(a, preferida)
+                try:
+                    print(f"[{nombre}]")
+                    print(cerrar(fuente, dia, int(time.time()), activo=a))
+                except LecturaInsuficiente as e:
+                    print(f"{a}: NO SE CIERRA, lectura insuficiente -> {e}")
+            import plan_diario
+            print(plan_diario.informe(plan_diario.operaciones_papel(), "PLAN DIARIO · papel EJECUTADO en pesos"))
         else:
-            dia = dt.date.fromisoformat(sys.argv[2]) if len(sys.argv) > 2 else dt.datetime.now(UTC).date()
+            dia = dt.date.fromisoformat(args[1]) if len(args) > 1 else dt.datetime.now(UTC).date()
             print(riesgo.texto_estado())
             ej, _ = riesgo.estado()
             if ej["bloqueo"]:
                 print("NO SE ABRE NADA EN LA CUENTA EN PESOS: " + ej["bloqueo"] + " (el papel en % se sigue midiendo)")
-            _, _, texto = informe(Coinbase(), dia, None)
-            print(texto)
+            for a in activos:
+                fuente, nombre = fuente_para(a, preferida)
+                try:
+                    print(f"[{nombre}]")
+                    _, _, texto = informe(fuente, dia, None, a)
+                    print(texto)
+                except LecturaInsuficiente as e:
+                    print(f"{a}: NO SE OPERA, lectura insuficiente -> {e}")
     except LecturaInsuficiente as e:
         print("NO SE OPERA: lectura insuficiente ->", e)
