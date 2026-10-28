@@ -1,0 +1,32 @@
+C3 · 迪亚马特: 287 posiciones. Midiendo el mercado antes y durante cada una (velas de 5 m de Binance)…
+   con velas completas: 286 de 287
+
+PERDEDORAS: 26 · GANADORAS: 260 · lado de las perdedoras: 17 cortos, 9 largos
+   QUSDT        corto 5× · resultado -303 % del margen · antes: 1 h -0.7 %, 4 h -4.3 %, 24 h -4.0 % · en contra máx 83.2 %
+   STRKUSDT     corto 20× · resultado -197 % del margen · antes: 1 h -2.7 %, 4 h -18.7 %, 24 h -41.2 % · en contra máx 11.1 %
+   RLCUSDT      corto 20× · resultado -162 % del margen · antes: 1 h -5.5 %, 4 h -30.4 %, 24 h -37.3 % · en contra máx 29.6 %
+   BULLAUSDT    largo 5× · resultado -97 % del margen · antes: 1 h -35.2 %, 4 h -46.1 %, 24 h -46.0 % · en contra máx 20.3 %
+   APRUSDT      corto 5× · resultado -81 % del margen · antes: 1 h -2.5 %, 4 h -16.8 %, 24 h -27.1 % · en contra máx 22.8 %
+   QUSDT        corto 5× · resultado -74 % del margen · antes: 1 h -3.0 %, 4 h -9.6 %, 24 h -24.5 % · en contra máx 19.2 %
+   DOODUSDT     largo 5× · resultado -36 % del margen · antes: 1 h -22.2 %, 4 h +4.1 %, 24 h +55.3 % · en contra máx 17.8 %
+   AGTUSDT      corto 10× · resultado -27 % del margen · antes: 1 h -49.3 %, 4 h -83.5 %, 24 h -79.0 % · en contra máx 21.1 %
+   AGTUSDT      corto 5× · resultado -18 % del margen · antes: 1 h -12.5 %, 4 h -8.9 %, 24 h -33.7 % · en contra máx 5.4 %
+   CKBUSDT      largo 10× · resultado -15 % del margen · antes: 1 h -0.7 %, 4 h -0.5 %, 24 h +0.4 % · en contra máx 8.9 %
+
+QUÉ LAS SEPARA (mediana perdedoras frente a ganadoras):
+   mov1h   perdedoras    -0.91 · ganadoras    -2.82
+   mov4h   perdedoras    -2.84 · ganadoras   -10.13
+   mov24h  perdedoras    -4.05 · ganadoras   -35.62
+   dist    perdedoras    +1.20 · ganadoras    +3.52
+   vol     perdedoras    +2.10 · ganadoras    +2.07
+   mae     perdedoras    +4.45 · ganadoras    +5.44
+   mfe     perdedoras    +2.15 · ganadoras    +9.17
+   lev     perdedoras    +5.00 · ganadoras    +5.00
+
+PREVENTIVAS (elegidas en las primeras 143 operaciones, comprobadas en las últimas 143):
+   filtro «no entrar si vol > 6.17» · primera mitad: sin preventiva 22,147,501 COP (caída 11 %) · con preventiva 10,423,499 COP (caída 11 %)
+   filtro «no entrar si vol > 6.17» · segunda mitad: sin preventiva 8,846,798 COP (caída 10 %) · con preventiva 4,769,130 COP (caída 10 %)
+   stop a 50 % en contra · primera mitad: sin stop 22,147,501 COP (caída 11 %) · con stop 15,854,456 COP (caída 11 %)
+   stop a 50 % en contra · segunda mitad: sin stop 8,846,798 COP (caída 10 %) · con stop 5,630,740 COP (caída 11 %)
+
+TODO SU HISTORIAL (10 % de margen por copia): sin preventivas 4,898,361,563 COP (caída 11 %) · con filtro y stop 566,237,556 COP (caída 11 %)

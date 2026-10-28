@@ -1,0 +1,10 @@
+PLAN DIARIO · historia de la cartera (BTC: P05c, P11, P05b + P05c de los demás activos)
+Capital inicial 40.000 COP (12.59 USDT a 3,177.85 COP). Operaciones: 2004.
+Periodo: 2020-02-23 a 2026-10-21 (2433 días)
+libro  riesgo   saldo final COP   ganancia/día COP   crec./día   días ≥+11 %   peor día   operaciones  parada
+L2     2 %              151,213              +46     +0.055 %       2 de 805      -9.0 %      808    2022-04-18 (reabrió)
+L5     5 %              709,971             +275     +0.118 %      19 de 805     -22.4 %      808    2022-04-11 (reabrió)
+LK     ½ Kelly          227,460              +77     +0.071 %       6 de 800     -31.4 %      803    2020-08-02 (reabrió)
+L11    19 %              19,844               -8     -0.029 %       8 de 68      -42.6 %       68    2020-04-20 y 2020-11-04 (definitiva)
+LC     5 % ×3        21,578,179           +8,853     +0.259 %      57 de 1119    -39.1 %     1749    2022-04-18 (reabrió)
+LC8    8 % ×3        73,662,955          +30,260     +0.309 %     101 de 1117    -62.5 %     1739    2022-08-17 (reabrió)

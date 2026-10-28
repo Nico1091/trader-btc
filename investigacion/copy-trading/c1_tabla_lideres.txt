@@ -1,0 +1,52 @@
+C1 · tabla pública de líderes de copy trading de futuros de Binance, bajada el 2026-10-28 (UTC)
+
+== 30D ordenados por ROI: 500 líderes ==
+   ROI propio del líder: mediana 106 % · p10 69 % · p90 361 %
+   PnL propio sumado: 5,156,933 USD · PnL de sus copiadores sumado: 4,881,714 USD sobre 17,235,187 USD copiados (+28.32 %)
+   Líderes cuyos copiadores ganan en total: 191 de 500 (38 %)
+   Rendimiento de los copiadores (copierPnl / copyAum), mediana +6.59 % · p10 -54.21 % · p90 +55.82 %
+   Caída máxima del líder: mediana 21 % · con más del 50 %: 12 %
+   ¿El ROI del líder dice cuánto ganan sus copiadores? correlación +0.00
+   Los 8 con más ganancia de sus copiadores:
+     玺九爺HBJX            id 5159399805711344897 · ROI líder 102 % · copiadores +1,437,859 USD sobre 2,402,147 (+59.9 %) · caída 24 % · 1000 copiando
+     Bran Brandon       id 5126298543040831233 · ROI líder 328 % · copiadores +1,347,211 USD sobre 2,282,742 (+59.0 %) · caída 19 % · 700 copiando
+     前摩根量化交易员           id 5218493701996013313 · ROI líder 67 % · copiadores +420,822 USD sobre 1,728,640 (+24.3 %) · caída 25 % · 937 copiando
+     鎏渊                 id 5108371059752839168 · ROI líder 178 % · copiadores +410,902 USD sobre 1,025,839 (+40.1 %) · caída 62 % · 600 copiando
+     马云波                id 5239062942809964545 · ROI líder 84 % · copiadores +376,417 USD sobre 2,702,438 (+13.9 %) · caída 2 % · 700 copiando
+     BTC拖拉机             id 5217743622504837633 · ROI líder 64 % · copiadores +216,313 USD sobre 1,111,589 (+19.5 %) · caída 3 % · 831 copiando
+     1000万u之路目前盈利十一万多u  id 5008273081378616064 · ROI líder 107 % · copiadores +146,076 USD sobre 1,497,069 (+9.8 %) · caída 22 % · 800 copiando
+     Hedge-Trader       id 4879885153270561792 · ROI líder 73 % · copiadores +82,571 USD sobre 216,545 (+38.1 %) · caída 12 % · 16 copiando
+
+== 90D ordenados por ROI: 500 líderes ==
+   ROI propio del líder: mediana 193 % · p10 128 % · p90 690 %
+   PnL propio sumado: 8,875,491 USD · PnL de sus copiadores sumado: 4,550,043 USD sobre 18,717,601 USD copiados (+24.31 %)
+   Líderes cuyos copiadores ganan en total: 203 de 500 (41 %)
+   Rendimiento de los copiadores (copierPnl / copyAum), mediana +2.52 % · p10 -206.23 % · p90 +75.01 %
+   Caída máxima del líder: mediana 33 % · con más del 50 %: 21 %
+   ¿El ROI del líder dice cuánto ganan sus copiadores? correlación +0.02
+   Los 8 con más ganancia de sus copiadores:
+     Bran Brandon       id 5126298543040831233 · ROI líder 1,568 % · copiadores +1,547,197 USD sobre 2,282,742 (+67.8 %) · caída 20 % · 700 copiando
+     玺九爺HBJX            id 5159399805711344897 · ROI líder 553 % · copiadores +750,434 USD sobre 2,402,147 (+31.2 %) · caída 52 % · 1000 copiando
+     前摩根量化交易员           id 5218493701996013313 · ROI líder 6,422 % · copiadores +510,734 USD sobre 1,728,640 (+29.5 %) · caída 19 % · 937 copiando
+     鎏渊                 id 5108371059752839168 · ROI líder 354 % · copiadores +454,945 USD sobre 1,025,839 (+44.3 %) · caída 61 % · 600 copiando
+     BTC拖拉机             id 5217743622504837633 · ROI líder 4,479 % · copiadores +265,127 USD sobre 1,111,589 (+23.9 %) · caída 16 % · 831 copiando
+     一年赚10倍             id 5193788577179792640 · ROI líder 438 % · copiadores +210,283 USD sobre 1,606,252 (+13.1 %) · caída 6 % · 300 copiando
+     1000万u之路目前盈利十一万多u  id 5008273081378616064 · ROI líder 458 % · copiadores +168,891 USD sobre 1,497,069 (+11.3 %) · caída 11 % · 800 copiando
+     穩定暴擊 Crit          id 4030560779244867073 · ROI líder 190 % · copiadores +133,224 USD sobre 148,293 (+89.8 %) · caída 28 % · 143 copiando
+
+== 90D ordenados por PNL: 500 líderes ==
+   ROI propio del líder: mediana 82 % · p10 18 % · p90 633 %
+   PnL propio sumado: 17,690,004 USD · PnL de sus copiadores sumado: 9,031,932 USD sobre 40,156,034 USD copiados (+22.49 %)
+   Líderes cuyos copiadores ganan en total: 233 de 500 (47 %)
+   Rendimiento de los copiadores (copierPnl / copyAum), mediana +4.50 % · p10 -268.92 % · p90 +51.92 %
+   Caída máxima del líder: mediana 23 % · con más del 50 %: 15 %
+   ¿El ROI del líder dice cuánto ganan sus copiadores? correlación +0.01
+   Los 8 con más ganancia de sus copiadores:
+     熬鹰资本               id 5075281354358777856 · ROI líder 45 % · copiadores +2,513,908 USD sobre 3,670,191 (+68.5 %) · caída 20 % · 1000 copiando
+     Bran Brandon       id 5126298543040831233 · ROI líder 1,568 % · copiadores +1,547,197 USD sobre 2,282,742 (+67.8 %) · caída 20 % · 700 copiando
+     玺九爺HBJX            id 5159399805711344897 · ROI líder 553 % · copiadores +750,434 USD sobre 2,402,147 (+31.2 %) · caída 52 % · 1000 copiando
+     Btc星辰              id 4751838302089254401 · ROI líder 44 % · copiadores +693,089 USD sobre 3,141,368 (+22.1 %) · caída 7 % · 400 copiando
+     羊汤资本-阿汤哥           id 4456447855719904768 · ROI líder 17 % · copiadores +524,222 USD sobre 3,885,876 (+13.5 %) · caída 11 % · 198 copiando
+     前摩根量化交易员           id 5218493701996013313 · ROI líder 6,422 % · copiadores +510,734 USD sobre 1,728,640 (+29.5 %) · caída 19 % · 937 copiando
+     鎏渊                 id 5108371059752839168 · ROI líder 354 % · copiadores +454,945 USD sobre 1,025,839 (+44.3 %) · caída 61 % · 600 copiando
+     马云波                id 5239062942809964545 · ROI líder 104 % · copiadores +377,514 USD sobre 2,702,438 (+14.0 %) · caída 3 % · 700 copiando

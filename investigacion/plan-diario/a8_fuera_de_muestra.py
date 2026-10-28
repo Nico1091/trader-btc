@@ -121,7 +121,8 @@ def main():
             continue
         m = velas(a)
         causal[a] = diario_causal(m)
-        datos[a] = (cargar(a, causal[a]), m)
+        datos[a] = (cargar(a, causal[a]), m.resample("1h").agg({"o": "first", "h": "max", "l": "min", "c": "last"}).dropna())
+        del m
     for nombre, (estr, regla) in REGLAS.items():
         print(f"== {nombre} ==")
         mejoras_nuevos, todas = 0, []
@@ -156,9 +157,11 @@ def main():
             b, r = pd.concat(base_v), pd.concat(regla_v)
             tramo_ok.append(r.neto2.mean() > b.neto2.mean())
             print(f"   (2) viejos {nom}: sin regla {b.neto2.mean():+.3f} % (n={len(b)}) · con regla {r.neto2.mean():+.3f} % (n={len(r)}, {len(r) / max(1, len(b)) * 100:.0f} %)")
-        frac = sum(len(datos[a][0][(datos[a][0].estrategia == estr) & regla(datos[a][0][datos[a][0].estrategia == estr].reindex(datos[a][0].index, fill_value=False) if False else datos[a][0])].index) for a in [])
+        base_n = sum(int((datos[a][0].estrategia == estr).sum()) for a in NUEVOS if a in datos)
+        ok3 = base_n > 0 and len(conj) / base_n >= 0.30
         ok2 = all(tramo_ok)
-        print(f"   VEREDICTO: {'SE ADOPTA (cumple 1 y 2)' if ok1 and ok2 else 'NO se adopta'}\n")
+        print(f"   (3) conserva {len(conj) / max(1, base_n) * 100:.0f} % de las operaciones de los nuevos -> {'CUMPLE' if ok3 else 'no cumple'}")
+        print(f"   VEREDICTO: {'SE ADOPTA (cumple 1, 2 y 3)' if ok1 and ok2 and ok3 else 'NO se adopta'}\n")
     print("== H5 corto de continuación R11 (1 h) ==")
     filas = []
     for a in VIEJOS + NUEVOS:
@@ -177,7 +180,7 @@ def main():
         pos = sum(1 for r in nuevos if r.neto2.mean() > 0)
         print(f"   nuevos positivos con comisión doble: {pos} de {len(nuevos)} · media conjunta doble {conj.neto2.mean():+.3f} % -> "
               f"{'CUMPLE (1)' if pos >= 4 and conj.neto2.mean() > 0 else 'no cumple'}\n")
-    print("== H4 y H6: cartera frente al libro actual, en BTC + los 5 nuevos (3 % de riesgo; reapertura incluida) ==")
+    print("== H4 y H6: cartera frente al libro actual, en BTC + los 5 nuevos (todos los libros del plan; reapertura incluida) ==")
     import plan_diario as PD
     ops = []
     for a in ["BTC"] + NUEVOS:

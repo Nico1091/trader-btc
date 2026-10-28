@@ -1,0 +1,64 @@
+A8 · FUERA DE MUESTRA según PREREGISTRO-PLAN-DIARIO.md (definiciones fijadas antes de bajar los activos nuevos)
+
+== H1 N8 con volatilidad alta ==
+   NUEVO LINK  sin regla -0.145 % (n=174) · con regla +0.056 % (n=70, 40 %) · mejora
+   NUEVO AVAX  sin regla +0.511 % (n=139) · con regla +1.101 % (n=51, 37 %) · mejora
+   NUEVO LTC   sin regla -0.552 % (n=168) · con regla -0.632 % (n=76, 45 %) · no mejora
+   NUEVO DOT   sin regla -0.529 % (n=122) · con regla -0.294 % (n=41, 34 %) · mejora
+   NUEVO TRX   sin regla +0.084 % (n=206) · con regla -0.057 % (n=71, 34 %) · no mejora
+   (1) nuevos: mejora en 3 de 5 · media conjunta con regla -0.013 % IC 90 % [-0.667, +0.724] -> no cumple
+   (2) viejos 2020-23: sin regla +0.136 % (n=692) · con regla +0.447 % (n=262, 38 %)
+   (2) viejos 2024-26: sin regla -0.027 % (n=488) · con regla +0.217 % (n=209, 43 %)
+   (3) conserva 38 % de las operaciones de los nuevos -> CUMPLE
+   VEREDICTO: NO se adopta
+
+== H2 P11 con 1 h y 1 d a favor ==
+   NUEVO LINK  sin regla -0.429 % (n=173) · con regla -0.777 % (n=85, 49 %) · no mejora
+   NUEVO AVAX  sin regla -0.353 % (n=130) · con regla -0.503 % (n=63, 48 %) · no mejora
+   NUEVO LTC   sin regla -0.521 % (n=162) · con regla -0.625 % (n=76, 47 %) · no mejora
+   NUEVO DOT   sin regla -0.441 % (n=119) · con regla -1.270 % (n=57, 48 %) · no mejora
+   NUEVO TRX   sin regla -0.198 % (n=215) · con regla -0.347 % (n=101, 47 %) · no mejora
+   (1) nuevos: mejora en 0 de 5 · media conjunta con regla -0.661 % IC 90 % [-1.068, -0.261] -> no cumple
+   (2) viejos 2020-23: sin regla -0.186 % (n=679) · con regla +0.320 % (n=340, 50 %)
+   (2) viejos 2024-26: sin regla -0.043 % (n=488) · con regla -0.005 % (n=259, 53 %)
+   (3) conserva 48 % de las operaciones de los nuevos -> CUMPLE
+   VEREDICTO: NO se adopta
+
+== H3 P05c lejos de la SMA 50 y antes de las 17 UTC ==
+   NUEVO LINK  sin regla -0.272 % (n=91) · con regla -0.104 % (n=36, 40 %) · mejora
+   NUEVO AVAX  sin regla +0.117 % (n=98) · con regla -0.410 % (n=46, 47 %) · no mejora
+   NUEVO LTC   sin regla +0.174 % (n=90) · con regla +0.239 % (n=50, 56 %) · mejora
+   NUEVO DOT   sin regla +1.514 % (n=70) · con regla +0.610 % (n=25, 36 %) · no mejora
+   NUEVO TRX   sin regla +1.026 % (n=124) · con regla +2.285 % (n=58, 47 %) · mejora
+   (1) nuevos: mejora en 3 de 5 · media conjunta con regla +0.638 % IC 90 % [-0.189, +1.635] -> no cumple
+   (2) viejos 2020-23: sin regla +1.006 % (n=391) · con regla +1.868 % (n=168, 43 %)
+   (2) viejos 2024-26: sin regla +0.421 % (n=255) · con regla +0.441 % (n=141, 55 %)
+   (3) conserva 45 % de las operaciones de los nuevos -> CUMPLE
+   VEREDICTO: NO se adopta
+
+== H5 corto de continuación R11 (1 h) ==
+   viejo BTC    514 cortos · neto -0.172 % · doble -0.272 % · 2024-26 doble -0.217 %
+   viejo ETH    739 cortos · neto -0.110 % · doble -0.210 % · 2024-26 doble -0.028 %
+   viejo SOL   1103 cortos · neto -0.127 % · doble -0.227 % · 2024-26 doble -0.273 %
+   viejo BNB    538 cortos · neto -0.156 % · doble -0.256 % · 2024-26 doble -0.087 %
+   viejo XRP    660 cortos · neto -0.079 % · doble -0.179 % · 2024-26 doble -0.097 %
+   viejo DOGE   867 cortos · neto -0.170 % · doble -0.270 % · 2024-26 doble -0.220 %
+   viejo ADA   1020 cortos · neto -0.040 % · doble -0.140 % · 2024-26 doble -0.159 %
+   NUEVO LINK  1144 cortos · neto -0.199 % · doble -0.299 % · 2024-26 doble -0.233 %
+   NUEVO AVAX  1159 cortos · neto -0.135 % · doble -0.235 % · 2024-26 doble -0.177 %
+   NUEVO LTC    777 cortos · neto -0.152 % · doble -0.252 % · 2024-26 doble -0.228 %
+   NUEVO DOT   1034 cortos · neto -0.145 % · doble -0.245 % · 2024-26 doble -0.185 %
+   NUEVO TRX    490 cortos · neto -0.136 % · doble -0.236 % · 2024-26 doble -0.212 %
+   nuevos positivos con comisión doble: 0 de 5 · media conjunta doble -0.256 % -> no cumple
+
+== H4 y H6: cartera frente al libro actual, en BTC + los 5 nuevos (todos los libros del plan; reapertura incluida) ==
+PLAN DIARIO · BTC + LINK, AVAX, LTC, DOT, TRX (P05c en todos; P05b, P11 y N8 solo en BTC)
+Capital inicial 40.000 COP (12.59 USDT a 3,177.85 COP). Operaciones: 1450.
+Periodo: 2020-02-23 a 2026-10-21 (2433 días)
+libro  riesgo   saldo final COP   ganancia/día COP   crec./día   días ≥+11 %   peor día   operaciones  parada
+L2     2 %              151,213              +46     +0.055 %       2 de 805      -9.0 %      808    2022-04-18 (reabrió)
+L5     5 %              709,971             +275     +0.118 %      19 de 805     -22.4 %      808    2022-04-11 (reabrió)
+LK     ½ Kelly          227,460              +77     +0.071 %       6 de 800     -31.4 %      803    2020-08-02 (reabrió)
+L11    19 %              19,844               -8     -0.029 %       8 de 68      -42.6 %       68    2020-04-20 y 2020-11-04 (definitiva)
+LC     5 % ×3         5,653,236           +2,307     +0.204 %      41 de 1007    -22.4 %     1395    2022-04-11 (reabrió)
+LC8    8 % ×3        25,866,799          +10,615     +0.266 %      85 de 1010    -35.9 %     1400    2022-08-17 (reabrió)

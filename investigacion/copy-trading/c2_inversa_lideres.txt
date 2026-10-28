@@ -1,0 +1,121 @@
+C2 · ingeniería inversa de 6 líderes de copy trading de Binance y su copia en papel con 40.000 COP
+
+== 鎏渊 (1.º por ROI 180 días (+40.487 %)) · 8 posiciones en 87 días (0.1 al día) ==
+   Monedas: SKHYNIXUSDT 4, MUUSDT 1, CLUSDT 1, CRCLUSDT 1, ETHUSDT 1
+   Lado: Short 3, Long 5 · apalancamiento: mediana 19x, máx 74x
+   Duración: mediana 4802 min · p90 93606 min
+   Acierto 100.0 % · ganadora media +385.5 % del margen · perdedora media +0.0 % · peor +5.8 % · factor de beneficio inf
+   Horas de entrada (UTC) más usadas: 02h 1, 16h 1, 23h 1, 19h 1, 12h 1
+   Antes de entrar (en su lado, 1 posiciones con nuestras velas): 1 h -2.66 % · 4 h -3.48 % (mediana) -> entra contra el movimiento (comprar caídas o vender subidas)
+   Copia en papel desde 40.000 COP (optimista: elegido por su pasado):
+     margen 2 % por copia:       64,642 COP · +0.55 % al día · caída máx. 0 % · días ganadores 8 de 8
+     margen 5 % por copia:      102,474 COP · +1.08 % al día · caída máx. 0 % · días ganadores 8 de 8
+     margen 10 % por copia:      168,027 COP · +1.66 % al día · caída máx. 0 % · días ganadores 8 de 8
+
+== A路飞 (2.º por ROI 180 días (+10.252 %; 1.º a 90 días con +6.986 %)) · 397 posiciones en 86 días (4.6 al día) ==
+   Monedas: BTCUSDT 71, ETHUSDT 64, ZECUSDT 59, SOLUSDT 39, SNDKUSDT 30, XRPUSDT 22
+   Lado: Long 220, Short 177 · apalancamiento: mediana 20x, máx 20x
+   Duración: mediana 523 min · p90 2462 min
+   Acierto 69.8 % · ganadora media +39.3 % del margen · perdedora media -45.6 % · peor -240.9 % · factor de beneficio 1.99
+   Horas de entrada (UTC) más usadas: 13h 47, 14h 43, 15h 31, 17h 29, 21h 25
+   Antes de entrar (en su lado, 221 posiciones con nuestras velas): 1 h -0.18 % · 4 h -0.37 % (mediana) -> entra contra el movimiento (comprar caídas o vender subidas)
+   Copia en papel desde 40.000 COP (optimista: elegido por su pasado):
+     margen 2 % por copia:      100,347 COP · +1.07 % al día · caída máx. 19 % · días ganadores 46 de 65
+     margen 5 % por copia:      300,176 COP · +2.36 % al día · caída máx. 44 % · días ganadores 46 de 65
+     margen 10 % por copia:      960,585 COP · +3.74 % al día · caída máx. 74 % · días ganadores 46 de 65
+
+== Padfoot (3.º por ROI 180 días (+9.335 %)) · 878 posiciones en 100 días (8.7 al día) ==
+   Monedas: USUSDT 167, TUTUSDT 113, DEXEUSDT 96, OGNUSDT 55, PROMUSDT 54, BEATUSDT 40
+   Lado: Short 463, Long 415 · apalancamiento: mediana 2x, máx 23x
+   Duración: mediana 7 min · p90 780 min
+   Acierto 89.3 % · ganadora media +4.3 % del margen · perdedora media -30.0 % · peor -324.0 % · factor de beneficio 1.20
+   Horas de entrada (UTC) más usadas: 14h 82, 13h 74, 08h 65, 10h 61, 05h 55
+   Antes de entrar (en su lado, 2 posiciones con nuestras velas): 1 h -0.06 % · 4 h +0.00 % (mediana) -> entra sin sesgo claro
+   Copia en papel desde 40.000 COP (optimista: elegido por su pasado):
+     margen 2 % por copia:       47,146 COP · +0.16 % al día · caída máx. 13 % · días ganadores 37 de 53
+     margen 5 % por copia:       59,885 COP · +0.40 % al día · caída máx. 28 % · días ganadores 37 de 53
+     margen 10 % por copia:       87,457 COP · +0.78 % al día · caída máx. 49 % · días ganadores 36 de 53
+
+== 熬鹰资本 (4.º por ROI 180 días (+6.960 %)) · 120 posiciones en 120 días (1.0 al día) ==
+   Monedas: ETHUSDT 19, BTCUSDT 19, SKHYNIXUSDT 18, MUUSDT 12, SNDKUSDT 11, ZECUSDT 7
+   Lado: Short 55, Long 65 · apalancamiento: mediana 5x, máx 20x
+   Duración: mediana 911 min · p90 3775 min
+   Acierto 64.2 % · ganadora media +14.5 % del margen · perdedora media -10.3 % · peor -37.4 % · factor de beneficio 2.52
+   Horas de entrada (UTC) más usadas: 14h 15, 13h 13, 17h 9, 15h 9, 08h 8
+   Antes de entrar (en su lado, 39 posiciones con nuestras velas): 1 h +0.48 % · 4 h +0.38 % (mediana) -> entra a favor del movimiento (seguir la tendencia)
+   Copia en papel desde 40.000 COP (optimista: elegido por su pasado):
+     margen 2 % por copia:       44,751 COP · +0.09 % al día · caída máx. 2 % · días ganadores 43 de 66
+     margen 5 % por copia:       52,757 COP · +0.23 % al día · caída máx. 5 % · días ganadores 43 de 66
+     margen 10 % por copia:       68,732 COP · +0.45 % al día · caída máx. 9 % · días ganadores 43 de 66
+
+== 前摩根量化交易员 (5.º por ROI 180 días (+6.422 %)) · 240 posiciones en 49 días (4.9 al día) ==
+   Monedas: ZECUSDT 41, XMRUSDT 29, XRPUSDT 26, LTCUSDT 21, BNBUSDT 19, ETHUSDT 18
+   Lado: Short 145, Long 95 · apalancamiento: mediana 10x, máx 30x
+   Duración: mediana 760 min · p90 5213 min
+   Acierto 83.3 % · ganadora media +18.9 % del margen · perdedora media -21.7 % · peor -198.3 % · factor de beneficio 4.36
+   Horas de entrada (UTC) más usadas: 14h 30, 05h 19, 15h 18, 00h 17, 13h 15
+   Antes de entrar (en su lado, 84 posiciones con nuestras velas): 1 h +0.18 % · 4 h +0.19 % (mediana) -> entra sin sesgo claro
+   Copia en papel desde 40.000 COP (optimista: elegido por su pasado):
+     margen 2 % por copia:       66,608 COP · +1.06 % al día · caída máx. 4 % · días ganadores 37 de 40
+     margen 5 % por copia:      139,815 COP · +2.61 % al día · caída máx. 9 % · días ganadores 37 de 40
+     margen 10 % por copia:      455,509 COP · +5.14 % al día · caída máx. 17 % · días ganadores 37 de 40
+
+== DAmorné (6.º por ROI 180 días (+6.287 %)) · 279 posiciones en 48 días (5.9 al día) ==
+   Monedas: QUSDT 76, NEARUSDT 47, SOXLUSDT 35, ZROUSDT 24, 1000XECUSDT 17, UNIUSDT 14
+   Lado: Long 172, Short 107 · apalancamiento: mediana 2x, máx 25x
+   Duración: mediana 17 min · p90 679 min
+   Acierto 90.0 % · ganadora media +5.2 % del margen · perdedora media -16.7 % · peor -93.6 % · factor de beneficio 2.76
+   Horas de entrada (UTC) más usadas: 14h 30, 04h 26, 03h 24, 13h 21, 09h 17
+   Copia en papel desde 40.000 COP (optimista: elegido por su pasado):
+     margen 2 % por copia:       46,001 COP · +0.29 % al día · caída máx. 2 % · días ganadores 26 de 31
+     margen 5 % por copia:       56,437 COP · +0.73 % al día · caída máx. 6 % · días ganadores 26 de 31
+     margen 10 % por copia:       78,292 COP · +1.42 % al día · caída máx. 12 % · días ganadores 26 de 31
+
+== 迪亚马特 (7.º por ROI 180 días (+5.984 %)) · 287 posiciones en 31 días (9.1 al día) ==
+   Monedas: BMTUSDT 20, ORDERUSDT 18, AGTUSDT 14, APRUSDT 13, ETHUSDT 11, INUSDT 11
+   Lado: Short 260, Long 27 · apalancamiento: mediana 5x, máx 20x
+   Duración: mediana 86 min · p90 1070 min
+   Acierto 90.9 % · ganadora media +53.9 % del margen · perdedora media -41.3 % · peor -302.9 % · factor de beneficio 13.08
+   Horas de entrada (UTC) más usadas: 02h 26, 06h 21, 00h 21, 08h 17, 03h 17
+   Antes de entrar (en su lado, 11 posiciones con nuestras velas): 1 h -0.46 % · 4 h -1.02 % (mediana) -> entra contra el movimiento (comprar caídas o vender subidas)
+   Copia en papel desde 40.000 COP (optimista: elegido por su pasado):
+     margen 2 % por copia:      494,232 COP · +8.32 % al día · caída máx. 2 % · días ganadores 32 de 32
+     margen 5 % por copia:   16,233,126 COP · +21.03 % al día · caída máx. 5 % · días ganadores 32 de 32
+     margen 10 % por copia: 3,150,327,958 COP · +43.09 % al día · caída máx. 9 % · días ganadores 32 de 32
+
+== 建斌论坛 (8.º por ROI 180 días (+5.727 %)) · 115 posiciones en 49 días (2.3 al día) ==
+   Monedas: ZECUSDT 21, ETHUSDT 17, SKHYNIXUSDT 12, XRPUSDT 10, BCHUSDT 9, DOGEUSDT 9
+   Lado: Long 42, Short 73 · apalancamiento: mediana 10x, máx 35x
+   Duración: mediana 991 min · p90 10467 min
+   Acierto 93.9 % · ganadora media +27.1 % del margen · perdedora media -39.8 % · peor -191.4 % · factor de beneficio 10.50
+   Horas de entrada (UTC) más usadas: 15h 10, 14h 10, 01h 8, 04h 8, 02h 7
+   Antes de entrar (en su lado, 45 posiciones con nuestras velas): 1 h +0.19 % · 4 h +0.19 % (mediana) -> entra sin sesgo claro
+   Copia en papel desde 40.000 COP (optimista: elegido por su pasado):
+     margen 2 % por copia:       65,288 COP · +1.00 % al día · caída máx. 2 % · días ganadores 36 de 37
+     margen 5 % por copia:      131,529 COP · +2.45 % al día · caída máx. 5 % · días ganadores 36 de 37
+     margen 10 % por copia:      392,855 COP · +4.76 % al día · caída máx. 9 % · días ganadores 36 de 37
+
+== Bran Brandon (9.º por ROI 180 días (+5.484 %)) · 26 posiciones en 111 días (0.2 al día) ==
+   Monedas: XAGUSDT 4, BTCUSDT 4, BZUSDT 3, TQQQUSDT 2, COINUSDT 2, WLDUSDT 2
+   Lado: Long 19, Short 7 · apalancamiento: mediana 14x, máx 30x
+   Duración: mediana 2007 min · p90 32163 min
+   Acierto 88.5 % · ganadora media +57.4 % del margen · perdedora media -15.1 % · peor -23.8 % · factor de beneficio 29.22
+   Horas de entrada (UTC) más usadas: 06h 3, 14h 3, 04h 3, 19h 3, 01h 2
+   Antes de entrar (en su lado, 5 posiciones con nuestras velas): 1 h -0.16 % · 4 h -0.45 % (mediana) -> entra contra el movimiento (comprar caídas o vender subidas)
+   Copia en papel desde 40.000 COP (optimista: elegido por su pasado):
+     margen 2 % por copia:       50,802 COP · +0.22 % al día · caída máx. 1 % · días ganadores 12 de 13
+     margen 5 % por copia:       71,379 COP · +0.52 % al día · caída máx. 1 % · días ganadores 12 de 13
+     margen 10 % por copia:      120,638 COP · +1.00 % al día · caída máx. 3 % · días ganadores 12 de 13
+
+== BTC苏行长 (10.º por ROI 180 días (+4.761 %)) · 45 posiciones en 41 días (1.1 al día) ==
+   Monedas: ZECUSDT 20, ETHUSDT 9, SOLUSDT 5, BZUSDT 5, BNBUSDT 4, BTCUSDT 2
+   Lado: Short 25, Long 20 · apalancamiento: mediana 15x, máx 30x
+   Duración: mediana 1606 min · p90 18126 min
+   Acierto 97.8 % · ganadora media +31.4 % del margen · perdedora media -96.7 % · peor -96.7 % · factor de beneficio 14.28
+   Horas de entrada (UTC) más usadas: 09h 5, 15h 4, 14h 4, 08h 4, 10h 4
+   Antes de entrar (en su lado, 20 posiciones con nuestras velas): 1 h +0.04 % · 4 h +0.03 % (mediana) -> entra sin sesgo claro
+   Copia en papel desde 40.000 COP (optimista: elegido por su pasado):
+     margen 2 % por copia:       50,443 COP · +0.56 % al día · caída máx. 2 % · días ganadores 21 de 22
+     margen 5 % por copia:       70,477 COP · +1.38 % al día · caída máx. 5 % · días ganadores 21 de 22
+     margen 10 % por copia:      119,376 COP · +2.67 % al día · caída máx. 10 % · días ganadores 21 de 22
+

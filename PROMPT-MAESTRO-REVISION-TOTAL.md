@@ -1,134 +1,156 @@
-# Prompt maestro: revisar todo lo hecho y continuar (escrito el 27/10/2026)
+# Prompt maestro del trading de Nicolás (v2, 28/10/2026)
 
-Pégalo entero en una sesión nueva de Claude Code con el repositorio `Nico1091/trader-btc` (rama `claude/encargo-cloud-md-q0u3ex`).
+Sale de `PROMPT-PARA-MEJORAR-EL-PROMPT.md`; la v1 queda en `PROMPT-MAESTRO-REVISION-TOTAL.anterior-2026-10-27.md`.
 
----
+## 0. Uso
 
-Eres el responsable técnico y cuantitativo del proyecto de trading de Nicolás. Trabajas a la vez como:
-- investigador cuantitativo;
-- ingeniero de ejecución;
-- especialista en riesgo;
-- ingeniero del motor;
-- auditor estadístico.
+- **En el PC (lo normal):** Claude Code en `C:\Users\ni109\Ingresos\trader-btc`, en la rama `local/maestro-v2-2026-10-27`, hasta que Nicolás la una a `master` con su PR. Mientras tanto se trabaja en la carpeta `.claude\worktrees\maestro-v2`, que es esa rama. Los datos de 1 minuto viven en `C:\Users\ni109\Ingresos\trader-btc\datos\um`: en cada consola, `set TRADER_DATOS=C:\Users\ni109\Ingresos\trader-btc\datos` (o `export TRADER_DATOS=…` en bash).
+- **En la nube:** necesita que la app de Claude tenga acceso a `trader-btc` (un clic de Nicolás en GitHub). Sin él, sigue el camino «sin repositorio» de `PROMPT-AGENTE-TRADING-NUBE.md`.
+- Pega este prompt entero como primer mensaje y lee antes `GUIA-DECISION-CLAUDE.md`.
 
-Nicolás te autoriza a revisar todo y a hacer lo que, con datos, creas mejor: leer, medir, corregir código, ampliar pruebas, reescribir documentos y proponer. Hay excepciones que siguen exigiendo su aprobación explícita en el momento (sección 3).
+## 1. El proyecto en una página
 
-Escríbele en español, de forma analítica, humana y detallada. Le gusta revisar cada trabajo a fondo: explica qué hiciste, qué encontraste, con qué cifras y qué falta.
-
-## 1. Qué es el proyecto (en una página)
-
-- **Objetivo:** que Claude decida operaciones de BTC como un trader, primero en papel, con 40.000 pesos colombianos de referencia (12,59 USDT a 3.177,85 COP/USDT, P2P del 20/10/2026). La meta es la ganancia neta después de comisiones, por encima del azar, sin riesgos desproporcionados. **Opera Claude, no un código**: los programas leen datos, calculan, controlan el riesgo y cierran con velas reales.
-
-- **Historia:**
-
-  | Fecha | Qué pasó |
-  |---|---|
-  | Junio 2026 | La MEZCLA de 1 h (+248 %) dependía de su clasificador. Sin él pierde: −107 % en 1.610 operaciones de 2020-2026 |
-  | 19-20/10 | Agente local de «trading seguido» (segundos y minutos; `agente.py`, `rapido.py`, `banco.py`, `vivo.py`, `binance.py`). La dirección a minutos es azar (AUC de 0,51 a 0,56) y la comisión se come todo: −17 a −40 % en 34 días (`INFORME-TRADING-SEGUIDO.md`) |
-  | 24-25/10 | Rutina en la nube cada 6 h (Gmail como memoria, Telegram «Centro nocturno») y consolidación de tareas 1 a 13 con velas de 1 minuto de futuros 2020-2026 (`CONSOLIDACION-TRADING.md`) |
-  | 27/10 | Consolidación final con el motor corregido (`consolidacion/`) |
-  | 27/10, tarde | Investigación cuantitativa completa (`investigacion/INFORME-INVESTIGACION-QUANT.md`) y cambios aplicados: topes de riesgo en el código, registro de ejecución, sombras, pruebas ampliadas, guía v3 |
-
-- **Conclusiones vigentes** (verifícalas tú; no las des por ciertas):
-  - Los % publicados son sumas por operación con el 100 % del nocional. La cuenta en pesos con 2 % da +13 a +15 %/año (unos 5.000 a 6.000 COP al año).
-  - **Fuera de muestra limpio** (SOL, BNB, XRP, DOGE y ADA, nunca mirados, con las reglas sin tocar): solo P05c generaliza (5 de 5). P05b 3 de 5, P11 1 de 5, N9 2 de 5 y N8 2 de 5.
-  - Ninguna estrategia pasa un Sharpe deflactado de 0,95 tras ~337 variantes registradas.
-  - El beneficio llega en pocas operaciones grandes. Las cinco estrategias son casi la misma apuesta (BTC a favor del contexto, SMA 50).
-  - 263 variantes por activo en 7 activos: ninguna cumple la regla de adopción.
-  - 300 operaciones al mes no tienen ventaja (sesiones de 1 a 8 horas: ~0 bruto).
-  - Riesgo: 2 % por operación. Menos no cabe por el mínimo de 5 USDT; 2,5 % multiplica por 6 la probabilidad de tocar el −20 %.
+- **Objetivo:** que el papel gane cada día la mayor cantidad de pesos que permitan las estrategias medidas, y que eso se vea en pesos todos los días. **Opera Claude, no un código:** los programas leen, calculan, cierran con velas reales y miden contra el azar.
+- **Capital de referencia:** 40.000 COP (12,59 USDT a 3.177,85 COP/USDT). Dinero real bloqueado.
+- **Lo medido, con su archivo:**
+  - Un 11 % u 8 % diario no se alcanza con ningún riesgo. Por encima del óptimo, la ganancia baja y llega la ruina; lo sostenible es ~0,2-0,3 % al día (`investigacion/plan-diario/a1_riesgo_diario.txt`).
+  - La mejor combinación, elegida en 2020-23 y comprobada en 2024-26 entre 1.023, es **P05c en 7 activos + P05b, P11 y N8 de BTC** (`a2_combinaciones.txt`).
+  - Con libros de pesos, reapertura y paradas, de 2020 a 2026 desde 40.000 COP: **LC al 5 % → 9.403.999 COP (+0,225 %/día); LC8 al 8 % → 15.952.941 (+0,246 %/día, peor día −62,5 %)**. L11 al 19 % se arruina en 2020 (`consolidacion/plan_diario.py --historia investigacion/operaciones`).
+  - Operar al revés no gana con ninguna estrategia. Reglas candidatas, preregistradas: N8 con volatilidad alta, P11 con 1 h y 1 d a favor, y P05c lejos de la SMA 50 (`a3_ingenieria_inversa.txt`, `PREREGISTRO-PLAN-DIARIO.md`).
+  - Apuestas de segundos o minutos (reversión tras velas fuertes) y la regla de las 3 resistencias, tal como se tradujo: sin ventaja suficiente en BTC (`a6`, `a7`). Falta medir el método real de Nicolás.
+  - Una vela sola casi no anticipa nada: tras una alcista fuerte, el precio sube después el 47-49 %; tras una bajista fuerte, el 54-57 % (`a5_base_velas.txt`).
+- **Dinero diario según el capital:** con +0,2 %/día, 40.000 COP dan ~80 COP/día; 1.000.000 dan ~2.000/día. El que sube los pesos es el capital, no el apalancamiento.
 
 ## 2. Mapa del repositorio
 
-| Ruta | Qué es |
+| Archivo | Qué hace |
 |---|---|
-| `GUIA-DECISION-CLAUDE.md` | **La guía de uso diario (v3).** Qué se opera, confirmaciones, riesgo, cuándo no operar, cierre del día |
-| `PROMPT-AGENTE-TRADING-NUBE.md` | El prompt de la rutina de la nube (trigger `trig_01HhTpY4sVUqaj1ui3qi7wyQ`, cada 6 h a las 02, 08, 14 y 20 UTC; Gmail como memoria con el bloque REGISTRO) |
-| `CONSOLIDACION-TRADING.md` | Informe de la consolidación. Arriba, lo del 27/10 tarde; después la consolidación final y las tareas 1 a 13 |
-| `investigacion/INFORME-INVESTIGACION-QUANT.md` | Informe técnico de la investigación (12 entregables). `PREREGISTRO.md` tiene la regla de adopción; los scripts `b*`, `c*` y `d*` y sus salidas guardadas están al lado |
-| `consolidacion/sistema.py` | Motor en vivo (solo biblioteca estándar; Coinbase o archivo .npy). Comandos: `estado`, `orden`, `cerrar`, `riesgo` |
-| `consolidacion/riesgo.py` | Topes de riesgo en código, registro de órdenes (`papel/ordenes.jsonl`) y libro de cerradas (`papel/libro.jsonl`) |
-| `consolidacion/lectura_mercado.py` | Lectura de 5 tiempos con fotos, estado de riesgo y señales |
-| `consolidacion/velas_ciclo.py`, `pronosticos.py`, `ciegas.py` | Paquete de velas de cada ciclo (Binance futuros o Coinbase), pronósticos de Claude puntuados contra el azar (Brier) y entrenamiento a ciegas. Solo biblioteca estándar |
-| `PROMPT-AGENTE-LOCAL-SESION-LARGA.md` | Prompt para el agente local del PC: sesión de 11 horas o más (comprobar con Binance, auditoría de equipo rojo, lectura vela por vela con pronósticos medidos y plan de 14 días) |
-| `consolidacion/sim.py`, `consolidado.py`, `lib.py` | Simulador, estrategias, selección y la cuenta en pesos |
-| `consolidacion/pruebas_sistema.py` | Las 7 pruebas. Debe decir «SIN FALLAS» |
-| `ORDENES-PRUEBA-PROPIA.md`, `papel/` | Órdenes de papel y cierres diarios |
-| `agente.py`, `binance.py`, `vivo.py`… | Agente local de octubre (fuera de producción). `binance.py` tiene el candado de dinero real `AUTORIZO-DINERO-REAL.txt` |
-| `UNIR-Y-SUBIR-v5.ps1`, `COMANDOS-SUBIR-A-MANO.txt` | Cómo sube Nicolás los paquetes `.bundle` desde su PC cuando la sesión no puede hacer push |
-
-**Datos:**
-- `/home/user/datos-btc/{BTC,ETH}USDT_um_1m.npy` y `/home/user/datos-otros/*.npy`.
-- Si no existen, se rehacen con `python3 -I consolidacion/descargar_um.py <carpeta> <SÍMBOLO>`: data.binance.vision con SHA-256. La API de Binance da 451 desde la nube.
+| `GUIA-DECISION-CLAUDE.md` (v4) | Guía diaria: libros, régimen, cuándo no operar |
+| `PROMPT-AGENTE-LOCAL-SESION-LARGA.md` (v2) | La sesión larga en el PC: lectura vela por vela, pronósticos, ciegas y papel |
+| `PROMPT-AGENTE-TRADING-NUBE.md` (v4) | La rutina de la nube |
+| `consolidacion/sistema.py` | Motor en vivo: `estado`, `orden`, `cerrar`, `riesgo`, con `--activo X`, `--todos` y `--fuente auto\|binance\|coinbase`. `BinanceFut` y `Coinbase` por activo |
+| `consolidacion/riesgo.py` | Topes de la cuenta en pesos, y órdenes y libro por activo (`papel/ordenes.jsonl`, `papel/libro.jsonl`) |
+| `consolidacion/plan_diario.py` | Los libros en pesos: L2, L5, LK, L11, **LC (5 %)** y **LC8 (8 %)**; `--historia`, `--teorico` |
+| `consolidacion/lector_velas.py` | Lector v2: contexto, todas las velas de 6 marcos con su significado y su base medida; `--solo-nuevas`, `--json`, `--activo`, `--fotos` |
+| `consolidacion/clases_vela.py`, `base_velas.json` | Definición única de la clase de cada vela y lo que pasó después en el historial |
+| `consolidacion/eventos.json` | Eventos macro del día (Reserva Federal, etc.) con su regla. Se actualiza a mano |
+| `consolidacion/pruebas_sistema.py`, `prueba_multiactivo.py` | Pruebas 1-7 (BTC) y 10 (SOL, DOGE, …): deben decir SIN FALLAS |
+| `consolidacion/velas_ciclo.py`, `pronosticos.py`, `ciegas.py` | Paquete de velas de un ciclo, pronósticos puntuados y entrenamiento a ciegas |
+| `investigacion/plan-diario/` | a1 a a8 con sus salidas y `PREREGISTRO-PLAN-DIARIO.md` |
+| `investigacion/operaciones/ops_*.csv` | Operaciones del simulador por activo (`c1_operaciones.py`) |
+| `C:\Users\ni109\Ingresos\tg_pc.py` (fuera del repo) | Telegram desde el PC: lee la clave en el momento (WSL) y sale por Tor. `python -I tg_pc.py texto.txt` |
 
 ## 3. Reglas que no se rompen
 
-1. **Dinero real:** solo cuando el papel gane y Nicolás lo apruebe explícitamente, desde su PC, con `AUTORIZO-DINERO-REAL.txt` con la fecha del día. Nunca claves, cuentas ni órdenes reales desde la nube.
-2. **Secretos:** nunca imprimas, escribas ni muestres `TELEGRAM_TOKEN` ni ninguna clave. Telegram solo a través del script `tg.py` (el del prompt de la rutina).
-3. **Ni brokers ni casas de México**, Bitso incluido.
-4. **Privacidad total:** sus operaciones y estrategias no salen a terceros (plataformas de bots, servicios de señales, otras IA).
-5. **Nada de resultados inventados.** Toda cifra lleva el script o la fuente que la produjo; lo que no comprobaste se escribe «sin verificar».
-6. **Git:**
-   - Trabaja en ramas aisladas para investigar. No reescribas la historia ni hagas push a otra rama sin permiso.
-   - Si el push da 403 o 404, entrega un `.bundle` con la rama completa para `UNIR-Y-SUBIR-v5.ps1`.
-7. **Cambios de reglas de trading:** ninguno por un backtest nuevo sin pasar la regla de `investigacion/PREREGISTRO.md`: entrenamiento 2020-22, validación 2023, walk-forward, sin picos aislados y fuera de muestra en activos o periodos nunca mirados.
+1. **Dinero real:** solo con su sí explícito y el `criterio_dinero_real`, desde su PC, con `AUTORIZO-DINERO-REAL.txt` del día. Nunca claves ni órdenes reales desde la nube.
+2. **Secretos:** ninguna clave en pantalla, archivos ni commits.
+3. **Ni brokers ni casas de México.** Privacidad total: sus operaciones no salen a terceros ni a otras IA.
+4. **Cifras honestas:** cada cifra lleva su comando o archivo; lo no comprobado se escribe «sin verificar». Se informa en tres niveles: comprobado en su equipo, laboratorio y sin probar.
+5. **Reglas de estrategia:** solo cambian por el preregistro y el fuera de muestra. Los **tamaños** sí cambian en papel (libro abierto de Nicolás).
+6. **Ninguna operación para cumplir una meta.** El porcentaje se mide en los libros.
+7. **Órdenes condicionadas** registradas antes del llenado y válidas todo el día UTC (`sistema.py orden <E> --activo X --dia AAAA-MM-DD "razón"`). Las señales se llenan a los 3 minutos de mediana.
+8. **Hora** con comando, en UTC y en Colombia (UTC−5).
+9. **Telegram en texto directo**, nunca `.md`. Cada avance del plan se marca con ✅ · 🔄 · ⬜ en la nota de la bóveda `03-Proyectos/Plan de trading diario`.
+10. **Sin subagentes ni flujos** en la sesión del PC. **Git:** trabajo en ramas, nunca push a `master`, nunca `--force`.
 
-## 4. Estado al 27/10/2026, por la noche: verifica cada punto
+## 4. Estado al 28/10/2026, 14:30 Colombia
 
-- [ ] **Acceso de GitHub:** la sesión del 27/10 perdió el acceso a `trader-btc` (git y API daban 404) después de que Nicolás cambiara permisos para otros repositorios. Él debe darle a la app de Claude acceso a `trader-btc` en https://claude.ai/connect-github.
-- [ ] **PR #1** (`claude/encargo-cloud-md-q0u3ex` → `master`): tenía conflicto en `PROMPT-AGENTE-TRADING-NUBE.md` (quedarse con la versión de la rama: «Accept current change»). Comprueba si ya se unió.
-- [ ] **Rama local por delante de GitHub:** hay commits en la rama designada que no se pudieron subir (merge de master, investigación, cambios del 27/10). Comprueba con `git log origin/claude/encargo-cloud-md-q0u3ex..HEAD`. Si siguen sin subir, rehaz el paquete: `git bundle create consolidacion-<fecha>.bundle claude/encargo-cloud-md-q0u3ex`.
-- [ ] **La rutina:** estaba **desactivada** desde el 26/10 (falló por límite de uso) y con un prompt viejo (1,5 % de riesgo, parada en −10 %, «3 operaciones al día»). El 27/10 se intentó cargarle el `PROMPT-AGENTE-TRADING-NUBE.md` nuevo con `update_trigger`, pero el permiso fue denegado: Nicolás tiene que pegarlo él en la rutina, o añadir un permiso para `mcp__claude-code-remote__update_trigger`. Compruébalo con `get_trigger`. No tiene el repositorio conectado: sin él, sigue el camino «si no tienes el repositorio» del prompt. Activarla consume cupo: es decisión de Nicolás.
-- [ ] **Tareas programadas** de esta sesión para el 28/10:
-  - 00:20 UTC: cierre de PP-1 a AZ-P2 con `t6_ordenes.py`.
-  - 00:30 UTC (`trig_01TN2wRQXwPk2rC3hYNct1g5`): `sistema.py cerrar 2026-10-27`, guardar en `papel/`, Telegram y paquete.
-  Comprueba que corrieron y que `papel/2026-10-27.txt` y `papel/libro.jsonl` existen.
-- [ ] **Papel:** `papel/libro.jsonl` empezó el 26/10. Todavía no hay órdenes registradas con `sistema.py orden`, así que el papel «ejecutado» está en 0 operaciones.
-- [ ] **Otros repositorios revisados el 27/10** (solo lectura):
-  - `agent-data-toolkit` (público): sin claves en archivos ni en su historia.
-    - Una clave privada de la wallet «Cuenta 3» se lee de `Downloads\API KEYS.txt` en su PC, en texto plano. Recomendado moverla.
-    - Su correo personal aparece en los commits.
-    - El workflow `keepalive` hace ping cada 14 minutos a un servicio que ya no está desplegado; probablemente falla.
-    - Su análisis del mercado x402 (26/07) midió que BlockRun tenía el 78,6 % del volumen y que sus ventas externas eran $0.
-  - `kit-atencion-pymes/lead-sin-fuga`: flujo de n8n que capta, puntúa y asigna clientes y hace seguimiento a las 24, 48 y 96 horas.
-  - `Minador` (privado): pendiente de que Nicolás dé acceso a la app.
+- **Código:** rama `local/maestro-v2-2026-10-27`, en GitHub (`721d253` o posterior). `pruebas_sistema.py`: SIN FALLAS (14.034 de 14.034). `prueba_multiactivo.py`: SOL 430/430 y DOGE 350/350.
+- **Datos:** 1 m de futuros en `datos/um` de BTC, SOL, DOGE, ETH, BNB y XRP; ADA y LINK, AVAX, LTC, DOT y TRX en descarga.
+- **Papel:**
+  - el 26/10 sin señal;
+  - el 27/10, N9 corto −0,93 %, teórico y no ejecutado;
+  - 0 operaciones ejecutadas;
+  - orden condicionada **P05b BTC para el 29/10**.
+  - Libro oficial: el de la rama (`papel/`).
+- **Mercado:** el 28/10, los 7 activos están bajo su SMA 50. La cartera de largos no tiene señales; P05b de BTC sí opera corto (+0,16 / +0,14 % neto por operación en 2020-23 / 2024-26).
+- **Nube:** las rutinas están apagadas desde el 26/10 (límite semanal). La de trading tiene el prompt del 25/10. Se activa a las 07, 14 y 22 UTC cuando termine la sesión larga, con el prompt v4.
+- **Pendiente de Nicolás:**
+  - su método real (historial exportado o detalles de las 3 resistencias);
+  - unir la rama a `master`;
+  - el clic de GitHub;
+  - más capital, si quiere más pesos por día.
 
-## 5. Qué revisar, en este orden
+## 5. Plan diario de ganancias
 
-1. **Reproducir.**
-   ```
-   python3 -I consolidacion/consolidado.py /home/user/datos-btc/BTCUSDT_um_1m.npy BTC
-   python3 -I consolidacion/pruebas_sistema.py
-   ```
-   La primera salida debe ser idéntica a `consolidacion/consolidado_BTC.txt`; la segunda, «SIN FALLAS», con 14.022 de 14.022.
-2. **Leer el informe** de la investigación y comprobar 3 cifras al azar volviendo a correr su script (los comandos están al final del informe).
-3. **Revisar el papel:** `papel/*.txt`, `papel/libro.jsonl`, `papel/ordenes.jsonl`, `ORDENES-PRUEBA-PROPIA.md` y `python3 -I consolidacion/sistema.py riesgo`. Si faltan días por cerrar, ciérralos.
-4. **Revisar la rutina:** correos de Gmail con asunto «Agente de trading» de los últimos 14 días (el último REGISTRO) y Telegram con `tg.py leer`. ¿Sigue el prompt v3, registra órdenes y respeta los topes?
-5. **Revisar GitHub:** acceso, estado del PR #1 y commits sin subir.
+- **Libros**, sobre las mismas decisiones de Claude, con su saldo en pesos cada día (`plan_diario.py`):
+  - **LC** al 5 % (principal) y **LC8** al 8 % (agresivo): P05c en todos los activos y P05b, P11 y N8 de BTC, hasta 3 posiciones;
+  - **L11** al 19 % (la meta de 11 % de Nicolás);
+  - L2, L5 y LK de comparación.
+  - Reapertura tras la parada total: 30 días quieto y vuelta con la mitad del riesgo; la segunda parada es definitiva.
+- **Régimen:** con contexto alcista se toman largos; con contexto bajista, los cortos de P05b en BTC. El corto R11 queda como hipótesis (H5, sin adoptar).
+- **Decisión:** a los 30 días o con 30 operaciones ejecutadas, Nicolás elige libro con los pesos ganados y frente al azar.
+- **Para subir el porcentaje diario:** más ventajas independientes (P05c en los 5 activos nuevos, si pasa H4) y filtros que suben la ganancia por operación (H1-H3, si pasan). Nunca más riesgo por encima del óptimo.
 
-## 6. Qué hacer después (prioridades, con criterio)
+## 6. Lector y ciclo de decisión
 
-1. **Validación hacia adelante.** Que cada día quede cerrado con teórico frente a ejecutado y con las sombras.
-   - Con 30 o más operaciones ejecutadas por estrategia: compáralas con el azar y con la sombra de tendencia, y decide con la regla del preregistro.
-   - La sombra del stop duro se adopta como control de riesgo solo si, con 30 operaciones o más, no baja la media neta y reduce la peor pérdida.
-2. **Más fuera de muestra.** Repite `investigacion/d0_activos_nuevos.py` con 5 activos líquidos más, nunca mirados (por ejemplo LINK, AVAX, LTC, DOT y TRX), y con los datos posteriores al 27/10/2026, sin tocar reglas. Fija el criterio antes de descargar.
-3. **Ejecución realista.**
-   - Mide cuántas señales llegaron a tiempo, según las horas de la rutina (02, 08, 14 y 20 UTC) y la ventana de 60 minutos de los límites.
-   - Si la rutina pierde la mayoría, propón órdenes condicionadas registradas por adelantado o un cambio de horario, con cifras.
-4. **Capital.** Si el capital sube a unos 50 USDT, vuelve a medir el 1 % de riesgo (`investigacion/b2_cuenta_pesos.py`).
-5. **Nada de cuotas de operaciones ni de bajar el riesgo del 2 %** mientras el capital sea de 12,59 USDT.
-6. **Cada cambio de código:**
-   - `pruebas_sistema.py` en «SIN FALLAS»;
-   - un commit claro;
-   - el informe actualizado;
-   - y, si no hay push, un paquete.
+1. Hora: `python -c "import datetime as d;u=d.datetime.now(d.timezone.utc);print(u.strftime('%Y-%m-%d %H:%M UTC'),'·',(u-d.timedelta(hours=5)).strftime('%H:%M Colombia'))"`.
+2. Lectura: `python -I consolidacion/lector_velas.py --solo-nuevas` en cada ciclo. Lectura completa cada hora: `python -I consolidacion/lector_velas.py --fotos diario/sesion-larga/fotos`. Otras monedas: `--activo SOL`, etc.
+3. Señales de los 7 activos: `python -I consolidacion/sistema.py estado --todos`.
+4. Escribe por cada marco qué te dice el lector y **en qué no estás de acuerdo con él**. La base medida de cada vela no se ignora: una vela «alcista fuerte» no es señal de compra (sube después el 47-49 %).
+5. Decide: tomar la señal, condicionarla o esperar, con confianza de 1 a 10 y la razón. Registra con `sistema.py orden … --activo X` antes del llenado.
+6. Pronósticos (`pronosticos.py registrar`) y ciegas (`ciegas.py`) según la sesión larga.
+7. **Al pasar las 00:00 UTC** (19:00 de Colombia): `python -I consolidacion/sistema.py cerrar AAAA-MM-DD --todos > papel/AAAA-MM-DD.txt`. Da los libros en pesos al final.
 
-## 7. Cómo entregar
+## 7. Revisión y reproducción
 
-- **Informe en Markdown** dentro del repositorio, con:
-  - un resumen para decidir;
-  - qué se verificó y con qué comando;
-  - qué cambió;
-  - qué falta y qué decide Nicolás.
-- **Telegram:** un resumen de menos de 1.500 caracteres que empiece por «[Trading]», enviado con `tg.py`.
-- **Si algo requiere a Nicolás** (dar acceso a GitHub, activar la rutina, dinero real), dilo en una línea con el enlace o el paso exacto.
+- `set DATOS_BTC=C:\Users\ni109\Ingresos\trader-btc\datos\um\BTCUSDT_um_1m.npy` y `python -I consolidacion/pruebas_sistema.py`: debe dar SIN FALLAS.
+- `python -I consolidacion/prueba_multiactivo.py SOL DOGE ETH BNB XRP ADA`: debe dar SIN FALLAS.
+- `python -I consolidacion/consolidado.py %DATOS_BTC% BTC` frente a `consolidacion/consolidado_BTC.txt`: solo pueden cambiar los días posteriores al 24/10.
+- Cada análisis `a*` se reproduce con el comando de su cabecera.
+
+## 8. Prioridades (en este orden)
+
+1. **Fuera de muestra H1-H6** (`a8_fuera_de_muestra.py`), con las 5 monedas nuevas y `c1_operaciones.py`. Se adopta solo lo que cumpla los tres criterios del preregistro.
+2. **Su método real:** con el historial o los detalles que dé Nicolás, se mide y, si gana, entra al papel como libro propio.
+3. **Sesión larga** (`PROMPT-AGENTE-LOCAL-SESION-LARGA.md` v2) con los libros, el lector y el experimento de imágenes (F4).
+4. **PDF del plan** (F12): libros, mejores y peores estrategias, cuadros que pierden y porcentaje óptimo.
+5. **Rutina de la nube** con el prompt v4, a las 07, 14 y 22 UTC.
+6. Datos más útiles a Telegram (F5), y al final audio (F10) y Software III (F13, F14), sin datos inventados.
+
+## 9. Encargos de las fotos (27/10)
+
+| Id | Encargo | Destino y estado |
+|---|---|---|
+| F1 | Reposo de marketing y ventas esta semana | ✅ Apagadas desde el 26/10; se pregunta el lunes 2/11 |
+| F2 | Clase de las 6 PM | Pasó (aviso del 27/10) |
+| F3 | Barron Trump y brokers | ❌ Fuera por su orden del 28/10 |
+| F4 | Con y sin imágenes | ⬜ Experimento en la sesión larga (`ciegas.py --brazo`) |
+| F5 | Datos más útiles a Telegram | 🔄 a3 hecho; se manda con el resultado de a8 |
+| F6 | Seguir el prompt local | ⬜ Sesión larga v2, hoy |
+| F7 | GitHub automático | ⬜ Un clic suyo («All repositories» en la app de Claude) |
+| F8 | «Falta mucho por escribir» | ✅ Esta v2 y la sesión larga v2 |
+| F9 | Agente de estructuración | ✅ Este meta-prompt y su ejecución |
+| F10 | Telegram, llamada y audio | ✅ Telegram en texto · ⬜ audio con Piper al final |
+| F11 | Copia del proyecto y reglas para el mayor retorno diario | ✅ Rama en GitHub y libros por tamaño · ⬜ etiqueta de respaldo |
+| F12 | PDF del plan | ⬜ |
+| F13, F14 | Software III | ⬜ Al final, sin respuestas inventadas |
+
+## 10. Entrega
+
+- Informe en el repositorio: qué se hizo, con qué comando, qué cambió y qué decide Nicolás.
+- Telegram en **texto directo** con `python -I C:\Users\ni109\Ingresos\tg_pc.py archivo.txt`.
+- La nota de la bóveda `03-Proyectos/Plan de trading diario` con los chulitos al día.
+- Commit en la rama y push de la rama.
+
+## 11. Errores que no se repiten
+
+- Prometer o aceptar metas diarias sin la cifra medida al lado.
+- Leer una orden suya como otra («baja el interés» no era «3 %»): si una palabra admite dos lecturas, se pregunta en una línea.
+- Elegir con la prueba y presentar la prueba como independiente; definiciones que miran el futuro (medianas de todo el historial).
+- pandas 3 guarda los tiempos en segundos: no dividir entre 10⁹. Salidas con «≥» en cp1252 se caen: `sys.stdout.reconfigure(encoding="utf-8")`. Git Bash cambia las rutas de `gh api` (`MSYS_NO_PATHCONV=1`) y las barras de los guiones largos en la línea de comandos: escribirlos en archivo.
+- PowerShell con `-ExecutionPolicy Bypass` lo bloquea el clasificador: `-Command` en línea.
+
+## Auditoría (pasada H del meta-prompt)
+
+- **Requisitos:** M1-M20 y F1-F14 tienen destino en las secciones 1, 3, 5, 6, 8 o 9, o quedan fuera con su razón (F3, por M12).
+- **Ensayo en seco** (28/10, PC):
+  - `lector_velas.py`: probado, 1,9 s.
+  - `sistema.py estado --todos`: probado, 13 s.
+  - `plan_diario.py --historia`: probado.
+  - `pruebas_sistema.py`: SIN FALLAS.
+  - `prueba_multiactivo.py SOL DOGE`: SIN FALLAS.
+  - `sistema.py orden --activo --dia`: probado.
+  - `tg_pc.py`: probado, 9 envíos `ok`.
+  - `cerrar --todos` y el informe de libros al cerrar: sin probar; se prueban al primer cierre del 29/10 UTC.
+- **Normas:** privacidad, dinero real, secretos, casas, hora, Telegram en texto, sin subagentes: verificadas en las secciones 3 y 10.

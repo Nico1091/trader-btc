@@ -110,7 +110,7 @@ class BinanceFut:
         return [out[k] for k in sorted(out)]
 
 
-ACTIVOS_LC = ("BTC", "ETH", "SOL", "BNB", "XRP", "DOGE", "ADA")
+ACTIVOS_LC = ("BTC", "ETH", "SOL", "BNB", "XRP", "DOGE", "ADA", "LINK", "AVAX", "LTC", "DOT", "TRX")  # 5 últimos: fuera de muestra a8 (28/10)
 
 
 def fuente_para(activo="BTC", preferida="auto"):
