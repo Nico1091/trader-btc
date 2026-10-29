@@ -1,0 +1,62 @@
+T2 · BINARIAS POR TIEMPO · 12 monedas de futuros de Binance, velas de 1 min de 2020-2026
+acierto en 2020-23 / 2024-26 (n de la segunda mitad) · para no perder con pago 85 % hace falta 54,1 %
+
+vela  1 min · vence en   1 min · REV : 50,24 % / 49,60 % (n=2.212.860) · mejor preventiva AMERICA: 50,89 % / 50,19 % (n=723.332)
+vela  1 min · vence en   1 min · CONT: 43,62 % / 44,61 % (n=2.212.860) · mejor preventiva CTX    : 44,36 % / 44,82 % (n=1.110.833)
+vela  1 min · vence en   1 min · RECH: 44,25 % / 45,33 % (n=1.092.312) · mejor preventiva VALTA  : 46,26 % / 46,82 % (n=389.999)
+vela  1 min · vence en   1 min · AZAR: 46,31 % / 46,56 % (n=1.783.660) · mejor preventiva VALTA  : 47,10 % / 47,18 % (n=724.935)
+vela  1 min · vence en   3 min · REV : 51,15 % / 50,48 % (n=2.212.860) · mejor preventiva EUROPA : 50,97 % / 50,83 % (n=576.197)
+vela  1 min · vence en   3 min · CONT: 45,17 % / 46,18 % (n=2.212.860) · mejor preventiva CTX    : 45,75 % / 46,35 % (n=1.110.833)
+vela  1 min · vence en   3 min · RECH: 47,06 % / 47,63 % (n=1.092.311) · mejor preventiva VALTA  : 48,77 % / 48,78 % (n=389.999)
+vela  1 min · vence en   3 min · AZAR: 47,93 % / 48,13 % (n=1.783.659) · mejor preventiva VALTA  : 48,35 % / 48,43 % (n=724.935)
+vela  5 min · vence en   5 min · REV : 53,32 % / 51,10 % (n=436.486) · mejor preventiva CTX    : 53,81 % / 51,49 % (n=218.299)
+vela  5 min · vence en   5 min · CONT: 44,27 % / 46,73 % (n=436.486) · mejor preventiva ASIA   : 45,18 % / 47,62 % (n=114.778)
+vela  5 min · vence en   5 min · RECH: 49,44 % / 49,80 % (n=190.427) · mejor preventiva VALTA  : 50,93 % / 50,55 % (n=68.775)
+vela  5 min · vence en   5 min · AZAR: 48,45 % / 48,66 % (n=357.862) · mejor preventiva VALTA  : 48,84 % / 49,01 % (n=144.900)
+vela  5 min · vence en  15 min · REV : 52,97 % / 51,83 % (n=436.483) · mejor preventiva VBAJA  : 52,89 % / 52,10 % (n=207.345)
+vela  5 min · vence en  15 min · CONT: 45,58 % / 46,83 % (n=436.483) · mejor preventiva ASIA   : 46,53 % / 47,44 % (n=114.778)
+vela  5 min · vence en  15 min · RECH: 51,59 % / 50,70 % (n=190.426) · mejor preventiva VALTA  : 52,94 % / 51,15 % (n=68.775)
+vela  5 min · vence en  15 min · AZAR: 49,13 % / 49,31 % (n=357.859) · mejor preventiva VALTA  : 49,27 % / 49,40 % (n=144.900)
+vela 15 min · vence en  15 min · REV : 54,01 % / 53,39 % (n=140.908) · mejor preventiva EUROPA : 54,79 % / 53,92 % (n=27.131)
+vela 15 min · vence en  15 min · CONT: 44,75 % / 45,47 % (n=140.908) · mejor preventiva CTX    : 45,62 % / 45,83 % (n=69.957)
+vela 15 min · vence en  15 min · RECH: 51,44 % / 49,87 % (n=60.364) · mejor preventiva EUROPA : 51,40 % / 50,32 % (n=15.426)
+vela 15 min · vence en  15 min · AZAR: 49,28 % / 49,30 % (n=118.976) · mejor preventiva VALTA  : 49,68 % / 49,37 % (n=49.982)
+vela 15 min · vence en  45 min · REV : 53,76 % / 52,14 % (n=140.908) · mejor preventiva VALTA  : 53,80 % / 52,51 % (n=74.567)
+vela 15 min · vence en  45 min · CONT: 45,41 % / 47,11 % (n=140.908) · mejor preventiva CTX    : 46,10 % / 46,94 % (n=69.957)
+vela 15 min · vence en  45 min · RECH: 51,68 % / 50,46 % (n=60.364) · mejor preventiva VALTA  : 53,31 % / 51,18 % (n=22.732)
+vela 15 min · vence en  45 min · AZAR: 49,71 % / 49,57 % (n=118.975) · mejor preventiva VALTA  : 50,02 % / 49,96 % (n=49.981)
+vela 60 min · vence en  60 min · REV : 55,56 % / 53,75 % (n=36.524) · mejor preventiva EUROPA : 55,23 % / 55,55 % (n=6.918)
+vela 60 min · vence en  60 min · CONT: 43,87 % / 45,71 % (n=36.524) · mejor preventiva AMERICA: 44,80 % / 46,94 % (n=16.379)
+vela 60 min · vence en  60 min · RECH: 50,14 % / 50,31 % (n=14.332) · mejor preventiva ASIA   : 54,17 % / 52,43 % (n=3.717)
+vela 60 min · vence en  60 min · AZAR: 49,74 % / 49,70 % (n=29.518) · mejor preventiva ASIA   : 50,18 % / 50,22 % (n=8.727)
+vela 60 min · vence en 180 min · REV : 54,41 % / 52,53 % (n=36.524) · mejor preventiva EUROPA : 54,03 % / 53,95 % (n=6.918)
+vela 60 min · vence en 180 min · CONT: 45,14 % / 47,15 % (n=36.524) · mejor preventiva VBAJA  : 46,19 % / 48,44 % (n=18.618)
+vela 60 min · vence en 180 min · RECH: 51,30 % / 50,41 % (n=14.332) · mejor preventiva VBAJA  : 50,69 % / 50,61 % (n=8.893)
+vela 60 min · vence en 180 min · AZAR: 49,88 % / 49,50 % (n=29.513) · mejor preventiva EUROPA : 49,71 % / 50,15 % (n=7.402)
+
+COMBINACIONES QUE GANAN CON PAGO 85 % EN LAS DOS MITADES (≥ 54,1 % y ≥ 300 apuestas en cada una): 28
+   VIEJAS vela 60 min, vence  60 min, REV  con EUROPA : 56,22 % / 56,18 % (n 5.254 / 3.373) · con 2 % por apuesta, +0,079 % del saldo por apuesta en la peor mitad
+   BTC    vela 15 min, vence  15 min, REV  con CTX    : 56,42 % / 56,11 % (n 7.534 / 5.974) · con 2 % por apuesta, +0,076 % del saldo por apuesta en la peor mitad
+   VIEJAS vela 60 min, vence  60 min, REV  con VALTA  : 57,19 % / 55,81 % (n 12.060 / 9.046) · con 2 % por apuesta, +0,065 % del saldo por apuesta en la peor mitad
+   BTC    vela 15 min, vence  15 min, REV  con EUROPA : 55,81 % / 55,95 % (n 3.290 / 1.957) · con 2 % por apuesta, +0,065 % del saldo por apuesta en la peor mitad
+   BTC    vela 60 min, vence  60 min, REV  con VALTA  : 56,55 % / 55,61 % (n 2.039 / 1.692) · con 2 % por apuesta, +0,058 % del saldo por apuesta en la peor mitad
+   TODAS  vela 60 min, vence  60 min, REV  con EUROPA : 55,23 % / 55,55 % (n 10.222 / 6.918) · con 2 % por apuesta, +0,044 % del saldo por apuesta en la peor mitad
+   BTC    vela 15 min, vence  15 min, REV  con —      : 55,24 % / 55,13 % (n 15.751 / 12.032) · con 2 % por apuesta, +0,040 % del saldo por apuesta en la peor mitad
+   TODAS  vela 60 min, vence  60 min, REV  con VALTA  : 56,46 % / 55,13 % (n 23.608 / 17.906) · con 2 % por apuesta, +0,040 % del saldo por apuesta en la peor mitad
+   VIEJAS vela 60 min, vence 180 min, REV  con EUROPA : 55,01 % / 55,08 % (n 5.254 / 3.373) · con 2 % por apuesta, +0,035 % del saldo por apuesta en la peor mitad
+   BTC    vela 15 min, vence  15 min, REV  con AMERICA: 55,22 % / 54,93 % (n 6.606 / 5.913) · con 2 % por apuesta, +0,032 % del saldo por apuesta en la peor mitad
+   BTC    vela 15 min, vence  15 min, REV  con VBAJA  : 54,90 % / 56,04 % (n 7.831 / 5.319) · con 2 % por apuesta, +0,031 % del saldo por apuesta en la peor mitad
+   VIEJAS vela 60 min, vence  60 min, REV  con ASIA   : 56,57 % / 54,82 % (n 6.763 / 4.615) · con 2 % por apuesta, +0,028 % del saldo por apuesta en la peor mitad
+   VIEJAS vela 60 min, vence  60 min, REV  con CTX    : 56,62 % / 54,75 % (n 11.481 / 9.127) · con 2 % por apuesta, +0,026 % del saldo por apuesta en la peor mitad
+   VIEJAS vela 15 min, vence  15 min, REV  con EUROPA : 54,82 % / 54,65 % (n 19.813 / 13.075) · con 2 % por apuesta, +0,022 % del saldo por apuesta en la peor mitad
+   VIEJAS vela 15 min, vence  15 min, REV  con CTX    : 55,17 % / 54,55 % (n 42.994 / 35.159) · con 2 % por apuesta, +0,018 % del saldo por apuesta en la peor mitad
+   VIEJAS vela 60 min, vence  60 min, REV  con —      : 56,18 % / 54,42 % (n 24.325 / 18.345) · con 2 % por apuesta, +0,013 % del saldo por apuesta en la peor mitad
+   BTC    vela 15 min, vence  15 min, REV  con VALTA  : 55,60 % / 54,40 % (n 7.867 / 6.713) · con 2 % por apuesta, +0,013 % del saldo por apuesta en la peor mitad
+   BTC    vela 15 min, vence  15 min, REV  con ASIA   : 54,34 % / 55,51 % (n 3.763 / 2.787) · con 2 % por apuesta, +0,011 % del saldo por apuesta en la peor mitad
+   BTC    vela 60 min, vence  60 min, REV  con EUROPA : 54,32 % / 56,85 % (n 845 / 489) · con 2 % por apuesta, +0,010 % del saldo por apuesta en la peor mitad
+   BTC    vela  5 min, vence  15 min, REV  con VBAJA  : 55,00 % / 54,18 % (n 23.815 / 16.459) · con 2 % por apuesta, +0,005 % del saldo por apuesta en la peor mitad
+   NUEVAS vela 60 min, vence  60 min, REV  con EUROPA : 54,16 % / 54,65 % (n 4.123 / 3.056) · con 2 % por apuesta, +0,004 % del saldo por apuesta en la peor mitad
+   VIEJAS vela 60 min, vence 180 min, REV  con VALTA  : 56,17 % / 54,16 % (n 12.060 / 9.046) · con 2 % por apuesta, +0,004 % del saldo por apuesta en la peor mitad
+   NUEVAS vela 60 min, vence  60 min, REV  con VALTA  : 55,52 % / 54,14 % (n 9.509 / 7.168) · con 2 % por apuesta, +0,003 % del saldo por apuesta en la peor mitad
+   BTC    vela 60 min, vence 180 min, REV  con VALTA  : 54,44 % / 54,14 % (n 2.039 / 1.692) · con 2 % por apuesta, +0,003 % del saldo por apuesta en la peor mitad
+   BTC    vela  5 min, vence   5 min, REV  con VBAJA  : 57,25 % / 54,12 % (n 23.815 / 16.459) · con 2 % por apuesta, +0,003 % del saldo por apuesta en la peor mitad

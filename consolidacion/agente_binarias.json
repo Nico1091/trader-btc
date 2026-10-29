@@ -1,0 +1,15 @@
+{
+ "fecha": "2026-10-29",
+ "familia": "B15",
+ "preventiva": "CTX",
+ "activos": [
+  "BTC"
+ ],
+ "vela_min": 15,
+ "vence_min": 15,
+ "senal": "REV: cuerpo ≥ 2 × media de los 100 previos; apuesta en contra",
+ "capital_cop": 150000,
+ "apuesta": 0.02,
+ "pago": 0.85,
+ "acierto_real_peor_mitad": 54.740368509212736
+}

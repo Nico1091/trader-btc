@@ -1,0 +1,31 @@
+{
+ "fecha": "2026-10-29",
+ "mezcla": "LC (actual: P05c en 12 + P05b, P11, N8 de BTC)",
+ "riesgo": 0.05,
+ "max_abiertas": 1,
+ "apal_max": 10,
+ "capital_cop": 150000,
+ "preventivas": {
+  "P05b": [],
+  "P05c": [],
+  "P11": [],
+  "N8": [
+   "C1",
+   "C3"
+  ],
+  "N9": []
+ },
+ "estrategias_btc": [
+  "P05b",
+  "P11",
+  "N8"
+ ],
+ "estrategias_resto": [
+  "P05c"
+ ],
+ "paradas": {
+  "dia": 0.15,
+  "semana": 0.3,
+  "total": 0.6
+ }
+}

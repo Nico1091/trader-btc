@@ -1,0 +1,143 @@
+T1 · PRUEBA TOTAL · 18.349 operaciones de 12 monedas · 2020-2026 · capital 150 mil COP
+A = 2020-2023 (ajuste) · B = 2024-2026 (prueba) · BTC / VIEJAS (ETH, SOL, BNB, XRP, DOGE, ADA) / NUEVAS (LINK, AVAX, LTC, DOT, TRX)
+
+PASO 1 · PREVENTIVAS, UNA POR UNA (media neta por operación con comisión doble; n entre paréntesis)
+
+== P05b sin preventiva: A-BTC +0,160 (280) · A-VIEJAS +0,155 (1712) · A-NUEVAS -0,023 (1409) · B-BTC +0,026 (226) · B-VIEJAS -0,224 (1369) · B-NUEVAS -0,194 (1108)
+   H17     señal antes de las 17 UTC                  conserva  86 % · mejora en 5 de 6 celdas · A-BTC +0,198 · A-VIEJAS +0,172 · A-NUEVAS -0,074 · B-BTC +0,128 · B-VIEJAS -0,197 · B-NUEVAS -0,168
+   ASIA    señal en Asia (00-07 UTC)                  conserva  33 % · mejora en 3 de 6 celdas · A-BTC +0,354 · A-VIEJAS +0,654 · A-NUEVAS -0,145 · B-BTC +0,062 · B-VIEJAS -0,299 · B-NUEVAS -0,400
+   EUROPA  señal en Europa (07-13 UTC)                conserva  28 % · mejora en 3 de 6 celdas · A-BTC +0,028 · A-VIEJAS -0,268 · A-NUEVAS -0,268 · B-BTC +0,243 · B-VIEJAS -0,059 · B-NUEVAS +0,071
+   AMERICA señal en América (13-21 UTC)               conserva  38 % · mejora en 1 de 6 celdas · A-BTC +0,107 · A-VIEJAS +0,000 · A-NUEVAS +0,323 · B-BTC -0,065 · B-VIEJAS -0,256 · B-NUEVAS -0,232
+   SEMANA  sin sábado ni domingo                      conserva  79 % · mejora en 3 de 6 celdas · A-BTC +0,222 · A-VIEJAS +0,175 · A-NUEVAS +0,026 · B-BTC -0,005 · B-VIEJAS -0,247 · B-NUEVAS -0,362
+   CERCA   cierre de ayer a ≤ 5 % de la SMA 50        conserva  27 % · mejora en 2 de 6 celdas · A-BTC +0,002 · A-VIEJAS -0,079 · A-NUEVAS -0,155 · B-BTC -0,040 · B-VIEJAS -0,028 · B-NUEVAS -0,178
+   LEJOS   cierre de ayer a > 10 % de la SMA 50       conserva  52 % · mejora en 3 de 6 celdas · A-BTC +0,149 · A-VIEJAS +0,384 · A-NUEVAS +0,027 · B-BTC +0,062 · B-VIEJAS -0,424 · B-NUEVAS -0,277
+   VBAJA   volatilidad baja (ATR ≤ 3 % del precio)    conserva   8 % · mejora en 4 de 6 celdas · A-BTC +0,478 · A-VIEJAS +0,119 · A-NUEVAS -0,029 · B-BTC +0,075 · B-VIEJAS +0,335 · B-NUEVAS +0,089
+   VALTA   volatilidad alta (ATR > 5 % del precio)    conserva  65 % · mejora en 2 de 6 celdas · A-BTC -0,096 · A-VIEJAS +0,230 · A-NUEVAS +0,010 · B-BTC -0,006 · B-VIEJAS -0,444 · B-NUEVAS -0,325
+   C1      1 h a favor                                conserva  97 % · mejora en 3 de 6 celdas · A-BTC +0,140 · A-VIEJAS +0,210 · A-NUEVAS -0,013 · B-BTC +0,032 · B-VIEJAS -0,265 · B-NUEVAS -0,213
+   C2      1 h y 1 día a favor                        conserva  84 % · mejora en 1 de 6 celdas · A-BTC +0,140 · A-VIEJAS +0,228 · A-NUEVAS -0,065 · B-BTC +0,017 · B-VIEJAS -0,344 · B-NUEVAS -0,235
+   C3      1 h, 4 h y 1 día a favor                   conserva  76 % · mejora en 2 de 6 celdas · A-BTC +0,190 · A-VIEJAS +0,305 · A-NUEVAS -0,112 · B-BTC -0,023 · B-VIEJAS -0,339 · B-NUEVAS -0,224
+   PAT     patrón de 1 h a favor                      conserva  19 % · mejora en 5 de 6 celdas · A-BTC +0,258 · A-VIEJAS +0,175 · A-NUEVAS +0,275 · B-BTC +0,471 · B-VIEJAS -0,136 · B-NUEVAS -0,421
+
+== P05c sin preventiva: A-BTC +0,629 (48) · A-VIEJAS +1,020 (343) · A-NUEVAS +0,454 (291) · B-BTC +0,558 (44) · B-VIEJAS +0,352 (211) · B-NUEVAS +0,481 (182)
+   H17     señal antes de las 17 UTC                  conserva  80 % · mejora en 5 de 6 celdas · A-BTC +0,845 · A-VIEJAS +1,062 · A-NUEVAS +0,459 · B-BTC +0,548 · B-VIEJAS +0,434 · B-NUEVAS +0,643
+   ASIA    señal en Asia (00-07 UTC)                  conserva  22 % · mejora en 3 de 4 celdas · A-VIEJAS +1,760 · A-NUEVAS -0,358 · B-VIEJAS +0,542 · B-NUEVAS +1,866
+   EUROPA  señal en Europa (07-13 UTC)                conserva  29 % · mejora en 3 de 4 celdas · A-VIEJAS +1,298 · A-NUEVAS +0,690 · B-VIEJAS +0,605 · B-NUEVAS +0,218
+   AMERICA señal en América (13-21 UTC)               conserva  48 % · mejora en 2 de 6 celdas · A-BTC +0,745 · A-VIEJAS +0,429 · A-NUEVAS +0,683 · B-BTC +0,347 · B-VIEJAS +0,117 · B-NUEVAS -0,062
+   SEMANA  sin sábado ni domingo                      conserva  76 % · mejora en 5 de 6 celdas · A-BTC +0,948 · A-VIEJAS +1,301 · A-NUEVAS +0,124 · B-BTC +0,591 · B-VIEJAS +0,506 · B-NUEVAS +0,531
+   CERCA   cierre de ayer a ≤ 5 % de la SMA 50        conserva  18 % · mejora en 1 de 4 celdas · A-VIEJAS -0,184 · A-NUEVAS -0,136 · B-VIEJAS +0,532 · B-NUEVAS -0,531
+   LEJOS   cierre de ayer a > 10 % de la SMA 50       conserva  66 % · mejora en 4 de 5 celdas · A-BTC +0,622 · A-VIEJAS +1,417 · A-NUEVAS +0,792 · B-VIEJAS +0,433 · B-NUEVAS +1,183
+   VBAJA   volatilidad baja (ATR ≤ 3 % del precio)    conserva  13 % · mejora en 1 de 4 celdas · A-NUEVAS -0,718 · B-BTC +0,776 · B-VIEJAS -0,248 · B-NUEVAS -0,266
+   VALTA   volatilidad alta (ATR > 5 % del precio)    conserva  59 % · mejora en 3 de 4 celdas · A-VIEJAS +1,485 · A-NUEVAS +0,836 · B-VIEJAS +0,291 · B-NUEVAS +1,475
+   C1      1 h a favor                                conserva 100 % · mejora en 0 de 6 celdas · A-BTC +0,629 · A-VIEJAS +1,020 · A-NUEVAS +0,454 · B-BTC +0,558 · B-VIEJAS +0,352 · B-NUEVAS +0,481
+   C2      1 h y 1 día a favor                        conserva 100 % · mejora en 0 de 6 celdas · A-BTC +0,629 · A-VIEJAS +1,020 · A-NUEVAS +0,454 · B-BTC +0,558 · B-VIEJAS +0,352 · B-NUEVAS +0,481
+   C3      1 h, 4 h y 1 día a favor                   conserva 100 % · mejora en 0 de 6 celdas · A-BTC +0,629 · A-VIEJAS +1,020 · A-NUEVAS +0,454 · B-BTC +0,558 · B-VIEJAS +0,352 · B-NUEVAS +0,481
+   PAT     patrón de 1 h a favor                      conserva  12 % · mejora en 2 de 3 celdas · A-VIEJAS +1,161 · A-NUEVAS +0,202 · B-VIEJAS +0,605
+
+== P11 sin preventiva: A-BTC +0,283 (103) · A-VIEJAS -0,311 (576) · A-NUEVAS -0,336 (476) · B-BTC +0,478 (83) · B-VIEJAS -0,191 (405) · B-NUEVAS -0,517 (323)
+   H17     señal antes de las 17 UTC                  conserva 100 % · mejora en 0 de 6 celdas · A-BTC +0,283 · A-VIEJAS -0,311 · A-NUEVAS -0,336 · B-BTC +0,478 · B-VIEJAS -0,191 · B-NUEVAS -0,517
+   ASIA    señal en Asia (00-07 UTC)                  conserva 100 % · mejora en 0 de 6 celdas · A-BTC +0,283 · A-VIEJAS -0,311 · A-NUEVAS -0,336 · B-BTC +0,478 · B-VIEJAS -0,191 · B-NUEVAS -0,517
+   SEMANA  sin sábado ni domingo                      conserva 100 % · mejora en 0 de 6 celdas · A-BTC +0,283 · A-VIEJAS -0,311 · A-NUEVAS -0,336 · B-BTC +0,478 · B-VIEJAS -0,191 · B-NUEVAS -0,517
+   CERCA   cierre de ayer a ≤ 5 % de la SMA 50        conserva  27 % · mejora en 3 de 5 celdas · A-VIEJAS -0,559 · A-NUEVAS -0,246 · B-BTC +0,446 · B-VIEJAS +0,354 · B-NUEVAS -0,275
+   LEJOS   cierre de ayer a > 10 % de la SMA 50       conserva  53 % · mejora en 3 de 6 celdas · A-BTC +0,340 · A-VIEJAS -0,161 · A-NUEVAS -0,604 · B-BTC +0,735 · B-VIEJAS -0,602 · B-NUEVAS -0,580
+   VBAJA   volatilidad baja (ATR ≤ 3 % del precio)    conserva  11 % · mejora en 3 de 4 celdas · A-NUEVAS -0,168 · B-BTC -0,208 · B-VIEJAS +0,283 · B-NUEVAS -0,218
+   VALTA   volatilidad alta (ATR > 5 % del precio)    conserva  64 % · mejora en 1 de 5 celdas · A-BTC +0,201 · A-VIEJAS -0,294 · A-NUEVAS -0,426 · B-VIEJAS -0,459 · B-NUEVAS -0,575
+   C1      1 h a favor                                conserva  56 % · mejora en 3 de 6 celdas · A-BTC +1,142 · A-VIEJAS +0,013 · A-NUEVAS -0,592 · B-BTC +0,237 · B-VIEJAS -0,128 · B-NUEVAS -0,753
+   C2      1 h y 1 día a favor                        conserva  50 % · mejora en 3 de 6 celdas · A-BTC +1,125 · A-VIEJAS +0,124 · A-NUEVAS -0,582 · B-BTC +0,266 · B-VIEJAS -0,110 · B-NUEVAS -0,850
+   C3      1 h, 4 h y 1 día a favor                   conserva  46 % · mejora en 3 de 6 celdas · A-BTC +0,996 · A-VIEJAS +0,080 · A-NUEVAS -0,651 · B-BTC +0,320 · B-VIEJAS -0,074 · B-NUEVAS -0,826
+   PAT     patrón de 1 h a favor                      conserva  28 % · mejora en 4 de 5 celdas · A-BTC +0,608 · A-VIEJAS -0,101 · A-NUEVAS +0,018 · B-VIEJAS -0,077 · B-NUEVAS -0,539
+
+== N8 sin preventiva: A-BTC +0,310 (110) · A-VIEJAS +0,063 (582) · A-NUEVAS +0,331 (472) · B-BTC +0,339 (83) · B-VIEJAS -0,143 (405) · B-NUEVAS -0,824 (337)
+   H17     señal antes de las 17 UTC                  conserva 100 % · mejora en 0 de 6 celdas · A-BTC +0,310 · A-VIEJAS +0,063 · A-NUEVAS +0,331 · B-BTC +0,339 · B-VIEJAS -0,143 · B-NUEVAS -0,824
+   ASIA    señal en Asia (00-07 UTC)                  conserva 100 % · mejora en 0 de 6 celdas · A-BTC +0,310 · A-VIEJAS +0,063 · A-NUEVAS +0,331 · B-BTC +0,339 · B-VIEJAS -0,143 · B-NUEVAS -0,824
+   SEMANA  sin sábado ni domingo                      conserva 100 % · mejora en 0 de 6 celdas · A-BTC +0,310 · A-VIEJAS +0,063 · A-NUEVAS +0,331 · B-BTC +0,339 · B-VIEJAS -0,143 · B-NUEVAS -0,824
+   CERCA   cierre de ayer a ≤ 5 % de la SMA 50        conserva  28 % · mejora en 2 de 6 celdas · A-BTC -0,016 · A-VIEJAS +0,789 · A-NUEVAS -0,346 · B-BTC +0,229 · B-VIEJAS -0,251 · B-NUEVAS -0,677
+   LEJOS   cierre de ayer a > 10 % de la SMA 50       conserva  52 % · mejora en 3 de 6 celdas · A-BTC +0,231 · A-VIEJAS -0,111 · A-NUEVAS +0,624 · B-BTC +0,936 · B-VIEJAS -0,041 · B-NUEVAS -1,197
+   VBAJA   volatilidad baja (ATR ≤ 3 % del precio)    conserva  10 % · mejora en 2 de 4 celdas · A-NUEVAS -0,451 · B-BTC +0,214 · B-VIEJAS +0,850 · B-NUEVAS -0,062
+   VALTA   volatilidad alta (ATR > 5 % del precio)    conserva  64 % · mejora en 3 de 5 celdas · A-BTC +0,338 · A-VIEJAS +0,130 · A-NUEVAS +0,483 · B-VIEJAS -0,186 · B-NUEVAS -1,052
+   C1      1 h a favor                                conserva  55 % · mejora en 6 de 6 celdas · A-BTC +0,694 · A-VIEJAS +0,254 · A-NUEVAS +0,333 · B-BTC +0,724 · B-VIEJAS +0,257 · B-NUEVAS -0,559  → SE ADOPTA
+   C2      1 h y 1 día a favor                        conserva  49 % · mejora en 5 de 6 celdas · A-BTC +0,605 · A-VIEJAS +0,209 · A-NUEVAS +0,306 · B-BTC +0,792 · B-VIEJAS +0,266 · B-NUEVAS -0,592
+   C3      1 h, 4 h y 1 día a favor                   conserva  44 % · mejora en 6 de 6 celdas · A-BTC +0,481 · A-VIEJAS +0,120 · A-NUEVAS +0,555 · B-BTC +0,836 · B-VIEJAS +0,232 · B-NUEVAS -0,593  → SE ADOPTA
+   PAT     patrón de 1 h a favor                      conserva  30 % · mejora en 1 de 6 celdas · A-BTC -0,168 · A-VIEJAS -0,643 · A-NUEVAS -0,237 · B-BTC +0,316 · B-VIEJAS -0,088 · B-NUEVAS -1,100
+
+== N9 sin preventiva: A-BTC +0,233 (315) · A-VIEJAS +0,053 (1938) · A-NUEVAS -0,040 (1643) · B-BTC -0,018 (260) · B-VIEJAS -0,104 (1616) · B-NUEVAS -0,180 (1399)
+   H17     señal antes de las 17 UTC                  conserva 100 % · mejora en 0 de 6 celdas · A-BTC +0,233 · A-VIEJAS +0,053 · A-NUEVAS -0,040 · B-BTC -0,018 · B-VIEJAS -0,104 · B-NUEVAS -0,180
+   EUROPA  señal en Europa (07-13 UTC)                conserva  97 % · mejora en 3 de 6 celdas · A-BTC +0,233 · A-VIEJAS +0,048 · A-NUEVAS -0,052 · B-BTC -0,011 · B-VIEJAS -0,108 · B-NUEVAS -0,173
+   AMERICA señal en América (13-21 UTC)               conserva   3 % · mejora en 3 de 4 celdas · A-VIEJAS +0,239 · A-NUEVAS +0,553 · B-VIEJAS +0,036 · B-NUEVAS -0,390
+   SEMANA  sin sábado ni domingo                      conserva  72 % · mejora en 3 de 6 celdas · A-BTC +0,347 · A-VIEJAS +0,132 · A-NUEVAS -0,084 · B-BTC -0,017 · B-VIEJAS -0,252 · B-NUEVAS -0,300
+   CERCA   cierre de ayer a ≤ 5 % de la SMA 50        conserva  28 % · mejora en 1 de 6 celdas · A-BTC +0,065 · A-VIEJAS +0,055 · A-NUEVAS -0,236 · B-BTC -0,127 · B-VIEJAS -0,123 · B-NUEVAS -0,220
+   LEJOS   cierre de ayer a > 10 % de la SMA 50       conserva  50 % · mejora en 5 de 6 celdas · A-BTC +0,318 · A-VIEJAS +0,061 · A-NUEVAS +0,022 · B-BTC +0,123 · B-VIEJAS -0,110 · B-NUEVAS -0,106
+   VBAJA   volatilidad baja (ATR ≤ 3 % del precio)    conserva   8 % · mejora en 2 de 6 celdas · A-BTC +0,222 · A-VIEJAS -0,044 · A-NUEVAS -0,070 · B-BTC -0,184 · B-VIEJAS +0,354 · B-NUEVAS -0,168
+   VALTA   volatilidad alta (ATR > 5 % del precio)    conserva  67 % · mejora en 4 de 6 celdas · A-BTC +0,441 · A-VIEJAS +0,129 · A-NUEVAS -0,011 · B-BTC +0,354 · B-VIEJAS -0,212 · B-NUEVAS -0,188
+   C1      1 h a favor                                conserva  87 % · mejora en 4 de 6 celdas · A-BTC +0,261 · A-VIEJAS +0,095 · A-NUEVAS +0,029 · B-BTC -0,024 · B-VIEJAS -0,119 · B-NUEVAS -0,136
+   C2      1 h y 1 día a favor                        conserva  74 % · mejora en 3 de 6 celdas · A-BTC +0,378 · A-VIEJAS +0,048 · A-NUEVAS +0,097 · B-BTC -0,044 · B-VIEJAS -0,151 · B-NUEVAS -0,164
+   C3      1 h, 4 h y 1 día a favor                   conserva  61 % · mejora en 2 de 6 celdas · A-BTC +0,375 · A-VIEJAS +0,001 · A-NUEVAS +0,073 · B-BTC -0,053 · B-VIEJAS -0,121 · B-NUEVAS -0,192
+   PAT     patrón de 1 h a favor                      conserva  30 % · mejora en 1 de 6 celdas · A-BTC -0,081 · A-VIEJAS -0,285 · A-NUEVAS -0,128 · B-BTC -0,279 · B-VIEJAS -0,023 · B-NUEVAS -0,337
+
+Preventivas adoptadas: P05b: ninguna; P05c: ninguna; P11: ninguna; N8: C1, C3; N9: ninguna
+
+PASO 2 · MEZCLAS × MÁRGENES (riesgo, posiciones a la vez, apalancamiento tope). Mitades simuladas por separado desde {150000:,} COP.
+
+== LC (actual: P05c en 12 + P05b, P11, N8 de BTC) (2.004 operaciones) ==
+   mejor margen robusto: riesgo 5 %, hasta 1 a la vez, tope 10× · A +0,253 %/día (caída 58 %) · B +0,316 %/día (caída 37 %)
+   con riesgo 2 %: A +0,123 %/día (caída 26 %) · B +0,143 %/día (caída 16 %)
+   con riesgo 5 %: A +0,253 %/día (caída 58 %) · B +0,316 %/día (caída 37 %)
+   con riesgo 8 %: A +0,302 %/día (caída 65 %) · B +0,448 %/día (caída 53 %)
+
+== LC con las preventivas adoptadas (1.902 operaciones) ==
+   mejor margen robusto: riesgo 3 %, hasta 1 a la vez, tope 5× · A +0,160 %/día (caída 45 %) · B +0,172 %/día (caída 31 %)
+   con riesgo 2 %: A +0,114 %/día (caída 33 %) · B +0,120 %/día (caída 21 %)
+   con riesgo 5 %: A +0,187 %/día (caída 60 %) · B +0,259 %/día (caída 47 %)
+   con riesgo 8 %: A +0,281 %/día (caída 61 %) · B +0,313 %/día (caída 61 %)
+
+== P05c en las 12 monedas (1.119 operaciones) ==
+   mejor margen robusto: riesgo 5 %, hasta 1 a la vez, tope 5× · A +0,147 %/día (caída 58 %) · B +0,150 %/día (caída 37 %)
+   con riesgo 2 %: A +0,067 %/día (caída 28 %) · B +0,070 %/día (caída 17 %)
+   con riesgo 5 %: A +0,147 %/día (caída 58 %) · B +0,150 %/día (caída 37 %)
+   con riesgo 8 %: A +0,201 %/día (caída 61 %) · B +0,211 %/día (caída 52 %)
+
+== LC + N9 de BTC (2.579 operaciones) ==
+   mejor margen robusto: riesgo 2 %, hasta 3 a la vez, tope 5× · A +0,185 %/día (caída 45 %) · B +0,161 %/día (caída 30 %)
+   con riesgo 2 %: A +0,185 %/día (caída 45 %) · B +0,161 %/día (caída 30 %)
+   con riesgo 5 %: A +0,324 %/día (caída 61 %) · B +0,299 %/día (caída 57 %)
+   con riesgo 8 %: A +0,167 %/día (caída 63 %) · B +0,217 %/día (caída 61 %)
+
+== Todas las estrategias en las 12 monedas (18.349 operaciones) ==
+   mejor margen robusto: riesgo 3 %, hasta 5 a la vez, tope 5× · A +0,019 %/día (caída 61 %) · B +0,001 %/día (caída 63 %)
+   con riesgo 2 %: A +0,206 %/día (caída 62 %) · B -0,081 %/día (caída 60 %)
+   con riesgo 5 %: A +0,076 %/día (caída 64 %) · B -0,092 %/día (caída 60 %)
+   con riesgo 8 %: A +0,020 %/día (caída 63 %) · B -0,067 %/día (caída 61 %)
+
+== Todas con las preventivas adoptadas (17.239 operaciones) ==
+   mejor margen robusto: riesgo 2 %, hasta 5 a la vez, tope 3× · A +0,209 %/día (caída 61 %) · B +0,059 %/día (caída 60 %)
+   con riesgo 2 %: A +0,209 %/día (caída 61 %) · B +0,059 %/día (caída 60 %)
+   con riesgo 5 %: A +0,018 %/día (caída 63 %) · B -0,018 %/día (caída 61 %)
+   con riesgo 8 %: A -0,037 %/día (caída 77 %) · B -0,172 %/día (caída 63 %)
+
+PASO 3 · CUADRO DE MARGEN OPERATIVO (toda la historia 2020-2026 desde 150 mil COP, con el margen robusto de cada mezcla)
+margen operativo = resultado / ingresos brutos · ingresos y pérdidas antes de costos · costos = comisiones + financiación
+
+configuración                                     ops aciertos   ingresos COP   pérdidas COP   costos COP   resultado COP margen op.    %/día   COP/día  caída peor día
+LC (actual: P05c en 12 + P05b, P11, N8 de BTC)   1150   49,7 %    581.251.851    391.450.995   55.432.160    +134.368.696    +23,1 %  +0,280 %   +55.232    58 %  -11,0 %
+   con comisión doble                            1138   48,8 %     34.284.841     22.997.726    5.483.729      +5.803.387    +16,9 %  +0,151 %    +2.385    60 %  -11,2 %
+LC con las preventivas adoptadas                 1092   49,1 %     36.059.223     24.749.204    3.183.869      +8.126.151    +22,5 %  +0,165 %    +3.340    45 %   -6,7 %
+   con comisión doble                            1092   47,8 %     17.261.621     11.716.148    2.894.537      +2.650.936    +15,4 %  +0,120 %    +1.090    54 %   -6,8 %
+P05c en las 12 monedas                            611   53,0 %     19.605.665     13.686.220    1.109.405      +4.810.039    +24,5 %  +0,148 %    +2.037    58 %  -12,2 %
+   con comisión doble                             607   51,7 %      6.995.583      5.029.476      696.998      +1.269.109    +18,1 %  +0,095 %      +537    61 %  -12,3 %
+LC + N9 de BTC                                   2276   46,0 %     56.977.500     41.209.459    5.399.590     +10.368.451    +18,2 %  +0,175 %    +4.257    45 %  -15,7 %
+   con comisión doble                            2276   44,6 %     23.376.315     16.773.687    4.102.081      +2.500.548    +10,7 %  +0,118 %    +1.027    58 %  -15,8 %
+Todas las estrategias en las 12 monedas           834   42,2 %      1.835.022      1.669.635      119.173         +46.214     +2,5 %  +0,011 %       +19    61 %  -33,5 %
+   con comisión doble                             821   41,5 %      1.537.959      1.346.512      190.346          +1.101     +0,1 %  +0,000 %        +0    61 %  -33,7 %
+Todas con las preventivas adoptadas              2859   42,3 %     37.295.815     32.689.291    1.911.853      +2.694.672     +7,2 %  +0,121 %    +1.105    61 %  -27,1 %
+   con comisión doble                            2695   41,6 %     24.017.926     20.113.464    2.279.419      +1.625.044     +6,8 %  +0,101 %      +666    61 %  -27,3 %
+
+Cada estrategia sola (riesgo 5 %, hasta 3 a la vez, tope 10×; P11 y N8 solo en BTC como en el sistema):
+configuración                                     ops aciertos   ingresos COP   pérdidas COP   costos COP   resultado COP margen op.    %/día   COP/día  caída peor día
+P05b                                             1543   46,1 %     20.819.295     18.828.742    1.126.158        +864.395     +4,2 %  +0,078 %      +354    62 %  -51,7 %
+P05c                                              956   51,7 %     24.012.690     18.861.377    1.260.768      +3.890.545    +16,2 %  +0,140 %    +1.648    61 %  -16,8 %
+P11                                               186   47,8 %      1.349.382        868.508      117.916        +362.958    +26,9 %  +0,051 %      +149    35 %   -5,2 %
+N8                                                193   49,2 %      1.299.377        861.422      113.930        +324.024    +24,9 %  +0,047 %      +133    32 %   -5,2 %
+N9                                               1234   40,6 %     96.026.535     85.990.406    4.762.645      +5.273.484     +5,5 %  +0,148 %    +2.171    62 %  -27,8 %
+
+AGENTE CONSOLIDADO ELEGIDO (regla 4): LC (actual: P05c en 12 + P05b, P11, N8 de BTC) · riesgo 5 % · hasta 1 a la vez · tope 10×
+   A +0,253 %/día, caída 58 % · B +0,316 %/día, caída 37 %
+   historia completa: 1150 operaciones, 150 mil → 134.518.696 COP, +0,280 %/día, caída máxima 58 %

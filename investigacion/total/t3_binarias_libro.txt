@@ -1,0 +1,36 @@
+T3 · BINARIAS QUE GANARON EN T2, MEDIDAS COMO LAS PAGA UN BRÓKER (empate = se devuelve) Y CON UN MINUTO DE RETRASO
+acierto sin contar empates · LIBRO = entra al cierre de la vela · REAL = entra un minuto después · A = 2020-23 · B = 2024-26
+para no perder: 55,6 % con pago 0,80 · 54,1 % con 0,85 · 52,6 % con 0,90
+
+B15 con —      : LIBRO 55,29 % / 55,14 % · REAL 54,59 % / 54,03 % · apuestas 15.687 / 12.029 · empates 0,1 %
+B15 con CTX    : LIBRO 56,49 % / 56,14 % · REAL 55,64 % / 54,74 % · apuestas 7.520 / 5.969 · empates 0,1 %
+B15 con EUROPA : LIBRO 55,91 % / 55,95 % · REAL 55,26 % / 53,60 % · apuestas 3.275 / 1.957 · empates 0,1 %
+B15 con AMERICA: LIBRO 55,26 % / 54,95 % · REAL 54,72 % / 54,05 % · apuestas 6.584 / 5.911 · empates 0,1 %
+B15 con VBAJA  : LIBRO 54,93 % / 56,07 % · REAL 54,28 % / 55,27 % · apuestas 7.827 / 5.317 · empates 0,0 %
+T60 con —      : LIBRO 54,88 % / 53,16 % · REAL 53,88 % / 53,06 % · apuestas 47.185 / 36.258 · empates 0,6 %
+T60 con EUROPA : LIBRO 54,18 % / 54,33 % · REAL 53,16 % / 53,75 % · apuestas 10.034 / 6.862 · empates 0,6 %
+T60 con VALTA  : LIBRO 55,75 % / 54,14 % · REAL 54,17 % / 53,67 % · apuestas 23.499 / 17.807 · empates 0,5 %
+T60 con CTX    : LIBRO 55,25 % / 53,22 % · REAL 54,11 % / 53,46 % · apuestas 22.491 / 18.093 · empates 0,6 %
+
+AGENTE DE BINARIAS ELEGIDO: B15 con CTX · acierto REAL en la peor mitad 54,74 %
+
+CUADRO DE MARGEN OPERATIVO · desde 150 mil COP, entrada REAL (un minuto después), toda la historia 2020-2026
+ingresos = lo cobrado en aciertos · pérdidas = lo apostado en fallos · margen operativo = resultado / ingresos
+
+ pago  apuesta  apuestas  por día     ingresos COP     pérdidas COP     resultado COP margen op.    %/día     COP/día caída máx  peor día  2024-26 %/día
+ 0,80       1 %    13.498      5,5        5.753.854        5.862.858          -109.004      -1,9 %  -0,053 %         -45       80 %     -8,8 %  -0,108 %
+ 0,80       2 %    13.498      5,5        3.136.340        3.256.898          -120.558      -3,8 %  -0,067 %         -49       86 %    -14,3 %  -0,158 %
+ 0,80       5 %    13.498      5,5          374.180          495.482          -121.302     -32,4 %  -0,068 %         -50       85 %    -20,5 %  -0,157 %
+ 0,80      10 %    13.498      5,5          384.759          505.498          -120.739     -31,4 %  -0,067 %         -49       88 %    -38,0 %  -0,157 %
+ 0,85       1 %    13.498      5,5       50.782.678       49.281.104        +1.501.574      +3,0 %  +0,098 %        +615       58 %     -8,8 %  +0,049 %
+ 0,85       2 %    13.498      5,5      351.754.999      346.121.397        +5.633.602      +1,6 %  +0,150 %      +2.308       86 %    -16,9 %  +0,049 %
+ 0,85       5 %    13.498      5,5          502.496          622.729          -120.233     -23,9 %  -0,066 %         -49       85 %    -30,0 %  -0,156 %
+ 0,85      10 %    13.498      5,5          447.574          568.212          -120.638     -27,0 %  -0,067 %         -49       89 %    -37,4 %  -0,158 %
+ 0,90       1 %    13.498      5,5      892.232.066      825.968.286       +66.263.781      +7,4 %  +0,250 %     +27.149       29 %     -8,7 %  +0,207 %
+ 0,90       2 %    13.498      5,5  143.034.000.597  134.257.562.230    +8.776.438.367      +6,1 %  +0,451 %  +3.595.842       54 %    -16,8 %  +0,361 %
+ 0,90       5 %    13.498      5,5 474.438.051.398.238 460.476.531.793.816 +13.961.519.604.422      +2,9 %  +0,755 % +5.720.249.252       97 %    -37,4 %  +0,511 %
+ 0,90      10 %    13.498      5,5          681.358          803.888          -122.530     -18,0 %  -0,070 %         -50       90 %    -36,9 %  -0,158 %
+
+En pesos al empezar (primer mes de la prueba 2024, pago 0,85, entrada REAL):
+   apostando el 2 % del saldo (3.000 COP la primera): 169 apuestas, 150 mil → 149.289 COP en 30 días (-24 COP al día), caída máxima 33 %
+   apostando el 5 % del saldo (7.500 COP la primera): 169 apuestas, 150 mil → 132.986 COP en 30 días (-567 COP al día), caída máxima 65 %
