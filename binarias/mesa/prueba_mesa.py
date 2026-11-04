@@ -136,5 +136,39 @@ ver("cotización cara: cotiza pero no ordena", not r["ok"] and [x[0] for x in ll
 os.remove(M.AUTORIZADO)
 n = len(llamadas)
 ver("sin autorización: nada", not mo.ordenar(1, 5)["ok"] and len(llamadas) == n)
+
+# 5) una operación completa del borrador, de la señal al cierre oficial, con el reloj simulado
+t0 = int(time.time() // 900 * 900) - 900
+velas_sim = [(t0 - 60 * (150 - i), 100.0, 101.0, 99.0, 100.0) for i in range(145)]
+velas_sim += [(t0 - 60 * (5 - i), 100.0, 110.0, 100.0, 109.0) for i in range(5)]  # la última vela de 5 min rompe el máximo: BAJA
+C.velas = lambda limite=170, desde=None: (velas_sim, None)
+C.cambio_interes = lambda t: 0.0
+ganador = [None]
+C.resultado = lambda topic: ganador[0]
+b = Bo.Borrador(dict(R.CFG))
+b.ops, b._guardar = [], lambda: None
+m = {"t": t0, "topic": 7, "ask": {1: 0.49, -1: 0.51}}
+b.paso(t0 + 5, m)
+o = b.ops[-1] if b.ops else {}
+ver("cierre sobre el máximo: abre BAJA", o.get("dir") == -1 and o.get("res") is None)
+ver("anota el precio a los 5 s", o.get("ask5") == 0.51 and o.get("ask30") is None)
+b.paso(t0 + 31, {**m, "ask": {1: 0.48, -1: 0.52}})
+ver("a los 30 s: precio 0,52 y entra", o.get("ask30") == 0.52 and o.get("entra") is True)
+b.paso(t0 + 61, {**m, "ask": {1: 0.44, -1: 0.56}})
+ver("a los 60 s solo se anota", o.get("ask60") == 0.56 and o.get("ask30") == 0.52)
+b.paso(t0 + 910, None)
+ver("sin resultado oficial sigue abierta", o.get("res") is None)
+ganador[0] = -1
+b.paso(t0 + 930, None)
+ver("ganó BAJA: cierra con el precio de los 30 s", o.get("res") == 1 and o.get("fuente") == "oficial" and abs(o["neto"] - round(1 / 0.52 - 1.02, 4)) < 1e-9)
+b.ops = [{"t": t0, "dir": -1, "res": None, "entra": None, "ask30": 0.60, "topic": 7}]
+b.revisada = int((t0 + 930) // 900 * 900)
+m2 = {"t": t0, "topic": 7, "ask": {-1: 0.60}}
+b.ops[-1]["ask30"] = None
+b._muestrear(t0 + 31, m2)
+ver("precio caro a los 30 s: no entra", b.ops[-1]["entra"] is False)
+ganador[0] = 1
+b._cerrar(t0 + 930)
+ver("sin entrar: tiene resultado, sin neto", b.ops[-1]["res"] == 0 and b.ops[-1].get("neto") is None)
 print("\nFALLOS:", fallos)
 sys.exit(1 if fallos else 0)
