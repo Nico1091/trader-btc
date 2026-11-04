@@ -70,6 +70,8 @@ Versión 5 · 3 de noviembre de 2026, 21:00 (hora de Colombia). Reemplaza la con
 - **E7 · Selección mensual portable.** Antes del 1/12, la selección corre en el teléfono con el mismo código (rutas por variables de entorno ya preparadas) y debe dar lo mismo que en el PC.
 - **E8 · Filtro de volumen alto de BTC (t27).** Al centinela, con la misma cuenta en el banco y en vivo.
 - **E9 · Su señal de dos velas en contra (sección 18 del PLAN).** Como candidata del banco, con la elección mensual.
+- **E10 · La receta ganadora de G-Research (Kaggle 2022).** Árboles potenciados sobre los rasgos de C1 y C3 de BTC, ETH y el libro, con validación por meses sucesivos y purga. Usa LightGBM, que no está instalado: requiere su sí; mientras tanto se prueba con el modelo logístico propio ampliado. Entra si en la prueba supera al modelo de 10 min de BTC por 1 punto o más con la misma cantidad de apuestas.
+- **E11 · Momentum de la primera media hora (Shen, Urquhart y Wang, 2022).** La media hora de mayor volumen del día predice la última; llevado a binarias de 30 min y 1 h. Entra al banco si en 2024-26 su Wilson supera el equilibrio con 300 o más apuestas.
 
 ## 8. Criterios para el dinero real (todos, además de su orden expresa)
 
