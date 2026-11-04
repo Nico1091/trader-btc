@@ -1,7 +1,7 @@
 # Binarias en papel (Contratos de Evento de Binance) · módulo del proyecto
 
-Manda `PLAN-v5.md` (03/11/2026): todo unificado en BTC/USDT, centinela en la caja T95H y en el teléfono, semáforo papel → real
-sin apalancamiento, meta honesta de 56-57 % fuera de muestra. La evidencia está en `cuant/INFORME-INVESTIGACION-CUANTITATIVA-2026-11-03.md`.
+Manda `PLAN-TOTAL.md` (v6, 03/11/2026, congruente): solo devolución en BTC/USDT, real solo en días VERDES del semáforo, sin
+apalancamiento, centinela en la caja T95H y en el teléfono. La evidencia y la auditoría de congruencia están en `INFORME-TOTAL.md`.
 
 - `binarias.py`, `motor/`: centinela v4 y su motor (señales, selección mensual, modelo, historial).
 - `pruebas/`: banco a ciegas t10 a t33 con sus salidas.

@@ -30,20 +30,20 @@ banco t19 (modelo BTC): 43.164 apuestas en 2.022 días · acierto con 60 s de re
    S3      P2: 395 días en real (19.5 %) · 1,651 apuestas · acierto 56,2 % · resultado 1,05 M COP · caída máxima 0,62 M COP · azar con los mismos días: 55,6 % (p = 0,292)
    rachas: tras acertar 55,4 % · tras fallar 56,4 % · tras 3 aciertos 55,7 %
 
-ruptura al revés (C1): 32.205 apuestas en 2.433 días · acierto con 60 s de retraso 57.8 %
-   siempre P0: 2,433 días en real (100.0 %) · 32,205 apuestas · acierto 57,8 % · resultado 35,27 M COP · caída máxima 1,11 M COP
-   siempre P1: 2,433 días en real (100.0 %) · 5,776 apuestas · acierto 58,3 % · resultado 7,23 M COP · caída máxima 0,77 M COP
-   siempre P2: 2,433 días en real (100.0 %) · 11,441 apuestas · acierto 58,6 % · resultado 15,20 M COP · caída máxima 0,73 M COP
-   S1      P0: 1,133 días en real (46.6 %) · 14,335 apuestas · acierto 58,4 % · resultado 18,48 M COP · caída máxima 0,69 M COP · azar con los mismos días: 57,8 % (p = 0,007)
-   S1      P1: 1,133 días en real (46.6 %) · 2,791 apuestas · acierto 59,8 % · resultado 4,75 M COP · caída máxima 0,34 M COP · azar con los mismos días: 58,3 % (p = 0,007)
-   S1      P2: 1,133 días en real (46.6 %) · 5,457 apuestas · acierto 59,7 % · resultado 9,10 M COP · caída máxima 0,39 M COP · azar con los mismos días: 58,5 % (p = 0,003)
-   S2      P0: 1,336 días en real (54.9 %) · 16,795 apuestas · acierto 58,4 % · resultado 21,23 M COP · caída máxima 0,77 M COP · azar con los mismos días: 57,8 % (p = 0,010)
-   S2      P1: 1,336 días en real (54.9 %) · 3,292 apuestas · acierto 59,8 % · resultado 5,58 M COP · caída máxima 0,36 M COP · azar con los mismos días: 58,3 % (p = 0,003)
-   S2      P2: 1,336 días en real (54.9 %) · 6,401 apuestas · acierto 59,5 % · resultado 10,21 M COP · caída máxima 0,63 M COP · azar con los mismos días: 58,6 % (p = 0,010)
-   S3      P0: 774 días en real (31.8 %) · 9,899 apuestas · acierto 57,8 % · resultado 10,98 M COP · caída máxima 0,72 M COP · azar con los mismos días: 57,8 % (p = 0,430)
-   S3      P1: 774 días en real (31.8 %) · 1,868 apuestas · acierto 59,0 % · resultado 2,74 M COP · caída máxima 0,35 M COP · azar con los mismos días: 58,2 % (p = 0,250)
-   S3      P2: 774 días en real (31.8 %) · 3,662 apuestas · acierto 59,0 % · resultado 5,34 M COP · caída máxima 0,40 M COP · azar con los mismos días: 58,5 % (p = 0,280)
-   rachas: tras acertar 57,4 % · tras fallar 58,3 % · tras 3 aciertos 57,3 %
+ruptura al revés (C1): 32.205 apuestas en 2.433 días · acierto con 60 s de retraso 55.9 %
+   siempre P0: 2,433 días en real (100.0 %) · 32,205 apuestas · acierto 55,9 % · resultado 17,26 M COP · caída máxima 1,79 M COP
+   siempre P1: 2,433 días en real (100.0 %) · 5,537 apuestas · acierto 56,4 % · resultado 3,82 M COP · caída máxima 0,63 M COP
+   siempre P2: 2,433 días en real (100.0 %) · 10,876 apuestas · acierto 56,3 % · resultado 7,15 M COP · caída máxima 1,57 M COP
+   S1      P0: 857 días en real (35.2 %) · 10,868 apuestas · acierto 56,3 % · resultado 7,31 M COP · caída máxima 1,46 M COP · azar con los mismos días: 55,9 % (p = 0,087)
+   S1      P1: 857 días en real (35.2 %) · 2,006 apuestas · acierto 57,8 % · resultado 2,20 M COP · caída máxima 0,34 M COP · azar con los mismos días: 56,5 % (p = 0,080)
+   S1      P2: 857 días en real (35.2 %) · 3,866 apuestas · acierto 56,9 % · resultado 3,21 M COP · caída máxima 0,84 M COP · azar con los mismos días: 56,3 % (p = 0,188)
+   S2      P0: 953 días en real (39.2 %) · 12,115 apuestas · acierto 56,5 % · resultado 8,81 M COP · caída máxima 1,13 M COP · azar con los mismos días: 55,9 % (p = 0,040)
+   S2      P1: 953 días en real (39.2 %) · 2,214 apuestas · acierto 57,4 % · resultado 2,15 M COP · caída máxima 0,44 M COP · azar con los mismos días: 56,4 % (p = 0,115)
+   S2      P2: 953 días en real (39.2 %) · 4,276 apuestas · acierto 56,6 % · resultado 3,17 M COP · caída máxima 0,86 M COP · azar con los mismos días: 56,3 % (p = 0,312)
+   S3      P0: 638 días en real (26.2 %) · 8,231 apuestas · acierto 56,2 % · resultado 5,23 M COP · caída máxima 0,98 M COP · azar con los mismos días: 55,9 % (p = 0,235)
+   S3      P1: 638 días en real (26.2 %) · 1,511 apuestas · acierto 58,2 % · resultado 1,86 M COP · caída máxima 0,38 M COP · azar con los mismos días: 56,3 % (p = 0,052)
+   S3      P2: 638 días en real (26.2 %) · 2,921 apuestas · acierto 57,3 % · resultado 2,83 M COP · caída máxima 0,60 M COP · azar con los mismos días: 56,3 % (p = 0,107)
+   rachas: tras acertar 55,6 % · tras fallar 56,3 % · tras 3 aciertos 56,6 %
 
 Cómo leerlo: si el semáforo sirviera, su acierto sería claramente mayor que el de «siempre» y que el del azar con los
 mismos días (p pequeño). Parar en la primera pérdida no cambia el acierto esperado de cada apuesta: solo reduce cuántas

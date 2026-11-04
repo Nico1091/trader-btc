@@ -1,6 +1,6 @@
 # Operativa de las binarias (lo que el agente sabe antes de operar)
 
-Versión del 03/11/2026, 21:10 (hora de Colombia). Manda el PLAN-v5.md; la evidencia está en `cuant/INFORME-INVESTIGACION-CUANTITATIVA-2026-11-03.md`. El agente (Pulso) la lee antes de cada resumen de 15 min y cita su versión.
+Versión del 03/11/2026, 22:45 (hora de Colombia). Manda el PLAN-TOTAL.md (v6, congruente: solo devolución, solo BTC, real solo en días VERDES); la evidencia está en `INFORME-TOTAL.md`. El agente (Pulso) la lee antes de cada resumen de 15 min y cita su versión.
 
 ## Qué se opera
 
@@ -17,12 +17,12 @@ Versión del 03/11/2026, 21:10 (hora de Colombia). Manda el PLAN-v5.md; la evide
 
 - Cada día a las 0:00: VERDE si las últimas 100 apuestas de papel de la «ruptura al revés» en BTC aciertan 58 % o más; si no, ROJO.
 - En VERDE, cada señal llega como «REAL: toque ahora BTC SUBE/BAJA a 10 min». La primera pérdida apaga el modo real hasta el día siguiente.
-- Probado a ciegas (C7): 59,8 % con días verdes y parada en la primera pérdida, frente a 58,3 % con días al azar. Pista por confirmar en vivo.
+- Medido bien (entrada 60 s tarde, 2021-2026): 57,4 % con días verdes y parada en la primera pérdida, frente a 56,4 % de días al azar. No adivina los días buenos: los aprovecha cuando ya vienen y limita el riesgo en los malos.
 
 ## Lo que funciona (a ciegas, 2021 a octubre de 2026)
 
 1. Apostar a que el precio se devuelve:
-   - ruptura de 20 velas de 5 min, al revés: BTC 56,1 % en 2024-26 y 61,7 % en octubre de 2026; ETH 56,0 %;
+   - ruptura de 20 velas de 5 min, al revés (el núcleo): BTC entrando 60 s tarde 54,4 % en 2024-26 y 60,7 % en octubre de 2026 (al cierre, 56,1 %): tocar en segundos;
    - caída o subida de 15 min mayor que una desviación, al revés: 54-55 %;
    - movimiento extremo de 10 min (z ≥ 4), al revés: 54-56 %;
    - tres tramos de 10 min iguales, al revés: 53,8 %.

@@ -47,13 +47,16 @@ def leer_banco(nombre):
 
 
 def secuencia_ruptura():
+    """03/11, 22:10: corregido; antes medía entrando al cierre. Ahora entra 60 s tarde, como las del banco."""
+    from c8_regimen_estrategia import resultado_tarde
     d = datos("BTCUSDT")
     r = d["F"]["ruptura"]
     s = np.where(r == 0, -1, np.where(r == 1, 1, 0))
-    m = s != 0
+    t1, _, _, _, c1, _, _ = B.cargar("BTCUSDT")
+    g, ok = resultado_tarde(t1, c1, d["t"], s)
+    m = (s != 0) & ok
     t = d["t"][m]
-    y = d["y"][m]
-    gana = (y == s[m]).astype(int)
+    gana = g[m].astype(int)
     col = dt.timezone(dt.timedelta(hours=-5))
     dias = np.array([dt.datetime.fromtimestamp(int(x), col).strftime("%Y-%m-%d") for x in t])
     return dias, gana

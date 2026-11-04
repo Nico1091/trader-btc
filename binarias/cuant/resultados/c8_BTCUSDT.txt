@@ -1,0 +1,22 @@
+C8 · BTCUSDT · el factor probabilístico de la racha (HMM) y E1, con entrada 60 s tarde
+
+1. RUPTURA AL REVÉS (núcleo), entrada 60 s tarde:
+   entrenamiento  13.152 apuestas · acierto 57.0 % · Wilson 56.2 %
+   prueba         15.176 apuestas · acierto 54.4 % · Wilson 53.6 %
+   adelante          402 apuestas · acierto 60.7 % · Wilson 55.8 %
+
+2. HMM DE LA RACHA (ajustado con 2021-2023): acierto en racha buena 58,1 %, en racha mala 55,7 %; permanencia: buena 98,1 %, mala 97,7 % (duración media 53 y 43 apuestas)
+   siempre (sin semáforo)     prueba    días encendidos 1005/1005 · apuestas 15.176 · acierto 54.4 % (siempre 54.4 %; azar mismos días 54.4 %. p = 1.000)
+   siempre (sin semáforo)     adelante  días encendidos   30/30   · apuestas    402 · acierto 60.7 % (siempre 60.7 %; azar mismos días 60.7 %. p = 1.000)
+   S2 (últimas 100 >= 58 %)   prueba    días encendidos  280/1005 · apuestas  4.202 · acierto 54.6 % (siempre 54.4 %; azar mismos días 54.4 %. p = 0.377)
+   S2 (últimas 100 >= 58 %)   adelante  días encendidos   29/30   · apuestas    393 · acierto 60.6 % (siempre 60.7 %; azar mismos días 60.7 %. p = 0.503)
+   H (HMM: P(buena) >= 0.5)   prueba    días encendidos  865/1005 · apuestas 12.983 · acierto 54.5 % (siempre 54.4 %; azar mismos días 54.4 %. p = 0.223)
+   H (HMM: P(buena) >= 0.5)   adelante  días encendidos   29/30   · apuestas    388 · acierto 60.3 % (siempre 60.7 %; azar mismos días 60.7 %. p = 0.877)
+   persistencia en la prueba: correlación entre el acierto de las últimas 100 y el del día siguiente = 0,026 (n 1004 días; con n así, |r| > 0,062 no es ruido)
+
+3. E1 · FAMILIA DE REVERSIÓN (ruptura, impulso y anomalía al revés; sin contradicciones), entrada 60 s tarde:
+   entrenamiento  36.444 apuestas · 33.3 al día · acierto 54.5 % · Wilson 54.0 %
+   prueba         38.069 apuestas · 37.9 al día · acierto 53.1 % · Wilson 52.6 %
+   adelante        1.048 apuestas · 36.0 al día · acierto 56.1 % · Wilson 53.1 %
+   Veredicto E1 (regla escrita antes): NO ENTRA · prueba 53,1 % con 37,9 al día y Wilson 52,6 %; adelante 56,1 %.
+   Coherencia de la familia: cuando la ruptura y el impulso disparan a la vez. coinciden en el sentido el 100.0 % de las veces (19.746 casos).

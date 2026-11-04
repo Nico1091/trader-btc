@@ -10,9 +10,19 @@ CÓMO SE USA ESTE BLOC
 - Para una sesión nueva basta decir: «Lee C:\Users\ni109\Desktop\BLOC BINARIAS - TODO EN UNO.txt y sigue desde ENCARGOS».
 
 
-AL FRENTE (03/11/2026, 21:15): PLAN v5 · TODO UNIFICADO EN BTC/USDT
+AL FRENTE (03/11/2026, 22:45): PLAN TOTAL v6 · CONGRUENTE · SOLO DEVOLUCIÓN EN BTC/USDT
 Estado: EN CURSO
-SIGUIENTE PASO: medir el semáforo en vivo y correr E1 (familia de reversión en BTC) con la regla escrita en PLAN-v5.md, sección 7; antes del 1/12, dejar la selección mensual corriendo en el teléfono (E7).
+SIGUIENTE PASO: P1 (que él anote el pago real de 20 apuestas y sus segundos de demora al tocar) y P2 (selección mensual de devolución en BTC corriendo en el teléfono antes del 1/12), según PLAN-TOTAL.md, sección 7.
+- Manda C:\Users\ni109\Ingresos\binarias-papel\PLAN-TOTAL.md. Evidencia y auditoría de congruencia: INFORME-TOTAL.md (misma carpeta). El PLAN-v5 queda como historia.
+- Lógica única: a 10 min, BTC se devuelve tras estirarse; ventaja pequeña que cambia con el tiempo y depende de entrar rápido y del pago. Solo se apuesta a la devolución; en real solo los días VERDES del semáforo; la primera pérdida lo apaga; sin apalancamiento.
+- Descartado por incongruente: todo lo que apuesta a la continuación (sus dos resistencias a favor, segunda resistencia, todo a favor, triángulo, momentum de la primera media hora, libro leído a favor), las cajas negras (modelo U, receta de G-Research), SMC/ICT/CRT como señales, mano caliente y pausar al ganar, martingala, 16 %, oro, la meta de 85,7 % y ETH como mercado operado.
+- Cifras corregidas a entrada 60 s tarde (C8): núcleo (ruptura al revés en BTC) 57,0 % en 2021-23, 54,4 % en 2024-26 y 60,7 % en octubre. Semáforo en 2021-2026: 57,4 % con parada en la primera pérdida frente a 56,4 % del azar. El 59,8 % que se informó antes medía al cierre: error corregido.
+- El factor probabilístico de la racha (HMM de los aciertos): hay rachas buenas y malas de unas 50 apuestas, pero no se dejan ver hacia adelante (sin efecto en 2024-26; correlación 0,026). El semáforo no adivina los días buenos: los aprovecha cuando ya vienen y limita el riesgo en los malos.
+- Los equipos miden el papel del semáforo con 60 s de demora desde las 21:39. Semáforo de hoy: ROJO.
+
+AL FRENTE (03/11/2026, 21:15): PLAN v5 · TODO UNIFICADO EN BTC/USDT (reemplazado por el v6 de las 22:45)
+Estado: REEMPLAZADO
+PASO DE ENTONCES: medir el semáforo en vivo y correr E1 (familia de reversión en BTC) con la regla escrita en PLAN-v5.md, sección 7; antes del 1/12, dejar la selección mensual corriendo en el teléfono (E7).
 - Manda C:\Users\ni109\Ingresos\binarias-papel\PLAN-v5.md. Evidencia: cuant\INFORME-INVESTIGACION-CUANTITATIVA-2026-11-03.md (guiones C1 a C7 y sus salidas en cuant\resultados).
 - El centinela salió del PC: corre en la caja T95H (principal, /data/local/tmp/centinela) y en su teléfono (respaldo, Termux, ~/centinela), 24/7, con arranque solo (Termux:Boot) y avisos por Tor. El teléfono calla mientras ve el latido de la caja. En la caja quedaron desactivados fútbol, descargador, recordatorio y surebets (~/.termux/boot-desactivados). El PC tiene el archivo PARAR y ya no arranca centinela ni operador con Windows.
 - Semáforo papel → real (su idea del 03/11): cada día a las 0:00, VERDE si las últimas 100 apuestas de papel de la «ruptura al revés» en BTC van en 58 % o más; en VERDE cada señal le llega como «REAL: toque…»; la primera pérdida lo apaga hasta mañana. 5 USDT, sin apalancamiento; él toca en la app. Hoy: ROJO (48 %).
@@ -420,3 +430,4 @@ Abiertos de antes
 - 03/11/2026 20:56. Vigilante de temperatura de 80 °C en la caja.
 - 03/11/2026 21:15. PLAN-v5.md, informe, OPERATIVA.md v5 y este bloc al día.
 - 03/11/2026 21:28. Migración a la USB terminada y verificada; recordatorio del 04/11 puesto; GitHub con dos commits.
+- 03/11/2026 22:45. Auditoría de congruencia: PLAN-TOTAL.md (v6) e INFORME-TOTAL.md; C8 (HMM de la racha y E1) y C7 corregidos a 60 s; semáforo de los equipos con medida de 60 s.

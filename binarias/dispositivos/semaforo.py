@@ -7,8 +7,9 @@ Probado a ciegas en C7 (cuant/c7_semaforo.py, apuestas de 2021 a 2026, entrada 6
   máximo de las 20 anteriores, BAJA; si cierra por debajo del mínimo, SUBE. Binaria de 10 min, empate = fallo.
 - Semáforo S2: al empezar el día de Colombia, VERDE si el acierto de las últimas 100 apuestas de papel es 58 % o más.
 - Parada P1: en real, la primera pérdida apaga el modo real hasta el día siguiente.
-- C7: con S2 y P1, 59,8 % en 3.292 apuestas (azar con los mismos días: 58,3 %; p = 0,003). Es una pista con 27
-  comparaciones hechas: se confirma con días nuevos antes de pesar más.
+- C7 y C8 corregidos (entrada 60 s tarde): en 2021-2026, S2 da 56,5 % frente a 55,9 % de días al azar (p = 0,04); con
+  P1, 57,4 % frente a 56,4 % (p = 0,12); en 2024-26 solo, sin efecto. No crea ventaja: contiene el riesgo operando solo
+  en los tramos fuertes. Se confirma con días nuevos.
 Ningún código apuesta: en real, el aviso le dice a Nicolás qué tocar en la app (Binance prohíbe bots ahí). 5 USDT por
 apuesta, sin apalancamiento (en binarias no existe). Avisos por Tor (avisos.enviar); el teléfono calla si la caja late.
 Uso: python3 -I semaforo.py · Parar: crear PARAR.
@@ -30,6 +31,7 @@ PARAR = os.path.join(AQUI, "PARAR")
 FAPI = "https://fapi.binance.com/fapi/v1/klines?symbol=BTCUSDT&interval=1m"
 H = {"User-Agent": "binarias-semaforo"}
 VENTANA, UMBRAL, PLAZO = 100, 0.58, 600
+RETRASO = 60  # 03/11 22:15: el papel se mide entrando 60 s tarde, como él toca a mano (congruente con el banco)
 COL = dt.timezone(dt.timedelta(hours=-5))
 
 
@@ -116,18 +118,19 @@ def sembrar(e):
         s = senal(v1[max(0, i - 130):i + 1], t_dec)
         if not s:
             continue
-        sal = cierre_en(v1, t_dec + PLAZO)
-        if sal is None:
+        ent = cierre_en(v1, t_dec + RETRASO)
+        sal = cierre_en(v1, t_dec + RETRASO + PLAZO)
+        if ent is None or sal is None:
             continue
-        res = 1 if (sal - c) * s > 0 else 0
-        e["apuestas"].append({"t": t_dec, "dir": s, "entrada": c, "salida": sal, "res": res, "semilla": True})
+        res = 1 if (sal - ent) * s > 0 else 0
+        e["apuestas"].append({"t": t_dec, "dir": s, "entrada": ent, "salida": sal, "res": res, "semilla": True})
         nuevas += 1
     e["apuestas"].sort(key=lambda a: a["t"])
     return nuevas
 
 
 def acierto_reciente(e, antes_de):
-    cerradas = [a for a in e["apuestas"] if a.get("res") is not None and a["t"] + PLAZO <= antes_de]
+    cerradas = [a for a in e["apuestas"] if a.get("res") is not None and a["t"] + RETRASO + PLAZO <= antes_de]
     ult = cerradas[-VENTANA:]
     return (sum(a["res"] for a in ult) / len(ult) if ult else 0.0), len(ult)
 
@@ -141,6 +144,8 @@ def avisar(texto):
 
 def main():
     e = leer()
+    if e.get("medida") != "60s":  # el registro viejo medía al cierre: se rehace con la medida nueva, sin tocar el día
+        e["apuestas"], e["medida"] = [], "60s"
     n = sembrar(e)
     guardar(e)
     log(f"semáforo en marcha · rol {avisos.ROL} · {len(e['apuestas'])} apuestas de papel ({n} sembradas)")
@@ -168,26 +173,27 @@ def main():
                 e["ultima_revisada"] = t_dec
                 s = senal(v1, t_dec) if v1 and v1[-1][0] + 60 == t_dec else 0
                 if s:
-                    entrada = v1[-1][3]
+                    entrada = v1[-1][3]  # precio del aviso; la medida de papel toma el cierre 60 s después
                     real = bool(e["real"].get("encendido") and not e["real"].get("perdio"))
-                    e["apuestas"].append({"t": t_dec, "dir": s, "entrada": entrada, "salida": None, "res": None, "real": real})
+                    e["apuestas"].append({"t": t_dec, "dir": s, "aviso": entrada, "entrada": None, "salida": None, "res": None, "real": real})
                     if real:
                         avisar(f"REAL [semáforo BTC, {avisos.ETIQUETA}]: toque ahora BTC {'SUBE' if s == 1 else 'BAJA'} a 10 min "
                                f"(precio {entrada:,.1f}; vence {dt.datetime.fromtimestamp(t_dec + PLAZO, COL):%H:%M}). 5 USDT, sin apalancamiento.".replace(",", "."))
                     log(f"señal {('SUBE' if s == 1 else 'BAJA')} a las {dt.datetime.fromtimestamp(t_dec, COL):%H:%M} · real {real}")
                 guardar(e)
             # 3) cierres
-            abiertas = [a for a in e["apuestas"] if a.get("res") is None and a["t"] + PLAZO + 3 <= ahora]
+            abiertas = [a for a in e["apuestas"] if a.get("res") is None and a["t"] + RETRASO + PLAZO + 3 <= ahora]
             if abiertas:
                 v1 = velas(limite=60)
                 for a in abiertas:
-                    sal = cierre_en(v1, a["t"] + PLAZO)
-                    if sal is None:
+                    ent = cierre_en(v1, a["t"] + RETRASO)
+                    sal = cierre_en(v1, a["t"] + RETRASO + PLAZO)
+                    if ent is None or sal is None:
                         if ahora - a["t"] > 3600:
                             a["res"] = 0
                             a["salida"] = None
                         continue
-                    a["salida"], a["res"] = sal, 1 if (sal - a["entrada"]) * a["dir"] > 0 else 0
+                    a["entrada"], a["salida"], a["res"] = ent, sal, 1 if (sal - ent) * a["dir"] > 0 else 0
                     if a.get("real"):
                         msg = (f"Resultado REAL [semáforo BTC]: {'ACIERTO' if a['res'] else 'FALLO'} · BTC {'SUBE' if a['dir'] == 1 else 'BAJA'} "
                                f"{a['entrada']:,.1f} → {sal:,.1f}.").replace(",", ".")

@@ -1,5 +1,8 @@
 # Investigación cuantitativa y diagnóstico técnico de las binarias
 
+> **La lectura principal es `INFORME-TOTAL.md` (03/11, 22:30)**, con la auditoría de congruencia y las cifras corregidas a entrada 60 s tarde. Este informe queda como detalle.
+
+
 3 de noviembre de 2026 · BTCUSDT y ETHUSDT, Contratos de Evento de Binance, todo en papel · hora de Colombia.
 
 Todo lo que se presenta como medido sale de un guion de `cuant/` cuya salida está en `cuant/resultados/`. Lo que es opinión o hipótesis se dice así.

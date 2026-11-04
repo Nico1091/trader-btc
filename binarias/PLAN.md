@@ -1,6 +1,6 @@
 # Plan de las binarias en Binance
 
-> **Desde el 03/11/2026 manda el PLAN-v5.md** (unificado en BTC/USDT, centinela en la caja y el teléfono, semáforo papel → real, meta honesta de 56-57 %). Este archivo queda como historia y evidencia. El «16 %» del objetivo y de la sección 1 lo reemplazó la sección 9.
+> **Desde el 03/11/2026 manda el PLAN-TOTAL.md** (antes PLAN-v5.md) (unificado en BTC/USDT, centinela en la caja y el teléfono, semáforo papel → real, meta honesta de 56-57 %). Este archivo queda como historia y evidencia. El «16 %» del objetivo y de la sección 1 lo reemplazó la sección 9.
 
 Versión 4 · 29/10/2026, 22:05 (hora de Colombia).
 - Las secciones 1 a 6 se escribieron antes de ver los resultados: versión 2, con la revisión 1.
