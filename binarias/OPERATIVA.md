@@ -1,23 +1,24 @@
 # Operativa de las binarias (lo que el agente sabe antes de operar)
 
-Versión del 03/11/2026, 21:41 (hora de Colombia). Manda el PLAN-TOTAL.md (v6, congruente: solo devolución, solo BTC, real solo en días VERDES); la evidencia está en `INFORME-TOTAL.md`. El agente (Pulso) la lee antes de cada resumen de 15 min y cita su versión.
+Versión del 04/11/2026, 00:22 (hora de Colombia). Manda el PLAN-TOTAL.md (v7, congruente: solo devolución, solo BTC, real solo cuando el papel de hoy va sumando); la evidencia está en `INFORME-TOTAL.md`. El agente (Pulso) la lee antes de cada resumen de 15 min y cita su versión.
 
 ## Qué se opera
 
 - Contratos de Evento de Binance, unificado en BTCUSDT desde el 03/11 (orden de Nicolás). ETH se sigue midiendo en silencio. Plazo de 10 min.
 - Para no perder con pago 0,85 hay que acertar 54,1 % (con 0,80, 55,6 %). Lo que quede por debajo pierde dinero.
-- Todo en papel hasta su orden expresa. En real, la apuesta la toca él a mano (Binance prohíbe bots en los Contratos de Evento) y sin apalancamiento.
+- Todo en papel hasta su orden expresa (archivo `REAL_AUTORIZADO` en la caja y el teléfono). En real, la apuesta la toca él a mano (Binance prohíbe bots en los Contratos de Evento) y sin apalancamiento.
+- Binance liquida con su índice de precio, no con el último precio de futuros: desde el 04/11 cada apuesta guarda los dos resultados.
 
 ## Dónde está el centinela
 
 - Corre en la caja T95H (principal) y en su teléfono (respaldo), 24/7. El PC ya no lo ejecuta: Pulso no ve su estado y no debe decir «centinela caído» por eso.
-- Las apuestas en papel de BTC, el semáforo del día y las señales «REAL» le llegan por Telegram desde la caja (o desde el teléfono si la caja no responde).
+- Las apuestas en papel de BTC y el SÍ o NO de cada señal le llegan por Telegram desde la caja (o desde el teléfono si la caja no responde).
 
-## El semáforo papel → real
+## SÍ o NO (su regla desde el 04/11)
 
-- Cada día a las 0:00: VERDE si las últimas 100 apuestas de papel de la «ruptura al revés» en BTC aciertan 58 % o más; si no, ROJO.
-- En VERDE, cada señal llega como «REAL: toque ahora BTC SUBE/BAJA a 10 min». La primera pérdida apaga el modo real hasta el día siguiente.
-- Medido bien (entrada 60 s tarde, 2021-2026): 57,4 % con días verdes y parada en la primera pérdida, frente a 56,4 % de días al azar. No adivina los días buenos: los aprovecha cuando ya vienen y limita el riesgo en los malos.
+- En cada señal del núcleo: «SÍ OPERAR» si el papel de hoy va sumando (neto mayor que 0, con apuestas ya cerradas y entrada 60 s tarde) y ningún SÍ ha perdido hoy; si no, «NO OPERAR (solo papel)» con el motivo. El día empieza en NO.
+- La primera pérdida de un SÍ lo apaga hasta el día siguiente.
+- Medido (C9, 2024-sep 2026): no sube el acierto (54,8 % frente a 54,4 %), pero recorta el riesgo: caída máxima de 0,46 M COP frente a 1,79 M de apostar siempre, con 2,1 apuestas al día.
 
 ## Lo que funciona (a ciegas, 2021 a octubre de 2026)
 
@@ -31,7 +32,7 @@ Versión del 03/11/2026, 21:41 (hora de Colombia). Manda el PLAN-TOTAL.md (v6, c
 ## Defensas que sí sirven
 
 - BTC con volumen alto (más de 130 % de la mediana de la semana): no operar.
-- Semáforo en ROJO: no tocar nada en real.
+- «NO OPERAR» de la caja: no tocar nada en real.
 
 ## Lo que NO funciona (no usar para decidir)
 
@@ -39,12 +40,14 @@ Versión del 03/11/2026, 21:41 (hora de Colombia). Manda el PLAN-TOTAL.md (v6, c
 - SMC, ICT y CRT a 10 min: FVG, order blocks, AMD, área de valor, premium y discount, OTE, SMT, killzones, silver bullet, CRT de 1 h y 4 h (49-52 %).
 - Cruzar todas las dimensiones: las mejores combinaciones caen de 65-68 % a 53-62 % y la cartera de todas pierde (52,8 %).
 - La «mano caliente»: tras acertar se acierta igual o menos que tras fallar. Operar más «cuando hay suerte» no da ventaja por apuesta.
+- Probados el 04/11 (C9), sin ventaja: flujo informado o VPIN, régimen por autocorrelación, horas del día y metaetiquetado (de −1,2 a +0,5 puntos, ninguno significativo).
 - Operar solo con todo a favor; seguir la ruptura de sus líneas; el toque de la segunda resistencia; MHI; torres gemelas; martingala; las estrategias «del 98 %»; el triángulo (anuncia movimiento, no sentido).
 - Noticias, Wall Street y Banco Mundial como pronóstico de 10 min: son contexto.
 
 ## Contexto que el agente menciona sin decidir con él
 
-- Su opinión en Centro nocturno: se cita y se compara con el precio. Sus comentarios del 31/10 piden más líneas desde el inicio de cada caída, líneas inclinadas abajo y un oscilador en la foto; y apostar solo con mucho acierto y pausar al ganar (lo medido: el semáforo sí, pausar al ganar no cambia lo esperado).
+- Sus seis líneas en 1 min (Pulso, cada 5 min): techo y piso largos (azul), techo y piso cortos desde el inicio de la última caída o subida (ámbar) y las dos horizontales donde el precio se queda (violeta). Solo su señal de dos velas al revés está probada (t31, 56-57 %).
+- Su opinión en Centro nocturno: se cita y se compara con el precio.
 - Libro de órdenes a ±1 % (52 %), flujo de órdenes (52 %, al revés), opciones de BTC (GEX positiva frena los movimientos; gamma flip; muros de calls y puts), DVOL, VIX, S&P 500 y bono de 10 años: contexto.
 - El índice de estabilidad (t33): con confianza de 56 % o más acertó 55,6 % a ciegas en 2024-26.
 
@@ -53,6 +56,6 @@ Versión del 03/11/2026, 21:41 (hora de Colombia). Manda el PLAN-TOTAL.md (v6, c
 1. Recuerda que el centinela vive en la caja y el teléfono; no lo da por caído porque el PC no lo vea.
 2. Mide el precio de la última hora y de 15 min, compradores contra vendedores y el volumen de BTC frente a su semana.
 3. Dice uno de tres veredictos:
-   - OPERAR solo con la señal del sistema o con «REAL» del semáforo en VERDE;
-   - NO OPERAR: semáforo en ROJO para real, o volumen alto en BTC;
+   - OPERAR solo con el «SÍ OPERAR» de la caja (y en real solo si existe su orden expresa);
+   - NO OPERAR: «NO OPERAR» de la caja, o volumen alto en BTC;
    - CANDIDATA: su señal de dos velas, informada al revés y sin entrar al sistema.

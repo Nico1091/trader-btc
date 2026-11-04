@@ -1,0 +1,60 @@
+C9 · BTCUSDT · su regla «el papel sumando» y métodos para la devolución (entrada 60 s tarde, pago 0,85, empate = fallo)
+Núcleo: 28.730 señales de 2021-01-01 a 2026-10-30
+  2021-2023 (elegir): 13.152 señales, 12,0 al día, acierto 57,0 % (Wilson 56,2 %)
+  2024-sep 2026 (juzgar): 15.176 señales, 15,1 al día, acierto 54,4 % (Wilson 53,6 %)
+  oct 2026 (adelante): 402 señales, 13,4 al día, acierto 60,7 % (Wilson 55,8 %)
+
+P8 · su regla: el real solo cuando el papel esté sumando (entre corchetes, el acierto del núcleo en ese tramo y la p binomial)
+  D (día sumando)                 2021-2023: 6.816 (6,2/día) 56,9 % [núcleo 57,0 %, p 0,566] · 2024-sep: 6.959 (6,9/día) 54,9 % [núcleo 54,4 %, p 0,187] · oct: 227 (7,6/día) 61,2 % [núcleo 60,7 %, p 0,461]
+  H2 (2 h sumando)                2021-2023: 3.955 (3,6/día) 57,5 % [núcleo 57,0 %, p 0,281] · 2024-sep: 4.801 (4,8/día) 54,0 % [núcleo 54,4 %, p 0,700] · oct: 125 (4,2/día) 63,2 % [núcleo 60,7 %, p 0,315]
+  H3 (3 h sumando)                2021-2023: 5.126 (4,7/día) 58,0 % [núcleo 57,0 %, p 0,073] · 2024-sep: 6.003 (6,0/día) 53,7 % [núcleo 54,4 %, p 0,834] · oct: 180 (6,0/día) 61,7 % [núcleo 60,7 %, p 0,425]
+  H6 (6 h sumando)                2021-2023: 6.483 (5,9/día) 57,2 % [núcleo 57,0 %, p 0,353] · 2024-sep: 7.172 (7,1/día) 54,6 % [núcleo 54,4 %, p 0,325] · oct: 220 (7,3/día) 58,2 % [núcleo 60,7 %, p 0,797]
+  R2 (2 aciertos seguidos)        2021-2023: 4.869 (4,4/día) 57,4 % [núcleo 57,0 %, p 0,291] · 2024-sep: 5.226 (5,2/día) 54,0 % [núcleo 54,4 %, p 0,693] · oct: 176 (5,9/día) 58,5 % [núcleo 60,7 %, p 0,748]
+  R3 (3 aciertos seguidos)        2021-2023: 2.795 (2,6/día) 57,2 % [núcleo 57,0 %, p 0,435] · 2024-sep: 2.809 (2,8/día) 54,7 % [núcleo 54,4 %, p 0,372] · oct: 110 (3,7/día) 58,2 % [núcleo 60,7 %, p 0,738]
+  D1 (día sumando y parada)       2021-2023: 2.451 (2,2/día) 58,3 % [núcleo 57,0 %, p 0,108] · 2024-sep: 2.120 (2,1/día) 54,8 % [núcleo 54,4 %, p 0,345] · oct: 78 (2,6/día) 59,0 % [núcleo 60,7 %, p 0,665]
+  S2+P1 (semáforo VERDE actual)   2021-2023: 1.372 (1,3/día) 58,0 % [núcleo 57,0 %, p 0,232] · 2024-sep: 735 (0,7/día) 54,3 % [núcleo 54,4 %, p 0,530] · oct: 67 (2,2/día) 55,2 % [núcleo 60,7 %, p 0,851]
+  Elegida en 2021-2023: D1 (día sumando y parada)
+  Juicio 2024-sep 2026: 54,8 % frente a 54,4 % del núcleo sin filtro; p 0,345 → NO ENTRA
+  Con 5 USDT por apuesta: 2024-sep 2026 2.120 apuestas reales, neto 0,47 M COP, caída máxima 0,46 M COP; oct 2026: 78 apuestas, 59,0 %, neto 113 mil COP
+  Núcleo sin filtro, neto 2024-sep 2026: 1,35 M COP; caída máxima 1,79 M COP
+  Días en que el papel termina sumando: 55,6 %. Mañana suma tras un día que sumó: 56,9 %; tras uno que restó: 54,0 %
+
+P9 · flujo informado: no apostar si el desequilibrio de 15 min a favor de la ruptura supera el percentil de 2021-2023
+  P9 percentil 50                      elegir 56,6 % (6,0/día) · juzgar 53,8 % (6,6/día, -0,55 pts, p 0,886) · oct 63,6 % (129)
+  P9 percentil 70                      elegir 57,1 % (8,4/día) · juzgar 54,3 % (9,0/día, -0,03 pts, p 0,526) · oct 63,3 % (188)
+  P9 percentil 80                      elegir 57,2 % (9,6/día) · juzgar 54,1 % (10,3/día, -0,21 pts, p 0,774) · oct 62,1 % (219)
+  P9 percentil 90                      elegir 57,1 % (10,8/día) · juzgar 54,2 % (12,1/día, -0,17 pts, p 0,810) · oct 63,5 % (271)
+P10 · régimen de devolución: solo si la autocorrelación de 10 min es menor que el umbral
+  P10 24 h < +0.00                     elegir 57,1 % (7,5/día) · juzgar 54,1 % (9,2/día, -0,25 pts, p 0,779) · oct 56,2 % (226)
+  P10 24 h < -0.05                     elegir 56,6 % (5,2/día) · juzgar 53,5 % (6,6/día, -0,87 pts, p 0,968) · oct 53,3 % (165)
+  P10 24 h < -0.10                     elegir 56,5 % (3,0/día) · juzgar 53,2 % (4,0/día, -1,16 pts, p 0,962) · oct 49,5 % (95)
+  P10 72 h < +0.00                     elegir 57,0 % (7,7/día) · juzgar 54,2 % (9,1/día, -0,20 pts, p 0,741) · oct 59,2 % (196)
+  P10 72 h < -0.05                     elegir 56,9 % (4,1/día) · juzgar 54,1 % (5,1/día, -0,24 pts, p 0,665) · oct 55,6 % (72)
+  P10 72 h < -0.10                     elegir 59,3 % (1,5/día) · juzgar 53,6 % (1,9/día, -0,78 pts, p 0,772) · oct 100,0 % (3)
+P11 · horas
+  Las 12 horas UTC elegidas en 2021-2023: [3, 6, 7, 8, 9, 10, 11, 12, 13, 21, 22, 23] (hora de Colombia: [1, 2, 3, 4, 5, 6, 7, 8, 16, 17, 18, 22])
+  P11 H12 (12 mejores horas)           elegir 58,6 % (6,1/día) · juzgar 54,6 % (7,7/día, 0,29 pts, p 0,225) · oct 58,4 % (197)
+    frente a 12 horas al azar en 2024-sep 2026: p 0,302
+  P11 HV (hora sumando en 30 días)     elegir 56,9 % (7,0/día) · juzgar 54,4 % (7,7/día, 0,00 pts, p 0,501) · oct 60,9 % (271)
+P12 · metaetiquetado: regresión logística propia sobre las señales del núcleo
+  Pesos más fuertes (positivo = acierta más): 1 h -0,114; tamaño de la ruptura -0,089; impulso 15 min 0,079; flujo -0,072; Bollinger ancho -0,067; hora coseno -0,063
+  2023, el 30 % de mayor probabilidad: 56,0 % (umbral 0,6109)
+  2023, el 50 % de mayor probabilidad: 55,4 % (umbral 0,5909)
+  2023, el 70 % de mayor probabilidad: 55,8 % (umbral 0,5689)
+  Elegido en 2023: el 30 % de mayor probabilidad (umbral 0,6109)
+  P12 metaetiquetado 30 %              elegir 59,5 % (3,0/día) · juzgar 54,9 % (4,7/día, 0,51 pts, p 0,200) · oct 54,5 % (132)
+
+Benjamini-Hochberg (q = 0,05) entre las variantes de P9 a P12, en 2024-sep 2026:
+  P12 metaetiquetado 30 %              p 0,200 · 0,51 pts · 4,7/día · oct 54,5 % (132) → no entra
+  P11 H12 (12 mejores horas)           p 0,302 · 0,29 pts · 7,7/día · oct 58,4 % (197) → no entra
+  P11 HV (hora sumando en 30 días)     p 0,501 · 0,00 pts · 7,7/día · oct 60,9 % (271) → no entra
+  P9 percentil 70                      p 0,526 · -0,03 pts · 9,0/día · oct 63,3 % (188) → no entra
+  P10 72 h < -0.05                     p 0,665 · -0,24 pts · 5,1/día · oct 55,6 % (72) → no entra
+  P10 72 h < +0.00                     p 0,741 · -0,20 pts · 9,1/día · oct 59,2 % (196) → no entra
+  P10 72 h < -0.10                     p 0,772 · -0,78 pts · 1,9/día · oct 100,0 % (3) → no entra
+  P9 percentil 80                      p 0,774 · -0,21 pts · 10,3/día · oct 62,1 % (219) → no entra
+  P10 24 h < +0.00                     p 0,779 · -0,25 pts · 9,2/día · oct 56,2 % (226) → no entra
+  P9 percentil 90                      p 0,810 · -0,17 pts · 12,1/día · oct 63,5 % (271) → no entra
+  P9 percentil 50                      p 0,886 · -0,55 pts · 6,6/día · oct 63,6 % (129) → no entra
+  P10 24 h < -0.10                     p 0,962 · -1,16 pts · 4,0/día · oct 49,5 % (95) → no entra
+  P10 24 h < -0.05                     p 0,968 · -0,87 pts · 6,6/día · oct 53,3 % (165) → no entra

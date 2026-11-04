@@ -10,10 +10,23 @@ CÓMO SE USA ESTE BLOC
 - Para una sesión nueva basta decir: «Lee C:\Users\ni109\Desktop\BLOC BINARIAS - TODO EN UNO.txt y sigue desde ENCARGOS».
 
 
-AL FRENTE (03/11/2026, 21:42): PLAN TOTAL v6 · CONGRUENTE · SOLO DEVOLUCIÓN EN BTC/USDT
+AL FRENTE (04/11/2026, 00:35): PLAN TOTAL v7 · SU REGLA: SÍ O NO SEGÚN EL PAPEL DE HOY · INTERÉS ABIERTO · SEIS LÍNEAS
 Estado: EN CURSO
-SIGUIENTE PASO: P1 (que él anote el pago real de 20 apuestas y sus segundos de demora al tocar) y P2 (selección mensual de devolución en BTC corriendo en el teléfono antes del 1/12), según PLAN-TOTAL.md, sección 7.
+SIGUIENTE PASO: su decisión sobre el dinero real (crear o no REAL_AUTORIZADO) y P1 (que él anote el pago real de 20 apuestas y sus segundos de demora al tocar); antes del 1/12, P2 (selección mensual de devolución en BTC en el teléfono), según PLAN-TOTAL.md, sección 7.
+- Manda C:\Users\ni109\Ingresos\binarias-papel\PLAN-TOTAL.md (v7). El v6 quedó como «posible plan v6» y el v7 como «posible plan v7» en Descargas\POSIBLE PLAN BINARIAS BTC y en la USB (G:\POSIBLE PLAN BINARIAS BTC, partición NUEVO), en carpetas por versión y con SHA-256 verificado. Copia para el Bloc de notas: Desktop\PLAN TOTAL BINARIAS BTC - v7.txt (el v6 del Escritorio pasó a respaldos).
+- Su regla (03/11, 23:58): «no es que sean solo en días verdes, solo en días que esté sumando». Desde las 00:29 la caja y el teléfono corren el semáforo v3.1: cada señal del núcleo llega con «SÍ OPERAR» o «NO OPERAR» y su motivo. SÍ = papel de hoy sumando, ningún SÍ perdido hoy e interés abierto que no sube. Dinero real solo con el archivo REAL_AUTORIZADO (su orden expresa); sin él, el SÍ queda en papel como espejo del real.
+- Lo medido a ciegas (C9; reglas escritas antes en PLAN-TOTAL 7b): su regla sola no sube el acierto (54,8 % frente a 54,4 % en 2024-sep 2026), pero baja la caída máxima de 1,79 a 0,46 M COP. VPIN, régimen, horas y metaetiquetado no entran. El interés abierto sí (P14b, con margen honesto): 55,2 % frente a 54,4 % y 65,5 % en octubre; con interés abierto que sube, 53,3 %. Su regla con ese filtro (P15): 55,5 % con 1,8 apuestas al día y 66,7 % en octubre. Paridad entre la caja y el banco: 14 de 14 en el SÍ y 84 de 84 en el filtro.
+- Binance liquida con su índice de precio (página oficial del 28/10/2026): con él, el núcleo de 2024-26 queda en 54,1 % (equilibrio 54,05 %). Cada apuesta guarda ya los dos resultados.
+- Su API de Binance: no hace falta. Las velas, el índice y el interés abierto son públicos, y los Contratos de Evento no tienen API (solo la app). Conectarla solo arriesgaría sus claves.
+- Pulso manda desde las 00:20, cada 5 min, «Sus seis líneas en 1 min»: techo y piso largos (azul), techo y piso cortos desde el inicio de la última caída o subida (ámbar) y dos horizontales donde el precio se queda (violeta). Binario anterior: ~/.pulso/bin/pulso.antes-seis-lineas-04-11.
+- Días: el papel en vivo corre en la caja desde el 03/11 a las 19:38. Faltan 7 días de paridad (hasta el 10/11), 300 apuestas del núcleo (unas 16 al día: hacia el 22/11), P7 a los 30 días (03/12) y P4, sin empezar.
+- Caja T95H: Google Play Services se cae cada 3 s (servicio Nearby) desde las 19:59 y la mantiene entre 75 y 80 °C con carga de 5 a 6. Sin root no se puede apagar solo ese servicio. Pendiente de su sí: desactivar Play Services en la caja (se revierte con una orden).
+
+AL FRENTE (03/11/2026, 21:42): PLAN TOTAL v6 · CONGRUENTE · SOLO DEVOLUCIÓN EN BTC/USDT (reemplazado por el v7 del 04/11, 00:35)
+Estado: REEMPLAZADO
+PASO DE ENTONCES: P1 (que él anote el pago real de 20 apuestas y sus segundos de demora al tocar) y P2 (selección mensual de devolución en BTC corriendo en el teléfono antes del 1/12), según PLAN-TOTAL.md, sección 7.
 - Manda C:\Users\ni109\Ingresos\binarias-papel\PLAN-TOTAL.md. Evidencia y auditoría de congruencia: INFORME-TOTAL.md (misma carpeta). El PLAN-v5 queda como historia.
+- Copia para leer en el Bloc de notas: Desktop\PLAN TOTAL BINARIAS BTC - v6.txt (03/11, 21:51).
 - Lógica única: a 10 min, BTC se devuelve tras estirarse; ventaja pequeña que cambia con el tiempo y depende de entrar rápido y del pago. Solo se apuesta a la devolución; en real solo los días VERDES del semáforo; la primera pérdida lo apaga; sin apalancamiento.
 - Descartado por incongruente: todo lo que apuesta a la continuación (sus dos resistencias a favor, segunda resistencia, todo a favor, triángulo, momentum de la primera media hora, libro leído a favor), las cajas negras (modelo U, receta de G-Research), SMC/ICT/CRT como señales, mano caliente y pausar al ganar, martingala, 16 %, oro, la meta de 85,7 % y ETH como mercado operado.
 - Cifras corregidas a entrada 60 s tarde (C8): núcleo (ruptura al revés en BTC) 57,0 % en 2021-23, 54,4 % en 2024-26 y 60,7 % en octubre. Semáforo en 2021-2026: 57,4 % con parada en la primera pérdida frente a 56,4 % del azar. El 59,8 % que se informó antes medía al cierre: error corregido.
@@ -139,7 +152,8 @@ Nuevas del 03/11/2026
 - Todo se unifica en BTC/USDT. ETH se mide en silencio.
 - En real, sin apalancamiento; el apalancamiento solo en papel (y solo como estudio de futuros).
 - El centinela no corre en el PC: corre en la caja y en el teléfono, a la vez; si la caja falla, sigue el teléfono. Autorizó el arranque solo con Termux:Boot e instalar Termux, Termux:Boot, Python, numpy y Tor (oficiales).
-- El modo real lo enciende el semáforo (las últimas 100 de papel en 58 % o más) y lo apaga la primera pérdida del día.
+- (Reemplazada el 04/11) El modo real lo enciende el semáforo (las últimas 100 de papel en 58 % o más) y lo apaga la primera pérdida del día.
+- 03/11/2026, 23:58: «no es que sean solo en días verdes, solo en días que esté sumando directamente en nuestras operaciones». El real va solo en las señales SÍ (papel de hoy sumando); la primera pérdida del SÍ lo apaga hasta mañana. El bot toma datos en vivo; ve la gráfica y dice sí o no; las líneas son seis.
 - Sus comentarios de Telegram se leen sin mirar su pantalla: o los reenvía al bot o los pasa en foto.
 
 Qué se opera
@@ -282,6 +296,16 @@ Lo que dicen los estudios de BTC y ETH
 
 
 6. ENCARGOS
+
+03/11/2026, 23:47, a 04/11/2026, 00:35. Pedido: revisar la sesión anterior de binarias y continuarla; guardar el plan como posible plan en Descargas y en la USB; buscar en internet métodos que suban el acierto («a ver cuánto llegamos»); decir cuántos días van programados; operar en real solo cuando el papel funcione ese día y esas horas («no es que sean solo en días verdes, solo en días que esté sumando»); el bot con datos en vivo y, si conviene, su API de Binance; mirar la gráfica en vivo y decir sí o no; seis líneas en vez de dos. «Primero analiza».
+- [HECHO] Posible plan v6 (23:54) y v7 en Descargas\POSIBLE PLAN BINARIAS BTC y en G:\POSIBLE PLAN BINARIAS BTC, en carpetas por versión, con LEEME y SHA-256 iguales.
+- [HECHO] Búsqueda en fuentes reconocidas y pruebas a ciegas C9, C9b y C9c (P8 a P15). Entran el interés abierto (P14b) y su combinación con su regla (P15).
+- [HECHO] Semáforo v3.1 en la caja y el teléfono: SÍ o NO con motivo en cada señal; dinero real bloqueado hasta su orden.
+- [HECHO] Seis líneas en Pulso, compiladas en la caja sellada.
+- [HECHO] Su API de Binance: no hace falta (todo lo que usa el bot es público y los Contratos de Evento no tienen API).
+- [PENDIENTE DE ÉL] Orden de dinero real (crear REAL_AUTORIZADO) o esperar a los criterios 1 a 4 de la sección 8.
+- [PENDIENTE DE ÉL] Desactivar Google Play Services en la caja por el calor.
+- [PENDIENTE] P1 a P6 como estaban; vigilar en vivo que el filtro del interés abierto se sostenga, porque es un efecto reciente.
 
 03/11/2026, 18:55-21:15. Pedido: revisar lo de estadística binaria y lo de la nube; push con GitHub; análisis multidimensional (seis dimensiones), Markov, HMM, regímenes, agrupamiento, autocorrelación, anomalías, validación, sobreajuste, binarias frente a futuros; footprint, Bookmap, SMC, CRT, ICT, opciones, macro y Banco Mundial; meta 85,7 %; diagnóstico; reestructurar el plan; segunda opinión de otra IA; segundo cerebro que insista; recordatorio en el teléfono; migrar todo a la USB con particiones y claves; leer sus comentarios de Telegram; parar lo de la T95H; centinela a la caja y al teléfono; unificar en BTC; semáforo papel → real sin apalancamiento.
 - [HECHO] Lo de estadística binaria y lo de la nube está en github.com/Nico1091/trader-btc (rama local/maestro-v2: t2 y t3 del 29/10; rama de la nube unida a master el 27/10). El lunes 2/11 no hubo cambios: el operador solo dio «Login expired». Local y GitHub estaban iguales.
@@ -431,3 +455,16 @@ Abiertos de antes
 - 03/11/2026 21:15. PLAN-v5.md, informe, OPERATIVA.md v5 y este bloc al día.
 - 03/11/2026 21:28. Migración a la USB terminada y verificada; recordatorio del 04/11 puesto; GitHub con dos commits.
 - 03/11/2026 21:42. Auditoría de congruencia: PLAN-TOTAL.md (v6) e INFORME-TOTAL.md; C8 (HMM de la racha y E1) y C7 corregidos a 60 s; semáforo de los equipos con medida de 60 s.
+- 03/11/2026 21:51. El plan total v6, en texto plano, en el Escritorio: PLAN TOTAL BINARIAS BTC - v6.txt.
+- 03/11/2026 23:47. Revisión: caja viva, 74,9 °C y carga 5. Google Play Services se cae cada 3 s (Nearby) desde las 19:59; sin root no se puede apagar ese servicio.
+- 03/11/2026 23:54. Posible plan v6 en Descargas y en la USB (NUEVO), verificado por SHA-256.
+- 03/11/2026 23:58. Su regla: el real solo cuando el papel de hoy esté sumando.
+- 03/11/2026 23:59. Reglas de C9 (P8 a P13) escritas en PLAN-TOTAL 7b antes de ver resultados.
+- 04/11/2026 00:03. C9: su regla no sube el acierto y recorta el riesgo; VPIN, régimen, horas y metaetiquetado no entran.
+- 04/11/2026 00:07. P13: con el índice de Binance, 54,1 % en 2024-26 (−0,25 puntos).
+- 04/11/2026 00:12. Semáforo v3 (SÍ o NO) en la caja y el teléfono; paridad de 14 de 14.
+- 04/11/2026 00:20. Pulso con seis líneas; la primera gráfica llegó a su Telegram.
+- 04/11/2026 00:25. P14: el interés abierto que no sube entra (+1,02 puntos); P14b, con 5 min más de margen, también (+0,83).
+- 04/11/2026 00:27. Binance publica cada punto del interés abierto entre 47 y 167 s (tres puntos medidos el 04/11) después de su hora; el archivo histórico lo marca 5 min antes.
+- 04/11/2026 00:29. Semáforo v3.1 (su regla + interés abierto) en la caja y el teléfono; paridad de 84 de 84.
+- 04/11/2026 00:35. Plan v7, informe, operativa, bloc, memoria, bóveda y encargo al día; posible plan v7 en Descargas y en la USB.

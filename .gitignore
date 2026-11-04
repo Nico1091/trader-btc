@@ -12,3 +12,19 @@ __pycache__/
 PARAR
 PAUSA
 agente.lock
+# Binarias: estados, registros y cachés de cada equipo (privados)
+apuestas.jsonl
+senales_vivo.jsonl
+semaforo.json
+avisados.json
+fichas/
+cache/
+*.npy
+*.npz
+*.pid
+REAL_AUTORIZADO
+# Pulso: binarios, APK, fichas de voz y audios
+binarias/pulso/android/lib/
+binarias/pulso/android/obj/
+binarias/pulso/android/assets/
+binarias/pulso/audio/

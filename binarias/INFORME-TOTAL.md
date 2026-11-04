@@ -1,6 +1,6 @@
 # Informe total de las binarias (congruencia, evidencia y diagnóstico)
 
-3 de noviembre de 2026, 21:40 (hora de Colombia). Reemplaza como lectura principal al informe de `cuant/` del mismo día; el detalle de cada prueba sigue en `cuant/resultados/`. Todas las cifras de acierto que deciden algo se dan con entrada 60 s tarde, como él toca a mano.
+3 de noviembre de 2026, 21:40 (hora de Colombia), con la sección 8 añadida el 4 de noviembre a las 00:35 (pruebas C9). Reemplaza como lectura principal al informe de `cuant/` del mismo día; el detalle de cada prueba sigue en `cuant/resultados/`. Todas las cifras de acierto que deciden algo se dan con entrada 60 s tarde, como él toca a mano.
 
 ## 1. La lógica única del sistema
 
@@ -70,3 +70,22 @@ En binarias de 10 minutos sobre BTC, lo alcanzable con lo medido es 55-57 % en l
 ## 7. Mercado del 03/11 (20:32)
 
 BTC 76.882 (−11 % en 30 días), volatilidad 2,4 veces su mediana, régimen normal; GEX positiva de 28 M USD por 1 %, gamma flip en 76.312, muros en 90.000 y 74.000; VIX 21,15, S&P 500 −1,8 % en 5 sesiones, bono de 10 años en 4,95 %. Semáforo del día: ROJO.
+
+## 8. Pruebas C9 del 04/11: su regla y los métodos de afuera
+
+Reglas escritas antes en `PLAN-TOTAL.md`, sección 7b. Núcleo en BTC con entrada 60 s tarde: 57,0 % en 2021-2023 (12 señales al día), 54,4 % en 2024-sep 2026 (15,1 al día) y 60,7 % en octubre de 2026. Guiones `cuant/c9_mejoras.py`, `c9b_indice.py` y `c9c_interes.py`; salidas en `cuant/resultados/c9_BTCUSDT.txt`.
+
+**Su regla, «el real solo cuando el papel esté sumando» (P8).** Ninguna de sus siete formas sube el acierto en 2024-sep 2026: el día sumando da 54,9 %; las últimas 2, 3 o 6 horas sumando, entre 53,7 y 54,6 %; tras 2 o 3 aciertos seguidos, 54,0 y 54,7 %. La elegida en 2021-2023, el día sumando con parada en la primera pérdida (D1), da 54,8 % frente a 54,4 % (p = 0,35). Lo que sí hace es recortar el riesgo: 2,1 apuestas reales al día, neto de +0,47 M COP y caída máxima de 0,46 M COP, frente a +1,35 M y 1,79 M de apostar siempre; el VERDE anterior daba 0,7 al día con 54,3 %. El papel termina sumando el 55,6 % de los días; tras un día que sumó, el siguiente suma el 56,9 %, y tras uno que restó, el 54,0 % (sin significancia). Por eso queda como la forma de encender el real, por ser su regla y por ser la más prudente, no como fuente de acierto. Corrección de diseño: el sorteo «del mismo día» que fijé para P8 incluía las apuestas que volvían positivo el día y se inflaba; se reemplazó por la prueba binomial contra el núcleo, sin cambiar el veredicto.
+
+**Métodos reconocidos (P9 a P12), ninguno entra:**
+- Flujo informado, VPIN simplificado (Easley, López de Prado y O'Hara, 2012): de −0,55 a −0,03 puntos.
+- Régimen de devolución por autocorrelación (Lo y MacKinlay, 1988): de −1,16 a −0,20 puntos.
+- Horas: las 12 mejores de 2021-2023 dan +0,29 puntos (p = 0,28 frente a 12 horas al azar); la hora que viene sumando en 30 días, 0,00.
+- Metaetiquetado con regresión logística propia (López de Prado, 2018; Joubert, 2022): +0,51 puntos (p = 0,21) con 4,7 apuestas al día, y 54,5 % en octubre, por debajo del núcleo.
+- Benjamini-Hochberg entre las 13 variantes: ninguna pasa.
+
+**Precio con que paga Binance (P13).** Binance liquida los Contratos de Evento con su índice de precio (página oficial, actualizada el 28/10/2026); el centinela medía con el último precio de futuros. En 2024-sep 2026 el 3,8 % de las señales cambia de resultado y el acierto pasa de 54,36 % a 54,11 % (−0,25 puntos; en octubre, +0,27). No llega a los 0,3 puntos fijados para cambiar la medida, pero desde el 04/11 cada apuesta en vivo guarda también su resultado con el índice. Con el índice no hay empates (13 con el último precio).
+
+**Estirón por liquidaciones: el interés abierto (P14, P14b y P15). Entra.** Con el interés abierto de futuros cada 5 min (data.binance.vision, desde el 01/12/2021; 517.108 instantáneas, sin días faltantes): la devolución acierta más cuando el estirón no trajo posiciones nuevas. Apostar solo si el interés abierto no subió en los 15 min previos da 55,4 % en 2024-sep 2026 (+1,02 puntos, p = 0,001); con interés abierto que sube, 52,8 %. Al cruzar el archivo con el servicio en vivo apareció un desfase: el archivo marca cada instantánea 5 min antes, y Binance publica cada punto entre 47 y 167 s (tres puntos medidos el 04/11) después de su hora. Repetida con ese margen (P14b), la prueba sigue pasando: 55,2 % (+0,83 puntos, p = 0,011, 8,5 apuestas al día) y 65,5 % en octubre. En dic 2021-2023 no se notaba (−0,17 puntos): es un efecto reciente. Junto con su regla (P15), el SÍ acierta 55,5 % con 1,8 apuestas al día (neto +0,78 M COP, caída máxima 0,45 M) y 66,7 % en octubre. La paridad entre la caja y el banco dio 84 de 84 señales iguales. Es congruente con la lógica única: si el estirón trae compromiso nuevo, no se devuelve.
+
+**¿Cuánto se alcanza?** Medido a ciegas en 2024-sep 2026 con entrada 60 s tarde: el núcleo da 54,4 %, el SÍ de su regla con el interés abierto 55,5 % y octubre de 2026 llegó a 66,7 % en el SÍ. Ninguna otra de las 20 variantes probadas suma de verdad. Lo que todavía mueve el acierto: tocar más rápido (cada minuto cuesta cerca de 1,7 puntos; entrando al cierre, 56,1 % en el núcleo), un pago mejor que 0,85 (con 0,90 el equilibrio baja a 52,6 %) y los meses de devolución fuerte. Medido con el índice de Binance, el núcleo de 2024-26 queda en el equilibrio (54,1 % frente a 54,05 %): el margen real lo dan el filtro, la rapidez y el pago. Por eso P1 (pago y demora reales) sigue siendo el paso que más vale.
