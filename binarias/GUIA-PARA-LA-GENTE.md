@@ -20,7 +20,7 @@ Cada 10 minutos, en los minutos :00, :10, :20, :30, :40 y :50, se mira la últim
 - Si cerró por debajo del mínimo: **SUBE a 10 minutos**.
 - Si quedó dentro del rango, no hay señal.
 
-Aparecen unas 15 señales al día. Todas se anotan en papel; solo algunas llegan como SÍ.
+La decisión espera siempre a que cierre la vela de 5 minutos; nunca se decide con una vela en formación. Aparecen unas 15 señales al día. Todas se anotan en papel; solo algunas llegan como SÍ.
 
 ## Cuándo se opera: el SÍ o NO
 
@@ -42,14 +42,14 @@ NO OPERAR · BTC SUBE a 10 min, solo en papel
 papel de hoy −1,15 (1 de 3 acertadas)
 ```
 
-El papel se cuenta en apuestas: cada acierto suma 0,85 y cada fallo resta 1.
+Cada aviso llega como foto: la gráfica de 1 minuto con las seis líneas y el aviso en el pie. El papel se cuenta en apuestas: cada acierto suma 0,85 y cada fallo resta 1.
 
 ## Qué hacer cuando llega un SÍ
 
 1. Abra la app de Binance, entre a Contratos de Evento y elija BTCUSDT con vencimiento de 10 minutos.
 2. Revise el pago que ofrece la app. Con 0,85 hay que acertar el 54,1 % de las veces para no perder; con 0,80, el 55,6 %. Si el pago está por debajo de 0,85, no entre.
 3. Toque el sentido del aviso, SUBE o BAJA, en los primeros segundos. Cada minuto de demora resta cerca de 1,7 puntos de acierto.
-4. Apueste siempre el mismo monto, el mínimo de 5 USDT. Nunca doble después de perder.
+4. Apueste siempre el mismo monto, el mínimo de 5 USDT, y nunca más del 16 % de su saldo: con 5 USDT, el saldo debe ser de 31,25 USDT o más. Nunca doble después de perder.
 5. Si ese SÍ pierde, termine el día, aunque lleguen más señales.
 
 ## Las seis líneas
@@ -75,6 +75,10 @@ Las reglas se escribieron antes de mirar resultados, se ajustaron con 2021 a 202
 
 De cada 100 SÍ, unos 55 aciertan; con pago de 0,85, el punto de no perder es 54,1. Con 5 USDT por apuesta, el SÍ habría ganado unos 245 USDT entre enero de 2024 y septiembre de 2026, unos 7 USDT al mes, y en su peor racha habría estado unos 140 USDT abajo. Octubre de 2026 fue un mes fuera de lo común y no debe tomarse como lo normal. Son resultados de pruebas con datos pasados y de papel en vivo, y no aseguran lo que pase después.
 
+## Cómo se comprueban los resultados
+
+Cada SÍ que cierra deja un comprobante en PDF con la hora, el sentido, el precio de entrada y el de vencimiento, y enlaces que abren en Binance las velas oficiales de esos minutos y el índice de precio con que se liquida. Cualquiera puede abrir esos enlaces y ver el mismo resultado. Al día siguiente llega además el resumen de todas las señales del día, una por fila.
+
 ## Lo que no hay que hacer
 
 - Doblar el monto después de perder (martingala). En una prueba pública, cerca del 45 % de las cuentas no pudo seguir doblando y quebró.
@@ -82,6 +86,8 @@ De cada 100 SÍ, unos 55 aciertan; con pago de 0,85, el punto de no perder es 54
 - Apostar a favor de la ruptura, o solo cuando todo parece a favor. A 10 minutos eso pierde, con aciertos entre el 43 y el 52 %.
 - Usar como señal a 10 minutos las noticias, los patrones de SMC, ICT o CRT, o las horas del día. Se probaron y no dan ventaja.
 - Buscar apalancamiento. Las binarias no lo tienen; en otros productos multiplica las pérdidas.
+- Esperar velas de confirmación extra después del aviso. Se probó: baja el acierto de 54,4 a 53,0 %.
+- Dejar que un programa apueste por usted. Binance prohíbe los bots en los Contratos de Evento y la apuesta se toca a mano.
 
 ## Antes de poner dinero
 

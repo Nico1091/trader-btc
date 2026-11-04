@@ -28,3 +28,6 @@ binarias/pulso/android/lib/
 binarias/pulso/android/obj/
 binarias/pulso/android/assets/
 binarias/pulso/audio/
+# Binarias: comprobantes y foto de cada equipo (privados)
+comprobantes/
+grafica_ultima.png

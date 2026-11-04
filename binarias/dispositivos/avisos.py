@@ -9,6 +9,8 @@ los avisos salen por Tor.
   deja de latir o vuelve. Lleva dentro el semáforo papel → real de BTC (semaforo.py).
 - La clave del bot se lee al momento de ~/.config/binarias/telegram (línea 1: clave, línea 2: chat) y se le pasa a curl
   por la entrada estándar: no queda en la lista de procesos ni en ningún registro.
+Desde el 04/11 también manda fotos y documentos (enviar_archivo) y, si existe ~/.config/binarias/canal, publica los SÍ y NO
+en el canal para la gente.
 Uso: AVISOS_ROL=caja|telefono python3 -I avisos.py · Parar: crear PARAR en esta carpeta."""
 import datetime as dt
 import json
@@ -106,6 +108,45 @@ def enviar(texto):
     except Exception as e:
         log(f"Telegram falló ({type(e).__name__})")
         return False
+
+
+CANAL = os.path.expanduser("~/.config/binarias/canal")  # chat del canal para la gente; si no existe, no se publica nada
+
+
+def enviar_archivo(ruta, texto="", metodo="sendDocument", campo="document", chat=None):
+    """Foto o documento a su Telegram (o al canal) por Tor, con la clave leída al momento. 04/11/2026."""
+    try:
+        lineas = open(CLAVE, encoding="utf-8").read().split()
+        token, chat_suyo = lineas[0], lineas[1]
+    except Exception:
+        log("falta ~/.config/binarias/telegram: no se puede avisar")
+        return False
+    conf = "\n".join([
+        "url = " + comillas(f"https://api.telegram.org/bot{token}/{metodo}"),
+        "form-string = " + comillas(f"chat_id={chat or chat_suyo}"),
+        "form-string = " + comillas(f"caption={texto[:1000]}"),
+        "form = " + comillas(f"{campo}=@{ruta}"),
+    ]) + "\n"
+    usuario = f"binarias{int(time.time()) % 100000}:x"
+    try:
+        r = subprocess.run(["curl", "-s", "--max-time", "60", "--socks5-hostname", f"{usuario}@{TOR}", "-K", "-"],
+                           input=conf, capture_output=True, text=True, timeout=90)
+        ok = '"ok":true' in (r.stdout or "")
+        if not ok:
+            log(f"Telegram ({metodo}) sin confirmar (curl {r.returncode}): {(r.stdout or r.stderr or '')[-160:]}")
+        return ok
+    except Exception as e:
+        log(f"Telegram ({metodo}) falló ({type(e).__name__})")
+        return False
+
+
+def canal():
+    """Chat del canal para la gente, si él lo creó y puso al bot como administrador."""
+    try:
+        c = open(CANAL, encoding="utf-8").read().split()
+        return c[0] if c else None
+    except Exception:
+        return None
 
 
 # ---------------------------------------------------------------- latido de la caja

@@ -33,7 +33,7 @@ Se descartaron con prueba: seguir las rupturas (43-46 %), operar con todo a favo
 
 ## Carpetas
 
-- `dispositivos/`: lo que corre todo el día en la caja Android (principal) y en el teléfono (respaldo) con Termux: arranque, avisos por Tor a Telegram y el semáforo SÍ o NO (`semaforo.py`, v3.1).
+- `dispositivos/`: lo que corre todo el día en la caja Android (principal) y en el teléfono (respaldo) con Termux: arranque, avisos por Tor a Telegram y el semáforo SÍ o NO (`semaforo.py`, v3.2). Cada SÍ o NO sale como foto con las seis líneas (`graficas.py`, idéntica a Pulso píxel a píxel) y cada SÍ cerrado trae su comprobante en PDF con enlaces a las velas oficiales de Binance (`comprobantes.py`); a las 00:15 llega el resumen del papel del día anterior. Todo en Python puro, sin librerías.
 - `pulso/`: el nodo de avisos en Rust sin dependencias (gráficas de velas, las seis líneas en 1 minuto, informes y voz) y su versión para Android. Se compila en una caja sellada sin red con `caja.sh`.
 - `cuant/`: la investigación cuantitativa, de C1 a C9c, con sus resultados.
 - `pruebas/`: el banco a ciegas, de t10 a t33.

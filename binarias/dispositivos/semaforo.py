@@ -1,5 +1,8 @@
-"""Semáforo papel → real para BTCUSDT, v3.1 (04/11/2026): su regla «el real solo cuando el papel de hoy esté sumando»,
-con el filtro del interés abierto (P15).
+"""Semáforo papel → real para BTCUSDT, v3.2 (04/11/2026): su regla «el real solo cuando el papel de hoy esté sumando»,
+con el filtro del interés abierto (P15). Desde la v3.2, cada SÍ o NO llega como foto con las seis líneas (graficas.py,
+idéntica a Pulso píxel a píxel), cada SÍ cerrado trae su comprobante en PDF con enlaces a las velas oficiales de Binance
+y a las 00:15 llega el resumen del papel del día anterior (comprobantes.py). Si existe ~/.config/binarias/canal, los SÍ y
+NO también se publican en el canal para la gente.
 Corre en la caja T95H y en el teléfono, como hilo del avisador (avisos.py).
 
 Su regla (03/11, 23:58): «no es que sean solo en días verdes, solo en días que esté sumando directamente en nuestras
@@ -32,10 +35,18 @@ AQUI = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, AQUI)
 import avisos  # noqa: E402
 
+try:  # sin gráficas ni comprobantes, el semáforo sigue avisando con texto
+    import comprobantes  # noqa: E402
+    import graficas  # noqa: E402
+except Exception:
+    comprobantes = graficas = None
+
 ESTADO = os.path.join(AQUI, "semaforo.json")
 REGISTRO = os.path.join(AQUI, "semaforo.log")
 PARAR = os.path.join(AQUI, "PARAR")
 AUTORIZADO = os.path.join(AQUI, "REAL_AUTORIZADO")
+GRAFICA = os.path.join(AQUI, "grafica_ultima.png")
+COMPROB = os.path.join(AQUI, "comprobantes")
 FAPI = "https://fapi.binance.com/fapi/v1/klines?symbol=BTCUSDT&interval=1m"
 FIDX = "https://fapi.binance.com/fapi/v1/indexPriceKlines?pair=BTCUSDT&interval=1m"
 FOI = "https://fapi.binance.com/futures/data/openInterestHist?symbol=BTCUSDT&period=5m&limit=12"
@@ -72,6 +83,13 @@ def _bajar(url):
 
 def velas(desde_ms=None, limite=1500):
     return _bajar(FAPI + f"&limit={limite}" + (f"&startTime={desde_ms}" if desde_ms else ""))
+
+
+def velas_ohlc(limite=170):
+    """Velas de 1 min de futuros con apertura, para la gráfica: (t, apertura, máximo, mínimo, cierre)."""
+    x = json.loads(urllib.request.urlopen(urllib.request.Request(FAPI + f"&limit={limite}", headers=H), timeout=20).read())
+    ahora = time.time() * 1000
+    return [(int(k[0]) // 1000, float(k[1]), float(k[2]), float(k[3]), float(k[4])) for k in x if int(k[6]) < ahora]
 
 
 def velas_indice(limite=60):
@@ -189,13 +207,25 @@ def avisar(texto):
     return avisos.enviar(texto)
 
 
+def avisar_archivo(ruta, texto, metodo, campo, texto_canal=None):
+    """Foto o PDF a su Telegram; el teléfono calla si la caja late. Con texto_canal, también al canal para la gente."""
+    if avisos.ROL == "telefono" and avisos.caja_late():
+        log("la caja late: ella avisa")
+        return True
+    ok = avisos.enviar_archivo(ruta, texto, metodo, campo)
+    c = avisos.canal() if texto_canal else None
+    if c:
+        avisos.enviar_archivo(ruta, texto_canal, metodo, campo, chat=c)
+    return ok
+
+
 def main():
     e = leer()
     if e.get("medida") != "60s":  # el registro viejo medía al cierre: se rehace con la medida nueva
         e["apuestas"], e["medida"] = [], "60s"
     n = sembrar(e)
     guardar(e)
-    log(f"semáforo v3.1 (su regla + interés abierto) en marcha · rol {avisos.ROL} · {len(e['apuestas'])} apuestas de papel ({n} sembradas) · real autorizado: {autorizado()}")
+    log(f"semáforo v3.2 (su regla + interés abierto, con fotos y comprobantes) en marcha · rol {avisos.ROL} · {len(e['apuestas'])} apuestas de papel ({n} sembradas) · real autorizado: {autorizado()}")
     while not os.path.exists(PARAR):
         try:
             ahora = time.time()
@@ -212,6 +242,25 @@ def main():
                        + f" Últimas {n_ult} de papel: {acc * 100:.1f} %.".replace(".", ",", 1))
                 avisar(txt)
                 log(txt)
+            # 1b) a las 00:15, el resumen del papel del día anterior (ya cerradas sus últimas apuestas)
+            ayer = (dt.datetime.fromtimestamp(ahora, COL) - dt.timedelta(days=1)).strftime("%Y-%m-%d")
+            if comprobantes and ahora - ini_dia >= 900 and e.get("resumen_enviado") != ayer:
+                e["resumen_enviado"] = ayer
+                guardar(e)
+                try:
+                    del_dia = [a for a in e["apuestas"] if ini_dia - 86400 <= a["t"] < ini_dia]
+                    cerr = [a for a in del_dia if a.get("res") is not None]
+                    if cerr:
+                        os.makedirs(COMPROB, exist_ok=True)
+                        ruta = os.path.join(COMPROB, f"{ayer}_resumen.pdf")
+                        dia_txt = dt.datetime.strptime(ayer, "%Y-%m-%d").strftime("%d/%m/%Y")
+                        with open(ruta, "wb") as f:
+                            f.write(comprobantes.resumen_dia(del_dia, dia_txt, avisos.ETIQUETA, RETRASO, PLAZO))
+                        neto_d = sum(PAGO if a["res"] else -1.0 for a in cerr)
+                        avisar_archivo(ruta, f"Resumen del papel del {dia_txt} [{avisos.ETIQUETA}]: {len(cerr)} señales, {sum(a['res'] for a in cerr)} acertadas, "
+                                             f"neto {unidades(neto_d)} apuestas. Cada fila abre en Binance su vela de entrada.", "sendDocument", "document")
+                except Exception as ex:
+                    log(f"resumen no enviado ({type(ex).__name__}: {ex})")
             # 2) decisiones cada 10 min (se espera 3 s tras el cierre de la vela)
             t_dec = int(ahora // 600 * 600)
             if ahora - t_dec >= 3 and not any(a["t"] == t_dec for a in e["apuestas"]) and e.get("ultima_revisada") != t_dec:
@@ -239,7 +288,7 @@ def main():
                     if si:
                         txt = (f"SÍ OPERAR [{avisos.ETIQUETA}] · BTC {sentido(s)} a 10 min · precio {avisos.precio(entrada)} · vence {vence} · "
                                f"papel de hoy {unidades(neto)} ({k} de {n_hoy} acertadas) · {oi_txt}. "
-                               + ("Toque ya: 5 USDT, sin apalancamiento." if real else "En papel: el dinero real espera su orden."))
+                               + ("Toque ya: 5 USDT (tope del 16 % del saldo), sin apalancamiento." if real else "En papel: el dinero real espera su orden."))
                     else:
                         motivos = []
                         if perdio:
@@ -249,7 +298,22 @@ def main():
                         if not oi_ok:
                             motivos.append(oi_txt)
                         txt = f"NO OPERAR [{avisos.ETIQUETA}] · BTC {sentido(s)} a 10 min solo en papel · {' y '.join(motivos)}."
-                    avisar(txt)
+                    enviado = False
+                    if graficas:
+                        try:
+                            vg = [x for x in velas_ohlc(170) if x[0] + 60 <= t_dec][-150:]
+                            s6 = graficas.seis_lineas(vg, parcial=True)
+                            if s6:
+                                with open(GRAFICA, "wb") as f:
+                                    f.write(graficas.grafica(vg, s6))
+                                pie = txt + "\nSus seis líneas en 1 min (futuros): " + graficas.lectura(vg, s6) + "."
+                                canal_txt = (("SÍ OPERAR" if si else "NO OPERAR") + f" · BTC {sentido(s)} a 10 min · vence {vence}"
+                                             + ("" if si else ", solo en papel") + ". Señal: ruptura de 20 velas de 5 min al revés.")
+                                enviado = avisar_archivo(GRAFICA, pie, "sendPhoto", "photo", canal_txt)
+                        except Exception as ex:
+                            log(f"gráfica no enviada ({type(ex).__name__}: {ex})")
+                    if not enviado:
+                        avisar(txt)
                     log(f"señal {sentido(s)} a las {dt.datetime.fromtimestamp(t_dec, COL):%H:%M} · {'SÍ' if si else 'NO'} · real {real} · papel de hoy {neto:+.2f} · interés abierto {doi}")
                 guardar(e)
             # 3) cierres
@@ -272,6 +336,7 @@ def main():
                     ie, isal = cierre_en(vi, a["t"] + RETRASO), cierre_en(vi, a["t"] + RETRASO + PLAZO)
                     if ie is not None and isal is not None:
                         a["res_indice"] = 1 if (isal - ie) * a["dir"] > 0 else 0
+                        a["indice_entrada"], a["indice_salida"] = ie, isal
                     if a.get("si"):
                         msg = (f"Resultado del SÍ [{avisos.ETIQUETA}]: {'ACIERTO' if a['res'] else 'FALLO'} · BTC {sentido(a['dir'])} "
                                f"{avisos.precio(a['entrada'])} → {avisos.precio(sal)}"
@@ -280,7 +345,19 @@ def main():
                         if not a["res"] and mismo_dia and not e["hoy"].get("perdio"):
                             e["hoy"]["perdio"] = True
                             msg += " Primera pérdida del SÍ: queda apagado hasta mañana; sigue el papel."
-                        avisar(msg)
+                        doc = False
+                        if comprobantes:
+                            try:
+                                os.makedirs(COMPROB, exist_ok=True)
+                                ruta = os.path.join(COMPROB, dt.datetime.fromtimestamp(a["t"], COL).strftime("%Y-%m-%d_%H%M") + "_SI.pdf")
+                                with open(ruta, "wb") as f:
+                                    f.write(comprobantes.comprobante(a, avisos.ETIQUETA, RETRASO, PLAZO))
+                                doc = avisar_archivo(ruta, msg + " Comprobante adjunto: sus enlaces abren en Binance las velas oficiales de ese minuto.",
+                                                     "sendDocument", "document")
+                            except Exception as ex:
+                                log(f"comprobante no enviado ({type(ex).__name__}: {ex})")
+                        if not doc:
+                            avisar(msg)
                     log(f"cierre {dt.datetime.fromtimestamp(a['t'], COL):%H:%M}: {'acierto' if a['res'] else 'fallo'}"
                         f" · índice {a.get('res_indice', '–')} · {'SÍ' if a.get('si') else 'papel'}")
                 e["apuestas"] = e["apuestas"][-3000:]

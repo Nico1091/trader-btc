@@ -10,9 +10,23 @@ CÓMO SE USA ESTE BLOC
 - Para una sesión nueva basta decir: «Lee C:\Users\ni109\Desktop\BLOC BINARIAS - TODO EN UNO.txt y sigue desde ENCARGOS».
 
 
-AL FRENTE (04/11/2026, 00:35): PLAN TOTAL v7 · SU REGLA: SÍ O NO SEGÚN EL PAPEL DE HOY · INTERÉS ABIERTO · SEIS LÍNEAS
+AL FRENTE (04/11/2026, 01:18): v7 AL DÍA · FOTOS CON SEIS LÍNEAS · COMPROBANTES EN PDF · CONCORDANCIA REVISADA
 Estado: EN CURSO
-SIGUIENTE PASO: su decisión sobre el dinero real (crear o no REAL_AUTORIZADO) y P1 (que él anote el pago real de 20 apuestas y sus segundos de demora al tocar); antes del 1/12, P2 (selección mensual de devolución en BTC en el teléfono), según PLAN-TOTAL.md, sección 7.
+SIGUIENTE PASO: sus decisiones (dinero real con REAL_AUTORIZADO o esperar a P1; Play Services en la caja; canal para la gente; clave API de solo lectura) y P1 (que él anote el pago real de 20 apuestas y sus segundos de demora al tocar).
+- Respuesta a su pregunta: sí, son binarias (Contratos de Evento de Binance, sube o baja a 10 min con pago fijo). Las velas de futuros, el interés abierto y el índice solo deciden cuándo apostar; no se opera nada de futuros.
+- Concordancia revisada y corregida: OPERATIVA ya incluye el interés abierto; el volumen alto sale del SÍ (P3b, −0,46 puntos); jamás apalancamiento, ni en papel; tope del 16 % del saldo por apuesta; la primera pérdida de un SÍ apaga el día (su máximo son dos); solo velas cerradas. Informe y plan al día.
+- Velas de confirmación (P16 y P16b): no entran; bajan el núcleo de 54,4 a 53,0 y 52,3 %. La confirmación que queda es esperar el cierre de la vela de 5 min.
+- Semáforo v3.2 en la caja y el teléfono desde la 01:13: cada SÍ o NO llega como foto con las seis líneas (idéntica a Pulso: 0 de 378.000 píxeles distintos); cada SÍ cerrado trae su comprobante en PDF con enlaces a las velas oficiales de Binance y huella SHA-256; a las 00:15 llega el resumen del papel del día anterior (el del 03/11 salió a la 01:13).
+- Canal para la gente: listo en el código. Falta que él cree el canal, ponga al bot de administrador y diga su nombre.
+- Agente en la nube que opere solo: no se puede (los Contratos de Evento no tienen API y Binance prohíbe los bots). El toque sigue siendo de él.
+- Clave API de solo lectura: pasos en Descargas\PASOS CLAVE API BINANCE (SOLO LECTURA).txt. Irá al teléfono, no a la caja.
+- GitHub: rama binarias/plan-v7-2026-11-04 y PR #2 en borrador hacia master (github.com/Nico1091/trader-btc/pull/2); el repositorio tiene descripción.
+- USB: migración completa entre las 00:59 y la 01:09 (CONTEXTO, PROYECTOS con 100 zips, NUEVO y dos respaldos cifrados verificados: respaldo-nicolas-2026-11-04.nrc, 2,35 GB, y respaldo-ingresos-2026-11-04.nrc, 4,09 GB). A las 00:55 la USB había salido «sin medio»; él la reconectó.
+- Guía para la gente: https://claude.ai/code/artifact/d56e7201-e9c1-43a4-92b6-3a7bf50224ed (privada; se comparte desde el menú Compartir), con copia en Descargas\GUIA BINARIAS SI O NO.
+
+AL FRENTE (04/11/2026, 00:35): PLAN TOTAL v7 · SU REGLA: SÍ O NO SEGÚN EL PAPEL DE HOY · INTERÉS ABIERTO · SEIS LÍNEAS (puesto al día a la 01:18)
+Estado: AL DÍA EN EL BLOQUE DE ARRIBA
+PASO DE ENTONCES: su decisión sobre el dinero real (crear o no REAL_AUTORIZADO) y P1 (que él anote el pago real de 20 apuestas y sus segundos de demora al tocar); antes del 1/12, P2 (selección mensual de devolución en BTC en el teléfono), según PLAN-TOTAL.md, sección 7.
 - Manda C:\Users\ni109\Ingresos\binarias-papel\PLAN-TOTAL.md (v7). El v6 quedó como «posible plan v6» y el v7 como «posible plan v7» en Descargas\POSIBLE PLAN BINARIAS BTC y en la USB (G:\POSIBLE PLAN BINARIAS BTC, partición NUEVO), en carpetas por versión y con SHA-256 verificado. Copia para el Bloc de notas: Desktop\PLAN TOTAL BINARIAS BTC - v7.txt (el v6 del Escritorio pasó a respaldos).
 - Su regla (03/11, 23:58): «no es que sean solo en días verdes, solo en días que esté sumando». Desde las 00:29 la caja y el teléfono corren el semáforo v3.1: cada señal del núcleo llega con «SÍ OPERAR» o «NO OPERAR» y su motivo. SÍ = papel de hoy sumando, ningún SÍ perdido hoy e interés abierto que no sube. Dinero real solo con el archivo REAL_AUTORIZADO (su orden expresa); sin él, el SÍ queda en papel como espejo del real.
 - Lo medido a ciegas (C9; reglas escritas antes en PLAN-TOTAL 7b): su regla sola no sube el acierto (54,8 % frente a 54,4 % en 2024-sep 2026), pero baja la caída máxima de 1,79 a 0,46 M COP. VPIN, régimen, horas y metaetiquetado no entran. El interés abierto sí (P14b, con margen honesto): 55,2 % frente a 54,4 % y 65,5 % en octubre; con interés abierto que sube, 53,3 %. Su regla con ese filtro (P15): 55,5 % con 1,8 apuestas al día y 66,7 % en octubre. Paridad entre la caja y el banco: 14 de 14 en el SÍ y 84 de 84 en el filtro.
@@ -297,6 +311,17 @@ Lo que dicen los estudios de BTC y ETH
 
 6. ENCARGOS
 
+04/11/2026, 00:45 a 01:18. Pedido: pasar todo el contexto a la USB, con todo; una guía para que la gente aplique las estrategias; cambiar y mejorar lo de GitHub; «¿sí son de binarias?»; facturación: un PDF que haga el bot solo, con enlaces al sitio donde se ganó el dinero para que sea demostrable, enviado a su Telegram; pasos para la clave API de Binance; revisar la concordancia y arreglar todo; velas de confirmación; jamás apalancamiento; un agente en la nube que opere cuando le avise el bot de abajo, con tope del 16 % y parada a la primera o segunda pérdida, siempre con análisis de Claude antes; lo mismo para la gente, con la foto y la transmisión; las fotos e información a su Telegram; el nodo del teléfono bien montado; todo a GitHub, a la memoria y a la caja. Reconectó la USB.
+- [HECHO] Respuesta: sí, son binarias (Contratos de Evento); los datos de futuros solo deciden cuándo apostar.
+- [HECHO] USB con todo (migración de las 00:59 a la 01:09, verificada).
+- [HECHO] Guía para la gente (página, Markdown y texto corto para Telegram), sin nombres ni claves; versión 2 a la 01:16.
+- [HECHO] GitHub: rama v7, README nuevos, repositorio ordenado, PR #2 en borrador y descripción.
+- [HECHO] Concordancia revisada y corregida; P3b y P16 probados y rechazados.
+- [HECHO] Fotos con las seis líneas, comprobantes en PDF y resumen diario en la caja y el teléfono (semáforo v3.2).
+- [HECHO] Pasos de la clave API de solo lectura (Descargas).
+- [NO SE PUEDE] Agente en la nube que opere solo: los Contratos de Evento no tienen API y Binance prohíbe los bots.
+- [PENDIENTE DE ÉL] Canal para la gente; orden de dinero real; Play Services en la caja; clave API.
+
 03/11/2026, 23:47, a 04/11/2026, 00:35. Pedido: revisar la sesión anterior de binarias y continuarla; guardar el plan como posible plan en Descargas y en la USB; buscar en internet métodos que suban el acierto («a ver cuánto llegamos»); decir cuántos días van programados; operar en real solo cuando el papel funcione ese día y esas horas («no es que sean solo en días verdes, solo en días que esté sumando»); el bot con datos en vivo y, si conviene, su API de Binance; mirar la gráfica en vivo y decir sí o no; seis líneas en vez de dos. «Primero analiza».
 - [HECHO] Posible plan v6 (23:54) y v7 en Descargas\POSIBLE PLAN BINARIAS BTC y en G:\POSIBLE PLAN BINARIAS BTC, en carpetas por versión, con LEEME y SHA-256 iguales.
 - [HECHO] Búsqueda en fuentes reconocidas y pruebas a ciegas C9, C9b y C9c (P8 a P15). Entran el interés abierto (P14b) y su combinación con su regla (P15).
@@ -468,3 +493,11 @@ Abiertos de antes
 - 04/11/2026 00:27. Binance publica cada punto del interés abierto entre 47 y 167 s (tres puntos medidos el 04/11) después de su hora; el archivo histórico lo marca 5 min antes.
 - 04/11/2026 00:29. Semáforo v3.1 (su regla + interés abierto) en la caja y el teléfono; paridad de 84 de 84.
 - 04/11/2026 00:35. Plan v7, informe, operativa, bloc, memoria, bóveda y encargo al día; posible plan v7 en Descargas y en la USB.
+- 04/11/2026 00:46. GitHub: rama binarias/plan-v7-2026-11-04 (bd93927); a las 00:52, la guía (95faa7d); PR #2 en borrador hacia master.
+- 04/11/2026 00:55. La USB salió «sin medio» (como el 03/11); él la reconectó.
+- 04/11/2026 00:59-01:09. Migración completa a la USB y dos respaldos cifrados verificados.
+- 04/11/2026 01:00. P3b y P16 medidos con la regla escrita antes; ninguno entra.
+- 04/11/2026 01:05. La gráfica de la caja sale idéntica a la de Pulso (0 píxeles distintos).
+- 04/11/2026 01:11. Prueba aislada de la v3.2: foto, comprobante y resumen correctos.
+- 04/11/2026 01:13. Semáforo v3.2 en la caja y el teléfono; resumen del 03/11 enviado en PDF.
+- 04/11/2026 01:18. Guía versión 2, pasos de la clave API, plan, informe, operativa, bloc, memoria, bóveda y GitHub al día.
