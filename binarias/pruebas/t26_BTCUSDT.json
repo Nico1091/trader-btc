@@ -1,0 +1,37 @@
+{
+ "simbolo": "BTCUSDT",
+ "actual": {
+  "apuestas": 16898,
+  "acierto": 0.5798319327731093,
+  "acierto_2024_26": 0.5621432278152568,
+  "arriba_30d": 0.4756679389312977,
+  "por_dia": 7.955977988994497
+ },
+ "ampliado": {
+  "apuestas": 13157,
+  "acierto": 0.5895720909021813,
+  "acierto_2024_26": 0.5691071116547265,
+  "arriba_30d": 0.5577290076335878,
+  "por_dia": 6.194555836920325
+ },
+ "condiciones": {
+  "acierto de todo el periodo": true,
+  "acierto 2024-26": true,
+  "30 días arriba (pago 0,85)": true,
+  "apuestas al día": false
+ },
+ "entra": false,
+ "meses_elegidas": {
+  "rompimiento de 20 velas · contexto en contra": 41,
+  "REV15 · contexto a favor": 5,
+  "rompimiento de 20 velas · contexto a favor": 25,
+  "five flip · contexto a favor": 4,
+  "REV15 · contexto en contra": 13,
+  "MHI 1 min · contexto en contra": 2,
+  "five flip": 3,
+  "seven flip": 6,
+  "REV5 · contexto en contra": 1,
+  "five flip · contexto en contra": 1,
+  "torres gemelas · contexto en contra": 2
+ }
+}

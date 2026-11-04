@@ -1,0 +1,2 @@
+BTCUSDT: 3.591.566 minutos del 2020-01-01 00:00 al 2026-10-30 03:25 (UTC) · rellenados 0 · precios iguales a los de trader-btc en 100.0 % · compras agresivas / volumen 0.4984
+ETHUSDT: 3.591.569 minutos del 2020-01-01 00:00 al 2026-10-30 03:28 (UTC) · rellenados 0 · precios iguales a los de trader-btc en 100.0 % · compras agresivas / volumen 0.4955

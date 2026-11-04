@@ -1,0 +1,58 @@
+T19 · MODELO A CIEGAS · XAUUSDT · regresión logística con 53 rasgos, ajustada mes a mes · 11/12/2025 a 29/10/2026
+Se ajusta con 9 meses, el umbral se elige con los 3 siguientes y se opera el mes después. Operación igual que T18.
+Para no perder: 54,1 % con pago 0,85. Para crecer al 16 %: 57,8 %. Límite corregido = Wilson al 99,375 % de una cola.
+
+== PLAZO 10 MIN · AUC fuera de muestra 0,513 (0,5 = azar) ==
+Todo el periodo: sin apuestas
+   0,00 apuestas al día, todos los días
+   2021-23: sin apuestas
+   2024-26: sin apuestas
+      2021: sin apuestas
+      2022: sin apuestas
+      2023: sin apuestas
+      2024: sin apuestas
+      2025: sin apuestas
+      2026: sin apuestas
+Entrando 60 s tarde: sin apuestas
+Siempre arriba, mismas horas: sin apuestas
+Meses sin apostar (ningún umbral hacía crecer la cuenta en la calibración): 70 de 70
+Umbral por mes: 2021-01:- 2021-02:- 2021-03:- 2021-04:- 2021-05:- 2021-06:- 2021-07:- 2021-08:- 2021-09:- 2021-10:- 2021-11:- 2021-12:- 2022-01:- 2022-02:- 2022-03:- 2022-04:- 2022-05:- 2022-06:- 2022-07:- 2022-08:- 2022-09:- 2022-10:- 2022-11:- 2022-12:- 2023-01:- 2023-02:- 2023-03:- 2023-04:- 2023-05:- 2023-06:- 2023-07:- 2023-08:- 2023-09:- 2023-10:- 2023-11:- 2023-12:- 2024-01:- 2024-02:- 2024-03:- 2024-04:- 2024-05:- 2024-06:- 2024-07:- 2024-08:- 2024-09:- 2024-10:- 2024-11:- 2024-12:- 2025-01:- 2025-02:- 2025-03:- 2025-04:- 2025-05:- 2025-06:- 2025-07:- 2025-08:- 2025-09:- 2025-10:- 2025-11:- 2025-12:- 2026-01:- 2026-02:- 2026-03:- 2026-04:- 2026-05:- 2026-06:- 2026-07:- 2026-08:- 2026-09:- 2026-10:-
+
+== PLAZO 30 MIN · AUC fuera de muestra 0,517 (0,5 = azar) ==
+Todo el periodo: 665 apuestas, 349 aciertos (52,5 %), 2 empates · límite 95 % 48,7 % · límite corregido 47,6 %
+   4,43 apuestas al día, todos los días
+   2021-23: sin apuestas
+   2024-26: 665 apuestas, 349 aciertos (52,5 %), 2 empates · límite 95 % 48,7 % · límite corregido 47,6 %
+      2021: sin apuestas
+      2022: sin apuestas
+      2023: sin apuestas
+      2024: sin apuestas
+      2025: sin apuestas
+      2026: 665 apuestas, 349 aciertos (52,5 %), 2 empates · límite 95 % 48,7 % · límite corregido 47,6 %
+Entrando 60 s tarde: 665 apuestas, 344 aciertos (51,7 %), 5 empates · límite 95 % 47,9 % · límite corregido 46,9 %
+Siempre arriba, mismas horas: 665 apuestas, 335 aciertos (50,4 %), 2 empates · límite 95 % 46,6 % · límite corregido 45,6 %
+pago 0,80: 30 días desde 100.000 terminan arriba en 14,8 % de 122 arranques · quiebra 71,3 % · mediana 0
+pago 0,85: 30 días desde 100.000 terminan arriba en 18,0 % de 122 arranques · quiebra 58,2 % · mediana 0
+pago 0,90: 30 días desde 100.000 terminan arriba en 22,1 % de 122 arranques · quiebra 49,2 % · mediana 35.530
+Meses sin apostar (ningún umbral hacía crecer la cuenta en la calibración): 67 de 70
+Umbral por mes: 2021-01:- 2021-02:- 2021-03:- 2021-04:- 2021-05:- 2021-06:- 2021-07:- 2021-08:- 2021-09:- 2021-10:- 2021-11:- 2021-12:- 2022-01:- 2022-02:- 2022-03:- 2022-04:- 2022-05:- 2022-06:- 2022-07:- 2022-08:- 2022-09:- 2022-10:- 2022-11:- 2022-12:- 2023-01:- 2023-02:- 2023-03:- 2023-04:- 2023-05:- 2023-06:- 2023-07:- 2023-08:- 2023-09:- 2023-10:- 2023-11:- 2023-12:- 2024-01:- 2024-02:- 2024-03:- 2024-04:- 2024-05:- 2024-06:- 2024-07:- 2024-08:- 2024-09:- 2024-10:- 2024-11:- 2024-12:- 2025-01:- 2025-02:- 2025-03:- 2025-04:- 2025-05:- 2025-06:- 2025-07:- 2025-08:- 2025-09:- 2025-10:- 2025-11:- 2025-12:- 2026-01:- 2026-02:- 2026-03:- 2026-04:- 2026-05:- 2026-06:0,520 2026-07:- 2026-08:0,605 2026-09:- 2026-10:0,595
+
+== PLAZO 60 MIN · AUC fuera de muestra 0,521 (0,5 = azar) ==
+Todo el periodo: 334 apuestas, 178 aciertos (53,3 %), 2 empates · límite 95 % 47,9 % · límite corregido 46,5 %
+   1,59 apuestas al día, todos los días
+   2021-23: sin apuestas
+   2024-26: 334 apuestas, 178 aciertos (53,3 %), 2 empates · límite 95 % 47,9 % · límite corregido 46,5 %
+      2021: sin apuestas
+      2022: sin apuestas
+      2023: sin apuestas
+      2024: sin apuestas
+      2025: sin apuestas
+      2026: 334 apuestas, 178 aciertos (53,3 %), 2 empates · límite 95 % 47,9 % · límite corregido 46,5 %
+Entrando 60 s tarde: 334 apuestas, 185 aciertos (55,4 %), 3 empates · límite 95 % 50,0 % · límite corregido 48,6 %
+Siempre arriba, mismas horas: 334 apuestas, 170 aciertos (50,9 %), 2 empates · límite 95 % 45,6 % · límite corregido 44,1 %
+pago 0,80: 30 días desde 100.000 terminan arriba en 6,0 % de 183 arranques · quiebra 27,9 % · mediana 76.320
+pago 0,85: 30 días desde 100.000 terminan arriba en 9,3 % de 183 arranques · quiebra 27,9 % · mediana 81.392
+pago 0,90: 30 días desde 100.000 terminan arriba en 11,5 % de 183 arranques · quiebra 27,9 % · mediana 86.975
+Meses sin apostar (ningún umbral hacía crecer la cuenta en la calibración): 67 de 70
+Umbral por mes: 2021-01:- 2021-02:- 2021-03:- 2021-04:- 2021-05:- 2021-06:- 2021-07:- 2021-08:- 2021-09:- 2021-10:- 2021-11:- 2021-12:- 2022-01:- 2022-02:- 2022-03:- 2022-04:- 2022-05:- 2022-06:- 2022-07:- 2022-08:- 2022-09:- 2022-10:- 2022-11:- 2022-12:- 2023-01:- 2023-02:- 2023-03:- 2023-04:- 2023-05:- 2023-06:- 2023-07:- 2023-08:- 2023-09:- 2023-10:- 2023-11:- 2023-12:- 2024-01:- 2024-02:- 2024-03:- 2024-04:- 2024-05:- 2024-06:- 2024-07:- 2024-08:- 2024-09:- 2024-10:- 2024-11:- 2024-12:- 2025-01:- 2025-02:- 2025-03:- 2025-04:- 2025-05:- 2025-06:- 2025-07:- 2025-08:- 2025-09:- 2025-10:- 2025-11:- 2025-12:- 2026-01:- 2026-02:- 2026-03:- 2026-04:0,690 2026-05:- 2026-06:- 2026-07:- 2026-08:0,635 2026-09:- 2026-10:0,615
+

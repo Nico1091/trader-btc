@@ -1,0 +1,72 @@
+{
+ "arriba_0.8": 0.14285714285714285,
+ "arriba_0.85": 0.17216117216117216,
+ "arriba_0.9": 0.24175824175824176,
+ "simbolo": "XAUUSDT",
+ "apuestas": 1671,
+ "aciertos": 896,
+ "empates": 9,
+ "acierto": 0.5362058647516457,
+ "lb_corregido": 0.5056570577602496,
+ "tramos": {
+  "2021-2023": [
+   0,
+   0,
+   0
+  ],
+  "2024-2026": [
+   1671,
+   896,
+   9
+  ]
+ },
+ "tarde_60s": [
+  1671,
+  907,
+  9
+ ],
+ "siempre_arriba": [
+  1671,
+  841,
+  9
+ ],
+ "seleccion_hoy": [
+  {
+   "nombre": "E04 estacionalidad 21-23 UTC",
+   "conf": {
+    "sentido": 1,
+    "plazo": 60,
+    "vol": "baja"
+   },
+   "lb": 0.5632713286910312,
+   "aciertos": 155,
+   "apuestas": 248
+  },
+  {
+   "nombre": "patrón pinzas abajo",
+   "conf": {
+    "sentido": 1,
+    "plazo": 60,
+    "zona": true,
+    "sesion": "Asia",
+    "vol": "baja"
+   },
+   "lb": 0.5581478039552616,
+   "aciertos": 71,
+   "apuestas": 109
+  },
+  {
+   "nombre": "alineación de medias 9/21/50",
+   "conf": {
+    "sentido": -1,
+    "plazo": 60,
+    "sesion": "Europa",
+    "vol": "baja"
+   },
+   "lb": 0.5560847663010744,
+   "aciertos": 268,
+   "apuestas": 445
+  }
+ ],
+ "por_dia": 5.5369322104100505
+}

@@ -1,0 +1,49 @@
+T23 · ORO EN PESOS · apuestas a ciegas de t18 (reglas) y t19 (modelo) · pago 0,85 · desde 100.000 COP · mínimo 5 USDT
+
+===== PAXGUSDT =====
+reglas: 7.142 apuestas (3,4 al día) · 56,1 % con el empate como fallo · 60,9 % sin contar empates · empates 8,0 %
+   por año: 2021 61,3 % (3362) · 2022 49,2 % (2032) · 2024 50,3 % (340) · 2025 54,6 % (491) · 2026 55,3 % (917)
+   30 días · 16 % · empate pierde: termina arriba 21,0 % · quiebra 33,0 % · mediana 100.000 (2099 arranques)
+   30 días · 16 % · empate devuelve: termina arriba 34,2 % · quiebra 20,7 % · mediana 100.000 (2099 arranques)
+   30 días · medio Kelly · empate pierde: termina arriba 18,3 % · quiebra 18,9 % · mediana 100.000 (2099 arranques)
+   30 días · medio Kelly · empate devuelve: termina arriba 23,5 % · quiebra 13,9 % · mediana 100.000 (2099 arranques)
+modelo 10 min: 4.161 apuestas (2,2 al día) · 57,4 % con el empate como fallo · 61,3 % sin contar empates · empates 6,4 %
+   por año: 2021 57,9 % (3947) · 2025 46,4 % (153) · 2026 49,2 % (61)
+   30 días · 16 % · empate pierde: termina arriba 6,7 % · quiebra 11,2 % · mediana 100.000 (1886 arranques)
+   30 días · 16 % · empate devuelve: termina arriba 13,0 % · quiebra 5,1 % · mediana 100.000 (1886 arranques)
+   30 días · medio Kelly · empate pierde: termina arriba 8,1 % · quiebra 6,0 % · mediana 100.000 (1886 arranques)
+   30 días · medio Kelly · empate devuelve: termina arriba 12,8 % · quiebra 1,6 % · mediana 100.000 (1886 arranques)
+modelo 30 min: 8.236 apuestas (3,9 al día) · 59,5 % con el empate como fallo · 64,6 % sin contar empates · empates 7,9 %
+   por año: 2021 62,9 % (4921) · 2022 52,9 % (1108) · 2024 58,3 % (669) · 2025 54,4 % (823) · 2026 53,0 % (715)
+   30 días · 16 % · empate pierde: termina arriba 23,7 % · quiebra 23,6 % · mediana 100.000 (2099 arranques)
+   30 días · 16 % · empate devuelve: termina arriba 34,9 % · quiebra 13,7 % · mediana 100.000 (2099 arranques)
+   30 días · medio Kelly · empate pierde: termina arriba 21,5 % · quiebra 12,2 % · mediana 100.000 (2099 arranques)
+   30 días · medio Kelly · empate devuelve: termina arriba 29,1 % · quiebra 5,7 % · mediana 100.000 (2099 arranques)
+modelo 60 min: 8.971 apuestas (4,3 al día) · 58,6 % con el empate como fallo · 63,5 % sin contar empates · empates 7,6 %
+   por año: 2021 64,3 % (3725) · 2022 52,2 % (1482) · 2023 57,1 % (77) · 2024 58,1 % (1886) · 2025 52,6 % (1328) · 2026 53,9 % (473)
+   30 días · 16 % · empate pierde: termina arriba 31,8 % · quiebra 30,9 % · mediana 100.000 (2070 arranques)
+   30 días · 16 % · empate devuelve: termina arriba 51,1 % · quiebra 14,8 % · mediana 110.942 (2070 arranques)
+   30 días · medio Kelly · empate pierde: termina arriba 32,4 % · quiebra 17,9 % · mediana 100.000 (2070 arranques)
+   30 días · medio Kelly · empate devuelve: termina arriba 42,9 % · quiebra 8,8 % · mediana 100.000 (2070 arranques)
+
+===== XAUUSDT =====
+reglas: 1.671 apuestas (5,6 al día) · 53,6 % con el empate como fallo · 53,9 % sin contar empates · empates 0,5 %
+   por año: 2026 53,6 % (1671)
+   30 días · 16 % · empate pierde: termina arriba 17,2 % · quiebra 72,2 % · mediana 0 (273 arranques)
+   30 días · 16 % · empate devuelve: termina arriba 17,2 % · quiebra 71,1 % · mediana 0 (273 arranques)
+   30 días · medio Kelly · empate pierde: termina arriba 0,0 % · quiebra 0,0 % · mediana 100.000 (273 arranques)
+   30 días · medio Kelly · empate devuelve: termina arriba 0,0 % · quiebra 0,0 % · mediana 100.000 (273 arranques)
+modelo 10 min: sin apuestas
+modelo 30 min: 665 apuestas (4,4 al día) · 52,5 % con el empate como fallo · 52,6 % sin contar empates · empates 0,3 %
+   por año: 2026 52,5 % (665)
+   30 días · 16 % · empate pierde: termina arriba 18,0 % · quiebra 59,0 % · mediana 0 (122 arranques)
+   30 días · 16 % · empate devuelve: termina arriba 18,0 % · quiebra 54,1 % · mediana 0 (122 arranques)
+   30 días · medio Kelly · empate pierde: termina arriba 0,0 % · quiebra 0,0 % · mediana 100.000 (122 arranques)
+   30 días · medio Kelly · empate devuelve: termina arriba 0,0 % · quiebra 0,0 % · mediana 100.000 (122 arranques)
+modelo 60 min: 334 apuestas (1,6 al día) · 53,3 % con el empate como fallo · 53,6 % sin contar empates · empates 0,6 %
+   por año: 2026 53,3 % (334)
+   30 días · 16 % · empate pierde: termina arriba 9,3 % · quiebra 28,4 % · mediana 81.392 (183 arranques)
+   30 días · 16 % · empate devuelve: termina arriba 9,3 % · quiebra 28,4 % · mediana 81.392 (183 arranques)
+   30 días · medio Kelly · empate pierde: termina arriba 0,0 % · quiebra 0,0 % · mediana 100.000 (183 arranques)
+   30 días · medio Kelly · empate devuelve: termina arriba 0,0 % · quiebra 0,0 % · mediana 100.000 (183 arranques)
+

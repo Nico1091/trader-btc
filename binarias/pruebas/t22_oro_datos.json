@@ -1,0 +1,24 @@
+{
+ "PAXGUSDT": {
+  "simbolo": "PAXGUSDT",
+  "desde": "2020-08-28 12:00",
+  "hasta": "2026-10-30 03:12",
+  "minutos": 3245233,
+  "rellenados": 1424,
+  "planos_con_operaciones": 48.52,
+  "sin_movimiento_a_10_min": 22.97,
+  "meses_sin_archivo": [],
+  "pedidos_a_la_api": 42
+ },
+ "XAUUSDT": {
+  "simbolo": "XAUUSDT",
+  "desde": "2025-12-11 08:05",
+  "hasta": "2026-10-30 03:13",
+  "minutos": 464829,
+  "rellenados": 0,
+  "planos_con_operaciones": 4.69,
+  "sin_movimiento_a_10_min": 1.83,
+  "meses_sin_archivo": [],
+  "pedidos_a_la_api": 28
+ }
+}

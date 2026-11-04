@@ -1,0 +1,52 @@
+C4 · binarias frente a futuros: modelos de evaluación distintos (solo estudio)
+
+BINARIAS: acierto de equilibrio, expectativa y Kelly
+  pago 0,80: equilibrio 55,6 %
+     con acierto 54,0 %: expectativa -2,80 % por apuesta · Kelly 0,0 % · medio Kelly 0,0 %
+     con acierto 56,0 %: expectativa 0,80 % por apuesta · Kelly 1,0 % · medio Kelly 0,5 %
+     con acierto 58,0 %: expectativa 4,40 % por apuesta · Kelly 5,5 % · medio Kelly 2,7 %
+     con acierto 60,0 %: expectativa 8,00 % por apuesta · Kelly 10,0 % · medio Kelly 5,0 %
+     con acierto 85,7 %: expectativa 54,26 % por apuesta · Kelly 67,8 % · medio Kelly 33,9 %
+  pago 0,85: equilibrio 54,1 %
+     con acierto 54,0 %: expectativa -0,10 % por apuesta · Kelly 0,0 % · medio Kelly 0,0 %
+     con acierto 56,0 %: expectativa 3,60 % por apuesta · Kelly 4,2 % · medio Kelly 2,1 %
+     con acierto 58,0 %: expectativa 7,30 % por apuesta · Kelly 8,6 % · medio Kelly 4,3 %
+     con acierto 60,0 %: expectativa 11,00 % por apuesta · Kelly 12,9 % · medio Kelly 6,5 %
+     con acierto 85,7 %: expectativa 58,54 % por apuesta · Kelly 68,9 % · medio Kelly 34,4 %
+  pago 0,90: equilibrio 52,6 %
+     con acierto 54,0 %: expectativa 2,60 % por apuesta · Kelly 2,9 % · medio Kelly 1,4 %
+     con acierto 56,0 %: expectativa 6,40 % por apuesta · Kelly 7,1 % · medio Kelly 3,6 %
+     con acierto 58,0 %: expectativa 10,20 % por apuesta · Kelly 11,3 % · medio Kelly 5,7 %
+     con acierto 60,0 %: expectativa 14,00 % por apuesta · Kelly 15,6 % · medio Kelly 7,8 %
+     con acierto 85,7 %: expectativa 62,83 % por apuesta · Kelly 69,8 % · medio Kelly 34,9 %
+  Con 100.000 COP el mínimo de 5 USDT (≈ 15.900 COP) es el 15,9 % del saldo: mayor que medio Kelly para cualquier acierto realista;
+  por eso el centinela apuesta siempre el mínimo hasta que la cuenta pase de ~453.000 COP.
+
+FUTUROS (solo estudio): liquidación según apalancamiento, BTC a 77.000
+    1x: largo se liquida en 308 (-99,6 %) · corto en 153.692 (99,6 %)
+    2x: largo se liquida en 38.808 (-49,6 %) · corto en 115.192 (49,6 %)
+    3x: largo se liquida en 51.641 (-32,9 %) · corto en 102.359 (32,9 %)
+    5x: largo se liquida en 61.908 (-19,6 %) · corto en 92.092 (19,6 %)
+   10x: largo se liquida en 69.608 (-9,6 %) · corto en 84.392 (9,6 %)
+   20x: largo se liquida en 73.458 (-4,6 %) · corto en 80.542 (4,6 %)
+   50x: largo se liquida en 75.768 (-1,6 %) · corto en 78.232 (1,6 %)
+  100x: largo se liquida en 76.538 (-0,6 %) · corto en 77.462 (0,6 %)
+
+FUTUROS: expectativa por operación de 15 min con SL/TP y costos (tomador 0,05 % por lado, financiación 0,01 % cada 8 h)
+  TP 0,3 % / SL 0,3 %, acierto 50 %: -0,100 % del nocional · equilibrio 66,7 %
+  TP 0,3 % / SL 0,3 %, acierto 55 %: -0,070 % del nocional · equilibrio 66,7 %
+  TP 0,3 % / SL 0,3 %, acierto 60 %: -0,040 % del nocional · equilibrio 66,7 %
+  TP 0,4 % / SL 0,2 %, acierto 50 %: -0,000 % del nocional · equilibrio 50,1 %
+  TP 0,4 % / SL 0,2 %, acierto 55 %: 0,030 % del nocional · equilibrio 50,1 %
+  TP 0,4 % / SL 0,2 %, acierto 60 %: 0,060 % del nocional · equilibrio 50,1 %
+  TP 0,6 % / SL 0,3 %, acierto 50 %: 0,050 % del nocional · equilibrio 44,5 %
+  TP 0,6 % / SL 0,3 %, acierto 55 %: 0,095 % del nocional · equilibrio 44,5 %
+  TP 0,6 % / SL 0,3 %, acierto 60 %: 0,140 % del nocional · equilibrio 44,5 %
+  TP 0,2 % / SL 0,4 %, acierto 50 %: -0,200 % del nocional · equilibrio 83,4 %
+  TP 0,2 % / SL 0,4 %, acierto 55 %: -0,170 % del nocional · equilibrio 83,4 %
+  TP 0,2 % / SL 0,4 %, acierto 60 %: -0,140 % del nocional · equilibrio 83,4 %
+
+Diferencia de fondo: en binarias lo que importa es el acierto frente a 1/(1+pago); en futuros, el tamaño de lo ganado
+frente a lo perdido y los costos por operación (0,10 % ida y vuelta como tomador), que con movimientos de 10 min de
+0,05-0,15 % se comen la ventaja (medido en trader-btc el 20/10). El apalancamiento no crea ventaja: multiplica la
+ganancia y la pérdida, acerca la liquidación y vuelve fatales las rachas. Decisión de Nicolás: no usarlo.

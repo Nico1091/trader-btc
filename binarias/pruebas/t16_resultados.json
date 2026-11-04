@@ -1,0 +1,1128 @@
+{
+ "estrategias": [
+  "patrón envolvente alcista",
+  "patrón envolvente bajista",
+  "patrón harami alcista",
+  "patrón harami bajista",
+  "patrón doji lapida",
+  "patrón doji libelula",
+  "patrón pinzas arriba",
+  "patrón pinzas abajo",
+  "patrón tres soldados",
+  "patrón tres cuervos",
+  "patrón estrella manana",
+  "patrón estrella tarde",
+  "patrón martillo",
+  "patrón martillo invertido",
+  "patrón hombre colgado",
+  "patrón estrella fugaz",
+  "tres resistencias 5 min",
+  "tres resistencias 15 min",
+  "50 SMA + precio",
+  "pendiente de la media 48 (Quantdemy)",
+  "alineación de medias 9/21/50",
+  "pullback en tendencia",
+  "techo y piso de 24 h",
+  "rompimiento de 20 velas",
+  "P05b (T95H)",
+  "P05c (T95H)",
+  "P11 (T95H)",
+  "N8 (T95H)",
+  "N9 (T95H)",
+  "REV5",
+  "REV15",
+  "tres cuervos AL REVÉS",
+  "tres soldados AL REVÉS",
+  "E01 retroceso alcista y techo extremo (1 h)",
+  "E03 banda de ruido de Concretum (30 min)",
+  "E04 estacionalidad 21-23 UTC",
+  "E05 momentum de la primera media hora",
+  "E09 rompimiento ATR de Concretum (15 min)",
+  "E12 MACD diario y horario",
+  "E16 cruce de EMA 20/50 (1 h)",
+  "E18 SMA 10/200 (4 h)",
+  "E19 EMA 12/26 con RSI 14 (1 h)"
+ ],
+ "conf": {
+  "patrón envolvente alcista": {
+   "sentido": 1,
+   "plazo": 5,
+   "zona": true,
+   "sesion": "América",
+   "base": {
+    "sentido": 1,
+    "plazo": 5
+   }
+  },
+  "patrón envolvente bajista": {
+   "sentido": -1,
+   "plazo": 15,
+   "zona": true,
+   "vol": "baja",
+   "racha": true,
+   "base": {
+    "sentido": -1,
+    "plazo": 15
+   }
+  },
+  "patrón harami alcista": {
+   "sentido": 1,
+   "plazo": 5,
+   "sesion": "América",
+   "vol": "baja",
+   "base": {
+    "sentido": 1,
+    "plazo": 5
+   }
+  },
+  "patrón harami bajista": {
+   "sentido": 1,
+   "plazo": 10,
+   "sesion": "Asia",
+   "vol": "baja",
+   "base": {
+    "sentido": 1,
+    "plazo": 10
+   }
+  },
+  "patrón doji lapida": {
+   "sentido": 1,
+   "plazo": 10,
+   "zona": true,
+   "racha": true,
+   "base": {
+    "sentido": 1,
+    "plazo": 10
+   }
+  },
+  "patrón doji libelula": {
+   "sentido": 1,
+   "plazo": 5,
+   "zona": true,
+   "sesion": "Asia",
+   "base": {
+    "sentido": 1,
+    "plazo": 5
+   }
+  },
+  "patrón pinzas arriba": {
+   "sentido": 1,
+   "plazo": 5,
+   "sesion": "Asia",
+   "vol": "baja",
+   "base": {
+    "sentido": 1,
+    "plazo": 5
+   }
+  },
+  "patrón pinzas abajo": {
+   "sentido": 1,
+   "plazo": 5,
+   "zona": true,
+   "sesion": "Europa",
+   "base": {
+    "sentido": 1,
+    "plazo": 5
+   }
+  },
+  "patrón tres soldados": {
+   "sentido": -1,
+   "plazo": 10,
+   "sesion": "Asia",
+   "base": {
+    "sentido": -1,
+    "plazo": 10
+   }
+  },
+  "patrón tres cuervos": {
+   "sentido": -1,
+   "plazo": 5,
+   "sesion": "América",
+   "vol": "alta",
+   "base": {
+    "sentido": -1,
+    "plazo": 5
+   }
+  },
+  "patrón estrella manana": {
+   "sentido": 1,
+   "plazo": 15,
+   "zona": true,
+   "sesion": "Europa",
+   "base": {
+    "sentido": 1,
+    "plazo": 15
+   }
+  },
+  "patrón estrella tarde": {
+   "sentido": 1,
+   "plazo": 5,
+   "sesion": "América",
+   "vol": "baja",
+   "base": {
+    "sentido": 1,
+    "plazo": 5
+   }
+  },
+  "patrón martillo": {
+   "sentido": 1,
+   "plazo": 15,
+   "zona": true,
+   "base": {
+    "sentido": 1,
+    "plazo": 15
+   }
+  },
+  "patrón martillo invertido": {
+   "sentido": 1,
+   "plazo": 5,
+   "sesion": "Europa",
+   "base": {
+    "sentido": 1,
+    "plazo": 5
+   }
+  },
+  "patrón hombre colgado": {
+   "sentido": 1,
+   "plazo": 15,
+   "zona": true,
+   "sesion": "Asia",
+   "vol": "baja",
+   "base": {
+    "sentido": 1,
+    "plazo": 15
+   }
+  },
+  "patrón estrella fugaz": {
+   "sentido": 1,
+   "plazo": 15,
+   "sesion": "Asia",
+   "vol": "alta",
+   "base": {
+    "sentido": 1,
+    "plazo": 15
+   }
+  },
+  "tres resistencias 5 min": {
+   "sentido": 1,
+   "plazo": 5,
+   "sesion": "América",
+   "vol": "baja",
+   "base": {
+    "sentido": 1,
+    "plazo": 5
+   }
+  },
+  "tres resistencias 15 min": {
+   "sentido": -1,
+   "plazo": 5,
+   "zona": true,
+   "sesion": "Asia",
+   "base": {
+    "sentido": -1,
+    "plazo": 5
+   }
+  },
+  "50 SMA + precio": {
+   "sentido": -1,
+   "plazo": 5,
+   "zona": true,
+   "racha": true,
+   "base": {
+    "sentido": -1,
+    "plazo": 5
+   }
+  },
+  "pendiente de la media 48 (Quantdemy)": {
+   "sentido": -1,
+   "plazo": 5,
+   "zona": true,
+   "sesion": "América",
+   "vol": "baja",
+   "base": {
+    "sentido": -1,
+    "plazo": 5
+   }
+  },
+  "alineación de medias 9/21/50": {
+   "sentido": -1,
+   "plazo": 15,
+   "vol": "baja",
+   "base": {
+    "sentido": -1,
+    "plazo": 15
+   }
+  },
+  "pullback en tendencia": {
+   "sentido": 1,
+   "plazo": 10,
+   "zona": true,
+   "sesion": "América",
+   "base": {
+    "sentido": 1,
+    "plazo": 10
+   }
+  },
+  "techo y piso de 24 h": {
+   "sentido": 1,
+   "plazo": 10,
+   "zona": true,
+   "sesion": "Asia",
+   "vol": "baja",
+   "base": {
+    "sentido": 1,
+    "plazo": 10
+   }
+  },
+  "rompimiento de 20 velas": {
+   "sentido": -1,
+   "plazo": 10,
+   "zona": true,
+   "sesion": "Europa",
+   "vol": "alta",
+   "base": {
+    "sentido": -1,
+    "plazo": 10
+   }
+  },
+  "P05b (T95H)": {
+   "sentido": -1,
+   "plazo": 15,
+   "base": {
+    "sentido": -1,
+    "plazo": 15
+   }
+  },
+  "P05c (T95H)": {
+   "sentido": 1,
+   "plazo": 5
+  },
+  "P11 (T95H)": {
+   "sentido": 1,
+   "plazo": 5
+  },
+  "N8 (T95H)": {
+   "sentido": 1,
+   "plazo": 5
+  },
+  "N9 (T95H)": {
+   "sentido": -1,
+   "plazo": 15,
+   "sesion": "Europa",
+   "base": {
+    "sentido": -1,
+    "plazo": 15
+   }
+  },
+  "REV5": {
+   "sentido": 1,
+   "plazo": 10,
+   "sesion": "América",
+   "vol": "baja",
+   "base": {
+    "sentido": 1,
+    "plazo": 10
+   }
+  },
+  "REV15": {
+   "sentido": 1,
+   "plazo": 10,
+   "sesion": "Europa",
+   "vol": "alta",
+   "base": {
+    "sentido": 1,
+    "plazo": 10
+   }
+  },
+  "tres cuervos AL REVÉS": {
+   "sentido": 1,
+   "plazo": 5,
+   "sesion": "América",
+   "vol": "alta",
+   "base": {
+    "sentido": 1,
+    "plazo": 5
+   }
+  },
+  "tres soldados AL REVÉS": {
+   "sentido": 1,
+   "plazo": 10,
+   "sesion": "Asia",
+   "base": {
+    "sentido": 1,
+    "plazo": 10
+   }
+  },
+  "E01 retroceso alcista y techo extremo (1 h)": {
+   "sentido": 1,
+   "plazo": 15,
+   "sesion": "Europa",
+   "base": {
+    "sentido": 1,
+    "plazo": 15
+   }
+  },
+  "E03 banda de ruido de Concretum (30 min)": {
+   "sentido": -1,
+   "plazo": 15,
+   "sesion": "Europa",
+   "base": {
+    "sentido": -1,
+    "plazo": 15
+   }
+  },
+  "E04 estacionalidad 21-23 UTC": {
+   "sentido": 1,
+   "plazo": 15,
+   "vol": "baja",
+   "base": {
+    "sentido": 1,
+    "plazo": 15
+   }
+  },
+  "E05 momentum de la primera media hora": {
+   "sentido": -1,
+   "plazo": 15,
+   "vol": "baja",
+   "base": {
+    "sentido": -1,
+    "plazo": 15
+   }
+  },
+  "E09 rompimiento ATR de Concretum (15 min)": {
+   "sentido": -1,
+   "plazo": 15,
+   "base": {
+    "sentido": -1,
+    "plazo": 15
+   }
+  },
+  "E12 MACD diario y horario": {
+   "sentido": -1,
+   "plazo": 10,
+   "zona": true,
+   "base": {
+    "sentido": -1,
+    "plazo": 10
+   }
+  },
+  "E16 cruce de EMA 20/50 (1 h)": {
+   "sentido": -1,
+   "plazo": 5,
+   "zona": true,
+   "base": {
+    "sentido": -1,
+    "plazo": 5
+   }
+  },
+  "E18 SMA 10/200 (4 h)": {
+   "sentido": 1,
+   "plazo": 5
+  },
+  "E19 EMA 12/26 con RSI 14 (1 h)": {
+   "sentido": -1,
+   "plazo": 5,
+   "zona": true,
+   "vol": "baja",
+   "base": {
+    "sentido": -1,
+    "plazo": 5
+   }
+  }
+ },
+ "mejores": [
+  {
+   "mezcla": [
+    "patrón tres soldados",
+    "patrón estrella manana",
+    "rompimiento de 20 velas",
+    "P05b (T95H)",
+    "N9 (T95H)",
+    "tres cuervos AL REVÉS",
+    "E19 EMA 12/26 con RSI 14 (1 h)"
+   ],
+   "ent": [
+    1462,
+    988,
+    0,
+    907
+   ],
+   "mes": [
+    41,
+    58,
+    1,
+    29
+   ]
+  },
+  {
+   "mezcla": [
+    "patrón estrella manana",
+    "rompimiento de 20 velas",
+    "P05b (T95H)",
+    "N9 (T95H)",
+    "tres cuervos AL REVÉS",
+    "tres soldados AL REVÉS",
+    "E19 EMA 12/26 con RSI 14 (1 h)"
+   ],
+   "ent": [
+    1462,
+    988,
+    0,
+    907
+   ],
+   "mes": [
+    41,
+    58,
+    1,
+    29
+   ]
+  },
+  {
+   "mezcla": [
+    "patrón tres soldados",
+    "patrón tres cuervos",
+    "patrón estrella manana",
+    "rompimiento de 20 velas",
+    "P05b (T95H)",
+    "N9 (T95H)",
+    "E19 EMA 12/26 con RSI 14 (1 h)"
+   ],
+   "ent": [
+    1462,
+    988,
+    0,
+    907
+   ],
+   "mes": [
+    41,
+    58,
+    1,
+    29
+   ]
+  },
+  {
+   "mezcla": [
+    "patrón tres cuervos",
+    "patrón estrella manana",
+    "rompimiento de 20 velas",
+    "P05b (T95H)",
+    "N9 (T95H)",
+    "tres soldados AL REVÉS",
+    "E19 EMA 12/26 con RSI 14 (1 h)"
+   ],
+   "ent": [
+    1462,
+    988,
+    0,
+    907
+   ],
+   "mes": [
+    41,
+    58,
+    1,
+    29
+   ]
+  },
+  {
+   "mezcla": [
+    "patrón tres soldados",
+    "patrón estrella manana",
+    "rompimiento de 20 velas",
+    "P05b (T95H)",
+    "N9 (T95H)",
+    "tres cuervos AL REVÉS",
+    "tres soldados AL REVÉS",
+    "E19 EMA 12/26 con RSI 14 (1 h)"
+   ],
+   "ent": [
+    1462,
+    988,
+    0,
+    907
+   ],
+   "mes": [
+    41,
+    58,
+    1,
+    29
+   ]
+  },
+  {
+   "mezcla": [
+    "patrón tres cuervos",
+    "patrón estrella manana",
+    "rompimiento de 20 velas",
+    "P05b (T95H)",
+    "N9 (T95H)",
+    "tres cuervos AL REVÉS",
+    "tres soldados AL REVÉS",
+    "E19 EMA 12/26 con RSI 14 (1 h)"
+   ],
+   "ent": [
+    1462,
+    988,
+    0,
+    907
+   ],
+   "mes": [
+    41,
+    58,
+    1,
+    29
+   ]
+  },
+  {
+   "mezcla": [
+    "patrón tres soldados",
+    "patrón tres cuervos",
+    "patrón estrella manana",
+    "rompimiento de 20 velas",
+    "P05b (T95H)",
+    "N9 (T95H)",
+    "tres soldados AL REVÉS",
+    "E19 EMA 12/26 con RSI 14 (1 h)"
+   ],
+   "ent": [
+    1462,
+    988,
+    0,
+    907
+   ],
+   "mes": [
+    41,
+    58,
+    1,
+    29
+   ]
+  },
+  {
+   "mezcla": [
+    "patrón tres soldados",
+    "patrón tres cuervos",
+    "patrón estrella manana",
+    "rompimiento de 20 velas",
+    "P05b (T95H)",
+    "N9 (T95H)",
+    "tres cuervos AL REVÉS",
+    "E19 EMA 12/26 con RSI 14 (1 h)"
+   ],
+   "ent": [
+    1462,
+    988,
+    0,
+    907
+   ],
+   "mes": [
+    41,
+    58,
+    1,
+    29
+   ]
+  },
+  {
+   "mezcla": [
+    "patrón tres soldados",
+    "patrón tres cuervos",
+    "patrón estrella manana",
+    "rompimiento de 20 velas",
+    "P05b (T95H)",
+    "N9 (T95H)",
+    "tres cuervos AL REVÉS",
+    "tres soldados AL REVÉS",
+    "E19 EMA 12/26 con RSI 14 (1 h)"
+   ],
+   "ent": [
+    1462,
+    988,
+    0,
+    907
+   ],
+   "mes": [
+    41,
+    58,
+    1,
+    29
+   ]
+  },
+  {
+   "mezcla": [
+    "patrón tres cuervos",
+    "patrón estrella manana",
+    "rompimiento de 20 velas",
+    "P05b (T95H)",
+    "N9 (T95H)",
+    "E19 EMA 12/26 con RSI 14 (1 h)"
+   ],
+   "ent": [
+    1122,
+    741,
+    0,
+    818
+   ],
+   "mes": [
+    33,
+    44,
+    0,
+    28
+   ]
+  },
+  {
+   "mezcla": [
+    "patrón estrella manana",
+    "rompimiento de 20 velas",
+    "P05b (T95H)",
+    "N9 (T95H)",
+    "tres cuervos AL REVÉS",
+    "E19 EMA 12/26 con RSI 14 (1 h)"
+   ],
+   "ent": [
+    1122,
+    741,
+    0,
+    818
+   ],
+   "mes": [
+    33,
+    44,
+    0,
+    28
+   ]
+  },
+  {
+   "mezcla": [
+    "patrón tres cuervos",
+    "patrón estrella manana",
+    "rompimiento de 20 velas",
+    "P05b (T95H)",
+    "N9 (T95H)",
+    "tres cuervos AL REVÉS",
+    "E19 EMA 12/26 con RSI 14 (1 h)"
+   ],
+   "ent": [
+    1122,
+    741,
+    0,
+    818
+   ],
+   "mes": [
+    33,
+    44,
+    0,
+    28
+   ]
+  },
+  {
+   "mezcla": [
+    "patrón tres soldados",
+    "patrón estrella manana",
+    "rompimiento de 20 velas",
+    "P05b (T95H)",
+    "N9 (T95H)",
+    "E19 EMA 12/26 con RSI 14 (1 h)"
+   ],
+   "ent": [
+    1248,
+    834,
+    0,
+    867
+   ],
+   "mes": [
+    34,
+    51,
+    1,
+    29
+   ]
+  },
+  {
+   "mezcla": [
+    "patrón estrella manana",
+    "rompimiento de 20 velas",
+    "P05b (T95H)",
+    "N9 (T95H)",
+    "tres soldados AL REVÉS",
+    "E19 EMA 12/26 con RSI 14 (1 h)"
+   ],
+   "ent": [
+    1248,
+    834,
+    0,
+    867
+   ],
+   "mes": [
+    34,
+    51,
+    1,
+    29
+   ]
+  },
+  {
+   "mezcla": [
+    "patrón tres soldados",
+    "patrón estrella manana",
+    "rompimiento de 20 velas",
+    "P05b (T95H)",
+    "N9 (T95H)",
+    "tres soldados AL REVÉS",
+    "E19 EMA 12/26 con RSI 14 (1 h)"
+   ],
+   "ent": [
+    1248,
+    834,
+    0,
+    867
+   ],
+   "mes": [
+    34,
+    51,
+    1,
+    29
+   ]
+  },
+  {
+   "mezcla": [
+    "patrón tres soldados",
+    "rompimiento de 20 velas",
+    "P05b (T95H)",
+    "N9 (T95H)",
+    "tres cuervos AL REVÉS",
+    "E19 EMA 12/26 con RSI 14 (1 h)"
+   ],
+   "ent": [
+    1290,
+    865,
+    0,
+    872
+   ],
+   "mes": [
+    36,
+    47,
+    1,
+    29
+   ]
+  },
+  {
+   "mezcla": [
+    "rompimiento de 20 velas",
+    "P05b (T95H)",
+    "N9 (T95H)",
+    "tres cuervos AL REVÉS",
+    "tres soldados AL REVÉS",
+    "E19 EMA 12/26 con RSI 14 (1 h)"
+   ],
+   "ent": [
+    1290,
+    865,
+    0,
+    872
+   ],
+   "mes": [
+    36,
+    47,
+    1,
+    29
+   ]
+  },
+  {
+   "mezcla": [
+    "patrón tres soldados",
+    "patrón tres cuervos",
+    "rompimiento de 20 velas",
+    "P05b (T95H)",
+    "N9 (T95H)",
+    "E19 EMA 12/26 con RSI 14 (1 h)"
+   ],
+   "ent": [
+    1290,
+    865,
+    0,
+    872
+   ],
+   "mes": [
+    36,
+    47,
+    1,
+    29
+   ]
+  },
+  {
+   "mezcla": [
+    "patrón tres cuervos",
+    "rompimiento de 20 velas",
+    "P05b (T95H)",
+    "N9 (T95H)",
+    "tres soldados AL REVÉS",
+    "E19 EMA 12/26 con RSI 14 (1 h)"
+   ],
+   "ent": [
+    1290,
+    865,
+    0,
+    872
+   ],
+   "mes": [
+    36,
+    47,
+    1,
+    29
+   ]
+  },
+  {
+   "mezcla": [
+    "patrón estrella manana",
+    "rompimiento de 20 velas",
+    "P05b (T95H)",
+    "N9 (T95H)",
+    "E19 EMA 12/26 con RSI 14 (1 h)"
+   ],
+   "ent": [
+    908,
+    587,
+    0,
+    743
+   ],
+   "mes": [
+    26,
+    37,
+    0,
+    26
+   ]
+  },
+  {
+   "mezcla": [
+    "patrón tres cuervos",
+    "rompimiento de 20 velas",
+    "P05b (T95H)",
+    "N9 (T95H)",
+    "E19 EMA 12/26 con RSI 14 (1 h)"
+   ],
+   "ent": [
+    950,
+    618,
+    0,
+    762
+   ],
+   "mes": [
+    28,
+    33,
+    0,
+    27
+   ]
+  },
+  {
+   "mezcla": [
+    "rompimiento de 20 velas",
+    "P05b (T95H)",
+    "N9 (T95H)",
+    "tres cuervos AL REVÉS",
+    "E19 EMA 12/26 con RSI 14 (1 h)"
+   ],
+   "ent": [
+    950,
+    618,
+    0,
+    762
+   ],
+   "mes": [
+    28,
+    33,
+    0,
+    27
+   ]
+  },
+  {
+   "mezcla": [
+    "patrón tres cuervos",
+    "rompimiento de 20 velas",
+    "P05b (T95H)",
+    "N9 (T95H)",
+    "tres cuervos AL REVÉS",
+    "E19 EMA 12/26 con RSI 14 (1 h)"
+   ],
+   "ent": [
+    950,
+    618,
+    0,
+    762
+   ],
+   "mes": [
+    28,
+    33,
+    0,
+    27
+   ]
+  },
+  {
+   "mezcla": [
+    "patrón estrella manana",
+    "rompimiento de 20 velas",
+    "P05b (T95H)",
+    "N9 (T95H)",
+    "tres cuervos AL REVÉS",
+    "tres soldados AL REVÉS",
+    "E03 banda de ruido de Concretum (30 min)",
+    "E19 EMA 12/26 con RSI 14 (1 h)"
+   ],
+   "ent": [
+    1736,
+    1193,
+    0,
+    941
+   ],
+   "mes": [
+    47,
+    62,
+    1,
+    30
+   ]
+  },
+  {
+   "mezcla": [
+    "patrón tres cuervos",
+    "patrón estrella manana",
+    "rompimiento de 20 velas",
+    "P05b (T95H)",
+    "N9 (T95H)",
+    "tres soldados AL REVÉS",
+    "E03 banda de ruido de Concretum (30 min)",
+    "E19 EMA 12/26 con RSI 14 (1 h)"
+   ],
+   "ent": [
+    1736,
+    1193,
+    0,
+    941
+   ],
+   "mes": [
+    47,
+    62,
+    1,
+    30
+   ]
+  },
+  {
+   "mezcla": [
+    "patrón tres soldados",
+    "patrón estrella manana",
+    "rompimiento de 20 velas",
+    "P05b (T95H)",
+    "N9 (T95H)",
+    "tres cuervos AL REVÉS",
+    "E03 banda de ruido de Concretum (30 min)",
+    "E19 EMA 12/26 con RSI 14 (1 h)"
+   ],
+   "ent": [
+    1736,
+    1193,
+    0,
+    941
+   ],
+   "mes": [
+    47,
+    62,
+    1,
+    30
+   ]
+  },
+  {
+   "mezcla": [
+    "patrón tres cuervos",
+    "patrón estrella manana",
+    "rompimiento de 20 velas",
+    "P05b (T95H)",
+    "N9 (T95H)",
+    "tres cuervos AL REVÉS",
+    "tres soldados AL REVÉS",
+    "E03 banda de ruido de Concretum (30 min)",
+    "E19 EMA 12/26 con RSI 14 (1 h)"
+   ],
+   "ent": [
+    1736,
+    1193,
+    0,
+    941
+   ],
+   "mes": [
+    47,
+    62,
+    1,
+    30
+   ]
+  },
+  {
+   "mezcla": [
+    "patrón tres soldados",
+    "patrón estrella manana",
+    "rompimiento de 20 velas",
+    "P05b (T95H)",
+    "N9 (T95H)",
+    "tres cuervos AL REVÉS",
+    "tres soldados AL REVÉS",
+    "E03 banda de ruido de Concretum (30 min)",
+    "E19 EMA 12/26 con RSI 14 (1 h)"
+   ],
+   "ent": [
+    1736,
+    1193,
+    0,
+    941
+   ],
+   "mes": [
+    47,
+    62,
+    1,
+    30
+   ]
+  },
+  {
+   "mezcla": [
+    "patrón tres soldados",
+    "patrón tres cuervos",
+    "patrón estrella manana",
+    "rompimiento de 20 velas",
+    "P05b (T95H)",
+    "N9 (T95H)",
+    "tres soldados AL REVÉS",
+    "E03 banda de ruido de Concretum (30 min)",
+    "E19 EMA 12/26 con RSI 14 (1 h)"
+   ],
+   "ent": [
+    1736,
+    1193,
+    0,
+    941
+   ],
+   "mes": [
+    47,
+    62,
+    1,
+    30
+   ]
+  },
+  {
+   "mezcla": [
+    "patrón tres soldados",
+    "patrón tres cuervos",
+    "patrón estrella manana",
+    "rompimiento de 20 velas",
+    "P05b (T95H)",
+    "N9 (T95H)",
+    "tres cuervos AL REVÉS",
+    "tres soldados AL REVÉS",
+    "E03 banda de ruido de Concretum (30 min)",
+    "E19 EMA 12/26 con RSI 14 (1 h)"
+   ],
+   "ent": [
+    1736,
+    1193,
+    0,
+    941
+   ],
+   "mes": [
+    47,
+    62,
+    1,
+    30
+   ]
+  }
+ ]
+}

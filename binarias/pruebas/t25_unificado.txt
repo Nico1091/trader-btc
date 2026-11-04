@@ -1,0 +1,84 @@
+T25 · MODELO UNIFICADO A CIEGAS (BTC y ETH a 10 min, una regresión por activo) · empate = fallo · pago 0,85
+Para no perder: 54,1 %. Límite corregido = Wilson al 99,375 % de una cola.
+
+== U (principal) ==
+Todo (2021-2026): 23.049 apuestas, 58,2 % · empates 28 · límite 95 % 57,6 % · límite corregido 57,4 %
+   10,83 apuestas al día · días con al menos una apuesta (2022-26): 98,3 %
+   2021-23: 14.334 apuestas, 58,6 % · empates 20 · límite 95 % 57,8 % · límite corregido 57,6 %
+   2024-26: 8.715 apuestas, 57,7 % · empates 8 · límite 95 % 56,6 % · límite corregido 56,4 %
+      2021: 5.273 apuestas, 58,4 % · empates 0 · límite 95 % 57,1 % · límite corregido 56,7 %
+      2022: 4.080 apuestas, 58,9 % · empates 9 · límite 95 % 57,4 % · límite corregido 56,9 %
+      2023: 4.981 apuestas, 58,5 % · empates 11 · límite 95 % 57,1 % · límite corregido 56,8 %
+      2024: 2.797 apuestas, 59,0 % · empates 1 · límite 95 % 57,2 % · límite corregido 56,7 %
+      2025: 2.593 apuestas, 56,5 % · empates 4 · límite 95 % 54,6 % · límite corregido 54,1 %
+      2026: 3.325 apuestas, 57,5 % · empates 3 · límite 95 % 55,8 % · límite corregido 55,3 %
+   solo BTC: 12.173 apuestas, 58,4 % · empates 12 · límite 95 % 57,5 % · límite corregido 57,2 %
+   solo ETH: 10.876 apuestas, 58,1 % · empates 16 · límite 95 % 57,2 % · límite corregido 56,9 %
+   entrando 60 s tarde: 23.049 apuestas, 56,0 % · empates 22 · límite 95 % 55,3 % · límite corregido 55,2 %
+   siempre arriba, mismas horas: 23.049 apuestas, 50,2 % · empates 28 · límite 95 % 49,6 % · límite corregido 49,4 %
+   azar en las mismas horas: 50,0 % (de 49,3 a 50,6 %)
+
+== U sin flujo de órdenes ==
+Todo (2021-2026): 24.351 apuestas, 57,6 % · empates 25 · límite 95 % 56,9 % · límite corregido 56,8 %
+   11,45 apuestas al día · días con al menos una apuesta (2022-26): 96,7 %
+   2021-23: 14.957 apuestas, 58,5 % · empates 15 · límite 95 % 57,7 % · límite corregido 57,5 %
+   2024-26: 9.394 apuestas, 56,1 % · empates 10 · límite 95 % 55,1 % · límite corregido 54,8 %
+      2021: 5.671 apuestas, 58,1 % · empates 2 · límite 95 % 56,8 % · límite corregido 56,4 %
+      2022: 4.204 apuestas, 58,6 % · empates 6 · límite 95 % 57,1 % · límite corregido 56,7 %
+      2023: 5.082 apuestas, 58,8 % · empates 7 · límite 95 % 57,4 % · límite corregido 57,0 %
+      2024: 3.425 apuestas, 55,4 % · empates 3 · límite 95 % 53,7 % · límite corregido 53,3 %
+      2025: 3.088 apuestas, 55,4 % · empates 4 · límite 95 % 53,6 % · límite corregido 53,1 %
+      2026: 2.881 apuestas, 57,8 % · empates 3 · límite 95 % 55,9 % · límite corregido 55,4 %
+   solo BTC: 14.021 apuestas, 58,1 % · empates 13 · límite 95 % 57,2 % · límite corregido 57,0 %
+   solo ETH: 10.330 apuestas, 56,9 % · empates 12 · límite 95 % 55,9 % · límite corregido 55,7 %
+   entrando 60 s tarde: 24.351 apuestas, 55,5 % · empates 25 · límite 95 % 54,9 % · límite corregido 54,7 %
+   siempre arriba, mismas horas: 24.351 apuestas, 50,1 % · empates 25 · límite 95 % 49,4 % · límite corregido 49,3 %
+   azar en las mismas horas: 50,0 % (de 49,3 a 50,7 %)
+
+== U sin el otro activo ==
+Todo (2021-2026): 23.257 apuestas, 58,0 % · empates 23 · límite 95 % 57,3 % · límite corregido 57,2 %
+   10,93 apuestas al día · días con al menos una apuesta (2022-26): 95,1 %
+   2021-23: 14.832 apuestas, 58,7 % · empates 16 · límite 95 % 57,9 % · límite corregido 57,7 %
+   2024-26: 8.425 apuestas, 56,7 % · empates 7 · límite 95 % 55,6 % · límite corregido 55,3 %
+      2021: 5.272 apuestas, 58,1 % · empates 1 · límite 95 % 56,7 % · límite corregido 56,4 %
+      2022: 4.237 apuestas, 59,2 % · empates 8 · límite 95 % 57,7 % · límite corregido 57,3 %
+      2023: 5.323 apuestas, 58,9 % · empates 7 · límite 95 % 57,6 % · límite corregido 57,2 %
+      2024: 2.713 apuestas, 56,5 % · empates 2 · límite 95 % 54,6 % · límite corregido 54,1 %
+      2025: 2.359 apuestas, 56,2 % · empates 2 · límite 95 % 54,2 % · límite corregido 53,6 %
+      2026: 3.353 apuestas, 57,2 % · empates 3 · límite 95 % 55,5 % · límite corregido 55,1 %
+   solo BTC: 13.277 apuestas, 58,2 % · empates 11 · límite 95 % 57,4 % · límite corregido 57,2 %
+   solo ETH: 9.980 apuestas, 57,6 % · empates 12 · límite 95 % 56,6 % · límite corregido 56,4 %
+   entrando 60 s tarde: 23.257 apuestas, 55,6 % · empates 21 · límite 95 % 55,0 % · límite corregido 54,8 %
+   siempre arriba, mismas horas: 23.257 apuestas, 50,1 % · empates 23 · límite 95 % 49,5 % · límite corregido 49,3 %
+   azar en las mismas horas: 50,0 % (de 49,2 a 50,6 %)
+
+== U sin frecuencia mínima ==
+Todo (2021-2026): 22.335 apuestas, 58,2 % · empates 28 · límite 95 % 57,6 % · límite corregido 57,4 %
+   10,50 apuestas al día · días con al menos una apuesta (2022-26): 97,7 %
+   2021-23: 14.101 apuestas, 58,6 % · empates 20 · límite 95 % 57,8 % · límite corregido 57,6 %
+   2024-26: 8.234 apuestas, 57,6 % · empates 8 · límite 95 % 56,5 % · límite corregido 56,2 %
+      2021: 5.273 apuestas, 58,4 % · empates 0 · límite 95 % 57,1 % · límite corregido 56,7 %
+      2022: 3.854 apuestas, 59,1 % · empates 9 · límite 95 % 57,5 % · límite corregido 57,1 %
+      2023: 4.974 apuestas, 58,5 % · empates 11 · límite 95 % 57,1 % · límite corregido 56,7 %
+      2024: 2.414 apuestas, 59,2 % · empates 1 · límite 95 % 57,2 % · límite corregido 56,7 %
+      2025: 2.544 apuestas, 56,3 % · empates 4 · límite 95 % 54,4 % · límite corregido 53,9 %
+      2026: 3.276 apuestas, 57,3 % · empates 3 · límite 95 % 55,6 % · límite corregido 55,1 %
+   solo BTC: 11.433 apuestas, 58,4 % · empates 12 · límite 95 % 57,5 % · límite corregido 57,2 %
+   solo ETH: 10.902 apuestas, 58,1 % · empates 16 · límite 95 % 57,2 % · límite corregido 56,9 %
+   entrando 60 s tarde: 22.335 apuestas, 55,9 % · empates 22 · límite 95 % 55,3 % · límite corregido 55,1 %
+   siempre arriba, mismas horas: 22.335 apuestas, 50,3 % · empates 28 · límite 95 % 49,7 % · límite corregido 49,5 %
+   azar en las mismas horas: 50,0 % (de 49,4 a 50,6 %)
+
+Umbrales por mes (principal): 2021-01:0,625/0,620 2021-02:0,660/0,600 2021-03:0,600/0,595 2021-04:0,595/0,620 2021-05:0,580/0,605 2021-06:0,590/0,605 2021-07:0,580/0,595 2021-08:0,575/0,585 2021-09:0,565/0,645 2021-10:0,590/0,580 2021-11:0,610/0,590 2021-12:0,660/- 2022-01:0,625/0,630 2022-02:0,635/0,615 2022-03:0,590/0,600 2022-04:0,600/0,615 2022-05:0,590/0,605 2022-06:0,605/0,605 2022-07:0,590/0,575 2022-08:0,625/- 2022-09:-/0,580 2022-10:-/0,600 2022-11:0,590/0,565 2022-12:0,585/0,555 2023-01:0,575/0,575 2023-02:0,575/0,575 2023-03:0,600/0,580 2023-04:0,575/0,560 2023-05:0,580/0,560 2023-06:0,580/0,585 2023-07:0,615/0,595 2023-08:0,605/0,590 2023-09:0,635/- 2023-10:0,650/0,670 2023-11:0,645/0,645 2023-12:0,615/0,630 2024-01:0,605/0,615 2024-02:0,650/0,635 2024-03:0,615/0,640 2024-04:0,615/0,640 2024-05:0,610/- 2024-06:0,610/0,625 2024-07:0,625/0,605 2024-08:0,595/0,600 2024-09:-/0,605 2024-10:0,595/0,605 2024-11:0,600/0,605 2024-12:0,595/0,585 2025-01:0,605/0,585 2025-02:-/0,600 2025-03:-/0,615 2025-04:0,605/0,595 2025-05:0,595/0,600 2025-06:0,590/0,595 2025-07:0,595/0,570 2025-08:-/0,605 2025-09:-/0,590 2025-10:0,580/0,590 2025-11:0,585/0,595 2025-12:-/0,590 2026-01:0,600/0,595 2026-02:0,580/0,575 2026-03:0,585/0,570 2026-04:0,570/0,580 2026-05:0,580/0,565 2026-06:0,585/0,575 2026-07:0,565/0,560 2026-08:0,610/0,620 2026-09:0,625/0,625 2026-10:0,630/0,620
+
+== DECISIÓN (enero de 2022 a octubre de 2026, medio Kelly, mínimo 5 USDT) ==
+H (v4, por historial): 30 días arriba 65,6 % · quiebra 32,8 % · mediana 245.760 · peor 10 % 0 · mejor 10 % 1.546.534
+U (unificado):         30 días arriba 65,3 % · quiebra 33,3 % · mediana 320.215 · peor 10 % 0 · mejor 10 % 1.119.120
+H a 90 días: arriba 64,2 % · quiebra 35,4 % · mediana 493.317 · peor 10 % 0 · mejor 10 % 112.475.338
+U a 90 días: arriba 63,7 % · quiebra 36,3 % · mediana 918.203 · peor 10 % 0 · mejor 10 % 18.967.856
+U al 16 % (referencia): 30 días arriba 42,7 % · quiebra 53,9 % · mediana 0 · peor 10 % 0 · mejor 10 % 3.747.141
+Acierto 2024-26: H 57,0 % · U 57,7 %
+Días con al menos una apuesta: H 96,9 % · U 98,4 %
+Condiciones: (1) 30 días arriba no · (2) acierto 2024-26 sí · (3) días con apuestas sí
+VEREDICTO: U no reemplaza a H.
+Medio Kelly de U para noviembre de 2026: 1058/1884 = 56,2 % → 2,29 % del saldo

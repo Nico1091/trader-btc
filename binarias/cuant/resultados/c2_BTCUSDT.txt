@@ -1,0 +1,37 @@
+C2 · BTCUSDT · regímenes, Markov, HMM, agrupamiento, autocorrelación, anomalías y rachas
+
+1. CADENA DE MARKOV (signo de los tramos de 10 min anteriores → siguiente)
+   orden 1: ▲→BAJA 52,3 %/51,5 %/52,5 % · ▼→SUBE 52,3 %/51,7 %/51,5 %
+   orden 2: ▲▲→BAJA 54,5 %/52,7 %/51,8 % · ▼▲→BAJA 50,4 %/50,3 %/53,2 % · ▲▼→SUBE 50,4 %/50,4 %/49,4 % · ▼▼→SUBE 54,4 %/53,1 %/53,6 %
+   orden 3: ▲▲▲→BAJA 56,4 %/53,8 %/52,7 % · ▼▲▲→BAJA 53,0 %/51,7 %/50,9 % · ▲▼▲→BAJA 51,0 %/50,7 %/53,2 % · ▼▼▲→SUBE 50,2 %/50,0 %/47,0 % · ▲▲▼→BAJA 50,0 %/49,8 %/50,8 % · ▼▲▼→SUBE 50,9 %/50,7 %/49,7 % · ▲▼▼→SUBE 53,5 %/52,4 %/53,5 % · ▼▼▼→SUBE 55,5 %/53,8 %/53,7 %
+
+2. HMM GAUSSIANO DE 3 REGÍMENES (velas de 1 h; ajuste 2021-23, filtrado hacia adelante)
+   medias por régimen (rendimiento %, rango %): calma 0,005 / 0,39 · normal 0,008 / 0,97 · agitado -0,026 / 2,50
+   permanencia (probabilidad de seguir en el mismo régimen la hora siguiente): calma 85,1 % · normal 77,5 % · agitado 62,4 %
+   calma    sube 49.7 %/49.9 %/49.6 % · reversión de 15 min: 56.0 % (8.643) / 53.9 % (13.564) / 55.5 % (553)
+   normal   sube 50.0 %/50.2 %/49.4 % · reversión de 15 min: 55.2 % (15.933) / 53.2 % (14.703) / 46.9 % (309)
+   agitado  sube 50.0 %/50.6 %/41.7 % · reversión de 15 min: 55.3 % (6.372) / 54.0 % (3.210) / 38.5 % (13)
+   régimen de la última hora de los datos: calma (74,5 %)
+
+3. AGRUPAMIENTO K-MEDIAS DEL COMPORTAMIENTO (k = 8; sentido de cada grupo elegido en 2021-23)
+   grupo 0 (19.1 %) SUBE: 51,0 %/50,8 %/49,6 % · centro: imp -0,2, 1h -0,0, 4h 0,0, 1d -0,2, atr -0,9, vol -1,0, flujo -0,6
+   grupo 1 ( 4.7 %) BAJA: 55,4 %/54,5 %/51,9 % · centro: imp 2,0, 1h 2,0, 4h 1,3, 1d 0,7, atr 0,8, vol 1,5, flujo 1,0
+   grupo 2 (15.1 %) SUBE: 50,0 %/50,7 %/49,8 % · centro: imp 0,3, 1h -0,1, 4h -0,7, 1d -0,9, atr 0,7, vol 0,5, flujo 0,3
+   grupo 3 ( 7.7 %) BAJA: 51,2 %/51,6 %/52,1 % · centro: imp -0,3, 1h 0,7, 4h 1,5, 1d 1,0, atr 1,0, vol 0,8, flujo -0,2
+   grupo 4 (15.5 %) BAJA: 50,9 %/51,4 %/52,9 % · centro: imp 0,1, 1h 0,0, 4h 0,2, 1d 1,1, atr -0,0, vol -0,3, flujo 0,1
+   grupo 5 ( 5.2 %) SUBE: 55,9 %/53,9 %/51,5 % · centro: imp -1,6, 1h -2,1, 4h -1,6, 1d -0,9, atr 1,1, vol 1,7, flujo -0,7
+   grupo 6 (18.1 %) BAJA: 53,7 %/51,8 %/51,6 % · centro: imp 0,6, 1h 0,2, 4h 0,1, 1d -0,2, atr -0,6, vol -0,5, flujo 1,2
+   grupo 7 (14.5 %) SUBE: 54,2 %/53,5 %/52,0 % · centro: imp -0,9, 1h -0,5, 4h -0,2, 1d -0,2, atr -0,0, vol 0,2, flujo -1,1
+
+4. AUTOCORRELACIÓN Y RAZÓN DE VARIANZAS (rendimientos de 10 min)
+   entrenamiento: autocorrelación lag 1-6: -0,043 -0,001 -0,026 0,008 -0,004 -0,005 (±0,005 es ruido) · VR(2) 0,957 (z -2,3) · VR(3) 0,942 (z -2,2) · VR(6) 0,905 (z -2,5)
+   prueba: autocorrelación lag 1-6: -0,026 -0,002 -0,004 -0,005 -0,004 -0,006 (±0,005 es ruido) · VR(2) 0,974 (z -2,3) · VR(3) 0,964 (z -2,2) · VR(6) 0,945 (z -2,4)
+
+5. ANOMALÍAS: tras un movimiento de 10 min fuera de lo normal, ¿se devuelve? (apostar en contra)
+   |z| ≥ 3: 54.3 % (8.623) / 54.2 % (7.584) / 50.5 % (204)
+   |z| ≥ 4: 54.2 % (4.522) / 53.9 % (3.768) / 53.1 % (98)
+   |z| ≥ 5: 53.9 % (2.668) / 54.0 % (2.054) / 57.7 % (52)
+
+6. RACHAS EN LAS APUESTAS A CIEGAS DEL BANCO (¿operar «cuando hay suerte» sirve?)
+   t18_BTCUSDT_apuestas.csv: 16.961 apuestas. acierto 58.0 % · tras acertar 57.5 % · tras fallar 58.6 % · tras 3 aciertos 56.7 % (3.224) · tras 3 fallos 57.0 % (1.266) · z de rachas 1.39 · peor racha de fallos 11
+   t19_BTCUSDT_apuestas.csv: 43.164 apuestas. acierto 57.3 % · tras acertar 56.7 % · tras fallar 58.1 % · tras 3 aciertos 56.4 % (7.923) · tras 3 fallos 56.4 % (3.246) · z de rachas 2.78 · peor racha de fallos 13

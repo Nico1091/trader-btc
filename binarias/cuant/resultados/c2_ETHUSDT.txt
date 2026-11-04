@@ -1,0 +1,37 @@
+C2 · ETHUSDT · regímenes, Markov, HMM, agrupamiento, autocorrelación, anomalías y rachas
+
+1. CADENA DE MARKOV (signo de los tramos de 10 min anteriores → siguiente)
+   orden 1: ▲→BAJA 52,0 %/51,4 %/52,2 % · ▼→SUBE 52,3 %/52,1 %/51,4 %
+   orden 2: ▲▲→BAJA 53,9 %/52,8 %/54,0 % · ▼▲→BAJA 50,3 %/50,1 %/50,7 % · ▲▼→SUBE 50,5 %/50,9 %/50,0 % · ▼▼→SUBE 54,4 %/53,5 %/52,9 %
+   orden 3: ▲▲▲→BAJA 55,2 %/53,8 %/56,1 % · ▼▲▲→BAJA 52,8 %/51,9 %/52,2 % · ▲▼▲→BAJA 51,3 %/50,7 %/50,7 % · ▼▼▲→SUBE 50,5 %/50,4 %/49,4 % · ▲▲▼→SUBE 50,0 %/50,7 %/50,9 % · ▼▲▼→SUBE 50,9 %/51,0 %/49,2 % · ▲▼▼→SUBE 53,7 %/52,6 %/52,9 % · ▼▼▼→SUBE 55,2 %/54,4 %/52,9 %
+
+2. HMM GAUSSIANO DE 3 REGÍMENES (velas de 1 h; ajuste 2021-23, filtrado hacia adelante)
+   medias por régimen (rendimiento %, rango %): calma 0,007 / 0,50 · normal 0,025 / 1,27 · agitado -0,072 / 3,27
+   permanencia (probabilidad de seguir en el mismo régimen la hora siguiente): calma 85,2 % · normal 77,6 % · agitado 62,8 %
+   calma    sube 49.8 %/50.3 %/48.5 % · reversión de 15 min: 55.5 % (9.806) / 55.0 % (11.606) / 55.9 % (479)
+   normal   sube 50.1 %/50.2 %/52.7 % · reversión de 15 min: 55.0 % (16.955) / 54.0 % (15.565) / 52.3 % (308)
+   agitado  sube 51.0 %/50.9 %/47.4 % · reversión de 15 min: 54.7 % (5.868) / 53.0 % (3.202) / 52.2 % (23)
+   régimen de la última hora de los datos: normal (70,1 %)
+
+3. AGRUPAMIENTO K-MEDIAS DEL COMPORTAMIENTO (k = 8; sentido de cada grupo elegido en 2021-23)
+   grupo 0 (16.8 %) BAJA: 52,4 %/51,8 %/54,1 % · centro: imp 0,4, 1h 0,1, 4h 0,1, 1d 0,1, atr -0,9, vol -0,9, flujo 1,0
+   grupo 1 ( 8.8 %) BAJA: 50,7 %/50,7 %/45,4 % · centro: imp -0,3, 1h 0,5, 4h 1,3, 1d 0,9, atr 1,0, vol 0,7, flujo -0,3
+   grupo 2 (15.9 %) BAJA: 51,5 %/50,7 %/50,1 % · centro: imp 0,5, 1h 0,3, 4h -0,1, 1d -0,7, atr 0,2, vol 0,1, flujo 0,6
+   grupo 3 ( 5.6 %) BAJA: 55,0 %/55,2 %/53,4 % · centro: imp 1,8, 1h 1,8, 4h 1,3, 1d 0,8, atr 0,7, vol 1,4, flujo 0,9
+   grupo 4 (10.3 %) SUBE: 52,0 %/52,1 %/47,3 % · centro: imp 0,0, 1h -0,8, 4h -1,2, 1d -0,9, atr 1,0, vol 0,8, flujo 0,0
+   grupo 5 (15.9 %) SUBE: 50,0 %/49,5 %/45,2 % · centro: imp -0,0, 1h -0,1, 4h 0,1, 1d 1,1, atr -0,1, vol -0,3, flujo -0,1
+   grupo 6 (21.9 %) SUBE: 52,6 %/52,9 %/52,4 % · centro: imp -0,5, 1h -0,2, 4h -0,1, 1d -0,3, atr -0,6, vol -0,6, flujo -1,0
+   grupo 7 ( 5.0 %) SUBE: 56,9 %/55,8 %/56,1 % · centro: imp -2,1, 1h -1,9, 4h -1,3, 1d -0,6, atr 0,8, vol 1,6, flujo -0,9
+
+4. AUTOCORRELACIÓN Y RAZÓN DE VARIANZAS (rendimientos de 10 min)
+   entrenamiento: autocorrelación lag 1-6: -0,061 0,016 -0,040 0,020 -0,018 -0,001 (±0,005 es ruido) · VR(2) 0,939 (z -1,4) · VR(3) 0,930 (z -1,2) · VR(6) 0,887 (z -1,4)
+   prueba: autocorrelación lag 1-6: -0,011 0,006 -0,005 -0,006 -0,007 -0,001 (±0,005 es ruido) · VR(2) 0,989 (z -1,1) · VR(3) 0,989 (z -0,8) · VR(6) 0,978 (z -1,1)
+
+5. ANOMALÍAS: tras un movimiento de 10 min fuera de lo normal, ¿se devuelve? (apostar en contra)
+   |z| ≥ 3: 54.7 % (7.924) / 53.7 % (7.542) / 53.4 % (221)
+   |z| ≥ 4: 55.4 % (4.149) / 55.2 % (3.757) / 52.6 % (114)
+   |z| ≥ 5: 55.3 % (2.416) / 55.7 % (2.080) / 54.7 % (64)
+
+6. RACHAS EN LAS APUESTAS A CIEGAS DEL BANCO (¿operar «cuando hay suerte» sirve?)
+   t18_ETHUSDT_apuestas.csv: 11.070 apuestas. acierto 56.6 % · tras acertar 56.0 % · tras fallar 57.4 % · tras 3 aciertos 56.6 % (1.960) · tras 3 fallos 57.0 % (874) · z de rachas 1.48 · peor racha de fallos 9
+   t19_ETHUSDT_apuestas.csv: 36.370 apuestas. acierto 56.4 % · tras acertar 56.0 % · tras fallar 56.8 % · tras 3 aciertos 55.7 % (6.407) · tras 3 fallos 57.5 % (2.981) · z de rachas 1.55 · peor racha de fallos 12

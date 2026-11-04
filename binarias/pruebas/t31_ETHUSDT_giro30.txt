@@ -1,0 +1,9 @@
+T31 · SU REGLA DE DOS VELAS SOBRE LAS DOS LÍNEAS (giro 30) · ETHUSDT · velas de 1 min de futuros, 31/12/2019 a 27/10/2026
+Regla fijada antes (PLAN.md, sección 17): 2024-26 ≥ 54,1 % con ≥ 300 apuestas y Wilson 95 % de 2021-26 > 54,1 %, en el sentido que él usa.
+
+10 min · a favor de la ruptura (como él): 2021-26 34.688 apuestas, 43,6 % (Wilson 43,1 %) · 2021-23 42,7 % · 2024-26 44,9 % en 14.749 · 13,92 al día
+10 min · contra la ruptura: 2021-26 34.688 apuestas, 56,2 % (Wilson 55,6 %) · 2021-23 57,0 % · 2024-26 55,0 % en 14.749 · 13,92 al día · CUMPLE
+30 min · a favor de la ruptura (como él): 2021-26 24.612 apuestas, 44,2 % (Wilson 43,6 %) · 2021-23 43,5 % · 2024-26 45,3 % en 10.398 · 9,88 al día
+30 min · contra la ruptura: 2021-26 24.612 apuestas, 55,7 % (Wilson 55,0 %) · 2021-23 56,4 % · 2024-26 54,7 % en 10.398 · 9,88 al día · CUMPLE
+
+VEREDICTO: no entra al banco (solo cuenta el sentido que él usa)

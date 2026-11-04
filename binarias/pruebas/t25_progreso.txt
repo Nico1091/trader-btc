@@ -1,0 +1,6 @@
+rasgos listos: 718,012 muestras × 83 por activo · 45 s
+U (principal): 23049 apuestas · 101 s
+U sin flujo de órdenes: 24351 apuestas · 193 s
+U sin el otro activo: 23257 apuestas · 278 s
+U sin frecuencia mínima: 22335 apuestas · 335 s
+listo · 340 s

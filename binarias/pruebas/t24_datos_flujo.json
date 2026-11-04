@@ -1,0 +1,18 @@
+{
+ "BTCUSDT": {
+  "desde": "2020-01-01 00:00",
+  "hasta": "2026-10-30 03:25",
+  "minutos": 3591566,
+  "rellenados": 0,
+  "coincide_con_trader_btc": 100.0,
+  "taker_sobre_volumen": 0.4984
+ },
+ "ETHUSDT": {
+  "desde": "2020-01-01 00:00",
+  "hasta": "2026-10-30 03:28",
+  "minutos": 3591569,
+  "rellenados": 0,
+  "coincide_con_trader_btc": 100.0,
+  "taker_sobre_volumen": 0.4955
+ }
+}

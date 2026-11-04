@@ -1,0 +1,130 @@
+T18 · REGLAS A CIEGAS · BTCUSDT · velas de 1 min de futuros de Binance, 31/12/2019 a 01/11/2026
+Cada mes se elige con los 12 meses anteriores y se opera sin tocar nada. 10, 30 y 60 min; una abierta a la vez; hasta 16 al día;
+16 % del saldo o 5 USDT si no alcanza; empate = fallo. Para no perder: 55,6 % (pago 0,80), 54,1 % (0,85), 52,6 % (0,90).
+Para crecer al 16 %: 59,1 %, 57,8 % y 56,4 %. Límite corregido = Wilson al 99,375 % de una cola (8 procedimientos).
+
+== RESULTADO PRINCIPAL ==
+Todo el periodo: 16.961 apuestas, 9.829 aciertos (58,0 %), 11 empates · límite 95 % 57,2 % · límite corregido 57,0 %
+   7,96 apuestas al día, todos los días (16.961 en 2.130 días)
+   2021-23: 9.190 apuestas, 5.465 aciertos (59,5 %), 6 empates · límite 95 % 58,5 % · límite corregido 58,2 %
+   2024-26: 7.771 apuestas, 4.364 aciertos (56,2 %), 5 empates · límite 95 % 55,1 % · límite corregido 54,7 %
+      2021: 3.520 apuestas, 2.076 aciertos (59,0 %), 0 empates · límite 95 % 57,3 % · límite corregido 56,9 %
+      2022: 3.826 apuestas, 2.263 aciertos (59,1 %), 4 empates · límite 95 % 57,6 % · límite corregido 57,1 %
+      2023: 1.844 apuestas, 1.126 aciertos (61,1 %), 2 empates · límite 95 % 58,8 % · límite corregido 58,2 %
+      2024: 2.985 apuestas, 1.689 aciertos (56,6 %), 3 empates · límite 95 % 54,8 % · límite corregido 54,3 %
+      2025: 2.827 apuestas, 1.604 aciertos (56,7 %), 2 empates · límite 95 % 54,9 % · límite corregido 54,4 %
+      2026: 1.959 apuestas, 1.071 aciertos (54,7 %), 0 empates · límite 95 % 52,5 % · límite corregido 51,9 %
+Entrando 60 s tarde: 16.961 apuestas, 9.574 aciertos (56,4 %), 11 empates · límite 95 % 55,7 % · límite corregido 55,5 %
+Siempre arriba, mismas horas y plazos: 16.961 apuestas, 8.504 aciertos (50,1 %), 11 empates · límite 95 % 49,4 % · límite corregido 49,2 %
+Azar en las mismas horas (200 repeticiones): 50,0 % (de 49,3 a 50,7 %)
+Sin los 5 mejores días: 16.882 apuestas, 9.759 aciertos (57,8 %), 11 empates · límite 95 % 57,1 % · límite corregido 56,9 %
+
+== EN PESOS: 100.000 COP durante 30 días, arrancando cada día del periodo ==
+pago 0,80: termina arriba en 36,3 % de los 2102 arranques · quiebra en 58,2 % · mediana 0 · peor 10 % 0 · mejor 10 % 1.488.517
+pago 0,85: termina arriba en 47,4 % de los 2102 arranques · quiebra en 49,0 % · mediana 67.759 · peor 10 % 0 · mejor 10 % 4.596.198
+pago 0,90: termina arriba en 56,2 % de los 2102 arranques · quiebra en 40,3 % · mediana 168.427 · peor 10 % 0 · mejor 10 % 14.798.218
+
+== VARIANTES DE SENSIBILIDAD (se informan, no se escogen) ==
+principal: 16.961 apuestas, 9.829 aciertos (58,0 %), 11 empates · límite 95 % 57,2 % · límite corregido 57,0 %
+ventana de 6 meses: 18.779 apuestas, 10.791 aciertos (57,5 %), 22 empates · límite 95 % 56,8 % · límite corregido 56,6 %
+ventana de 24 meses: 9.878 apuestas, 5.800 aciertos (58,7 %), 10 empates · límite 95 % 57,7 % · límite corregido 57,5 %
+1 elegida: 9.409 apuestas, 5.551 aciertos (59,0 %), 13 empates · límite 95 % 58,0 % · límite corregido 57,7 %
+5 elegidas: 20.400 apuestas, 11.680 aciertos (57,3 %), 15 empates · límite 95 % 56,6 % · límite corregido 56,4 %
+
+== MES A MES (principal): elegidas con los 12 meses anteriores y su resultado en el mes ==
+2021-01: 143 apuestas, 54,5 % · 100.000 → 0 · E03 banda de ruido de Concretum (30 min) [al revés, 10 min, a favor del contexto, Asia, 61,8 %]; rompimiento de 20 velas [al revés, 10 min, a favor del contexto, volatilidad alta, 60,7 %]; techo y piso de 24 h [normal, 30 min, a favor del contexto, Asia, 58,3 %]
+2021-02: 273 apuestas, 62,6 % · 100.000 → 5.912.205 · E03 banda de ruido de Concretum (30 min) [al revés, 10 min, a favor del contexto, Asia, 60,3 %]; rompimiento de 20 velas [al revés, 10 min, a favor del contexto, 60,0 %]; REV15 [normal, 10 min, a favor del contexto, Asia, volatilidad alta, 58,5 %]
+2021-03: 303 apuestas, 57,1 % · 100.000 → 0 · E03 banda de ruido de Concretum (30 min) [al revés, 10 min, a favor del contexto, Asia, 60,5 %]; rompimiento de 20 velas [al revés, 10 min, a favor del contexto, 60,2 %]; E16 cruce de EMA 20/50 (1 h) [al revés, 30 min, 58,6 %]
+2021-04: 305 apuestas, 62,6 % · 100.000 → 8.812.516 · rompimiento de 20 velas [al revés, 10 min, a favor del contexto, 60,1 %]; E03 banda de ruido de Concretum (30 min) [al revés, 10 min, a favor del contexto, 59,8 %]; E16 cruce de EMA 20/50 (1 h) [al revés, 30 min, 57,9 %]
+2021-05: 334 apuestas, 61,7 % · 100.000 → 0 · E03 banda de ruido de Concretum (30 min) [al revés, 10 min, a favor del contexto, volatilidad baja, 61,6 %]; rompimiento de 20 velas [al revés, 10 min, a favor del contexto, 59,8 %]; E16 cruce de EMA 20/50 (1 h) [al revés, 30 min, 58,8 %]
+2021-06: 318 apuestas, 64,2 % · 100.000 → 61.223.013 · E03 banda de ruido de Concretum (30 min) [al revés, 10 min, a favor del contexto, 60,8 %]; rompimiento de 20 velas [al revés, 10 min, a favor del contexto, 59,8 %]; patrón tres cuervos [al revés, 60 min, 57,6 %]
+2021-07: 308 apuestas, 63,6 % · 100.000 → 24.201.227 · E03 banda de ruido de Concretum (30 min) [al revés, 10 min, a favor del contexto, volatilidad baja, 61,6 %]; rompimiento de 20 velas [al revés, 10 min, a favor del contexto, 59,9 %]; E01 retroceso alcista y techo extremo (1 h) [normal, 30 min, volatilidad alta, 57,9 %]
+2021-08: 155 apuestas, 52,3 % · 100.000 → 0 · techo y piso de 24 h [normal, 30 min, a favor del contexto, América, volatilidad baja, 60,8 %]; rompimiento de 20 velas [al revés, 10 min, a favor del contexto, volatilidad alta, 60,7 %]; E03 banda de ruido de Concretum (30 min) [al revés, 10 min, a favor del contexto, 59,6 %]
+2021-09: 279 apuestas, 59,1 % · 100.000 → 464.484 · techo y piso de 24 h [normal, 30 min, a favor del contexto, América, volatilidad baja, 60,5 %]; rompimiento de 20 velas [al revés, 10 min, a favor del contexto, 59,9 %]; E03 banda de ruido de Concretum (30 min) [al revés, 10 min, a favor del contexto, volatilidad baja, 58,9 %]
+2021-10: 278 apuestas, 59,0 % · 100.000 → 285.735 · E03 banda de ruido de Concretum (30 min) [al revés, 10 min, Asia, volatilidad baja, 60,3 %]; techo y piso de 24 h [normal, 30 min, a favor del contexto, América, volatilidad baja, 60,0 %]; rompimiento de 20 velas [al revés, 10 min, a favor del contexto, 59,8 %]
+2021-11: 337 apuestas, 57,3 % · 100.000 → 0 · rompimiento de 20 velas [al revés, 10 min, a favor del contexto, 59,5 %]; E03 banda de ruido de Concretum (30 min) [al revés, 10 min, Asia, volatilidad baja, 59,3 %]; techo y piso de 24 h [normal, 30 min, a favor del contexto, América, volatilidad baja, 57,6 %]
+2021-12: 487 apuestas, 52,2 % · 100.000 → 0 · rompimiento de 20 velas [al revés, 10 min, 59,0 %]; techo y piso de 24 h [normal, 30 min, a favor del contexto, América, volatilidad baja, 58,2 %]; E03 banda de ruido de Concretum (30 min) [al revés, 10 min, Asia, 57,2 %]
+2022-01: 492 apuestas, 61,4 % · 100.000 → 33.819.123 · rompimiento de 20 velas [al revés, 10 min, 58,5 %]; E03 banda de ruido de Concretum (30 min) [al revés, 10 min, Asia, 56,5 %]; E04 estacionalidad 21-23 UTC [normal, 60 min, volatilidad alta, 56,1 %]
+2022-02: 376 apuestas, 62,2 % · 100.000 → 0 · rompimiento de 20 velas [al revés, 10 min, volatilidad baja, 58,6 %]; E01 retroceso alcista y techo extremo (1 h) [normal, 30 min, a favor del contexto, volatilidad alta, 57,1 %]; patrón estrella tarde [normal, 10 min, a favor del contexto, América, 56,3 %]
+2022-03: 496 apuestas, 59,3 % · 100.000 → 979.040 · rompimiento de 20 velas [al revés, 10 min, a favor del contexto, 58,8 %]; REV15 [normal, 10 min, a favor del contexto, volatilidad baja, 55,0 %]; REV5 [normal, 10 min, 54,5 %]
+2022-04: 480 apuestas, 54,2 % · 100.000 → 0 · rompimiento de 20 velas [al revés, 10 min, a favor del contexto, 59,2 %]; E03 banda de ruido de Concretum (30 min) [al revés, 10 min, Asia, volatilidad baja, 55,4 %]; REV5 [normal, 10 min, 54,2 %]
+2022-05: 327 apuestas, 58,7 % · 100.000 → 269.015 · rompimiento de 20 velas [al revés, 10 min, a favor del contexto, 60,1 %]; alineación de medias 9/21/50 [al revés, 10 min, Europa, volatilidad baja, 55,4 %]; E01 retroceso alcista y techo extremo (1 h) [normal, 60 min, Asia, volatilidad baja, 54,4 %]
+2022-06: 257 apuestas, 59,9 % · 100.000 → 0 · rompimiento de 20 velas [al revés, 10 min, a favor del contexto, 60,2 %]; alineación de medias 9/21/50 [al revés, 60 min, Europa, 54,5 %]; E01 retroceso alcista y techo extremo (1 h) [normal, 30 min, a favor del contexto, América, 54,1 %]
+2022-07: 316 apuestas, 52,2 % · 100.000 → 0 · rompimiento de 20 velas [al revés, 10 min, a favor del contexto, 59,8 %]; alineación de medias 9/21/50 [al revés, 60 min, Europa, 54,6 %]
+2022-08: 123 apuestas, 57,7 % · 100.000 → 110.756 · rompimiento de 20 velas [al revés, 10 min, a favor del contexto, Asia, volatilidad baja, 59,6 %]; techo y piso de 24 h [normal, 60 min, a favor del contexto, Europa, volatilidad baja, 56,4 %]; alineación de medias 9/21/50 [al revés, 60 min, Europa, volatilidad baja, 55,1 %]
+2022-09: 128 apuestas, 54,7 % · 100.000 → 0 · rompimiento de 20 velas [al revés, 10 min, a favor del contexto, Asia, volatilidad baja, 58,9 %]; alineación de medias 9/21/50 [al revés, 60 min, Europa, volatilidad baja, 56,2 %]; E19 EMA 12/26 con RSI 14 (1 h) [al revés, 60 min, a favor del contexto, 55,7 %]
+2022-10: 301 apuestas, 62,8 % · 100.000 → 11.835.968 · rompimiento de 20 velas [al revés, 10 min, a favor del contexto, 57,9 %]; alineación de medias 9/21/50 [al revés, 60 min, Asia, volatilidad baja, 56,2 %]; E19 EMA 12/26 con RSI 14 (1 h) [al revés, 60 min, volatilidad baja, 55,4 %]
+2022-11: 257 apuestas, 60,3 % · 100.000 → 1.176.060 · rompimiento de 20 velas [al revés, 10 min, a favor del contexto, 58,1 %]; E19 EMA 12/26 con RSI 14 (1 h) [al revés, 60 min, a favor del contexto, 57,2 %]; alineación de medias 9/21/50 [al revés, 60 min, Asia, volatilidad baja, 56,7 %]
+2022-12: 273 apuestas, 64,8 % · 100.000 → 43.866.931 · rompimiento de 20 velas [al revés, 10 min, a favor del contexto, 58,4 %]; patrón pinzas abajo [normal, 10 min, a favor del contexto, Asia, volatilidad baja, 57,5 %]; E19 EMA 12/26 con RSI 14 (1 h) [al revés, 60 min, a favor del contexto, 57,3 %]
+2023-01: 158 apuestas, 57,6 % · 100.000 → 0 · rompimiento de 20 velas [al revés, 10 min, a favor del contexto, Europa, 60,4 %]; E19 EMA 12/26 con RSI 14 (1 h) [al revés, 60 min, 58,1 %]; patrón pinzas abajo [normal, 10 min, a favor del contexto, Asia, volatilidad baja, 57,4 %]
+2023-02: 122 apuestas, 61,5 % · 100.000 → 494.645 · rompimiento de 20 velas [al revés, 10 min, a favor del contexto, Europa, 59,9 %]; E03 banda de ruido de Concretum (30 min) [al revés, 10 min, volatilidad baja, 57,7 %]; patrón tres cuervos [al revés, 10 min, a favor del contexto, volatilidad baja, 57,6 %]
+2023-03: 92 apuestas, 66,3 % · 100.000 → 1.073.337 · E03 banda de ruido de Concretum (30 min) [al revés, 10 min, volatilidad baja, 59,1 %]; rompimiento de 20 velas [al revés, 10 min, a favor del contexto, Europa, 58,9 %]; patrón tres cuervos [al revés, 10 min, a favor del contexto, volatilidad baja, 58,7 %]
+2023-04: 111 apuestas, 62,2 % · 100.000 → 505.146 · rompimiento de 20 velas [al revés, 10 min, a favor del contexto, Europa, 59,6 %]; E19 EMA 12/26 con RSI 14 (1 h) [al revés, 60 min, 59,0 %]; E03 banda de ruido de Concretum (30 min) [al revés, 10 min, a favor del contexto, 58,2 %]
+2023-05: 147 apuestas, 61,9 % · 100.000 → 0 · rompimiento de 20 velas [al revés, 10 min, Europa, volatilidad baja, 59,0 %]; techo y piso de 24 h [normal, 30 min, a favor del contexto, Europa, 58,5 %]; E19 EMA 12/26 con RSI 14 (1 h) [al revés, 60 min, a favor del contexto, 58,1 %]
+2023-06: 124 apuestas, 66,1 % · 100.000 → 2.329.953 · techo y piso de 24 h [normal, 30 min, a favor del contexto, Europa, 60,3 %]; rompimiento de 20 velas [al revés, 30 min, Europa, 59,6 %]; E19 EMA 12/26 con RSI 14 (1 h) [al revés, 60 min, a favor del contexto, 59,3 %]
+2023-07: 188 apuestas, 60,6 % · 100.000 → 0 · rompimiento de 20 velas [al revés, 30 min, Europa, 61,2 %]; E03 banda de ruido de Concretum (30 min) [al revés, 10 min, Asia, 57,6 %]; E19 EMA 12/26 con RSI 14 (1 h) [al revés, 60 min, 57,3 %]
+2023-08: 187 apuestas, 63,1 % · 100.000 → 2.338.923 · rompimiento de 20 velas [al revés, 10 min, Europa, volatilidad baja, 60,3 %]; REV15 [normal, 30 min, a favor del contexto, volatilidad baja, 59,2 %]; E19 EMA 12/26 con RSI 14 (1 h) [al revés, 60 min, a favor del contexto, 58,5 %]
+2023-09: 221 apuestas, 61,1 % · 100.000 → 943.771 · rompimiento de 20 velas [al revés, 10 min, Europa, 60,5 %]; techo y piso de 24 h [normal, 10 min, volatilidad baja, 59,4 %]; E03 banda de ruido de Concretum (30 min) [al revés, 10 min, Asia, 58,8 %]
+2023-10: 167 apuestas, 63,5 % · 100.000 → 1.782.952 · REV15 [normal, 10 min, a favor del contexto, volatilidad baja, 61,1 %]; rompimiento de 20 velas [al revés, 30 min, a favor del contexto, volatilidad baja, 60,2 %]; E03 banda de ruido de Concretum (30 min) [al revés, 10 min, a favor del contexto, Asia, 59,8 %]
+2023-11: 140 apuestas, 55,7 % · 100.000 → 0 · REV15 [normal, 30 min, a favor del contexto, Asia, volatilidad baja, 62,7 %]; rompimiento de 20 velas [al revés, 30 min, a favor del contexto, volatilidad baja, 60,7 %]; techo y piso de 24 h [normal, 30 min, a favor del contexto, volatilidad baja, 59,6 %]
+2023-12: 187 apuestas, 56,7 % · 100.000 → 94.483 · REV15 [normal, 30 min, a favor del contexto, Asia, volatilidad baja, 60,4 %]; rompimiento de 20 velas [al revés, 30 min, a favor del contexto, volatilidad baja, 60,2 %]; E03 banda de ruido de Concretum (30 min) [al revés, 30 min, volatilidad baja, 58,6 %]
+2024-01: 170 apuestas, 56,5 % · 100.000 → 72.673 · rompimiento de 20 velas [al revés, 30 min, a favor del contexto, volatilidad baja, 60,2 %]; REV15 [normal, 30 min, a favor del contexto, volatilidad baja, 59,6 %]; techo y piso de 24 h [normal, 30 min, a favor del contexto, volatilidad baja, 57,2 %]
+2024-02: 203 apuestas, 55,7 % · 100.000 → 0 · rompimiento de 20 velas [al revés, 30 min, a favor del contexto, volatilidad baja, 59,5 %]; REV15 [normal, 30 min, volatilidad baja, 57,8 %]; E19 EMA 12/26 con RSI 14 (1 h) [al revés, 30 min, a favor del contexto, 57,6 %]
+2024-03: 311 apuestas, 57,9 % · 100.000 → 218.423 · REV15 [normal, 30 min, a favor del contexto, volatilidad baja, 58,6 %]; rompimiento de 20 velas [al revés, 10 min, a favor del contexto, 57,2 %]; E03 banda de ruido de Concretum (30 min) [al revés, 30 min, Asia, volatilidad baja, 57,1 %]
+2024-04: 163 apuestas, 62,6 % · 100.000 → 1.145.055 · rompimiento de 20 velas [al revés, 30 min, a favor del contexto, volatilidad baja, 59,4 %]; REV15 [normal, 30 min, a favor del contexto, volatilidad baja, 57,8 %]; E03 banda de ruido de Concretum (30 min) [al revés, 30 min, Asia, volatilidad baja, 56,9 %]
+2024-05: 215 apuestas, 60,5 % · 100.000 → 0 · rompimiento de 20 velas [al revés, 30 min, a favor del contexto, volatilidad baja, 59,3 %]; E03 banda de ruido de Concretum (30 min) [al revés, 30 min, Asia, 56,6 %]; alineación de medias 9/21/50 [al revés, 10 min, a favor del contexto, Asia, volatilidad baja, 56,4 %]
+2024-06: 172 apuestas, 63,4 % · 100.000 → 1.844.307 · rompimiento de 20 velas [al revés, 30 min, a favor del contexto, volatilidad baja, 58,5 %]; E09 rompimiento ATR de Concretum (15 min) [normal, 60 min, América, 56,4 %]; E03 banda de ruido de Concretum (30 min) [al revés, 30 min, Asia, volatilidad baja, 55,6 %]
+2024-07: 378 apuestas, 56,3 % · 100.000 → 0 · rompimiento de 20 velas [al revés, 30 min, a favor del contexto, volatilidad baja, 58,9 %]; techo y piso de 24 h [normal, 60 min, a favor del contexto, América, volatilidad alta, 57,4 %]; REV5 [normal, 30 min, volatilidad baja, 56,1 %]
+2024-08: 219 apuestas, 50,7 % · 100.000 → 0 · rompimiento de 20 velas [al revés, 30 min, a favor del contexto, volatilidad baja, 58,8 %]; REV15 [normal, 60 min, Europa, volatilidad alta, 56,4 %]; techo y piso de 24 h [normal, 60 min, a favor del contexto, volatilidad alta, 56,3 %]
+2024-09: 85 apuestas, 56,5 % · 100.000 → 104.993 · rompimiento de 20 velas [al revés, 10 min, a favor del contexto, América, volatilidad baja, 58,4 %]; techo y piso de 24 h [normal, 30 min, a favor del contexto, América, volatilidad alta, 57,5 %]; REV15 [normal, 60 min, Europa, volatilidad alta, 56,0 %]
+2024-10: 345 apuestas, 59,1 % · 100.000 → 555.124 · rompimiento de 20 velas [al revés, 10 min, a favor del contexto, 56,9 %]; techo y piso de 24 h [normal, 30 min, a favor del contexto, América, 56,2 %]; REV15 [normal, 30 min, a favor del contexto, volatilidad baja, 55,0 %]
+2024-11: 314 apuestas, 51,0 % · 100.000 → 0 · rompimiento de 20 velas [al revés, 10 min, a favor del contexto, 57,2 %]; REV15 [normal, 30 min, a favor del contexto, Europa, 55,3 %]; patrón pinzas abajo [normal, 60 min, América, volatilidad baja, 54,5 %]
+2024-12: 410 apuestas, 54,4 % · 100.000 → 0 · rompimiento de 20 velas [al revés, 10 min, a favor del contexto, 57,1 %]; E03 banda de ruido de Concretum (30 min) [al revés, 30 min, a favor del contexto, Europa, 54,8 %]; techo y piso de 24 h [normal, 60 min, 54,2 %]
+2025-01: 355 apuestas, 56,1 % · 100.000 → 0 · rompimiento de 20 velas [al revés, 10 min, a favor del contexto, 56,8 %]; E01 retroceso alcista y techo extremo (1 h) [normal, 60 min, Asia, volatilidad baja, 55,1 %]; E19 EMA 12/26 con RSI 14 (1 h) [al revés, 30 min, a favor del contexto, 54,5 %]
+2025-02: 356 apuestas, 56,7 % · 100.000 → 0 · rompimiento de 20 velas [al revés, 10 min, a favor del contexto, 57,0 %]; E01 retroceso alcista y techo extremo (1 h) [normal, 60 min, Europa, volatilidad baja, 56,3 %]; REV5 [normal, 60 min, Asia, volatilidad baja, 54,2 %]
+2025-03: 340 apuestas, 60,0 % · 100.000 → 1.727.751 · E01 retroceso alcista y techo extremo (1 h) [normal, 60 min, Europa, volatilidad baja, 57,8 %]; rompimiento de 20 velas [al revés, 10 min, a favor del contexto, 56,8 %]; techo y piso de 24 h [normal, 60 min, Asia, volatilidad baja, 55,0 %]
+2025-04: 125 apuestas, 47,2 % · 100.000 → 0 · E01 retroceso alcista y techo extremo (1 h) [normal, 60 min, Europa, volatilidad baja, 57,6 %]; rompimiento de 20 velas [al revés, 10 min, a favor del contexto, Europa, 57,0 %]; E19 EMA 12/26 con RSI 14 (1 h) [al revés, 30 min, a favor del contexto, 56,3 %]
+2025-05: 357 apuestas, 59,9 % · 100.000 → 0 · rompimiento de 20 velas [al revés, 10 min, a favor del contexto, 56,8 %]; techo y piso de 24 h [normal, 60 min, Asia, volatilidad baja, 56,4 %]; E19 EMA 12/26 con RSI 14 (1 h) [al revés, 30 min, a favor del contexto, 55,8 %]
+2025-06: 356 apuestas, 56,5 % · 100.000 → 0 · rompimiento de 20 velas [al revés, 10 min, a favor del contexto, 56,6 %]; E01 retroceso alcista y techo extremo (1 h) [normal, 60 min, Europa, volatilidad baja, 56,1 %]; E19 EMA 12/26 con RSI 14 (1 h) [al revés, 30 min, a favor del contexto, 55,8 %]
+2025-07: 369 apuestas, 55,8 % · 100.000 → 0 · rompimiento de 20 velas [al revés, 10 min, a favor del contexto, 56,2 %]; patrón harami bajista [normal, 10 min, a favor del contexto, Asia, volatilidad baja, 55,8 %]; E19 EMA 12/26 con RSI 14 (1 h) [al revés, 30 min, a favor del contexto, 55,5 %]
+2025-08: 121 apuestas, 62,8 % · 100.000 → 654.135 · techo y piso de 24 h [normal, 60 min, Asia, volatilidad baja, 57,0 %]; rompimiento de 20 velas [al revés, 10 min, a favor del contexto, Europa, 56,1 %]; patrón harami bajista [normal, 10 min, a favor del contexto, Asia, volatilidad baja, 55,4 %]
+2025-09: 149 apuestas, 51,7 % · 100.000 → 0 · rompimiento de 20 velas [al revés, 10 min, a favor del contexto, Europa, 56,7 %]; techo y piso de 24 h [normal, 60 min, Asia, 56,0 %]
+2025-10: 105 apuestas, 58,1 % · 100.000 → 120.529 · techo y piso de 24 h [normal, 60 min, Asia, volatilidad baja, 57,0 %]; rompimiento de 20 velas [al revés, 10 min, a favor del contexto, Europa, 55,2 %]
+2025-11: 167 apuestas, 53,3 % · 100.000 → 0 · techo y piso de 24 h [normal, 60 min, Asia, volatilidad baja, 56,9 %]; rompimiento de 20 velas [al revés, 10 min, Europa, 55,3 %]; patrón martillo [normal, 10 min, a favor del contexto, Asia, 54,4 %]
+2025-12: 27 apuestas, 59,3 % · 100.000 → 117.653 · techo y piso de 24 h [normal, 60 min, Asia, volatilidad baja, 56,7 %]; rompimiento de 20 velas [al revés, 10 min, a favor del contexto, Europa, volatilidad alta, 55,7 %]; patrón martillo [normal, 10 min, a favor del contexto, Asia, 54,3 %]
+2026-01: 107 apuestas, 59,8 % · 100.000 → 258.366 · techo y piso de 24 h [normal, 60 min, Asia, volatilidad baja, 56,9 %]; rompimiento de 20 velas [al revés, 10 min, a favor del contexto, Europa, 55,8 %]
+2026-02: 94 apuestas, 58,5 % · 100.000 → 135.646 · rompimiento de 20 velas [al revés, 10 min, a favor del contexto, Europa, 56,2 %]; E03 banda de ruido de Concretum (30 min) [al revés, 10 min, Europa, 54,6 %]
+2026-03: 303 apuestas, 52,8 % · 100.000 → 0 · rompimiento de 20 velas [al revés, 10 min, a favor del contexto, Europa, 55,6 %]; REV15 [normal, 10 min, América, 54,6 %]; techo y piso de 24 h [normal, 30 min, volatilidad baja, 54,4 %]
+2026-04: 342 apuestas, 53,2 % · 100.000 → 0 · E19 EMA 12/26 con RSI 14 (1 h) [al revés, 10 min, volatilidad baja, 56,6 %]; patrón estrella manana [al revés, 60 min, Europa, volatilidad baja, 56,4 %]; REV15 [normal, 10 min, 55,1 %]
+2026-05: 366 apuestas, 59,6 % · 100.000 → 734.194 · E19 EMA 12/26 con RSI 14 (1 h) [al revés, 10 min, volatilidad baja, 56,2 %]; patrón hombre colgado [normal, 10 min, a favor del contexto, volatilidad baja, 55,2 %]; REV15 [normal, 10 min, 54,8 %]
+2026-06: 165 apuestas, 58,2 % · 100.000 → 0 · E19 EMA 12/26 con RSI 14 (1 h) [al revés, 10 min, a favor del contexto, 57,3 %]; REV15 [normal, 10 min, Europa, 55,7 %]; patrón hombre colgado [normal, 10 min, a favor del contexto, volatilidad baja, 54,8 %]
+2026-07: 48 apuestas, 43,8 % · 100.000 → 0 · E19 EMA 12/26 con RSI 14 (1 h) [al revés, 10 min, a favor del contexto, 58,1 %]; patrón estrella manana [al revés, 60 min, Europa, volatilidad baja, 57,1 %]; patrón hombre colgado [normal, 10 min, a favor del contexto, Asia, 55,8 %]
+2026-08: 37 apuestas, 64,9 % · 100.000 → 221.162 · E19 EMA 12/26 con RSI 14 (1 h) [al revés, 10 min, a favor del contexto, 61,0 %]; patrón estrella manana [al revés, 60 min, Europa, volatilidad baja, 57,3 %]; patrón hombre colgado [normal, 10 min, Asia, volatilidad alta, 56,8 %]
+2026-09: 103 apuestas, 50,5 % · 100.000 → 0 · E19 EMA 12/26 con RSI 14 (1 h) [al revés, 10 min, a favor del contexto, 61,5 %]; patrón hombre colgado [normal, 10 min, Asia, 56,6 %]; REV15 [normal, 10 min, Europa, volatilidad alta, 55,8 %]
+2026-10: 388 apuestas, 50,8 % · 100.000 → 0 · E19 EMA 12/26 con RSI 14 (1 h) [al revés, 10 min, a favor del contexto, 57,5 %]; patrón hombre colgado [normal, 10 min, Asia, 56,5 %]; REV15 [normal, 10 min, 55,0 %]
+2026-11: 6 apuestas, 33,3 % · 100.000 → 63.330 · patrón hombre colgado [normal, 10 min, a favor del contexto, Asia, 56,9 %]; E19 EMA 12/26 con RSI 14 (1 h) [al revés, 10 min, a favor del contexto, 56,8 %]; techo y piso de 24 h [normal, 30 min, a favor del contexto, volatilidad baja, 55,6 %]
+
+== CUÁNTOS MESES FUE ELEGIDA CADA ESTRATEGIA ==
+ 63 · rompimiento de 20 velas
+ 27 · E03 banda de ruido de Concretum (30 min)
+ 27 · techo y piso de 24 h
+ 24 · E19 EMA 12/26 con RSI 14 (1 h)
+ 20 · REV15
+  9 · E01 retroceso alcista y techo extremo (1 h)
+  8 · alineación de medias 9/21/50
+  7 · patrón hombre colgado
+  4 · REV5
+  3 · E16 cruce de EMA 20/50 (1 h)
+  3 · patrón tres cuervos
+  3 · patrón pinzas abajo
+  3 · patrón estrella manana
+  2 · patrón harami bajista
+  2 · patrón martillo
+  1 · E04 estacionalidad 21-23 UTC
+  1 · patrón estrella tarde
+  1 · E09 rompimiento ATR de Concretum (15 min)
+
+== LO QUE SE ELEGIRÍA HOY (12 meses hasta 01/11/2026) ==
+E19 EMA 12/26 con RSI 14 (1 h) [al revés, 10 min, a favor del contexto] · 98/153 en la ventana · límite 56,2 %
+techo y piso de 24 h [normal, 10 min, a favor del contexto] · 731/1256 en la ventana · límite 55,5 %
+patrón hombre colgado [normal, 10 min, a favor del contexto, Asia] · 162/264 en la ventana · límite 55,4 %

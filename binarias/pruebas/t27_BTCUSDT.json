@@ -1,0 +1,81 @@
+{
+ "simbolo": "BTCUSDT",
+ "base": [
+  {
+   "apuestas": 9190,
+   "acierto": 0.5946681175190425,
+   "arriba_30d": 0.5825515947467167,
+   "por_dia": 8.397087517251226
+  },
+  {
+   "apuestas": 7708,
+   "acierto": 0.5621432278152568,
+   "arriba_30d": 0.35764235764235763,
+   "por_dia": 7.485014151334648
+  }
+ ],
+ "defensas": {
+  "D1 sin volumen bajo": [
+   {
+    "apuestas": 6701,
+    "acierto": 0.5946873600955082,
+    "arriba_30d": 0.5947467166979362,
+    "por_dia": 6.122838242992434
+   },
+   {
+    "apuestas": 5386,
+    "acierto": 0.558670627552915,
+    "arriba_30d": 0.3866133866133866,
+    "por_dia": 5.230187625725015
+   }
+  ],
+  "D1 sin volumen alto": [
+   {
+    "apuestas": 6164,
+    "acierto": 0.5971771576898118,
+    "arriba_30d": 0.624765478424015,
+    "por_dia": 5.632170561081236
+   },
+   {
+    "apuestas": 4906,
+    "acierto": 0.5674684060334284,
+    "arriba_30d": 0.42157842157842157,
+    "por_dia": 4.764073615263076
+   }
+  ],
+  "D2 solo 2 primeras horas del bloque de 3 h": [
+   {
+    "apuestas": 6142,
+    "acierto": 0.5895473787040052,
+    "arriba_30d": 0.575046904315197,
+    "por_dia": 5.612068719364204
+   },
+   {
+    "apuestas": 5158,
+    "acierto": 0.5577743311360993,
+    "arriba_30d": 0.3696303696303696,
+    "por_dia": 5.008783470755594
+   }
+  ],
+  "D3 sin movimiento de 3 h extremo": [
+   {
+    "apuestas": 8231,
+    "acierto": 0.5944599684121006,
+    "arriba_30d": 0.549718574108818,
+    "por_dia": 7.5208299624042265
+   },
+   {
+    "apuestas": 6814,
+    "acierto": 0.5628118579395363,
+    "arriba_30d": 0.36363636363636365,
+    "por_dia": 6.616876806849286
+   }
+  ]
+ },
+ "d1_elegida": "D1 sin volumen alto",
+ "veredicto": {
+  "D1 sin volumen alto": true,
+  "D2 solo 2 primeras horas del bloque de 3 h": false,
+  "D3 sin movimiento de 3 h extremo": false
+ }
+}

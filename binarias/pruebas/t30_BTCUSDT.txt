@@ -1,0 +1,9 @@
+T30 · SU SEÑAL DE TOCAR LA SEGUNDA RESISTENCIA · BTCUSDT · velas de 1 min de futuros, 31/12/2019 a 26/10/2026
+Regla fijada antes (PLAN.md, sección 16): 2024-26 ≥ 54,1 % con ≥ 300 apuestas y Wilson 95 % de 2021-26 > 54,1 %, en el sentido que él usa.
+
+10 min · a favor del toque (como él): 2021-26 7.027 apuestas, 45,6 % (Wilson 44,4 %) · 2021-23 44,8 % · 2024-26 46,7 % en 2.965 · 2,82 al día
+10 min · contra el toque: 2021-26 7.027 apuestas, 54,3 % (Wilson 53,1 %) · 2021-23 55,1 % · 2024-26 53,2 % en 2.965 · 2,82 al día
+30 min · a favor del toque (como él): 2021-26 6.794 apuestas, 45,5 % (Wilson 44,3 %) · 2021-23 44,9 % · 2024-26 46,3 % en 2.865 · 2,73 al día
+30 min · contra el toque: 2021-26 6.794 apuestas, 54,5 % (Wilson 53,3 %) · 2021-23 55,1 % · 2024-26 53,6 % en 2.865 · 2,73 al día
+
+VEREDICTO: no entra al banco (solo cuenta el sentido que él usa)

@@ -1,0 +1,70 @@
+{
+ "arriba_0.8": 0.36298763082778307,
+ "arriba_0.85": 0.4743101807802093,
+ "arriba_0.9": 0.5623215984776403,
+ "simbolo": "BTCUSDT",
+ "apuestas": 16961,
+ "aciertos": 9829,
+ "empates": 11,
+ "acierto": 0.5795059253581747,
+ "lb_corregido": 0.5700111472529843,
+ "tramos": {
+  "2021-2023": [
+   9190,
+   5465,
+   6
+  ],
+  "2024-2026": [
+   7771,
+   4364,
+   5
+  ]
+ },
+ "tarde_60s": [
+  16961,
+  9574,
+  11
+ ],
+ "siempre_arriba": [
+  16961,
+  8504,
+  11
+ ],
+ "seleccion_hoy": [
+  {
+   "nombre": "E19 EMA 12/26 con RSI 14 (1 h)",
+   "conf": {
+    "sentido": -1,
+    "plazo": 10,
+    "zona": true
+   },
+   "lb": 0.5619056149258588,
+   "aciertos": 98,
+   "apuestas": 153
+  },
+  {
+   "nombre": "techo y piso de 24 h",
+   "conf": {
+    "sentido": 1,
+    "plazo": 10,
+    "zona": true
+   },
+   "lb": 0.5545194518557899,
+   "aciertos": 731,
+   "apuestas": 1256
+  },
+  {
+   "nombre": "patrón hombre colgado",
+   "conf": {
+    "sentido": 1,
+    "plazo": 10,
+    "zona": true,
+    "sesion": "Asia"
+   },
+   "lb": 0.5536711258131085,
+   "aciertos": 162,
+   "apuestas": 264
+  }
+ ],
+ "por_dia": 7.964390878586593
+}

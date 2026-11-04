@@ -1,0 +1,1672 @@
+﻿fecha_hora_colombia;mes;estrategia;sentido;plazo_min;resultado;resultado_60s_tarde;siempre_arriba;apuesta_cop;ganancia_cop;saldo_del_mes
+2026-01-01 00:00;2026-01;patrón doji lapida;SUBE;30;acierta;falla;acierta;16.000;13.600;113.600
+2026-01-01 02:35;2026-01;alineación de medias 9/21/50;SUBE;60;falla;acierta;falla;18.176;-18.176;95.424
+2026-01-01 05:00;2026-01;patrón doji lapida;SUBE;30;falla;falla;falla;15.900;-15.900;79.524
+2026-01-01 06:10;2026-01;alineación de medias 9/21/50;BAJA;60;acierta;acierta;falla;15.900;13.515;93.039
+2026-01-01 09:05;2026-01;alineación de medias 9/21/50;SUBE;60;acierta;acierta;acierta;15.900;13.515;106.554
+2026-01-01 12:10;2026-01;alineación de medias 9/21/50;BAJA;60;acierta;acierta;falla;17.049;14.491;121.045
+2026-01-01 15:40;2026-01;alineación de medias 9/21/50;SUBE;60;falla;falla;falla;19.367;-19.367;101.678
+2026-01-01 18:20;2026-01;alineación de medias 9/21/50;BAJA;60;falla;falla;acierta;16.268;-16.268;85.410
+2026-01-01 23:20;2026-01;patrón doji lapida;SUBE;30;falla;acierta;falla;15.900;-15.900;69.510
+2026-01-02 05:45;2026-01;patrón doji lapida;SUBE;30;acierta;acierta;acierta;15.900;13.515;83.025
+2026-01-02 16:40;2026-01;patrón doji lapida;SUBE;30;falla;acierta;falla;15.900;-15.900;67.125
+2026-01-02 17:10;2026-01;alineación de medias 9/21/50;BAJA;60;falla;acierta;acierta;15.900;-15.900;51.225
+2026-01-02 18:20;2026-01;alineación de medias 9/21/50;BAJA;60;acierta;acierta;falla;15.900;13.515;64.740
+2026-01-02 19:45;2026-01;alineación de medias 9/21/50;SUBE;60;acierta;acierta;acierta;15.900;13.515;78.255
+2026-01-02 21:25;2026-01;alineación de medias 9/21/50;BAJA;60;falla;falla;acierta;15.900;-15.900;62.355
+2026-01-02 22:40;2026-01;patrón doji lapida;SUBE;30;falla;falla;falla;15.900;-15.900;46.455
+2026-01-02 23:45;2026-01;alineación de medias 9/21/50;SUBE;60;falla;falla;falla;15.900;-15.900;30.555
+2026-01-03 02:15;2026-01;alineación de medias 9/21/50;BAJA;60;falla;falla;acierta;15.900;-15.900;14.655
+2026-01-03 12:15;2026-01;alineación de medias 9/21/50;BAJA;60;falla;falla;acierta;0;0;14.655
+2026-01-03 14:45;2026-01;patrón doji lapida;SUBE;30;acierta;acierta;acierta;0;0;14.655
+2026-01-03 15:35;2026-01;patrón doji lapida;SUBE;30;falla;falla;falla;0;0;14.655
+2026-01-03 17:05;2026-01;alineación de medias 9/21/50;BAJA;60;acierta;acierta;falla;0;0;14.655
+2026-01-03 18:20;2026-01;alineación de medias 9/21/50;SUBE;60;falla;falla;falla;0;0;14.655
+2026-01-03 20:50;2026-01;patrón doji lapida;SUBE;30;acierta;acierta;acierta;0;0;14.655
+2026-01-03 21:40;2026-01;alineación de medias 9/21/50;SUBE;60;falla;falla;falla;0;0;14.655
+2026-01-03 23:15;2026-01;patrón doji lapida;SUBE;30;falla;falla;falla;0;0;14.655
+2026-01-04 01:35;2026-01;patrón doji lapida;SUBE;30;acierta;acierta;acierta;0;0;14.655
+2026-01-04 02:20;2026-01;alineación de medias 9/21/50;BAJA;60;acierta;acierta;falla;0;0;14.655
+2026-01-04 04:35;2026-01;alineación de medias 9/21/50;SUBE;60;falla;falla;falla;0;0;14.655
+2026-01-04 05:40;2026-01;alineación de medias 9/21/50;BAJA;60;acierta;acierta;falla;0;0;14.655
+2026-01-04 07:55;2026-01;patrón doji lapida;SUBE;30;acierta;acierta;acierta;0;0;14.655
+2026-01-04 10:05;2026-01;alineación de medias 9/21/50;BAJA;60;falla;falla;acierta;0;0;14.655
+2026-01-04 12:55;2026-01;patrón doji lapida;SUBE;30;acierta;acierta;acierta;0;0;14.655
+2026-01-04 15:05;2026-01;alineación de medias 9/21/50;BAJA;60;falla;falla;acierta;0;0;14.655
+2026-01-04 20:25;2026-01;patrón doji lapida;SUBE;30;acierta;falla;acierta;0;0;14.655
+2026-01-04 22:20;2026-01;patrón doji lapida;SUBE;30;falla;falla;falla;0;0;14.655
+2026-01-05 16:05;2026-01;alineación de medias 9/21/50;BAJA;60;falla;falla;acierta;0;0;14.655
+2026-01-05 18:05;2026-01;alineación de medias 9/21/50;BAJA;60;acierta;acierta;falla;0;0;14.655
+2026-01-06 03:25;2026-01;alineación de medias 9/21/50;BAJA;60;acierta;acierta;falla;0;0;14.655
+2026-01-06 07:10;2026-01;alineación de medias 9/21/50;BAJA;60;falla;falla;acierta;0;0;14.655
+2026-01-06 08:55;2026-01;alineación de medias 9/21/50;BAJA;60;falla;falla;acierta;0;0;14.655
+2026-01-06 15:45;2026-01;alineación de medias 9/21/50;BAJA;60;falla;falla;acierta;0;0;14.655
+2026-01-06 19:55;2026-01;alineación de medias 9/21/50;SUBE;60;falla;falla;falla;0;0;14.655
+2026-01-06 21:45;2026-01;patrón doji lapida;SUBE;30;falla;falla;falla;0;0;14.655
+2026-01-06 23:10;2026-01;alineación de medias 9/21/50;SUBE;60;falla;falla;falla;0;0;14.655
+2026-01-07 03:45;2026-01;alineación de medias 9/21/50;BAJA;60;acierta;acierta;falla;0;0;14.655
+2026-01-07 04:55;2026-01;alineación de medias 9/21/50;BAJA;60;acierta;acierta;falla;0;0;14.655
+2026-01-07 06:25;2026-01;alineación de medias 9/21/50;SUBE;60;falla;falla;falla;0;0;14.655
+2026-01-07 13:40;2026-01;alineación de medias 9/21/50;BAJA;60;acierta;acierta;falla;0;0;14.655
+2026-01-07 14:55;2026-01;alineación de medias 9/21/50;BAJA;60;falla;acierta;acierta;0;0;14.655
+2026-01-07 17:00;2026-01;alineación de medias 9/21/50;BAJA;60;acierta;falla;falla;0;0;14.655
+2026-01-07 19:55;2026-01;alineación de medias 9/21/50;SUBE;60;falla;falla;falla;0;0;14.655
+2026-01-07 22:15;2026-01;patrón doji lapida;SUBE;30;acierta;acierta;acierta;0;0;14.655
+2026-01-08 05:25;2026-01;alineación de medias 9/21/50;SUBE;60;acierta;falla;acierta;0;0;14.655
+2026-01-08 06:25;2026-01;alineación de medias 9/21/50;SUBE;60;falla;falla;falla;0;0;14.655
+2026-01-08 15:05;2026-01;alineación de medias 9/21/50;BAJA;60;falla;falla;acierta;0;0;14.655
+2026-01-08 20:05;2026-01;alineación de medias 9/21/50;SUBE;60;acierta;acierta;acierta;0;0;14.655
+2026-01-09 01:10;2026-01;alineación de medias 9/21/50;BAJA;60;falla;falla;acierta;0;0;14.655
+2026-01-09 03:10;2026-01;alineación de medias 9/21/50;BAJA;60;acierta;acierta;falla;0;0;14.655
+2026-01-09 04:20;2026-01;alineación de medias 9/21/50;BAJA;60;acierta;acierta;falla;0;0;14.655
+2026-01-09 06:00;2026-01;alineación de medias 9/21/50;BAJA;60;falla;falla;acierta;0;0;14.655
+2026-01-09 07:00;2026-01;alineación de medias 9/21/50;BAJA;60;acierta;acierta;falla;0;0;14.655
+2026-01-09 10:35;2026-01;patrón doji lapida;SUBE;30;acierta;acierta;acierta;0;0;14.655
+2026-01-09 19:20;2026-01;alineación de medias 9/21/50;SUBE;60;falla;falla;falla;0;0;14.655
+2026-01-09 21:10;2026-01;patrón doji lapida;SUBE;30;acierta;acierta;acierta;0;0;14.655
+2026-01-09 22:20;2026-01;patrón doji lapida;SUBE;30;falla;falla;falla;0;0;14.655
+2026-01-10 00:30;2026-01;patrón doji lapida;SUBE;30;falla;falla;falla;0;0;14.655
+2026-01-10 02:35;2026-01;alineación de medias 9/21/50;BAJA;60;falla;falla;acierta;0;0;14.655
+2026-01-10 05:55;2026-01;patrón doji lapida;SUBE;30;falla;falla;falla;0;0;14.655
+2026-01-10 06:40;2026-01;alineación de medias 9/21/50;BAJA;60;acierta;acierta;falla;0;0;14.655
+2026-01-10 08:20;2026-01;alineación de medias 9/21/50;SUBE;60;falla;acierta;falla;0;0;14.655
+2026-01-10 09:45;2026-01;patrón doji lapida;SUBE;30;acierta;falla;acierta;0;0;14.655
+2026-01-10 10:20;2026-01;alineación de medias 9/21/50;SUBE;60;falla;falla;falla;0;0;14.655
+2026-01-10 15:15;2026-01;alineación de medias 9/21/50;BAJA;60;falla;falla;acierta;0;0;14.655
+2026-01-10 17:35;2026-01;patrón doji lapida;SUBE;30;acierta;acierta;acierta;0;0;14.655
+2026-01-10 20:50;2026-01;patrón doji lapida;SUBE;30;acierta;acierta;acierta;0;0;14.655
+2026-01-10 21:30;2026-01;patrón doji lapida;SUBE;30;falla;falla;falla;0;0;14.655
+2026-01-10 22:30;2026-01;alineación de medias 9/21/50;SUBE;60;falla;falla;falla;0;0;14.655
+2026-01-11 00:00;2026-01;patrón doji lapida;SUBE;30;falla;falla;falla;0;0;14.655
+2026-01-11 03:30;2026-01;alineación de medias 9/21/50;SUBE;60;acierta;acierta;acierta;0;0;14.655
+2026-01-11 08:20;2026-01;alineación de medias 9/21/50;SUBE;60;falla;falla;falla;0;0;14.655
+2026-01-11 11:00;2026-01;patrón doji lapida;SUBE;30;falla;falla;falla;0;0;14.655
+2026-01-11 11:45;2026-01;alineación de medias 9/21/50;SUBE;60;acierta;acierta;acierta;0;0;14.655
+2026-01-11 13:05;2026-01;alineación de medias 9/21/50;BAJA;60;falla;falla;acierta;0;0;14.655
+2026-01-11 17:05;2026-01;patrón doji lapida;SUBE;30;acierta;acierta;acierta;0;0;14.655
+2026-01-12 18:15;2026-01;alineación de medias 9/21/50;SUBE;60;acierta;acierta;acierta;0;0;14.655
+2026-01-13 03:50;2026-01;alineación de medias 9/21/50;BAJA;60;acierta;acierta;falla;0;0;14.655
+2026-01-13 05:00;2026-01;alineación de medias 9/21/50;SUBE;60;acierta;acierta;acierta;0;0;14.655
+2026-01-13 06:05;2026-01;patrón doji lapida;SUBE;30;acierta;falla;acierta;0;0;14.655
+2026-01-13 07:20;2026-01;alineación de medias 9/21/50;SUBE;60;acierta;acierta;acierta;0;0;14.655
+2026-01-13 16:30;2026-01;patrón doji lapida;SUBE;30;acierta;acierta;acierta;0;0;14.655
+2026-01-13 18:35;2026-01;alineación de medias 9/21/50;BAJA;60;falla;falla;acierta;0;0;14.655
+2026-01-14 02:40;2026-01;patrón doji lapida;SUBE;30;falla;falla;falla;0;0;14.655
+2026-01-14 04:00;2026-01;alineación de medias 9/21/50;BAJA;60;acierta;acierta;falla;0;0;14.655
+2026-01-14 05:20;2026-01;alineación de medias 9/21/50;BAJA;60;acierta;acierta;falla;0;0;14.655
+2026-01-14 07:15;2026-01;alineación de medias 9/21/50;BAJA;60;acierta;acierta;falla;0;0;14.655
+2026-01-14 16:50;2026-01;alineación de medias 9/21/50;SUBE;60;acierta;acierta;acierta;0;0;14.655
+2026-01-14 18:20;2026-01;alineación de medias 9/21/50;SUBE;60;acierta;acierta;acierta;0;0;14.655
+2026-01-15 01:30;2026-01;alineación de medias 9/21/50;BAJA;60;falla;falla;acierta;0;0;14.655
+2026-01-15 04:25;2026-01;alineación de medias 9/21/50;SUBE;60;acierta;acierta;acierta;0;0;14.655
+2026-01-15 08:35;2026-01;alineación de medias 9/21/50;SUBE;60;acierta;acierta;acierta;0;0;14.655
+2026-01-15 15:20;2026-01;alineación de medias 9/21/50;SUBE;60;acierta;acierta;acierta;0;0;14.655
+2026-01-15 17:25;2026-01;alineación de medias 9/21/50;BAJA;60;acierta;acierta;falla;0;0;14.655
+2026-01-15 18:40;2026-01;alineación de medias 9/21/50;SUBE;60;falla;falla;falla;0;0;14.655
+2026-01-16 00:15;2026-01;alineación de medias 9/21/50;SUBE;60;acierta;acierta;acierta;0;0;14.655
+2026-01-16 01:55;2026-01;alineación de medias 9/21/50;SUBE;60;acierta;acierta;acierta;0;0;14.655
+2026-01-16 03:55;2026-01;alineación de medias 9/21/50;BAJA;60;acierta;acierta;falla;0;0;14.655
+2026-01-16 05:15;2026-01;alineación de medias 9/21/50;BAJA;60;acierta;acierta;falla;0;0;14.655
+2026-01-16 06:20;2026-01;alineación de medias 9/21/50;BAJA;60;falla;falla;acierta;0;0;14.655
+2026-01-16 08:05;2026-01;alineación de medias 9/21/50;SUBE;60;acierta;acierta;acierta;0;0;14.655
+2026-01-16 15:15;2026-01;alineación de medias 9/21/50;BAJA;60;acierta;acierta;falla;0;0;14.655
+2026-01-16 16:35;2026-01;alineación de medias 9/21/50;BAJA;60;falla;falla;acierta;0;0;14.655
+2026-01-16 19:25;2026-01;alineación de medias 9/21/50;BAJA;60;acierta;acierta;falla;0;0;14.655
+2026-01-16 20:40;2026-01;patrón doji lapida;SUBE;30;falla;falla;falla;0;0;14.655
+2026-01-16 21:20;2026-01;alineación de medias 9/21/50;BAJA;60;falla;falla;acierta;0;0;14.655
+2026-01-16 23:00;2026-01;patrón doji lapida;SUBE;30;falla;falla;falla;0;0;14.655
+2026-01-17 00:30;2026-01;alineación de medias 9/21/50;SUBE;60;acierta;acierta;acierta;0;0;14.655
+2026-01-17 02:10;2026-01;patrón doji lapida;SUBE;30;acierta;acierta;acierta;0;0;14.655
+2026-01-17 03:15;2026-01;alineación de medias 9/21/50;BAJA;60;acierta;acierta;falla;0;0;14.655
+2026-01-17 04:20;2026-01;alineación de medias 9/21/50;SUBE;60;acierta;acierta;acierta;0;0;14.655
+2026-01-17 05:50;2026-01;alineación de medias 9/21/50;SUBE;60;acierta;acierta;acierta;0;0;14.655
+2026-01-17 08:50;2026-01;alineación de medias 9/21/50;SUBE;60;acierta;acierta;acierta;0;0;14.655
+2026-01-17 10:00;2026-01;alineación de medias 9/21/50;SUBE;60;falla;falla;falla;0;0;14.655
+2026-01-17 12:10;2026-01;alineación de medias 9/21/50;SUBE;60;falla;falla;falla;0;0;14.655
+2026-01-17 15:20;2026-01;patrón doji lapida;SUBE;30;acierta;acierta;acierta;0;0;14.655
+2026-01-17 16:05;2026-01;alineación de medias 9/21/50;BAJA;60;falla;falla;acierta;0;0;14.655
+2026-01-17 17:55;2026-01;patrón doji lapida;SUBE;30;acierta;acierta;acierta;0;0;14.655
+2026-01-17 19:30;2026-01;patrón doji lapida;SUBE;30;acierta;acierta;acierta;0;0;14.655
+2026-01-17 21:10;2026-01;patrón doji lapida;SUBE;30;acierta;acierta;acierta;0;0;14.655
+2026-01-17 23:40;2026-01;alineación de medias 9/21/50;BAJA;60;falla;acierta;acierta;0;0;14.655
+2026-01-18 00:45;2026-01;alineación de medias 9/21/50;BAJA;60;acierta;acierta;falla;0;0;14.655
+2026-01-18 03:10;2026-01;patrón doji lapida;SUBE;30;falla;falla;falla;0;0;14.655
+2026-01-18 04:15;2026-01;alineación de medias 9/21/50;SUBE;60;falla;falla;falla;0;0;14.655
+2026-01-18 06:20;2026-01;alineación de medias 9/21/50;BAJA;60;falla;falla;acierta;0;0;14.655
+2026-01-18 09:30;2026-01;alineación de medias 9/21/50;BAJA;60;acierta;acierta;falla;0;0;14.655
+2026-01-18 11:20;2026-01;alineación de medias 9/21/50;BAJA;60;falla;falla;acierta;0;0;14.655
+2026-01-18 15:35;2026-01;patrón doji lapida;SUBE;30;falla;falla;falla;0;0;14.655
+2026-01-18 18:15;2026-01;patrón doji lapida;SUBE;30;acierta;acierta;acierta;0;0;14.655
+2026-01-19 15:35;2026-01;patrón doji lapida;SUBE;30;falla;acierta;falla;0;0;14.655
+2026-01-19 16:20;2026-01;alineación de medias 9/21/50;BAJA;60;falla;falla;acierta;0;0;14.655
+2026-01-19 17:45;2026-01;patrón doji lapida;SUBE;30;falla;falla;falla;0;0;14.655
+2026-01-19 18:25;2026-01;alineación de medias 9/21/50;SUBE;60;falla;falla;falla;0;0;14.655
+2026-01-20 04:35;2026-01;patrón doji lapida;SUBE;30;acierta;acierta;acierta;0;0;14.655
+2026-01-20 18:40;2026-01;alineación de medias 9/21/50;BAJA;60;falla;falla;acierta;0;0;14.655
+2026-01-21 03:10;2026-01;patrón doji lapida;SUBE;30;acierta;acierta;acierta;0;0;14.655
+2026-01-21 06:20;2026-01;alineación de medias 9/21/50;BAJA;60;acierta;acierta;falla;0;0;14.655
+2026-01-21 07:55;2026-01;alineación de medias 9/21/50;SUBE;60;acierta;acierta;acierta;0;0;14.655
+2026-01-21 18:05;2026-01;alineación de medias 9/21/50;SUBE;60;falla;falla;falla;0;0;14.655
+2026-01-21 23:40;2026-01;patrón doji lapida;SUBE;30;acierta;acierta;acierta;0;0;14.655
+2026-01-22 04:00;2026-01;alineación de medias 9/21/50;BAJA;60;acierta;acierta;falla;0;0;14.655
+2026-01-22 05:45;2026-01;alineación de medias 9/21/50;BAJA;60;falla;falla;acierta;0;0;14.655
+2026-01-22 08:25;2026-01;alineación de medias 9/21/50;BAJA;60;acierta;acierta;falla;0;0;14.655
+2026-01-22 09:35;2026-01;alineación de medias 9/21/50;BAJA;60;falla;falla;acierta;0;0;14.655
+2026-01-22 11:15;2026-01;patrón doji lapida;SUBE;30;acierta;acierta;acierta;0;0;14.655
+2026-01-22 11:55;2026-01;patrón doji lapida;SUBE;30;acierta;acierta;acierta;0;0;14.655
+2026-01-22 23:10;2026-01;alineación de medias 9/21/50;BAJA;60;falla;falla;acierta;0;0;14.655
+2026-01-23 01:40;2026-01;alineación de medias 9/21/50;BAJA;60;acierta;acierta;falla;0;0;14.655
+2026-01-23 03:00;2026-01;alineación de medias 9/21/50;SUBE;60;falla;falla;falla;0;0;14.655
+2026-01-23 05:05;2026-01;patrón doji lapida;SUBE;30;acierta;acierta;acierta;0;0;14.655
+2026-01-23 06:20;2026-01;alineación de medias 9/21/50;SUBE;60;acierta;acierta;acierta;0;0;14.655
+2026-01-23 07:25;2026-01;alineación de medias 9/21/50;BAJA;60;acierta;acierta;falla;0;0;14.655
+2026-01-23 08:50;2026-01;alineación de medias 9/21/50;BAJA;60;falla;falla;acierta;0;0;14.655
+2026-01-23 15:20;2026-01;patrón doji lapida;SUBE;30;acierta;falla;acierta;0;0;14.655
+2026-01-23 18:35;2026-01;alineación de medias 9/21/50;BAJA;60;falla;falla;acierta;0;0;14.655
+2026-01-23 21:00;2026-01;patrón doji lapida;SUBE;30;falla;falla;falla;0;0;14.655
+2026-01-23 23:10;2026-01;alineación de medias 9/21/50;SUBE;60;acierta;acierta;acierta;0;0;14.655
+2026-01-24 02:05;2026-01;alineación de medias 9/21/50;SUBE;60;acierta;acierta;acierta;0;0;14.655
+2026-01-24 03:15;2026-01;alineación de medias 9/21/50;SUBE;60;acierta;acierta;acierta;0;0;14.655
+2026-01-24 04:50;2026-01;patrón doji lapida;SUBE;30;falla;falla;falla;0;0;14.655
+2026-01-24 06:30;2026-01;alineación de medias 9/21/50;SUBE;60;acierta;acierta;acierta;0;0;14.655
+2026-01-24 08:35;2026-01;alineación de medias 9/21/50;SUBE;60;acierta;acierta;acierta;0;0;14.655
+2026-01-24 09:40;2026-01;alineación de medias 9/21/50;BAJA;60;falla;falla;acierta;0;0;14.655
+2026-01-24 17:10;2026-01;patrón doji lapida;SUBE;30;falla;falla;falla;0;0;14.655
+2026-01-24 22:15;2026-01;alineación de medias 9/21/50;SUBE;60;acierta;acierta;acierta;0;0;14.655
+2026-01-24 23:25;2026-01;patrón doji lapida;SUBE;30;falla;falla;falla;0;0;14.655
+2026-01-25 00:35;2026-01;alineación de medias 9/21/50;BAJA;60;acierta;falla;falla;0;0;14.655
+2026-01-25 01:45;2026-01;alineación de medias 9/21/50;SUBE;60;falla;falla;falla;0;0;14.655
+2026-01-25 03:20;2026-01;alineación de medias 9/21/50;SUBE;60;acierta;acierta;acierta;0;0;14.655
+2026-01-25 08:40;2026-01;alineación de medias 9/21/50;BAJA;60;falla;falla;acierta;0;0;14.655
+2026-01-25 11:05;2026-01;alineación de medias 9/21/50;BAJA;60;falla;falla;acierta;0;0;14.655
+2026-01-26 04:25;2026-01;alineación de medias 9/21/50;BAJA;60;acierta;falla;falla;0;0;14.655
+2026-01-26 06:40;2026-01;alineación de medias 9/21/50;BAJA;60;acierta;acierta;falla;0;0;14.655
+2026-01-26 08:05;2026-01;alineación de medias 9/21/50;SUBE;60;falla;falla;falla;0;0;14.655
+2026-01-26 11:10;2026-01;patrón doji lapida;SUBE;30;falla;falla;falla;0;0;14.655
+2026-01-27 00:45;2026-01;alineación de medias 9/21/50;BAJA;60;falla;falla;acierta;0;0;14.655
+2026-01-27 04:20;2026-01;alineación de medias 9/21/50;BAJA;60;falla;falla;acierta;0;0;14.655
+2026-01-27 06:40;2026-01;alineación de medias 9/21/50;BAJA;60;acierta;acierta;falla;0;0;14.655
+2026-01-27 08:10;2026-01;alineación de medias 9/21/50;SUBE;60;falla;falla;falla;0;0;14.655
+2026-01-27 13:30;2026-01;alineación de medias 9/21/50;BAJA;60;falla;falla;acierta;0;0;14.655
+2026-01-27 19:55;2026-01;alineación de medias 9/21/50;BAJA;60;falla;falla;acierta;0;0;14.655
+2026-01-28 08:05;2026-01;alineación de medias 9/21/50;BAJA;60;acierta;acierta;falla;0;0;14.655
+2026-01-29 07:30;2026-01;alineación de medias 9/21/50;BAJA;60;acierta;acierta;falla;0;0;14.655
+2026-01-30 01:00;2026-01;alineación de medias 9/21/50;SUBE;60;falla;falla;falla;0;0;14.655
+2026-01-30 07:15;2026-01;alineación de medias 9/21/50;BAJA;60;acierta;acierta;falla;0;0;14.655
+2026-01-30 19:20;2026-01;alineación de medias 9/21/50;BAJA;60;falla;acierta;acierta;0;0;14.655
+2026-01-30 21:20;2026-01;alineación de medias 9/21/50;SUBE;60;falla;falla;falla;0;0;14.655
+2026-01-30 23:25;2026-01;alineación de medias 9/21/50;BAJA;60;acierta;acierta;falla;0;0;14.655
+2026-01-31 02:05;2026-01;alineación de medias 9/21/50;BAJA;60;falla;falla;acierta;0;0;14.655
+2026-01-31 04:40;2026-01;alineación de medias 9/21/50;SUBE;60;acierta;falla;acierta;0;0;14.655
+2026-01-31 07:30;2026-01;alineación de medias 9/21/50;BAJA;60;acierta;acierta;falla;0;0;14.655
+2026-01-31 09:20;2026-01;alineación de medias 9/21/50;BAJA;60;acierta;acierta;falla;0;0;14.655
+2026-01-31 14:40;2026-01;patrón doji lapida;SUBE;30;acierta;falla;acierta;0;0;14.655
+2026-01-31 15:30;2026-01;alineación de medias 9/21/50;SUBE;60;acierta;acierta;acierta;0;0;14.655
+2026-01-31 16:30;2026-01;alineación de medias 9/21/50;BAJA;60;acierta;acierta;falla;0;0;14.655
+2026-01-31 17:35;2026-01;alineación de medias 9/21/50;SUBE;60;acierta;acierta;acierta;0;0;14.655
+2026-01-31 18:45;2026-01;alineación de medias 9/21/50;BAJA;60;falla;falla;acierta;0;0;14.655
+2026-01-31 21:10;2026-01;alineación de medias 9/21/50;BAJA;60;acierta;acierta;falla;0;0;14.655
+2026-01-31 22:55;2026-01;alineación de medias 9/21/50;BAJA;60;acierta;acierta;falla;0;0;14.655
+2026-02-01 00:25;2026-02;50 SMA + precio;BAJA;60;falla;falla;acierta;16.000;-16.000;84.000
+2026-02-01 01:35;2026-02;50 SMA + precio;SUBE;60;falla;falla;falla;15.900;-15.900;68.100
+2026-02-01 02:45;2026-02;50 SMA + precio;BAJA;60;falla;falla;acierta;15.900;-15.900;52.200
+2026-02-01 04:10;2026-02;50 SMA + precio;SUBE;60;acierta;acierta;acierta;15.900;13.515;65.715
+2026-02-01 05:30;2026-02;50 SMA + precio;BAJA;60;acierta;acierta;falla;15.900;13.515;79.230
+2026-02-01 06:40;2026-02;50 SMA + precio;BAJA;60;acierta;acierta;falla;15.900;13.515;92.745
+2026-02-01 11:20;2026-02;rompimiento de 20 velas;SUBE;60;acierta;acierta;acierta;15.900;13.515;106.260
+2026-02-01 12:55;2026-02;50 SMA + precio;BAJA;60;acierta;acierta;falla;17.002;14.451;120.711
+2026-02-01 14:15;2026-02;50 SMA + precio;SUBE;60;falla;falla;falla;19.314;-19.314;101.398
+2026-02-01 17:20;2026-02;50 SMA + precio;BAJA;60;acierta;acierta;falla;16.224;13.790;115.188
+2026-02-01 19:10;2026-02;50 SMA + precio;BAJA;60;acierta;acierta;falla;18.430;15.666;130.853
+2026-02-01 20:10;2026-02;rompimiento de 20 velas;SUBE;60;acierta;acierta;acierta;20.936;17.796;148.649
+2026-02-01 22:40;2026-02;rompimiento de 20 velas;SUBE;60;acierta;acierta;acierta;23.784;20.216;168.865
+2026-02-02 00:45;2026-02;rompimiento de 20 velas;SUBE;60;falla;falla;falla;27.018;-27.018;141.847
+2026-02-02 02:50;2026-02;50 SMA + precio;BAJA;60;falla;falla;acierta;22.696;-22.696;119.151
+2026-02-02 04:00;2026-02;alineación de medias 9/21/50;BAJA;60;falla;falla;acierta;19.064;-19.064;100.087
+2026-02-02 06:15;2026-02;rompimiento de 20 velas;BAJA;60;falla;falla;acierta;16.014;-16.014;84.073
+2026-02-02 07:25;2026-02;rompimiento de 20 velas;BAJA;60;acierta;acierta;falla;15.900;13.515;97.588
+2026-02-02 08:35;2026-02;50 SMA + precio;SUBE;60;acierta;acierta;acierta;15.900;13.515;111.103
+2026-02-02 09:35;2026-02;50 SMA + precio;BAJA;60;acierta;acierta;falla;17.777;15.110;126.213
+2026-02-02 10:55;2026-02;rompimiento de 20 velas;SUBE;60;acierta;acierta;acierta;20.194;17.165;143.378
+2026-02-02 12:10;2026-02;50 SMA + precio;BAJA;60;acierta;acierta;falla;22.941;19.499;162.878
+2026-02-02 13:15;2026-02;rompimiento de 20 velas;SUBE;60;acierta;acierta;acierta;26.060;22.151;185.029
+2026-02-02 14:45;2026-02;50 SMA + precio;BAJA;60;acierta;acierta;falla;29.605;25.164;210.193
+2026-02-02 15:55;2026-02;50 SMA + precio;SUBE;60;acierta;falla;acierta;33.631;28.586;238.779
+2026-02-02 17:05;2026-02;50 SMA + precio;SUBE;60;acierta;acierta;acierta;38.205;32.474;271.253
+2026-02-02 18:05;2026-02;50 SMA + precio;BAJA;60;falla;falla;acierta;43.401;-43.401;227.853
+2026-02-02 19:20;2026-02;rompimiento de 20 velas;BAJA;60;falla;falla;acierta;36.456;-36.456;191.396
+2026-02-02 20:30;2026-02;rompimiento de 20 velas;BAJA;60;acierta;acierta;falla;30.623;26.030;217.426
+2026-02-03 04:50;2026-02;alineación de medias 9/21/50;BAJA;60;acierta;acierta;falla;34.788;29.570;246.996
+2026-02-03 06:00;2026-02;50 SMA + precio;SUBE;60;acierta;acierta;acierta;39.519;33.591;280.588
+2026-02-03 07:00;2026-02;50 SMA + precio;BAJA;60;falla;acierta;acierta;44.894;-44.894;235.694
+2026-02-03 08:00;2026-02;50 SMA + precio;BAJA;60;falla;falla;acierta;37.711;-37.711;197.983
+2026-02-03 09:20;2026-02;50 SMA + precio;SUBE;60;acierta;acierta;acierta;31.677;26.926;224.908
+2026-02-03 10:25;2026-02;50 SMA + precio;SUBE;60;acierta;acierta;acierta;35.985;30.588;255.496
+2026-02-03 12:45;2026-02;50 SMA + precio;SUBE;60;falla;falla;falla;40.879;-40.879;214.617
+2026-02-03 14:40;2026-02;50 SMA + precio;BAJA;60;falla;falla;acierta;34.339;-34.339;180.278
+2026-02-03 18:10;2026-02;50 SMA + precio;SUBE;60;acierta;acierta;acierta;28.844;24.518;204.796
+2026-02-04 01:10;2026-02;50 SMA + precio;SUBE;60;falla;acierta;falla;32.767;-32.767;172.028
+2026-02-04 02:10;2026-02;50 SMA + precio;SUBE;60;acierta;acierta;acierta;27.525;23.396;195.424
+2026-02-04 03:35;2026-02;50 SMA + precio;SUBE;60;falla;falla;falla;31.268;-31.268;164.156
+2026-02-04 04:45;2026-02;alineación de medias 9/21/50;SUBE;60;acierta;falla;acierta;26.265;22.325;186.482
+2026-02-04 07:35;2026-02;50 SMA + precio;BAJA;60;acierta;acierta;falla;29.837;25.362;211.843
+2026-02-04 08:40;2026-02;50 SMA + precio;SUBE;60;falla;falla;falla;33.895;-33.895;177.948
+2026-02-04 10:25;2026-02;rompimiento de 20 velas;SUBE;60;falla;falla;falla;28.472;-28.472;149.477
+2026-02-04 11:50;2026-02;rompimiento de 20 velas;SUBE;60;acierta;acierta;acierta;23.916;20.329;169.805
+2026-02-04 14:00;2026-02;50 SMA + precio;BAJA;60;falla;falla;acierta;27.169;-27.169;142.636
+2026-02-04 20:15;2026-02;50 SMA + precio;SUBE;60;falla;falla;falla;22.822;-22.822;119.815
+2026-02-04 21:15;2026-02;rompimiento de 20 velas;SUBE;60;falla;falla;falla;19.170;-19.170;100.644
+2026-02-05 00:50;2026-02;50 SMA + precio;BAJA;60;falla;falla;acierta;16.103;-16.103;84.541
+2026-02-05 02:30;2026-02;rompimiento de 20 velas;BAJA;60;acierta;acierta;falla;15.900;13.515;98.056
+2026-02-05 04:05;2026-02;50 SMA + precio;SUBE;60;falla;falla;falla;15.900;-15.900;82.156
+2026-02-05 06:50;2026-02;alineación de medias 9/21/50;SUBE;60;falla;falla;falla;15.900;-15.900;66.256
+2026-02-05 09:45;2026-02;50 SMA + precio;BAJA;60;acierta;acierta;falla;15.900;13.515;79.771
+2026-02-05 11:20;2026-02;50 SMA + precio;BAJA;60;falla;falla;acierta;15.900;-15.900;63.871
+2026-02-05 14:15;2026-02;50 SMA + precio;SUBE;60;falla;falla;falla;15.900;-15.900;47.971
+2026-02-05 20:00;2026-02;50 SMA + precio;BAJA;60;falla;falla;acierta;15.900;-15.900;32.071
+2026-02-05 21:10;2026-02;rompimiento de 20 velas;BAJA;60;falla;falla;acierta;15.900;-15.900;16.171
+2026-02-06 02:30;2026-02;alineación de medias 9/21/50;BAJA;60;falla;falla;acierta;15.900;-15.900;271
+2026-02-06 04:05;2026-02;50 SMA + precio;SUBE;60;acierta;acierta;acierta;0;0;271
+2026-02-06 05:30;2026-02;50 SMA + precio;SUBE;60;acierta;acierta;acierta;0;0;271
+2026-02-06 14:40;2026-02;50 SMA + precio;SUBE;60;falla;falla;falla;0;0;271
+2026-02-06 16:40;2026-02;50 SMA + precio;BAJA;60;falla;falla;acierta;0;0;271
+2026-02-06 19:05;2026-02;50 SMA + precio;SUBE;60;falla;falla;falla;0;0;271
+2026-02-06 20:40;2026-02;50 SMA + precio;BAJA;60;falla;falla;acierta;0;0;271
+2026-02-06 23:45;2026-02;50 SMA + precio;SUBE;60;falla;falla;falla;0;0;271
+2026-02-07 01:30;2026-02;50 SMA + precio;BAJA;60;acierta;acierta;falla;0;0;271
+2026-02-07 02:40;2026-02;50 SMA + precio;BAJA;60;falla;falla;acierta;0;0;271
+2026-02-07 06:45;2026-02;50 SMA + precio;SUBE;60;acierta;acierta;acierta;0;0;271
+2026-02-07 09:35;2026-02;50 SMA + precio;SUBE;60;falla;falla;falla;0;0;271
+2026-02-07 12:50;2026-02;50 SMA + precio;BAJA;60;falla;falla;acierta;0;0;271
+2026-02-07 17:10;2026-02;50 SMA + precio;SUBE;60;falla;falla;falla;0;0;271
+2026-02-07 19:10;2026-02;50 SMA + precio;BAJA;60;acierta;falla;falla;0;0;271
+2026-02-07 20:10;2026-02;50 SMA + precio;BAJA;60;falla;acierta;acierta;0;0;271
+2026-02-07 21:20;2026-02;50 SMA + precio;SUBE;60;falla;falla;falla;0;0;271
+2026-02-07 22:30;2026-02;50 SMA + precio;BAJA;60;falla;falla;acierta;0;0;271
+2026-02-08 02:10;2026-02;50 SMA + precio;SUBE;60;falla;acierta;falla;0;0;271
+2026-02-08 03:40;2026-02;50 SMA + precio;BAJA;60;acierta;acierta;falla;0;0;271
+2026-02-08 06:20;2026-02;50 SMA + precio;BAJA;60;acierta;falla;falla;0;0;271
+2026-02-08 07:45;2026-02;alineación de medias 9/21/50;BAJA;60;acierta;acierta;falla;0;0;271
+2026-02-08 08:50;2026-02;50 SMA + precio;SUBE;60;acierta;acierta;acierta;0;0;271
+2026-02-08 10:10;2026-02;50 SMA + precio;BAJA;60;falla;falla;acierta;0;0;271
+2026-02-08 14:20;2026-02;50 SMA + precio;SUBE;60;acierta;acierta;acierta;0;0;271
+2026-02-08 15:25;2026-02;rompimiento de 20 velas;BAJA;60;falla;falla;acierta;0;0;271
+2026-02-08 17:20;2026-02;rompimiento de 20 velas;BAJA;60;acierta;acierta;falla;0;0;271
+2026-02-08 18:30;2026-02;50 SMA + precio;BAJA;60;falla;falla;acierta;0;0;271
+2026-02-08 20:35;2026-02;50 SMA + precio;SUBE;60;acierta;acierta;acierta;0;0;271
+2026-02-08 21:55;2026-02;50 SMA + precio;BAJA;60;falla;falla;acierta;0;0;271
+2026-02-08 23:15;2026-02;50 SMA + precio;SUBE;60;acierta;falla;acierta;0;0;271
+2026-02-09 00:30;2026-02;rompimiento de 20 velas;BAJA;60;acierta;falla;falla;0;0;271
+2026-02-09 02:10;2026-02;50 SMA + precio;SUBE;60;falla;falla;falla;0;0;271
+2026-02-09 03:20;2026-02;50 SMA + precio;BAJA;60;acierta;falla;falla;0;0;271
+2026-02-09 04:35;2026-02;50 SMA + precio;SUBE;60;falla;falla;falla;0;0;271
+2026-02-09 06:55;2026-02;50 SMA + precio;BAJA;60;falla;falla;acierta;0;0;271
+2026-02-09 08:10;2026-02;rompimiento de 20 velas;BAJA;60;acierta;acierta;falla;0;0;271
+2026-02-09 09:35;2026-02;rompimiento de 20 velas;BAJA;60;falla;falla;acierta;0;0;271
+2026-02-09 10:35;2026-02;rompimiento de 20 velas;BAJA;60;falla;falla;acierta;0;0;271
+2026-02-09 12:55;2026-02;rompimiento de 20 velas;SUBE;60;acierta;acierta;acierta;0;0;271
+2026-02-09 14:30;2026-02;rompimiento de 20 velas;BAJA;60;falla;falla;acierta;0;0;271
+2026-02-09 16:15;2026-02;50 SMA + precio;SUBE;60;falla;falla;falla;0;0;271
+2026-02-09 21:10;2026-02;50 SMA + precio;BAJA;60;acierta;acierta;falla;0;0;271
+2026-02-09 22:10;2026-02;50 SMA + precio;SUBE;60;falla;falla;falla;0;0;271
+2026-02-09 23:50;2026-02;50 SMA + precio;BAJA;60;acierta;acierta;falla;0;0;271
+2026-02-10 00:50;2026-02;50 SMA + precio;BAJA;60;acierta;acierta;falla;0;0;271
+2026-02-10 02:05;2026-02;50 SMA + precio;BAJA;60;falla;falla;acierta;0;0;271
+2026-02-10 03:15;2026-02;alineación de medias 9/21/50;BAJA;60;falla;falla;acierta;0;0;271
+2026-02-10 07:10;2026-02;50 SMA + precio;SUBE;60;falla;falla;falla;0;0;271
+2026-02-10 08:35;2026-02;50 SMA + precio;BAJA;60;falla;falla;acierta;0;0;271
+2026-02-10 09:35;2026-02;rompimiento de 20 velas;BAJA;60;acierta;acierta;falla;0;0;271
+2026-02-10 10:40;2026-02;rompimiento de 20 velas;SUBE;60;acierta;acierta;acierta;0;0;271
+2026-02-10 12:20;2026-02;rompimiento de 20 velas;BAJA;60;acierta;acierta;falla;0;0;271
+2026-02-10 14:35;2026-02;50 SMA + precio;BAJA;60;falla;falla;acierta;0;0;271
+2026-02-10 21:15;2026-02;50 SMA + precio;SUBE;60;acierta;acierta;acierta;0;0;271
+2026-02-11 00:00;2026-02;50 SMA + precio;SUBE;60;acierta;acierta;acierta;0;0;271
+2026-02-11 01:00;2026-02;50 SMA + precio;BAJA;60;falla;falla;acierta;0;0;271
+2026-02-11 02:45;2026-02;50 SMA + precio;SUBE;60;falla;falla;falla;0;0;271
+2026-02-11 04:05;2026-02;alineación de medias 9/21/50;SUBE;60;acierta;acierta;acierta;0;0;271
+2026-02-11 06:30;2026-02;rompimiento de 20 velas;BAJA;60;acierta;acierta;falla;0;0;271
+2026-02-11 07:45;2026-02;50 SMA + precio;SUBE;60;falla;falla;falla;0;0;271
+2026-02-11 11:35;2026-02;50 SMA + precio;BAJA;60;falla;falla;acierta;0;0;271
+2026-02-11 12:45;2026-02;rompimiento de 20 velas;BAJA;60;acierta;acierta;falla;0;0;271
+2026-02-11 15:35;2026-02;50 SMA + precio;SUBE;60;falla;falla;falla;0;0;271
+2026-02-11 17:30;2026-02;50 SMA + precio;BAJA;60;acierta;acierta;falla;0;0;271
+2026-02-11 21:05;2026-02;50 SMA + precio;BAJA;60;acierta;falla;falla;0;0;271
+2026-02-11 22:30;2026-02;50 SMA + precio;SUBE;60;falla;falla;falla;0;0;271
+2026-02-11 23:55;2026-02;50 SMA + precio;BAJA;60;falla;falla;acierta;0;0;271
+2026-02-12 01:25;2026-02;50 SMA + precio;SUBE;60;falla;falla;falla;0;0;271
+2026-02-12 03:00;2026-02;50 SMA + precio;BAJA;60;falla;falla;acierta;0;0;271
+2026-02-12 04:00;2026-02;alineación de medias 9/21/50;BAJA;60;falla;falla;acierta;0;0;271
+2026-02-12 05:20;2026-02;50 SMA + precio;SUBE;60;falla;falla;falla;0;0;271
+2026-02-12 06:55;2026-02;50 SMA + precio;BAJA;60;acierta;acierta;falla;0;0;271
+2026-02-12 08:15;2026-02;50 SMA + precio;BAJA;60;falla;acierta;acierta;0;0;271
+2026-02-12 09:20;2026-02;50 SMA + precio;SUBE;60;acierta;acierta;acierta;0;0;271
+2026-02-12 10:25;2026-02;50 SMA + precio;SUBE;60;falla;falla;falla;0;0;271
+2026-02-12 11:30;2026-02;rompimiento de 20 velas;SUBE;60;acierta;acierta;acierta;0;0;271
+2026-02-12 13:20;2026-02;rompimiento de 20 velas;SUBE;60;acierta;acierta;acierta;0;0;271
+2026-02-12 14:50;2026-02;rompimiento de 20 velas;BAJA;60;acierta;acierta;falla;0;0;271
+2026-02-12 17:50;2026-02;50 SMA + precio;BAJA;60;acierta;acierta;falla;0;0;271
+2026-02-12 19:05;2026-02;50 SMA + precio;BAJA;60;falla;falla;acierta;0;0;271
+2026-02-12 20:05;2026-02;rompimiento de 20 velas;BAJA;60;falla;falla;acierta;0;0;271
+2026-02-12 23:50;2026-02;50 SMA + precio;SUBE;60;falla;falla;falla;0;0;271
+2026-02-13 02:20;2026-02;50 SMA + precio;BAJA;60;falla;falla;acierta;0;0;271
+2026-02-13 04:30;2026-02;50 SMA + precio;SUBE;60;acierta;acierta;acierta;0;0;271
+2026-02-13 05:35;2026-02;50 SMA + precio;SUBE;60;falla;falla;falla;0;0;271
+2026-02-13 07:20;2026-02;50 SMA + precio;BAJA;60;acierta;acierta;falla;0;0;271
+2026-02-13 08:20;2026-02;50 SMA + precio;SUBE;60;acierta;acierta;acierta;0;0;271
+2026-02-13 09:20;2026-02;rompimiento de 20 velas;BAJA;60;acierta;acierta;falla;0;0;271
+2026-02-13 11:00;2026-02;50 SMA + precio;SUBE;60;acierta;acierta;acierta;0;0;271
+2026-02-13 15:35;2026-02;50 SMA + precio;SUBE;60;acierta;acierta;acierta;0;0;271
+2026-02-13 22:20;2026-02;50 SMA + precio;SUBE;60;acierta;acierta;acierta;0;0;271
+2026-02-14 02:45;2026-02;50 SMA + precio;BAJA;60;acierta;acierta;falla;0;0;271
+2026-02-14 03:45;2026-02;alineación de medias 9/21/50;SUBE;60;acierta;acierta;acierta;0;0;271
+2026-02-14 04:45;2026-02;alineación de medias 9/21/50;BAJA;60;acierta;acierta;falla;0;0;271
+2026-02-14 06:00;2026-02;50 SMA + precio;BAJA;60;falla;falla;acierta;0;0;271
+2026-02-14 07:15;2026-02;50 SMA + precio;SUBE;60;acierta;acierta;acierta;0;0;271
+2026-02-14 08:55;2026-02;50 SMA + precio;SUBE;60;acierta;falla;acierta;0;0;271
+2026-02-14 09:55;2026-02;50 SMA + precio;SUBE;60;acierta;acierta;acierta;0;0;271
+2026-02-14 11:05;2026-02;50 SMA + precio;SUBE;60;falla;falla;falla;0;0;271
+2026-02-14 13:10;2026-02;50 SMA + precio;BAJA;60;falla;falla;acierta;0;0;271
+2026-02-14 15:10;2026-02;50 SMA + precio;SUBE;60;acierta;acierta;acierta;0;0;271
+2026-02-14 16:10;2026-02;50 SMA + precio;BAJA;60;acierta;acierta;falla;0;0;271
+2026-02-14 18:15;2026-02;50 SMA + precio;BAJA;60;acierta;acierta;falla;0;0;271
+2026-02-14 19:15;2026-02;50 SMA + precio;SUBE;60;acierta;acierta;acierta;0;0;271
+2026-02-15 00:30;2026-02;50 SMA + precio;SUBE;60;falla;falla;falla;0;0;271
+2026-02-15 02:15;2026-02;50 SMA + precio;BAJA;60;acierta;acierta;falla;0;0;271
+2026-02-15 03:45;2026-02;alineación de medias 9/21/50;SUBE;60;acierta;acierta;acierta;0;0;271
+2026-02-15 04:55;2026-02;50 SMA + precio;SUBE;60;acierta;acierta;acierta;0;0;271
+2026-02-15 06:20;2026-02;50 SMA + precio;BAJA;60;acierta;acierta;falla;0;0;271
+2026-02-15 07:25;2026-02;50 SMA + precio;BAJA;60;acierta;acierta;falla;0;0;271
+2026-02-15 10:10;2026-02;50 SMA + precio;BAJA;60;acierta;acierta;falla;0;0;271
+2026-02-15 11:30;2026-02;50 SMA + precio;BAJA;60;falla;falla;acierta;0;0;271
+2026-02-15 12:30;2026-02;50 SMA + precio;BAJA;60;acierta;acierta;falla;0;0;271
+2026-02-15 14:05;2026-02;rompimiento de 20 velas;SUBE;60;falla;falla;falla;0;0;271
+2026-02-15 15:45;2026-02;50 SMA + precio;BAJA;60;falla;falla;acierta;0;0;271
+2026-02-15 17:05;2026-02;rompimiento de 20 velas;BAJA;60;acierta;acierta;falla;0;0;271
+2026-02-15 18:05;2026-02;50 SMA + precio;SUBE;60;falla;acierta;falla;0;0;271
+2026-02-15 20:20;2026-02;50 SMA + precio;BAJA;60;acierta;acierta;falla;0;0;271
+2026-02-15 21:45;2026-02;rompimiento de 20 velas;SUBE;60;falla;falla;falla;0;0;271
+2026-02-15 22:50;2026-02;rompimiento de 20 velas;SUBE;60;falla;falla;falla;0;0;271
+2026-02-16 01:25;2026-02;50 SMA + precio;BAJA;60;falla;falla;acierta;0;0;271
+2026-02-16 02:40;2026-02;alineación de medias 9/21/50;BAJA;60;falla;falla;acierta;0;0;271
+2026-02-16 04:05;2026-02;rompimiento de 20 velas;BAJA;60;acierta;acierta;falla;0;0;271
+2026-02-16 05:40;2026-02;50 SMA + precio;SUBE;60;falla;falla;falla;0;0;271
+2026-02-16 07:10;2026-02;alineación de medias 9/21/50;SUBE;60;acierta;acierta;acierta;0;0;271
+2026-02-16 10:05;2026-02;rompimiento de 20 velas;SUBE;60;acierta;acierta;acierta;0;0;271
+2026-02-16 11:45;2026-02;50 SMA + precio;BAJA;60;falla;falla;acierta;0;0;271
+2026-02-16 15:00;2026-02;50 SMA + precio;SUBE;60;acierta;acierta;acierta;0;0;271
+2026-02-16 16:00;2026-02;50 SMA + precio;SUBE;60;acierta;acierta;acierta;0;0;271
+2026-02-16 17:50;2026-02;50 SMA + precio;SUBE;60;acierta;falla;acierta;0;0;271
+2026-02-16 18:50;2026-02;50 SMA + precio;BAJA;60;acierta;acierta;falla;0;0;271
+2026-02-16 22:30;2026-02;rompimiento de 20 velas;SUBE;60;acierta;acierta;acierta;0;0;271
+2026-02-16 23:30;2026-02;50 SMA + precio;BAJA;60;acierta;acierta;falla;0;0;271
+2026-02-17 00:35;2026-02;rompimiento de 20 velas;SUBE;60;acierta;acierta;acierta;0;0;271
+2026-02-17 02:40;2026-02;rompimiento de 20 velas;BAJA;60;acierta;acierta;falla;0;0;271
+2026-02-17 05:10;2026-02;alineación de medias 9/21/50;BAJA;60;acierta;acierta;falla;0;0;271
+2026-02-17 06:10;2026-02;50 SMA + precio;BAJA;60;falla;falla;acierta;0;0;271
+2026-02-17 07:10;2026-02;rompimiento de 20 velas;BAJA;60;acierta;acierta;falla;0;0;271
+2026-02-17 08:10;2026-02;50 SMA + precio;SUBE;60;falla;falla;falla;0;0;271
+2026-02-17 13:20;2026-02;50 SMA + precio;BAJA;60;falla;falla;acierta;0;0;271
+2026-02-17 15:10;2026-02;50 SMA + precio;SUBE;60;acierta;acierta;acierta;0;0;271
+2026-02-17 16:45;2026-02;50 SMA + precio;SUBE;60;acierta;acierta;acierta;0;0;271
+2026-02-17 18:05;2026-02;50 SMA + precio;SUBE;60;falla;falla;falla;0;0;271
+2026-02-17 19:45;2026-02;50 SMA + precio;BAJA;60;falla;falla;acierta;0;0;271
+2026-02-17 21:05;2026-02;rompimiento de 20 velas;BAJA;60;falla;falla;acierta;0;0;271
+2026-02-18 02:55;2026-02;50 SMA + precio;SUBE;60;falla;falla;falla;0;0;271
+2026-02-18 04:05;2026-02;alineación de medias 9/21/50;SUBE;60;acierta;acierta;acierta;0;0;271
+2026-02-18 07:05;2026-02;50 SMA + precio;BAJA;60;falla;falla;acierta;0;0;271
+2026-02-18 08:40;2026-02;rompimiento de 20 velas;BAJA;60;falla;falla;acierta;0;0;271
+2026-02-18 09:55;2026-02;rompimiento de 20 velas;BAJA;60;falla;falla;acierta;0;0;271
+2026-02-18 13:25;2026-02;50 SMA + precio;SUBE;60;falla;acierta;falla;0;0;271
+2026-02-18 18:30;2026-02;50 SMA + precio;BAJA;60;acierta;acierta;falla;0;0;271
+2026-02-18 20:55;2026-02;50 SMA + precio;BAJA;60;acierta;acierta;falla;0;0;271
+2026-02-18 22:00;2026-02;50 SMA + precio;SUBE;60;acierta;acierta;acierta;0;0;271
+2026-02-19 04:30;2026-02;50 SMA + precio;SUBE;60;falla;falla;falla;0;0;271
+2026-02-19 08:40;2026-02;50 SMA + precio;BAJA;60;acierta;acierta;falla;0;0;271
+2026-02-19 09:45;2026-02;50 SMA + precio;BAJA;60;falla;falla;acierta;0;0;271
+2026-02-19 12:00;2026-02;50 SMA + precio;SUBE;60;falla;falla;falla;0;0;271
+2026-02-19 13:00;2026-02;rompimiento de 20 velas;SUBE;60;falla;falla;falla;0;0;271
+2026-02-19 15:20;2026-02;50 SMA + precio;BAJA;60;falla;falla;acierta;0;0;271
+2026-02-19 18:45;2026-02;50 SMA + precio;SUBE;60;falla;falla;falla;0;0;271
+2026-02-19 19:55;2026-02;50 SMA + precio;BAJA;60;acierta;acierta;falla;0;0;271
+2026-02-19 20:55;2026-02;50 SMA + precio;BAJA;60;acierta;acierta;falla;0;0;271
+2026-02-19 23:45;2026-02;50 SMA + precio;BAJA;60;falla;falla;acierta;0;0;271
+2026-02-20 03:00;2026-02;50 SMA + precio;SUBE;60;acierta;acierta;acierta;0;0;271
+2026-02-20 04:05;2026-02;rompimiento de 20 velas;BAJA;60;acierta;acierta;falla;0;0;271
+2026-02-20 05:35;2026-02;alineación de medias 9/21/50;BAJA;60;acierta;acierta;falla;0;0;271
+2026-02-20 06:50;2026-02;50 SMA + precio;SUBE;60;acierta;acierta;acierta;0;0;271
+2026-02-20 08:05;2026-02;50 SMA + precio;BAJA;60;falla;falla;acierta;0;0;271
+2026-02-20 09:45;2026-02;rompimiento de 20 velas;BAJA;60;acierta;acierta;falla;0;0;271
+2026-02-20 11:35;2026-02;rompimiento de 20 velas;BAJA;60;acierta;acierta;falla;0;0;271
+2026-02-20 12:50;2026-02;rompimiento de 20 velas;BAJA;60;acierta;acierta;falla;0;0;271
+2026-02-20 14:55;2026-02;rompimiento de 20 velas;BAJA;60;falla;falla;acierta;0;0;271
+2026-02-20 22:25;2026-02;50 SMA + precio;SUBE;60;acierta;acierta;acierta;0;0;271
+2026-02-20 23:25;2026-02;50 SMA + precio;BAJA;60;acierta;acierta;falla;0;0;271
+2026-02-21 02:15;2026-02;50 SMA + precio;BAJA;60;falla;falla;acierta;0;0;271
+2026-02-21 06:10;2026-02;50 SMA + precio;SUBE;60;acierta;acierta;acierta;0;0;271
+2026-02-21 10:50;2026-02;50 SMA + precio;SUBE;60;acierta;acierta;acierta;0;0;271
+2026-02-21 14:20;2026-02;50 SMA + precio;SUBE;60;acierta;acierta;acierta;0;0;271
+2026-02-21 15:45;2026-02;50 SMA + precio;SUBE;60;acierta;acierta;acierta;0;0;271
+2026-02-21 17:20;2026-02;50 SMA + precio;SUBE;60;falla;falla;falla;0;0;271
+2026-02-21 21:20;2026-02;50 SMA + precio;BAJA;60;acierta;acierta;falla;0;0;271
+2026-02-21 23:05;2026-02;50 SMA + precio;BAJA;60;acierta;acierta;falla;0;0;271
+2026-02-22 00:10;2026-02;50 SMA + precio;BAJA;60;falla;falla;acierta;0;0;271
+2026-02-22 02:10;2026-02;50 SMA + precio;SUBE;60;acierta;acierta;acierta;0;0;271
+2026-02-22 03:15;2026-02;alineación de medias 9/21/50;BAJA;60;acierta;acierta;falla;0;0;271
+2026-02-22 04:15;2026-02;alineación de medias 9/21/50;SUBE;60;falla;acierta;falla;0;0;271
+2026-02-22 05:20;2026-02;50 SMA + precio;BAJA;60;acierta;acierta;falla;0;0;271
+2026-02-22 06:30;2026-02;50 SMA + precio;SUBE;60;acierta;acierta;acierta;0;0;271
+2026-02-22 10:35;2026-02;50 SMA + precio;SUBE;60;acierta;acierta;acierta;0;0;271
+2026-02-22 12:05;2026-02;rompimiento de 20 velas;BAJA;60;acierta;acierta;falla;0;0;271
+2026-02-22 13:05;2026-02;rompimiento de 20 velas;SUBE;60;falla;falla;falla;0;0;271
+2026-02-22 15:05;2026-02;50 SMA + precio;BAJA;60;acierta;acierta;falla;0;0;271
+2026-02-22 17:15;2026-02;rompimiento de 20 velas;BAJA;60;falla;falla;acierta;0;0;271
+2026-02-22 18:45;2026-02;rompimiento de 20 velas;BAJA;60;acierta;acierta;falla;0;0;271
+2026-02-22 20:45;2026-02;rompimiento de 20 velas;BAJA;60;falla;falla;acierta;0;0;271
+2026-02-22 23:10;2026-02;50 SMA + precio;SUBE;60;falla;falla;falla;0;0;271
+2026-02-23 01:45;2026-02;rompimiento de 20 velas;SUBE;60;falla;falla;falla;0;0;271
+2026-02-23 04:10;2026-02;rompimiento de 20 velas;BAJA;60;falla;falla;acierta;0;0;271
+2026-02-23 05:20;2026-02;alineación de medias 9/21/50;BAJA;60;acierta;acierta;falla;0;0;271
+2026-02-23 07:40;2026-02;alineación de medias 9/21/50;BAJA;60;acierta;acierta;falla;0;0;271
+2026-02-23 09:15;2026-02;50 SMA + precio;BAJA;60;falla;falla;acierta;0;0;271
+2026-02-23 11:20;2026-02;rompimiento de 20 velas;BAJA;60;acierta;acierta;falla;0;0;271
+2026-02-23 14:45;2026-02;rompimiento de 20 velas;BAJA;60;falla;falla;acierta;0;0;271
+2026-02-23 19:05;2026-02;50 SMA + precio;SUBE;60;falla;falla;falla;0;0;271
+2026-02-23 20:05;2026-02;rompimiento de 20 velas;SUBE;60;falla;falla;falla;0;0;271
+2026-02-23 23:05;2026-02;rompimiento de 20 velas;SUBE;60;acierta;acierta;acierta;0;0;271
+2026-02-24 00:55;2026-02;50 SMA + precio;BAJA;60;acierta;acierta;falla;0;0;271
+2026-02-24 02:20;2026-02;50 SMA + precio;BAJA;60;acierta;acierta;falla;0;0;271
+2026-02-24 03:35;2026-02;50 SMA + precio;BAJA;60;acierta;acierta;falla;0;0;271
+2026-02-24 05:05;2026-02;50 SMA + precio;BAJA;60;acierta;falla;falla;0;0;271
+2026-02-24 06:05;2026-02;50 SMA + precio;BAJA;60;acierta;acierta;falla;0;0;271
+2026-02-24 07:05;2026-02;alineación de medias 9/21/50;SUBE;60;falla;falla;falla;0;0;271
+2026-02-24 08:40;2026-02;rompimiento de 20 velas;SUBE;60;falla;falla;falla;0;0;271
+2026-02-24 10:45;2026-02;50 SMA + precio;BAJA;60;acierta;acierta;falla;0;0;271
+2026-02-24 11:50;2026-02;50 SMA + precio;SUBE;60;acierta;acierta;acierta;0;0;271
+2026-02-24 14:20;2026-02;50 SMA + precio;SUBE;60;acierta;acierta;acierta;0;0;271
+2026-02-24 15:20;2026-02;50 SMA + precio;BAJA;60;falla;acierta;acierta;0;0;271
+2026-02-24 16:20;2026-02;50 SMA + precio;SUBE;60;falla;falla;falla;0;0;271
+2026-02-24 18:55;2026-02;50 SMA + precio;BAJA;60;acierta;acierta;falla;0;0;271
+2026-02-24 19:55;2026-02;50 SMA + precio;BAJA;60;falla;falla;acierta;0;0;271
+2026-02-25 02:20;2026-02;50 SMA + precio;SUBE;60;acierta;acierta;acierta;0;0;271
+2026-02-25 03:20;2026-02;50 SMA + precio;BAJA;60;acierta;acierta;falla;0;0;271
+2026-02-25 04:45;2026-02;50 SMA + precio;BAJA;60;acierta;acierta;falla;0;0;271
+2026-02-25 07:00;2026-02;50 SMA + precio;BAJA;60;falla;falla;acierta;0;0;271
+2026-02-25 09:30;2026-02;50 SMA + precio;SUBE;60;acierta;acierta;acierta;0;0;271
+2026-02-25 10:30;2026-02;50 SMA + precio;SUBE;60;acierta;acierta;acierta;0;0;271
+2026-02-25 11:35;2026-02;rompimiento de 20 velas;BAJA;60;falla;falla;acierta;0;0;271
+2026-02-25 13:50;2026-02;50 SMA + precio;SUBE;60;acierta;acierta;acierta;0;0;271
+2026-02-25 14:50;2026-02;50 SMA + precio;BAJA;60;acierta;acierta;falla;0;0;271
+2026-02-25 15:50;2026-02;rompimiento de 20 velas;SUBE;60;falla;falla;falla;0;0;271
+2026-02-25 18:10;2026-02;50 SMA + precio;BAJA;60;acierta;acierta;falla;0;0;271
+2026-02-25 19:20;2026-02;50 SMA + precio;BAJA;60;falla;falla;acierta;0;0;271
+2026-02-25 21:45;2026-02;50 SMA + precio;SUBE;60;acierta;acierta;acierta;0;0;271
+2026-02-26 02:00;2026-02;50 SMA + precio;SUBE;60;falla;falla;falla;0;0;271
+2026-02-26 04:55;2026-02;50 SMA + precio;BAJA;60;acierta;acierta;falla;0;0;271
+2026-02-26 07:30;2026-02;50 SMA + precio;BAJA;60;acierta;acierta;falla;0;0;271
+2026-02-26 08:30;2026-02;50 SMA + precio;SUBE;60;falla;falla;falla;0;0;271
+2026-02-26 10:45;2026-02;50 SMA + precio;BAJA;60;falla;falla;acierta;0;0;271
+2026-02-26 12:50;2026-02;50 SMA + precio;SUBE;60;acierta;acierta;acierta;0;0;271
+2026-02-26 14:10;2026-02;rompimiento de 20 velas;BAJA;60;falla;falla;acierta;0;0;271
+2026-02-26 16:55;2026-02;50 SMA + precio;SUBE;60;acierta;acierta;acierta;0;0;271
+2026-02-26 19:20;2026-02;50 SMA + precio;BAJA;60;acierta;acierta;falla;0;0;271
+2026-02-26 20:40;2026-02;50 SMA + precio;BAJA;60;acierta;acierta;falla;0;0;271
+2026-02-26 21:40;2026-02;50 SMA + precio;SUBE;60;acierta;acierta;acierta;0;0;271
+2026-02-26 23:55;2026-02;50 SMA + precio;SUBE;60;acierta;acierta;acierta;0;0;271
+2026-02-27 02:00;2026-02;50 SMA + precio;SUBE;60;falla;falla;falla;0;0;271
+2026-02-27 06:30;2026-02;50 SMA + precio;BAJA;60;falla;falla;acierta;0;0;271
+2026-02-27 10:15;2026-02;rompimiento de 20 velas;BAJA;60;falla;falla;acierta;0;0;271
+2026-02-27 11:15;2026-02;rompimiento de 20 velas;BAJA;60;acierta;acierta;falla;0;0;271
+2026-02-27 12:20;2026-02;50 SMA + precio;SUBE;60;acierta;acierta;acierta;0;0;271
+2026-02-27 13:20;2026-02;50 SMA + precio;SUBE;60;acierta;acierta;acierta;0;0;271
+2026-02-28 04:05;2026-02;rompimiento de 20 velas;BAJA;60;falla;falla;acierta;0;0;271
+2026-02-28 06:15;2026-02;50 SMA + precio;SUBE;60;falla;falla;falla;0;0;271
+2026-02-28 11:05;2026-02;rompimiento de 20 velas;BAJA;60;falla;falla;acierta;0;0;271
+2026-02-28 12:10;2026-02;50 SMA + precio;SUBE;60;falla;falla;falla;0;0;271
+2026-02-28 13:10;2026-02;50 SMA + precio;BAJA;60;acierta;acierta;falla;0;0;271
+2026-02-28 16:35;2026-02;50 SMA + precio;BAJA;60;acierta;acierta;falla;0;0;271
+2026-02-28 17:35;2026-02;50 SMA + precio;BAJA;60;acierta;acierta;falla;0;0;271
+2026-02-28 20:45;2026-02;50 SMA + precio;SUBE;60;falla;falla;falla;0;0;271
+2026-02-28 23:25;2026-02;50 SMA + precio;BAJA;60;falla;falla;acierta;0;0;271
+2026-03-01 02:45;2026-03;rompimiento de 20 velas;SUBE;60;acierta;acierta;acierta;16.000;13.600;113.600
+2026-03-01 04:15;2026-03;rompimiento de 20 velas;BAJA;60;acierta;acierta;falla;18.176;15.450;129.050
+2026-03-01 07:05;2026-03;alineación de medias 9/21/50;BAJA;60;falla;falla;acierta;20.648;-20.648;108.402
+2026-03-01 08:05;2026-03;REV5;BAJA;10;acierta;acierta;falla;17.344;14.743;123.144
+2026-03-01 08:40;2026-03;REV5;SUBE;10;acierta;acierta;acierta;19.703;16.748;139.892
+2026-03-01 11:55;2026-03;REV5;BAJA;10;acierta;falla;falla;22.383;19.025;158.917
+2026-03-01 15:40;2026-03;REV5;BAJA;10;acierta;acierta;falla;25.427;21.613;180.530
+2026-03-01 15:50;2026-03;REV5;SUBE;10;falla;falla;falla;28.885;-28.885;151.645
+2026-03-02 06:40;2026-03;alineación de medias 9/21/50;BAJA;60;acierta;acierta;falla;24.263;20.624;172.269
+2026-03-02 08:15;2026-03;REV5;SUBE;10;acierta;acierta;acierta;27.563;23.429;195.697
+2026-03-02 08:25;2026-03;REV5;BAJA;10;acierta;acierta;falla;31.312;26.615;222.312
+2026-03-02 09:05;2026-03;REV5;SUBE;10;falla;falla;falla;35.570;-35.570;186.742
+2026-03-02 09:20;2026-03;REV5;SUBE;10;falla;falla;falla;29.879;-29.879;156.864
+2026-03-02 09:30;2026-03;REV5;SUBE;10;acierta;acierta;acierta;25.098;21.333;178.197
+2026-03-02 09:40;2026-03;REV5;BAJA;10;acierta;acierta;falla;28.512;24.235;202.432
+2026-03-02 10:20;2026-03;REV5;SUBE;10;acierta;acierta;acierta;32.389;27.531;229.963
+2026-03-02 10:35;2026-03;REV5;BAJA;10;acierta;acierta;falla;36.794;31.275;261.237
+2026-03-02 11:00;2026-03;REV5;SUBE;10;falla;falla;falla;41.798;-41.798;219.439
+2026-03-02 11:10;2026-03;REV5;BAJA;10;acierta;falla;falla;35.110;29.844;249.283
+2026-03-02 11:20;2026-03;REV5;SUBE;10;acierta;acierta;acierta;39.885;33.903;283.186
+2026-03-02 11:35;2026-03;REV5;SUBE;10;acierta;acierta;acierta;45.310;38.513;321.699
+2026-03-02 12:35;2026-03;REV5;BAJA;10;acierta;acierta;falla;51.472;43.751;365.450
+2026-03-02 15:25;2026-03;REV5;BAJA;10;acierta;acierta;falla;58.472;49.701;415.151
+2026-03-03 03:30;2026-03;alineación de medias 9/21/50;SUBE;60;falla;falla;falla;66.424;-66.424;348.727
+2026-03-03 08:05;2026-03;REV5;SUBE;10;falla;falla;falla;55.796;-55.796;292.931
+2026-03-03 08:40;2026-03;REV5;SUBE;10;falla;falla;falla;46.869;-46.869;246.062
+2026-03-03 09:20;2026-03;REV5;SUBE;10;acierta;falla;acierta;39.370;33.464;279.526
+2026-03-03 09:30;2026-03;REV5;BAJA;10;acierta;acierta;falla;44.724;38.016;317.542
+2026-03-03 09:45;2026-03;REV5;SUBE;10;falla;falla;falla;50.807;-50.807;266.735
+2026-03-04 02:05;2026-03;rompimiento de 20 velas;BAJA;60;acierta;acierta;falla;42.678;36.276;303.011
+2026-03-04 03:35;2026-03;alineación de medias 9/21/50;BAJA;60;falla;falla;acierta;48.482;-48.482;254.529
+2026-03-04 04:40;2026-03;rompimiento de 20 velas;BAJA;60;falla;falla;acierta;40.725;-40.725;213.805
+2026-03-04 07:05;2026-03;rompimiento de 20 velas;BAJA;60;acierta;acierta;falla;34.209;29.077;242.882
+2026-03-04 10:05;2026-03;REV5;BAJA;10;acierta;acierta;falla;38.861;33.032;275.914
+2026-03-04 10:15;2026-03;REV5;SUBE;10;acierta;acierta;acierta;44.146;37.524;313.438
+2026-03-05 03:05;2026-03;alineación de medias 9/21/50;SUBE;60;acierta;acierta;acierta;50.150;42.628;356.066
+2026-03-05 04:10;2026-03;rompimiento de 20 velas;BAJA;60;acierta;acierta;falla;56.971;48.425;404.491
+2026-03-05 07:00;2026-03;alineación de medias 9/21/50;BAJA;60;acierta;acierta;falla;64.719;55.011;459.502
+2026-03-05 08:30;2026-03;REV5;BAJA;10;falla;falla;acierta;73.520;-73.520;385.981
+2026-03-05 08:50;2026-03;REV5;SUBE;10;falla;falla;falla;61.757;-61.757;324.224
+2026-03-05 09:05;2026-03;REV5;BAJA;10;acierta;acierta;falla;51.876;44.095;368.319
+2026-03-05 09:40;2026-03;REV5;SUBE;10;falla;acierta;falla;58.931;-58.931;309.388
+2026-03-05 10:10;2026-03;REV5;SUBE;10;acierta;acierta;acierta;49.502;42.077;351.465
+2026-03-05 10:40;2026-03;REV5;SUBE;10;acierta;acierta;acierta;56.234;47.799;399.264
+2026-03-05 10:55;2026-03;REV5;BAJA;10;acierta;acierta;falla;63.882;54.300;453.564
+2026-03-05 11:10;2026-03;REV5;SUBE;10;acierta;falla;acierta;72.570;61.685;515.248
+2026-03-05 11:25;2026-03;REV5;SUBE;10;falla;falla;falla;82.440;-82.440;432.809
+2026-03-06 02:10;2026-03;rompimiento de 20 velas;SUBE;60;acierta;acierta;acierta;69.249;58.862;491.671
+2026-03-06 03:30;2026-03;rompimiento de 20 velas;SUBE;60;falla;falla;falla;78.667;-78.667;413.003
+2026-03-06 04:40;2026-03;rompimiento de 20 velas;SUBE;60;falla;falla;falla;66.081;-66.081;346.923
+2026-03-06 06:45;2026-03;alineación de medias 9/21/50;SUBE;60;acierta;acierta;acierta;55.508;47.181;394.104
+2026-03-06 08:05;2026-03;REV5;SUBE;10;falla;acierta;falla;63.057;-63.057;331.048
+2026-03-06 08:25;2026-03;REV5;BAJA;10;falla;falla;acierta;52.968;-52.968;278.080
+2026-03-06 08:35;2026-03;REV5;BAJA;10;acierta;acierta;falla;44.493;37.819;315.899
+2026-03-06 08:55;2026-03;REV5;SUBE;10;falla;falla;falla;50.544;-50.544;265.355
+2026-03-06 09:15;2026-03;REV5;BAJA;10;falla;falla;acierta;42.457;-42.457;222.898
+2026-03-06 09:40;2026-03;REV5;SUBE;10;acierta;acierta;acierta;35.664;30.314;253.212
+2026-03-06 09:55;2026-03;REV5;BAJA;10;falla;falla;acierta;40.514;-40.514;212.698
+2026-03-06 10:05;2026-03;REV5;BAJA;10;falla;acierta;acierta;34.032;-34.032;178.667
+2026-03-06 10:25;2026-03;REV5;BAJA;10;acierta;acierta;falla;28.587;24.299;202.965
+2026-03-06 11:45;2026-03;REV5;BAJA;10;acierta;acierta;falla;32.474;27.603;230.569
+2026-03-07 02:05;2026-03;alineación de medias 9/21/50;BAJA;60;acierta;acierta;falla;36.891;31.357;261.926
+2026-03-07 04:05;2026-03;alineación de medias 9/21/50;SUBE;60;acierta;acierta;acierta;41.908;35.622;297.548
+2026-03-07 05:30;2026-03;rompimiento de 20 velas;BAJA;60;acierta;acierta;falla;47.608;40.467;338.014
+2026-03-07 06:55;2026-03;alineación de medias 9/21/50;SUBE;60;acierta;falla;acierta;54.082;45.970;383.984
+2026-03-08 03:00;2026-03;rompimiento de 20 velas;BAJA;60;falla;falla;acierta;61.437;-61.437;322.547
+2026-03-08 04:10;2026-03;rompimiento de 20 velas;BAJA;60;acierta;acierta;falla;51.607;43.866;366.413
+2026-03-08 05:30;2026-03;rompimiento de 20 velas;SUBE;60;acierta;acierta;acierta;58.626;49.832;416.245
+2026-03-08 06:40;2026-03;rompimiento de 20 velas;BAJA;60;acierta;acierta;falla;66.599;56.609;472.855
+2026-03-08 07:40;2026-03;alineación de medias 9/21/50;SUBE;60;acierta;acierta;acierta;75.657;64.308;537.163
+2026-03-08 13:25;2026-03;REV5;BAJA;10;acierta;acierta;falla;85.946;73.054;610.217
+2026-03-08 13:45;2026-03;REV5;BAJA;10;falla;falla;acierta;97.635;-97.635;512.582
+2026-03-08 13:55;2026-03;REV5;BAJA;10;acierta;acierta;falla;82.013;69.711;582.294
+2026-03-08 14:25;2026-03;REV5;BAJA;10;falla;falla;acierta;93.167;-93.167;489.127
+2026-03-08 14:35;2026-03;REV5;BAJA;10;falla;falla;acierta;78.260;-78.260;410.866
+2026-03-09 03:35;2026-03;alineación de medias 9/21/50;SUBE;60;acierta;acierta;acierta;65.739;55.878;466.744
+2026-03-09 05:40;2026-03;alineación de medias 9/21/50;SUBE;60;falla;falla;falla;74.679;-74.679;392.065
+2026-03-09 07:45;2026-03;alineación de medias 9/21/50;BAJA;60;acierta;acierta;falla;62.730;53.321;445.386
+2026-03-09 08:45;2026-03;REV5;SUBE;10;falla;acierta;falla;71.262;-71.262;374.124
+2026-03-09 09:05;2026-03;REV5;BAJA;10;acierta;acierta;falla;59.860;50.881;425.005
+2026-03-09 09:45;2026-03;REV5;BAJA;10;acierta;acierta;falla;68.001;57.801;482.806
+2026-03-09 10:15;2026-03;REV5;BAJA;10;falla;falla;acierta;77.249;-77.249;405.557
+2026-03-09 10:25;2026-03;REV5;BAJA;10;falla;falla;acierta;64.889;-64.889;340.668
+2026-03-10 02:25;2026-03;rompimiento de 20 velas;SUBE;60;acierta;acierta;acierta;54.507;46.331;386.999
+2026-03-10 03:35;2026-03;rompimiento de 20 velas;BAJA;60;acierta;acierta;falla;61.920;52.632;439.630
+2026-03-10 05:30;2026-03;rompimiento de 20 velas;SUBE;60;acierta;acierta;acierta;70.341;59.790;499.420
+2026-03-10 07:05;2026-03;alineación de medias 9/21/50;SUBE;60;acierta;acierta;acierta;79.907;67.921;567.341
+2026-03-10 09:10;2026-03;REV5;SUBE;10;acierta;acierta;acierta;90.775;77.158;644.500
+2026-03-10 09:20;2026-03;REV5;BAJA;10;acierta;acierta;falla;103.120;87.652;732.152
+2026-03-10 10:15;2026-03;REV5;BAJA;10;falla;falla;acierta;117.144;-117.144;615.007
+2026-03-10 10:35;2026-03;REV5;BAJA;10;falla;falla;acierta;98.401;-98.401;516.606
+2026-03-10 13:25;2026-03;REV5;BAJA;10;falla;acierta;acierta;82.657;-82.657;433.949
+2026-03-10 13:40;2026-03;REV5;SUBE;10;acierta;acierta;acierta;69.432;59.017;492.966
+2026-03-10 14:00;2026-03;REV5;SUBE;10;acierta;acierta;acierta;78.875;67.043;560.010
+2026-03-10 14:35;2026-03;REV5;SUBE;10;acierta;acierta;acierta;89.602;76.161;636.171
+2026-03-11 02:35;2026-03;rompimiento de 20 velas;SUBE;60;falla;falla;falla;101.787;-101.787;534.384
+2026-03-11 05:35;2026-03;alineación de medias 9/21/50;SUBE;60;acierta;acierta;acierta;85.501;72.676;607.060
+2026-03-11 07:20;2026-03;rompimiento de 20 velas;BAJA;60;acierta;acierta;falla;97.130;82.560;689.620
+2026-03-11 08:45;2026-03;REV5;SUBE;10;acierta;acierta;acierta;110.339;93.788;783.408
+2026-03-11 08:55;2026-03;REV5;BAJA;10;falla;falla;acierta;125.345;-125.345;658.063
+2026-03-11 09:05;2026-03;REV5;BAJA;10;falla;falla;acierta;105.290;-105.290;552.773
+2026-03-11 09:30;2026-03;REV5;BAJA;10;acierta;acierta;falla;88.444;75.177;627.950
+2026-03-11 10:00;2026-03;REV5;SUBE;10;falla;falla;falla;100.472;-100.472;527.478
+2026-03-11 10:15;2026-03;REV5;SUBE;10;acierta;acierta;acierta;84.396;71.737;599.215
+2026-03-12 02:15;2026-03;rompimiento de 20 velas;BAJA;60;falla;falla;acierta;95.874;-95.874;503.341
+2026-03-12 05:00;2026-03;rompimiento de 20 velas;BAJA;60;acierta;acierta;falla;80.535;68.454;571.795
+2026-03-12 06:20;2026-03;rompimiento de 20 velas;SUBE;60;falla;falla;falla;91.487;-91.487;480.308
+2026-03-12 07:20;2026-03;alineación de medias 9/21/50;SUBE;60;acierta;acierta;acierta;76.849;65.322;545.630
+2026-03-12 08:35;2026-03;REV5;SUBE;10;falla;falla;falla;87.301;-87.301;458.329
+2026-03-12 08:50;2026-03;REV5;SUBE;10;falla;falla;falla;73.333;-73.333;384.996
+2026-03-12 09:05;2026-03;REV5;BAJA;10;acierta;acierta;falla;61.599;52.359;437.356
+2026-03-12 09:20;2026-03;REV5;SUBE;10;falla;falla;falla;69.977;-69.977;367.379
+2026-03-12 09:35;2026-03;REV5;SUBE;10;acierta;falla;acierta;58.781;49.964;417.342
+2026-03-12 09:50;2026-03;REV5;SUBE;10;acierta;falla;acierta;66.775;56.759;474.101
+2026-03-12 10:05;2026-03;REV5;SUBE;10;falla;falla;falla;75.856;-75.856;398.245
+2026-03-12 10:15;2026-03;REV5;SUBE;10;acierta;acierta;acierta;63.719;54.161;452.406
+2026-03-12 10:25;2026-03;REV5;BAJA;10;acierta;acierta;falla;72.385;61.527;513.933
+2026-03-12 10:35;2026-03;REV5;SUBE;10;acierta;acierta;acierta;82.229;69.895;583.828
+2026-03-12 11:10;2026-03;REV5;SUBE;10;acierta;acierta;acierta;93.413;79.401;663.229
+2026-03-12 11:55;2026-03;REV5;SUBE;10;acierta;acierta;acierta;106.117;90.199;753.428
+2026-03-13 06:00;2026-03;alineación de medias 9/21/50;BAJA;60;falla;falla;acierta;120.548;-120.548;632.880
+2026-03-13 07:00;2026-03;rompimiento de 20 velas;BAJA;60;falla;falla;acierta;101.261;-101.261;531.619
+2026-03-13 08:35;2026-03;REV5;SUBE;10;acierta;acierta;acierta;85.059;72.300;603.919
+2026-03-13 09:00;2026-03;REV5;SUBE;10;falla;falla;falla;96.627;-96.627;507.292
+2026-03-13 09:15;2026-03;REV5;SUBE;10;falla;falla;falla;81.167;-81.167;426.125
+2026-03-13 09:55;2026-03;REV5;SUBE;10;falla;acierta;falla;68.180;-68.180;357.945
+2026-03-13 10:05;2026-03;REV5;BAJA;10;falla;falla;acierta;57.271;-57.271;300.674
+2026-03-13 10:45;2026-03;REV5;SUBE;10;falla;falla;falla;48.108;-48.108;252.566
+2026-03-13 10:55;2026-03;REV5;SUBE;10;falla;falla;falla;40.411;-40.411;212.156
+2026-03-13 11:10;2026-03;REV5;BAJA;10;acierta;acierta;falla;33.945;28.853;241.009
+2026-03-13 11:25;2026-03;REV5;BAJA;10;falla;falla;acierta;38.561;-38.561;202.447
+2026-03-13 12:15;2026-03;REV5;BAJA;10;acierta;acierta;falla;32.392;27.533;229.980
+2026-03-13 12:50;2026-03;REV5;SUBE;10;falla;acierta;falla;36.797;-36.797;193.183
+2026-03-14 02:10;2026-03;rompimiento de 20 velas;SUBE;60;acierta;acierta;acierta;30.909;26.273;219.456
+2026-03-14 03:35;2026-03;alineación de medias 9/21/50;BAJA;60;acierta;acierta;falla;35.113;29.846;249.302
+2026-03-14 04:35;2026-03;alineación de medias 9/21/50;SUBE;60;empate;empate;empate;39.888;-39.888;209.414
+2026-03-14 06:25;2026-03;alineación de medias 9/21/50;SUBE;60;falla;falla;falla;33.506;-33.506;175.908
+2026-03-14 07:50;2026-03;rompimiento de 20 velas;BAJA;60;acierta;acierta;falla;28.145;23.923;199.831
+2026-03-15 02:55;2026-03;rompimiento de 20 velas;SUBE;60;falla;falla;falla;31.973;-31.973;167.858
+2026-03-15 03:55;2026-03;rompimiento de 20 velas;SUBE;60;falla;falla;falla;26.857;-26.857;141.001
+2026-03-15 06:00;2026-03;rompimiento de 20 velas;BAJA;60;falla;falla;acierta;22.560;-22.560;118.441
+2026-03-15 07:20;2026-03;alineación de medias 9/21/50;SUBE;60;falla;falla;falla;18.951;-18.951;99.490
+2026-03-15 10:00;2026-03;REV5;SUBE;10;falla;falla;falla;15.918;-15.918;83.572
+2026-03-15 10:45;2026-03;REV5;SUBE;10;acierta;acierta;acierta;15.900;13.515;97.087
+2026-03-15 11:05;2026-03;REV5;SUBE;10;falla;falla;falla;15.900;-15.900;81.187
+2026-03-15 11:15;2026-03;REV5;SUBE;10;falla;falla;falla;15.900;-15.900;65.287
+2026-03-15 11:25;2026-03;REV5;SUBE;10;acierta;acierta;acierta;15.900;13.515;78.802
+2026-03-15 11:35;2026-03;REV5;BAJA;10;falla;acierta;acierta;15.900;-15.900;62.902
+2026-03-15 11:55;2026-03;REV5;SUBE;10;acierta;acierta;acierta;15.900;13.515;76.417
+2026-03-15 12:05;2026-03;REV5;BAJA;10;acierta;acierta;falla;15.900;13.515;89.932
+2026-03-15 12:15;2026-03;REV5;SUBE;10;acierta;acierta;acierta;15.900;13.515;103.447
+2026-03-15 12:25;2026-03;REV5;BAJA;10;acierta;falla;falla;16.551;14.069;117.516
+2026-03-15 12:55;2026-03;REV5;BAJA;10;acierta;acierta;falla;18.802;15.982;133.498
+2026-03-15 13:20;2026-03;REV5;BAJA;10;falla;falla;acierta;21.360;-21.360;112.138
+2026-03-16 02:30;2026-03;alineación de medias 9/21/50;SUBE;60;falla;falla;falla;17.942;-17.942;94.196
+2026-03-16 06:30;2026-03;alineación de medias 9/21/50;BAJA;60;falla;falla;acierta;15.900;-15.900;78.296
+2026-03-16 08:35;2026-03;REV5;BAJA;10;falla;acierta;acierta;15.900;-15.900;62.396
+2026-03-16 10:30;2026-03;REV5;SUBE;10;acierta;acierta;acierta;15.900;13.515;75.911
+2026-03-16 11:30;2026-03;REV5;SUBE;10;acierta;acierta;acierta;15.900;13.515;89.426
+2026-03-16 11:40;2026-03;REV5;BAJA;10;falla;falla;acierta;15.900;-15.900;73.526
+2026-03-16 12:35;2026-03;REV5;SUBE;10;falla;acierta;falla;15.900;-15.900;57.626
+2026-03-16 13:30;2026-03;REV5;BAJA;10;falla;falla;acierta;15.900;-15.900;41.726
+2026-03-16 15:10;2026-03;REV5;BAJA;10;acierta;acierta;falla;15.900;13.515;55.241
+2026-03-17 03:50;2026-03;alineación de medias 9/21/50;BAJA;60;acierta;acierta;falla;15.900;13.515;68.756
+2026-03-17 05:00;2026-03;rompimiento de 20 velas;SUBE;60;falla;falla;falla;15.900;-15.900;52.856
+2026-03-17 07:20;2026-03;rompimiento de 20 velas;BAJA;60;falla;falla;acierta;15.900;-15.900;36.956
+2026-03-17 09:10;2026-03;REV5;BAJA;10;acierta;acierta;falla;15.900;13.515;50.471
+2026-03-17 09:20;2026-03;REV5;SUBE;10;falla;falla;falla;15.900;-15.900;34.571
+2026-03-17 09:50;2026-03;REV5;BAJA;10;acierta;acierta;falla;15.900;13.515;48.086
+2026-03-17 10:05;2026-03;REV5;BAJA;10;acierta;acierta;falla;15.900;13.515;61.601
+2026-03-17 10:30;2026-03;REV5;SUBE;10;falla;falla;falla;15.900;-15.900;45.701
+2026-03-17 10:40;2026-03;REV5;SUBE;10;acierta;acierta;acierta;15.900;13.515;59.216
+2026-03-17 11:20;2026-03;REV5;BAJA;10;falla;falla;acierta;15.900;-15.900;43.316
+2026-03-18 02:50;2026-03;rompimiento de 20 velas;SUBE;60;falla;falla;falla;15.900;-15.900;27.416
+2026-03-18 05:35;2026-03;rompimiento de 20 velas;SUBE;60;falla;falla;falla;15.900;-15.900;11.516
+2026-03-18 08:00;2026-03;REV5;SUBE;10;falla;falla;falla;0;0;11.516
+2026-03-18 08:20;2026-03;REV5;SUBE;10;acierta;falla;acierta;0;0;11.516
+2026-03-18 08:40;2026-03;REV5;BAJA;10;falla;acierta;acierta;0;0;11.516
+2026-03-18 09:10;2026-03;REV5;BAJA;10;acierta;acierta;falla;0;0;11.516
+2026-03-18 09:20;2026-03;REV5;SUBE;10;falla;falla;falla;0;0;11.516
+2026-03-18 13:35;2026-03;REV5;SUBE;10;acierta;falla;acierta;0;0;11.516
+2026-03-18 13:50;2026-03;REV5;SUBE;10;falla;falla;falla;0;0;11.516
+2026-03-18 14:00;2026-03;REV5;SUBE;10;acierta;acierta;acierta;0;0;11.516
+2026-03-18 14:25;2026-03;REV5;SUBE;10;acierta;acierta;acierta;0;0;11.516
+2026-03-18 15:15;2026-03;REV5;SUBE;10;falla;acierta;falla;0;0;11.516
+2026-03-18 15:30;2026-03;REV5;SUBE;10;acierta;acierta;acierta;0;0;11.516
+2026-03-19 08:05;2026-03;REV5;SUBE;10;falla;falla;falla;0;0;11.516
+2026-03-19 08:20;2026-03;REV5;BAJA;10;falla;acierta;acierta;0;0;11.516
+2026-03-19 08:40;2026-03;REV5;SUBE;10;falla;acierta;falla;0;0;11.516
+2026-03-19 08:55;2026-03;REV5;BAJA;10;falla;falla;acierta;0;0;11.516
+2026-03-19 09:30;2026-03;REV5;SUBE;10;acierta;acierta;acierta;0;0;11.516
+2026-03-19 10:00;2026-03;REV5;SUBE;10;acierta;acierta;acierta;0;0;11.516
+2026-03-19 10:20;2026-03;REV5;SUBE;10;falla;falla;falla;0;0;11.516
+2026-03-19 10:35;2026-03;REV5;SUBE;10;falla;falla;falla;0;0;11.516
+2026-03-20 03:00;2026-03;rompimiento de 20 velas;BAJA;60;acierta;acierta;falla;0;0;11.516
+2026-03-20 04:30;2026-03;alineación de medias 9/21/50;SUBE;60;falla;falla;falla;0;0;11.516
+2026-03-20 07:05;2026-03;rompimiento de 20 velas;BAJA;60;acierta;acierta;falla;0;0;11.516
+2026-03-20 08:50;2026-03;REV5;SUBE;10;falla;falla;falla;0;0;11.516
+2026-03-20 09:15;2026-03;REV5;SUBE;10;falla;falla;falla;0;0;11.516
+2026-03-20 09:35;2026-03;REV5;BAJA;10;acierta;acierta;falla;0;0;11.516
+2026-03-20 10:20;2026-03;REV5;SUBE;10;acierta;acierta;acierta;0;0;11.516
+2026-03-20 10:50;2026-03;REV5;SUBE;10;acierta;acierta;acierta;0;0;11.516
+2026-03-20 11:05;2026-03;REV5;BAJA;10;falla;falla;acierta;0;0;11.516
+2026-03-20 11:15;2026-03;REV5;BAJA;10;falla;falla;acierta;0;0;11.516
+2026-03-20 13:50;2026-03;REV5;SUBE;10;falla;falla;falla;0;0;11.516
+2026-03-20 14:25;2026-03;REV5;SUBE;10;acierta;acierta;acierta;0;0;11.516
+2026-03-21 02:00;2026-03;alineación de medias 9/21/50;SUBE;60;falla;falla;falla;0;0;11.516
+2026-03-21 04:50;2026-03;rompimiento de 20 velas;BAJA;60;acierta;acierta;falla;0;0;11.516
+2026-03-21 06:00;2026-03;alineación de medias 9/21/50;SUBE;60;falla;falla;falla;0;0;11.516
+2026-03-22 02:15;2026-03;alineación de medias 9/21/50;SUBE;60;falla;falla;falla;0;0;11.516
+2026-03-22 04:05;2026-03;rompimiento de 20 velas;BAJA;60;acierta;acierta;falla;0;0;11.516
+2026-03-22 08:00;2026-03;REV5;BAJA;10;falla;falla;acierta;0;0;11.516
+2026-03-22 08:40;2026-03;REV5;SUBE;10;falla;falla;falla;0;0;11.516
+2026-03-22 08:55;2026-03;REV5;BAJA;10;acierta;acierta;falla;0;0;11.516
+2026-03-22 09:05;2026-03;REV5;SUBE;10;falla;falla;falla;0;0;11.516
+2026-03-22 12:05;2026-03;REV5;BAJA;10;falla;falla;acierta;0;0;11.516
+2026-03-22 12:25;2026-03;REV5;SUBE;10;acierta;acierta;acierta;0;0;11.516
+2026-03-23 06:10;2026-03;alineación de medias 9/21/50;BAJA;60;acierta;acierta;falla;0;0;11.516
+2026-03-23 11:00;2026-03;REV5;SUBE;10;acierta;acierta;acierta;0;0;11.516
+2026-03-23 14:15;2026-03;REV5;SUBE;10;falla;falla;falla;0;0;11.516
+2026-03-24 02:00;2026-03;rompimiento de 20 velas;BAJA;60;falla;acierta;acierta;0;0;11.516
+2026-03-24 05:00;2026-03;rompimiento de 20 velas;BAJA;60;falla;falla;acierta;0;0;11.516
+2026-03-24 06:00;2026-03;rompimiento de 20 velas;BAJA;60;acierta;acierta;falla;0;0;11.516
+2026-03-24 07:40;2026-03;alineación de medias 9/21/50;SUBE;60;falla;falla;falla;0;0;11.516
+2026-03-25 02:40;2026-03;alineación de medias 9/21/50;SUBE;60;acierta;acierta;acierta;0;0;11.516
+2026-03-25 03:45;2026-03;alineación de medias 9/21/50;BAJA;60;acierta;acierta;falla;0;0;11.516
+2026-03-25 04:50;2026-03;alineación de medias 9/21/50;SUBE;60;acierta;acierta;acierta;0;0;11.516
+2026-03-25 06:05;2026-03;alineación de medias 9/21/50;BAJA;60;falla;falla;acierta;0;0;11.516
+2026-03-25 07:30;2026-03;rompimiento de 20 velas;SUBE;60;acierta;acierta;acierta;0;0;11.516
+2026-03-25 08:30;2026-03;REV5;BAJA;10;acierta;acierta;falla;0;0;11.516
+2026-03-25 08:40;2026-03;REV5;SUBE;10;falla;falla;falla;0;0;11.516
+2026-03-25 08:50;2026-03;REV5;SUBE;10;falla;falla;falla;0;0;11.516
+2026-03-25 09:25;2026-03;REV5;SUBE;10;acierta;acierta;acierta;0;0;11.516
+2026-03-25 15:40;2026-03;REV5;SUBE;10;acierta;acierta;acierta;0;0;11.516
+2026-03-26 06:55;2026-03;alineación de medias 9/21/50;SUBE;60;acierta;acierta;acierta;0;0;11.516
+2026-03-26 07:55;2026-03;alineación de medias 9/21/50;SUBE;60;acierta;acierta;acierta;0;0;11.516
+2026-03-26 09:35;2026-03;REV5;BAJA;10;acierta;acierta;falla;0;0;11.516
+2026-03-26 09:55;2026-03;REV5;SUBE;10;acierta;falla;acierta;0;0;11.516
+2026-03-26 10:35;2026-03;REV5;SUBE;10;falla;falla;falla;0;0;11.516
+2026-03-26 11:20;2026-03;REV5;SUBE;10;falla;falla;falla;0;0;11.516
+2026-03-26 11:40;2026-03;REV5;SUBE;10;acierta;acierta;acierta;0;0;11.516
+2026-03-26 12:25;2026-03;REV5;SUBE;10;acierta;acierta;acierta;0;0;11.516
+2026-03-26 15:40;2026-03;REV5;BAJA;10;acierta;acierta;falla;0;0;11.516
+2026-03-26 15:55;2026-03;REV5;SUBE;10;acierta;acierta;acierta;0;0;11.516
+2026-03-27 02:55;2026-03;rompimiento de 20 velas;SUBE;60;falla;falla;falla;0;0;11.516
+2026-03-27 04:00;2026-03;rompimiento de 20 velas;SUBE;60;acierta;acierta;acierta;0;0;11.516
+2026-03-27 05:45;2026-03;rompimiento de 20 velas;SUBE;60;acierta;acierta;acierta;0;0;11.516
+2026-03-27 07:50;2026-03;rompimiento de 20 velas;BAJA;60;acierta;acierta;falla;0;0;11.516
+2026-03-27 08:55;2026-03;REV5;SUBE;10;acierta;acierta;acierta;0;0;11.516
+2026-03-27 09:05;2026-03;REV5;BAJA;10;falla;falla;acierta;0;0;11.516
+2026-03-27 09:15;2026-03;REV5;BAJA;10;falla;acierta;acierta;0;0;11.516
+2026-03-27 09:30;2026-03;REV5;SUBE;10;acierta;acierta;acierta;0;0;11.516
+2026-03-27 09:50;2026-03;REV5;BAJA;10;falla;falla;acierta;0;0;11.516
+2026-03-27 10:00;2026-03;REV5;BAJA;10;falla;falla;acierta;0;0;11.516
+2026-03-27 10:15;2026-03;REV5;BAJA;10;falla;falla;acierta;0;0;11.516
+2026-03-27 10:25;2026-03;REV5;BAJA;10;acierta;acierta;falla;0;0;11.516
+2026-03-27 10:40;2026-03;REV5;SUBE;10;falla;falla;falla;0;0;11.516
+2026-03-27 11:35;2026-03;REV5;SUBE;10;falla;falla;falla;0;0;11.516
+2026-03-27 11:50;2026-03;REV5;BAJA;10;acierta;acierta;falla;0;0;11.516
+2026-03-27 12:20;2026-03;REV5;SUBE;10;falla;falla;falla;0;0;11.516
+2026-03-28 02:35;2026-03;rompimiento de 20 velas;SUBE;60;falla;falla;falla;0;0;11.516
+2026-03-28 04:00;2026-03;alineación de medias 9/21/50;SUBE;60;acierta;acierta;acierta;0;0;11.516
+2026-03-29 02:10;2026-03;rompimiento de 20 velas;SUBE;60;acierta;acierta;acierta;0;0;11.516
+2026-03-29 03:40;2026-03;alineación de medias 9/21/50;BAJA;60;acierta;acierta;falla;0;0;11.516
+2026-03-29 04:40;2026-03;alineación de medias 9/21/50;SUBE;60;acierta;acierta;acierta;0;0;11.516
+2026-03-29 06:55;2026-03;rompimiento de 20 velas;BAJA;60;falla;falla;acierta;0;0;11.516
+2026-03-29 07:55;2026-03;rompimiento de 20 velas;BAJA;60;acierta;acierta;falla;0;0;11.516
+2026-03-29 08:55;2026-03;REV5;SUBE;10;acierta;acierta;acierta;0;0;11.516
+2026-03-29 09:05;2026-03;REV5;BAJA;10;acierta;acierta;falla;0;0;11.516
+2026-03-29 09:20;2026-03;REV5;SUBE;10;falla;falla;falla;0;0;11.516
+2026-03-29 09:30;2026-03;REV5;SUBE;10;falla;falla;falla;0;0;11.516
+2026-03-29 10:05;2026-03;REV5;SUBE;10;acierta;acierta;acierta;0;0;11.516
+2026-03-29 10:15;2026-03;REV5;BAJA;10;falla;falla;acierta;0;0;11.516
+2026-03-29 11:05;2026-03;REV5;BAJA;10;falla;falla;acierta;0;0;11.516
+2026-03-29 15:00;2026-03;REV5;SUBE;10;acierta;acierta;acierta;0;0;11.516
+2026-03-29 15:40;2026-03;REV5;SUBE;10;acierta;acierta;acierta;0;0;11.516
+2026-03-30 03:05;2026-03;alineación de medias 9/21/50;BAJA;60;falla;falla;acierta;0;0;11.516
+2026-03-30 04:45;2026-03;alineación de medias 9/21/50;BAJA;60;acierta;acierta;falla;0;0;11.516
+2026-03-30 06:15;2026-03;alineación de medias 9/21/50;BAJA;60;falla;falla;acierta;0;0;11.516
+2026-03-30 08:35;2026-03;REV5;SUBE;10;falla;falla;falla;0;0;11.516
+2026-03-30 08:45;2026-03;REV5;SUBE;10;falla;falla;falla;0;0;11.516
+2026-03-30 09:00;2026-03;REV5;SUBE;10;acierta;falla;acierta;0;0;11.516
+2026-03-30 09:20;2026-03;REV5;SUBE;10;falla;acierta;falla;0;0;11.516
+2026-03-30 09:50;2026-03;REV5;BAJA;10;falla;falla;acierta;0;0;11.516
+2026-03-30 10:35;2026-03;REV5;BAJA;10;falla;falla;acierta;0;0;11.516
+2026-03-30 11:05;2026-03;REV5;SUBE;10;acierta;acierta;acierta;0;0;11.516
+2026-03-30 12:15;2026-03;REV5;SUBE;10;acierta;acierta;acierta;0;0;11.516
+2026-03-30 12:35;2026-03;REV5;SUBE;10;acierta;acierta;acierta;0;0;11.516
+2026-03-30 13:55;2026-03;REV5;SUBE;10;falla;falla;falla;0;0;11.516
+2026-03-30 15:00;2026-03;REV5;BAJA;10;acierta;acierta;falla;0;0;11.516
+2026-03-31 02:05;2026-03;alineación de medias 9/21/50;SUBE;60;acierta;acierta;acierta;0;0;11.516
+2026-03-31 03:10;2026-03;alineación de medias 9/21/50;BAJA;60;falla;falla;acierta;0;0;11.516
+2026-03-31 04:35;2026-03;rompimiento de 20 velas;SUBE;60;falla;falla;falla;0;0;11.516
+2026-03-31 05:40;2026-03;rompimiento de 20 velas;SUBE;60;acierta;acierta;acierta;0;0;11.516
+2026-03-31 06:40;2026-03;alineación de medias 9/21/50;BAJA;60;acierta;acierta;falla;0;0;11.516
+2026-03-31 08:10;2026-03;REV5;BAJA;10;falla;falla;acierta;0;0;11.516
+2026-03-31 08:30;2026-03;REV5;SUBE;10;acierta;acierta;acierta;0;0;11.516
+2026-03-31 08:55;2026-03;REV5;BAJA;10;falla;falla;acierta;0;0;11.516
+2026-03-31 09:10;2026-03;REV5;SUBE;10;acierta;acierta;acierta;0;0;11.516
+2026-03-31 09:40;2026-03;REV5;SUBE;10;falla;falla;falla;0;0;11.516
+2026-03-31 10:05;2026-03;REV5;BAJA;10;falla;falla;acierta;0;0;11.516
+2026-03-31 10:15;2026-03;REV5;BAJA;10;acierta;acierta;falla;0;0;11.516
+2026-03-31 12:05;2026-03;REV5;BAJA;10;acierta;falla;falla;0;0;11.516
+2026-03-31 12:35;2026-03;REV5;BAJA;10;falla;falla;acierta;0;0;11.516
+2026-03-31 13:10;2026-03;REV5;BAJA;10;falla;falla;acierta;0;0;11.516
+2026-04-01 00:20;2026-04;50 SMA + precio;BAJA;10;falla;falla;acierta;16.000;-16.000;84.000
+2026-04-01 02:00;2026-04;rompimiento de 20 velas;BAJA;60;acierta;acierta;falla;15.900;13.515;97.515
+2026-04-01 04:40;2026-04;50 SMA + precio;BAJA;10;falla;falla;acierta;15.900;-15.900;81.615
+2026-04-01 05:00;2026-04;alineación de medias 9/21/50;BAJA;60;falla;falla;acierta;15.900;-15.900;65.715
+2026-04-01 06:10;2026-04;rompimiento de 20 velas;BAJA;60;falla;falla;acierta;15.900;-15.900;49.815
+2026-04-01 07:45;2026-04;alineación de medias 9/21/50;BAJA;60;acierta;acierta;falla;15.900;13.515;63.330
+2026-04-01 17:20;2026-04;50 SMA + precio;BAJA;10;falla;falla;acierta;15.900;-15.900;47.430
+2026-04-02 04:00;2026-04;alineación de medias 9/21/50;SUBE;60;acierta;acierta;acierta;15.900;13.515;60.945
+2026-04-02 05:50;2026-04;50 SMA + precio;BAJA;10;acierta;acierta;falla;15.900;13.515;74.460
+2026-04-02 06:05;2026-04;50 SMA + precio;BAJA;10;falla;falla;acierta;15.900;-15.900;58.560
+2026-04-02 06:30;2026-04;alineación de medias 9/21/50;SUBE;60;acierta;acierta;acierta;15.900;13.515;72.075
+2026-04-02 13:45;2026-04;50 SMA + precio;BAJA;10;falla;falla;acierta;15.900;-15.900;56.175
+2026-04-02 20:10;2026-04;50 SMA + precio;BAJA;10;falla;falla;acierta;15.900;-15.900;40.275
+2026-04-02 21:05;2026-04;50 SMA + precio;BAJA;10;falla;falla;acierta;15.900;-15.900;24.375
+2026-04-02 22:35;2026-04;50 SMA + precio;BAJA;10;falla;falla;acierta;15.900;-15.900;8.475
+2026-04-02 23:50;2026-04;50 SMA + precio;BAJA;10;acierta;acierta;falla;0;0;8.475
+2026-04-03 00:10;2026-04;50 SMA + precio;BAJA;10;acierta;acierta;falla;0;0;8.475
+2026-04-03 00:30;2026-04;50 SMA + precio;BAJA;10;falla;falla;acierta;0;0;8.475
+2026-04-03 02:15;2026-04;rompimiento de 20 velas;SUBE;60;acierta;acierta;acierta;0;0;8.475
+2026-04-03 04:05;2026-04;50 SMA + precio;BAJA;10;acierta;acierta;falla;0;0;8.475
+2026-04-03 04:50;2026-04;alineación de medias 9/21/50;SUBE;60;acierta;acierta;acierta;0;0;8.475
+2026-04-03 05:50;2026-04;alineación de medias 9/21/50;BAJA;60;acierta;acierta;falla;0;0;8.475
+2026-04-03 07:30;2026-04;50 SMA + precio;BAJA;10;acierta;acierta;falla;0;0;8.475
+2026-04-03 08:50;2026-04;50 SMA + precio;BAJA;10;acierta;acierta;falla;0;0;8.475
+2026-04-03 09:15;2026-04;50 SMA + precio;BAJA;10;falla;falla;acierta;0;0;8.475
+2026-04-03 10:00;2026-04;50 SMA + precio;BAJA;10;falla;acierta;acierta;0;0;8.475
+2026-04-03 10:30;2026-04;50 SMA + precio;BAJA;10;falla;falla;acierta;0;0;8.475
+2026-04-03 13:20;2026-04;50 SMA + precio;BAJA;10;acierta;acierta;falla;0;0;8.475
+2026-04-03 13:35;2026-04;50 SMA + precio;BAJA;10;acierta;acierta;falla;0;0;8.475
+2026-04-03 13:55;2026-04;50 SMA + precio;BAJA;10;falla;falla;acierta;0;0;8.475
+2026-04-03 14:05;2026-04;50 SMA + precio;BAJA;10;acierta;acierta;falla;0;0;8.475
+2026-04-03 14:20;2026-04;50 SMA + precio;BAJA;10;falla;falla;acierta;0;0;8.475
+2026-04-04 01:20;2026-04;50 SMA + precio;BAJA;10;acierta;acierta;falla;0;0;8.475
+2026-04-04 02:00;2026-04;alineación de medias 9/21/50;SUBE;60;falla;falla;falla;0;0;8.475
+2026-04-04 04:40;2026-04;50 SMA + precio;BAJA;10;falla;falla;acierta;0;0;8.475
+2026-04-04 05:10;2026-04;50 SMA + precio;BAJA;10;acierta;acierta;falla;0;0;8.475
+2026-04-04 05:20;2026-04;alineación de medias 9/21/50;BAJA;60;falla;falla;acierta;0;0;8.475
+2026-04-04 06:50;2026-04;rompimiento de 20 velas;SUBE;60;acierta;acierta;acierta;0;0;8.475
+2026-04-04 09:05;2026-04;50 SMA + precio;BAJA;10;acierta;acierta;falla;0;0;8.475
+2026-04-04 10:10;2026-04;50 SMA + precio;BAJA;10;acierta;acierta;falla;0;0;8.475
+2026-04-04 10:20;2026-04;50 SMA + precio;BAJA;10;acierta;acierta;falla;0;0;8.475
+2026-04-04 10:35;2026-04;50 SMA + precio;BAJA;10;falla;falla;acierta;0;0;8.475
+2026-04-04 11:20;2026-04;50 SMA + precio;BAJA;10;acierta;acierta;falla;0;0;8.475
+2026-04-04 12:15;2026-04;50 SMA + precio;BAJA;10;acierta;acierta;falla;0;0;8.475
+2026-04-04 13:15;2026-04;50 SMA + precio;BAJA;10;falla;falla;acierta;0;0;8.475
+2026-04-04 14:10;2026-04;50 SMA + precio;BAJA;10;falla;falla;acierta;0;0;8.475
+2026-04-04 15:20;2026-04;50 SMA + precio;BAJA;10;falla;falla;acierta;0;0;8.475
+2026-04-04 16:15;2026-04;50 SMA + precio;BAJA;10;empate;acierta;empate;0;0;8.475
+2026-04-05 02:10;2026-04;50 SMA + precio;BAJA;10;empate;empate;empate;0;0;8.475
+2026-04-05 02:30;2026-04;50 SMA + precio;BAJA;10;falla;falla;acierta;0;0;8.475
+2026-04-05 02:50;2026-04;50 SMA + precio;BAJA;10;acierta;acierta;falla;0;0;8.475
+2026-04-05 03:10;2026-04;alineación de medias 9/21/50;SUBE;60;falla;falla;falla;0;0;8.475
+2026-04-05 05:05;2026-04;rompimiento de 20 velas;SUBE;60;falla;falla;falla;0;0;8.475
+2026-04-06 02:50;2026-04;alineación de medias 9/21/50;BAJA;60;falla;falla;acierta;0;0;8.475
+2026-04-06 07:20;2026-04;alineación de medias 9/21/50;SUBE;60;falla;falla;falla;0;0;8.475
+2026-04-06 17:05;2026-04;50 SMA + precio;BAJA;10;falla;acierta;acierta;0;0;8.475
+2026-04-06 18:55;2026-04;50 SMA + precio;BAJA;10;acierta;acierta;falla;0;0;8.475
+2026-04-06 19:15;2026-04;50 SMA + precio;BAJA;10;falla;acierta;acierta;0;0;8.475
+2026-04-06 20:05;2026-04;50 SMA + precio;BAJA;10;acierta;acierta;falla;0;0;8.475
+2026-04-06 23:20;2026-04;50 SMA + precio;BAJA;10;falla;falla;acierta;0;0;8.475
+2026-04-07 02:10;2026-04;alineación de medias 9/21/50;BAJA;60;acierta;acierta;falla;0;0;8.475
+2026-04-07 03:10;2026-04;alineación de medias 9/21/50;BAJA;60;falla;falla;acierta;0;0;8.475
+2026-04-07 06:15;2026-04;alineación de medias 9/21/50;SUBE;60;acierta;acierta;acierta;0;0;8.475
+2026-04-07 07:50;2026-04;alineación de medias 9/21/50;SUBE;60;falla;acierta;falla;0;0;8.475
+2026-04-07 14:05;2026-04;50 SMA + precio;BAJA;10;falla;falla;acierta;0;0;8.475
+2026-04-07 14:15;2026-04;50 SMA + precio;BAJA;10;falla;falla;acierta;0;0;8.475
+2026-04-08 00:05;2026-04;50 SMA + precio;BAJA;10;falla;falla;acierta;0;0;8.475
+2026-04-08 02:25;2026-04;50 SMA + precio;BAJA;10;acierta;acierta;falla;0;0;8.475
+2026-04-08 02:55;2026-04;50 SMA + precio;BAJA;10;acierta;falla;falla;0;0;8.475
+2026-04-08 03:05;2026-04;50 SMA + precio;BAJA;10;acierta;acierta;falla;0;0;8.475
+2026-04-08 03:20;2026-04;50 SMA + precio;BAJA;10;acierta;acierta;falla;0;0;8.475
+2026-04-08 03:40;2026-04;alineación de medias 9/21/50;SUBE;60;falla;falla;falla;0;0;8.475
+2026-04-08 04:45;2026-04;rompimiento de 20 velas;SUBE;60;acierta;acierta;acierta;0;0;8.475
+2026-04-08 06:50;2026-04;50 SMA + precio;BAJA;10;falla;falla;acierta;0;0;8.475
+2026-04-08 07:05;2026-04;rompimiento de 20 velas;BAJA;60;acierta;acierta;falla;0;0;8.475
+2026-04-08 16:40;2026-04;50 SMA + precio;BAJA;10;falla;acierta;acierta;0;0;8.475
+2026-04-08 19:45;2026-04;50 SMA + precio;BAJA;10;acierta;acierta;falla;0;0;8.475
+2026-04-08 20:10;2026-04;50 SMA + precio;BAJA;10;falla;acierta;acierta;0;0;8.475
+2026-04-08 20:35;2026-04;50 SMA + precio;BAJA;10;acierta;falla;falla;0;0;8.475
+2026-04-08 23:10;2026-04;50 SMA + precio;BAJA;10;falla;acierta;acierta;0;0;8.475
+2026-04-08 23:40;2026-04;50 SMA + precio;BAJA;10;falla;falla;acierta;0;0;8.475
+2026-04-09 00:20;2026-04;50 SMA + precio;BAJA;10;falla;falla;acierta;0;0;8.475
+2026-04-09 01:05;2026-04;50 SMA + precio;BAJA;10;acierta;acierta;falla;0;0;8.475
+2026-04-09 01:30;2026-04;50 SMA + precio;BAJA;10;acierta;acierta;falla;0;0;8.475
+2026-04-09 02:10;2026-04;50 SMA + precio;BAJA;10;acierta;acierta;falla;0;0;8.475
+2026-04-09 02:25;2026-04;alineación de medias 9/21/50;SUBE;60;acierta;acierta;acierta;0;0;8.475
+2026-04-09 05:25;2026-04;rompimiento de 20 velas;BAJA;60;falla;falla;acierta;0;0;8.475
+2026-04-09 06:40;2026-04;rompimiento de 20 velas;BAJA;60;acierta;acierta;falla;0;0;8.475
+2026-04-09 07:45;2026-04;alineación de medias 9/21/50;BAJA;60;falla;falla;acierta;0;0;8.475
+2026-04-09 13:20;2026-04;50 SMA + precio;BAJA;10;acierta;acierta;falla;0;0;8.475
+2026-04-09 20:00;2026-04;50 SMA + precio;BAJA;10;acierta;acierta;falla;0;0;8.475
+2026-04-09 20:20;2026-04;50 SMA + precio;BAJA;10;acierta;falla;falla;0;0;8.475
+2026-04-09 20:30;2026-04;50 SMA + precio;BAJA;10;falla;falla;acierta;0;0;8.475
+2026-04-09 22:15;2026-04;50 SMA + precio;BAJA;10;acierta;acierta;falla;0;0;8.475
+2026-04-09 22:35;2026-04;50 SMA + precio;BAJA;10;falla;falla;acierta;0;0;8.475
+2026-04-10 00:05;2026-04;50 SMA + precio;BAJA;10;acierta;acierta;falla;0;0;8.475
+2026-04-10 03:50;2026-04;rompimiento de 20 velas;SUBE;60;acierta;acierta;acierta;0;0;8.475
+2026-04-10 04:55;2026-04;50 SMA + precio;BAJA;10;acierta;acierta;falla;0;0;8.475
+2026-04-10 05:15;2026-04;alineación de medias 9/21/50;SUBE;60;acierta;acierta;acierta;0;0;8.475
+2026-04-10 06:25;2026-04;rompimiento de 20 velas;BAJA;60;acierta;falla;falla;0;0;8.475
+2026-04-10 07:35;2026-04;rompimiento de 20 velas;BAJA;60;acierta;acierta;falla;0;0;8.475
+2026-04-10 13:35;2026-04;50 SMA + precio;BAJA;10;acierta;acierta;falla;0;0;8.475
+2026-04-10 13:55;2026-04;50 SMA + precio;BAJA;10;acierta;falla;falla;0;0;8.475
+2026-04-10 14:45;2026-04;50 SMA + precio;BAJA;10;acierta;acierta;falla;0;0;8.475
+2026-04-10 20:55;2026-04;50 SMA + precio;BAJA;10;falla;falla;acierta;0;0;8.475
+2026-04-10 21:50;2026-04;50 SMA + precio;BAJA;10;falla;falla;acierta;0;0;8.475
+2026-04-10 23:55;2026-04;50 SMA + precio;BAJA;10;acierta;acierta;falla;0;0;8.475
+2026-04-11 00:55;2026-04;50 SMA + precio;BAJA;10;acierta;falla;falla;0;0;8.475
+2026-04-11 02:35;2026-04;50 SMA + precio;BAJA;10;acierta;acierta;falla;0;0;8.475
+2026-04-11 02:55;2026-04;50 SMA + precio;BAJA;10;falla;falla;acierta;0;0;8.475
+2026-04-11 03:15;2026-04;rompimiento de 20 velas;BAJA;60;falla;falla;acierta;0;0;8.475
+2026-04-11 04:35;2026-04;rompimiento de 20 velas;BAJA;60;acierta;acierta;falla;0;0;8.475
+2026-04-11 05:50;2026-04;rompimiento de 20 velas;SUBE;60;falla;falla;falla;0;0;8.475
+2026-04-11 07:00;2026-04;rompimiento de 20 velas;SUBE;60;falla;falla;falla;0;0;8.475
+2026-04-11 09:20;2026-04;50 SMA + precio;BAJA;10;falla;falla;acierta;0;0;8.475
+2026-04-11 13:40;2026-04;50 SMA + precio;BAJA;10;falla;falla;acierta;0;0;8.475
+2026-04-11 19:05;2026-04;50 SMA + precio;BAJA;10;falla;falla;acierta;0;0;8.475
+2026-04-11 23:00;2026-04;50 SMA + precio;BAJA;10;acierta;acierta;falla;0;0;8.475
+2026-04-11 23:10;2026-04;50 SMA + precio;BAJA;10;acierta;acierta;falla;0;0;8.475
+2026-04-12 00:25;2026-04;50 SMA + precio;BAJA;10;acierta;acierta;falla;0;0;8.475
+2026-04-12 02:05;2026-04;rompimiento de 20 velas;SUBE;60;acierta;acierta;acierta;0;0;8.475
+2026-04-12 03:20;2026-04;alineación de medias 9/21/50;SUBE;60;acierta;acierta;acierta;0;0;8.475
+2026-04-12 04:45;2026-04;50 SMA + precio;BAJA;10;acierta;acierta;falla;0;0;8.475
+2026-04-12 05:00;2026-04;alineación de medias 9/21/50;SUBE;60;falla;falla;falla;0;0;8.475
+2026-04-12 07:05;2026-04;alineación de medias 9/21/50;SUBE;60;falla;falla;falla;0;0;8.475
+2026-04-13 04:30;2026-04;alineación de medias 9/21/50;SUBE;60;falla;falla;falla;0;0;8.475
+2026-04-13 06:40;2026-04;alineación de medias 9/21/50;SUBE;60;falla;acierta;falla;0;0;8.475
+2026-04-13 23:05;2026-04;50 SMA + precio;BAJA;10;falla;falla;acierta;0;0;8.475
+2026-04-13 23:20;2026-04;50 SMA + precio;BAJA;10;falla;falla;acierta;0;0;8.475
+2026-04-14 01:10;2026-04;50 SMA + precio;BAJA;10;acierta;acierta;falla;0;0;8.475
+2026-04-14 01:30;2026-04;50 SMA + precio;BAJA;10;acierta;falla;falla;0;0;8.475
+2026-04-14 01:45;2026-04;50 SMA + precio;BAJA;10;falla;falla;acierta;0;0;8.475
+2026-04-14 04:40;2026-04;50 SMA + precio;BAJA;10;acierta;acierta;falla;0;0;8.475
+2026-04-14 04:55;2026-04;50 SMA + precio;BAJA;10;falla;falla;acierta;0;0;8.475
+2026-04-14 05:20;2026-04;alineación de medias 9/21/50;BAJA;60;acierta;acierta;falla;0;0;8.475
+2026-04-14 16:25;2026-04;50 SMA + precio;BAJA;10;acierta;acierta;falla;0;0;8.475
+2026-04-14 17:05;2026-04;50 SMA + precio;BAJA;10;acierta;acierta;falla;0;0;8.475
+2026-04-14 17:25;2026-04;50 SMA + precio;BAJA;10;acierta;acierta;falla;0;0;8.475
+2026-04-14 19:05;2026-04;50 SMA + precio;BAJA;10;acierta;acierta;falla;0;0;8.475
+2026-04-14 20:10;2026-04;50 SMA + precio;BAJA;10;falla;falla;acierta;0;0;8.475
+2026-04-15 04:00;2026-04;50 SMA + precio;BAJA;10;acierta;acierta;falla;0;0;8.475
+2026-04-15 04:10;2026-04;alineación de medias 9/21/50;SUBE;60;falla;falla;falla;0;0;8.475
+2026-04-15 06:25;2026-04;50 SMA + precio;BAJA;10;acierta;acierta;falla;0;0;8.475
+2026-04-15 06:40;2026-04;50 SMA + precio;BAJA;10;falla;falla;acierta;0;0;8.475
+2026-04-15 06:50;2026-04;rompimiento de 20 velas;BAJA;60;falla;falla;acierta;0;0;8.475
+2026-04-15 14:05;2026-04;50 SMA + precio;BAJA;10;acierta;acierta;falla;0;0;8.475
+2026-04-15 14:20;2026-04;50 SMA + precio;BAJA;10;falla;falla;acierta;0;0;8.475
+2026-04-15 16:55;2026-04;50 SMA + precio;BAJA;10;falla;falla;acierta;0;0;8.475
+2026-04-15 17:05;2026-04;50 SMA + precio;BAJA;10;acierta;acierta;falla;0;0;8.475
+2026-04-15 17:20;2026-04;50 SMA + precio;BAJA;10;falla;falla;acierta;0;0;8.475
+2026-04-15 20:45;2026-04;50 SMA + precio;BAJA;10;falla;acierta;acierta;0;0;8.475
+2026-04-15 22:05;2026-04;50 SMA + precio;BAJA;10;falla;falla;acierta;0;0;8.475
+2026-04-15 22:50;2026-04;50 SMA + precio;BAJA;10;acierta;falla;falla;0;0;8.475
+2026-04-16 01:50;2026-04;50 SMA + precio;BAJA;10;acierta;acierta;falla;0;0;8.475
+2026-04-16 02:05;2026-04;alineación de medias 9/21/50;BAJA;60;acierta;acierta;falla;0;0;8.475
+2026-04-16 03:05;2026-04;alineación de medias 9/21/50;SUBE;60;acierta;acierta;acierta;0;0;8.475
+2026-04-16 06:00;2026-04;50 SMA + precio;BAJA;10;falla;falla;acierta;0;0;8.475
+2026-04-16 07:00;2026-04;alineación de medias 9/21/50;BAJA;60;acierta;acierta;falla;0;0;8.475
+2026-04-16 14:40;2026-04;50 SMA + precio;BAJA;10;falla;acierta;acierta;0;0;8.475
+2026-04-16 15:20;2026-04;50 SMA + precio;BAJA;10;acierta;acierta;falla;0;0;8.475
+2026-04-16 15:50;2026-04;50 SMA + precio;BAJA;10;acierta;falla;falla;0;0;8.475
+2026-04-16 16:00;2026-04;50 SMA + precio;BAJA;10;falla;falla;acierta;0;0;8.475
+2026-04-16 17:05;2026-04;50 SMA + precio;BAJA;10;falla;falla;acierta;0;0;8.475
+2026-04-16 19:30;2026-04;50 SMA + precio;BAJA;10;falla;acierta;acierta;0;0;8.475
+2026-04-17 04:10;2026-04;alineación de medias 9/21/50;BAJA;60;acierta;acierta;falla;0;0;8.475
+2026-04-17 05:35;2026-04;rompimiento de 20 velas;SUBE;60;acierta;acierta;acierta;0;0;8.475
+2026-04-17 06:45;2026-04;alineación de medias 9/21/50;BAJA;60;falla;falla;acierta;0;0;8.475
+2026-04-17 19:30;2026-04;50 SMA + precio;BAJA;10;acierta;acierta;falla;0;0;8.475
+2026-04-18 01:15;2026-04;50 SMA + precio;BAJA;10;falla;empate;acierta;0;0;8.475
+2026-04-18 02:55;2026-04;alineación de medias 9/21/50;SUBE;60;falla;falla;falla;0;0;8.475
+2026-04-18 05:10;2026-04;rompimiento de 20 velas;SUBE;60;acierta;falla;acierta;0;0;8.475
+2026-04-18 07:15;2026-04;rompimiento de 20 velas;SUBE;60;acierta;acierta;acierta;0;0;8.475
+2026-04-18 09:10;2026-04;50 SMA + precio;BAJA;10;falla;acierta;acierta;0;0;8.475
+2026-04-18 09:20;2026-04;50 SMA + precio;BAJA;10;falla;falla;acierta;0;0;8.475
+2026-04-18 12:25;2026-04;50 SMA + precio;BAJA;10;falla;falla;acierta;0;0;8.475
+2026-04-18 13:05;2026-04;50 SMA + precio;BAJA;10;acierta;empate;falla;0;0;8.475
+2026-04-18 14:20;2026-04;50 SMA + precio;BAJA;10;acierta;acierta;falla;0;0;8.475
+2026-04-18 14:55;2026-04;50 SMA + precio;BAJA;10;falla;falla;acierta;0;0;8.475
+2026-04-18 16:45;2026-04;50 SMA + precio;BAJA;10;falla;acierta;acierta;0;0;8.475
+2026-04-18 17:20;2026-04;50 SMA + precio;BAJA;10;acierta;acierta;falla;0;0;8.475
+2026-04-18 17:40;2026-04;50 SMA + precio;BAJA;10;falla;falla;acierta;0;0;8.475
+2026-04-18 20:10;2026-04;50 SMA + precio;BAJA;10;acierta;falla;falla;0;0;8.475
+2026-04-18 21:10;2026-04;50 SMA + precio;BAJA;10;falla;falla;acierta;0;0;8.475
+2026-04-18 21:40;2026-04;50 SMA + precio;BAJA;10;falla;acierta;acierta;0;0;8.475
+2026-04-19 00:25;2026-04;50 SMA + precio;BAJA;10;falla;falla;acierta;0;0;8.475
+2026-04-19 01:40;2026-04;50 SMA + precio;BAJA;10;acierta;acierta;falla;0;0;8.475
+2026-04-19 02:20;2026-04;rompimiento de 20 velas;SUBE;60;falla;falla;falla;0;0;8.475
+2026-04-19 03:20;2026-04;rompimiento de 20 velas;SUBE;60;acierta;acierta;acierta;0;0;8.475
+2026-04-19 04:30;2026-04;alineación de medias 9/21/50;SUBE;60;acierta;acierta;acierta;0;0;8.475
+2026-04-19 05:45;2026-04;rompimiento de 20 velas;BAJA;60;falla;falla;acierta;0;0;8.475
+2026-04-19 06:45;2026-04;rompimiento de 20 velas;BAJA;60;acierta;acierta;falla;0;0;8.475
+2026-04-19 07:50;2026-04;alineación de medias 9/21/50;SUBE;60;acierta;acierta;acierta;0;0;8.475
+2026-04-20 02:10;2026-04;alineación de medias 9/21/50;BAJA;60;acierta;acierta;falla;0;0;8.475
+2026-04-20 03:55;2026-04;alineación de medias 9/21/50;BAJA;60;acierta;acierta;falla;0;0;8.475
+2026-04-20 05:10;2026-04;alineación de medias 9/21/50;BAJA;60;acierta;acierta;falla;0;0;8.475
+2026-04-20 06:30;2026-04;alineación de medias 9/21/50;SUBE;60;acierta;acierta;acierta;0;0;8.475
+2026-04-20 19:30;2026-04;50 SMA + precio;SUBE;10;falla;acierta;falla;0;0;8.475
+2026-04-20 20:00;2026-04;50 SMA + precio;SUBE;10;falla;falla;falla;0;0;8.475
+2026-04-21 03:15;2026-04;alineación de medias 9/21/50;SUBE;60;acierta;acierta;acierta;0;0;8.475
+2026-04-21 04:15;2026-04;50 SMA + precio;SUBE;10;acierta;falla;acierta;0;0;8.475
+2026-04-21 04:30;2026-04;50 SMA + precio;SUBE;10;acierta;acierta;acierta;0;0;8.475
+2026-04-21 05:00;2026-04;50 SMA + precio;SUBE;10;acierta;acierta;acierta;0;0;8.475
+2026-04-21 05:15;2026-04;50 SMA + precio;SUBE;10;falla;falla;falla;0;0;8.475
+2026-04-21 05:55;2026-04;rompimiento de 20 velas;BAJA;60;falla;falla;acierta;0;0;8.475
+2026-04-21 07:20;2026-04;50 SMA + precio;SUBE;10;falla;falla;falla;0;0;8.475
+2026-04-21 07:45;2026-04;alineación de medias 9/21/50;SUBE;60;acierta;acierta;acierta;0;0;8.475
+2026-04-22 00:10;2026-04;50 SMA + precio;BAJA;10;falla;falla;acierta;0;0;8.475
+2026-04-22 03:05;2026-04;rompimiento de 20 velas;SUBE;60;acierta;falla;acierta;0;0;8.475
+2026-04-22 05:05;2026-04;rompimiento de 20 velas;SUBE;60;acierta;acierta;acierta;0;0;8.475
+2026-04-22 06:20;2026-04;50 SMA + precio;BAJA;10;acierta;acierta;falla;0;0;8.475
+2026-04-22 06:45;2026-04;alineación de medias 9/21/50;SUBE;60;falla;falla;falla;0;0;8.475
+2026-04-22 07:45;2026-04;rompimiento de 20 velas;SUBE;60;acierta;acierta;acierta;0;0;8.475
+2026-04-22 12:35;2026-04;50 SMA + precio;BAJA;10;acierta;acierta;falla;0;0;8.475
+2026-04-22 12:45;2026-04;50 SMA + precio;BAJA;10;falla;falla;acierta;0;0;8.475
+2026-04-22 13:35;2026-04;50 SMA + precio;BAJA;10;falla;falla;acierta;0;0;8.475
+2026-04-23 00:50;2026-04;50 SMA + precio;BAJA;10;falla;falla;acierta;0;0;8.475
+2026-04-23 02:30;2026-04;alineación de medias 9/21/50;SUBE;60;acierta;acierta;acierta;0;0;8.475
+2026-04-23 03:50;2026-04;alineación de medias 9/21/50;SUBE;60;falla;falla;falla;0;0;8.475
+2026-04-23 07:05;2026-04;alineación de medias 9/21/50;BAJA;60;falla;acierta;acierta;0;0;8.475
+2026-04-23 16:40;2026-04;50 SMA + precio;BAJA;10;falla;falla;acierta;0;0;8.475
+2026-04-23 18:35;2026-04;50 SMA + precio;BAJA;10;acierta;acierta;falla;0;0;8.475
+2026-04-23 19:10;2026-04;50 SMA + precio;BAJA;10;falla;falla;acierta;0;0;8.475
+2026-04-24 00:35;2026-04;50 SMA + precio;BAJA;10;acierta;falla;falla;0;0;8.475
+2026-04-24 01:40;2026-04;50 SMA + precio;BAJA;10;acierta;acierta;falla;0;0;8.475
+2026-04-24 01:55;2026-04;50 SMA + precio;BAJA;10;acierta;falla;falla;0;0;8.475
+2026-04-24 02:05;2026-04;50 SMA + precio;BAJA;10;falla;falla;acierta;0;0;8.475
+2026-04-24 02:45;2026-04;alineación de medias 9/21/50;BAJA;60;falla;falla;acierta;0;0;8.475
+2026-04-24 04:30;2026-04;rompimiento de 20 velas;SUBE;60;falla;falla;falla;0;0;8.475
+2026-04-24 05:35;2026-04;alineación de medias 9/21/50;SUBE;60;acierta;acierta;acierta;0;0;8.475
+2026-04-24 12:55;2026-04;50 SMA + precio;BAJA;10;acierta;acierta;falla;0;0;8.475
+2026-04-24 14:00;2026-04;50 SMA + precio;BAJA;10;falla;acierta;acierta;0;0;8.475
+2026-04-24 20:20;2026-04;50 SMA + precio;BAJA;10;falla;falla;acierta;0;0;8.475
+2026-04-25 02:10;2026-04;50 SMA + precio;BAJA;10;empate;empate;empate;0;0;8.475
+2026-04-25 02:25;2026-04;rompimiento de 20 velas;BAJA;60;falla;falla;acierta;0;0;8.475
+2026-04-25 03:40;2026-04;rompimiento de 20 velas;BAJA;60;empate;empate;empate;0;0;8.475
+2026-04-25 06:45;2026-04;rompimiento de 20 velas;SUBE;60;falla;falla;falla;0;0;8.475
+2026-04-25 08:20;2026-04;50 SMA + precio;BAJA;10;falla;falla;acierta;0;0;8.475
+2026-04-25 10:45;2026-04;50 SMA + precio;BAJA;10;acierta;acierta;falla;0;0;8.475
+2026-04-25 14:40;2026-04;50 SMA + precio;BAJA;10;falla;falla;acierta;0;0;8.475
+2026-04-25 20:25;2026-04;50 SMA + precio;BAJA;10;falla;falla;acierta;0;0;8.475
+2026-04-25 23:10;2026-04;50 SMA + precio;BAJA;10;acierta;acierta;falla;0;0;8.475
+2026-04-26 02:15;2026-04;rompimiento de 20 velas;SUBE;60;acierta;acierta;acierta;0;0;8.475
+2026-04-26 03:15;2026-04;alineación de medias 9/21/50;BAJA;60;falla;falla;acierta;0;0;8.475
+2026-04-26 04:45;2026-04;50 SMA + precio;BAJA;10;empate;empate;empate;0;0;8.475
+2026-04-26 05:20;2026-04;alineación de medias 9/21/50;SUBE;60;acierta;acierta;acierta;0;0;8.475
+2026-04-26 06:30;2026-04;rompimiento de 20 velas;BAJA;60;acierta;acierta;falla;0;0;8.475
+2026-04-26 08:55;2026-04;50 SMA + precio;BAJA;10;falla;falla;acierta;0;0;8.475
+2026-04-27 02:15;2026-04;alineación de medias 9/21/50;BAJA;60;acierta;acierta;falla;0;0;8.475
+2026-04-27 03:15;2026-04;alineación de medias 9/21/50;SUBE;60;falla;falla;falla;0;0;8.475
+2026-04-27 06:15;2026-04;alineación de medias 9/21/50;SUBE;60;acierta;acierta;acierta;0;0;8.475
+2026-04-27 07:40;2026-04;alineación de medias 9/21/50;SUBE;60;falla;falla;falla;0;0;8.475
+2026-04-27 14:45;2026-04;50 SMA + precio;BAJA;10;falla;acierta;acierta;0;0;8.475
+2026-04-27 15:15;2026-04;50 SMA + precio;BAJA;10;falla;acierta;acierta;0;0;8.475
+2026-04-27 15:50;2026-04;50 SMA + precio;BAJA;10;falla;falla;acierta;0;0;8.475
+2026-04-27 16:00;2026-04;50 SMA + precio;BAJA;10;falla;acierta;acierta;0;0;8.475
+2026-04-28 15:35;2026-04;50 SMA + precio;BAJA;10;falla;falla;acierta;0;0;8.475
+2026-04-28 15:55;2026-04;50 SMA + precio;BAJA;10;acierta;acierta;falla;0;0;8.475
+2026-04-28 16:50;2026-04;50 SMA + precio;BAJA;10;falla;falla;acierta;0;0;8.475
+2026-04-28 17:15;2026-04;50 SMA + precio;BAJA;10;acierta;acierta;falla;0;0;8.475
+2026-04-28 17:35;2026-04;50 SMA + precio;BAJA;10;acierta;acierta;falla;0;0;8.475
+2026-04-28 19:05;2026-04;50 SMA + precio;BAJA;10;falla;falla;acierta;0;0;8.475
+2026-04-28 22:55;2026-04;50 SMA + precio;BAJA;10;falla;falla;acierta;0;0;8.475
+2026-04-29 00:45;2026-04;50 SMA + precio;BAJA;10;acierta;acierta;falla;0;0;8.475
+2026-04-29 02:10;2026-04;rompimiento de 20 velas;SUBE;60;falla;falla;falla;0;0;8.475
+2026-04-29 03:10;2026-04;rompimiento de 20 velas;SUBE;60;acierta;acierta;acierta;0;0;8.475
+2026-04-29 04:30;2026-04;alineación de medias 9/21/50;SUBE;60;acierta;acierta;acierta;0;0;8.475
+2026-04-29 05:50;2026-04;alineación de medias 9/21/50;SUBE;60;falla;falla;falla;0;0;8.475
+2026-04-29 06:55;2026-04;rompimiento de 20 velas;SUBE;60;falla;falla;falla;0;0;8.475
+2026-04-29 17:10;2026-04;50 SMA + precio;BAJA;10;falla;falla;acierta;0;0;8.475
+2026-04-29 22:00;2026-04;50 SMA + precio;BAJA;10;falla;falla;acierta;0;0;8.475
+2026-04-30 00:35;2026-04;50 SMA + precio;BAJA;10;falla;falla;acierta;0;0;8.475
+2026-04-30 05:25;2026-04;rompimiento de 20 velas;BAJA;60;falla;falla;acierta;0;0;8.475
+2026-04-30 12:25;2026-04;50 SMA + precio;BAJA;10;acierta;acierta;falla;0;0;8.475
+2026-04-30 12:45;2026-04;50 SMA + precio;BAJA;10;acierta;acierta;falla;0;0;8.475
+2026-04-30 13:00;2026-04;50 SMA + precio;BAJA;10;falla;acierta;acierta;0;0;8.475
+2026-04-30 14:40;2026-04;50 SMA + precio;BAJA;10;falla;acierta;acierta;0;0;8.475
+2026-04-30 15:20;2026-04;50 SMA + precio;BAJA;10;acierta;acierta;falla;0;0;8.475
+2026-04-30 15:55;2026-04;50 SMA + precio;BAJA;10;acierta;acierta;falla;0;0;8.475
+2026-04-30 17:00;2026-04;50 SMA + precio;BAJA;10;falla;falla;acierta;0;0;8.475
+2026-04-30 19:20;2026-04;50 SMA + precio;BAJA;10;acierta;acierta;falla;0;0;8.475
+2026-04-30 21:15;2026-04;50 SMA + precio;BAJA;10;acierta;acierta;falla;0;0;8.475
+2026-04-30 22:30;2026-04;50 SMA + precio;BAJA;10;falla;falla;acierta;0;0;8.475
+2026-04-30 23:20;2026-04;50 SMA + precio;BAJA;10;acierta;acierta;falla;0;0;8.475
+2026-05-01 07:25;2026-05;alineación de medias 9/21/50;BAJA;60;acierta;acierta;falla;16.000;13.600;113.600
+2026-05-01 09:05;2026-05;techo y piso de 24 h;BAJA;10;falla;falla;acierta;18.176;-18.176;95.424
+2026-05-02 02:50;2026-05;alineación de medias 9/21/50;SUBE;60;acierta;acierta;acierta;15.900;13.515;108.939
+2026-05-02 04:50;2026-05;alineación de medias 9/21/50;BAJA;60;empate;falla;empate;17.430;-17.430;91.509
+2026-05-03 03:05;2026-05;alineación de medias 9/21/50;BAJA;60;falla;falla;acierta;15.900;-15.900;75.609
+2026-05-03 04:55;2026-05;alineación de medias 9/21/50;BAJA;60;falla;falla;acierta;15.900;-15.900;59.709
+2026-05-03 07:15;2026-05;REV15;BAJA;10;empate;falla;empate;15.900;-15.900;43.809
+2026-05-03 07:30;2026-05;REV15;BAJA;10;acierta;falla;falla;15.900;13.515;57.324
+2026-05-03 09:05;2026-05;techo y piso de 24 h;BAJA;10;falla;falla;acierta;15.900;-15.900;41.424
+2026-05-03 10:05;2026-05;techo y piso de 24 h;BAJA;10;falla;falla;acierta;15.900;-15.900;25.524
+2026-05-03 11:05;2026-05;techo y piso de 24 h;BAJA;10;acierta;acierta;falla;15.900;13.515;39.039
+2026-05-03 15:15;2026-05;techo y piso de 24 h;BAJA;10;falla;falla;acierta;15.900;-15.900;23.139
+2026-05-03 15:25;2026-05;techo y piso de 24 h;BAJA;10;acierta;falla;falla;15.900;13.515;36.654
+2026-05-03 15:40;2026-05;techo y piso de 24 h;BAJA;10;falla;falla;acierta;15.900;-15.900;20.754
+2026-05-04 02:30;2026-05;REV15;SUBE;10;falla;acierta;falla;15.900;-15.900;4.854
+2026-05-04 03:00;2026-05;REV15;SUBE;10;falla;acierta;falla;0;0;4.854
+2026-05-04 04:15;2026-05;REV15;BAJA;10;acierta;acierta;falla;0;0;4.854
+2026-05-04 05:15;2026-05;REV15;SUBE;10;falla;falla;falla;0;0;4.854
+2026-05-04 05:45;2026-05;REV15;BAJA;10;falla;falla;acierta;0;0;4.854
+2026-05-04 06:45;2026-05;REV15;SUBE;10;acierta;acierta;acierta;0;0;4.854
+2026-05-05 06:05;2026-05;alineación de medias 9/21/50;SUBE;60;acierta;acierta;acierta;0;0;4.854
+2026-05-05 07:30;2026-05;REV15;BAJA;10;acierta;acierta;falla;0;0;4.854
+2026-05-05 08:10;2026-05;techo y piso de 24 h;BAJA;10;falla;falla;acierta;0;0;4.854
+2026-05-05 08:35;2026-05;techo y piso de 24 h;BAJA;10;acierta;falla;falla;0;0;4.854
+2026-05-05 08:55;2026-05;techo y piso de 24 h;BAJA;10;acierta;acierta;falla;0;0;4.854
+2026-05-05 09:25;2026-05;techo y piso de 24 h;BAJA;10;falla;acierta;acierta;0;0;4.854
+2026-05-05 09:55;2026-05;techo y piso de 24 h;BAJA;10;falla;falla;acierta;0;0;4.854
+2026-05-05 10:30;2026-05;techo y piso de 24 h;BAJA;10;acierta;acierta;falla;0;0;4.854
+2026-05-06 02:15;2026-05;REV15;SUBE;10;acierta;acierta;acierta;0;0;4.854
+2026-05-06 03:00;2026-05;REV15;BAJA;10;acierta;falla;falla;0;0;4.854
+2026-05-06 04:00;2026-05;REV15;BAJA;10;acierta;acierta;falla;0;0;4.854
+2026-05-06 05:45;2026-05;REV15;BAJA;10;falla;falla;acierta;0;0;4.854
+2026-05-06 07:15;2026-05;REV15;SUBE;10;acierta;acierta;acierta;0;0;4.854
+2026-05-06 07:40;2026-05;alineación de medias 9/21/50;SUBE;60;acierta;acierta;acierta;0;0;4.854
+2026-05-06 09:10;2026-05;techo y piso de 24 h;BAJA;10;falla;falla;acierta;0;0;4.854
+2026-05-06 09:35;2026-05;techo y piso de 24 h;BAJA;10;falla;falla;acierta;0;0;4.854
+2026-05-06 10:05;2026-05;techo y piso de 24 h;BAJA;10;acierta;acierta;falla;0;0;4.854
+2026-05-07 02:15;2026-05;REV15;BAJA;10;acierta;acierta;falla;0;0;4.854
+2026-05-07 04:45;2026-05;alineación de medias 9/21/50;BAJA;60;falla;falla;acierta;0;0;4.854
+2026-05-07 05:45;2026-05;alineación de medias 9/21/50;BAJA;60;acierta;acierta;falla;0;0;4.854
+2026-05-07 06:45;2026-05;alineación de medias 9/21/50;BAJA;60;falla;falla;acierta;0;0;4.854
+2026-05-07 07:45;2026-05;REV15;BAJA;10;acierta;acierta;falla;0;0;4.854
+2026-05-08 02:40;2026-05;alineación de medias 9/21/50;SUBE;60;acierta;acierta;acierta;0;0;4.854
+2026-05-08 04:40;2026-05;alineación de medias 9/21/50;SUBE;60;acierta;acierta;acierta;0;0;4.854
+2026-05-08 07:15;2026-05;alineación de medias 9/21/50;SUBE;60;acierta;acierta;acierta;0;0;4.854
+2026-05-09 03:10;2026-05;alineación de medias 9/21/50;SUBE;60;falla;falla;falla;0;0;4.854
+2026-05-09 07:35;2026-05;alineación de medias 9/21/50;BAJA;60;acierta;acierta;falla;0;0;4.854
+2026-05-10 02:55;2026-05;alineación de medias 9/21/50;SUBE;60;falla;acierta;falla;0;0;4.854
+2026-05-10 05:10;2026-05;alineación de medias 9/21/50;BAJA;60;acierta;acierta;falla;0;0;4.854
+2026-05-10 07:00;2026-05;REV15;BAJA;10;acierta;acierta;falla;0;0;4.854
+2026-05-10 07:30;2026-05;REV15;SUBE;10;acierta;acierta;acierta;0;0;4.854
+2026-05-10 07:45;2026-05;REV15;BAJA;10;acierta;acierta;falla;0;0;4.854
+2026-05-10 15:35;2026-05;techo y piso de 24 h;SUBE;10;acierta;acierta;acierta;0;0;4.854
+2026-05-10 15:50;2026-05;techo y piso de 24 h;SUBE;10;acierta;acierta;acierta;0;0;4.854
+2026-05-11 02:55;2026-05;alineación de medias 9/21/50;SUBE;60;falla;falla;falla;0;0;4.854
+2026-05-11 04:30;2026-05;REV15;SUBE;10;acierta;acierta;acierta;0;0;4.854
+2026-05-11 04:45;2026-05;REV15;BAJA;10;acierta;acierta;falla;0;0;4.854
+2026-05-11 05:00;2026-05;REV15;SUBE;10;acierta;acierta;acierta;0;0;4.854
+2026-05-11 05:15;2026-05;REV15;BAJA;10;falla;falla;acierta;0;0;4.854
+2026-05-11 06:45;2026-05;alineación de medias 9/21/50;BAJA;60;falla;falla;acierta;0;0;4.854
+2026-05-12 04:10;2026-05;alineación de medias 9/21/50;SUBE;60;acierta;acierta;acierta;0;0;4.854
+2026-05-12 05:35;2026-05;alineación de medias 9/21/50;SUBE;60;acierta;acierta;acierta;0;0;4.854
+2026-05-12 07:20;2026-05;alineación de medias 9/21/50;BAJA;60;acierta;acierta;falla;0;0;4.854
+2026-05-12 08:35;2026-05;techo y piso de 24 h;SUBE;10;acierta;acierta;acierta;0;0;4.854
+2026-05-12 09:00;2026-05;techo y piso de 24 h;SUBE;10;acierta;acierta;acierta;0;0;4.854
+2026-05-12 09:30;2026-05;techo y piso de 24 h;SUBE;10;acierta;acierta;acierta;0;0;4.854
+2026-05-12 09:50;2026-05;techo y piso de 24 h;SUBE;10;falla;falla;falla;0;0;4.854
+2026-05-13 02:30;2026-05;alineación de medias 9/21/50;BAJA;60;acierta;acierta;falla;0;0;4.854
+2026-05-13 05:45;2026-05;alineación de medias 9/21/50;SUBE;60;acierta;acierta;acierta;0;0;4.854
+2026-05-13 06:55;2026-05;alineación de medias 9/21/50;BAJA;60;acierta;acierta;falla;0;0;4.854
+2026-05-14 02:30;2026-05;REV15;BAJA;10;falla;falla;acierta;0;0;4.854
+2026-05-14 03:00;2026-05;REV15;SUBE;10;acierta;falla;acierta;0;0;4.854
+2026-05-14 04:30;2026-05;alineación de medias 9/21/50;SUBE;60;acierta;acierta;acierta;0;0;4.854
+2026-05-14 05:40;2026-05;alineación de medias 9/21/50;SUBE;60;falla;acierta;falla;0;0;4.854
+2026-05-14 06:55;2026-05;alineación de medias 9/21/50;BAJA;60;acierta;acierta;falla;0;0;4.854
+2026-05-14 13:05;2026-05;techo y piso de 24 h;SUBE;10;acierta;acierta;acierta;0;0;4.854
+2026-05-14 13:40;2026-05;techo y piso de 24 h;SUBE;10;falla;acierta;falla;0;0;4.854
+2026-05-15 02:15;2026-05;REV15;BAJA;10;acierta;acierta;falla;0;0;4.854
+2026-05-15 02:50;2026-05;alineación de medias 9/21/50;SUBE;60;falla;falla;falla;0;0;4.854
+2026-05-15 05:15;2026-05;REV15;BAJA;10;acierta;acierta;falla;0;0;4.854
+2026-05-15 06:45;2026-05;REV15;SUBE;10;acierta;falla;acierta;0;0;4.854
+2026-05-16 02:10;2026-05;alineación de medias 9/21/50;SUBE;60;falla;falla;falla;0;0;4.854
+2026-05-17 03:15;2026-05;alineación de medias 9/21/50;BAJA;60;acierta;acierta;falla;0;0;4.854
+2026-05-17 04:40;2026-05;alineación de medias 9/21/50;BAJA;60;falla;falla;acierta;0;0;4.854
+2026-05-17 08:40;2026-05;techo y piso de 24 h;BAJA;10;falla;falla;acierta;0;0;4.854
+2026-05-17 10:25;2026-05;techo y piso de 24 h;BAJA;10;falla;falla;acierta;0;0;4.854
+2026-05-18 05:25;2026-05;alineación de medias 9/21/50;SUBE;60;falla;falla;falla;0;0;4.854
+2026-05-18 06:45;2026-05;REV15;BAJA;10;acierta;acierta;falla;0;0;4.854
+2026-05-18 07:00;2026-05;REV15;SUBE;10;acierta;acierta;acierta;0;0;4.854
+2026-05-18 07:45;2026-05;REV15;BAJA;10;acierta;acierta;falla;0;0;4.854
+2026-05-18 08:00;2026-05;techo y piso de 24 h;BAJA;10;acierta;acierta;falla;0;0;4.854
+2026-05-18 08:15;2026-05;techo y piso de 24 h;BAJA;10;falla;falla;acierta;0;0;4.854
+2026-05-18 08:25;2026-05;techo y piso de 24 h;BAJA;10;falla;falla;acierta;0;0;4.854
+2026-05-18 08:50;2026-05;techo y piso de 24 h;BAJA;10;falla;acierta;acierta;0;0;4.854
+2026-05-19 02:45;2026-05;alineación de medias 9/21/50;SUBE;60;acierta;acierta;acierta;0;0;4.854
+2026-05-19 07:15;2026-05;REV15;BAJA;10;falla;falla;acierta;0;0;4.854
+2026-05-20 02:05;2026-05;alineación de medias 9/21/50;BAJA;60;falla;falla;acierta;0;0;4.854
+2026-05-20 04:40;2026-05;alineación de medias 9/21/50;BAJA;60;falla;falla;acierta;0;0;4.854
+2026-05-20 09:35;2026-05;techo y piso de 24 h;BAJA;10;acierta;acierta;falla;0;0;4.854
+2026-05-20 10:20;2026-05;techo y piso de 24 h;BAJA;10;acierta;acierta;falla;0;0;4.854
+2026-05-20 14:20;2026-05;techo y piso de 24 h;BAJA;10;acierta;falla;falla;0;0;4.854
+2026-05-21 04:15;2026-05;alineación de medias 9/21/50;BAJA;60;acierta;acierta;falla;0;0;4.854
+2026-05-21 05:35;2026-05;alineación de medias 9/21/50;SUBE;60;falla;falla;falla;0;0;4.854
+2026-05-22 03:45;2026-05;alineación de medias 9/21/50;SUBE;60;acierta;acierta;acierta;0;0;4.854
+2026-05-22 05:00;2026-05;alineación de medias 9/21/50;BAJA;60;acierta;acierta;falla;0;0;4.854
+2026-05-22 07:50;2026-05;alineación de medias 9/21/50;SUBE;60;falla;falla;falla;0;0;4.854
+2026-05-23 03:00;2026-05;alineación de medias 9/21/50;SUBE;60;acierta;acierta;acierta;0;0;4.854
+2026-05-23 06:35;2026-05;alineación de medias 9/21/50;SUBE;60;falla;falla;falla;0;0;4.854
+2026-05-23 13:45;2026-05;techo y piso de 24 h;BAJA;10;falla;falla;acierta;0;0;4.854
+2026-05-23 14:55;2026-05;techo y piso de 24 h;BAJA;10;falla;acierta;acierta;0;0;4.854
+2026-05-24 02:00;2026-05;alineación de medias 9/21/50;BAJA;60;falla;falla;acierta;0;0;4.854
+2026-05-24 04:45;2026-05;alineación de medias 9/21/50;BAJA;60;acierta;acierta;falla;0;0;4.854
+2026-05-25 02:00;2026-05;REV15;BAJA;10;acierta;falla;falla;0;0;4.854
+2026-05-25 02:30;2026-05;REV15;SUBE;10;acierta;acierta;acierta;0;0;4.854
+2026-05-25 02:45;2026-05;REV15;BAJA;10;falla;falla;acierta;0;0;4.854
+2026-05-25 03:05;2026-05;alineación de medias 9/21/50;BAJA;60;acierta;acierta;falla;0;0;4.854
+2026-05-25 04:45;2026-05;REV15;BAJA;10;falla;falla;acierta;0;0;4.854
+2026-05-25 07:15;2026-05;REV15;SUBE;10;falla;acierta;falla;0;0;4.854
+2026-05-25 12:05;2026-05;techo y piso de 24 h;BAJA;10;acierta;acierta;falla;0;0;4.854
+2026-05-25 15:50;2026-05;techo y piso de 24 h;BAJA;10;acierta;falla;falla;0;0;4.854
+2026-05-26 03:00;2026-05;REV15;BAJA;10;acierta;acierta;falla;0;0;4.854
+2026-05-26 03:15;2026-05;REV15;SUBE;10;falla;falla;falla;0;0;4.854
+2026-05-26 03:25;2026-05;alineación de medias 9/21/50;SUBE;60;falla;falla;falla;0;0;4.854
+2026-05-26 04:45;2026-05;REV15;SUBE;10;acierta;acierta;acierta;0;0;4.854
+2026-05-26 05:00;2026-05;REV15;BAJA;10;falla;falla;acierta;0;0;4.854
+2026-05-26 05:15;2026-05;REV15;BAJA;10;falla;acierta;acierta;0;0;4.854
+2026-05-26 05:50;2026-05;alineación de medias 9/21/50;BAJA;60;acierta;acierta;falla;0;0;4.854
+2026-05-27 05:05;2026-05;alineación de medias 9/21/50;SUBE;60;falla;falla;falla;0;0;4.854
+2026-05-27 06:30;2026-05;REV15;SUBE;10;acierta;acierta;acierta;0;0;4.854
+2026-05-27 07:00;2026-05;REV15;SUBE;10;acierta;acierta;acierta;0;0;4.854
+2026-05-27 07:30;2026-05;REV15;BAJA;10;acierta;acierta;falla;0;0;4.854
+2026-05-28 03:40;2026-05;alineación de medias 9/21/50;BAJA;60;falla;falla;acierta;0;0;4.854
+2026-05-28 06:10;2026-05;alineación de medias 9/21/50;SUBE;60;acierta;acierta;acierta;0;0;4.854
+2026-05-28 07:45;2026-05;REV15;BAJA;10;falla;falla;acierta;0;0;4.854
+2026-05-28 09:15;2026-05;techo y piso de 24 h;BAJA;10;acierta;falla;falla;0;0;4.854
+2026-05-28 09:45;2026-05;techo y piso de 24 h;BAJA;10;falla;acierta;acierta;0;0;4.854
+2026-05-28 13:55;2026-05;techo y piso de 24 h;BAJA;10;acierta;acierta;falla;0;0;4.854
+2026-05-28 14:20;2026-05;techo y piso de 24 h;BAJA;10;acierta;falla;falla;0;0;4.854
+2026-05-28 14:35;2026-05;techo y piso de 24 h;BAJA;10;acierta;acierta;falla;0;0;4.854
+2026-05-29 02:45;2026-05;REV15;BAJA;10;acierta;acierta;falla;0;0;4.854
+2026-05-29 04:10;2026-05;alineación de medias 9/21/50;BAJA;60;falla;falla;acierta;0;0;4.854
+2026-05-29 06:45;2026-05;alineación de medias 9/21/50;BAJA;60;acierta;acierta;falla;0;0;4.854
+2026-05-29 07:50;2026-05;alineación de medias 9/21/50;SUBE;60;acierta;acierta;acierta;0;0;4.854
+2026-05-29 09:55;2026-05;techo y piso de 24 h;BAJA;10;falla;falla;acierta;0;0;4.854
+2026-05-30 02:05;2026-05;alineación de medias 9/21/50;BAJA;60;acierta;acierta;falla;0;0;4.854
+2026-05-30 04:10;2026-05;alineación de medias 9/21/50;BAJA;60;acierta;acierta;falla;0;0;4.854
+2026-05-30 06:55;2026-05;alineación de medias 9/21/50;SUBE;60;acierta;falla;acierta;0;0;4.854
+2026-05-31 03:30;2026-05;alineación de medias 9/21/50;BAJA;60;acierta;acierta;falla;0;0;4.854
+2026-05-31 05:40;2026-05;alineación de medias 9/21/50;SUBE;60;acierta;acierta;acierta;0;0;4.854
+2026-05-31 07:05;2026-05;alineación de medias 9/21/50;BAJA;60;falla;falla;acierta;0;0;4.854
+2026-06-01 02:15;2026-06;REV15;BAJA;10;acierta;acierta;falla;16.000;13.600;113.600
+2026-06-01 02:45;2026-06;REV15;SUBE;10;falla;falla;falla;18.176;-18.176;95.424
+2026-06-01 03:00;2026-06;REV15;BAJA;10;acierta;acierta;falla;15.900;13.515;108.939
+2026-06-01 03:15;2026-06;REV15;SUBE;10;falla;acierta;falla;17.430;-17.430;91.509
+2026-06-01 03:45;2026-06;REV15;BAJA;10;acierta;acierta;falla;15.900;13.515;105.024
+2026-06-01 05:15;2026-06;REV15;BAJA;10;acierta;acierta;falla;16.804;14.283;119.307
+2026-06-01 05:45;2026-06;REV15;BAJA;10;falla;acierta;acierta;19.089;-19.089;100.218
+2026-06-01 06:30;2026-06;REV15;BAJA;10;falla;acierta;acierta;16.035;-16.035;84.183
+2026-06-02 05:55;2026-06;alineación de medias 9/21/50;BAJA;60;acierta;acierta;falla;15.900;13.515;97.698
+2026-06-02 07:30;2026-06;alineación de medias 9/21/50;BAJA;60;acierta;acierta;falla;15.900;13.515;111.213
+2026-06-03 02:30;2026-06;REV15;SUBE;10;acierta;acierta;acierta;17.794;15.125;126.338
+2026-06-03 04:00;2026-06;REV15;SUBE;10;acierta;acierta;acierta;20.214;17.182;143.520
+2026-06-03 04:15;2026-06;REV15;BAJA;10;acierta;acierta;falla;22.963;19.519;163.039
+2026-06-03 04:30;2026-06;REV15;SUBE;10;acierta;acierta;acierta;26.086;22.173;185.212
+2026-06-03 05:15;2026-06;REV15;BAJA;10;acierta;acierta;falla;29.634;25.189;210.401
+2026-06-04 07:00;2026-06;REV15;BAJA;10;acierta;acierta;falla;33.664;28.615;239.015
+2026-06-04 07:15;2026-06;REV15;SUBE;10;acierta;acierta;acierta;38.242;32.506;271.521
+2026-06-05 02:30;2026-06;REV15;BAJA;10;acierta;acierta;falla;43.443;36.927;308.448
+2026-06-05 06:45;2026-06;alineación de medias 9/21/50;BAJA;60;acierta;acierta;falla;49.352;41.949;350.397
+2026-06-05 07:45;2026-06;REV15;SUBE;10;falla;falla;falla;56.064;-56.064;294.334
+2026-06-06 02:00;2026-06;alineación de medias 9/21/50;SUBE;60;acierta;acierta;acierta;47.093;40.029;334.363
+2026-06-06 03:00;2026-06;alineación de medias 9/21/50;SUBE;60;acierta;falla;acierta;53.498;45.473;379.836
+2026-06-06 07:40;2026-06;alineación de medias 9/21/50;SUBE;60;acierta;acierta;acierta;60.774;51.658;431.494
+2026-06-07 05:15;2026-06;REV15;SUBE;10;acierta;acierta;acierta;69.039;58.683;490.177
+2026-06-07 07:15;2026-06;alineación de medias 9/21/50;SUBE;60;falla;falla;falla;78.428;-78.428;411.749
+2026-06-08 04:30;2026-06;REV15;SUBE;10;acierta;acierta;acierta;65.880;55.998;467.747
+2026-06-08 04:45;2026-06;REV15;BAJA;10;acierta;acierta;falla;74.839;63.614;531.360
+2026-06-08 05:45;2026-06;REV15;BAJA;10;acierta;acierta;falla;85.018;72.265;603.625
+2026-06-08 06:15;2026-06;REV15;BAJA;10;falla;falla;acierta;96.580;-96.580;507.045
+2026-06-09 03:55;2026-06;alineación de medias 9/21/50;SUBE;60;acierta;acierta;acierta;81.127;68.958;576.003
+2026-06-09 05:10;2026-06;alineación de medias 9/21/50;SUBE;60;acierta;acierta;acierta;92.161;78.336;654.340
+2026-06-10 03:15;2026-06;REV15;SUBE;10;acierta;empate;acierta;104.694;88.990;743.330
+2026-06-10 06:45;2026-06;REV15;SUBE;10;acierta;falla;acierta;118.933;101.093;844.423
+2026-06-10 07:15;2026-06;REV15;SUBE;10;falla;acierta;falla;135.108;-135.108;709.315
+2026-06-10 07:45;2026-06;REV15;BAJA;10;acierta;acierta;falla;113.490;96.467;805.782
+2026-06-11 04:30;2026-06;alineación de medias 9/21/50;SUBE;60;acierta;acierta;acierta;128.925;109.586;915.369
+2026-06-12 03:20;2026-06;alineación de medias 9/21/50;BAJA;60;falla;falla;acierta;146.459;-146.459;768.910
+2026-06-12 07:35;2026-06;alineación de medias 9/21/50;SUBE;60;falla;acierta;falla;123.026;-123.026;645.884
+2026-06-13 04:40;2026-06;alineación de medias 9/21/50;BAJA;60;acierta;acierta;falla;103.341;87.840;733.724
+2026-06-13 06:00;2026-06;alineación de medias 9/21/50;SUBE;60;acierta;acierta;acierta;117.396;99.787;833.511
+2026-06-14 02:20;2026-06;alineación de medias 9/21/50;BAJA;60;falla;falla;acierta;133.362;-133.362;700.149
+2026-06-14 05:00;2026-06;REV15;SUBE;10;acierta;acierta;acierta;112.024;95.220;795.369
+2026-06-14 06:00;2026-06;REV15;SUBE;10;acierta;acierta;acierta;127.259;108.170;903.540
+2026-06-14 07:45;2026-06;alineación de medias 9/21/50;SUBE;60;falla;falla;falla;144.566;-144.566;758.973
+2026-06-15 03:00;2026-06;REV15;BAJA;10;falla;falla;acierta;121.436;-121.436;637.538
+2026-06-15 03:45;2026-06;REV15;BAJA;10;acierta;acierta;falla;102.006;86.705;724.243
+2026-06-15 04:00;2026-06;REV15;SUBE;10;acierta;acierta;acierta;115.879;98.497;822.740
+2026-06-15 07:45;2026-06;REV15;BAJA;10;acierta;acierta;falla;131.638;111.893;934.632
+2026-06-16 07:30;2026-06;alineación de medias 9/21/50;BAJA;60;acierta;acierta;falla;149.541;127.110;1.061.742
+2026-06-17 05:10;2026-06;alineación de medias 9/21/50;BAJA;60;acierta;acierta;falla;169.879;144.397;1.206.139
+2026-06-17 06:55;2026-06;alineación de medias 9/21/50;SUBE;60;acierta;acierta;acierta;192.982;164.035;1.370.174
+2026-06-19 03:05;2026-06;alineación de medias 9/21/50;BAJA;60;falla;falla;acierta;219.228;-219.228;1.150.946
+2026-06-19 05:40;2026-06;alineación de medias 9/21/50;SUBE;60;falla;falla;falla;184.151;-184.151;966.795
+2026-06-19 07:50;2026-06;alineación de medias 9/21/50;SUBE;60;acierta;acierta;acierta;154.687;131.484;1.098.279
+2026-06-20 04:55;2026-06;alineación de medias 9/21/50;SUBE;60;falla;falla;falla;175.725;-175.725;922.554
+2026-06-20 07:00;2026-06;alineación de medias 9/21/50;BAJA;60;acierta;acierta;falla;147.609;125.467;1.048.022
+2026-06-21 02:45;2026-06;REV15;SUBE;10;acierta;acierta;acierta;167.683;142.531;1.190.553
+2026-06-21 03:15;2026-06;REV15;BAJA;10;acierta;acierta;falla;190.488;161.915;1.352.468
+2026-06-21 03:45;2026-06;REV15;SUBE;10;falla;falla;falla;216.395;-216.395;1.136.073
+2026-06-21 04:15;2026-06;REV15;BAJA;10;acierta;falla;falla;181.772;154.506;1.290.579
+2026-06-21 06:30;2026-06;REV15;SUBE;10;falla;falla;falla;206.493;-206.493;1.084.086
+2026-06-21 07:30;2026-06;REV15;SUBE;10;acierta;acierta;acierta;173.454;147.436;1.231.522
+2026-06-21 07:45;2026-06;REV15;BAJA;10;falla;falla;acierta;197.044;-197.044;1.034.479
+2026-06-22 04:15;2026-06;REV15;BAJA;10;falla;falla;acierta;165.517;-165.517;868.962
+2026-06-23 02:45;2026-06;REV15;SUBE;10;falla;falla;falla;139.034;-139.034;729.928
+2026-06-23 03:45;2026-06;REV15;BAJA;10;acierta;falla;falla;116.788;99.270;829.198
+2026-06-23 06:15;2026-06;REV15;BAJA;10;falla;falla;acierta;132.672;-132.672;696.527
+2026-06-24 04:10;2026-06;alineación de medias 9/21/50;SUBE;60;falla;falla;falla;111.444;-111.444;585.082
+2026-06-24 07:30;2026-06;REV15;SUBE;10;falla;falla;falla;93.613;-93.613;491.469
+2026-06-25 05:50;2026-06;alineación de medias 9/21/50;SUBE;60;acierta;falla;acierta;78.635;66.840;558.309
+2026-06-25 07:45;2026-06;REV15;BAJA;10;falla;falla;acierta;89.329;-89.329;468.980
+2026-06-27 02:25;2026-06;alineación de medias 9/21/50;BAJA;60;acierta;acierta;falla;75.037;63.781;532.761
+2026-06-27 05:05;2026-06;alineación de medias 9/21/50;BAJA;60;falla;acierta;acierta;85.242;-85.242;447.519
+2026-06-27 06:35;2026-06;alineación de medias 9/21/50;SUBE;60;acierta;acierta;acierta;71.603;60.863;508.382
+2026-06-27 07:35;2026-06;alineación de medias 9/21/50;BAJA;60;acierta;acierta;falla;81.341;69.140;577.521
+2026-06-28 02:05;2026-06;alineación de medias 9/21/50;SUBE;60;acierta;acierta;acierta;92.403;78.543;656.064
+2026-06-28 03:05;2026-06;alineación de medias 9/21/50;BAJA;60;falla;falla;acierta;104.970;-104.970;551.094
+2026-06-28 06:10;2026-06;alineación de medias 9/21/50;SUBE;60;acierta;acierta;acierta;88.175;74.949;626.043
+2026-06-29 02:30;2026-06;REV15;BAJA;10;acierta;acierta;falla;100.167;85.142;711.185
+2026-06-29 03:45;2026-06;REV15;SUBE;10;falla;falla;falla;113.790;-113.790;597.395
+2026-06-29 04:00;2026-06;REV15;SUBE;10;acierta;acierta;acierta;95.583;81.246;678.641
+2026-06-29 05:00;2026-06;REV15;SUBE;10;acierta;acierta;acierta;108.583;92.295;770.936
+2026-06-29 05:15;2026-06;REV15;BAJA;10;acierta;falla;falla;123.350;104.847;875.783
+2026-06-29 07:15;2026-06;REV15;BAJA;10;acierta;acierta;falla;140.125;119.107;994.890
+2026-06-29 07:30;2026-06;REV15;SUBE;10;acierta;acierta;acierta;159.182;135.305;1.130.195
+2026-06-30 05:00;2026-06;alineación de medias 9/21/50;BAJA;60;falla;falla;acierta;180.831;-180.831;949.364
+2026-07-01 02:15;2026-07;REV15;SUBE;10;acierta;acierta;acierta;16.000;13.600;113.600
+2026-07-01 02:25;2026-07;patrón harami bajista;BAJA;60;falla;falla;acierta;18.176;-18.176;95.424
+2026-07-01 03:25;2026-07;patrón harami bajista;BAJA;60;acierta;acierta;falla;15.900;13.515;108.939
+2026-07-01 06:30;2026-07;REV15;BAJA;10;acierta;acierta;falla;17.430;14.816;123.755
+2026-07-01 07:15;2026-07;REV15;SUBE;10;acierta;acierta;acierta;19.801;16.831;140.585
+2026-07-02 02:45;2026-07;REV15;BAJA;10;acierta;acierta;falla;22.494;19.120;159.705
+2026-07-02 03:15;2026-07;patrón harami bajista;BAJA;60;falla;falla;acierta;25.553;-25.553;134.152
+2026-07-02 05:25;2026-07;alineación de medias 9/21/50;SUBE;60;falla;falla;falla;21.464;-21.464;112.688
+2026-07-02 07:20;2026-07;alineación de medias 9/21/50;SUBE;60;acierta;acierta;acierta;18.030;15.326;128.013
+2026-07-03 02:05;2026-07;alineación de medias 9/21/50;BAJA;60;falla;falla;acierta;20.482;-20.482;107.531
+2026-07-03 05:20;2026-07;alineación de medias 9/21/50;BAJA;60;falla;falla;acierta;17.205;-17.205;90.326
+2026-07-03 07:55;2026-07;alineación de medias 9/21/50;SUBE;60;falla;falla;falla;15.900;-15.900;74.426
+2026-07-04 02:15;2026-07;alineación de medias 9/21/50;BAJA;60;falla;falla;acierta;15.900;-15.900;58.526
+2026-07-04 07:45;2026-07;alineación de medias 9/21/50;SUBE;60;acierta;acierta;acierta;15.900;13.515;72.041
+2026-07-05 02:50;2026-07;alineación de medias 9/21/50;BAJA;60;falla;falla;acierta;15.900;-15.900;56.141
+2026-07-05 05:25;2026-07;alineación de medias 9/21/50;BAJA;60;falla;falla;acierta;15.900;-15.900;40.241
+2026-07-06 02:00;2026-07;REV15;SUBE;10;falla;falla;falla;15.900;-15.900;24.341
+2026-07-06 02:45;2026-07;REV15;BAJA;10;falla;acierta;acierta;15.900;-15.900;8.441
+2026-07-06 03:15;2026-07;REV15;SUBE;10;falla;falla;falla;0;0;8.441
+2026-07-06 03:45;2026-07;REV15;SUBE;10;acierta;acierta;acierta;0;0;8.441
+2026-07-06 04:30;2026-07;REV15;SUBE;10;falla;acierta;falla;0;0;8.441
+2026-07-06 05:40;2026-07;patrón harami bajista;BAJA;60;falla;falla;acierta;0;0;8.441
+2026-07-06 07:30;2026-07;REV15;SUBE;10;falla;falla;falla;0;0;8.441
+2026-07-06 07:45;2026-07;REV15;SUBE;10;acierta;acierta;acierta;0;0;8.441
+2026-07-07 03:15;2026-07;REV15;BAJA;10;acierta;falla;falla;0;0;8.441
+2026-07-07 03:45;2026-07;REV15;SUBE;10;falla;falla;falla;0;0;8.441
+2026-07-07 04:45;2026-07;REV15;BAJA;10;acierta;acierta;falla;0;0;8.441
+2026-07-07 07:15;2026-07;REV15;BAJA;10;acierta;acierta;falla;0;0;8.441
+2026-07-07 07:30;2026-07;REV15;SUBE;10;acierta;falla;acierta;0;0;8.441
+2026-07-08 02:40;2026-07;alineación de medias 9/21/50;SUBE;60;falla;falla;falla;0;0;8.441
+2026-07-08 03:45;2026-07;REV15;SUBE;10;falla;falla;falla;0;0;8.441
+2026-07-08 05:40;2026-07;patrón harami bajista;BAJA;60;acierta;acierta;falla;0;0;8.441
+2026-07-08 06:45;2026-07;REV15;BAJA;10;acierta;acierta;falla;0;0;8.441
+2026-07-09 02:05;2026-07;patrón harami bajista;BAJA;60;falla;falla;acierta;0;0;8.441
+2026-07-09 06:50;2026-07;alineación de medias 9/21/50;BAJA;60;falla;falla;acierta;0;0;8.441
+2026-07-10 06:30;2026-07;alineación de medias 9/21/50;SUBE;60;acierta;acierta;acierta;0;0;8.441
+2026-07-10 07:30;2026-07;REV15;SUBE;10;falla;falla;falla;0;0;8.441
+2026-07-10 07:45;2026-07;REV15;SUBE;10;acierta;falla;acierta;0;0;8.441
+2026-07-11 03:15;2026-07;alineación de medias 9/21/50;BAJA;60;acierta;acierta;falla;0;0;8.441
+2026-07-11 04:55;2026-07;alineación de medias 9/21/50;BAJA;60;acierta;acierta;falla;0;0;8.441
+2026-07-11 07:40;2026-07;alineación de medias 9/21/50;SUBE;60;acierta;acierta;acierta;0;0;8.441
+2026-07-12 04:00;2026-07;alineación de medias 9/21/50;SUBE;60;falla;falla;falla;0;0;8.441
+2026-07-13 02:00;2026-07;REV15;SUBE;10;acierta;acierta;acierta;0;0;8.441
+2026-07-13 03:00;2026-07;REV15;BAJA;10;falla;falla;acierta;0;0;8.441
+2026-07-13 03:15;2026-07;REV15;BAJA;10;falla;falla;acierta;0;0;8.441
+2026-07-13 05:45;2026-07;REV15;SUBE;10;acierta;acierta;acierta;0;0;8.441
+2026-07-13 06:00;2026-07;REV15;BAJA;10;falla;falla;acierta;0;0;8.441
+2026-07-13 07:00;2026-07;REV15;SUBE;10;falla;falla;falla;0;0;8.441
+2026-07-13 07:55;2026-07;patrón harami bajista;BAJA;60;acierta;acierta;falla;0;0;8.441
+2026-07-14 02:05;2026-07;alineación de medias 9/21/50;BAJA;60;acierta;acierta;falla;0;0;8.441
+2026-07-14 03:50;2026-07;alineación de medias 9/21/50;SUBE;60;acierta;acierta;acierta;0;0;8.441
+2026-07-14 06:25;2026-07;alineación de medias 9/21/50;BAJA;60;falla;falla;acierta;0;0;8.441
+2026-07-14 07:40;2026-07;patrón harami bajista;BAJA;60;acierta;acierta;falla;0;0;8.441
+2026-07-15 02:25;2026-07;alineación de medias 9/21/50;SUBE;60;falla;falla;falla;0;0;8.441
+2026-07-15 05:15;2026-07;alineación de medias 9/21/50;BAJA;60;acierta;acierta;falla;0;0;8.441
+2026-07-15 07:45;2026-07;REV15;BAJA;10;falla;falla;acierta;0;0;8.441
+2026-07-16 03:15;2026-07;alineación de medias 9/21/50;SUBE;60;acierta;acierta;acierta;0;0;8.441
+2026-07-16 06:15;2026-07;alineación de medias 9/21/50;SUBE;60;acierta;acierta;acierta;0;0;8.441
+2026-07-16 07:45;2026-07;REV15;SUBE;10;falla;falla;falla;0;0;8.441
+2026-07-17 06:20;2026-07;alineación de medias 9/21/50;SUBE;60;falla;falla;falla;0;0;8.441
+2026-07-17 07:45;2026-07;REV15;SUBE;10;acierta;acierta;acierta;0;0;8.441
+2026-07-18 06:30;2026-07;alineación de medias 9/21/50;BAJA;60;acierta;acierta;falla;0;0;8.441
+2026-07-18 07:40;2026-07;alineación de medias 9/21/50;SUBE;60;falla;falla;falla;0;0;8.441
+2026-07-19 03:05;2026-07;alineación de medias 9/21/50;SUBE;60;falla;falla;falla;0;0;8.441
+2026-07-20 02:45;2026-07;REV15;BAJA;10;acierta;acierta;falla;0;0;8.441
+2026-07-20 03:00;2026-07;REV15;SUBE;10;acierta;falla;acierta;0;0;8.441
+2026-07-20 03:15;2026-07;REV15;BAJA;10;falla;falla;acierta;0;0;8.441
+2026-07-20 06:40;2026-07;patrón harami bajista;BAJA;60;acierta;acierta;falla;0;0;8.441
+2026-07-21 02:15;2026-07;REV15;SUBE;10;falla;falla;falla;0;0;8.441
+2026-07-21 05:00;2026-07;alineación de medias 9/21/50;BAJA;60;acierta;acierta;falla;0;0;8.441
+2026-07-21 07:45;2026-07;REV15;SUBE;10;acierta;falla;acierta;0;0;8.441
+2026-07-22 02:25;2026-07;patrón harami bajista;BAJA;60;acierta;acierta;falla;0;0;8.441
+2026-07-22 04:45;2026-07;alineación de medias 9/21/50;SUBE;60;acierta;acierta;acierta;0;0;8.441
+2026-07-22 06:05;2026-07;alineación de medias 9/21/50;SUBE;60;acierta;acierta;acierta;0;0;8.441
+2026-07-23 02:15;2026-07;REV15;SUBE;10;falla;acierta;falla;0;0;8.441
+2026-07-23 02:45;2026-07;REV15;SUBE;10;falla;acierta;falla;0;0;8.441
+2026-07-23 04:10;2026-07;patrón harami bajista;BAJA;60;acierta;acierta;falla;0;0;8.441
+2026-07-24 02:15;2026-07;REV15;BAJA;10;falla;falla;acierta;0;0;8.441
+2026-07-25 02:15;2026-07;alineación de medias 9/21/50;SUBE;60;acierta;acierta;acierta;0;0;8.441
+2026-07-25 03:30;2026-07;alineación de medias 9/21/50;SUBE;60;acierta;acierta;acierta;0;0;8.441
+2026-07-25 06:10;2026-07;alineación de medias 9/21/50;BAJA;60;falla;falla;acierta;0;0;8.441
+2026-07-26 02:15;2026-07;alineación de medias 9/21/50;BAJA;60;falla;falla;acierta;0;0;8.441
+2026-07-26 06:15;2026-07;patrón harami bajista;BAJA;60;acierta;acierta;falla;0;0;8.441
+2026-07-26 07:30;2026-07;REV15;BAJA;10;acierta;acierta;falla;0;0;8.441
+2026-07-26 07:45;2026-07;REV15;SUBE;10;falla;falla;falla;0;0;8.441
+2026-07-27 02:10;2026-07;patrón harami bajista;BAJA;60;acierta;acierta;falla;0;0;8.441
+2026-07-27 05:15;2026-07;REV15;SUBE;10;acierta;acierta;acierta;0;0;8.441
+2026-07-27 05:45;2026-07;REV15;BAJA;10;falla;falla;acierta;0;0;8.441
+2026-07-27 07:15;2026-07;REV15;SUBE;10;falla;falla;falla;0;0;8.441
+2026-07-28 02:25;2026-07;patrón harami bajista;BAJA;60;acierta;acierta;falla;0;0;8.441
+2026-07-28 03:45;2026-07;REV15;SUBE;10;falla;falla;falla;0;0;8.441
+2026-07-28 04:45;2026-07;REV15;SUBE;10;falla;falla;falla;0;0;8.441
+2026-07-28 05:00;2026-07;REV15;SUBE;10;falla;falla;falla;0;0;8.441
+2026-07-28 05:30;2026-07;REV15;SUBE;10;acierta;acierta;acierta;0;0;8.441
+2026-07-28 06:00;2026-07;patrón harami bajista;BAJA;60;falla;acierta;acierta;0;0;8.441
+2026-07-28 07:30;2026-07;REV15;BAJA;10;acierta;acierta;falla;0;0;8.441
+2026-07-29 04:50;2026-07;alineación de medias 9/21/50;SUBE;60;falla;falla;falla;0;0;8.441
+2026-07-29 07:10;2026-07;alineación de medias 9/21/50;SUBE;60;falla;falla;falla;0;0;8.441
+2026-07-30 03:15;2026-07;REV15;BAJA;10;falla;falla;acierta;0;0;8.441
+2026-07-30 03:30;2026-07;REV15;BAJA;10;acierta;acierta;falla;0;0;8.441
+2026-07-30 04:55;2026-07;patrón harami bajista;BAJA;60;falla;falla;acierta;0;0;8.441
+2026-07-31 06:40;2026-07;alineación de medias 9/21/50;SUBE;60;falla;falla;falla;0;0;8.441
+2026-08-01 02:40;2026-08;alineación de medias 9/21/50;BAJA;60;acierta;acierta;falla;16.000;13.600;113.600
+2026-08-01 05:55;2026-08;alineación de medias 9/21/50;SUBE;60;falla;falla;falla;18.176;-18.176;95.424
+2026-08-01 16:00;2026-08;E04 estacionalidad 21-23 UTC;SUBE;60;acierta;acierta;acierta;15.900;13.515;108.939
+2026-08-02 02:30;2026-08;alineación de medias 9/21/50;BAJA;60;acierta;acierta;falla;17.430;14.816;123.755
+2026-08-03 16:00;2026-08;E04 estacionalidad 21-23 UTC;SUBE;60;falla;falla;falla;19.801;-19.801;103.954
+2026-08-04 02:05;2026-08;techo y piso de 24 h;BAJA;10;acierta;acierta;falla;16.633;14.138;118.092
+2026-08-04 02:25;2026-08;techo y piso de 24 h;BAJA;10;acierta;falla;falla;18.895;16.060;134.152
+2026-08-04 02:35;2026-08;techo y piso de 24 h;BAJA;10;acierta;acierta;falla;21.464;18.245;152.397
+2026-08-04 02:55;2026-08;techo y piso de 24 h;BAJA;10;falla;falla;acierta;24.383;-24.383;128.013
+2026-08-04 06:45;2026-08;techo y piso de 24 h;BAJA;10;falla;falla;acierta;20.482;-20.482;107.531
+2026-08-04 07:40;2026-08;techo y piso de 24 h;BAJA;10;acierta;acierta;falla;17.205;14.624;122.155
+2026-08-04 16:00;2026-08;E04 estacionalidad 21-23 UTC;SUBE;60;acierta;acierta;acierta;19.545;16.613;138.769
+2026-08-05 02:45;2026-08;techo y piso de 24 h;BAJA;10;acierta;falla;falla;22.203;18.873;157.641
+2026-08-05 03:00;2026-08;techo y piso de 24 h;BAJA;10;acierta;acierta;falla;25.223;21.439;179.080
+2026-08-05 03:20;2026-08;techo y piso de 24 h;BAJA;10;acierta;acierta;falla;28.653;24.355;203.435
+2026-08-05 05:50;2026-08;alineación de medias 9/21/50;SUBE;60;acierta;acierta;acierta;32.550;27.667;231.102
+2026-08-05 16:00;2026-08;E04 estacionalidad 21-23 UTC;SUBE;60;falla;falla;falla;36.976;-36.976;194.126
+2026-08-06 02:45;2026-08;alineación de medias 9/21/50;SUBE;60;acierta;acierta;acierta;31.060;26.401;220.527
+2026-08-06 06:25;2026-08;alineación de medias 9/21/50;SUBE;60;falla;falla;falla;35.284;-35.284;185.243
+2026-08-06 16:00;2026-08;E04 estacionalidad 21-23 UTC;SUBE;60;falla;falla;falla;29.639;-29.639;155.604
+2026-08-07 16:00;2026-08;E04 estacionalidad 21-23 UTC;SUBE;60;acierta;acierta;acierta;24.897;21.162;176.766
+2026-08-08 02:20;2026-08;alineación de medias 9/21/50;BAJA;60;falla;falla;acierta;28.283;-28.283;148.484
+2026-08-08 06:35;2026-08;alineación de medias 9/21/50;BAJA;60;acierta;acierta;falla;23.757;20.194;168.677
+2026-08-08 07:40;2026-08;alineación de medias 9/21/50;BAJA;60;acierta;acierta;falla;26.988;22.940;191.617
+2026-08-08 16:00;2026-08;E04 estacionalidad 21-23 UTC;SUBE;60;acierta;acierta;acierta;30.659;26.060;217.677
+2026-08-09 02:20;2026-08;alineación de medias 9/21/50;BAJA;60;falla;falla;acierta;34.828;-34.828;182.849
+2026-08-09 04:35;2026-08;alineación de medias 9/21/50;BAJA;60;acierta;acierta;falla;29.256;24.867;207.716
+2026-08-09 05:35;2026-08;alineación de medias 9/21/50;SUBE;60;acierta;acierta;acierta;33.235;28.249;235.966
+2026-08-11 05:50;2026-08;alineación de medias 9/21/50;BAJA;60;falla;falla;acierta;37.755;-37.755;198.211
+2026-08-11 16:00;2026-08;E04 estacionalidad 21-23 UTC;SUBE;60;acierta;acierta;acierta;31.714;26.957;225.168
+2026-08-12 06:50;2026-08;alineación de medias 9/21/50;BAJA;60;falla;falla;acierta;36.027;-36.027;189.141
+2026-08-12 16:00;2026-08;E04 estacionalidad 21-23 UTC;SUBE;60;falla;falla;falla;30.263;-30.263;158.879
+2026-08-13 02:15;2026-08;techo y piso de 24 h;SUBE;10;falla;acierta;falla;25.421;-25.421;133.458
+2026-08-13 02:50;2026-08;techo y piso de 24 h;SUBE;10;falla;falla;falla;21.353;-21.353;112.105
+2026-08-13 05:35;2026-08;alineación de medias 9/21/50;BAJA;60;falla;falla;acierta;17.937;-17.937;94.168
+2026-08-13 16:00;2026-08;E04 estacionalidad 21-23 UTC;SUBE;60;acierta;acierta;acierta;15.900;13.515;107.683
+2026-08-14 06:20;2026-08;alineación de medias 9/21/50;BAJA;60;falla;falla;acierta;17.229;-17.229;90.454
+2026-08-14 16:00;2026-08;E04 estacionalidad 21-23 UTC;SUBE;60;acierta;acierta;acierta;15.900;13.515;103.969
+2026-08-15 03:00;2026-08;alineación de medias 9/21/50;BAJA;60;acierta;acierta;falla;16.635;14.140;118.108
+2026-08-15 04:20;2026-08;alineación de medias 9/21/50;BAJA;60;acierta;acierta;falla;18.897;16.063;134.171
+2026-08-15 16:00;2026-08;E04 estacionalidad 21-23 UTC;SUBE;60;acierta;acierta;acierta;21.467;18.247;152.419
+2026-08-16 04:10;2026-08;alineación de medias 9/21/50;SUBE;60;acierta;acierta;acierta;24.387;20.729;173.147
+2026-08-16 06:50;2026-08;alineación de medias 9/21/50;SUBE;60;falla;falla;falla;27.704;-27.704;145.444
+2026-08-16 16:00;2026-08;E04 estacionalidad 21-23 UTC;SUBE;60;falla;falla;falla;23.271;-23.271;122.173
+2026-08-17 16:00;2026-08;E04 estacionalidad 21-23 UTC;SUBE;60;falla;falla;falla;19.548;-19.548;102.625
+2026-08-18 03:10;2026-08;alineación de medias 9/21/50;SUBE;60;acierta;acierta;acierta;16.420;13.957;116.582
+2026-08-18 05:30;2026-08;alineación de medias 9/21/50;SUBE;60;falla;falla;falla;18.653;-18.653;97.929
+2026-08-18 07:10;2026-08;alineación de medias 9/21/50;SUBE;60;falla;acierta;falla;15.900;-15.900;82.029
+2026-08-19 07:10;2026-08;alineación de medias 9/21/50;BAJA;60;falla;falla;acierta;15.900;-15.900;66.129
+2026-08-19 16:00;2026-08;E04 estacionalidad 21-23 UTC;SUBE;60;acierta;acierta;acierta;15.900;13.515;79.644
+2026-08-20 02:20;2026-08;alineación de medias 9/21/50;SUBE;60;acierta;acierta;acierta;15.900;13.515;93.159
+2026-08-20 03:25;2026-08;alineación de medias 9/21/50;BAJA;60;acierta;acierta;falla;15.900;13.515;106.674
+2026-08-20 06:10;2026-08;alineación de medias 9/21/50;SUBE;60;falla;falla;falla;17.068;-17.068;89.606
+2026-08-20 16:00;2026-08;E04 estacionalidad 21-23 UTC;SUBE;60;falla;falla;falla;15.900;-15.900;73.706
+2026-08-21 16:00;2026-08;E04 estacionalidad 21-23 UTC;SUBE;60;acierta;acierta;acierta;15.900;13.515;87.221
+2026-08-22 02:50;2026-08;alineación de medias 9/21/50;BAJA;60;acierta;acierta;falla;15.900;13.515;100.736
+2026-08-22 06:15;2026-08;alineación de medias 9/21/50;SUBE;60;acierta;acierta;acierta;16.118;13.700;114.436
+2026-08-22 16:00;2026-08;E04 estacionalidad 21-23 UTC;SUBE;60;falla;falla;falla;18.310;-18.310;96.127
+2026-08-23 02:00;2026-08;alineación de medias 9/21/50;BAJA;60;falla;falla;acierta;15.900;-15.900;80.227
+2026-08-23 05:25;2026-08;alineación de medias 9/21/50;BAJA;60;falla;falla;acierta;15.900;-15.900;64.327
+2026-08-23 16:00;2026-08;E04 estacionalidad 21-23 UTC;SUBE;60;acierta;acierta;acierta;15.900;13.515;77.842
+2026-08-24 16:00;2026-08;E04 estacionalidad 21-23 UTC;SUBE;60;acierta;acierta;acierta;15.900;13.515;91.357
+2026-08-25 02:15;2026-08;alineación de medias 9/21/50;SUBE;60;falla;falla;falla;15.900;-15.900;75.457
+2026-08-25 06:05;2026-08;alineación de medias 9/21/50;BAJA;60;acierta;acierta;falla;15.900;13.515;88.972
+2026-08-25 07:40;2026-08;alineación de medias 9/21/50;SUBE;60;falla;falla;falla;15.900;-15.900;73.072
+2026-08-25 16:00;2026-08;E04 estacionalidad 21-23 UTC;SUBE;60;acierta;acierta;acierta;15.900;13.515;86.587
+2026-08-26 16:00;2026-08;E04 estacionalidad 21-23 UTC;SUBE;60;acierta;acierta;acierta;15.900;13.515;100.102
+2026-08-27 04:40;2026-08;techo y piso de 24 h;SUBE;10;falla;falla;falla;16.016;-16.016;84.085
+2026-08-27 07:45;2026-08;alineación de medias 9/21/50;SUBE;60;falla;falla;falla;15.900;-15.900;68.185
+2026-08-27 16:00;2026-08;E04 estacionalidad 21-23 UTC;SUBE;60;acierta;acierta;acierta;15.900;13.515;81.700
+2026-08-28 04:55;2026-08;alineación de medias 9/21/50;BAJA;60;acierta;acierta;falla;15.900;13.515;95.215
+2026-08-28 06:40;2026-08;alineación de medias 9/21/50;SUBE;60;falla;falla;falla;15.900;-15.900;79.315
+2026-08-28 16:00;2026-08;E04 estacionalidad 21-23 UTC;SUBE;60;acierta;acierta;acierta;15.900;13.515;92.830
+2026-08-29 04:15;2026-08;alineación de medias 9/21/50;BAJA;60;acierta;acierta;falla;15.900;13.515;106.345
+2026-08-29 05:20;2026-08;alineación de medias 9/21/50;SUBE;60;falla;falla;falla;17.015;-17.015;89.330
+2026-08-29 06:50;2026-08;alineación de medias 9/21/50;SUBE;60;acierta;acierta;acierta;15.900;13.515;102.845
+2026-08-29 07:55;2026-08;alineación de medias 9/21/50;BAJA;60;falla;falla;acierta;16.455;-16.455;86.390
+2026-08-29 16:00;2026-08;E04 estacionalidad 21-23 UTC;SUBE;60;acierta;acierta;acierta;15.900;13.515;99.905
+2026-08-30 02:00;2026-08;alineación de medias 9/21/50;BAJA;60;acierta;acierta;falla;15.985;13.587;113.492
+2026-08-30 05:00;2026-08;alineación de medias 9/21/50;BAJA;60;acierta;acierta;falla;18.159;15.435;128.927
+2026-08-30 06:40;2026-08;alineación de medias 9/21/50;SUBE;60;acierta;acierta;acierta;20.628;17.534;146.461
+2026-08-30 07:40;2026-08;alineación de medias 9/21/50;BAJA;60;falla;falla;acierta;23.434;-23.434;123.027
+2026-08-31 16:00;2026-08;E04 estacionalidad 21-23 UTC;SUBE;60;acierta;acierta;acierta;19.684;16.732;139.759
+2026-09-01 02:40;2026-09;techo y piso de 24 h;SUBE;10;acierta;acierta;acierta;16.000;13.600;113.600
+2026-09-01 03:05;2026-09;techo y piso de 24 h;SUBE;10;falla;falla;falla;18.176;-18.176;95.424
+2026-09-01 03:20;2026-09;techo y piso de 24 h;SUBE;10;falla;falla;falla;15.900;-15.900;79.524
+2026-09-01 04:25;2026-09;techo y piso de 24 h;SUBE;10;falla;falla;falla;15.900;-15.900;63.624
+2026-09-01 07:00;2026-09;techo y piso de 24 h;SUBE;10;falla;falla;falla;15.900;-15.900;47.724
+2026-09-01 07:55;2026-09;techo y piso de 24 h;SUBE;10;falla;falla;falla;15.900;-15.900;31.824
+2026-09-01 08:35;2026-09;pullback en tendencia;BAJA;60;falla;falla;acierta;15.900;-15.900;15.924
+2026-09-01 16:00;2026-09;E04 estacionalidad 21-23 UTC;SUBE;60;acierta;acierta;acierta;15.900;13.515;29.439
+2026-09-02 10:40;2026-09;pullback en tendencia;SUBE;60;falla;falla;falla;15.900;-15.900;13.539
+2026-09-02 16:00;2026-09;E04 estacionalidad 21-23 UTC;SUBE;60;acierta;acierta;acierta;0;0;13.539
+2026-09-03 08:50;2026-09;pullback en tendencia;SUBE;60;acierta;acierta;acierta;0;0;13.539
+2026-09-03 11:40;2026-09;pullback en tendencia;SUBE;60;acierta;acierta;acierta;0;0;13.539
+2026-09-03 16:00;2026-09;E04 estacionalidad 21-23 UTC;SUBE;60;acierta;acierta;acierta;0;0;13.539
+2026-09-04 07:35;2026-09;techo y piso de 24 h;SUBE;10;falla;acierta;falla;0;0;13.539
+2026-09-04 08:30;2026-09;pullback en tendencia;BAJA;60;falla;falla;acierta;0;0;13.539
+2026-09-04 16:00;2026-09;E04 estacionalidad 21-23 UTC;SUBE;60;acierta;acierta;acierta;0;0;13.539
+2026-09-05 16:00;2026-09;E04 estacionalidad 21-23 UTC;SUBE;60;acierta;acierta;acierta;0;0;13.539
+2026-09-06 02:30;2026-09;techo y piso de 24 h;SUBE;10;falla;falla;falla;0;0;13.539
+2026-09-06 03:25;2026-09;techo y piso de 24 h;SUBE;10;acierta;acierta;acierta;0;0;13.539
+2026-09-06 09:10;2026-09;pullback en tendencia;BAJA;60;acierta;acierta;falla;0;0;13.539
+2026-09-06 10:15;2026-09;pullback en tendencia;BAJA;60;empate;acierta;empate;0;0;13.539
+2026-09-06 11:40;2026-09;pullback en tendencia;BAJA;60;acierta;acierta;falla;0;0;13.539
+2026-09-06 13:55;2026-09;pullback en tendencia;BAJA;60;acierta;acierta;falla;0;0;13.539
+2026-09-06 15:15;2026-09;pullback en tendencia;BAJA;60;acierta;acierta;falla;0;0;13.539
+2026-09-07 06:25;2026-09;techo y piso de 24 h;SUBE;10;falla;falla;falla;0;0;13.539
+2026-09-07 06:45;2026-09;techo y piso de 24 h;SUBE;10;acierta;falla;acierta;0;0;13.539
+2026-09-07 07:00;2026-09;techo y piso de 24 h;SUBE;10;acierta;acierta;acierta;0;0;13.539
+2026-09-07 16:00;2026-09;E04 estacionalidad 21-23 UTC;SUBE;60;acierta;acierta;acierta;0;0;13.539
+2026-09-08 07:15;2026-09;techo y piso de 24 h;SUBE;10;acierta;acierta;acierta;0;0;13.539
+2026-09-08 10:00;2026-09;pullback en tendencia;BAJA;60;acierta;acierta;falla;0;0;13.539
+2026-09-08 11:30;2026-09;pullback en tendencia;BAJA;60;acierta;acierta;falla;0;0;13.539
+2026-09-09 08:45;2026-09;pullback en tendencia;SUBE;60;acierta;acierta;acierta;0;0;13.539
+2026-09-09 09:45;2026-09;pullback en tendencia;SUBE;60;falla;falla;falla;0;0;13.539
+2026-09-09 12:35;2026-09;pullback en tendencia;SUBE;60;acierta;acierta;acierta;0;0;13.539
+2026-09-09 16:00;2026-09;E04 estacionalidad 21-23 UTC;SUBE;60;falla;falla;falla;0;0;13.539
+2026-09-10 05:55;2026-09;techo y piso de 24 h;SUBE;10;acierta;acierta;acierta;0;0;13.539
+2026-09-10 06:10;2026-09;techo y piso de 24 h;SUBE;10;acierta;acierta;acierta;0;0;13.539
+2026-09-10 06:55;2026-09;techo y piso de 24 h;SUBE;10;falla;falla;falla;0;0;13.539
+2026-09-10 08:05;2026-09;pullback en tendencia;BAJA;60;falla;falla;acierta;0;0;13.539
+2026-09-10 16:00;2026-09;E04 estacionalidad 21-23 UTC;SUBE;60;acierta;acierta;acierta;0;0;13.539
+2026-09-11 07:55;2026-09;techo y piso de 24 h;BAJA;10;falla;falla;acierta;0;0;13.539
+2026-09-11 10:15;2026-09;pullback en tendencia;SUBE;60;falla;falla;falla;0;0;13.539
+2026-09-11 11:15;2026-09;pullback en tendencia;SUBE;60;acierta;acierta;acierta;0;0;13.539
+2026-09-11 16:00;2026-09;E04 estacionalidad 21-23 UTC;SUBE;60;acierta;falla;acierta;0;0;13.539
+2026-09-12 16:00;2026-09;E04 estacionalidad 21-23 UTC;SUBE;60;acierta;acierta;acierta;0;0;13.539
+2026-09-13 15:55;2026-09;pullback en tendencia;BAJA;60;acierta;acierta;falla;0;0;13.539
+2026-09-14 08:20;2026-09;pullback en tendencia;BAJA;60;falla;acierta;acierta;0;0;13.539
+2026-09-14 09:30;2026-09;pullback en tendencia;BAJA;60;falla;falla;acierta;0;0;13.539
+2026-09-14 15:50;2026-09;pullback en tendencia;BAJA;60;falla;falla;acierta;0;0;13.539
+2026-09-15 11:00;2026-09;pullback en tendencia;SUBE;60;acierta;acierta;acierta;0;0;13.539
+2026-09-15 16:00;2026-09;E04 estacionalidad 21-23 UTC;SUBE;60;acierta;acierta;acierta;0;0;13.539
+2026-09-16 02:05;2026-09;techo y piso de 24 h;BAJA;10;falla;falla;acierta;0;0;13.539
+2026-09-16 03:25;2026-09;techo y piso de 24 h;BAJA;10;acierta;acierta;falla;0;0;13.539
+2026-09-16 04:35;2026-09;techo y piso de 24 h;BAJA;10;falla;acierta;acierta;0;0;13.539
+2026-09-16 07:10;2026-09;techo y piso de 24 h;BAJA;10;acierta;acierta;falla;0;0;13.539
+2026-09-16 07:50;2026-09;techo y piso de 24 h;BAJA;10;falla;falla;acierta;0;0;13.539
+2026-09-16 08:35;2026-09;pullback en tendencia;SUBE;60;falla;falla;falla;0;0;13.539
+2026-09-16 10:30;2026-09;pullback en tendencia;SUBE;60;acierta;acierta;acierta;0;0;13.539
+2026-09-16 13:45;2026-09;pullback en tendencia;BAJA;60;acierta;acierta;falla;0;0;13.539
+2026-09-17 07:20;2026-09;techo y piso de 24 h;BAJA;10;falla;falla;acierta;0;0;13.539
+2026-09-17 07:55;2026-09;techo y piso de 24 h;BAJA;10;acierta;acierta;falla;0;0;13.539
+2026-09-17 09:55;2026-09;pullback en tendencia;SUBE;60;acierta;acierta;acierta;0;0;13.539
+2026-09-17 16:00;2026-09;E04 estacionalidad 21-23 UTC;SUBE;60;acierta;falla;acierta;0;0;13.539
+2026-09-18 03:55;2026-09;techo y piso de 24 h;BAJA;10;falla;falla;acierta;0;0;13.539
+2026-09-18 11:10;2026-09;pullback en tendencia;BAJA;60;falla;falla;acierta;0;0;13.539
+2026-09-18 16:00;2026-09;E04 estacionalidad 21-23 UTC;SUBE;60;acierta;acierta;acierta;0;0;13.539
+2026-09-19 16:00;2026-09;E04 estacionalidad 21-23 UTC;SUBE;60;acierta;acierta;acierta;0;0;13.539
+2026-09-20 11:55;2026-09;pullback en tendencia;SUBE;60;falla;falla;falla;0;0;13.539
+2026-09-20 12:55;2026-09;pullback en tendencia;SUBE;60;falla;falla;falla;0;0;13.539
+2026-09-20 14:20;2026-09;pullback en tendencia;BAJA;60;falla;acierta;acierta;0;0;13.539
+2026-09-21 08:20;2026-09;pullback en tendencia;SUBE;60;falla;falla;falla;0;0;13.539
+2026-09-21 09:30;2026-09;pullback en tendencia;BAJA;60;falla;falla;acierta;0;0;13.539
+2026-09-21 16:00;2026-09;E04 estacionalidad 21-23 UTC;SUBE;60;falla;acierta;falla;0;0;13.539
+2026-09-22 09:50;2026-09;pullback en tendencia;BAJA;60;falla;falla;acierta;0;0;13.539
+2026-09-22 16:00;2026-09;E04 estacionalidad 21-23 UTC;SUBE;60;falla;acierta;falla;0;0;13.539
+2026-09-23 08:00;2026-09;pullback en tendencia;BAJA;60;acierta;acierta;falla;0;0;13.539
+2026-09-23 09:55;2026-09;pullback en tendencia;BAJA;60;acierta;acierta;falla;0;0;13.539
+2026-09-23 16:00;2026-09;E04 estacionalidad 21-23 UTC;SUBE;60;acierta;acierta;acierta;0;0;13.539
+2026-09-24 13:00;2026-09;pullback en tendencia;BAJA;60;falla;falla;acierta;0;0;13.539
+2026-09-24 14:00;2026-09;pullback en tendencia;SUBE;60;acierta;acierta;acierta;0;0;13.539
+2026-09-24 16:00;2026-09;E04 estacionalidad 21-23 UTC;SUBE;60;falla;falla;falla;0;0;13.539
+2026-09-25 03:45;2026-09;techo y piso de 24 h;BAJA;10;falla;acierta;acierta;0;0;13.539
+2026-09-25 04:35;2026-09;techo y piso de 24 h;BAJA;10;acierta;acierta;falla;0;0;13.539
+2026-09-25 04:55;2026-09;techo y piso de 24 h;BAJA;10;falla;falla;acierta;0;0;13.539
+2026-09-25 09:50;2026-09;pullback en tendencia;BAJA;60;acierta;acierta;falla;0;0;13.539
+2026-09-25 10:55;2026-09;pullback en tendencia;BAJA;60;falla;falla;acierta;0;0;13.539
+2026-09-25 16:00;2026-09;E04 estacionalidad 21-23 UTC;SUBE;60;acierta;acierta;acierta;0;0;13.539
+2026-09-26 16:00;2026-09;E04 estacionalidad 21-23 UTC;SUBE;60;falla;falla;falla;0;0;13.539
+2026-09-28 11:25;2026-09;pullback en tendencia;BAJA;60;falla;falla;acierta;0;0;13.539
+2026-09-29 07:35;2026-09;techo y piso de 24 h;BAJA;10;acierta;acierta;falla;0;0;13.539
+2026-09-29 07:45;2026-09;techo y piso de 24 h;BAJA;10;acierta;falla;falla;0;0;13.539
+2026-09-29 09:40;2026-09;pullback en tendencia;SUBE;60;falla;falla;falla;0;0;13.539
+2026-09-29 16:00;2026-09;E04 estacionalidad 21-23 UTC;SUBE;60;falla;acierta;falla;0;0;13.539
+2026-09-30 02:50;2026-09;techo y piso de 24 h;BAJA;10;acierta;acierta;falla;0;0;13.539
+2026-09-30 03:05;2026-09;techo y piso de 24 h;BAJA;10;falla;falla;acierta;0;0;13.539
+2026-09-30 07:35;2026-09;techo y piso de 24 h;BAJA;10;acierta;falla;falla;0;0;13.539
+2026-09-30 08:15;2026-09;pullback en tendencia;SUBE;60;falla;falla;falla;0;0;13.539
+2026-09-30 16:00;2026-09;E04 estacionalidad 21-23 UTC;SUBE;60;acierta;acierta;acierta;0;0;13.539
+2026-10-01 16:00;2026-10;E04 estacionalidad 21-23 UTC;SUBE;60;acierta;falla;acierta;16.000;13.600;113.600
+2026-10-01 20:00;2026-10;E12 MACD diario y horario;SUBE;10;falla;falla;falla;18.176;-18.176;95.424
+2026-10-02 16:00;2026-10;E04 estacionalidad 21-23 UTC;SUBE;60;falla;acierta;falla;15.900;-15.900;79.524
+2026-10-03 16:00;2026-10;E04 estacionalidad 21-23 UTC;SUBE;60;acierta;acierta;acierta;15.900;13.515;93.039
+2026-10-05 16:00;2026-10;E04 estacionalidad 21-23 UTC;SUBE;60;acierta;acierta;acierta;15.900;13.515;106.554
+2026-10-06 16:00;2026-10;E04 estacionalidad 21-23 UTC;SUBE;60;acierta;acierta;acierta;17.049;14.491;121.045
+2026-10-06 20:00;2026-10;E12 MACD diario y horario;SUBE;10;falla;falla;falla;19.367;-19.367;101.678
+2026-10-07 16:00;2026-10;E04 estacionalidad 21-23 UTC;SUBE;60;acierta;acierta;acierta;16.268;13.828;115.506
+2026-10-08 16:00;2026-10;E04 estacionalidad 21-23 UTC;SUBE;60;falla;falla;falla;18.481;-18.481;97.025
+2026-10-09 16:00;2026-10;E04 estacionalidad 21-23 UTC;SUBE;60;falla;falla;falla;15.900;-15.900;81.125
+2026-10-10 16:00;2026-10;E04 estacionalidad 21-23 UTC;SUBE;60;acierta;acierta;acierta;15.900;13.515;94.640
+2026-10-11 16:00;2026-10;E04 estacionalidad 21-23 UTC;SUBE;60;falla;falla;falla;15.900;-15.900;78.740
+2026-10-12 16:00;2026-10;E04 estacionalidad 21-23 UTC;SUBE;60;falla;acierta;falla;15.900;-15.900;62.840
+2026-10-12 17:00;2026-10;E12 MACD diario y horario;BAJA;10;falla;falla;acierta;15.900;-15.900;46.940
+2026-10-13 16:00;2026-10;E04 estacionalidad 21-23 UTC;SUBE;60;acierta;acierta;acierta;15.900;13.515;60.455
+2026-10-13 23:00;2026-10;E12 MACD diario y horario;BAJA;10;acierta;acierta;falla;15.900;13.515;73.970
+2026-10-14 16:00;2026-10;E04 estacionalidad 21-23 UTC;SUBE;60;falla;falla;falla;15.900;-15.900;58.070
+2026-10-14 17:00;2026-10;E12 MACD diario y horario;BAJA;10;acierta;acierta;falla;15.900;13.515;71.585
+2026-10-15 16:00;2026-10;E04 estacionalidad 21-23 UTC;SUBE;60;falla;falla;falla;15.900;-15.900;55.685
+2026-10-15 22:00;2026-10;E12 MACD diario y horario;BAJA;10;acierta;acierta;falla;15.900;13.515;69.200
+2026-10-16 16:00;2026-10;E04 estacionalidad 21-23 UTC;SUBE;60;acierta;falla;acierta;15.900;13.515;82.715
+2026-10-17 16:00;2026-10;E04 estacionalidad 21-23 UTC;SUBE;60;falla;falla;falla;15.900;-15.900;66.815
+2026-10-17 23:00;2026-10;E12 MACD diario y horario;BAJA;10;falla;falla;acierta;15.900;-15.900;50.915
+2026-10-19 16:00;2026-10;E04 estacionalidad 21-23 UTC;SUBE;60;acierta;acierta;acierta;15.900;13.515;64.430
+2026-10-20 00:00;2026-10;E12 MACD diario y horario;BAJA;10;acierta;acierta;falla;15.900;13.515;77.945
+2026-10-20 16:00;2026-10;E04 estacionalidad 21-23 UTC;SUBE;60;acierta;acierta;acierta;15.900;13.515;91.460
+2026-10-21 16:00;2026-10;E04 estacionalidad 21-23 UTC;SUBE;60;falla;falla;falla;15.900;-15.900;75.560
+2026-10-22 16:00;2026-10;E04 estacionalidad 21-23 UTC;SUBE;60;acierta;acierta;acierta;15.900;13.515;89.075
+2026-10-23 16:00;2026-10;E04 estacionalidad 21-23 UTC;SUBE;60;falla;empate;falla;15.900;-15.900;73.175
+2026-10-24 16:00;2026-10;E04 estacionalidad 21-23 UTC;SUBE;60;falla;falla;falla;15.900;-15.900;57.275
+2026-10-25 16:00;2026-10;E04 estacionalidad 21-23 UTC;SUBE;60;acierta;acierta;acierta;15.900;13.515;70.790
+2026-10-26 15:00;2026-10;E12 MACD diario y horario;SUBE;10;falla;acierta;falla;15.900;-15.900;54.890
+2026-10-26 16:00;2026-10;E04 estacionalidad 21-23 UTC;SUBE;60;falla;falla;falla;15.900;-15.900;38.990
+2026-10-27 16:00;2026-10;E04 estacionalidad 21-23 UTC;SUBE;60;acierta;acierta;acierta;15.900;13.515;52.505
+2026-10-29 16:00;2026-10;E04 estacionalidad 21-23 UTC;SUBE;60;falla;acierta;falla;15.900;-15.900;36.605
+2026-10-29 19:00;2026-10;E12 MACD diario y horario;SUBE;10;falla;falla;falla;15.900;-15.900;20.705

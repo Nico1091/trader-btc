@@ -1,0 +1,32 @@
+{
+ "sim": "BTCUSDT",
+ "probadas": 14638,
+ "bh": 7075,
+ "elegidas": 1457,
+ "sostienen": 1092,
+ "cartera": {
+  "entrenamiento": {
+   "n": 87568,
+   "k": 47735,
+   "acierto": 0.5451192216334734,
+   "por_dia": 79.9712834302602
+  },
+  "prueba": {
+   "n": 88097,
+   "k": 46487,
+   "acierto": 0.5276797166759367,
+   "por_dia": 87.74662286010721
+  },
+  "adelante": {
+   "n": 2684,
+   "k": 1380,
+   "acierto": 0.5141579731743666,
+   "por_dia": 92.13253873659119
+  }
+ },
+ "pbo": 0.0005439005439005439,
+ "meta_857": {
+  "entrenamiento": 0,
+  "con_prueba": 0
+ }
+}

@@ -1,0 +1,32 @@
+{
+ "sim": "ETHUSDT",
+ "probadas": 14650,
+ "bh": 6602,
+ "elegidas": 1209,
+ "sostienen": 1046,
+ "cartera": {
+  "entrenamiento": {
+   "n": 86618,
+   "k": 46990,
+   "acierto": 0.5424969405897158,
+   "por_dia": 79.10369801939382
+  },
+  "prueba": {
+   "n": 84574,
+   "k": 44892,
+   "acierto": 0.5308014283349493,
+   "por_dia": 84.23763444578938
+  },
+  "adelante": {
+   "n": 2610,
+   "k": 1379,
+   "acierto": 0.5283524904214559,
+   "por_dia": 89.59237187127533
+  }
+ },
+ "pbo": 0.02672882672882673,
+ "meta_857": {
+  "entrenamiento": 0,
+  "con_prueba": 0
+ }
+}

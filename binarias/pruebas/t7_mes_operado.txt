@@ -1,0 +1,174 @@
+T7 · UN MES OPERADO · BTCUSDT · velas hasta 29/10/2026 15:47 (Colombia)
+4 binarias al día (una por franja de 6 h), 2 % del saldo, pago 0,85 · entrenamiento 01/01/2024-28/09/2026 · mes 29/09-28/10/2026
+para no perder hace falta 54,1 % con pago 0,85 y 55,6 % con 0,80
+
+== A · SUS LIBROS ==   (entrenamiento: acierto y apuestas · MES: acierto, apuestas y resultado desde 150 mil COP)
+   techo y piso de 24 h                   normal, 10 min, a favor del contexto, Asia, volatilidad ba ent  62,2 % ( 234) · MES  37,5 % (  8)    -7.379 COP · sin preventivas  57,0 %   +11.146  ← gana solo antes
+   patrón tres soldados                   al revés, 10 min, Asia                                     ent  59,4 % ( 508) · MES  37,5 % ( 16)   -14.394 COP · sin preventivas  55,1 %    +1.611  ← gana solo antes
+   patrón tres cuervos                    al revés, 5 min, América, volatilidad alta                 ent  59,2 % ( 311) · MES  53,8 % ( 13)      -482 COP · sin preventivas  56,0 %    +4.188  ← gana solo antes
+   rompimiento de 20 velas                al revés, 10 min, a favor del contexto, Europa, volatilida ent  57,6 % ( 295) · MES  23,1 % ( 13)   -21.082 COP · sin preventivas  45,0 %   -51.747  ← gana solo antes
+   patrón estrella manana                 normal, 15 min, a favor del contexto, Europa               ent  57,5 % ( 261) · MES  33,3 % ( 12)   -13.484 COP · sin preventivas  47,8 %   -16.162  ← gana solo antes
+   patrón hombre colgado                  normal, 15 min, a favor del contexto, Asia, volatilidad ba ent  57,2 % ( 319) · MES  40,0 % (  6)    -3.980 COP · sin preventivas  44,6 %   -35.725  ← gana solo antes
+   pendiente de la media 48 (Quantdemy)   al revés, 5 min, a favor del contexto, América, volatilida ent  56,9 % ( 764) · MES  60,0 % ( 26)    +7.822 COP · sin preventivas  49,6 %   -28.928  ← GANA
+   tres resistencias 15 min               al revés, 5 min, a favor del contexto, Asia                ent  56,3 % ( 223) · MES  25,0 % (  8)   -12.567 COP · sin preventivas  47,7 %   -15.714  ← gana solo antes
+   patrón doji lapida                     normal, 10 min, a favor del contexto, para tras 2 pérdidas ent  56,0 % ( 498) · MES  62,5 % (  8)    +3.594 COP · sin preventivas  63,6 %   +24.058  ← GANA
+   patrón estrella fugaz                  normal, 15 min, Asia, volatilidad alta                     ent  55,6 % ( 248) · MES  42,9 % (  7)    -4.468 COP · sin preventivas  51,9 %   -11.520  ← gana solo antes
+   tres resistencias 5 min                normal, 5 min, América, volatilidad baja                   ent  55,6 % ( 520) · MES  38,9 % ( 18)   -14.847 COP · sin preventivas  39,1 %   -58.802  ← gana solo antes
+   pullback en tendencia                  normal, 10 min, a favor del contexto, América              ent  55,0 % ( 959) · MES  53,8 % ( 26)      -962 COP · sin preventivas  52,7 %   -11.002  ← gana solo antes
+   alineación de medias 9/21/50           al revés, 15 min, volatilidad baja                         ent  54,9 % (3017) · MES  56,0 % ( 91)    +7.944 COP · sin preventivas  48,3 %   -35.283  ← GANA
+   patrón harami alcista                  normal, 5 min, América, volatilidad baja                   ent  54,8 % ( 598) · MES  59,1 % ( 22)    +5.703 COP · sin preventivas  58,5 %   +25.363  ← GANA
+   patrón estrella tarde                  normal, 5 min, América, volatilidad baja                   ent  54,8 % ( 239) · MES  50,0 % (  8)    -1.994 COP · sin preventivas  47,5 %   -14.812  ← gana solo antes
+   patrón martillo invertido              normal, 5 min, Europa                                      ent  54,7 % ( 828) · MES  48,3 % ( 29)    -9.726 COP · sin preventivas  53,8 %    -3.340  ← gana solo antes
+   patrón pinzas abajo                    normal, 5 min, a favor del contexto, Europa                ent  54,7 % ( 689) · MES  34,4 % ( 32)   -31.868 COP · sin preventivas  46,6 %   -39.100  ← gana solo antes
+   patrón doji libelula                   normal, 5 min, a favor del contexto, Asia                  ent  54,1 % ( 223) · MES  30,8 % ( 13)   -16.214 COP · sin preventivas  49,0 %   -14.342  ← gana solo antes
+   patrón harami bajista                  normal, 10 min, Asia, volatilidad baja                     ent  53,6 % (1008) · MES  59,1 % ( 22)    +5.703 COP · sin preventivas  49,5 %   -24.809
+   patrón martillo                        normal, 15 min, a favor del contexto                       ent  53,5 % (1585) · MES  39,7 % ( 73)   -49.458 COP · sin preventivas  39,4 %   -61.518
+   50 SMA + precio                        al revés, 5 min, a favor del contexto, para tras 2 pérdida ent  53,5 % (3243) · MES  48,4 % ( 92)   -28.146 COP · sin preventivas  53,9 %    -3.792
+   patrón envolvente alcista              normal, 5 min, a favor del contexto, América               ent  53,3 % (1057) · MES  44,4 % ( 45)   -23.187 COP · sin preventivas  53,8 %    -4.280
+   patrón pinzas arriba                   normal, 5 min, Asia, volatilidad baja                      ent  53,3 % (1047) · MES  39,3 % ( 28)   -21.925 COP · sin preventivas  46,7 %   -39.471
+   patrón envolvente bajista              al revés, 15 min, a favor del contexto, volatilidad baja,  ent  51,7 % (1573) · MES  52,9 % ( 68)    -5.828 COP · sin preventivas  47,5 %   -39.825
+   patrón peonza                          normal, 5 min                                              ent   nan % (   0) · MES   nan % (  0)        +0 COP · sin preventivas   nan %        +0  (poca muestra)
+   patrón doji piernas largas             normal, 5 min                                              ent   nan % (   0) · MES   nan % (  0)        +0 COP · sin preventivas   nan %        +0  (poca muestra)
+   patrón doji cuatro precios             normal, 5 min                                              ent   nan % (   0) · MES   nan % (  0)        +0 COP · sin preventivas   nan %        +0  (poca muestra)
+
+== B · LA T95H (motor v3) ==   (entrenamiento: acierto y apuestas · MES: acierto, apuestas y resultado desde 150 mil COP)
+   N9 (T95H)                              al revés, 15 min, Europa                                   ent  68,2 % ( 242) · MES  50,0 % ( 14)    -3.472 COP · sin preventivas  50,0 %    -3.472  ← gana solo antes
+   P05b (T95H)                            al revés, 15 min                                           ent  64,0 % ( 222) · MES  50,0 % (  4)    -1.000 COP · sin preventivas  50,0 %    -1.000  ← gana solo antes
+   N8 (T95H)                              normal, 5 min                                              ent  49,4 % (  79) · MES  50,0 % (  4)    -1.000 COP · sin preventivas  50,0 %    -1.000  (poca muestra)
+   P11 (T95H)                             normal, 5 min                                              ent  41,2 % (  80) · MES   0,0 % (  3)    -8.821 COP · sin preventivas   0,0 %    -8.821  (poca muestra)
+   P05c (T95H)                            normal, 5 min                                              ent  31,8 % (  44) · MES   nan % (  0)        +0 COP · sin preventivas   nan %        +0  (poca muestra)
+
+== C · MIS CONSOLIDADAS ==   (entrenamiento: acierto y apuestas · MES: acierto, apuestas y resultado desde 150 mil COP)
+   REV15                                  normal, 10 min, Europa, volatilidad alta                   ent  60,6 % ( 495) · MES  52,4 % ( 21)    -2.469 COP · sin preventivas  49,0 %   -26.901  ← gana solo antes
+   tres soldados AL REVÉS                 normal, 10 min, Asia                                       ent  59,4 % ( 508) · MES  37,5 % ( 16)   -14.394 COP · sin preventivas  44,9 %   -24.033  ← gana solo antes
+   tres cuervos AL REVÉS                  normal, 5 min, América, volatilidad alta                   ent  59,2 % ( 311) · MES  53,8 % ( 13)      -482 COP · sin preventivas  44,0 %   -26.552  ← gana solo antes
+   REV5                                   normal, 10 min, América, volatilidad baja                  ent  56,5 % (1132) · MES  51,5 % ( 33)    -5.401 COP · sin preventivas  51,7 %   -17.396  ← gana solo antes
+
+== MEZCLAS (cada estrategia con su configuración optimizada; 4 al día) ==
+   la mejor sola                                  ent  60,6 % ( 495) +0,112 %/día · MES  52,4 % ( 21)    -2.469 COP con 0,85 ·    -4.057 con 0,80 · días positivos 6 de 15
+   la mejor sola + parar tras 2                   ent  60,6 % ( 495) +0,112 %/día · MES  52,4 % ( 21)    -2.469 COP con 0,85 ·    -4.057 con 0,80 · días positivos 6 de 15
+   las 3 mejores                                  ent  59,9 % ( 971) +0,195 %/día · MES  45,9 % ( 37)   -16.627 COP con 0,85 ·   -18.839 con 0,80 · días positivos 7 de 20
+   las 3 mejores + parar tras 2                   ent  59,8 % ( 963) +0,189 %/día · MES  47,2 % ( 36)   -13.905 COP con 0,85 ·   -16.162 con 0,80 · días positivos 7 de 20
+   las 5 mejores                                  ent  58,1 % (2179) +0,286 %/día · MES  49,3 % ( 75)   -20.115 COP con 0,85 ·   -24.758 con 0,80 · días positivos 11 de 29
+   las 5 mejores + parar tras 2                   ent  57,8 % (2106) +0,259 %/día · MES  49,3 % ( 71)   -19.243 COP con 0,85 ·   -23.669 con 0,80 · días positivos 11 de 29
+   las 3 mejores de SUS LIBROS                    ent  58,2 % (1515) +0,206 %/día · MES  49,0 % ( 52)   -14.795 COP con 0,85 ·   -18.080 con 0,80 · días positivos 11 de 27
+   las 3 mejores de SUS LIBROS + parar tras 2     ent  58,1 % (1481) +0,197 %/día · MES  49,0 % ( 52)   -14.795 COP con 0,85 ·   -18.080 con 0,80 · días positivos 11 de 27
+   las 3 mejores de MIS CONSOLIDADAS              ent  58,0 % (2070) +0,265 %/día · MES  47,1 % ( 68)   -25.692 COP con 0,85 ·   -29.544 con 0,80 · días positivos 10 de 29
+   las 3 mejores de MIS CONSOLIDADAS + parar tras 2 ent  57,4 % (2004) +0,217 %/día · MES  48,4 % ( 64)   -20.132 COP con 0,85 ·   -24.033 con 0,80 · días positivos 10 de 29
+   todas las que pasan 54,1 %                     ent  56,2 % (3807) +0,238 %/día · MES  53,4 % (116)    -6.716 COP con 0,85 ·   -15.194 con 0,80 · días positivos 9 de 30
+   todas las que pasan 54,1 % + parar tras 2      ent  55,9 % (3351) +0,171 %/día · MES  49,5 % (101)   -25.643 COP con 0,85 ·   -31.612 con 0,80 · días positivos 9 de 30
+
+AGENTE CONSOLIDADO (regla fijada: mayor crecimiento en el entrenamiento): las 5 mejores
+   · REV15 (normal, 10 min, Europa, volatilidad alta)
+   · patrón tres soldados (al revés, 10 min, Asia)
+   · tres soldados AL REVÉS (normal, 10 min, Asia)
+   · REV5 (normal, 10 min, América, volatilidad baja)
+   · pendiente de la media 48 (Quantdemy) (al revés, 5 min, a favor del contexto, América, volatilidad baja)
+   entrenamiento: 58,1 % en 2179 apuestas, +0,286 %/día
+   MES: 49,3 % en 75 apuestas · 150 mil → 129.885 COP (-20.115) · días positivos 11 de 29
+
+   EL MES, DÍA POR DÍA (hora de Colombia):
+   29/09
+      08:10 REV5                               ▼ baja 10 min   84.398,1 →   84.402,7 perdió   -3.000 · saldo 147.000
+      13:05 REV5                               ▼ baja 10 min   83.264,4 →   83.394,2 perdió   -2.940 · saldo 144.060
+   30/09
+      07:45 REV15                              ▼ baja 10 min   84.788,8 →   85.455,1 perdió   -2.881 · saldo 141.179
+      14:10 pendiente de la media 48 (Quantdem ▲ sube  5 min   83.788,4 →   83.720,2 perdió   -2.824 · saldo 138.355
+   01/10
+      08:05 REV5                               ▲ sube 10 min   83.571,8 →   83.494,6 perdió   -2.767 · saldo 135.588
+   03/10
+      00:30 patrón tres soldados               ▼ baja 10 min   84.585,0 →   84.598,4 perdió   -2.712 · saldo 132.876
+      08:20 REV5                               ▲ sube 10 min   84.766,1 →   84.775,5 ganó   +2.259 · saldo 135.135
+      12:30 REV5                               ▲ sube 10 min   84.839,7 →   84.870,3 ganó   +2.297 · saldo 137.433
+      20:35 patrón tres soldados               ▼ baja 10 min   84.741,3 →   84.744,9 perdió   -2.749 · saldo 134.684
+   04/10
+      05:30 REV15                              ▼ baja 10 min   85.337,1 →   85.265,1 ganó   +2.290 · saldo 136.974
+      06:00 REV15                              ▲ sube 10 min   85.220,2 →   85.219,6 perdió   -2.739 · saldo 134.234
+      14:20 pendiente de la media 48 (Quantdem ▲ sube  5 min   85.350,3 →   85.364,1 ganó   +2.282 · saldo 136.516
+   05/10
+      02:00 REV15                              ▼ baja 10 min   86.214,8 →   86.320,2 perdió   -2.730 · saldo 133.786
+      06:30 REV15                              ▼ baja 10 min   86.166,9 →   86.040,2 ganó   +2.274 · saldo 136.060
+      13:40 pendiente de la media 48 (Quantdem ▲ sube  5 min   85.568,9 →   85.573,1 ganó   +2.313 · saldo 138.373
+   06/10
+      08:35 REV5                               ▼ baja 10 min   86.290,8 →   86.334,7 perdió   -2.767 · saldo 135.606
+      12:55 REV5                               ▼ baja 10 min   85.691,9 →   85.721,5 perdió   -2.712 · saldo 132.894
+   07/10
+      05:45 REV15                              ▲ sube 10 min   83.600,1 →   83.753,2 ganó   +2.259 · saldo 135.153
+      14:55 pendiente de la media 48 (Quantdem ▲ sube  5 min   83.334,5 →   83.399,3 ganó   +2.298 · saldo 137.450
+      19:55 patrón tres soldados               ▼ baja 10 min   83.387,8 →   83.417,7 perdió   -2.749 · saldo 134.701
+   08/10
+      01:50 patrón tres soldados               ▼ baja 10 min   82.758,0 →   82.840,1 perdió   -2.694 · saldo 132.007
+      06:15 REV15                              ▲ sube 10 min   82.438,9 →   82.485,0 ganó   +2.244 · saldo 134.251
+   09/10
+      01:45 patrón tres soldados               ▼ baja 10 min   82.558,8 →   82.513,1 ganó   +2.282 · saldo 136.534
+      07:00 REV15                              ▼ baja 10 min   83.200,0 →   83.266,5 perdió   -2.731 · saldo 133.803
+      12:30 REV5                               ▼ baja 10 min   82.640,9 →   82.657,0 perdió   -2.676 · saldo 131.127
+      20:15 patrón tres soldados               ▼ baja 10 min   82.635,4 →   82.584,6 ganó   +2.229 · saldo 133.356
+   10/10
+      08:50 REV5                               ▼ baja 10 min   82.806,0 →   82.790,1 ganó   +2.267 · saldo 135.623
+      12:05 REV5                               ▼ baja 10 min   83.035,8 →   83.022,6 ganó   +2.306 · saldo 137.929
+      20:20 patrón tres soldados               ▼ baja 10 min   82.989,9 →   82.987,2 ganó   +2.345 · saldo 140.274
+   11/10
+      01:40 patrón tres soldados               ▼ baja 10 min   83.049,9 →   83.136,3 perdió   -2.805 · saldo 137.468
+      07:30 REV15                              ▲ sube 10 min   83.092,2 →   83.120,2 ganó   +2.337 · saldo 139.805
+      23:35 patrón tres soldados               ▼ baja 10 min   83.764,8 →   84.068,0 perdió   -2.796 · saldo 137.009
+   12/10
+      02:00 REV15                              ▼ baja 10 min   84.178,5 →   84.169,7 ganó   +2.329 · saldo 139.338
+      07:30 REV15                              ▲ sube 10 min   83.127,1 →   82.724,9 perdió   -2.787 · saldo 136.551
+      14:10 REV5                               ▲ sube 10 min   82.366,3 →   82.368,7 ganó   +2.321 · saldo 138.873
+      20:15 patrón tres soldados               ▼ baja 10 min   81.819,9 →   81.986,9 perdió   -2.777 · saldo 136.095
+   13/10
+      03:30 REV15                              ▲ sube 10 min   83.890,3 →   83.741,7 perdió   -2.722 · saldo 133.373
+      06:30 REV15                              ▼ baja 10 min   83.500,4 →   83.569,9 perdió   -2.667 · saldo 130.706
+      12:10 pendiente de la media 48 (Quantdem ▲ sube  5 min   83.197,5 →   83.156,6 perdió   -2.614 · saldo 128.092
+      19:10 patrón tres soldados               ▼ baja 10 min   83.268,0 →   83.418,0 perdió   -2.562 · saldo 125.530
+   14/10
+      03:45 REV15                              ▲ sube 10 min   83.430,8 →   83.515,3 ganó   +2.134 · saldo 127.664
+      07:45 REV15                              ▲ sube 10 min   82.805,6 →   82.913,2 ganó   +2.170 · saldo 129.834
+      14:00 pendiente de la media 48 (Quantdem ▲ sube  5 min   81.679,5 →   81.517,5 perdió   -2.597 · saldo 127.238
+      23:30 patrón tres soldados               ▼ baja 10 min   81.341,1 →   81.477,6 perdió   -2.545 · saldo 124.693
+   15/10
+      14:40 pendiente de la media 48 (Quantdem ▲ sube  5 min   82.382,0 →   82.378,9 perdió   -2.494 · saldo 122.199
+   16/10
+      00:05 patrón tres soldados               ▼ baja 10 min   82.359,8 →   82.264,7 ganó   +2.077 · saldo 124.276
+      08:35 REV5                               ▲ sube 10 min   81.794,0 →   81.950,3 ganó   +2.113 · saldo 126.389
+      12:05 REV5                               ▲ sube 10 min   81.251,1 →   81.124,0 perdió   -2.528 · saldo 123.861
+   17/10
+      08:05 REV5                               ▼ baja 10 min   81.527,3 →   81.469,9 ganó   +2.106 · saldo 125.967
+      12:05 REV5                               ▲ sube 10 min   81.150,0 →   81.255,0 ganó   +2.141 · saldo 128.108
+   18/10
+      04:45 REV15                              ▼ baja 10 min   82.164,4 →   82.217,2 perdió   -2.562 · saldo 125.546
+      08:10 pendiente de la media 48 (Quantdem ▲ sube  5 min   81.912,0 →   81.877,1 perdió   -2.511 · saldo 123.035
+      14:05 pendiente de la media 48 (Quantdem ▲ sube  5 min   81.099,1 →   81.139,3 ganó   +2.092 · saldo 125.127
+   19/10
+      03:00 REV15                              ▲ sube 10 min   82.695,0 →   82.580,3 perdió   -2.503 · saldo 122.624
+      06:15 REV15                              ▲ sube 10 min   82.168,9 →   82.207,8 ganó   +2.085 · saldo 124.709
+      14:50 REV5                               ▲ sube 10 min   81.887,7 →   81.840,7 perdió   -2.494 · saldo 122.215
+   20/10
+      13:10 pendiente de la media 48 (Quantdem ▲ sube  5 min   82.688,0 →   82.619,5 perdió   -2.444 · saldo 119.770
+      19:20 patrón tres soldados               ▼ baja 10 min   83.104,2 →   83.139,3 perdió   -2.395 · saldo 117.375
+   21/10
+      04:15 REV15                              ▼ baja 10 min   83.512,1 →   83.472,8 ganó   +1.995 · saldo 119.370
+      08:05 REV5                               ▼ baja 10 min   83.809,6 →   83.796,7 ganó   +2.029 · saldo 121.400
+      13:55 pendiente de la media 48 (Quantdem ▲ sube  5 min   84.528,8 →   84.374,9 perdió   -2.428 · saldo 118.972
+   22/10
+      08:20 REV5                               ▼ baja 10 min   81.723,4 →   81.800,1 perdió   -2.379 · saldo 116.592
+   23/10
+      00:15 patrón tres soldados               ▼ baja 10 min   81.820,6 →   81.727,1 ganó   +1.982 · saldo 118.574
+      13:20 pendiente de la media 48 (Quantdem ▼ baja  5 min   81.568,9 →   81.530,1 ganó   +2.016 · saldo 120.590
+   24/10
+      09:15 REV5                               ▲ sube 10 min   80.500,0 →   80.100,0 perdió   -2.412 · saldo 118.178
+      14:00 REV5                               ▼ baja 10 min   80.504,2 →   80.499,9 ganó   +2.009 · saldo 120.187
+   25/10
+      08:10 pendiente de la media 48 (Quantdem ▼ baja  5 min   80.407,4 →   80.382,4 ganó   +2.043 · saldo 122.230
+      13:10 REV5                               ▲ sube 10 min   80.675,1 →   80.710,0 ganó   +2.078 · saldo 124.308
+   26/10
+      03:15 REV15                              ▲ sube 10 min   79.704,1 →   80.016,1 ganó   +2.113 · saldo 126.422
+      15:35 pendiente de la media 48 (Quantdem ▼ baja  5 min   79.894,4 →   79.872,0 ganó   +2.149 · saldo 128.571
+   27/10
+      08:05 REV5                               ▲ sube 10 min   80.210,8 →   80.235,2 ganó   +2.186 · saldo 130.757
+      12:25 REV5                               ▼ baja 10 min   80.742,0 →   80.729,1 ganó   +2.223 · saldo 132.979
+   28/10
+      01:20 patrón tres soldados               ▼ baja 10 min   80.958,5 →   80.895,0 ganó   +2.261 · saldo 135.240
+      07:45 REV15                              ▲ sube 10 min   80.788,4 →   80.711,0 perdió   -2.705 · saldo 132.535
+      12:00 REV5                               ▲ sube 10 min   80.591,5 →   80.466,1 perdió   -2.651 · saldo 129.885

@@ -1,0 +1,19 @@
+XAUUSDT: 92,665 muestras × 53 rasgos · 1 s
+C:\Users\ni109\Ingresos\binarias-papel\motor\modelo.py:129: RuntimeWarning: Mean of empty slice.
+  mu, de = X[aj].mean(0), X[aj].std(0) + 1e-9
+C:\Users\ni109\AppData\Local\Programs\Python\Python311\Lib\site-packages\numpy\core\_methods.py:121: RuntimeWarning: invalid value encountered in divide
+  ret = um.true_divide(
+C:\Users\ni109\AppData\Local\Programs\Python\Python311\Lib\site-packages\numpy\core\_methods.py:206: RuntimeWarning: Degrees of freedom <= 0 for slice
+  ret = _var(a, axis=axis, dtype=dtype, out=out, ddof=ddof,
+C:\Users\ni109\AppData\Local\Programs\Python\Python311\Lib\site-packages\numpy\core\_methods.py:163: RuntimeWarning: invalid value encountered in divide
+  arrmean = um.true_divide(arrmean, div, out=arrmean,
+C:\Users\ni109\AppData\Local\Programs\Python\Python311\Lib\site-packages\numpy\core\_methods.py:195: RuntimeWarning: invalid value encountered in divide
+  ret = um.true_divide(
+C:\Users\ni109\Ingresos\binarias-papel\motor\modelo.py:92: RuntimeWarning: invalid value encountered in divide
+  g = Xb.T @ (p - y) / n + reg * w
+C:\Users\ni109\Ingresos\binarias-papel\motor\modelo.py:93: RuntimeWarning: invalid value encountered in divide
+  H = (Xb.T * (p * (1 - p))) @ Xb / n + np.diag(reg)
+plazo 10: 0 apuestas · 4 s
+plazo 30: 665 apuestas · 7 s
+plazo 60: 334 apuestas · 9 s
+listo · 9 s

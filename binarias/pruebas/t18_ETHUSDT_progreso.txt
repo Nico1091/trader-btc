@@ -1,0 +1,7 @@
+ETHUSDT: 37 estrategias, 625,256 señales · 11 s
+principal: 10995 apuestas · 12 s
+ventana de 6 meses: 18495 apuestas · 13 s
+ventana de 24 meses: 6673 apuestas · 14 s
+1 elegida: 5609 apuestas · 14 s
+5 elegidas: 18014 apuestas · 15 s
+listo · 16 s

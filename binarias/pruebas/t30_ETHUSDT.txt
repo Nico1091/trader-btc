@@ -1,0 +1,9 @@
+T30 · SU SEÑAL DE TOCAR LA SEGUNDA RESISTENCIA · ETHUSDT · velas de 1 min de futuros, 31/12/2019 a 27/10/2026
+Regla fijada antes (PLAN.md, sección 16): 2024-26 ≥ 54,1 % con ≥ 300 apuestas y Wilson 95 % de 2021-26 > 54,1 %, en el sentido que él usa.
+
+10 min · a favor del toque (como él): 2021-26 7.076 apuestas, 45,0 % (Wilson 43,8 %) · 2021-23 44,4 % · 2024-26 45,7 % en 3.004 · 2,84 al día
+10 min · contra el toque: 2021-26 7.076 apuestas, 54,9 % (Wilson 53,7 %) · 2021-23 55,3 % · 2024-26 54,3 % en 3.004 · 2,84 al día
+30 min · a favor del toque (como él): 2021-26 6.810 apuestas, 45,2 % (Wilson 44,0 %) · 2021-23 45,0 % · 2024-26 45,5 % en 2.891 · 2,73 al día
+30 min · contra el toque: 2021-26 6.810 apuestas, 54,6 % (Wilson 53,5 %) · 2021-23 54,8 % · 2024-26 54,4 % en 2.891 · 2,73 al día
+
+VEREDICTO: no entra al banco (solo cuenta el sentido que él usa)

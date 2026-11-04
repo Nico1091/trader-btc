@@ -1,0 +1,9 @@
+T29 · SU ESTRATEGIA DE LAS DOS RESISTENCIAS · BTCUSDT · velas de 1 min de futuros, 31/12/2019 a 26/10/2026
+Regla fijada antes (PLAN.md, sección 15): 2024-26 ≥ 54,1 % con ≥ 300 apuestas y Wilson 95 % de 2021-26 > 54,1 %, en el sentido que él usa.
+
+10 min · a favor de la ruptura (como él): 2021-26 35.174 apuestas, 45,6 % (Wilson 45,1 %) · 2021-23 44,6 % · 2024-26 47,1 % en 14.435 · 14,12 al día
+10 min · contra la ruptura: 2021-26 35.174 apuestas, 54,3 % (Wilson 53,8 %) · 2021-23 55,3 % · 2024-26 52,9 % en 14.435 · 14,12 al día
+30 min · a favor de la ruptura (como él): 2021-26 30.179 apuestas, 45,1 % (Wilson 44,6 %) · 2021-23 43,6 % · 2024-26 47,3 % en 12.390 · 12,12 al día
+30 min · contra la ruptura: 2021-26 30.179 apuestas, 54,8 % (Wilson 54,2 %) · 2021-23 56,3 % · 2024-26 52,6 % en 12.390 · 12,12 al día
+
+VEREDICTO: no entra al banco (solo cuenta el sentido que él usa)

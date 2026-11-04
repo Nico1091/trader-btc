@@ -1,0 +1,7 @@
+PAXGUSDT: 37 estrategias, 698,741 señales · 10 s
+principal: 7142 apuestas · 11 s
+ventana de 6 meses: 8301 apuestas · 11 s
+ventana de 24 meses: 5206 apuestas · 12 s
+1 elegida: 2819 apuestas · 13 s
+5 elegidas: 9486 apuestas · 14 s
+listo · 15 s
