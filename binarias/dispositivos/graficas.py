@@ -28,6 +28,30 @@ CIFRAS = {"0": (7, 5, 5, 5, 7), "1": (2, 6, 2, 2, 7), "2": (7, 1, 7, 4, 7), "3":
           ".": (0, 0, 0, 0, 2)}
 CORTO, CORTO_MIN, CORTO_FALLA = 45, 8, 20   # tramo corto: el extremo de las últimas 45 velas; si es de las últimas 7, 20 velas
 GROSOR = 3
+# Letras de 5 × 7 para la franja de decisión (solo la franja; la gráfica de las líneas sigue con las cifras de 3 × 5, como Pulso).
+FUENTE = {
+    "A": "01110 10001 10001 11111 10001 10001 10001", "B": "11110 10001 10001 11110 10001 10001 11110",
+    "C": "01110 10001 10000 10000 10000 10001 01110", "D": "11110 10001 10001 10001 10001 10001 11110",
+    "E": "11111 10000 10000 11110 10000 10000 11111", "F": "11111 10000 10000 11110 10000 10000 10000",
+    "G": "01110 10001 10000 10111 10001 10001 01111", "H": "10001 10001 10001 11111 10001 10001 10001",
+    "I": "01110 00100 00100 00100 00100 00100 01110", "J": "00111 00010 00010 00010 00010 10010 01100",
+    "K": "10001 10010 10100 11000 10100 10010 10001", "L": "10000 10000 10000 10000 10000 10000 11111",
+    "M": "10001 11011 10101 10101 10001 10001 10001", "N": "10001 10001 11001 10101 10011 10001 10001",
+    "O": "01110 10001 10001 10001 10001 10001 01110", "P": "11110 10001 10001 11110 10000 10000 10000",
+    "Q": "01110 10001 10001 10001 10101 10010 01101", "R": "11110 10001 10001 11110 10100 10010 10001",
+    "S": "01111 10000 10000 01110 00001 00001 11110", "T": "11111 00100 00100 00100 00100 00100 00100",
+    "U": "10001 10001 10001 10001 10001 10001 01110", "V": "10001 10001 10001 10001 10001 01010 00100",
+    "W": "10001 10001 10001 10101 10101 10101 01010", "X": "10001 10001 01010 00100 01010 10001 10001",
+    "Y": "10001 10001 01010 00100 00100 00100 00100", "Z": "11111 00001 00010 00100 01000 10000 11111",
+    "Í": "00010 00100 01110 00100 00100 00100 01110", "0": "01110 10001 10011 10101 11001 10001 01110",
+    "1": "00100 01100 00100 00100 00100 00100 01110", "2": "01110 10001 00001 00010 00100 01000 11111",
+    "3": "11111 00010 00100 00010 00001 10001 01110", "4": "00010 00110 01010 10010 11111 00010 00010",
+    "5": "11111 10000 11110 00001 00001 10001 01110", "6": "00110 01000 10000 11110 10001 10001 01110",
+    "7": "11111 00001 00010 00100 01000 01000 01000", "8": "01110 10001 10001 01110 10001 10001 01110",
+    "9": "01110 10001 10001 01111 00001 00010 01100", ":": "00000 01100 01100 00000 01100 01100 00000",
+    "·": "00000 00000 00000 01100 01100 00000 00000", " ": "00000 00000 00000 00000 00000 00000 00000",
+}
+BANDA, ESC_FRANJA = 48, 4
 
 
 class Recta:
@@ -119,11 +143,12 @@ def cinco_lineas(v):
 
 
 class Lienzo:
-    def __init__(self):
-        self.px = bytearray(ANCHO * ALTO)
+    def __init__(self, alto=ALTO):
+        self.alto = alto
+        self.px = bytearray(ANCHO * alto)
 
     def punto(self, x, y, c):
-        if 0 <= x < ANCHO and 0 <= y < ALTO:
+        if 0 <= x < ANCHO and 0 <= y < self.alto:
             self.px[y * ANCHO + x] = c
 
     def linea(self, p0, p1, c, grosor):
@@ -147,11 +172,11 @@ class Lienzo:
                                 self.punto(x + k * 4 * esc + fx * esc + a, y + fy * esc + b, c)
 
     def png(self):
-        crudo = b"".join(b"\x00" + bytes(self.px[y * ANCHO:(y + 1) * ANCHO]) for y in range(ALTO))
+        crudo = b"".join(b"\x00" + bytes(self.px[y * ANCHO:(y + 1) * ANCHO]) for y in range(self.alto))
 
         def trozo(tipo, datos):
             return struct.pack(">I", len(datos)) + tipo + datos + struct.pack(">I", zlib.crc32(tipo + datos) & 0xFFFFFFFF)
-        return (b"\x89PNG\r\n\x1a\n" + trozo(b"IHDR", struct.pack(">IIBBBBB", ANCHO, ALTO, 8, 3, 0, 0, 0))
+        return (b"\x89PNG\r\n\x1a\n" + trozo(b"IHDR", struct.pack(">IIBBBBB", ANCHO, self.alto, 8, 3, 0, 0, 0))
                 + trozo(b"PLTE", bytes(c for rgb in PALETA for c in rgb)) + trozo(b"IDAT", zlib.compress(crudo, 9))
                 + trozo(b"IEND", b""))
 
@@ -162,6 +187,10 @@ CIFRAS_ORDEN = (("techo", 5), ("piso", 5), ("mitad", 7), ("techo_c", 6), ("piso_
 
 def grafica(v, s):
     """PNG con las velas y las cinco líneas (mismo dibujo que grafica_lineas de Pulso)."""
+    return _lienzo_grafica(v, s).png()
+
+
+def _lienzo_grafica(v, s):
     l = Lienzo()
     izq, der, arr, aba = 12, ANCHO - 150, 20, ALTO - 20
     n = len(v)
@@ -216,6 +245,28 @@ def grafica(v, s):
         if all(abs(o - y) > 18 for o in ocupados):
             l.texto(der + 12, y, f"{val:.0f}", 4)
             ocupados.append(y)
+    return l
+
+
+def grafica_con_franja(v, s, texto, fondo):
+    """La misma gráfica con una franja de 48 px encima (pedido suyo del 04/11: «que me salga en verde o en rojo… como
+    un subtítulo en la parte de las velas»): el texto en letras grandes, centrado, sobre el color `fondo` (2 verde, 3 rojo,
+    1 gris). La parte de abajo es, píxel a píxel, la de grafica()."""
+    abajo = _lienzo_grafica(v, s)
+    l = Lienzo(ALTO + BANDA)
+    for i in range(ANCHO * BANDA):
+        l.px[i] = fondo
+    l.px[ANCHO * BANDA:] = abajo.px
+    texto = texto.upper()
+    ancho_txt = len(texto) * 6 * ESC_FRANJA - ESC_FRANJA
+    x0, y0 = max((ANCHO - ancho_txt) // 2, 8), (BANDA - 7 * ESC_FRANJA) // 2
+    for k, ch in enumerate(texto):
+        for fy, fila in enumerate(FUENTE.get(ch, FUENTE[" "]).split()):
+            for fx, bit in enumerate(fila):
+                if bit == "1":
+                    for a in range(ESC_FRANJA):
+                        for b in range(ESC_FRANJA):
+                            l.punto(x0 + k * 6 * ESC_FRANJA + fx * ESC_FRANJA + a, y0 + fy * ESC_FRANJA + b, 4)
     return l.png()
 
 

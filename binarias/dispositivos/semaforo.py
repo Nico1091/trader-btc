@@ -328,8 +328,12 @@ def main():
                             vg = [x for x in velas_ohlc(170) if x[0] + 60 <= t_dec][-150:]
                             s5 = graficas.cinco_lineas(vg)
                             if s5:
+                                if real:  # franja de decisión: en color solo cuando es dinero real
+                                    franja, fondo = f"SÍ · {sentido(s)} · TOQUE YA", 2 if s == 1 else 3
+                                else:
+                                    franja, fondo = ("SÍ EN PAPEL · ESPERE" if si else "NO OPERAR · ESPERE"), 1
                                 with open(GRAFICA, "wb") as f:
-                                    f.write(graficas.grafica(vg, s5))
+                                    f.write(graficas.grafica_con_franja(vg, s5, franja, fondo))
                                 pie = txt + "\nSus cinco líneas en 1 min (futuros): " + graficas.lectura(vg, s5) + "."
                                 canal_txt = (("SÍ OPERAR" if si else "NO OPERAR") + f" · BTC {sentido(s)} a 10 min · vence {vence}"
                                              + ("" if si else ", solo en papel") + ". Señal: ruptura de 20 velas de 5 min al revés.")

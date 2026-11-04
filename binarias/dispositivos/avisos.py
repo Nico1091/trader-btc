@@ -225,6 +225,11 @@ def main():
         sys.path.insert(0, AQUI)  # con python -I la carpeta del script no entra sola en sys.path
         import semaforo
         threading.Thread(target=semaforo.main, daemon=True).start()
+        try:  # vigía de 15 min (04/11): porcentaje de aciertos, reacción de las líneas y voz
+            import quince
+            threading.Thread(target=quince.main, daemon=True).start()
+        except Exception as ex:
+            log(f"vigía de 15 min sin arrancar ({type(ex).__name__}: {ex})")
     except Exception as e:
         log(f"no arrancó el semáforo: {type(e).__name__}: {e}")
     log(f"avisador en marcha · rol {ROL} · {len(av['abiertas'])} abiertas y {len(av['cerradas'])} cerradas ya vistas")

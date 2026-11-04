@@ -1,0 +1,27 @@
+P19 · el núcleo en los mercados de predicción (regla escrita a las 18:10 del 04/11/2026)
+Equilibrio supuesto: compra a 0.51 y comisión de 2% = 52.02%; a 0,52 = 53.04%.
+M5   entrada + 0s 2021-2023          n= 26667 (24.4/día) acierto=59.22% Wilson=58.63% neto a 0,51=+0.1412 a 0,52=+0.1189
+M5   entrada + 0s 2024-sep 2026      n= 30438 (30.3/día) acierto=55.49% Wilson=54.94% neto a 0,51=+0.0681 a 0,52=+0.0472
+M5   entrada + 0s oct 2025-sep 2026  n= 10525 (28.8/día) acierto=55.81% Wilson=54.85% neto a 0,51=+0.0742 a 0,52=+0.0532
+M5   entrada + 0s octubre de 2026    n=   846 (27.3/día) acierto=56.26% Wilson=52.90% neto a 0,51=+0.0832 a 0,52=+0.0620
+M5   entrada +60s 2021-2023          n= 26667 (24.4/día) acierto=55.33% Wilson=54.73% neto a 0,51=+0.0648 a 0,52=+0.0440
+M5   entrada +60s 2024-sep 2026      n= 30438 (30.3/día) acierto=52.42% Wilson=51.86% neto a 0,51=+0.0079 a 0,52=-0.0119
+M5   entrada +60s oct 2025-sep 2026  n= 10525 (28.8/día) acierto=52.07% Wilson=51.12% neto a 0,51=+0.0010 a 0,52=-0.0186
+M5   entrada +60s octubre de 2026    n=   846 (27.3/día) acierto=54.61% Wilson=51.24% neto a 0,51=+0.0508 a 0,52=+0.0302
+M5d  entrada + 0s 2021-2023          n= 13152 (12.0/día) acierto=59.84% Wilson=59.00% neto a 0,51=+0.1534 a 0,52=+0.1308
+M5d  entrada + 0s 2024-sep 2026      n= 15176 (15.1/día) acierto=55.97% Wilson=55.18% neto a 0,51=+0.0775 a 0,52=+0.0563
+M5d  entrada + 0s oct 2025-sep 2026  n=  5128 (14.0/día) acierto=55.84% Wilson=54.48% neto a 0,51=+0.0749 a 0,52=+0.0539
+M5d  entrada + 0s octubre de 2026    n=   402 (13.0/día) acierto=57.46% Wilson=52.58% neto a 0,51=+0.1067 a 0,52=+0.0851
+M5d  entrada +60s 2021-2023          n= 13152 (12.0/día) acierto=56.06% Wilson=55.21% neto a 0,51=+0.0792 a 0,52=+0.0581
+M5d  entrada +60s 2024-sep 2026      n= 15176 (15.1/día) acierto=52.84% Wilson=52.05% neto a 0,51=+0.0161 a 0,52=-0.0038
+M5d  entrada +60s oct 2025-sep 2026  n=  5128 (14.0/día) acierto=52.32% Wilson=50.95% neto a 0,51=+0.0059 a 0,52=-0.0138
+M5d  entrada +60s octubre de 2026    n=   402 (13.0/día) acierto=54.23% Wilson=49.34% neto a 0,51=+0.0433 a 0,52=+0.0229
+M15  entrada + 0s 2021-2023          n=  8557 ( 7.8/día) acierto=60.05% Wilson=59.01% neto a 0,51=+0.1575 a 0,52=+0.1348
+M15  entrada + 0s 2024-sep 2026      n=  9490 ( 9.5/día) acierto=58.56% Wilson=57.57% neto a 0,51=+0.1283 a 0,52=+0.1062
+M15  entrada + 0s oct 2025-sep 2026  n=  3099 ( 8.5/día) acierto=58.12% Wilson=56.37% neto a 0,51=+0.1195 a 0,52=+0.0976
+M15  entrada + 0s octubre de 2026    n=   240 ( 7.7/día) acierto=50.83% Wilson=44.55% neto a 0,51=-0.0233 a 0,52=-0.0424
+M15  entrada +60s 2021-2023          n=  8557 ( 7.8/día) acierto=57.98% Wilson=56.93% neto a 0,51=+0.1169 a 0,52=+0.0950
+M15  entrada +60s 2024-sep 2026      n=  9490 ( 9.5/día) acierto=55.97% Wilson=54.97% neto a 0,51=+0.0775 a 0,52=+0.0564
+M15  entrada +60s oct 2025-sep 2026  n=  3099 ( 8.5/día) acierto=55.29% Wilson=53.54% neto a 0,51=+0.0642 a 0,52=+0.0433
+M15  entrada +60s octubre de 2026    n=   240 ( 7.7/día) acierto=52.29% Wilson=45.99% neto a 0,51=+0.0053 a 0,52=-0.0144
+Elegida en 2021-2023 con 60 s tarde: M15. Wilson 2024-sep 2026 54.97% frente a 52.02%; últimos 12 meses 55.29% frente a 53.02%. Criterio: PASA a papel en vivo.

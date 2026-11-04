@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Mesa de binarias</title>
+<style>
+:root{--fondo:#0e1117;--panel:#151a23;--borde:#262d3a;--texto:#e7eaf0;--suave:#8b95a7;--sube:#26a69a;--baja:#ef5350;--ambar:#ffb300;--azul:#4d7fff;--violeta:#c07cff}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html,body{height:100%;margin:0}
+body{background:var(--fondo);color:var(--texto);font:14px/1.35 "Segoe UI",system-ui,sans-serif;display:grid;grid-template-columns:292px 1fr;gap:10px;padding:10px;overflow:hidden}
+aside{background:var(--panel);border:1px solid var(--borde);border-radius:10px;display:flex;flex-direction:column;min-height:0}
+aside h2{font-size:13px;margin:0;padding:11px 12px 8px;letter-spacing:.03em;display:flex;justify-content:space-between;align-items:center}
+.vivo{color:var(--sube);font-size:11px;font-weight:600}
+.vivo::before{content:"● ";animation:latir 1.6s infinite}
+@keyframes latir{50%{opacity:.25}}
+.cifras{display:grid;grid-template-columns:1fr 1fr;gap:6px;padding:0 12px 10px}
+.cifra{background:#0f141c;border:1px solid var(--borde);border-radius:7px;padding:6px 8px}
+.cifra small{display:block;color:var(--suave);font-size:10.5px}
+.cifra b{font-size:15px;font-variant-numeric:tabular-nums}
+#ops{overflow:auto;flex:1;min-height:0;border-top:1px solid var(--borde)}
+.op{display:grid;grid-template-columns:40px 16px 1fr auto;gap:0 6px;align-items:center;padding:4px 12px;border-bottom:1px solid #1d2430;font-size:12.5px;font-variant-numeric:tabular-nums}
+.op.abierta{background:#1a2230}
+.op .mas{color:var(--suave);font-size:10.5px;grid-column:3/5;line-height:1.15}
+.op .si{font-size:10px;font-weight:700;padding:1px 5px;border-radius:4px;background:var(--ambar);color:#111;margin-left:5px}
+.fle{font-weight:700;font-size:15px;text-align:center}
+.bien{color:var(--sube)}.mal{color:var(--baja)}.gris{color:var(--suave)}
+main{display:grid;grid-template-rows:auto 1fr auto;gap:10px;min-height:0;min-width:0}
+header{display:flex;flex-wrap:wrap;gap:6px 22px;align-items:baseline;background:var(--panel);border:1px solid var(--borde);border-radius:10px;padding:9px 14px}
+header b{font-size:21px;font-variant-numeric:tabular-nums}
+header span{color:var(--suave);font-size:12.5px}
+header .chip{background:var(--azul);color:#fff;font-weight:700;font-size:12px;padding:3px 9px;border-radius:6px}
+header span i{color:var(--texto);font-style:normal;font-variant-numeric:tabular-nums}
+#zona{position:relative;background:#131722;border:1px solid var(--borde);border-radius:10px;overflow:hidden;min-height:0}
+canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+#banda{position:absolute;left:12px;right:12px;top:10px;border-radius:9px;padding:9px 16px;font-weight:800;font-size:25px;letter-spacing:.02em;backdrop-filter:blur(2px);color:#fff}
+#banda small{display:block;font-weight:500;font-size:13.5px;letter-spacing:0;opacity:.95}
+.n-NO{background:#3a3f4bdd}.n-ATENTO{background:#5c4a10e6}.n-ESPERE{background:#4a4f5ce6}
+.n-COMPRE{background:#1b8a7ff2;animation:parpadeo 1s infinite}.n-VENDA{background:#d9403df2;animation:parpadeo 1s infinite}
+@keyframes parpadeo{50%{filter:brightness(1.3)}}
+#mandos{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:10px}
+#agente{background:var(--panel);border:1px solid var(--borde);border-radius:10px;padding:9px 13px;min-height:112px}
+#agente h3{margin:0 0 3px;font-size:13px;display:flex;justify-content:space-between;gap:10px}
+#agente h3 small{color:var(--suave);font-weight:400}
+#agente p{margin:0;font-size:13.5px}
+#botones{background:var(--panel);border:1px solid var(--borde);border-radius:10px;padding:9px 12px;display:flex;flex-direction:column;gap:7px}
+.fila{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.b small{display:block;font-weight:600;font-size:12px;margin-top:1px}
+.b{flex:1;border:0;border-radius:8px;padding:10px 6px;font:800 19px "Segoe UI",sans-serif;color:#fff;cursor:pointer}
+#bc{background:var(--sube)}#bv{background:var(--baja)}
+#bc:disabled,#bv:disabled{background:#2b3240;color:#6d7686;cursor:not-allowed}
+.pct{background:#0f141c;color:var(--texto);border:1px solid var(--borde);border-radius:6px;padding:4px 9px;cursor:pointer;font:600 12.5px "Segoe UI",sans-serif}
+.pct.on{background:var(--azul);border-color:var(--azul)}
+#resp{font-size:12.5px;min-height:17px;color:var(--suave)}
+.chico{background:none;border:1px solid var(--borde);color:var(--suave);border-radius:6px;padding:3px 8px;cursor:pointer;font-size:11.5px}
+.chico.on{color:var(--ambar);border-color:var(--ambar)}
+#error{position:absolute;right:12px;bottom:10px;background:#5a1f1fe0;padding:5px 10px;border-radius:6px;font-size:12px}
+@media(max-width:900px){body{grid-template-columns:1fr;overflow:auto;height:auto}aside{max-height:40vh}#zona{min-height:380px}#mandos{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<aside>
+  <h2>BORRADOR <span class="vivo">EN VIVO</span></h2>
+  <div class="cifras">
+    <div class="cifra"><small>Hoy</small><b id="cHoy">–</b></div>
+    <div class="cifra"><small>Aciertos de hoy</small><b id="cAc">–</b></div>
+    <div class="cifra"><small>Últimas 25 (pide 75 %)</small><b id="c25">–</b></div>
+    <div class="cifra"><small>Con precio real</small><b id="cReal">–</b></div>
+  </div>
+  <div id="ops"></div>
+</aside>
+<main>
+  <header>
+    <span class="chip">BINARIA BTC · 15 MIN</span>
+    <b id="precio">–</b>
+    <span>Vence en <i id="vence">–</i></span>
+    <span>Precio de inicio <i id="strike">–</i></span>
+    <span>Va ganando <i id="gana">–</i></span>
+    <span>Saldo <i id="saldo">–</i> USDT</span>
+    <span id="hora"></span>
+  </header>
+  <div id="zona"><canvas id="lienzo"></canvas>
+    <div id="banda" class="n-NO"><span id="tit">Cargando…</span><small id="det"></small></div>
+    <div id="error" hidden></div>
+  </div>
+  <div id="mandos">
+    <section id="agente"><h3><span id="agT">Análisis del programa</span><small id="agM"></small></h3><p id="agX"></p></section>
+    <section id="botones">
+      <div class="fila"><button class="b" id="bc" disabled><span id="bcT">COMPRAR ▲ SUBE</span><small id="bcP"></small></button><button class="b" id="bv" disabled><span id="bvT">VENDER ▼ BAJA</span><small id="bvP"></small></button></div>
+      <div class="fila"><span class="gris" style="font-size:12px">Del saldo:</span>
+        <button class="pct" data-p="5">5 %</button><button class="pct" data-p="10">10 %</button><button class="pct" data-p="16">16 %</button>
+        <span id="monto" class="gris" style="font-size:12px"></span></div>
+      <div class="fila" style="justify-content:space-between"><span id="resp">Se encienden solos cuando hay señal.</span>
+        <span><button class="chico" id="bEnc">Encima de todo</button> <button class="chico" id="bCob">Cobrar</button> <button class="chico" id="bAut">Autorizar real</button></span></div>
+    </section>
+  </div>
+</main>
+<script>
+"use strict";
+const FICHA="__FICHA__";
+const $=i=>document.getElementById(i);
+const num=(x,d=2)=>x==null?"–":Number(x).toLocaleString("es-CO",{minimumFractionDigits:d,maximumFractionDigits:d});
+const hhmm=t=>new Date((t-5*3600)*1000).toISOString().slice(11,16);
+const cv=$("lienzo"),cx=cv.getContext("2d");
+let E=null,armado=null,armT=null,sonoPara=null;
+
+async function post(ruta,datos){
+  const r=await fetch(ruta,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({ficha:FICHA,...datos})});
+  return r.json();
+}
+function pitar(){
+  try{const a=new AudioContext();[0,.22,.44].forEach(d=>{const o=a.createOscillator(),g=a.createGain();o.frequency.value=880;g.gain.value=.18;o.connect(g).connect(a.destination);o.start(a.currentTime+d);o.stop(a.currentTime+d+.16)})}catch(e){}
+}
+function dibujar(){
+  const z=$("zona"),dpr=devicePixelRatio||1,W=z.clientWidth,H=z.clientHeight;
+  if(cv.width!==W*dpr||cv.height!==H*dpr){cv.width=W*dpr;cv.height=H*dpr}
+  cx.setTransform(dpr,0,0,dpr,0,0);cx.clearRect(0,0,W,H);
+  if(!E||!E.velas.length)return;
+  const v=E.velas.slice();if(E.viva)v.push(E.viva);
+  const n=E.velas.length,total=n+21,der=W-74,izq=10,arr=88,aba=H-20;
+  let lo=Infinity,hi=-Infinity;
+  for(const x of v){lo=Math.min(lo,x[3]);hi=Math.max(hi,x[2])}
+  const rango=hi-lo,ult=v[v.length-1][4];
+  for(const l of Object.values(E.lineas||{}))for(const p of [l.y0,l.ahora])if(Math.abs(p-ult)<rango*1.2){lo=Math.min(lo,p);hi=Math.max(hi,p)}
+  const mk=E.mercado.strike;if(mk&&Math.abs(mk-ult)<rango*1.2){lo=Math.min(lo,mk);hi=Math.max(hi,mk)}
+  const m=(hi-lo)*.06;lo-=m;hi+=m;
+  const y=p=>aba-(p-lo)/(hi-lo)*(aba-arr),paso=(der-izq)/total,X=i=>izq+(i+.5)*paso;
+  cx.strokeStyle="#222836";cx.lineWidth=1;cx.fillStyle="#7c8698";cx.font="11px Segoe UI";
+  for(let k=0;k<=5;k++){const p=lo+(hi-lo)*k/5,yy=y(p);cx.beginPath();cx.moveTo(izq,yy);cx.lineTo(der,yy);cx.stroke();cx.fillText(num(p,0),der+6,yy+4)}
+  const cuerpo=Math.max(paso*.68,1);
+  v.forEach((x,i)=>{const[,o,h,l,c]=x;const col=c>=o?"#26a69a":"#ef5350";cx.strokeStyle=cx.fillStyle=col;cx.beginPath();cx.moveTo(X(i),y(h));cx.lineTo(X(i),y(l));cx.stroke();
+    const a=y(Math.max(o,c)),b=Math.max(y(Math.min(o,c))-a,1);cx.fillRect(X(i)-cuerpo/2,a,cuerpo,b)});
+  const col={techo:"#2962ff",piso:"#2962ff",techo_c:"#ffb300",piso_c:"#ffb300",mitad:"#c07cff"};
+  for(const[k,l]of Object.entries(E.lineas||{})){cx.strokeStyle=col[k];cx.lineWidth=2;cx.setLineDash(k==="mitad"?[8,6]:[]);cx.beginPath();cx.moveTo(X(l.i0),y(l.y0));cx.lineTo(X(l.i1),y(l.y1));cx.stroke()}
+  cx.setLineDash([]);cx.lineWidth=1;
+  if(mk){cx.strokeStyle="#d1d4dc";cx.setLineDash([3,4]);cx.beginPath();cx.moveTo(izq,y(mk));cx.lineTo(der,y(mk));cx.stroke();cx.setLineDash([]);cx.fillStyle="#d1d4dc";cx.fillText("inicio 15 min",izq+4,y(mk)-4)}
+  const t0=E.velas[0][0],pos=t=>(t-60-t0)/60;
+  for(const f of E.flechas){const i=pos(f.t);if(i<0||i>=v.length)continue;
+    const d=f.dir,base=d===1?y(v[i][3])+24:y(v[i][2])-24,cl=f.res==null?(f.si?"#ffb300":"#9aa3b2"):(f.res===1?"#26a69a":(f.res===0?"#ef5350":"#9aa3b2"));
+    flecha(X(i),base,d,cl,f.si?13:9);
+    if(f.res!=null){cx.fillStyle=cl;cx.font="700 12px Segoe UI";cx.fillText(f.res===1?"✓":(f.res===0?"✗":"="),X(i)-4,base+(d===1?14:-8))}}
+  const marcas=(E.analisis&&E.analisis.marcas)||[];
+  cx.font="600 12px Segoe UI";
+  for(const q of marcas){const yy=y(q.precio),bajaC=q.tipo==="resistencia"||q.tipo==="flecha_baja",cl=bajaC?"#ef5350":"#26a69a";
+    if(q.tipo.startsWith("flecha")){flecha(X(v.length-1)+18,yy,q.tipo==="flecha_sube"?1:-1,cl,17)}
+    else{cx.strokeStyle=cl;cx.setLineDash([10,5]);cx.beginPath();cx.moveTo(X(n-40),yy);cx.lineTo(der,yy);cx.stroke();cx.setLineDash([])}
+    cx.fillStyle=cl;cx.fillText(q.texto,X(n-40),yy-5)}
+  const c=ult,yu=y(c);cx.fillStyle=E.viva&&E.viva[4]>=E.viva[1]?"#26a69a":"#ef5350";cx.fillRect(der+2,yu-9,70,18);cx.fillStyle="#fff";cx.font="700 12px Segoe UI";cx.fillText(num(c,0),der+8,yu+4);
+}
+function flecha(x,y,d,col,t){cx.fillStyle=col;cx.beginPath();cx.moveTo(x,y-d*t);cx.lineTo(x-t*.75,y+d*t*.25);cx.lineTo(x-t*.28,y+d*t*.25);cx.lineTo(x-t*.28,y+d*t);cx.lineTo(x+t*.28,y+d*t);cx.lineTo(x+t*.28,y+d*t*.25);cx.lineTo(x+t*.75,y+d*t*.25);cx.closePath();cx.fill()}
+function panel(){
+  const r=E.e.resumen,neto=$("cHoy");
+  neto.textContent=(r.neto>0?"+":"")+num(r.neto);neto.className=r.neto>0?"bien":(r.neto<0?"mal":"");
+  $("cAc").textContent=r.n?`${r.pct_hoy} %`:"–";const p25=$("c25");p25.textContent=`${r.pct25} %`;p25.className=r.pct25>=75?"bien":"";$("cReal").textContent=`${r.con_precio_real} de 25`;
+  $("ops").innerHTML=E.ops.map(o=>{
+    const abierta=o.res==null,flec=o.dir===1?'<span class="fle bien">▲</span>':'<span class="fle mal">▼</span>';
+    const ask=o.ask30??o.ask5;
+    let fin;
+    if(abierta){const f=o.t+900-E.ahora;fin=`<span class="gris">${f>0?Math.floor(f/60)+":"+String(Math.floor(f%60)).padStart(2,"0"):"liquidando"}</span>`}
+    else if(o.neto==null)fin='<span class="gris">sin entrar</span>';
+    else fin=`<span class="${o.neto>0?"bien":"mal"}">${(o.neto>0?"+":"")+num(o.neto)}</span>`;
+    const pie=o.semilla?"rehecha con velas":(o.entra===false?`precio ${num(o.ask30)}: caro`:`a ${ask==null?"…":num(ask)}${o.ask60!=null?" · 60 s: "+num(o.ask60):""}`);
+    return `<div class="op${abierta?" abierta":""}"><span>${hhmm(o.t)}</span>${flec}<span>${o.dir===1?"Sube":"Baja"}${o.si?'<span class="si">SÍ</span>':""}</span>${fin}<span></span><span></span><span class="mas">${pie}</span></div>`}).join("")||'<div class="op"><span class="gris" style="grid-column:1/5">Aún sin operaciones.</span></div>';
+}
+function cabecera(){
+  const v=E.viva||E.velas[E.velas.length-1];
+  if(v)$("precio").textContent=num(v[4],1);
+  if(E.mercado.t){const f=Math.max(E.mercado.t+900-E.ahora,0);$("vence").textContent=Math.floor(f/60)+":"+String(Math.floor(f%60)).padStart(2,"0")}
+  $("strike").textContent=num(E.mercado.strike,1);
+  const gana=$("gana");if(v&&E.mercado.strike){const up=v[4]>=E.mercado.strike;gana.textContent=up?"SUBE ▲":"BAJA ▼";gana.className=up?"bien":"mal"}else gana.textContent="–";
+  const paga=a=>a?`paga +${num(1/a-1.02)} por cada 1 · precio ${num(a)}`:"sin precio";
+  $("bcP").textContent=paga(E.mercado.ask["1"]);$("bvP").textContent=paga(E.mercado.ask["-1"]);
+  $("saldo").textContent=num(E.saldo);$("hora").textContent=E.hora;
+}
+function estado(){
+  const e=E.e,b=$("banda");
+  b.className="n-"+e.nivel;$("tit").textContent=e.titulo;$("det").textContent=e.detalle;
+  const ok1=e.boton&&e.sentido===1,ok2=e.boton&&e.sentido===-1;
+  $("bc").disabled=!ok1;$("bv").disabled=!ok2;
+  if(!e.boton)desarmar();
+  if(e.boton&&sonoPara!==e.t){sonoPara=e.t;pitar()}
+  $("monto").textContent=e.usdt?`= ${num(e.usdt)} USDT`:`tope ${E.cfg.pct_tope} %`;
+  document.querySelectorAll(".pct").forEach(x=>x.classList.toggle("on",Number(x.dataset.p)===E.pct));
+  const a=E.analisis;
+  if(a){$("agT").textContent=a.titular;$("agM").textContent="sin IA · análisis del programa";$("agX").textContent=a.explicacion}
+  $("bAut").textContent=E.autorizado?"Real autorizado":"Autorizar real";$("bAut").classList.toggle("on",E.autorizado);
+  $("bEnc").classList.toggle("on",E.encima);
+  const er=$("error");er.hidden=!E.error;er.textContent=E.error?"Sin conexión con Binance. No opere.":"";
+}
+function desarmar(){armado=null;clearTimeout(armT);$("bcT").textContent="COMPRAR ▲ SUBE";$("bvT").textContent="VENDER ▼ BAJA"}
+async function tocar(boton,sentido,rotulo){
+  if(armado!==sentido){desarmar();armado=sentido;boton.querySelector("span").textContent=`¿CONFIRMA ${num(E.e.usdt)} USDT?`;armT=setTimeout(desarmar,4000);return}
+  desarmar();$("resp").textContent="Enviando…";
+  const r=await post("/api/ordenar",{sentido,pct:E.pct});
+  $("resp").textContent=r.msg;$("resp").className=r.ok?"bien":"mal";
+}
+$("bc").onclick=()=>tocar($("bc"),1);
+$("bv").onclick=()=>tocar($("bv"),-1);
+document.querySelectorAll(".pct").forEach(x=>x.onclick=()=>post("/api/pct",{pct:Number(x.dataset.p)}));
+$("bEnc").onclick=()=>post("/api/encima",{si:!E.encima});
+$("bCob").onclick=async()=>{const r=await post("/api/cobrar",{});$("resp").textContent=r.msg};
+let armAut=false;
+$("bAut").onclick=async()=>{
+  if(E.autorizado){await post("/api/autorizar",{si:false});return}
+  if(!armAut){armAut=true;$("bAut").textContent="¿Seguro? Toque otra vez";setTimeout(()=>armAut=false,4000);return}
+  armAut=false;await post("/api/autorizar",{si:true});
+};
+async function ciclo(){
+  try{const r=await fetch("/api/estado");E=await r.json();cabecera();estado();panel();dibujar()}
+  catch(e){$("tit").textContent="La mesa no responde. No opere.";$("banda").className="n-NO";$("det").textContent="";$("bc").disabled=$("bv").disabled=true}
+  setTimeout(ciclo,1000);
+}
+addEventListener("resize",dibujar);
+ciclo();
+</script>
+</body>
+</html>

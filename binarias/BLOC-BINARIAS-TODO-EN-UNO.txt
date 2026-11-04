@@ -10,9 +10,35 @@ CÓMO SE USA ESTE BLOC
 - Para una sesión nueva basta decir: «Lee C:\Users\ni109\Desktop\BLOC BINARIAS - TODO EN UNO.txt y sigue desde ENCARGOS».
 
 
+AL FRENTE (04/11/2026, 18:30): MESA DE BINARIAS A 15 MIN · SIN IA · VIGÍA CON VOZ EN LA CAJA · BORRADOR EN VIVO · PLAN v8
+Estado: EN CURSO, EL BORRADOR REÚNE PRECIOS REALES
+SIGUIENTE PASO: que él cree en la app la cuenta de predicción (Mercados → Predicción) y active su autorización, y conecte el teléfono por USB para llevarle el vigía de 15 min. El dinero real se enciende solo cuando haya 75 % de aciertos con 25 operaciones de precio real y él lo autorice en la Mesa.
+- Dónde se compra: Mesa de binarias (botón del Escritorio y arranque solo al iniciar sesión), abajo a la derecha: COMPRAR ▲ SUBE y VENDER ▼ BAJA, cada uno con lo que paga. Se encienden solos con la señal.
+- Son binarias de verdad: «BTC Up or Down» a 15 min en Binance Wallet con Predict.fun, por API oficial y disponibles para su cuenta desde Colombia. Las líneas son solo para mirar.
+- P19 pasó a papel en vivo: 56,0 % con 60 s de retraso en 2024-sep 2026, equilibrio 52,02 %; octubre de 2026 dio 52,3 %. El libro cambia en segundos: tope de compra 0,53 y ventana de 75 s.
+- Su pedido de las 18:17: quitar la IA. Listo: analista.py escribe el análisis y los precios que dispararían la señal. Se borró el agente de Claude de la Mesa. Va por porcentaje de aciertos (últimas 25; pide 75 %).
+- Vigía de 15 min en la caja desde las 18:24 (quince.py dentro de avisos.py): nota de voz a 68 % y 75 %, y al bajar; foto de sus líneas cuando se rompe o rechaza el techo o el piso, una cada 30 min. Prueba real a Telegram: voz y foto salieron bien. Hoy 60 % en la caja y el PC. Telegram no deja llamar a un bot: es nota de voz; una llamada real exigiría instalar Llamada Claude.
+- Franja verde o roja del semáforo terminada y en la caja.
+- Teléfono: no estaba conectado por ADB; sigue con lo anterior. Mesa en el teléfono: no, la llave con permisos de operar no sale del PC.
+- Sin probar: la primera orden real, el fondeo desde spot y el cobro. Faltan la cuenta de predicción y una orden verdadera.
+- Saldo spot 46,28 USDT. Llave: la deja como en su captura del 04/11, 17:48 (lectura, spot y margen, futuros, predicción, lista de símbolos; sin retiros ni transferencias) por decisión suya. El código solo usa predicción.
+
+AL FRENTE (04/11/2026, 17:37): PLAN DEL BOTÓN COMPRAR O VENDER · CONSTRUIDO ARRIBA
+Estado: AL DÍA EN EL BLOQUE DE ARRIBA
+PASO DE ENTONCES: que él deje la llave de Binance solo en «Habilitar lectura» y responda si mira en la app Mercados → Predicción (él decidió dejar la llave como está).
+- Su pedido (17:30): que todo se reduzca a pulsar comprar o vender, ya conectado, con los indicativos y la explicación del agente, seguro y regulado. Pidió primero el plan.
+- Papel de hoy (17:34): NO. 13 cerradas, 6 aciertos, −1,90; reciente 12 de 25.
+- Llave (consulta de solo lectura, 17:36): responde bien desde la IP de su casa, con restricción de IP y sin retiros generales, pero sigue con futuros, spot y margen, margen y transferencia universal activos. «Retiros Alpha» y «predicción» no salen en esa consulta: hay que mirarlos en Gestión de API. En el archivo el secreto va en la primera línea. Hay una copia igual, «lectura,txt.txt», que sobra.
+- La franja verde o roja quedó a medias: graficas.py cambiado a las 14:20, semaforo.py sin cambiar y nada subido a los equipos.
+- Regulación: no hay nada regulado en esta vía. La Superfinanciera no vigila cripto ni a Binance, y no hay seguro ni fondo público. El servicio de predicción lo presta Binance Barbados, sin supervisión.
+- Robo a Binance del 29/10 (6.300 millones de dólares): retiros reabiertos por fases desde el 1/11; 98 % repuesto el 4/11; prueba de reservas de 44 monedas en curso. Solo se deja en Binance lo mínimo.
+- Contratos de Evento: siguen solo en la app, sin API. Un botón real solo es posible por la vía de predicción (Binance Wallet con Predict.fun), con la API que documenta CCXT; falta confirmarla en la documentación oficial de Binance y comprobar si está disponible en Colombia, qué precio liquida y sus costos.
+- Cuentas a pago 0,85: equilibrio 54,05 %. SÍ 55,5 % = +0,13 USDT por apuesta de 5. Con su 76 %, 51,9 % = −0,20 USDT y unas 2 o 3 apuestas al mes. Con el índice de Binance el núcleo queda en el equilibrio.
+- Plan propuesto: F0 llave segura; F1 terminar la franja; F2 aviso de un toque y P1; F3 revisar predicción y P19; F4 botón real solo si F3 pasa; F5 consolidar. El real sigue sin ser operado por ningún agente: el toque es de él.
+
 AL FRENTE (04/11/2026, 13:29): CINCO LÍNEAS · CAJA DESPIERTA Y CON ARRANQUE SOLO · AGENTE v7 · TODO CONSOLIDADO
-Estado: EN CURSO
-SIGUIENTE PASO: que él ponga al bot de administrador en el canal «club nocturno» y publique ahí un mensaje (con eso se conecta el canal para la gente), que cree la clave API de solo lectura si la quiere, y P1 (anotar el pago real de 20 apuestas y sus segundos de demora al tocar). Si quiere la revisión diaria en la nube, que diga «enciéndelo».
+Estado: AL DÍA EN EL BLOQUE DE ARRIBA
+PASO DE ENTONCES: que él ponga al bot de administrador en el canal «club nocturno» y publique ahí un mensaje (con eso se conecta el canal para la gente), que cree la clave API de solo lectura si la quiere, y P1 (anotar el pago real de 20 apuestas y sus segundos de demora al tocar). Si quiere la revisión diaria en la nube, que diga «enciéndelo».
 - Papel de hoy (13:29): NO. 10 apuestas, 5 aciertos, −0,75; el SÍ de las 07:00 perdió y apagó el día. Papel reciente 14 de 25 (su 76 % pide 19). Cómo va en cualquier momento: botón «Binarias en tiempo real».
 - Caja: se durmió de la 01:40 a las 12:24. Play Services, que fallaba cada 3 s, era lo único que la mantenía despierta, y no tenía bloqueo de reposo. Al reconectarla no arrancó sola: Termux:Boot estaba «detenido» desde el force-stop del 03/11. Desde las 12:42 corre con el estado del teléfono (el mismo papel en los dos), con bloqueo de reposo y Termux:Boot activo. Probado: 44 min sin tocarla sin dormirse, y reinicio a las 13:26 del que volvió sola en 76 s. El teléfono ahora avisa si la caja no late 10 min, y cuando vuelve.
 - Sus cinco líneas: techo y piso sobre sus máximos y mínimos (azul), techo y piso cortos desde el inicio de la última caída o subida (ámbar) y la recta de la mitad (violeta). Salen en Pulso cada 5 min (desde las 13:05) y en la foto de cada SÍ o NO (desde las 13:02), idénticas píxel a píxel: 0 de 378.000 en 12 ventanas, en el PC, en Rust y en el teléfono. Como filtro del SÍ no suman (P18: +0,30 puntos, p de 0,42 y 0,32, peores en 2021-2023 y en octubre): son para mirar.
@@ -549,3 +575,4 @@ Abiertos de antes
 - 04/11/2026 13:27. Reinicio de la caja: volvió sola en 76 s, con bloqueo de reposo.
 - 04/11/2026 13:29. Bloc, bóveda, encargo y guía (versión 4) al día.
 - 04/11/2026 13:40. GitHub al día (rama v7, commits 7198125 y 176d8de; PR #2 con título y descripción nuevos), posible plan v7 final en Descargas, la USB y el Escritorio (0 diferencias), USB (CONTEXTO, PROYECTOS y NUEVO) y memoria al día.
+- 04/11/2026 18:30. Mesa de binarias, P19 y vigía de 15 min en la caja; plan v8; franja del semáforo; arranque del PC en la carpeta de Inicio.

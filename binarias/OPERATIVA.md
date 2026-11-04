@@ -9,6 +9,10 @@ Versión del 04/11/2026, 13:13 (hora de Colombia). Manda el PLAN-TOTAL.md (v7, c
 - Todo en papel hasta su orden expresa (archivo `REAL_AUTORIZADO` en la caja y el teléfono). En real, la apuesta la toca él a mano (Binance prohíbe bots en los Contratos de Evento) y sin apalancamiento.
 - Binance liquida con su índice de precio, no con el último precio de futuros: desde el 04/11 cada apuesta guarda los dos resultados.
 
+## Mesa de binarias y vigía de 15 min (04/11, 18:30)
+
+- Además de lo anterior, el PC tiene la Mesa (`mesa/`): binarias de 15 min de Binance Wallet con API oficial, con botones que él oprime. El programa analiza solo, sin IA. La caja y el teléfono corren `quince.py`: porcentaje de aciertos de las últimas 25, notas de voz a 68 % y 75 %, y fotos de las líneas cuando el mercado reacciona. Ver PLAN-TOTAL.md, 7c.
+
 ## Dónde está el centinela
 
 - Corre en la caja T95H (principal) y en su teléfono (respaldo), 24/7. El PC ya no lo ejecuta: Pulso no ve su estado y no debe decir «centinela caído» por eso.
