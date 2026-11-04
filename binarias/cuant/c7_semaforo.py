@@ -47,7 +47,7 @@ def leer_banco(nombre):
 
 
 def secuencia_ruptura():
-    """03/11, 22:10: corregido; antes medía entrando al cierre. Ahora entra 60 s tarde, como las del banco."""
+    """03/11, 21:36: corregido; antes medía entrando al cierre. Ahora entra 60 s tarde, como las del banco."""
     from c8_regimen_estrategia import resultado_tarde
     d = datos("BTCUSDT")
     r = d["F"]["ruptura"]

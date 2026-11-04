@@ -31,7 +31,7 @@ PARAR = os.path.join(AQUI, "PARAR")
 FAPI = "https://fapi.binance.com/fapi/v1/klines?symbol=BTCUSDT&interval=1m"
 H = {"User-Agent": "binarias-semaforo"}
 VENTANA, UMBRAL, PLAZO = 100, 0.58, 600
-RETRASO = 60  # 03/11 22:15: el papel se mide entrando 60 s tarde, como él toca a mano (congruente con el banco)
+RETRASO = 60  # 03/11 21:37: el papel se mide entrando 60 s tarde, como él toca a mano (congruente con el banco)
 COL = dt.timezone(dt.timedelta(hours=-5))
 
 

@@ -10,7 +10,7 @@ CÓMO SE USA ESTE BLOC
 - Para una sesión nueva basta decir: «Lee C:\Users\ni109\Desktop\BLOC BINARIAS - TODO EN UNO.txt y sigue desde ENCARGOS».
 
 
-AL FRENTE (03/11/2026, 22:45): PLAN TOTAL v6 · CONGRUENTE · SOLO DEVOLUCIÓN EN BTC/USDT
+AL FRENTE (03/11/2026, 21:42): PLAN TOTAL v6 · CONGRUENTE · SOLO DEVOLUCIÓN EN BTC/USDT
 Estado: EN CURSO
 SIGUIENTE PASO: P1 (que él anote el pago real de 20 apuestas y sus segundos de demora al tocar) y P2 (selección mensual de devolución en BTC corriendo en el teléfono antes del 1/12), según PLAN-TOTAL.md, sección 7.
 - Manda C:\Users\ni109\Ingresos\binarias-papel\PLAN-TOTAL.md. Evidencia y auditoría de congruencia: INFORME-TOTAL.md (misma carpeta). El PLAN-v5 queda como historia.
@@ -20,7 +20,7 @@ SIGUIENTE PASO: P1 (que él anote el pago real de 20 apuestas y sus segundos de 
 - El factor probabilístico de la racha (HMM de los aciertos): hay rachas buenas y malas de unas 50 apuestas, pero no se dejan ver hacia adelante (sin efecto en 2024-26; correlación 0,026). El semáforo no adivina los días buenos: los aprovecha cuando ya vienen y limita el riesgo en los malos.
 - Los equipos miden el papel del semáforo con 60 s de demora desde las 21:39. Semáforo de hoy: ROJO.
 
-AL FRENTE (03/11/2026, 21:15): PLAN v5 · TODO UNIFICADO EN BTC/USDT (reemplazado por el v6 de las 22:45)
+AL FRENTE (03/11/2026, 21:15): PLAN v5 · TODO UNIFICADO EN BTC/USDT (reemplazado por el v6 de las 21:42)
 Estado: REEMPLAZADO
 PASO DE ENTONCES: medir el semáforo en vivo y correr E1 (familia de reversión en BTC) con la regla escrita en PLAN-v5.md, sección 7; antes del 1/12, dejar la selección mensual corriendo en el teléfono (E7).
 - Manda C:\Users\ni109\Ingresos\binarias-papel\PLAN-v5.md. Evidencia: cuant\INFORME-INVESTIGACION-CUANTITATIVA-2026-11-03.md (guiones C1 a C7 y sus salidas en cuant\resultados).
@@ -430,4 +430,4 @@ Abiertos de antes
 - 03/11/2026 20:56. Vigilante de temperatura de 80 °C en la caja.
 - 03/11/2026 21:15. PLAN-v5.md, informe, OPERATIVA.md v5 y este bloc al día.
 - 03/11/2026 21:28. Migración a la USB terminada y verificada; recordatorio del 04/11 puesto; GitHub con dos commits.
-- 03/11/2026 22:45. Auditoría de congruencia: PLAN-TOTAL.md (v6) e INFORME-TOTAL.md; C8 (HMM de la racha y E1) y C7 corregidos a 60 s; semáforo de los equipos con medida de 60 s.
+- 03/11/2026 21:42. Auditoría de congruencia: PLAN-TOTAL.md (v6) e INFORME-TOTAL.md; C8 (HMM de la racha y E1) y C7 corregidos a 60 s; semáforo de los equipos con medida de 60 s.

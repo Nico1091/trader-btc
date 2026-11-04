@@ -1,6 +1,6 @@
 # Plan v5 de las binarias · BTC/USDT
 
-> **Reemplazado el 03/11/2026 a las 22:40 por `PLAN-TOTAL.md` (v6, congruente).** Se conserva como historia.
+> **Reemplazado el 03/11/2026 a las 21:41 por `PLAN-TOTAL.md` (v6, congruente).** Se conserva como historia.
 
 
 Versión 5 · 3 de noviembre de 2026, 21:00 (hora de Colombia). Reemplaza la conducción del PLAN.md (secciones 1 a 18 quedan como historia y evidencia). Base: `cuant/INFORME-INVESTIGACION-CUANTITATIVA-2026-11-03.md`.

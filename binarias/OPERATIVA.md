@@ -1,6 +1,6 @@
 # Operativa de las binarias (lo que el agente sabe antes de operar)
 
-Versión del 03/11/2026, 22:45 (hora de Colombia). Manda el PLAN-TOTAL.md (v6, congruente: solo devolución, solo BTC, real solo en días VERDES); la evidencia está en `INFORME-TOTAL.md`. El agente (Pulso) la lee antes de cada resumen de 15 min y cita su versión.
+Versión del 03/11/2026, 21:41 (hora de Colombia). Manda el PLAN-TOTAL.md (v6, congruente: solo devolución, solo BTC, real solo en días VERDES); la evidencia está en `INFORME-TOTAL.md`. El agente (Pulso) la lee antes de cada resumen de 15 min y cita su versión.
 
 ## Qué se opera
 

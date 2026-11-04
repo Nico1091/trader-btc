@@ -1,6 +1,6 @@
 # Informe total de las binarias (congruencia, evidencia y diagnóstico)
 
-3 de noviembre de 2026, 22:30 (hora de Colombia). Reemplaza como lectura principal al informe de `cuant/` del mismo día; el detalle de cada prueba sigue en `cuant/resultados/`. Todas las cifras de acierto que deciden algo se dan con entrada 60 s tarde, como él toca a mano.
+3 de noviembre de 2026, 21:40 (hora de Colombia). Reemplaza como lectura principal al informe de `cuant/` del mismo día; el detalle de cada prueba sigue en `cuant/resultados/`. Todas las cifras de acierto que deciden algo se dan con entrada 60 s tarde, como él toca a mano.
 
 ## 1. La lógica única del sistema
 

@@ -1,4 +1,4 @@
-"""C8 (03/11/2026, 22:00): el «factor probabilístico» de la racha de la propia estrategia, y E1 (familia de reversión).
+"""C8 (03/11/2026, 21:35): el «factor probabilístico» de la racha de la propia estrategia, y E1 (familia de reversión).
 
 Pregunta de Nicolás (03/11): ¿hay un factor probabilístico del comportamiento que acierte a futuro? Su plan: operar en
 real solo los días en que la estrategia está dando resultados. Reglas escritas antes de ver resultados:

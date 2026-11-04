@@ -1,6 +1,6 @@
 # Plan total de las binarias · BTC/USDT (v6, congruente)
 
-3 de noviembre de 2026, 22:40 (hora de Colombia). Reemplaza al PLAN-v5.md y manda sobre todo lo anterior. La evidencia y la auditoría de congruencia están en `INFORME-TOTAL.md`.
+3 de noviembre de 2026, 21:41 (hora de Colombia). Reemplaza al PLAN-v5.md y manda sobre todo lo anterior. La evidencia y la auditoría de congruencia están en `INFORME-TOTAL.md`.
 
 ## 1. La lógica única
 
