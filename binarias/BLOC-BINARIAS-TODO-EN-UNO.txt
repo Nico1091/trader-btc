@@ -547,4 +547,5 @@ Abiertos de antes
 - 04/11/2026 13:13. OPERATIVA al día; 13:20, PROMPT-OPERADOR v5; el auditor oficial da 39 de 39 señales iguales.
 - 04/11/2026 13:25. Prueba de reposo superada: 44 min sin tocar la caja.
 - 04/11/2026 13:27. Reinicio de la caja: volvió sola en 76 s, con bloqueo de reposo.
-- 04/11/2026 13:29. Bloc, bóveda, encargo y guía (versión 4) al día; siguen GitHub, posible plan, USB y memoria.
+- 04/11/2026 13:29. Bloc, bóveda, encargo y guía (versión 4) al día.
+- 04/11/2026 13:40. GitHub al día (rama v7, commits 7198125 y 176d8de; PR #2 con título y descripción nuevos), posible plan v7 final en Descargas, la USB y el Escritorio (0 diferencias), USB (CONTEXTO, PROYECTOS y NUEVO) y memoria al día.
