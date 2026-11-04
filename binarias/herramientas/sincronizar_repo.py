@@ -115,19 +115,22 @@ def main():
         if ruta in vistos or not src.exists() or NUNCA.search(ruta):
             continue
         copiar(src, ARBOL / ruta, cambios)
-    if not cambios:
+    extra = [r for r in ("README.md", "binarias/README.md") if git("status", "--porcelain", "--", r).strip()]
+    if cambios or extra:
+        git("add", "--", *cambios, *extra)
+    reales = [x for x in git("diff", "--cached", "--name-only").splitlines() if x]  # git normaliza los saltos de línea
+    if not reales:
         print("El GitHub ya está igual a lo que corre: nada que subir.")
         return 0
-    git("add", "--", *cambios)
-    for ruta in git("diff", "--cached", "--name-only").splitlines():
+    for ruta in reales:
         texto = (ARBOL / ruta).read_text(encoding="utf-8", errors="replace") if (ARBOL / ruta).exists() else ""
         for patron in CLAVES:
             if patron.search(texto):
                 git("reset", "-q")
                 raise SystemExit(f"POSIBLE CLAVE en {ruta}: no se sube nada. Revíselo a mano.")
     git("commit", "-q", "-m", mensaje + "\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>")
-    print(f"commit {git('rev-parse', '--short', 'HEAD').strip()} con {len(cambios)} archivos:")
-    for c in cambios:
+    print(f"commit {git('rev-parse', '--short', 'HEAD').strip()} con {len(reales)} archivos:")
+    for c in reales:
         print("  ", c)
     if sin_fuente:
         print("sin origen fuera del repositorio (se dejan como están):", ", ".join(sin_fuente))
