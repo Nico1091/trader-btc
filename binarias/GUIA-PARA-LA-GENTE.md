@@ -42,7 +42,7 @@ NO OPERAR · BTC SUBE a 10 min, solo en papel
 papel de hoy −1,15 (1 de 3 acertadas)
 ```
 
-Cada aviso llega como foto: la gráfica de 1 minuto con las seis líneas y el aviso en el pie. El papel se cuenta en apuestas: cada acierto suma 0,85 y cada fallo resta 1.
+Cada aviso llega como foto: la gráfica de 1 minuto con las cinco líneas y el aviso en el pie. El papel se cuenta en apuestas: cada acierto suma 0,85 y cada fallo resta 1.
 
 ## Qué hacer cuando llega un SÍ
 
@@ -52,15 +52,15 @@ Cada aviso llega como foto: la gráfica de 1 minuto con las seis líneas y el av
 4. Apueste siempre el mismo monto, el mínimo de 5 USDT, y nunca más del 16 % de su saldo: con 5 USDT, el saldo debe ser de 31,25 USDT o más. Nunca doble después de perder.
 5. Si ese SÍ pierde, termine el día, aunque lleguen más señales.
 
-## Las seis líneas
+## Las cinco líneas
 
-La gráfica de velas de 1 minuto de las últimas dos horas y media lleva seis líneas:
+La gráfica de velas de 1 minuto de las últimas dos horas y media lleva cinco líneas:
 
-- **Azul.** Techo y piso largos. El techo nace en el máximo más alto y baja tocando los máximos siguientes sin cortarlos; el piso nace en el mínimo más bajo y sube tocando los mínimos siguientes.
+- **Azul.** Techo y piso. El techo se apoya en los máximos y el piso en los mínimos; cada uno se ajusta para pasar lo más cerca posible de ellos sin que ninguna vela lo cruce.
 - **Ámbar.** Techo y piso cortos, trazados igual desde el inicio de la última caída o de la última subida.
-- **Violeta, punteadas.** Las dos horizontales donde el precio se quedó más tiempo, una arriba y otra abajo.
+- **Violeta, discontinua.** La recta de la mitad: el centro exacto entre el techo y el piso.
 
-Las líneas muestran cuándo el precio está estirado. Si dos velas seguidas del mismo color cierran fuera de una línea, lo más frecuente es que el precio se devuelva: apostar en contra de esa ruptura acertó cerca del 57 % en las pruebas, y seguirla, el 43 %. Las líneas sirven para leer el momento; la apuesta la decide el SÍ.
+Las líneas muestran cuándo el precio está estirado y hacia dónde va el canal. Se probaron como filtro del SÍ con los datos de 2021 a 2026 y no suben el acierto: sirven para leer el momento; la apuesta la decide el SÍ.
 
 ## Lo que dicen los números
 
@@ -94,6 +94,7 @@ Cada SÍ que cierra deja un comprobante en PDF con la hora, el sentido, el preci
 - Use solo dinero que pueda perder completo. Con el mínimo de 5 USDT, una cuenta de 100 USDT resiste 20 pérdidas seguidas.
 - Practique primero en papel: anote al menos 20 avisos con el pago que ofrecía la app, los segundos que tardó en tocar y el resultado.
 - Verifique que los Contratos de Evento estén disponibles y permitidos en su país. En la Unión Europea, la autoridad de mercados (ESMA) prohibió en 2018 vender opciones binarias a clientes minoristas.
+- Regla de prudencia: con dinero real, opere solo cuando 19 de las últimas 25 señales en papel hayan acertado (76 %); el resto del tiempo, espere. En las pruebas no subió el acierto, pero hace que se arriesgue muy pocas veces, unas dos o tres al mes.
 - Esta guía describe un método que todavía se mide en papel. No es una recomendación de inversión.
 
 Versión del 4 de noviembre de 2026. Cifras de pruebas a ciegas con velas públicas de Binance, de enero de 2021 a octubre de 2026, y de la página oficial de Binance sobre los Contratos de Evento, actualizada el 28 de octubre de 2026.

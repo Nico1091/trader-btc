@@ -745,44 +745,6 @@ fn volumen_horas() -> Vec<f64> {
     }).collect()
 }
 
-/// Su señal de dos velas (t31, líneas largas): en la vela i, +1 si dos verdes seguidas cierran sobre la horizontal del rango
-/// (mayor cierre entre 65 y 5 velas antes) y sobre la diagonal de máximos que bajan; −1 si dos rojas cierran bajo el soporte
-/// y la diagonal de mínimos que suben; 0 si no.
-fn dos_velas(v: &[Vela]) -> Vec<i8> {
-    let n = v.len();
-    let mut out = vec![0i8; n];
-    if n < 150 {
-        return out;
-    }
-    let es_giro = |j: usize, alto: bool| -> bool {
-        if j < GIRO || j + GIRO >= n { return false }
-        (j - GIRO..=j + GIRO).all(|k| if alto { v[k].h <= v[j].h } else { v[k].l >= v[j].l })
-    };
-    let diagonal = |i: usize, alto: bool| -> Option<f64> {
-        let giros: Vec<usize> = (0..i.saturating_sub(GIRO)).filter(|&j| j + GIRO <= i && es_giro(j, alto)).collect();
-        let (&p2, &p1) = (giros.last()?, giros.get(giros.len().checked_sub(2)?)?);
-        let (v1, v2) = if alto { (v[p1].h, v[p2].h) } else { (v[p1].l, v[p2].l) };
-        if (alto && v2 >= v1) || (!alto && v2 <= v1) { return None }
-        Some(v2 + (v2 - v1) / (p2 - p1) as f64 * (i - p2) as f64)
-    };
-    let sobre = |i: usize| -> bool {
-        let techo = v[i - 65..i - 5].iter().map(|x| x.c).fold(f64::MIN, f64::max);
-        v[i].c > v[i].o && v[i].c > techo && diagonal(i, true).map(|d| v[i].c > d).unwrap_or(false)
-    };
-    let bajo = |i: usize| -> bool {
-        let piso = v[i - 65..i - 5].iter().map(|x| x.c).fold(f64::MAX, f64::min);
-        v[i].c < v[i].o && v[i].c < piso && diagonal(i, false).map(|d| v[i].c < d).unwrap_or(false)
-    };
-    for i in (n - 20).max(67)..n {
-        if sobre(i) && sobre(i - 1) && v[i].c > v[i - 1].c && !sobre(i - 2) {
-            out[i] = 1;
-        } else if bajo(i) && bajo(i - 1) && v[i].c < v[i - 1].c && !bajo(i - 2) {
-            out[i] = -1;
-        }
-    }
-    out
-}
-
 /// Estocástico %K(14) suavizado (3) en velas de 5 min cerradas.
 fn estocastico() -> Option<f64> {
     let v: Vec<Vela> = velas_ohlc(300).into_iter().filter(|x| x.t + 300 <= ahora()).collect();
@@ -871,41 +833,24 @@ fn resumen_agente() {
         };
         let mut favor: Vec<String> = Vec::new();
         let mut contra: Vec<String> = Vec::new();
-        let cent = centinela();
-        let visible = std::path::Path::new(CENT_ESTADO).exists();
-        let vivo = !visible || cent.as_ref().map(|e| ahora() as f64 - e.num("latido").unwrap_or(0.0) <= LATIDO_MAX).unwrap_or(false);
-        if !visible {
-            favor.push("el centinela corre en la caja T95H y en el teléfono; sus apuestas y su semáforo le llegan por Telegram".into())
-        } else if vivo {
-            favor.push("el centinela funciona y vigila sus señales".into())
-        } else {
-            contra.push("el centinela no está funcionando".into())
+        // 04/11: el centinela corre en la caja (el teléfono la releva); se mira el latido que ella publica en la casa.
+        let caja = caja_latido();
+        match caja {
+            Some(edad) if edad <= LATIDO_MAX => favor.push("la caja late y vigila cada señal; el teléfono la releva si cae".into()),
+            Some(edad) => contra.push(format!("la caja no late hace {:.0} min: el teléfono da los avisos", edad / 60.0)),
+            None => contra.push("la caja no responde en la red de la casa: el teléfono da los avisos".into()),
         }
         let vh = volumen_horas();
-        let vol_alto = if vh.len() > 170 {
+        if vh.len() > 170 {
             let ult = vh[vh.len() - 1];
             let mut previas: Vec<f64> = vh[vh.len() - 169..vh.len() - 1].to_vec();
             previas.sort_by(|a, b| a.partial_cmp(b).unwrap_or(std::cmp::Ordering::Equal));
             let med = previas[previas.len() / 2];
             let r = if med > 0.0 { ult / med } else { 1.0 };
-            let linea = format!("volumen de BTC en la última hora: {:.0} % de lo normal de la semana", 100.0 * r);
-            if r > 1.3 { contra.push(format!("{} (alto: la defensa de BTC dice no operar)", linea)); true } else { favor.push(linea); false }
-        } else { false };
+            favor.push(format!("volumen de BTC en la última hora: {:.0} % de lo normal de la semana", 100.0 * r));
+        }
         if let Some(pr) = presion() { favor.push(pr.trim_end_matches('.').to_string()) }
-        let senal = dos_velas(&m1);
-        let reciente = senal.iter().enumerate().rev().take(15).find(|x| *x.1 != 0).map(|(i, d)| (m1[i].t + 60, *d));
-        let veredicto = if !vivo {
-            "NO OPERAR: el sistema no está vigilando.".to_string()
-        } else if vol_alto {
-            "BTC: NO OPERAR (volumen alto). ETH: operar solo con la señal del sistema.".to_string()
-        } else {
-            "OPERAR solo con la señal del sistema: cuando llegue «Apuesta en papel», esa es la entrada. Sin señal, no se fuerza nada.".to_string()
-        };
-        let candidata = match reciente {
-            Some((ts, d)) => format!("\nCANDIDATA (sin entrar al sistema): a las {} apareció su señal de dos velas {} sus líneas. Lo probado es apostar en contra: {} a 10 min (57 % en BTC).",
-                                     hora_txt(ts as i64 + COL, false), if d > 0 { "verdes sobre" } else { "rojas bajo" }, if d > 0 { "BAJA" } else { "SUBE" }),
-            None => "\nSu señal de dos velas no apareció en los últimos 15 min.".to_string(),
-        };
+        let veredicto = "solo cuenta el SÍ OPERAR que manda la caja (o el teléfono, si la caja cae), con su 76 % para el dinero real, tope del 16 % y sin apalancamiento. Sin SÍ, no se toca nada.";
         let mut contexto: Vec<String> = Vec::new();
         if let Some(x) = indice() {
             contexto.push(format!("{} en 10 min (red de una neurona, solo indicativo)", texto_indice(x)));
@@ -916,11 +861,8 @@ fn resumen_agente() {
         }
         {
             let v = &m1[m1.len().saturating_sub(150)..];
-            if let Some((techo, _, _)) = sus_lineas(v) {
-                let n = v.len();
-                if (n.saturating_sub(15)..n).any(|i| v[i].h >= techo.en(i)) {
-                    contexto.push("en los últimos 15 min el precio tocó su línea de techo: su lectura «toca la línea, puede caer» acertó 56 % (BTC) y 58 % (ETH) a 10 min en 2026, pero en 2024-25 no llegó al 54 %".into());
-                }
+            if let Some(cinco) = cinco_lineas(v) {
+                contexto.push(format!("sus cinco líneas: {}", lectura_lineas(v, &cinco)));
             }
         }
         if triangulo(&m1) {
@@ -945,18 +887,25 @@ fn resumen_agente() {
             };
             format!("\nSu lectura (análisis humano, se tiene en cuenta): «{}». {}.", ops.join(" / "), cuadra)
         };
-        let titulo = format!("Resumen del agente, {}", hora_txt(t as i64 + COL, false));
-        let texto = format!("Precio: {} dólares. {}. {}.\nVeredicto: {}{}{}\nA favor: {}.\nEn contra: {}.\nContexto (sin decidir con él): {}.\n(Consolidado con {}.)",
-                            miles(p), txt_mov(mov(15), "15 min"), txt_mov(mov(60), "1 hora"), veredicto, candidata, suya,
+        let titulo = format!("Pulso · lectura del mercado, {}", hora_txt(t as i64 + COL, false));
+        let texto = format!("Precio: {} dólares. {}. {}.\nCómo se opera: {}{}\nA favor: {}.\nEn contra: {}.\nContexto (sin decidir con él): {}.\n(Consolidado con {}.)",
+                            miles(p), txt_mov(mov(15), "15 min"), txt_mov(mov(60), "1 hora"), veredicto, suya,
                             if favor.is_empty() { "nada".into() } else { favor.join("; ") },
                             if contra.is_empty() { "nada".into() } else { contra.join("; ") },
                             if contexto.is_empty() { "nada".into() } else { contexto.join("; ") }, version);
         if std::env::args().nth(1).as_deref() == Some("agente") {
-            println!("{}
-{}", titulo, texto);
+            println!("{}\n{}", titulo, texto);
         }
         avisar_corto(&titulo, &texto, "agente");
     }
+}
+
+/// Edad en segundos del latido que la caja publica en la red de la casa (puerto 8793); None si no responde.
+fn caja_latido() -> Option<f64> {
+    let salida = Command::new("curl").args(["-s", "-m", "5", "--noproxy", "*", "http://192.168.20.45:8793/latido"])
+        .stdin(Stdio::null()).stderr(Stdio::null()).output().ok()?;
+    let j = Json::leer(&String::from_utf8_lossy(&salida.stdout))?;
+    Some(j.num("ahora")? - j.num("latido")?)
 }
 
 /// Cada 30 s, un mensaje de solo texto con el precio de Binance y cuánto se movió desde el anterior (sin voz, para que
@@ -1029,7 +978,7 @@ fn mandar_velas(seg: u32, t: u64) {
     registro(&format!("captura {} · foto {} · voz {}", nombre, foto, v_ok));
 }
 
-// ---------------------------------------------------------------- sus líneas (como las traza él)
+// ---------------------------------------------------------------- sus cinco líneas (04/11/2026)
 
 /// Una recta sobre las velas: precio en la vela `i0` y pendiente por vela.
 #[derive(Clone, Copy)]
@@ -1045,113 +994,130 @@ impl Recta {
     }
 }
 
-/// Sus líneas sobre las velas de 1 min cerradas: el techo nace en la punta más alta y baja tocando los máximos siguientes
-/// sin cortarlos; el piso nace en el mínimo más bajo y sube tocando los mínimos siguientes; la horizontal es el nivel donde el
-/// precio se queda (mediana de los cierres de la última hora). Se trazan sin las 2 últimas velas, que son las que la rompen.
-fn sus_lineas(v: &[Vela]) -> Option<(Recta, Recta, f64)> {
+const CORTO: usize = 45; // tramo corto: el extremo de las últimas 45 velas
+const CORTO_MIN: usize = 8; // si ese extremo es de las últimas 7 velas…
+const CORTO_FALLA: usize = 20; // …se usan las últimas 20
+const GROSOR: i64 = 3;
+
+/// Recta de techo (o de piso) sobre `y`: pasa por el punto que más se aleja de la regresión y, entre las pendientes que no
+/// dejan ningún punto por fuera, toma la más cercana a la de mínimos cuadrados (ajuste automático de líneas de tendencia, en
+/// forma cerrada). Devuelve la recta y el índice desde donde se dibuja: el primero de los dos puntos que toca. Misma
+/// aritmética y en el mismo orden que `_optima` de graficas.py: la paridad se mide píxel a píxel.
+fn optima(y: &[f64], techo: bool, off: usize) -> (Recta, usize) {
+    let n = y.len();
+    let (mut sx, mut sy) = (0.0f64, 0.0f64);
+    for i in 0..n {
+        sx += i as f64;
+        sy += y[i];
+    }
+    let (xm, ym) = (sx / n as f64, sy / n as f64);
+    let (mut sxy, mut sxx) = (0.0f64, 0.0f64);
+    for i in 0..n {
+        let dx = i as f64 - xm;
+        sxy += dx * (y[i] - ym);
+        sxx += dx * dx;
+    }
+    let b = sxy / sxx;
+    let (mut p, mut mejor) = (0usize, y[0] - b * 0.0);
+    for i in 1..n {
+        let d = y[i] - b * i as f64;
+        if if techo { d > mejor } else { d < mejor } {
+            p = i;
+            mejor = d;
+        }
+    }
+    let (mut lo, mut hi, mut ilo, mut ihi) = (f64::NEG_INFINITY, f64::INFINITY, p, p);
+    let (mut num, mut den) = (0.0f64, 0.0f64);
+    for i in 0..n {
+        if i == p {
+            continue;
+        }
+        let d = i as i64 - p as i64;
+        let s = (y[i] - y[p]) / d as f64;
+        if (d > 0) == techo {
+            if s > lo {
+                lo = s;
+                ilo = i;
+            }
+        } else if s < hi {
+            hi = s;
+            ihi = i;
+        }
+        num += (y[i] - y[p]) * d as f64;
+        den += (d * d) as f64;
+    }
+    let (mut s, mut toque) = (num / den, p);
+    if s < lo {
+        s = lo;
+        toque = ilo;
+    } else if s > hi {
+        s = hi;
+        toque = ihi;
+    }
+    (Recta { i0: p + off, p0: y[p], pend: s }, p.min(toque) + off)
+}
+
+/// Sus cinco líneas (04/11/2026, pedido suyo: «quiero 5 líneas bien optimizadas para mis mínimos y máximos y la recta de
+/// la mitad»): techo y piso sobre las velas sin las 2 últimas (las que pueden romperlas); techo y piso cortos desde el inicio
+/// de la última caída o subida; y la recta de la mitad, el centro exacto entre techo y piso. Son para mirar: el SÍ o NO
+/// lo decide la caja.
+#[derive(Clone, Copy)]
+struct Cinco {
+    techo: Recta,
+    piso: Recta,
+    techo_c: Recta,
+    piso_c: Recta,
+    mitad: Recta,
+    /// Desde qué vela se dibuja cada una: techo, piso, techo corto, piso corto y mitad.
+    desde: [usize; 5],
+}
+
+/// Las cinco líneas sobre las velas de 1 min cerradas (None si hay menos de 60), igual que `cinco_lineas` de graficas.py.
+fn cinco_lineas(v: &[Vela]) -> Option<Cinco> {
     let n = v.len();
     if n < 60 {
         return None;
     }
     let base = &v[..n - 2];
     let m = base.len();
-    let ip = (0..m).max_by(|&a, &b| base[a].h.partial_cmp(&base[b].h).unwrap_or(std::cmp::Ordering::Equal))?;
-    let iv = (0..m).min_by(|&a, &b| base[a].l.partial_cmp(&base[b].l).unwrap_or(std::cmp::Ordering::Equal))?;
-    if ip + 5 >= m || iv + 5 >= m {
-        return None;
-    }
-    let pend_t = (ip + 3..m).map(|j| (base[j].h - base[ip].h) / (j - ip) as f64).fold(f64::MIN, f64::max);
-    let pend_p = (iv + 3..m).map(|j| (base[j].l - base[iv].l) / (j - iv) as f64).fold(f64::MAX, f64::min);
-    let mut cierres: Vec<f64> = base[m.saturating_sub(60)..].iter().map(|x| x.c).collect();
-    cierres.sort_by(|a, b| a.partial_cmp(b).unwrap_or(std::cmp::Ordering::Equal));
-    let horizontal = cierres[cierres.len() / 2];
-    Some((Recta { i0: ip, p0: base[ip].h, pend: pend_t.min(0.0) }, Recta { i0: iv, p0: base[iv].l, pend: pend_p.max(0.0) }, horizontal))
-}
-
-/// Las seis líneas (04/11/2026, pedido suyo: «que haga seis líneas»), sobre las mismas velas que `sus_lineas`:
-/// techo y piso largos (los de siempre); techo y piso cortos, «desde el inicio de cada caída» (su comentario del 31/10): nacen
-/// en el último máximo (o mínimo) de giro, con 3 velas a cada lado, distinto del extremo y cuyo tramo duró 6 velas o más;
-/// bajan (o suben) tocando los máximos (o mínimos) siguientes sin cortarlos y, si el precio ya rompió ese tramo, se dibujan
-/// solo hasta donde lo rompió. Las dos horizontales van donde el precio se queda arriba y abajo (el nivel con más cierres en
-/// el 40 % alto y en el 40 % bajo del rango). La lectura y el DISPARO siguen con las largas y la horizontal del medio, como
-/// se probaron (t31); las demás son para mirar.
-#[derive(Clone, Copy)]
-struct Seis {
-    techo: Recta,
-    piso: Recta,
-    techo_c: Option<(Recta, usize)>, // (recta, vela donde se rompió; usize::MAX si sigue viva)
-    piso_c: Option<(Recta, usize)>,
-    arriba: f64,
-    abajo: f64,
-    medio: f64,
-}
-
-/// Tramo corto desde el giro `j`: para un techo, hasta el primer máximo que lo supere; para un piso, hasta el primer
-/// mínimo que lo perfore. Devuelve la recta y la vela de la ruptura (usize::MAX si sigue viva).
-fn tramo_corto(base: &[Vela], j: usize, techo: bool) -> Option<(Recta, usize)> {
-    let m = base.len();
-    let alto = |k: usize| if techo { base[k].h } else { -base[k].l };
-    let fin = (j + 1..m).find(|&k| alto(k) > alto(j)).unwrap_or(m);
-    if fin < j + 6 {
-        return None;
-    }
-    let pend = (j + 3..fin).map(|k| (alto(k) - alto(j)) / (k - j) as f64).fold(f64::MIN, f64::max).min(0.0);
-    let roto = if fin < m { fin } else { usize::MAX };
-    Some(if techo { (Recta { i0: j, p0: base[j].h, pend }, roto) } else { (Recta { i0: j, p0: base[j].l, pend: -pend }, roto) })
-}
-
-fn seis_lineas(v: &[Vela]) -> Option<Seis> {
-    let (techo, piso, medio) = sus_lineas(v)?;
-    let base = &v[..v.len() - 2];
-    let m = base.len();
-    let corto = |es_techo: bool, extremo: usize| {
-        let alto = |k: usize| if es_techo { base[k].h } else { -base[k].l };
-        (3..m.saturating_sub(3))
-            .rev()
-            .filter(|&j| j != extremo && (j - 3..=j + 3).all(|k| alto(k) <= alto(j)))
-            .find_map(|j| tramo_corto(base, j, es_techo))
+    let alto: Vec<f64> = base.iter().map(|x| x.h).collect();
+    let bajo: Vec<f64> = base.iter().map(|x| x.l).collect();
+    let (techo, d_t) = optima(&alto, true, 0);
+    let (piso, d_p) = optima(&bajo, false, 0);
+    let corto = |es_techo: bool| -> (Recta, usize) {
+        let y = if es_techo { &alto } else { &bajo };
+        let mut a = m.saturating_sub(CORTO);
+        for i in a + 1..m {
+            if if es_techo { y[i] > y[a] } else { y[i] < y[a] } {
+                a = i;
+            }
+        }
+        if m - a < CORTO_MIN {
+            a = m - CORTO_FALLA;
+        }
+        optima(&y[a..], es_techo, a)
     };
-    let (techo_c, piso_c) = (corto(true, techo.i0), corto(false, piso.i0));
-    let lo = base.iter().map(|x| x.c).fold(f64::MAX, f64::min);
-    let hi = base.iter().map(|x| x.c).fold(f64::MIN, f64::max);
-    let ancho = ((hi - lo) / 40.0).max(1e-9);
-    let mut cajas = [0usize; 40];
-    let mut sumas = [0f64; 40];
-    for x in base {
-        let k = (((x.c - lo) / ancho) as usize).min(39);
-        cajas[k] += 1;
-        sumas[k] += x.c;
-    }
-    let nivel = |rango: std::ops::Range<usize>| -> f64 {
-        let k = rango.clone().max_by_key(|&k| cajas[k]).unwrap_or(rango.start);
-        if cajas[k] > 0 { sumas[k] / cajas[k] as f64 } else { lo + ancho * (k as f64 + 0.5) }
-    };
-    Some(Seis { techo, piso, techo_c, piso_c, arriba: nivel(24..40), abajo: nivel(0..16), medio })
+    let (techo_c, d_tc) = corto(true);
+    let (piso_c, d_pc) = corto(false);
+    let mitad = Recta { i0: 0, p0: (techo.en(0) + piso.en(0)) / 2.0, pend: (techo.pend + piso.pend) / 2.0 };
+    Some(Cinco { techo, piso, techo_c, piso_c, mitad, desde: [d_t, d_p, d_tc, d_pc, d_t.min(d_p)] })
 }
 
-/// Gráfica de velas de 1 min con las seis líneas: techo y piso largos en azul, cortos en ámbar y las dos horizontales
-/// donde el precio se queda, en violeta punteado.
-fn grafica_lineas(v: &[Vela], s: &Seis) -> Vec<u8> {
+/// Gráfica de velas de 1 min con las cinco líneas: techo y piso en azul, techo y piso cortos en ámbar y la recta de la mitad
+/// en violeta discontinua, con la cifra de cada una al borde. Mismo dibujo, píxel a píxel, que `grafica` de graficas.py.
+fn grafica_lineas(v: &[Vela], s: &Cinco) -> Vec<u8> {
     let mut l = Lienzo(vec![0; ANCHO * ALTO]);
     let (izq, der, arr, aba) = (12i64, ANCHO as i64 - 150, 20i64, ALTO as i64 - 20);
     let n = v.len();
-    let extra = 20usize; // velas de espacio a la derecha para ver hacia dónde van las líneas
-    let total = n + extra;
+    let total = n + 20; // velas de espacio a la derecha para ver hacia dónde van las líneas
     let mut lo = v.iter().map(|x| x.l).fold(f64::MAX, f64::min);
     let mut hi = v.iter().map(|x| x.h).fold(f64::MIN, f64::max);
     let (lo_v, hi_v) = (lo, hi);
-    let hasta = |fin: usize| if fin == usize::MAX { total - 1 } else { fin };
-    let rectas: Vec<(Recta, u8, usize)> = [
-        Some((s.techo, 5, total - 1)),
-        Some((s.piso, 5, total - 1)),
-        s.techo_c.map(|(r, fin)| (r, 6, hasta(fin))),
-        s.piso_c.map(|(r, fin)| (r, 6, hasta(fin))),
-    ]
-    .into_iter()
-    .flatten()
-    .collect();
-    for &(r, _, fin) in &rectas {
-        for i in [r.i0, fin.min(n - 1), fin] {
+    // la mitad va primero, para que las demás queden encima
+    let orden: [(Recta, usize, u8); 5] = [(s.mitad, s.desde[4], 7), (s.techo, s.desde[0], 5), (s.piso, s.desde[1], 5),
+                                         (s.techo_c, s.desde[2], 6), (s.piso_c, s.desde[3], 6)];
+    for &(r, d, _) in &orden {
+        for i in [d, n - 1, total - 1] {
             let p = r.en(i);
             if p.is_finite() && (p - v[n - 1].c).abs() < (hi_v - lo_v) * 1.5 {
                 lo = lo.min(p);
@@ -1174,100 +1140,89 @@ fn grafica_lineas(v: &[Vela], s: &Seis) -> Vec<u8> {
             l.linea((cx - cuerpo / 2, y), (cx - cuerpo / 2 + cuerpo, y), color, 1);
         }
     }
-    for h in [s.arriba, s.abajo] {
-        let yh = y_de(h);
-        let mut x = izq;
-        while x < der {
-            l.linea((x, yh), ((x + 8).min(der), yh), 7, 1);
-            x += 14;
-        }
+    let (r, mut j) = (s.mitad, s.desde[4]);
+    while j < total - 1 {
+        // la mitad, discontinua: 3 velas trazadas y 2 en blanco
+        let j2 = (j + 3).min(total - 1);
+        l.linea((x_de(j), y_de(r.en(j))), (x_de(j2), y_de(r.en(j2))), 7, GROSOR);
+        j += 5;
     }
-    for &(r, c, fin) in &rectas {
-        l.linea((x_de(r.i0), y_de(r.en(r.i0))), (x_de(fin), y_de(r.en(fin))), c, 2);
+    for &(r, d, c) in &orden[1..] {
+        l.linea((x_de(d), y_de(r.en(d))), (x_de(total - 1), y_de(r.en(total - 1))), c, GROSOR);
     }
     let ult = v[n - 1];
     let y_ult = (y_de(ult.c) - 7).clamp(arr + 25, aba - 40);
-    l.texto(der + 12, y_de(hi_v), &format!("{:.0}", hi_v), 4);
-    l.texto(der + 12, y_de(lo_v) - 15, &format!("{:.0}", lo_v), 4);
     l.texto(der + 12, y_ult, &format!("{:.0}", ult.c), if ult.c >= ult.o { 2 } else { 3 });
-    let mut ocupados = vec![y_de(hi_v), y_de(lo_v) - 15, y_ult];
-    for h in [s.arriba, s.abajo] {
-        let y = y_de(h) - 7;
+    let mut ocupados = vec![y_ult];
+    for (r, c) in [(s.techo, 5u8), (s.piso, 5), (s.mitad, 7), (s.techo_c, 6), (s.piso_c, 6)] {
+        let val = r.en(n - 1);
+        let y = (y_de(val) - 7).max(arr).min(aba - 15);
         if ocupados.iter().all(|&o| (o - y).abs() > 18) {
-            l.texto(der + 12, y, &format!("{:.0}", h), 7);
+            l.texto(der + 12, y, &format!("{:.0}", val), c);
+            ocupados.push(y);
+        }
+    }
+    for (val, y) in [(hi_v, y_de(hi_v)), (lo_v, y_de(lo_v) - 15)] {
+        let y = y.max(arr).min(aba - 15);
+        if ocupados.iter().all(|&o| (o - y).abs() > 18) {
+            l.texto(der + 12, y, &format!("{:.0}", val), 4);
             ocupados.push(y);
         }
     }
     png(&l)
 }
 
-/// Estado del precio frente a sus líneas y, si las líneas se juntan, en cuántos minutos.
-fn lectura_lineas(v: &[Vela], s: &Seis) -> (String, i8) {
-    let (techo, piso, horizontal) = (s.techo, s.piso, s.medio);
+/// Dónde está el precio frente a las cinco líneas y, si techo y piso se juntan, en cuántos minutos. Igual que `lectura`
+/// de graficas.py.
+fn lectura_lineas(v: &[Vela], s: &Cinco) -> String {
     let n = v.len();
-    let (a, b) = (&v[n - 2], &v[n - 1]);
-    let (t1, t2, p1, p2) = (techo.en(n - 2), techo.en(n - 1), piso.en(n - 2), piso.en(n - 1));
-    // Su regla: dos velas del mismo color fuera de la línea, la segunda más lejos.
-    let rompe = if a.c > a.o && b.c > b.o && a.c > t1 && b.c > t2 && b.c > a.c && b.c > horizontal {
-        1
-    } else if a.c < a.o && b.c < b.o && a.c < p1 && b.c < p2 && b.c < a.c && b.c < horizontal {
-        -1
+    let c = v[n - 1].c;
+    let (t, p, md) = (s.techo.en(n - 1), s.piso.en(n - 1), s.mitad.en(n - 1));
+    let donde = if t < p {
+        "con el techo y el piso ya cruzados"
+    } else if c > t {
+        "por encima del techo"
+    } else if c < p {
+        "por debajo del piso"
+    } else if c >= md {
+        "dentro del canal, en la mitad alta"
     } else {
-        0
+        "dentro del canal, en la mitad baja"
     };
-    let junta = if techo.pend < piso.pend {
-        let k = (techo.en(n - 1) - piso.en(n - 1)) / (piso.pend - techo.pend);
-        if k > 0.0 && k < 600.0 { format!(" Las líneas se juntan en unos {:.0} min: se viene un movimiento.", k) } else { String::new() }
-    } else {
-        String::new()
-    };
-    let corto = |r: Option<(Recta, usize)>| match r {
-        Some((r, usize::MAX)) => miles(r.en(n - 1)),
-        Some(_) => "roto".to_string(),
-        None => "sin trazar".to_string(),
-    };
-    let seis = format!("techo {} (corto {}), piso {} (corto {}), horizontales {} y {}",
-                       miles(t2), corto(s.techo_c), miles(p2), corto(s.piso_c), miles(s.arriba), miles(s.abajo));
-    let donde = if b.c > t2 {
-        format!("por encima del techo; {}", seis)
-    } else if b.c < p2 {
-        format!("por debajo del piso; {}", seis)
-    } else {
-        format!("dentro de sus líneas: {}", seis)
-    };
-    (format!("Precio {} {}.{}", miles(b.c), donde, junta), rompe)
+    let mut txt = format!("precio {} {} · techo {} · piso {} · mitad {} · techo corto {} · piso corto {}",
+                          miles(c), donde, miles(t), miles(p), miles(md), miles(s.techo_c.en(n - 1)), miles(s.piso_c.en(n - 1)));
+    let (tp, pp) = (s.techo.pend, s.piso.pend);
+    if tp < pp {
+        let k = (t - p) / (pp - tp);
+        if k > 0.0 && k < 600.0 {
+            txt.push_str(&format!(" · las líneas se juntan en unos {:.0} min", k));
+        }
+    }
+    txt
 }
 
-/// Cada minuto revisa la ruptura (el disparo) y cada 5 min manda la gráfica de 1 min con sus líneas.
+/// Cada 5 min manda la gráfica de 1 min con las cinco líneas. El DISPARO se retiró el 04/11: era la única voz que le
+/// sugería apostar fuera del SÍ o NO de la caja.
 fn vigia_lineas() {
-    let mut ultimo_disparo = 0u64;
     loop {
         let t = ahora();
         thread::sleep(Duration::from_secs(60 - t % 60 + 3));
         let t = ahora();
+        if (t / 60) % 5 != 0 {
+            continue;
+        }
         let todas: Vec<Vela> = velas_ohlc(60).into_iter().filter(|x| x.t + 60 <= t).collect();
         let v = &todas[todas.len().saturating_sub(150)..];
-        let Some(seis) = seis_lineas(v) else { continue };
-        let (estado, rompe) = lectura_lineas(v, &seis);
+        let Some(cinco) = cinco_lineas(v) else { continue };
         let ruta = casa().join(".pulso/lineas.png");
+        let _ = fs::write(&ruta, grafica_lineas(v, &cinco));
         let boton = format!("{{\"inline_keyboard\":[[{{\"text\":\"Gráfico en vivo (TradingView)\",\"url\":\"{}\"}}]]}}", TRADINGVIEW);
-        let ult_t = v[v.len() - 1].t;
-        if rompe != 0 && ult_t > ultimo_disparo + 600 {
-            ultimo_disparo = ult_t;
-            let titulo = if rompe > 0 { "DISPARO: el Bitcoin rompió sus líneas hacia arriba" } else { "DISPARO: el Bitcoin rompió sus líneas hacia abajo" };
-            let texto = format!("{} Dos velas {} seguidas fuera de la línea, como su regla. Lo probado desde 2021 (t31): seguir la ruptura acierta 43 %; apostar {} a 10 min acierta 57 % en BTC (candidata, sin entrar al sistema).",
-                                estado, if rompe > 0 { "verdes" } else { "rojas" }, if rompe > 0 { "BAJA" } else { "SUBE" });
-            let _ = fs::write(&ruta, grafica_lineas(v, &seis));
-            telegram("sendPhoto", &[("photo", format!("@{}", ruta.display())), ("caption", format!("{}\n\n{}", titulo, texto)), ("reply_markup", boton.clone())]);
-            let ok = mandar_voz(&format!("{}. {}", titulo, texto), "disparo");
-            registro(&format!("disparo {} · voz {}", if rompe > 0 { "arriba" } else { "abajo" }, ok));
-        } else if (t / 60) % 5 == 0 {
-            let _ = fs::write(&ruta, grafica_lineas(v, &seis));
-            let titulo = format!("Sus seis líneas en 1 min, {}", hora_txt(t as i64 + COL, false));
-            let leyenda = "Azul: techo y piso largos. Ámbar: techo y piso cortos, desde el inicio de la última caída o subida. Violeta: donde el precio se queda arriba y abajo. El SÍ o NO de cada señal lo manda la caja.";
-            let foto = telegram("sendPhoto", &[("photo", format!("@{}", ruta.display())), ("caption", format!("{}\n\n{}\n\n{}", titulo, estado, leyenda)), ("reply_markup", boton)]);
-            registro(&format!("líneas en 1 min · foto {}", foto));
-        }
+        let titulo = format!("Sus cinco líneas en 1 min, {}", hora_txt(t as i64 + COL, false));
+        let leyenda = "Azul: techo y piso, sobre sus máximos y mínimos. Ámbar: techo y piso cortos, desde el inicio de la última caída o subida. Violeta: la recta de la mitad. Son para mirar; el SÍ o NO de cada señal lo manda la caja.";
+        let foto = telegram("sendPhoto", &[("photo", format!("@{}", ruta.display())),
+                                           ("caption", format!("{}\n\nAhora: {}.\n\n{}", titulo, lectura_lineas(v, &cinco), leyenda)),
+                                           ("reply_markup", boton)]);
+        registro(&format!("líneas en 1 min · foto {}", foto));
     }
 }
 
@@ -1665,6 +1620,27 @@ fn cargar() -> (Option<f64>, u64) {
 }
 
 fn main() {
+    // Paridad (04/11/2026): `pulso lineas-archivo VELAS.csv SALIDA.png` dibuja las cinco líneas de un archivo de velas
+    // (t,apertura,máximo,mínimo,cierre por línea), sin red y antes del candado del puerto, así que corre con el servicio en marcha.
+    if std::env::args().nth(1).as_deref() == Some("lineas-archivo") {
+        let a: Vec<String> = std::env::args().collect();
+        if a.len() < 4 {
+            println!("uso: pulso lineas-archivo VELAS.csv SALIDA.png");
+            return;
+        }
+        let v: Vec<Vela> = fs::read_to_string(&a[2]).unwrap_or_default().lines().filter_map(|l| {
+            let c: Vec<f64> = l.split(',').filter_map(|x| x.trim().parse::<f64>().ok()).collect();
+            if c.len() >= 5 { Some(Vela { t: c[0] as u64, o: c[1], h: c[2], l: c[3], c: c[4], v: 0.0 }) } else { None }
+        }).collect();
+        match cinco_lineas(&v) {
+            Some(cinco) => {
+                let _ = fs::write(&a[3], grafica_lineas(&v, &cinco));
+                println!("{}", lectura_lineas(&v, &cinco));
+            }
+            None => println!("menos de 60 velas"),
+        }
+        return;
+    }
     let _ = fs::create_dir_all(casa().join(".pulso"));
     // El puerto del puente hace también de candado: si ya está ocupado, otra copia corre y esta sale (nunca avisos dobles).
     let Ok(escucha) = TcpListener::bind(PUENTE) else {
@@ -1686,10 +1662,9 @@ fn main() {
         let t = ahora();
         let todas: Vec<Vela> = velas_ohlc(60).into_iter().filter(|x| x.t + 60 <= t).collect();
         let v = &todas[todas.len().saturating_sub(150)..];
-        if let Some(seis) = seis_lineas(v) {
-            let (estado, rompe) = lectura_lineas(v, &seis);
-            let _ = fs::write(casa().join(".pulso/lineas.png"), grafica_lineas(v, &seis));
-            println!("{} · ruptura {}", estado, rompe);
+        if let Some(cinco) = cinco_lineas(v) {
+            let _ = fs::write(casa().join(".pulso/lineas.png"), grafica_lineas(v, &cinco));
+            println!("{}", lectura_lineas(v, &cinco));
         }
         return;
     }

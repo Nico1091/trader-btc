@@ -1,4 +1,9 @@
-"""Semáforo papel → real para BTCUSDT, v3.2 (04/11/2026): su regla «el real solo cuando el papel de hoy esté sumando»,
+"""Semáforo papel → real para BTCUSDT, v3.3 (04/11/2026). Desde la v3.3, su regla del 76 % (P17): el SÍ solo pasa a real
+si además las últimas 25 apuestas de papel del núcleo ya cerradas acertaron 19 o más; si no, el aviso le recuerda esperar.
+Probada en C9e: el real se enciende pocas veces (81 apuestas en 2024-sep 2026) y no acierta más que el SÍ solo.
+Desde el 04/11 a las 13:10, la foto de cada SÍ o NO lleva las cinco líneas (graficas.cinco_lineas, idéntica a Pulso) y el
+SÍ real trae los pasos exactos del toque en la app; el toque es suyo (los Contratos de Evento no tienen API).
+Antes, v3.2 (04/11/2026): su regla «el real solo cuando el papel de hoy esté sumando»,
 con el filtro del interés abierto (P15). Desde la v3.2, cada SÍ o NO llega como foto con las seis líneas (graficas.py,
 idéntica a Pulso píxel a píxel), cada SÍ cerrado trae su comprobante en PDF con enlaces a las velas oficiales de Binance
 y a las 00:15 llega el resumen del papel del día anterior (comprobantes.py). Si existe ~/.config/binarias/canal, los SÍ y
@@ -50,6 +55,7 @@ COMPROB = os.path.join(AQUI, "comprobantes")
 FAPI = "https://fapi.binance.com/fapi/v1/klines?symbol=BTCUSDT&interval=1m"
 FIDX = "https://fapi.binance.com/fapi/v1/indexPriceKlines?pair=BTCUSDT&interval=1m"
 FOI = "https://fapi.binance.com/futures/data/openInterestHist?symbol=BTCUSDT&period=5m&limit=12"
+VENTANA_76, MIN_76 = 25, 19  # su regla del 76 % (P17): 19 de las últimas 25 de papel
 UMBRAL_OI = 0.00022  # mediana de dic 2021-2023 con el margen de P14b (cuant/c9c_interes.py, margen 600 s en el archivo)
 H = {"User-Agent": "binarias-semaforo"}
 VENTANA, PLAZO, PAGO = 100, 600, 0.85
@@ -188,6 +194,13 @@ def papel_de_hoy(e, ini_dia, ahora):
     return sum(PAGO if a["res"] else -1.0 for a in hoy), sum(a["res"] for a in hoy), len(hoy)
 
 
+def papel_reciente(e, ahora):
+    """Aciertos de las últimas 25 apuestas de papel del núcleo ya cerradas: (aciertos, cerradas)."""
+    cerradas = [a for a in e["apuestas"] if a.get("res") is not None and a["t"] + RETRASO + PLAZO <= ahora]
+    ult = cerradas[-VENTANA_76:]
+    return sum(a["res"] for a in ult), len(ult)
+
+
 def autorizado():
     return os.path.exists(AUTORIZADO)
 
@@ -225,7 +238,7 @@ def main():
         e["apuestas"], e["medida"] = [], "60s"
     n = sembrar(e)
     guardar(e)
-    log(f"semáforo v3.2 (su regla + interés abierto, con fotos y comprobantes) en marcha · rol {avisos.ROL} · {len(e['apuestas'])} apuestas de papel ({n} sembradas) · real autorizado: {autorizado()}")
+    log(f"semáforo v3.3 (su regla + interés abierto + su 76 % para el real, con fotos y comprobantes) en marcha · rol {avisos.ROL} · {len(e['apuestas'])} apuestas de papel ({n} sembradas) · real autorizado: {autorizado()}")
     while not os.path.exists(PARAR):
         try:
             ahora = time.time()
@@ -238,6 +251,7 @@ def main():
                 guardar(e)
                 txt = (f"Binarias BTC, {hoy} [{avisos.ETIQUETA}]: cada señal llega con SÍ o NO. SÍ solo cuando el papel de hoy "
                        f"vaya sumando y el interés abierto no esté subiendo; la primera pérdida del SÍ lo apaga hasta mañana. "
+                       f"El real, solo con el papel reciente en 76 % o más ({MIN_76} de las últimas {VENTANA_76}); nunca apalancamiento. "
                        + ("Dinero real autorizado: 5 USDT, sin apalancamiento." if autorizado() else "Sigue en papel: el dinero real espera su orden.")
                        + f" Últimas {n_ult} de papel: {acc * 100:.1f} %.".replace(".", ",", 1))
                 avisar(txt)
@@ -278,17 +292,27 @@ def main():
                         log(f"interés abierto sin dato ({type(ex).__name__})")
                     oi_ok = doi is not None and doi <= UMBRAL_OI
                     si = neto > 0 and not perdio and oi_ok
-                    real = si and autorizado()
+                    k25, n25 = papel_reciente(e, ahora)
+                    racha_ok = n25 >= VENTANA_76 and k25 >= MIN_76
+                    real = si and autorizado() and racha_ok
                     e["apuestas"].append({"t": t_dec, "dir": s, "aviso": entrada, "entrada": None, "salida": None, "res": None,
                                           "si": si, "real": real, "neto_previo": round(neto, 2),
-                                          "doi": None if doi is None else round(doi, 6), "filtro_oi": oi_ok})
+                                          "doi": None if doi is None else round(doi, 6), "filtro_oi": oi_ok,
+                                          "reciente": f"{k25}/{n25}"})
                     oi_txt = "sin dato del interés abierto" if doi is None else (
                         f"interés abierto {doi * 100:+.3f} % en 15 min ({'no sube' if oi_ok else 'sube: la devolución falla más'})".replace(".", ","))
                     vence = dt.datetime.fromtimestamp(t_dec + PLAZO, COL).strftime("%H:%M")
                     if si:
-                        txt = (f"SÍ OPERAR [{avisos.ETIQUETA}] · BTC {sentido(s)} a 10 min · precio {avisos.precio(entrada)} · vence {vence} · "
-                               f"papel de hoy {unidades(neto)} ({k} de {n_hoy} acertadas) · {oi_txt}. "
-                               + ("Toque ya: 5 USDT (tope del 16 % del saldo), sin apalancamiento." if real else "En papel: el dinero real espera su orden."))
+                        if real:
+                            cola = (f"Toque ya en la app: Futuros → Contratos de Evento → BTCUSDT → 10 min → {sentido(s)} → 5 USDT "
+                                    "(tope del 16 % del saldo), sin apalancamiento.")
+                        elif not autorizado():
+                            cola = "En papel: el dinero real espera su orden."
+                        else:
+                            cola = (f"En papel: el real espera su 76 % (papel reciente {k25} de {n25}; hacen falta {MIN_76} de {VENTANA_76}). "
+                                    "Espere; sin apalancamiento.")
+                        txt = (f"SÍ OPERAR{' · REAL' if real else ''} [{avisos.ETIQUETA}] · BTC {sentido(s)} a 10 min · precio {avisos.precio(entrada)} · vence {vence} · "
+                               f"papel de hoy {unidades(neto)} ({k} de {n_hoy} acertadas) · {oi_txt}. " + cola)
                     else:
                         motivos = []
                         if perdio:
@@ -297,16 +321,16 @@ def main():
                             motivos.append(f"el papel de hoy va {unidades(neto)} ({k} de {n_hoy} acertadas)")
                         if not oi_ok:
                             motivos.append(oi_txt)
-                        txt = f"NO OPERAR [{avisos.ETIQUETA}] · BTC {sentido(s)} a 10 min solo en papel · {' y '.join(motivos)}."
+                        txt = f"NO OPERAR [{avisos.ETIQUETA}] · BTC {sentido(s)} a 10 min solo en papel · {' y '.join(motivos)}. Espere."
                     enviado = False
                     if graficas:
                         try:
                             vg = [x for x in velas_ohlc(170) if x[0] + 60 <= t_dec][-150:]
-                            s6 = graficas.seis_lineas(vg, parcial=True)
-                            if s6:
+                            s5 = graficas.cinco_lineas(vg)
+                            if s5:
                                 with open(GRAFICA, "wb") as f:
-                                    f.write(graficas.grafica(vg, s6))
-                                pie = txt + "\nSus seis líneas en 1 min (futuros): " + graficas.lectura(vg, s6) + "."
+                                    f.write(graficas.grafica(vg, s5))
+                                pie = txt + "\nSus cinco líneas en 1 min (futuros): " + graficas.lectura(vg, s5) + "."
                                 canal_txt = (("SÍ OPERAR" if si else "NO OPERAR") + f" · BTC {sentido(s)} a 10 min · vence {vence}"
                                              + ("" if si else ", solo en papel") + ". Señal: ruptura de 20 velas de 5 min al revés.")
                                 enviado = avisar_archivo(GRAFICA, pie, "sendPhoto", "photo", canal_txt)

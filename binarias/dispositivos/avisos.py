@@ -10,7 +10,8 @@ los avisos salen por Tor.
 - La clave del bot se lee al momento de ~/.config/binarias/telegram (línea 1: clave, línea 2: chat) y se le pasa a curl
   por la entrada estándar: no queda en la lista de procesos ni en ningún registro.
 Desde el 04/11 también manda fotos y documentos (enviar_archivo) y, si existe ~/.config/binarias/canal, publica los SÍ y NO
-en el canal para la gente.
+en el canal para la gente. Desde el 04/11 a las 13:00, el teléfono mira la caja cada minuto: si lleva 10 min sin latir, le
+avisa que toma el relevo, y cuando ella vuelve, que calla otra vez (la noche del 03 al 04/11 la caja se durmió sin aviso).
 Uso: AVISOS_ROL=caja|telefono python3 -I avisos.py · Parar: crear PARAR en esta carpeta."""
 import datetime as dt
 import json
@@ -33,6 +34,8 @@ TOR = os.environ.get("AVISOS_TOR", "127.0.0.1:9050")
 CUENTAS = ("REGLA", "BTC FIJO")
 SIMBOLOS_AVISO = ("BTCUSDT",)  # 03/11: Nicolás unificó todo en BTC/USDT; ETH queda solo como medición, sin avisos
 CAIDO_S = 180
+RELEVO_S = 600          # 04/11: 10 min sin latido de la caja y el teléfono avisa que toma el relevo
+RELEVO = ("r", "rv")    # claves de esos dos avisos: el teléfono los manda aunque la caja ya lata
 COL = dt.timezone(dt.timedelta(hours=-5))
 ESTADO_MEM = {"latido": 0.0}
 
@@ -226,6 +229,8 @@ def main():
         log(f"no arrancó el semáforo: {type(e).__name__}: {e}")
     log(f"avisador en marcha · rol {ROL} · {len(av['abiertas'])} abiertas y {len(av['cerradas'])} cerradas ya vistas")
     pendientes = []  # (clave, texto, intentos)
+    av.setdefault("caja_vista", time.time())
+    ultima_mirada = 0.0
     while not os.path.exists(PARAR):
         try:
             est = leer(ESTADO, {})
@@ -248,6 +253,16 @@ def main():
                         nuevos.append((("t", int(time.time())), f"Atención [caja]: la T95H está a {grados:.1f} °C (aviso desde 80; se protege sobre 85)."))
                 except Exception:
                     pass
+            if ROL == "telefono" and time.time() - ultima_mirada >= 60:  # relevo: ¿la caja sigue latiendo?
+                ultima_mirada = time.time()
+                if caja_late():
+                    av["caja_vista"] = time.time()
+                    if av.get("relevo"):
+                        av["relevo"] = False
+                        nuevos.append((("rv", int(time.time())), f"La caja volvió a latir a las {hora(time.time())}: ella da otra vez los avisos y el teléfono calla."))
+                elif not av.get("relevo") and time.time() - av["caja_vista"] > RELEVO_S:
+                    av["relevo"] = True
+                    nuevos.append((("r", int(time.time())), f"Atención [teléfono]: la caja no late desde las {hora(av['caja_vista'])}. El teléfono sigue con los avisos y el SÍ o NO; revise que la caja esté encendida y conectada."))
             edad = time.time() - ESTADO_MEM["latido"]
             if ESTADO_MEM["latido"] and edad > CAIDO_S and not av.get("caido"):
                 av["caido"] = True
@@ -260,10 +275,10 @@ def main():
                 guardar(AVISADOS, av)
                 pendientes += [(k, t, 0) for k, t in nuevos]
             if pendientes:
-                if ROL == "telefono" and caja_late():
-                    log(f"la caja late: callo {len(pendientes)} aviso(s); los da ella")
-                    pendientes = []
-                else:
+                if ROL == "telefono" and any(k[0] not in RELEVO for k, _, _ in pendientes) and caja_late():
+                    log(f"la caja late: callo {sum(1 for k, _, _ in pendientes if k[0] not in RELEVO)} aviso(s); los da ella")
+                    pendientes = [x for x in pendientes if x[0][0] in RELEVO]  # el relevo se avisa siempre
+                if pendientes:
                     sigue = []
                     for k, t, n in pendientes:
                         if enviar(t):

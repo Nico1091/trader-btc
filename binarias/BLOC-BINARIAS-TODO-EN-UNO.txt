@@ -10,9 +10,27 @@ CÓMO SE USA ESTE BLOC
 - Para una sesión nueva basta decir: «Lee C:\Users\ni109\Desktop\BLOC BINARIAS - TODO EN UNO.txt y sigue desde ENCARGOS».
 
 
-AL FRENTE (04/11/2026, 01:18): v7 AL DÍA · FOTOS CON SEIS LÍNEAS · COMPROBANTES EN PDF · CONCORDANCIA REVISADA
+AL FRENTE (04/11/2026, 13:29): CINCO LÍNEAS · CAJA DESPIERTA Y CON ARRANQUE SOLO · AGENTE v7 · TODO CONSOLIDADO
 Estado: EN CURSO
-SIGUIENTE PASO: sus decisiones (dinero real con REAL_AUTORIZADO o esperar a P1; Play Services en la caja; canal para la gente; clave API de solo lectura) y P1 (que él anote el pago real de 20 apuestas y sus segundos de demora al tocar).
+SIGUIENTE PASO: que él ponga al bot de administrador en el canal «club nocturno» y publique ahí un mensaje (con eso se conecta el canal para la gente), que cree la clave API de solo lectura si la quiere, y P1 (anotar el pago real de 20 apuestas y sus segundos de demora al tocar). Si quiere la revisión diaria en la nube, que diga «enciéndelo».
+- Papel de hoy (13:29): NO. 10 apuestas, 5 aciertos, −0,75; el SÍ de las 07:00 perdió y apagó el día. Papel reciente 14 de 25 (su 76 % pide 19). Cómo va en cualquier momento: botón «Binarias en tiempo real».
+- Caja: se durmió de la 01:40 a las 12:24. Play Services, que fallaba cada 3 s, era lo único que la mantenía despierta, y no tenía bloqueo de reposo. Al reconectarla no arrancó sola: Termux:Boot estaba «detenido» desde el force-stop del 03/11. Desde las 12:42 corre con el estado del teléfono (el mismo papel en los dos), con bloqueo de reposo y Termux:Boot activo. Probado: 44 min sin tocarla sin dormirse, y reinicio a las 13:26 del que volvió sola en 76 s. El teléfono ahora avisa si la caja no late 10 min, y cuando vuelve.
+- Sus cinco líneas: techo y piso sobre sus máximos y mínimos (azul), techo y piso cortos desde el inicio de la última caída o subida (ámbar) y la recta de la mitad (violeta). Salen en Pulso cada 5 min (desde las 13:05) y en la foto de cada SÍ o NO (desde las 13:02), idénticas píxel a píxel: 0 de 378.000 en 12 ventanas, en el PC, en Rust y en el teléfono. Como filtro del SÍ no suman (P18: +0,30 puntos, p de 0,42 y 0,32, peores en 2021-2023 y en octubre): son para mirar.
+- Pulso es el programa del PC que le escribe y le habla en Telegram (precio, velas, líneas, noticias e informes); no apuesta. Ya no manda el DISPARO, que sugería apostar fuera del SÍ. El resumen de 15 min es ahora «Pulso · lectura del mercado», con el veredicto del v7 y el latido real de la caja.
+- trader-btc es el repositorio de GitHub: su raíz es el trader seguido (detenido el 20/10) y binarias/ guarda la copia de binarias-papel y de Pulso (rama v7, PR #2). Una orden lo pone al día: herramientas\sincronizar_repo.py.
+- Agente: ninguno toca la apuesta, porque los Contratos de Evento no tienen API y la puerta interna de la app viola los términos y arriesga la cuenta. Queda PROMPT-OPERADOR v5, de una pasada; auditor_dia.py, que rehace un día con los archivos oficiales de Binance (39 de 39 señales iguales a los equipos); y la rutina de la nube escrita y apagada (PROMPT-AGENTE-NUBE-BINARIAS.md). El SÍ real trae los pasos exactos del toque.
+- Botones del Escritorio: «Binarias en tiempo real» dice cómo va el papel de hoy; «Operador de binarias» abre al agente v5.
+- Herramientas fijas: binarias-papel\herramientas (estado, auditor, paridad de las líneas, prueba del semáforo, posible plan y sincronizar el GitHub) y Seguridad\respaldo-usb\migrar_usb.py. Ya no dependen de carpetas temporales.
+- Copias al día: posible plan v7 final en Descargas, la USB y el Escritorio; guía para la gente versión 4 (cinco líneas); memoria, bóveda y encargo.
+
+AL FRENTE (04/11/2026, 01:18): v7 AL DÍA · FOTOS CON SEIS LÍNEAS · COMPROBANTES EN PDF · CONCORDANCIA REVISADA
+Estado: AL DÍA EN EL BLOQUE DE ARRIBA
+PASO DE ENTONCES: que él ponga al bot de administrador en el canal «club nocturno» y publique ahí un mensaje (con eso se conecta el canal para la gente), que cree la clave API de solo lectura si la quiere, y P1 (anotar el pago real de 20 apuestas y sus segundos de demora al tocar).
+- Sus respuestas de la 01:25, ya aplicadas a la 01:35:
+  · Dinero real: «que opere solo cuando las estrategias completas estén dando… un 76 % al menos; que el agente recuerde esperar; nunca apalancamiento». Semáforo v3.3 en la caja y el teléfono desde la 01:34, con REAL_AUTORIZADO creado: el SÍ solo pasa a real si 19 de las últimas 25 apuestas de papel acertaron; si no, «Espere». Probado (P17): enciende pocas veces (81 apuestas en 2024-sep 2026) y acierta 51,9 %, menos que el SÍ solo (55,5 %); se aplica por ser su orden.
+  · Play Services: él quería la caja sin Google («arréglalo allá bien»). Desactivado a la 01:28 (pm disable-user; se revierte con pm enable). Las caídas pararon y la caja bajó de 74-78 °C con carga de 5 a 64 °C con carga de 0,3. Telegram nunca lo necesitó: sale por curl y Tor.
+  · Bots de Binance: él dice que Binance los permite y da claves API. Es cierto para contado, futuros y opciones; los Contratos de Evento no tienen API (página oficial del 28/10/2026) y los términos de uso prohíben bots que se salten la presentación del servicio. Un agente no puede operarlos, ni en la nube.
+  · Canal: «el de club nocturno está bien». El chat actual de los avisos es privado (solo él); el bot no ve ese canal todavía.
 - Respuesta a su pregunta: sí, son binarias (Contratos de Evento de Binance, sube o baja a 10 min con pago fijo). Las velas de futuros, el interés abierto y el índice solo deciden cuándo apostar; no se opera nada de futuros.
 - Concordancia revisada y corregida: OPERATIVA ya incluye el interés abierto; el volumen alto sale del SÍ (P3b, −0,46 puntos); jamás apalancamiento, ni en papel; tope del 16 % del saldo por apuesta; la primera pérdida de un SÍ apaga el día (su máximo son dos); solo velas cerradas. Informe y plan al día.
 - Velas de confirmación (P16 y P16b): no entran; bajan el núcleo de 54,4 a 53,0 y 52,3 %. La confirmación que queda es esperar el cierre de la vela de 5 min.
@@ -281,6 +299,7 @@ Ocasionales (elegidas pocos meses)
 - Alineación de medias 9/21/50, REV5, E16 cruce de EMA 20/50, E12 MACD diario y horario, E09 rompimiento ATR, E04 estacionalidad 21-23 UTC, pullback en tendencia, E05 momentum de la primera media hora y los patrones de velas (tres cuervos, pinzas, estrella de la mañana y de la tarde, harami, martillo, doji).
 
 Descartadas, con prueba
+- Las cinco líneas como filtro del SÍ (P18, 04/11): +0,30 puntos sin diferencia con el azar y peores en 2021-2023 y en octubre. Quedan solo para mirar.
 - Oro (PAXG y XAUUSDT): 52,5 a 53,6 % en 2026, y Binance no tiene Contratos de Evento de oro.
 - El 16 % fijo: quiebra cerca de la mitad de los arranques de 30 días.
 - Preventivas (parar el día tras 3 fallos o tras 3 netas perdidas): no mejoraron en 2022-23.
@@ -310,6 +329,16 @@ Lo que dicen los estudios de BTC y ETH
 
 
 6. ENCARGOS
+
+04/11/2026, 12:00 a 13:29. Pedido: continuar y consolidar lo de la madrugada; «quiero 5 líneas bien optimizadas para mis mínimos y máximos y la recta de la mitad»; «¿qué es ese tal pulso-btc?»; «caja conectada»; que el agente opere en la nube («creamos un nodo entre Binance, mi celular y el agente»).
+- [HECHO] Caja despierta y con arranque solo, probado con un reinicio; estado del teléfono pasado a la caja; aviso de relevo en el teléfono.
+- [HECHO] Cinco líneas en Pulso y en la foto del SÍ o NO, con paridad de píxeles en el PC, en Rust y en el teléfono.
+- [HECHO] P18: las líneas como filtro del SÍ no entran; quedan para mirar.
+- [HECHO] Pulso sin DISPARO y con la lectura del mercado al día con el v7.
+- [HECHO] Agente v5, auditor con los archivos oficiales, rutina de la nube escrita y apagada, y pasos del toque en el SÍ real.
+- [HECHO] Consolidado: herramientas fijas, GitHub, posible plan, USB, memoria, bóveda, encargo y guía (versión 4).
+- [NO SE PUEDE] Que un agente toque la apuesta, en la nube o con un nodo en el celular: no hay API y va contra los términos de Binance (riesgo de cerrar la cuenta).
+- [PENDIENTE DE ÉL] Canal «club nocturno» (bot de administrador y un mensaje); clave API de solo lectura; P1; «enciéndelo» para la rutina de la nube; unir el PR #2 si lo quiere.
 
 04/11/2026, 00:45 a 01:18. Pedido: pasar todo el contexto a la USB, con todo; una guía para que la gente aplique las estrategias; cambiar y mejorar lo de GitHub; «¿sí son de binarias?»; facturación: un PDF que haga el bot solo, con enlaces al sitio donde se ganó el dinero para que sea demostrable, enviado a su Telegram; pasos para la clave API de Binance; revisar la concordancia y arreglar todo; velas de confirmación; jamás apalancamiento; un agente en la nube que opere cuando le avise el bot de abajo, con tope del 16 % y parada a la primera o segunda pérdida, siempre con análisis de Claude antes; lo mismo para la gente, con la foto y la transmisión; las fotos e información a su Telegram; el nodo del teléfono bien montado; todo a GitHub, a la memoria y a la caja. Reconectó la USB.
 - [HECHO] Respuesta: sí, son binarias (Contratos de Evento); los datos de futuros solo deciden cuándo apostar.
@@ -422,6 +451,10 @@ Abiertos de antes
 
 7. TRAMPAS TÉCNICAS
 
+- Un force-stop deja a Termux:Boot «detenido» y Android ya no le entrega el aviso de encendido: se reactiva abriendo su actividad (am start -n com.termux.boot/.BootActivity) y se comprueba con dumpsys package (stopped=false).
+- La caja apaga la pantalla a los 30 min y se duerme si nada la retiene. El bloqueo de reposo lo toma Termux al arrancar por Termux:Boot (termux-wake-lock); mientras Play Services fallaba cada 3 s no se notaba.
+- sum() de Python suma distinto desde la 3.12 (el PC tiene 3.11 y los equipos 3.14): en el código de las líneas las sumas van en bucle, o se pierde la paridad con Pulso.
+- Los textos incrustados en Bash convierten las barras dobles en simples y \n en salto de línea: los parches van en un .py aparte.
 - «claude --bg» no arranca en carpetas sin confianza: por eso el operador corre en System32.
 - Los avisos de tareas en segundo plano no traen el texto: el operador lee con «operador.py pendientes».
 - numpy en Windows usa int32: los tiempos siempre con dtype=np.int64.
@@ -501,3 +534,17 @@ Abiertos de antes
 - 04/11/2026 01:11. Prueba aislada de la v3.2: foto, comprobante y resumen correctos.
 - 04/11/2026 01:13. Semáforo v3.2 en la caja y el teléfono; resumen del 03/11 enviado en PDF.
 - 04/11/2026 01:18. Guía versión 2, pasos de la clave API, plan, informe, operativa, bloc, memoria, bóveda y GitHub al día.
+- 04/11/2026 01:28. Play Services desactivado en la caja por su orden; sin caídas y de 74 a 64 °C.
+- 04/11/2026 01:32. Regla P17 (su 76 %) escrita antes de medirla; medida a la 01:33.
+- 04/11/2026 01:34. Semáforo v3.3 en la caja y el teléfono, con REAL_AUTORIZADO: real solo con el SÍ y 19 de las últimas 25.
+- 04/11/2026 01:35. Plan, informe, operativa y guía (versión 3) con su regla del 76 %.
+- 04/11/2026 12:25. La caja aparece tras reconectarla; Termux:Boot detenido y el centinela sin arrancar.
+- 04/11/2026 12:42. Caja en marcha con el estado del teléfono y bloqueo de reposo; mismo papel en los dos.
+- 04/11/2026 12:52. Aviso de relevo en el teléfono (y el mismo avisador en la caja).
+- 04/11/2026 13:02. Cinco líneas en la foto del SÍ o NO (caja y teléfono); pasos del toque en el SÍ real.
+- 04/11/2026 13:03. Pulso con cinco líneas, sin DISPARO y con la lectura del mercado del v7; primera foto a las 13:05.
+- 04/11/2026 13:04. Regla P18 escrita antes de medirla; medida a las 13:06: no entra.
+- 04/11/2026 13:13. OPERATIVA al día; 13:20, PROMPT-OPERADOR v5; el auditor oficial da 39 de 39 señales iguales.
+- 04/11/2026 13:25. Prueba de reposo superada: 44 min sin tocar la caja.
+- 04/11/2026 13:27. Reinicio de la caja: volvió sola en 76 s, con bloqueo de reposo.
+- 04/11/2026 13:29. Bloc, bóveda, encargo y guía (versión 4) al día; siguen GitHub, posible plan, USB y memoria.

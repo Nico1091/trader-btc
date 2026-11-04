@@ -1,5 +1,5 @@
 @echo off
-rem Abre las binarias en papel: arranca el bot si no esta corriendo y abre su pantalla.
+rem Muestra como va el papel de hoy (04/11/2026): si la caja late y el SI o NO del dia. El centinela ya no corre en el PC.
+chcp 65001 >nul
 cd /d "%~dp0"
-powershell -NoProfile -Command "if (-not (Get-NetTCPConnection -LocalPort 8792 -State Listen -ErrorAction SilentlyContinue)) { Start-Process -FilePath (Join-Path (Split-Path (Get-Command python).Source) pythonw.exe) -ArgumentList binarias.py -WorkingDirectory %~dp0 -WindowStyle Hidden; Start-Sleep -Seconds 3 }"
-start "" http://127.0.0.1:8792
+python -I herramientas\estado.py

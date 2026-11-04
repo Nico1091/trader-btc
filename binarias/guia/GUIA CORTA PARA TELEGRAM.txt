@@ -4,7 +4,7 @@ Qué es: apuestas de sube o baja a 10 minutos con pago fijo. Si acierta, gana de
 
 La señal: cada 10 minutos (:00, :10, :20…), con la vela de 5 minutos ya cerrada. Si cerró por encima del máximo de las 20 anteriores, BAJA; si cerró por debajo del mínimo, SUBE. Se apuesta contra el estirón.
 
-Solo se opera con SÍ: el papel del día va sumando, ningún SÍ ha perdido hoy y el interés abierto de los futuros no subió en los últimos 15 minutos. Cada aviso llega como foto con las seis líneas.
+Solo se opera con SÍ: el papel del día va sumando, ningún SÍ ha perdido hoy y el interés abierto de los futuros no subió en los últimos 15 minutos. Cada aviso llega como foto con las cinco líneas.
 
 Al llegar un SÍ:
 1. App de Binance > Contratos de Evento > BTCUSDT > 10 minutos.
@@ -12,6 +12,7 @@ Al llegar un SÍ:
 3. Toque en segundos: cada minuto de demora resta cerca de 1,7 puntos.
 4. Siempre 5 USDT y nunca más del 16 % del saldo. Nunca doble después de perder.
 5. Si el SÍ pierde, termine el día.
+6. Con dinero real, solo cuando 19 de las últimas 25 señales en papel hayan acertado (76 %). Si no, espere.
 
 Números (pruebas a ciegas, enero de 2024 a septiembre de 2026): el SÍ acertó 55,5 % con 1,8 apuestas al día; para no perder con pago de 0,85 hace falta 54,1 %. La ventaja es pequeña: con 5 USDT por apuesta, unos 7 USDT al mes, con rachas de hasta 140 USDT abajo.
 
