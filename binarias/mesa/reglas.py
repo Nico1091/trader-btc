@@ -3,14 +3,15 @@
 Funciones puras, sin red ni archivos, para poder probarlas. Mismo orden de su semáforo v3.3, llevado a los mercados de 15 min
 que pasaron la P19 (PLAN-TOTAL.md, 7b):
 - SÍ: el borrador de hoy va sumando, ningún SÍ perdió hoy y el interés abierto no subió.
-- Dinero real: además el 75 % de aciertos en las últimas 25, 25 cerradas con precio real del libro, su autorización, billetera, saldo,
+- Aviso COMPRE o VENDA: además el 75 % de aciertos en las últimas 25, 25 cerradas con precio real del libro, billetera, saldo,
   precio de compra hasta el tope y dentro de la ventana de toque.
-Los botones dependen de esta función y de nada más.
+Orden suya del 04/11: los botones están siempre disponibles. Esto aconseja; lo que frena una orden son los topes de mesa.py.
 """
 import datetime as dt
 
 COL = dt.timezone(dt.timedelta(hours=-5))
 CFG = {
+    "precio_max_manual": 0.90,  # botón sin señal: por encima de esto paga casi nada
     "ask_max": 0.53,            # comprar más caro que esto se come la ventaja (0,53 × 1,02 = 54,06 % de equilibrio)
     "ventana_toque": 75,        # segundos tras la señal; después el precio ya cambió
     "reciente_ventana": 25,     # porcentaje de aciertos sobre las últimas 25 cerradas
@@ -66,7 +67,7 @@ def importe(saldo, pct, cfg=CFG):
     return None if x > tope else int(x * 100) / 100
 
 
-def evaluar(ops, ahora, mercado, cfg=CFG, autorizado=False, billetera=False, saldo=0.0, pct=None):
+def evaluar(ops, ahora, mercado, cfg=CFG, billetera=False, saldo=0.0, pct=None):
     """El estado de la mesa. nivel: NO, ATENTO, ESPERE, COMPRE o VENDA."""
     r = resumen(ops, ahora, cfg)
     dando = r["neto"] > 0 and not r["perdio"]
@@ -95,8 +96,6 @@ def evaluar(ops, ahora, mercado, cfg=CFG, autorizado=False, billetera=False, sal
         faltan.append(f"aciertos en {r['pct25']} % y pide {cfg['umbral_pct']} %")
     if r["con_precio_real"] < cfg["min_precio_real"]:
         faltan.append(f"borrador con precios reales: {r['con_precio_real']} de {cfg['min_precio_real']}")
-    if not autorizado:
-        faltan.append("su autorización de dinero real")
     if not billetera:
         faltan.append("crear la cuenta de predicción en la app")
     ask = ((mercado or {}).get("ask") or {}).get(d)

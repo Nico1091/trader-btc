@@ -31,7 +31,6 @@ PUERTO = 8795
 ORIGEN = f"http://127.0.0.1:{PUERTO}"
 TITULO = "Mesa de binarias"
 PARAR = os.path.join(AQUI, "PARAR")
-AUTORIZADO = os.path.join(AQUI, "REAL_AUTORIZADO")
 CONFIG = os.path.join(AQUI, "config.json")
 REGISTRO = os.path.join(Bo.DATOS, "mesa.log")
 REALES = os.path.join(Bo.DATOS, "reales.jsonl")
@@ -106,7 +105,7 @@ class Motor:
         self.wallet = C.billetera()
 
     def evaluar(self, ahora=None):
-        return R.evaluar(self.bor.copia(), ahora or time.time(), self.mercado, self.cfg, os.path.exists(AUTORIZADO), bool(self.wallet), self.saldo, self.pct)
+        return R.evaluar(self.bor.copia(), ahora or time.time(), self.mercado, self.cfg, bool(self.wallet), self.saldo, self.pct)
 
     # ------------------------------------------------------------ bucle
     def paso(self):
@@ -161,34 +160,44 @@ class Motor:
         return {"ahora": ahora, "hora": dt.datetime.fromtimestamp(ahora, COL).strftime("%H:%M:%S"), "e": e, "velas": v, "viva": self.viva,
                 "lineas": self.lineas, "flechas": flechas, "error": self.error_red, "cfg": {k: self.cfg[k] for k in ("ask_max", "pct_tope", "ventana_toque")},
                 "mercado": {"t": m.get("t"), "strike": m.get("strike"), "ask": {"1": (m.get("ask") or {}).get(1), "-1": (m.get("ask") or {}).get(-1)}},
-                "saldo": self.saldo, "billetera": bool(self.wallet), "autorizado": os.path.exists(AUTORIZADO), "pct": self.pct,
+                "saldo": self.saldo, "billetera": bool(self.wallet), "pct": self.pct,
+                "puede": {str(k): self._puede(k) for k in (1, -1)},
                 "analisis": self.analisis, "encima": self.encima,
                 "ops": [{k: o.get(k) for k in ("t", "dir", "si", "ask5", "ask30", "ask60", "entra", "res", "neto", "semilla", "aviso", "fuente")} for o in ops[-40:]][::-1],
                 "reales": leer_reales()[-10:][::-1]}
 
+    def _puede(self, sentido):
+        ask = ((self.mercado or {}).get("ask") or {}).get(sentido)
+        return bool(self.mercado and self.mercado.get("abierto") and ask and ask <= self.cfg["precio_max_manual"])
+
     def ordenar(self, sentido, pct):
-        """Su toque. Se reevalúa todo con el libro recién leído; una sola orden por señal."""
+        """Su toque, cuando él quiera. Topes que no se saltan: mercado abierto, cuenta, porcentaje máximo, precio y una orden por mercado."""
         with self.orden_cand:
             self.pct = pct
             self._refrescar_mercado(time.time())
             self._refrescar_cuenta()
-            e = self.evaluar()
-            if not e["boton"] or e["sentido"] != sentido:
-                return {"ok": False, "msg": e["detalle"]}
-            if any(r.get("t") == e["t"] for r in leer_reales()):
-                return {"ok": False, "msg": "Esa señal ya tiene su orden."}
             m, w, cfg = self.mercado, self.wallet, self.cfg
-            token = m["tokens"][sentido]
-            q = C.cotizar(w["walletAddress"], token, e["usdt"], cfg["deslizamiento_bps"], cfg["fuente_fondos"])
+            if not w:
+                return {"ok": False, "msg": "Primero cree la cuenta en la app de Binance: Mercados → Predicción."}
+            if not self._puede(sentido):
+                return {"ok": False, "msg": "Este mercado no tiene precio para esa opción ahora."}
+            usdt = R.importe(self.saldo, pct, cfg)
+            if usdt is None:
+                return {"ok": False, "msg": "El saldo no alcanza con su tope del 16 %."}
+            if any(r.get("t") == m["t"] for r in leer_reales()):
+                return {"ok": False, "msg": "Ya tiene una orden en este mercado de 15 min."}
+            e = self.evaluar()
+            con_senal = bool(e["boton"] and e["sentido"] == sentido)
+            q = C.cotizar(w["walletAddress"], m["tokens"][sentido], usdt, cfg["deslizamiento_bps"], cfg["fuente_fondos"])
             precio = float(q.get("averagePrice") or 0)
-            if not precio or precio > cfg["ask_max"]:
-                return {"ok": False, "msg": f"Cotización a {precio:.3f}: pasa del tope."}
+            if not precio or precio > cfg["precio_max_manual"]:
+                return {"ok": False, "msg": f"Cotización a {precio:.3f}: paga casi nada, no se envió."}
             r = C.ordenar(w["walletAddress"], w["walletId"], q["quoteId"], cfg["deslizamiento_bps"], cfg["fuente_fondos"])
-            fila = {"t": e["t"], "dir": sentido, "usdt": e["usdt"], "precio": precio, "orden": r.get("orderId"), "topic": m["topic"], "hora": time.time()}
+            fila = {"t": m["t"], "dir": sentido, "usdt": usdt, "precio": precio, "orden": r.get("orderId"), "topic": m["topic"], "hora": time.time(), "con_senal": con_senal}
             with open(REALES, "a", encoding="utf-8") as f:
                 f.write(json.dumps(fila) + "\n")
-            log(f"orden real por su toque: {'sube' if sentido == 1 else 'baja'} {e['usdt']} USDT a {precio}")
-            return {"ok": True, "msg": f"Orden enviada: {e['usdt']:.2f} USDT a {precio:.3f}.".replace(".", ",")}
+            log(f"orden real por su toque: {'sube' if sentido == 1 else 'baja'} {usdt} USDT a {precio} · con señal: {con_senal}")
+            return {"ok": True, "msg": f"Orden enviada: {usdt:.2f} USDT a {precio:.3f}.".replace(".", ",")}
 
 
 def leer_reales():
@@ -288,14 +297,6 @@ class Web(http.server.BaseHTTPRequestHandler):
         if self.path == "/api/encima":
             MOTOR.encima = bool(d.get("si"))
             fijar_encima(MOTOR.encima)
-            return {"ok": True}
-        if self.path == "/api/autorizar":
-            if d.get("si"):
-                with open(AUTORIZADO, "w", encoding="utf-8") as f:
-                    f.write(f"Autorizado por él desde la Mesa, {dt.datetime.now(COL):%d/%m/%Y %H:%M}\n")
-            elif os.path.exists(AUTORIZADO):
-                os.remove(AUTORIZADO)
-            log(f"dinero real {'autorizado' if d.get('si') else 'retirado'} por su toque")
             return {"ok": True}
         if self.path == "/api/cobrar":
             w = MOTOR.wallet

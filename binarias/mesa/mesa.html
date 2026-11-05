@@ -47,7 +47,7 @@ canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
 .fila{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
 .b small{display:block;font-weight:600;font-size:12px;margin-top:1px}
 .b{flex:1;border:0;border-radius:8px;padding:10px 6px;font:800 19px "Segoe UI",sans-serif;color:#fff;cursor:pointer}
-#bc{background:var(--sube)}#bv{background:var(--baja)}
+#bc{background:#1d7a71}#bv{background:#b23a38}.b.senal{outline:3px solid #fff;animation:parpadeo 1s infinite}
 #bc:disabled,#bv:disabled{background:#2b3240;color:#6d7686;cursor:not-allowed}
 .pct{background:#0f141c;color:var(--texto);border:1px solid var(--borde);border-radius:6px;padding:4px 9px;cursor:pointer;font:600 12.5px "Segoe UI",sans-serif}
 .pct.on{background:var(--azul);border-color:var(--azul)}
@@ -62,7 +62,7 @@ canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
 <aside>
   <h2>BORRADOR <span class="vivo">EN VIVO</span></h2>
   <div class="cifras">
-    <div class="cifra"><small>Hoy</small><b id="cHoy">–</b></div>
+    <div class="cifra"><small>Hoy, por 1 USDT apostado</small><b id="cHoy">–</b></div>
     <div class="cifra"><small>Aciertos de hoy</small><b id="cAc">–</b></div>
     <div class="cifra"><small>Últimas 25 (pide 75 %)</small><b id="c25">–</b></div>
     <div class="cifra"><small>Con precio real</small><b id="cReal">–</b></div>
@@ -77,6 +77,7 @@ canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
     <span>Precio de inicio <i id="strike">–</i></span>
     <span>Va ganando <i id="gana">–</i></span>
     <span>Saldo <i id="saldo">–</i> USDT</span>
+    <span><button class="chico on" id="bEst">Estocástico</button> <button class="chico" id="bRsi">RSI</button></span>
     <span id="hora"></span>
   </header>
   <div id="zona"><canvas id="lienzo"></canvas>
@@ -90,8 +91,8 @@ canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
       <div class="fila"><span class="gris" style="font-size:12px">Del saldo:</span>
         <button class="pct" data-p="5">5 %</button><button class="pct" data-p="10">10 %</button><button class="pct" data-p="16">16 %</button>
         <span id="monto" class="gris" style="font-size:12px"></span></div>
-      <div class="fila" style="justify-content:space-between"><span id="resp">Se encienden solos cuando hay señal.</span>
-        <span><button class="chico" id="bEnc">Encima de todo</button> <button class="chico" id="bCob">Cobrar</button> <button class="chico" id="bAut">Autorizar real</button></span></div>
+      <div class="fila" style="justify-content:space-between"><span id="resp">Disponibles siempre. Con señal, el botón parpadea.</span>
+        <span><button class="chico" id="bEnc">Encima de todo</button> <button class="chico" id="bCob">Cobrar</button></span></div>
     </section>
   </div>
 </main>
@@ -102,7 +103,11 @@ const $=i=>document.getElementById(i);
 const num=(x,d=2)=>x==null?"–":Number(x).toLocaleString("es-CO",{minimumFractionDigits:d,maximumFractionDigits:d});
 const hhmm=t=>new Date((t-5*3600)*1000).toISOString().slice(11,16);
 const cv=$("lienzo"),cx=cv.getContext("2d");
-let E=null,armado=null,armT=null,sonoPara=null;
+let E=null,armado=null,armT=null,sonoPara=null,verEst=true,verRsi=false;
+try{verEst=localStorage.getItem("est")!=="0";verRsi=localStorage.getItem("rsi")==="1"}catch(e){}
+function estocastico(v,p=14){const k=v.map((x,i)=>{if(i<p-1)return null;let a=-Infinity,b=Infinity;for(let j=i-p+1;j<=i;j++){a=Math.max(a,v[j][2]);b=Math.min(b,v[j][3])}return a>b?100*(x[4]-b)/(a-b):50});
+  const d=k.map((_,i)=>{if(i<p+1)return null;return(k[i]+k[i-1]+k[i-2])/3});return[k,d]}
+function rsi(v,p=14){const o=new Array(v.length).fill(null);let g=0,l=0;for(let i=1;i<v.length;i++){const c=v[i][4]-v[i-1][4],u=Math.max(c,0),b=Math.max(-c,0);if(i<=p){g+=u/p;l+=b/p}else{g=(g*(p-1)+u)/p;l=(l*(p-1)+b)/p}if(i>=p)o[i]=l===0?100:100-100/(1+g/l)}return o}
 
 async function post(ruta,datos){
   const r=await fetch(ruta,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({ficha:FICHA,...datos})});
@@ -117,7 +122,7 @@ function dibujar(){
   cx.setTransform(dpr,0,0,dpr,0,0);cx.clearRect(0,0,W,H);
   if(!E||!E.velas.length)return;
   const v=E.velas.slice();if(E.viva)v.push(E.viva);
-  const n=E.velas.length,total=n+21,der=W-74,izq=10,arr=88,aba=H-20;
+  const n=E.velas.length,total=n+21,der=W-74,izq=10,arr=88,tira=(verEst||verRsi)?78:0,aba=H-20-tira;
   let lo=Infinity,hi=-Infinity;
   for(const x of v){lo=Math.min(lo,x[3]);hi=Math.max(hi,x[2])}
   const rango=hi-lo,ult=v[v.length-1][4];
@@ -130,6 +135,9 @@ function dibujar(){
   const cuerpo=Math.max(paso*.68,1);
   v.forEach((x,i)=>{const[,o,h,l,c]=x;const col=c>=o?"#26a69a":"#ef5350";cx.strokeStyle=cx.fillStyle=col;cx.beginPath();cx.moveTo(X(i),y(h));cx.lineTo(X(i),y(l));cx.stroke();
     const a=y(Math.max(o,c)),b=Math.max(y(Math.min(o,c))-a,1);cx.fillRect(X(i)-cuerpo/2,a,cuerpo,b)});
+  let racha=0,signo=0;cx.font="700 13px Segoe UI";
+  v.forEach((x,i)=>{const s=x[4]>x[1]?1:(x[4]<x[1]?-1:0);if(s&&s===signo)racha++;else{signo=s;racha=s?1:0}
+    if(racha&&racha%3===0){cx.fillStyle=s===1?"#26a69a":"#ef5350";cx.fillText(s===1?"+":"−",X(i)-3,s===1?y(x[2])-5:y(x[3])+13)}});
   const col={techo:"#2962ff",piso:"#2962ff",techo_c:"#ffb300",piso_c:"#ffb300",mitad:"#c07cff"};
   for(const[k,l]of Object.entries(E.lineas||{})){cx.strokeStyle=col[k];cx.lineWidth=2;cx.setLineDash(k==="mitad"?[8,6]:[]);cx.beginPath();cx.moveTo(X(l.i0),y(l.y0));cx.lineTo(X(l.i1),y(l.y1));cx.stroke()}
   cx.setLineDash([]);cx.lineWidth=1;
@@ -138,6 +146,7 @@ function dibujar(){
   for(const f of E.flechas){const i=pos(f.t);if(i<0||i>=v.length)continue;
     const d=f.dir,base=d===1?y(v[i][3])+24:y(v[i][2])-24,cl=f.res==null?(f.si?"#ffb300":"#9aa3b2"):(f.res===1?"#26a69a":(f.res===0?"#ef5350":"#9aa3b2"));
     flecha(X(i),base,d,cl,f.si?13:9);
+    if(f.si){const tx=d===1?"COMPRA":"VENDE",fy=base+(d===1?30:-26);cx.font="700 10.5px Segoe UI";const an=cx.measureText(tx).width+8;cx.fillStyle=d===1?"#1b8a7f":"#d9403d";cx.fillRect(X(i)-an/2,fy-10,an,14);cx.fillStyle="#fff";cx.fillText(tx,X(i)-an/2+4,fy+1)}
     if(f.res!=null){cx.fillStyle=cl;cx.font="700 12px Segoe UI";cx.fillText(f.res===1?"✓":(f.res===0?"✗":"="),X(i)-4,base+(d===1?14:-8))}}
   const marcas=(E.analisis&&E.analisis.marcas)||[];
   cx.font="600 12px Segoe UI";
@@ -145,6 +154,12 @@ function dibujar(){
     if(q.tipo.startsWith("flecha")){flecha(X(v.length-1)+18,yy,q.tipo==="flecha_sube"?1:-1,cl,17)}
     else{cx.strokeStyle=cl;cx.setLineDash([10,5]);cx.beginPath();cx.moveTo(X(n-40),yy);cx.lineTo(der,yy);cx.stroke();cx.setLineDash([])}
     cx.fillStyle=cl;cx.fillText(q.texto,X(n-40),yy-5)}
+  if(tira){const a0=aba+20,a1=a0+tira-24,yt=p=>a1-p/100*(a1-a0);cx.strokeStyle="#2a3140";cx.fillStyle="#7c8698";cx.font="10px Segoe UI";
+    for(const p of[20,80]){cx.beginPath();cx.moveTo(izq,yt(p));cx.lineTo(der,yt(p));cx.stroke();cx.fillText(p,der+6,yt(p)+3)}
+    const trazo=(s,cl)=>{cx.strokeStyle=cl;cx.lineWidth=1.4;cx.beginPath();let on=false;s.forEach((q,i)=>{if(q==null)return;on?cx.lineTo(X(i),yt(q)):cx.moveTo(X(i),yt(q));on=true});cx.stroke();cx.lineWidth=1};
+    let et=[];if(verEst){const[k,d]=estocastico(v);trazo(k,"#4d7fff");trazo(d,"#ffb300");et.push(`Estocástico ${num(k[k.length-1],0)}`)}
+    if(verRsi){const r=rsi(v);trazo(r,"#c07cff");et.push(`RSI ${num(r[r.length-1],0)}`)}
+    cx.fillStyle="#9aa3b2";cx.fillText(et.join(" · "),izq+4,a0-4)}
   const c=ult,yu=y(c);cx.fillStyle=E.viva&&E.viva[4]>=E.viva[1]?"#26a69a":"#ef5350";cx.fillRect(der+2,yu-9,70,18);cx.fillStyle="#fff";cx.font="700 12px Segoe UI";cx.fillText(num(c,0),der+8,yu+4);
 }
 function flecha(x,y,d,col,t){cx.fillStyle=col;cx.beginPath();cx.moveTo(x,y-d*t);cx.lineTo(x-t*.75,y+d*t*.25);cx.lineTo(x-t*.28,y+d*t*.25);cx.lineTo(x-t*.28,y+d*t);cx.lineTo(x+t*.28,y+d*t);cx.lineTo(x+t*.28,y+d*t*.25);cx.lineTo(x+t*.75,y+d*t*.25);cx.closePath();cx.fill()}
@@ -175,21 +190,19 @@ function cabecera(){
 function estado(){
   const e=E.e,b=$("banda");
   b.className="n-"+e.nivel;$("tit").textContent=e.titulo;$("det").textContent=e.detalle;
-  const ok1=e.boton&&e.sentido===1,ok2=e.boton&&e.sentido===-1;
-  $("bc").disabled=!ok1;$("bv").disabled=!ok2;
-  if(!e.boton)desarmar();
+  $("bc").disabled=!E.puede["1"];$("bv").disabled=!E.puede["-1"];
+  $("bc").classList.toggle("senal",e.boton&&e.sentido===1);$("bv").classList.toggle("senal",e.boton&&e.sentido===-1);
   if(e.boton&&sonoPara!==e.t){sonoPara=e.t;pitar()}
-  $("monto").textContent=e.usdt?`= ${num(e.usdt)} USDT`:`tope ${E.cfg.pct_tope} %`;
+  const usd=Math.max(E.saldo*E.pct/100,2);$("monto").textContent=`= ${num(usd)} USDT`;
   document.querySelectorAll(".pct").forEach(x=>x.classList.toggle("on",Number(x.dataset.p)===E.pct));
   const a=E.analisis;
   if(a){$("agT").textContent=a.titular;$("agM").textContent="sin IA · análisis del programa";$("agX").textContent=a.explicacion}
-  $("bAut").textContent=E.autorizado?"Real autorizado":"Autorizar real";$("bAut").classList.toggle("on",E.autorizado);
   $("bEnc").classList.toggle("on",E.encima);
   const er=$("error");er.hidden=!E.error;er.textContent=E.error?"Sin conexión con Binance. No opere.":"";
 }
 function desarmar(){armado=null;clearTimeout(armT);$("bcT").textContent="COMPRAR ▲ SUBE";$("bvT").textContent="VENDER ▼ BAJA"}
 async function tocar(boton,sentido,rotulo){
-  if(armado!==sentido){desarmar();armado=sentido;boton.querySelector("span").textContent=`¿CONFIRMA ${num(E.e.usdt)} USDT?`;armT=setTimeout(desarmar,4000);return}
+  if(armado!==sentido){desarmar();armado=sentido;const cs=E.e.boton&&E.e.sentido===sentido;boton.querySelector("span").textContent=`¿CONFIRMA ${E.pct} %?${cs?"":" SIN SEÑAL"}`;armT=setTimeout(desarmar,4000);return}
   desarmar();$("resp").textContent="Enviando…";
   const r=await post("/api/ordenar",{sentido,pct:E.pct});
   $("resp").textContent=r.msg;$("resp").className=r.ok?"bien":"mal";
@@ -198,13 +211,10 @@ $("bc").onclick=()=>tocar($("bc"),1);
 $("bv").onclick=()=>tocar($("bv"),-1);
 document.querySelectorAll(".pct").forEach(x=>x.onclick=()=>post("/api/pct",{pct:Number(x.dataset.p)}));
 $("bEnc").onclick=()=>post("/api/encima",{si:!E.encima});
+$("bEst").onclick=()=>{verEst=!verEst;try{localStorage.setItem("est",verEst?"1":"0")}catch(e){}$("bEst").classList.toggle("on",verEst);dibujar()};
+$("bRsi").onclick=()=>{verRsi=!verRsi;try{localStorage.setItem("rsi",verRsi?"1":"0")}catch(e){}$("bRsi").classList.toggle("on",verRsi);dibujar()};
+$("bEst").classList.toggle("on",verEst);$("bRsi").classList.toggle("on",verRsi);
 $("bCob").onclick=async()=>{const r=await post("/api/cobrar",{});$("resp").textContent=r.msg};
-let armAut=false;
-$("bAut").onclick=async()=>{
-  if(E.autorizado){await post("/api/autorizar",{si:false});return}
-  if(!armAut){armAut=true;$("bAut").textContent="¿Seguro? Toque otra vez";setTimeout(()=>armAut=false,4000);return}
-  armAut=false;await post("/api/autorizar",{si:true});
-};
 async function ciclo(){
   try{const r=await fetch("/api/estado");E=await r.json();cabecera();estado();panel();dibujar()}
   catch(e){$("tit").textContent="La mesa no responde. No opere.";$("banda").className="n-NO";$("det").textContent="";$("bc").disabled=$("bv").disabled=true}

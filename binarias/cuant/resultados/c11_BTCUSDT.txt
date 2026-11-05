@@ -1,0 +1,21 @@
+P20 · por qué falla el núcleo a 15 min (M15, entrada 60 s tarde, equilibrio 52,02 %)
+
+Dónde están las fallas, sin filtrar:
+  2021-2023: 57,98 % en 8557; SUBE 57,73 %, BAJA 58,22 %
+  2024-sep 2026: 55,97 % en 9490; SUBE 55,51 %, BAJA 56,42 %
+  octubre de 2026: 52,29 % en 240; SUBE 55,30 %, BAJA 48,61 %
+
+Acierto cuando aparece cada rasgo, frente a cuando no (2024-sep 2026):
+  A cadena      con: 56,95 % (5418) · sin: 54,68 % · SUBE con: 55,53 % · BAJA con: 58,32 %
+  B desplome    con: 55,94 % (2249) · sin: 55,99 % · SUBE con: 53,84 % · BAJA con: 57,92 %
+  C hora >1 %   con: 54,26 % (1456) · sin: 56,29 % · SUBE con: 53,11 % · BAJA con: 55,39 %
+  D tres velas  con: 55,61 % (5304) · sin: 56,44 % · SUBE con: 55,02 % · BAJA con: 56,19 %
+
+Filtros (se quita la señal con el rasgo):
+  A cadena      2021-23 -0.47 pts · 2024-26 -1.30 pts (54,68 %, 4.1/día, p=0.987) · oct -5.47 pts
+  B desplome    2021-23 +0.04 pts · 2024-26 +0.01 pts (55,99 %, 7.2/día, p=0.491) · oct +1.01 pts
+  C hora >1 %   2021-23 +0.59 pts · 2024-26 +0.31 pts (56,29 %, 8.0/día, p=0.085) · oct -1.20 pts
+  D tres velas  2021-23 +1.14 pts · 2024-26 +0.46 pts (56,44 %, 4.2/día, p=0.223) · oct -9.30 pts
+
+Elegida en 2021-2023: D tres velas.
+Criterio: sube +0.46 pts con BH False; señales al día True; sin perder en los otros tramos False. NO ENTRA.

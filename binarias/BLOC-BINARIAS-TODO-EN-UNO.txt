@@ -10,9 +10,21 @@ CÓMO SE USA ESTE BLOC
 - Para una sesión nueva basta decir: «Lee C:\Users\ni109\Desktop\BLOC BINARIAS - TODO EN UNO.txt y sigue desde ENCARGOS».
 
 
-AL FRENTE (04/11/2026, 18:30): MESA DE BINARIAS A 15 MIN · SIN IA · VIGÍA CON VOZ EN LA CAJA · BORRADOR EN VIVO · PLAN v8
+AL FRENTE (04/11/2026, 19:15): TELÉFONO Y CAJA CON VIGÍA · LLAMADA QUE SUENA · BOTONES SIEMPRE DISPONIBLES · CAUSAS DE LAS PARADAS
 Estado: EN CURSO, EL BORRADOR REÚNE PRECIOS REALES
-SIGUIENTE PASO: que él cree en la app la cuenta de predicción (Mercados → Predicción) y active su autorización, y conecte el teléfono por USB para llevarle el vigía de 15 min. El dinero real se enciende solo cuando haya 75 % de aciertos con 25 operaciones de precio real y él lo autorice en la Mesa.
+SIGUIENTE PASO: que él cargue el teléfono con un cargador de pared (va en 5 %) y cree la cuenta de predicción en la app (Mercados → Predicción).
+- Por qué se detenían: el teléfono se apagó por batería (razón shutdown,charger,low-battery, hacia las 09:30) y sigue en 5 % conectado al PC. Los huecos largos, como 15:01 a 17:10 en los dos equipos a la vez, eran silencio sin señales, no caídas. La caja se durmió de la 01:40 a las 12:24, ya arreglado; a las 13:58 se reinició sin causa identificada.
+- Arreglado: en el teléfono, límite de procesos fantasma quitado (max_phantom_processes), Termux y Llamada exentos de ahorro de batería y Llamada con autoarranque de Xiaomi. El vigía manda un latido cada hora y cuenta cualquier detención con sus horas.
+- Llamada: Llamada Claude v5 instalada, timbra por el canal de alarma y sube el volumen; el timbre normal del teléfono estaba en 0. Prueba real del 04/11: contestada. Salta sola al 75 %, tres intentos, a cualquier hora, y en cada señal con 75 % o más.
+- Botones siempre disponibles (su orden de las 19:00), con doble toque, tope del 16 %, una orden por mercado de 15 min y precio hasta 0,90. Sin cuenta de predicción, avisan que falta.
+- Mesa: marcas + y − de tres velas seguidas (solo para mirar: P16 no mejora el acierto), etiqueta COMPRA o VENDE en la vela de cada SÍ, estocástico y RSI abajo, aviso de caída fuerte.
+- Fallas (P20): ningún filtro entra. A 56 % fallan unas 44 de cada 100. Tras caer más de 1 % en una hora, SUBE acierta 53,1 %, lo más bajo; se avisa, no se filtra.
+- El +3,53 de hoy: son unidades por 1 USDT apostado, rehechas con velas a 0,51. No es dinero: no hay ninguna orden real.
+- Vigía y contexto (plan, operativa, informe y bloc) en la caja y el teléfono, carpeta contexto. Página para mirar en el teléfono: http://127.0.0.1:8796.
+
+AL FRENTE (04/11/2026, 18:30): MESA DE BINARIAS A 15 MIN · SIN IA · VIGÍA CON VOZ EN LA CAJA · BORRADOR EN VIVO · PLAN v8
+Estado: AL DÍA EN EL BLOQUE DE ARRIBA
+PASO DE ENTONCES: que él cree en la app la cuenta de predicción (Mercados → Predicción) y active su autorización, y conecte el teléfono por USB para llevarle el vigía de 15 min. El dinero real se enciende solo cuando haya 75 % de aciertos con 25 operaciones de precio real y él lo autorice en la Mesa.
 - Dónde se compra: Mesa de binarias (botón del Escritorio y arranque solo al iniciar sesión), abajo a la derecha: COMPRAR ▲ SUBE y VENDER ▼ BAJA, cada uno con lo que paga. Se encienden solos con la señal.
 - Son binarias de verdad: «BTC Up or Down» a 15 min en Binance Wallet con Predict.fun, por API oficial y disponibles para su cuenta desde Colombia. Las líneas son solo para mirar.
 - P19 pasó a papel en vivo: 56,0 % con 60 s de retraso en 2024-sep 2026, equilibrio 52,02 %; octubre de 2026 dio 52,3 %. El libro cambia en segundos: tope de compra 0,53 y ventana de 75 s.
@@ -576,3 +588,4 @@ Abiertos de antes
 - 04/11/2026 13:29. Bloc, bóveda, encargo y guía (versión 4) al día.
 - 04/11/2026 13:40. GitHub al día (rama v7, commits 7198125 y 176d8de; PR #2 con título y descripción nuevos), posible plan v7 final en Descargas, la USB y el Escritorio (0 diferencias), USB (CONTEXTO, PROYECTOS y NUEVO) y memoria al día.
 - 04/11/2026 18:30. Mesa de binarias, P19 y vigía de 15 min en la caja; plan v8; franja del semáforo; arranque del PC en la carpeta de Inicio.
+- 04/11/2026 19:15. P20, llamada v5, vigía en el teléfono, botones siempre disponibles y arreglos 24/7.

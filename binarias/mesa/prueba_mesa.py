@@ -52,7 +52,7 @@ ahora = 1793833200.0 + 3600 * 5
 hoy = R.ini_dia(ahora)
 buenas = [op(hoy - 90000 + 900 * i) for i in range(25)]
 mer = {"ask": {1: 0.51, -1: 0.51}}
-K = dict(mercado=mer, autorizado=True, billetera=True, saldo=46.28)
+K = dict(mercado=mer, billetera=True, saldo=46.28)
 abierta = {"t": ahora - 10, "dir": 1, "res": None, "si": True, "doi": 0.0}
 pos = [op(ahora - 3000)]
 e = R.evaluar([], ahora, None)
@@ -67,7 +67,6 @@ ver("todo cumplido y sube: COMPRE con botón", e["nivel"] == "COMPRE" and e["bot
 e = R.evaluar(buenas + pos + [{**abierta, "dir": -1}], ahora, **K)
 ver("baja: VENDA con botón", e["nivel"] == "VENDA" and e["boton"] and e["sentido"] == -1)
 ver("señal sin SÍ: NO, sin botón", not R.evaluar(buenas + pos + [{**abierta, "si": False}], ahora, **K)["boton"])
-ver("sin su autorización: ESPERE", R.evaluar(buenas + pos + [abierta], ahora, **{**K, "autorizado": False})["nivel"] == "ESPERE")
 ver("sin billetera: ESPERE", R.evaluar(buenas + pos + [abierta], ahora, **{**K, "billetera": False})["nivel"] == "ESPERE")
 ver("precio caro: ESPERE", R.evaluar(buenas + pos + [abierta], ahora, **{**K, "mercado": {"ask": {1: 0.54}}})["nivel"] == "ESPERE")
 ver("sin precio: ESPERE", R.evaluar(buenas + pos + [abierta], ahora, **{**K, "mercado": None})["nivel"] == "ESPERE")
@@ -96,13 +95,14 @@ import mesa as M  # noqa: E402
 
 llamadas = []
 tmp = tempfile.mkdtemp()
-M.REALES, M.AUTORIZADO = os.path.join(tmp, "r.jsonl"), os.path.join(tmp, "A")
+M.REALES = os.path.join(tmp, "r.jsonl")
 Bo.ARCHIVO = os.path.join(tmp, "b.json")
-open(M.AUTORIZADO, "w").close()
 C.saldo_spot = lambda: 46.28
-C.billetera = lambda: {"walletAddress": "0xabc", "walletId": "w"}
-C.mercado_15m = lambda t: {"t": t, "topic": 9, "tokens": {1: "U", -1: "D"}}
-C.libro = lambda m, lado: (0.51, 0.50)
+billetera = [{"walletAddress": "0xabc", "walletId": "w"}]
+C.billetera = lambda: billetera[0]
+C.mercado_15m = lambda t: {"t": t, "topic": 9, "tokens": {1: "U", -1: "D"}, "abierto": True}
+ask = [0.51]
+C.libro = lambda m, lado: (ask[0], 0.50)
 precio_cot = [0.51]
 
 
@@ -122,20 +122,26 @@ mo.bor._guardar = lambda: None
 ah = int(time.time())
 R.ini_dia = lambda x: ah - 3000  # el «hoy» de la prueba no depende de la hora en que corra
 mo.bor.ops = [op(ah - 90000 + 900 * i) for i in range(25)] + [op(ah - 2500)] + [{"t": ah - 5, "dir": 1, "res": None, "si": True, "doi": 0.0}]
+billetera[0] = None
+r = mo.ordenar(1, 5)
+ver("sin cuenta de predicción: avisa y no toca Binance", not r["ok"] and "Predicción" in r["msg"] and not llamadas)
+billetera[0] = {"walletAddress": "0xabc", "walletId": "w"}
+ask[0] = 0.95
+ver("precio 0,95: no se envía", not mo.ordenar(1, 5)["ok"] and not llamadas)
+ask[0] = 0.51
 r = mo.ordenar(-1, 5)
-ver("vender cuando la señal es sube: rechazado sin tocar Binance", not r["ok"] and not llamadas)
+ver("vender sin señal: se puede cuando él quiera", r["ok"] and [x[0] for x in llamadas] == ["cotizar", "ordenar"] and llamadas[0][1][1] == "D")
+ver("queda anotada como sin señal", M.leer_reales()[-1]["con_senal"] is False)
+ver("el importe respeta el 5 %", M.leer_reales()[-1]["usdt"] == 2.31)
 r = mo.ordenar(1, 5)
-ver("comprar con todo cumplido: una cotización y una orden", r["ok"] and [x[0] for x in llamadas] == ["cotizar", "ordenar"])
-ver("la orden va por el token de sube", llamadas[0][1][1] == "U")
-r = mo.ordenar(1, 5)
-ver("segundo toque en la misma señal: rechazado", not r["ok"] and len(llamadas) == 2)
+ver("segunda orden en el mismo mercado: rechazada", not r["ok"] and len(llamadas) == 2)
 open(M.REALES, "w").close()
-precio_cot[0], n = 0.60, len(llamadas)
+r = mo.ordenar(1, 50)
+ver("pedir 50 % se queda en el tope", M.leer_reales()[-1]["usdt"] == 7.4 and M.leer_reales()[-1]["con_senal"] is True)
+open(M.REALES, "w").close()
+precio_cot[0], n = 0.95, len(llamadas)
 r = mo.ordenar(1, 5)
 ver("cotización cara: cotiza pero no ordena", not r["ok"] and [x[0] for x in llamadas[n:]] == ["cotizar"])
-os.remove(M.AUTORIZADO)
-n = len(llamadas)
-ver("sin autorización: nada", not mo.ordenar(1, 5)["ok"] and len(llamadas) == n)
 
 # 5) una operación completa del borrador, de la señal al cierre oficial, con el reloj simulado
 t0 = int(time.time() // 900 * 900) - 900

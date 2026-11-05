@@ -25,8 +25,29 @@ def disparadores(velas):
     return max(por5[k][0] for k in llaves), min(por5[k][1] for k in llaves)
 
 
+def fuerza(velas):
+    """Aviso si hay un movimiento fuerte. P20: tras caer más de 1 % en una hora, SUBE acierta 53,1 % (lo más bajo) y no se filtra."""
+    if len(velas) < 61:
+        return ""
+    h = velas[-1][4] / velas[-61][4] - 1
+    q = velas[-1][4] / velas[-16][4] - 1
+    if h <= -0.01:
+        return f" Caída fuerte: {100 * h:.1f} % en una hora. Aquí SUBE acierta menos (53,1 %).".replace(".", ",", 1)
+    if h >= 0.01:
+        return f" Subida fuerte: +{100 * h:.1f} % en una hora. Aquí BAJA acierta 55,4 %.".replace(".", ",", 1)
+    if abs(q) >= 0.005:
+        return f" Movimiento rápido: {100 * q:+.1f} % en 15 min.".replace(".", ",", 1)
+    return ""
+
+
 def leer(e, velas, lineas, ahora):
     """Texto y marcas para la pantalla, según el nivel que fijó el arnés."""
+    r = _leer(e, velas, lineas, ahora)
+    r["explicacion"] += fuerza(velas)
+    return r
+
+
+def _leer(e, velas, lineas, ahora):
     precio = velas[-1][4] if velas else None
     d = disparadores(velas)
     prox = dt.datetime.fromtimestamp((int(ahora) // 900 + 1) * 900, COL).strftime("%H:%M")
