@@ -50,6 +50,9 @@ class Borrador:
                 self.ops = json.load(f)["ops"]
         except (OSError, ValueError, KeyError):
             self.ops = []
+        for o in self.ops:  # el neto se recalcula con la fórmula vigente
+            if o.get("res") is not None and o.get("entra") and o.get("ask30"):
+                o["neto"] = round(R.neto_op(o["res"], o["ask30"], cfg), 4)
 
     def copia(self):
         with self.cand:

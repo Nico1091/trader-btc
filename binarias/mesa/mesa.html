@@ -183,7 +183,7 @@ function cabecera(){
   if(E.mercado.t){const f=Math.max(E.mercado.t+900-E.ahora,0);$("vence").textContent=Math.floor(f/60)+":"+String(Math.floor(f%60)).padStart(2,"0")}
   $("strike").textContent=num(E.mercado.strike,1);
   const gana=$("gana");if(v&&E.mercado.strike){const up=v[4]>=E.mercado.strike;gana.textContent=up?"SUBE ▲":"BAJA ▼";gana.className=up?"bien":"mal"}else gana.textContent="–";
-  const paga=a=>a?`paga +${num(1/a-1.02)} por cada 1 · precio ${num(a)}`:"sin precio";
+  const paga=a=>a?`paga +${num(.98/a-1)} por cada 1 · precio ${num(a)}`:"sin precio";
   $("bcP").textContent=paga(E.mercado.ask["1"]);$("bvP").textContent=paga(E.mercado.ask["-1"]);
   $("saldo").textContent=num(E.saldo);$("hora").textContent=E.hora;
 }

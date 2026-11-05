@@ -12,7 +12,7 @@ import datetime as dt
 COL = dt.timezone(dt.timedelta(hours=-5))
 CFG = {
     "precio_max_manual": 0.90,  # botón sin señal: por encima de esto paga casi nada
-    "ask_max": 0.53,            # comprar más caro que esto se come la ventaja (0,53 × 1,02 = 54,06 % de equilibrio)
+    "ask_max": 0.53,            # comprar más caro que esto se come la ventaja (0,53 / 0,98 = 54,08 % de equilibrio)
     "ventana_toque": 75,        # segundos tras la señal; después el precio ya cambió
     "reciente_ventana": 25,     # porcentaje de aciertos sobre las últimas 25 cerradas
     "umbral_pct": 75,           # su regla: 75 % de aciertos para el dinero real (19 de 25)
@@ -33,8 +33,9 @@ def ini_dia(ahora):
 
 
 def neto_op(res, ask, cfg=CFG):
-    """Ganancia por unidad apostada comprando a `ask`, con la comisión encima. res: 1, 0,5 (empate) o 0."""
-    return res / ask - (1 + cfg["comision"])
+    """Ganancia por unidad apostada comprando a `ask`. res: 1, 0,5 (empate) o 0.
+    La comisión sale de las acciones (cotización real del 04/11: 2 USDT a 0,47 dan 4,1702 acciones, no 4,2553): fallar cuesta 1 justo."""
+    return res * (1 - cfg["comision"]) / ask - 1
 
 
 def resumen(ops, ahora, cfg=CFG):

@@ -10,9 +10,15 @@ CÓMO SE USA ESTE BLOC
 - Para una sesión nueva basta decir: «Lee C:\Users\ni109\Desktop\BLOC BINARIAS - TODO EN UNO.txt y sigue desde ENCARGOS».
 
 
-AL FRENTE (04/11/2026, 19:15): TELÉFONO Y CAJA CON VIGÍA · LLAMADA QUE SUENA · BOTONES SIEMPRE DISPONIBLES · CAUSAS DE LAS PARADAS
+AL FRENTE (04/11/2026, 19:25): CUENTA DE PREDICCIÓN CREADA · COTIZACIÓN REAL BIEN · BOTONES CONECTADOS
 Estado: EN CURSO, EL BORRADOR REÚNE PRECIOS REALES
-SIGUIENTE PASO: que él cargue el teléfono con un cargador de pared (va en 5 %) y cree la cuenta de predicción en la app (Mercados → Predicción).
+SIGUIENTE PASO: que él cargue el teléfono con un cargador de pared (va en 5 %). La primera orden real solo la toca él, cuando quiera: con ella se prueban el pago desde spot y el cobro.
+- Cuenta de predicción creada (registró huella en el teléfono; Binance la confirma desde la app). Cotización real de 2 USDT desde spot: bien (fundingSource CEX); desde la billetera de predicción no, porque está vacía.
+- Comisión real: sale de las acciones. 2 USDT a 0,47 dan 4,1702; fallar cuesta 1 justo y el equilibrio es precio / 0,98. A 0,51, 52,04 %. Fórmula corregida en la Mesa.
+
+AL FRENTE (04/11/2026, 19:15): TELÉFONO Y CAJA CON VIGÍA · LLAMADA QUE SUENA · BOTONES SIEMPRE DISPONIBLES · CAUSAS DE LAS PARADAS
+Estado: AL DÍA EN EL BLOQUE DE ARRIBA
+PASO DE ENTONCES: que él cargue el teléfono con un cargador de pared (va en 5 %) y cree la cuenta de predicción en la app (Mercados → Predicción).
 - Por qué se detenían: el teléfono se apagó por batería (razón shutdown,charger,low-battery, hacia las 09:30) y sigue en 5 % conectado al PC. Los huecos largos, como 15:01 a 17:10 en los dos equipos a la vez, eran silencio sin señales, no caídas. La caja se durmió de la 01:40 a las 12:24, ya arreglado; a las 13:58 se reinició sin causa identificada.
 - Arreglado: en el teléfono, límite de procesos fantasma quitado (max_phantom_processes), Termux y Llamada exentos de ahorro de batería y Llamada con autoarranque de Xiaomi. El vigía manda un latido cada hora y cuenta cualquier detención con sus horas.
 - Llamada: Llamada Claude v5 instalada, timbra por el canal de alarma y sube el volumen; el timbre normal del teléfono estaba en 0. Prueba real del 04/11: contestada. Salta sola al 75 %, tres intentos, a cualquier hora, y en cada señal con 75 % o más.

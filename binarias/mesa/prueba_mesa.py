@@ -59,9 +59,9 @@ e = R.evaluar([], ahora, None)
 ver("sin operaciones de hoy: NO", e["nivel"] == "NO" and not e["dando"])
 e = R.evaluar(buenas + pos, ahora, mer)
 ver("borrador sumando sin señal: ATENTO", e["nivel"] == "ATENTO" and e["dando"])
-e = R.evaluar(buenas + [op(ahora - 3000, 0, -1.02)], ahora, mer)
+e = R.evaluar(buenas + [op(ahora - 3000, 0, -1.0)], ahora, mer)
 ver("borrador perdiendo: NO", e["nivel"] == "NO" and not e["dando"])
-ver("un SÍ perdió hoy: NO aunque sume", R.evaluar(buenas + pos * 3 + [op(ahora - 2000, 0, -1.02, si=True)], ahora, mer)["nivel"] == "NO")
+ver("un SÍ perdió hoy: NO aunque sume", R.evaluar(buenas + pos * 3 + [op(ahora - 2000, 0, -1.0, si=True)], ahora, mer)["nivel"] == "NO")
 e = R.evaluar(buenas + pos + [abierta], ahora, **K)
 ver("todo cumplido y sube: COMPRE con botón", e["nivel"] == "COMPRE" and e["boton"])
 e = R.evaluar(buenas + pos + [{**abierta, "dir": -1}], ahora, **K)
@@ -78,8 +78,8 @@ ver("sembradas no cuentan como precio real: ESPERE", R.evaluar(semillas + [{**po
 ver("importe 5 % de 46,28 = 2,31", R.importe(46.28, 5) == 2.31)
 ver("pedir 50 % se queda en el tope de 16 %", R.importe(46.28, 50) == 7.4)
 ver("saldo que no alcanza el mínimo dentro del tope: None", R.importe(10, 5) is None)
-ver("comprar a 0,51 y acertar: +0,9408 por unidad", abs(R.neto_op(1, 0.51) - 0.9408) < 0.0001)
-ver("fallar: −1,02", abs(R.neto_op(0, 0.51) + 1.02) < 1e-9)
+ver("cotización real: 2 USDT a 0,47 pagan 4,1702", abs(2 * (1 + R.neto_op(1, 0.47)) - 4.1702) < 0.0001)
+ver("fallar cuesta 1 justo", abs(R.neto_op(0, 0.51) + 1) < 1e-9)
 
 # 3) el analista propio, sin IA
 vv = [(1793833200 + 60 * i, 80000.0, 80100.0 + i % 7, 79900.0 - i % 5, 80000.0) for i in range(150)]
@@ -166,7 +166,7 @@ b.paso(t0 + 910, None)
 ver("sin resultado oficial sigue abierta", o.get("res") is None)
 ganador[0] = -1
 b.paso(t0 + 930, None)
-ver("ganó BAJA: cierra con el precio de los 30 s", o.get("res") == 1 and o.get("fuente") == "oficial" and abs(o["neto"] - round(1 / 0.52 - 1.02, 4)) < 1e-9)
+ver("ganó BAJA: cierra con el precio de los 30 s", o.get("res") == 1 and o.get("fuente") == "oficial" and abs(o["neto"] - round(0.98 / 0.52 - 1, 4)) < 1e-9)
 b.ops = [{"t": t0, "dir": -1, "res": None, "entra": None, "ask30": 0.60, "topic": 7}]
 b.revisada = int((t0 + 930) // 900 * 900)
 m2 = {"t": t0, "topic": 7, "ask": {-1: 0.60}}
