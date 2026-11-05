@@ -215,8 +215,9 @@ $("bEst").onclick=()=>{verEst=!verEst;try{localStorage.setItem("est",verEst?"1":
 $("bRsi").onclick=()=>{verRsi=!verRsi;try{localStorage.setItem("rsi",verRsi?"1":"0")}catch(e){}$("bRsi").classList.toggle("on",verRsi);dibujar()};
 $("bEst").classList.toggle("on",verEst);$("bRsi").classList.toggle("on",verRsi);
 $("bCob").onclick=async()=>{const r=await post("/api/cobrar",{});$("resp").textContent=r.msg};
+let arr=null;
 async function ciclo(){
-  try{const r=await fetch("/api/estado");E=await r.json();cabecera();estado();panel();dibujar()}
+  try{const r=await fetch("/api/estado");E=await r.json();if(arr&&arr!==E.arranque){location.reload();return}arr=E.arranque;cabecera();estado();panel();dibujar()}
   catch(e){$("tit").textContent="La mesa no responde. No opere.";$("banda").className="n-NO";$("det").textContent="";$("bc").disabled=$("bv").disabled=true}
   setTimeout(ciclo,1000);
 }

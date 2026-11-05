@@ -35,6 +35,7 @@ CONFIG = os.path.join(AQUI, "config.json")
 REGISTRO = os.path.join(Bo.DATOS, "mesa.log")
 REALES = os.path.join(Bo.DATOS, "reales.jsonl")
 FICHA = secrets.token_hex(24)
+ARRANQUE = int(time.time())  # si cambia, la ventana se recarga para traer la ficha nueva
 COL = dt.timezone(dt.timedelta(hours=-5))
 
 
@@ -157,7 +158,7 @@ class Motor:
         v = self.velas[-150:]
         t0 = v[0][0] if v else 0
         flechas = [{"t": o["t"], "dir": o["dir"], "si": bool(o.get("si")), "res": o.get("res")} for o in ops if o["t"] >= t0]
-        return {"ahora": ahora, "hora": dt.datetime.fromtimestamp(ahora, COL).strftime("%H:%M:%S"), "e": e, "velas": v, "viva": self.viva,
+        return {"arranque": ARRANQUE, "ahora": ahora, "hora": dt.datetime.fromtimestamp(ahora, COL).strftime("%H:%M:%S"), "e": e, "velas": v, "viva": self.viva,
                 "lineas": self.lineas, "flechas": flechas, "error": self.error_red, "cfg": {k: self.cfg[k] for k in ("ask_max", "pct_tope", "ventana_toque")},
                 "mercado": {"t": m.get("t"), "strike": m.get("strike"), "ask": {"1": (m.get("ask") or {}).get(1), "-1": (m.get("ask") or {}).get(-1)}},
                 "saldo": self.saldo, "billetera": bool(self.wallet), "pct": self.pct,
