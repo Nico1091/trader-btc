@@ -41,7 +41,9 @@ En la caja T95H y el teléfono, carpeta `dispositivos/`, 24/7 y con arranque por
 
 Probado: cuenta de predicción creada, cotización desde spot, señal idéntica a `semaforo.py`, cinco líneas idénticas a la caja y a Pulso, voz y foto en Telegram real, llamada real contestada.
 
-Sin probar: la primera orden real (`place-order-bundle`) y el cobro (`batch-redeem`). Siguen en 0 las operaciones del borrador con precio real.
+Primera orden real (06/11, 12:39, 2,31 USDT a 0,05): Binance la dejó en FAILED a los 15 ms, con 0 comprado y el saldo intacto. Desde el 06/11 la Mesa consulta cómo quedó cada orden en `/order/history` y solo dice «Comprada» si Binance confirma lo comprado. Causa sin probar: el pago desde spot o el precio de 0,05 con FOK; la cotización con `fundTransferAmount` da -9000 y con MPC exige saldo en la billetera de predicción.
+
+Sin probar: una orden que Binance ejecute de verdad y el cobro (`batch-redeem`). Siguen en 0 las operaciones del borrador con precio real.
 
 ## Trampas
 

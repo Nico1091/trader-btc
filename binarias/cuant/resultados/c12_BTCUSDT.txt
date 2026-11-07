@@ -1,0 +1,156 @@
+Datos: 3152366 velas de 1 min, hasta 2026-10-30 03:25 UTC.
+
+ESTRATEGIAS DE GEMINI (entrada 60 s tarde; equilibrios: Mesa 52,04 %, Evento 54,05 %)
+G1 compresión+ruptura      10 min | 2021-23  41,9 % (  2655) | 2024-sep26  44,1 % (  2816), Wilson  42,3 %,  2,8/día | oct-26  44,4 % (  81)
+G1 compresión+ruptura      15 min | 2021-23  42,3 % (  2442) | 2024-sep26  42,3 % (  2488), Wilson  40,4 %,  2,5/día | oct-26  43,1 % (  72)
+G1 compresión+ruptura      30 min | 2021-23  43,9 % (  2244) | 2024-sep26  43,2 % (  2291), Wilson  41,2 %,  2,3/día | oct-26  46,2 % (  65)
+G1v con volumen            10 min | 2021-23  42,8 % (  1799) | 2024-sep26  44,3 % (  1800), Wilson  42,0 %,  1,8/día | oct-26  41,3 % (  46)
+G1v con volumen            15 min | 2021-23  43,4 % (  1669) | 2024-sep26  43,4 % (  1599), Wilson  41,0 %,  1,6/día | oct-26  40,5 % (  42)
+G1v con volumen            30 min | 2021-23  43,7 % (  1560) | 2024-sep26  42,9 % (  1502), Wilson  40,4 %,  1,5/día | oct-26  51,3 % (  39)
+G2 zona 4h+rechazo         10 min | 2021-23  47,7 % (  2282) | 2024-sep26  46,1 % (  2519), Wilson  44,1 %,  2,5/día | oct-26  42,7 % (  89)
+G2 zona 4h+rechazo         15 min | 2021-23  46,8 % (  2096) | 2024-sep26  45,8 % (  2320), Wilson  43,8 %,  2,3/día | oct-26  46,3 % (  82)
+G2 zona 4h+rechazo         30 min | 2021-23  48,4 % (  1910) | 2024-sep26  45,3 % (  2096), Wilson  43,2 %,  2,1/día | oct-26  42,9 % (  77)
+G2v con volumen            10 min | 2021-23  47,6 % (   786) | 2024-sep26  45,1 % (   865), Wilson  41,8 %,  0,9/día | oct-26  45,5 % (  33)
+G2v con volumen            15 min | 2021-23  46,5 % (   749) | 2024-sep26  44,5 % (   824), Wilson  41,2 %,  0,8/día | oct-26  43,8 % (  32)
+G2v con volumen            30 min | 2021-23  49,2 % (   711) | 2024-sep26  45,9 % (   778), Wilson  42,4 %,  0,8/día | oct-26  46,9 % (  32)
+G3 EMA50+MACD              10 min | 2021-23  46,3 % (  1109) | 2024-sep26  45,7 % (  1081), Wilson  42,7 %,  1,1/día | oct-26  48,7 % (  39)
+G3 EMA50+MACD              15 min | 2021-23  45,9 % (  1109) | 2024-sep26  45,5 % (  1081), Wilson  42,6 %,  1,1/día | oct-26  46,2 % (  39)
+G3 EMA50+MACD              30 min | 2021-23  46,4 % (  1088) | 2024-sep26  44,1 % (  1070), Wilson  41,2 %,  1,1/día | oct-26  43,6 % (  39)
+G3v con volumen            10 min | 2021-23  46,4 % (   481) | 2024-sep26  47,8 % (   496), Wilson  43,4 %,  0,5/día | oct-26  45,0 % (  20)
+G3v con volumen            15 min | 2021-23  45,3 % (   481) | 2024-sep26  49,0 % (   496), Wilson  44,6 %,  0,5/día | oct-26  45,0 % (  20)
+G3v con volumen            30 min | 2021-23  46,3 % (   477) | 2024-sep26  46,5 % (   495), Wilson  42,1 %,  0,5/día | oct-26  45,0 % (  20)
+
+N1 · SU RUPTURA (vela de 5 min que cierra más allá del máximo o mínimo de N velas)
+a favor 20 velas           10 min | 2021-23  43,4 % ( 19027) | 2024-sep26  45,6 % ( 20324), Wilson  44,9 %, 20,2/día | oct-26  42,8 % ( 568)
+a favor 20 velas           15 min | 2021-23  43,3 % ( 17585) | 2024-sep26  45,4 % ( 18503), Wilson  44,7 %, 18,4/día | oct-26  43,5 % ( 527)
+al revés 20 velas          10 min | 2021-23  56,6 % ( 19027) | 2024-sep26  54,3 % ( 20324), Wilson  53,6 %, 20,2/día | oct-26  57,2 % ( 568)
+al revés 20 velas          15 min | 2021-23  56,6 % ( 17585) | 2024-sep26  54,6 % ( 18503), Wilson  53,8 %, 18,4/día | oct-26  56,5 % ( 527)
+a favor 20 velas +vol      10 min | 2021-23  43,6 % ( 14895) | 2024-sep26  45,8 % ( 14777), Wilson  45,0 %, 14,7/día | oct-26  42,5 % ( 386)
+a favor 20 velas +vol      15 min | 2021-23  43,4 % ( 13942) | 2024-sep26  45,7 % ( 13698), Wilson  44,9 %, 13,6/día | oct-26  41,4 % ( 365)
+al revés 20 velas +vol     10 min | 2021-23  56,4 % ( 14895) | 2024-sep26  54,1 % ( 14777), Wilson  53,3 %, 14,7/día | oct-26  57,5 % ( 386)
+al revés 20 velas +vol     15 min | 2021-23  56,5 % ( 13942) | 2024-sep26  54,3 % ( 13698), Wilson  53,4 %, 13,6/día | oct-26  58,6 % ( 365)
+a favor 50 velas           10 min | 2021-23  42,7 % (  9917) | 2024-sep26  45,0 % ( 11207), Wilson  44,1 %, 11,2/día | oct-26  40,2 % ( 306)
+a favor 50 velas           15 min | 2021-23  42,3 % (  9244) | 2024-sep26  44,8 % ( 10244), Wilson  43,9 %, 10,2/día | oct-26  40,7 % ( 290)
+al revés 50 velas          10 min | 2021-23  57,3 % (  9917) | 2024-sep26  54,9 % ( 11207), Wilson  54,0 %, 11,2/día | oct-26  59,8 % ( 306)
+al revés 50 velas          15 min | 2021-23  57,6 % (  9244) | 2024-sep26  55,1 % ( 10244), Wilson  54,2 %, 10,2/día | oct-26  59,3 % ( 290)
+a favor 50 velas +vol      10 min | 2021-23  43,1 % (  8874) | 2024-sep26  45,1 % (  9402), Wilson  44,1 %,  9,4/día | oct-26  43,2 % ( 236)
+a favor 50 velas +vol      15 min | 2021-23  42,7 % (  8328) | 2024-sep26  45,0 % (  8705), Wilson  44,0 %,  8,7/día | oct-26  40,7 % ( 226)
+al revés 50 velas +vol     10 min | 2021-23  56,8 % (  8874) | 2024-sep26  54,8 % (  9402), Wilson  53,8 %,  9,4/día | oct-26  56,8 % ( 236)
+al revés 50 velas +vol     15 min | 2021-23  57,2 % (  8328) | 2024-sep26  55,0 % (  8705), Wilson  53,9 %,  8,7/día | oct-26  59,3 % ( 226)
+a favor 100 velas          10 min | 2021-23  43,0 % (  5862) | 2024-sep26  45,4 % (  7117), Wilson  44,3 %,  7,1/día | oct-26  38,4 % ( 203)
+a favor 100 velas          15 min | 2021-23  42,6 % (  5461) | 2024-sep26  45,3 % (  6513), Wilson  44,1 %,  6,5/día | oct-26  35,2 % ( 193)
+al revés 100 velas         10 min | 2021-23  56,9 % (  5862) | 2024-sep26  54,5 % (  7117), Wilson  53,4 %,  7,1/día | oct-26  61,6 % ( 203)
+al revés 100 velas         15 min | 2021-23  57,4 % (  5461) | 2024-sep26  54,7 % (  6513), Wilson  53,5 %,  6,5/día | oct-26  64,8 % ( 193)
+a favor 100 velas +vol     10 min | 2021-23  43,7 % (  5371) | 2024-sep26  45,3 % (  6197), Wilson  44,1 %,  6,2/día | oct-26  41,1 % ( 163)
+a favor 100 velas +vol     15 min | 2021-23  43,0 % (  5034) | 2024-sep26  45,1 % (  5742), Wilson  43,8 %,  5,7/día | oct-26  36,5 % ( 156)
+al revés 100 velas +vol    10 min | 2021-23  56,3 % (  5371) | 2024-sep26  54,6 % (  6197), Wilson  53,4 %,  6,2/día | oct-26  58,9 % ( 163)
+al revés 100 velas +vol    15 min | 2021-23  56,9 % (  5034) | 2024-sep26  54,9 % (  5742), Wilson  53,6 %,  5,7/día | oct-26  63,5 % ( 156)
+
+N3 · TRES TOQUES EN EL MÁXIMO O MÍNIMO EXACTO (1 min, ventana de 150 min)
+máximo a 0,01 %: BAJA      10 min | 2021-23  51,2 % (  1951) | 2024-sep26  51,1 % (  2249), Wilson  49,0 %,  2,2/día | oct-26  45,1 % (  91)
+máximo a 0,01 %: BAJA      15 min | 2021-23  51,1 % (  1951) | 2024-sep26  50,6 % (  2249), Wilson  48,6 %,  2,2/día | oct-26  51,6 % (  91)
+máximo a 0,01 %: BAJA      30 min | 2021-23  50,8 % (  1951) | 2024-sep26  49,3 % (  2249), Wilson  47,2 %,  2,2/día | oct-26  51,6 % (  91)
+mínimo a 0,01 %: SUBE      10 min | 2021-23  48,1 % (  1925) | 2024-sep26  51,5 % (  2238), Wilson  49,4 %,  2,2/día | oct-26  40,2 % (  87)
+mínimo a 0,01 %: SUBE      15 min | 2021-23  48,1 % (  1925) | 2024-sep26  49,9 % (  2238), Wilson  47,8 %,  2,2/día | oct-26  33,3 % (  87)
+mínimo a 0,01 %: SUBE      30 min | 2021-23  49,4 % (  1925) | 2024-sep26  49,3 % (  2238), Wilson  47,2 %,  2,2/día | oct-26  51,7 % (  87)
+los dos a 0,01 %           10 min | 2021-23  49,6 % (  3803) | 2024-sep26  51,1 % (  4379), Wilson  49,6 %,  4,4/día | oct-26  43,1 % ( 174)
+los dos a 0,01 %           15 min | 2021-23  49,7 % (  3746) | 2024-sep26  50,1 % (  4321), Wilson  48,6 %,  4,3/día | oct-26  42,7 % ( 171)
+los dos a 0,01 %           30 min | 2021-23  50,2 % (  3619) | 2024-sep26  49,4 % (  4165), Wilson  47,9 %,  4,1/día | oct-26  51,5 % ( 163)
+máximo a 0,02 %: BAJA      10 min | 2021-23  51,5 % (  3617) | 2024-sep26  51,0 % (  3955), Wilson  49,5 %,  3,9/día | oct-26  48,2 % ( 141)
+máximo a 0,02 %: BAJA      15 min | 2021-23  50,7 % (  3617) | 2024-sep26  49,6 % (  3955), Wilson  48,1 %,  3,9/día | oct-26  54,6 % ( 141)
+máximo a 0,02 %: BAJA      30 min | 2021-23  51,2 % (  3617) | 2024-sep26  49,7 % (  3955), Wilson  48,2 %,  3,9/día | oct-26  51,8 % ( 141)
+mínimo a 0,02 %: SUBE      10 min | 2021-23  49,7 % (  3471) | 2024-sep26  52,1 % (  3935), Wilson  50,6 %,  3,9/día | oct-26  47,9 % ( 142)
+mínimo a 0,02 %: SUBE      15 min | 2021-23  49,7 % (  3471) | 2024-sep26  50,5 % (  3935), Wilson  48,9 %,  3,9/día | oct-26  48,6 % ( 142)
+mínimo a 0,02 %: SUBE      30 min | 2021-23  50,5 % (  3471) | 2024-sep26  50,1 % (  3935), Wilson  48,6 %,  3,9/día | oct-26  46,5 % ( 142)
+los dos a 0,02 %           10 min | 2021-23  50,5 % (  6868) | 2024-sep26  51,5 % (  7640), Wilson  50,4 %,  7,6/día | oct-26  47,9 % ( 267)
+los dos a 0,02 %           15 min | 2021-23  50,2 % (  6727) | 2024-sep26  50,1 % (  7508), Wilson  48,9 %,  7,5/día | oct-26  50,8 % ( 262)
+los dos a 0,02 %           30 min | 2021-23  51,0 % (  6400) | 2024-sep26  50,4 % (  7120), Wilson  49,2 %,  7,1/día | oct-26  46,6 % ( 249)
+máximo a 0,05 %: BAJA      10 min | 2021-23  50,2 % (  6113) | 2024-sep26  49,6 % (  6233), Wilson  48,4 %,  6,2/día | oct-26  57,1 % ( 203)
+máximo a 0,05 %: BAJA      15 min | 2021-23  50,2 % (  6113) | 2024-sep26  50,3 % (  6233), Wilson  49,1 %,  6,2/día | oct-26  60,6 % ( 203)
+máximo a 0,05 %: BAJA      30 min | 2021-23  49,9 % (  6113) | 2024-sep26  48,8 % (  6233), Wilson  47,5 %,  6,2/día | oct-26  57,9 % ( 202)
+mínimo a 0,05 %: SUBE      10 min | 2021-23  50,6 % (  5999) | 2024-sep26  49,8 % (  6167), Wilson  48,5 %,  6,1/día | oct-26  54,5 % ( 198)
+mínimo a 0,05 %: SUBE      15 min | 2021-23  51,6 % (  5999) | 2024-sep26  49,6 % (  6167), Wilson  48,4 %,  6,1/día | oct-26  49,5 % ( 198)
+mínimo a 0,05 %: SUBE      30 min | 2021-23  51,4 % (  5999) | 2024-sep26  50,0 % (  6167), Wilson  48,8 %,  6,1/día | oct-26  53,0 % ( 198)
+los dos a 0,05 %           10 min | 2021-23  50,4 % ( 11642) | 2024-sep26  49,6 % ( 11874), Wilson  48,7 %, 11,8/día | oct-26  56,4 % ( 381)
+los dos a 0,05 %           15 min | 2021-23  50,8 % ( 11391) | 2024-sep26  49,8 % ( 11623), Wilson  48,9 %, 11,6/día | oct-26  54,8 % ( 376)
+los dos a 0,05 %           30 min | 2021-23  50,6 % ( 10654) | 2024-sep26  49,4 % ( 10808), Wilson  48,4 %, 10,8/día | oct-26  54,0 % ( 348)
+
+N2 · VECTORES DE SUS LÍNEAS: probabilidad de SUBIR tras cada hecho, 60 s tarde (2024-sep 2026; a su lado, 2021-2023)
+(líneas calculadas en 70 s sobre 630444 cierres de 5 min)
+hecho                   casos     5 min    10 min    15 min    30 min   |     5 min    10 min    15 min    30 min
+rompe techo              7528    47,1 %    47,3 %    47,5 %    48,2 %   |    45,3 %    46,1 %    46,4 %    47,3 %
+  apuesta: rompe techo     10 min | 2021-23  46,5 % (  7072) | 2024-sep26  47,7 % (  6495), Wilson  46,5 %,  6,5/día | oct-26  48,7 % ( 226)
+  apuesta: rompe techo     15 min | 2021-23  46,8 % (  6773) | 2024-sep26  47,8 % (  6216), Wilson  46,6 %,  6,2/día | oct-26  44,5 % ( 218)
+rompe piso               7821    52,7 %    52,5 %    52,7 %    53,0 %   |    53,3 %    53,0 %    53,0 %    51,9 %
+  apuesta: rompe piso      10 min | 2021-23  47,0 % (  7184) | 2024-sep26  47,8 % (  6730), Wilson  46,6 %,  6,7/día | oct-26  43,8 % ( 185)
+  apuesta: rompe piso      15 min | 2021-23  46,8 % (  6853) | 2024-sep26  47,4 % (  6417), Wilson  46,2 %,  6,4/día | oct-26  48,0 % ( 179)
+rechazo en techo         8270    48,0 %    47,9 %    47,9 %    48,4 %   |    47,0 %    47,1 %    47,1 %    49,3 %
+  apuesta: rechazo en techo 10 min | 2021-23  52,7 % (  7989) | 2024-sep26  51,9 % (  7086), Wilson  50,7 %,  7,1/día | oct-26  56,3 % ( 197)
+  apuesta: rechazo en techo 15 min | 2021-23  52,6 % (  7644) | 2024-sep26  52,4 % (  6764), Wilson  51,2 %,  6,7/día | oct-26  53,4 % ( 191)
+rechazo en piso          8965    52,0 %    51,8 %    51,2 %    51,7 %   |    52,5 %    53,2 %    52,5 %    51,8 %
+  apuesta: rechazo en piso 10 min | 2021-23  53,4 % (  8639) | 2024-sep26  51,7 % (  7672), Wilson  50,6 %,  7,6/día | oct-26  56,9 % ( 211)
+  apuesta: rechazo en piso 15 min | 2021-23  52,5 % (  8196) | 2024-sep26  51,3 % (  7259), Wilson  50,1 %,  7,2/día | oct-26  55,2 % ( 203)
+rompe techo corto       25832    48,6 %    48,8 %    48,5 %    48,6 %   |    48,4 %    48,8 %    48,9 %    49,0 %
+  apuesta: rompe techo corto 10 min | 2021-23  48,7 % ( 24219) | 2024-sep26  49,0 % ( 21689), Wilson  48,3 %, 21,6/día | oct-26  43,7 % ( 643)
+  apuesta: rompe techo corto 15 min | 2021-23  49,0 % ( 22475) | 2024-sep26  48,7 % ( 20224), Wilson  48,0 %, 20,1/día | oct-26  43,9 % ( 603)
+rompe piso corto        26143    50,6 %    51,3 %    51,6 %    51,3 %   |    51,3 %    51,5 %    51,2 %    51,4 %
+  apuesta: rompe piso corto 10 min | 2021-23  48,5 % ( 24235) | 2024-sep26  48,8 % ( 21850), Wilson  48,1 %, 21,8/día | oct-26  46,9 % ( 633)
+  apuesta: rompe piso corto 15 min | 2021-23  49,1 % ( 22534) | 2024-sep26  48,3 % ( 20357), Wilson  47,6 %, 20,3/día | oct-26  49,6 % ( 595)
+rechazo techo corto     25122    50,1 %    49,7 %    49,6 %    49,8 %   |    49,4 %    49,7 %    49,4 %    49,8 %
+  apuesta: rechazo techo corto 10 min | 2021-23  50,1 % ( 25155) | 2024-sep26  50,1 % ( 21003), Wilson  49,5 %, 20,9/día | oct-26  52,9 % ( 580)
+  apuesta: rechazo techo corto 15 min | 2021-23  50,6 % ( 23355) | 2024-sep26  50,4 % ( 19655), Wilson  49,7 %, 19,6/día | oct-26  52,4 % ( 540)
+rechazo piso corto      25600    50,3 %    50,4 %    50,4 %    50,2 %   |    50,3 %    50,4 %    50,6 %    51,3 %
+  apuesta: rechazo piso corto 10 min | 2021-23  50,4 % ( 25706) | 2024-sep26  50,4 % ( 21392), Wilson  49,7 %, 21,3/día | oct-26  49,9 % ( 553)
+  apuesta: rechazo piso corto 15 min | 2021-23  50,5 % ( 23764) | 2024-sep26  50,4 % ( 19992), Wilson  49,7 %, 19,9/día | oct-26  52,4 % ( 517)
+cruza mitad arriba       8035    50,6 %    50,4 %    49,9 %    50,2 %   |    47,9 %    48,6 %    48,6 %    49,2 %
+  apuesta: cruza mitad arriba 10 min | 2021-23  48,3 % (  7800) | 2024-sep26  50,5 % (  7312), Wilson  49,3 %,  7,3/día | oct-26  43,9 % ( 223)
+  apuesta: cruza mitad arriba 15 min | 2021-23  48,3 % (  7517) | 2024-sep26  49,9 % (  7099), Wilson  48,7 %,  7,1/día | oct-26  50,0 % ( 218)
+cruza mitad abajo        7941    50,4 %    50,7 %    50,3 %    50,4 %   |    50,4 %    51,2 %    51,8 %    51,3 %
+  apuesta: cruza mitad abajo 10 min | 2021-23  49,0 % (  7966) | 2024-sep26  49,3 % (  7189), Wilson  48,1 %,  7,2/día | oct-26  52,3 % ( 220)
+  apuesta: cruza mitad abajo 15 min | 2021-23  48,5 % (  7712) | 2024-sep26  49,7 % (  6974), Wilson  48,5 %,  6,9/día | oct-26  51,2 % ( 209)
+
+P22 · GEMINI AL REVÉS (idea surgida al ver P21: no es una prueba a ciegas)
+G1 al revés                10 min | 2021-23  58,0 % (  2655) | 2024-sep26  55,8 % (  2816), Wilson  53,9 %,  2,8/día | oct-26  55,6 % (  81)
+G1 al revés                15 min | 2021-23  57,6 % (  2442) | 2024-sep26  57,7 % (  2488), Wilson  55,7 %,  2,5/día | oct-26  55,6 % (  72)
+   ventana de la Mesa (sin retraso): 2021-23 58,9 % (2655), 2024-sep26 58,9 % (2816), oct-26 56,8 % (81)
+G2 al revés                10 min | 2021-23  52,0 % (  2282) | 2024-sep26  53,9 % (  2519), Wilson  51,9 %,  2,5/día | oct-26  57,3 % (  89)
+G2 al revés                15 min | 2021-23  53,1 % (  2096) | 2024-sep26  54,2 % (  2320), Wilson  52,1 %,  2,3/día | oct-26  52,4 % (  82)
+   ventana de la Mesa (sin retraso): 2021-23 52,8 % (2282), 2024-sep26 54,0 % (2519), oct-26 48,3 % (89)
+G3 al revés                10 min | 2021-23  53,6 % (  1109) | 2024-sep26  54,2 % (  1081), Wilson  51,2 %,  1,1/día | oct-26  48,7 % (  39)
+G3 al revés                15 min | 2021-23  54,1 % (  1109) | 2024-sep26  54,4 % (  1081), Wilson  51,4 %,  1,1/día | oct-26  53,8 % (  39)
+   ventana de la Mesa (sin retraso): 2021-23 54,9 % (1109), 2024-sep26 55,9 % (1081), oct-26 53,8 % (39)
+Referencia, núcleo en cierres de 15 min, ventana de la Mesa (sin retraso): 2021-23 60,0 % (8557), 2024-sep26 58,6 % (9490), oct-26 50,8 % (240)
+
+VEREDICTO (la variante se elige en 2021-2023, con 200 apuestas o más; se juzga en 2024-sep 2026)
+G1: «G1 compresión+ruptura» a 30 min. 2021-23 43,9 %, 2024-sep26 43,2 % (2291, Wilson 41,2 %), oct-26 46,2 % (65). NO PASA.
+G2: «G2v con volumen» a 30 min. 2021-23 49,2 %, 2024-sep26 45,9 % (778, Wilson 42,4 %), oct-26 46,9 % (32). NO PASA.
+G3: «G3 EMA50+MACD» a 30 min. 2021-23 46,4 %, 2024-sep26 44,1 % (1070, Wilson 41,2 %), oct-26 43,6 % (39). NO PASA.
+Gemini al revés (P22, posterior): «G1 al revés» a 10 min. 2021-23 58,0 %, 2024-sep26 55,8 % (2816, Wilson 53,9 %), oct-26 55,6 % (81). PASA.
+a favor (N1): «a favor 100 velas +vol» a 10 min. 2021-23 43,7 %, 2024-sep26 45,3 % (6197, Wilson 44,1 %), oct-26 41,1 % (163). NO PASA.
+al revés (N1): «al revés 50 velas» a 15 min. 2021-23 57,6 %, 2024-sep26 55,1 % (10244, Wilson 54,2 %), oct-26 59,3 % (290). PASA.
+tres toques (N3): «mínimo a 0,05 %: SUBE» a 15 min. 2021-23 51,6 %, 2024-sep26 49,6 % (6167, Wilson 48,4 %), oct-26 49,5 % (198). NO PASA.
+apuestas por líneas (N2): «apuesta: rechazo en piso» a 10 min. 2021-23 53,4 %, 2024-sep26 51,7 % (7672, Wilson 50,6 %), oct-26 56,9 % (211). NO PASA.
+
+Benjamini-Hochberg frente al 50 % en 2024-sep 2026: 23 de 95 variantes sobreviven.
+  al revés 20 velas a 15 min: 54,6 % en 18503, Wilson 53,8 %, oct-26 56,5 %
+  al revés 20 velas a 10 min: 54,3 % en 20324, Wilson 53,6 %, oct-26 57,2 %
+  al revés 50 velas a 10 min: 54,9 % en 11207, Wilson 54,0 %, oct-26 59,8 %
+  al revés 50 velas a 15 min: 55,1 % en 10244, Wilson 54,2 %, oct-26 59,3 %
+  al revés 20 velas +vol a 10 min: 54,1 % en 14777, Wilson 53,3 %, oct-26 57,5 %
+  al revés 20 velas +vol a 15 min: 54,3 % en 13698, Wilson 53,4 %, oct-26 58,6 %
+  al revés 50 velas +vol a 10 min: 54,8 % en 9402, Wilson 53,8 %, oct-26 56,8 %
+  al revés 50 velas +vol a 15 min: 55,0 % en 8705, Wilson 53,9 %, oct-26 59,3 %
+  G1 al revés a 15 min: 57,7 % en 2488, Wilson 55,7 %, oct-26 55,6 %
+  al revés 100 velas a 10 min: 54,5 % en 7117, Wilson 53,4 %, oct-26 61,6 %
+  al revés 100 velas a 15 min: 54,7 % en 6513, Wilson 53,5 %, oct-26 64,8 %
+  al revés 100 velas +vol a 15 min: 54,9 % en 5742, Wilson 53,6 %, oct-26 63,5 %
+  al revés 100 velas +vol a 10 min: 54,6 % en 6197, Wilson 53,4 %, oct-26 58,9 %
+  G1 al revés a 10 min: 55,8 % en 2816, Wilson 53,9 %, oct-26 55,6 %
+  G2 al revés a 15 min: 54,2 % en 2320, Wilson 52,1 %, oct-26 52,4 %
+Acierto más alto de TODAS las variantes con 200 apuestas o más en 2024-sep 2026: 57,7 % (G1 al revés, 15 min, 2488 apuestas).
+Variantes que llegan a 82 %: 0. Que llegan a 85 %: 0.
+
+POR QUÉ UN 85 % SE VE EN VIVO Y NO SE SOSTIENE (85,7 % son 6 de 7)
+Con 50,0 % de acierto real, la probabilidad de sacar 6 o 7 de 7 es 6,2 %: 1 de cada 16 tandas de 7.
+Con 55,0 % de acierto real, la probabilidad de sacar 6 o 7 de 7 es 10,2 %: 1 de cada 10 tandas de 7.
+En la variante más alta, 13,3 % de las tandas de 7 dieron 6 o más, y su mejor tanda de 25 dio 21 de 25 (84,0 %), con 57,6 % en total.

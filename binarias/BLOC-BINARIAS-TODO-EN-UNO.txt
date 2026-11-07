@@ -10,9 +10,23 @@ CÓMO SE USA ESTE BLOC
 - Para una sesión nueva basta decir: «Lee C:\Users\ni109\Desktop\BLOC BINARIAS - TODO EN UNO.txt y sigue desde ENCARGOS».
 
 
+AL FRENTE (06/11/2026, 21:22): SU TELEGRAM LEÍDO · LA ORDEN REAL FALLÓ · MESA CORREGIDA · CAJA DE VUELTA · P21 Y P22
+Estado: EN CURSO, FALTA SU COMPRA DE PRUEBA
+SIGUIENTE PASO: que él haga una compra de prueba en la Mesa, con el PC encendido y a precio normal (entre 0,40 y 0,60). Si Binance la rechaza otra vez, falla el pago desde spot y toca pasar USDT a la cuenta de predicción desde la app. También abrir Termux en el teléfono y cargarlo.
+- Su pedido: 38 mensajes por el bot Centro nocturno, 06/11, 16:43 a 17:13 (21 fotos: la guía, Gemini, Binance). Reclama que la ruptura a favor sí gana, pide probar las estrategias de Gemini, medir vectores de las líneas, línea verde con tres toques, línea verde a la mitad, cinco estrategias con filtro de Claude al 82 %, revivir la del 85 % o «105 %», arreglar las compras y conectar el agente.
+- Compras: su orden de las 12:39 (SUBE, 2,31 USDT a 0,05) nunca se ejecutó. Binance la dejó en FAILED a los 15 ms, con 0 comprado, y la Mesa dijo «Orden enviada». Saldo intacto: 46,28 USDT. Ese mercado cerró en BAJA, así que tampoco se perdió nada.
+- Causa sin probar, dos candidatas: el pago desde spot o el precio de 0,05 con orden FOK. Cotizar desde spot funciona; con fundTransferAmount da -9000 (cuatro de cuatro) y desde la billetera de predicción exige saldo. Binance no informa el motivo.
+- Mesa corregida (21:22, reiniciada): consulta cómo quedó cada orden y solo dice «Comprada» si Binance lo confirma; un rechazo ya no bloquea reintentar. prueba_mesa.py sin fallos, con 5 casos nuevos. Solo se simuló: ninguna orden real.
+- A las 16:59 no podía comprar además porque el PC estuvo apagado de 15:20 a 19:59 y la Mesa solo vive en el PC.
+- Caja: detenida del 04/11, 19:34 al 06/11, 21:20 (2.987 min, según su vigía); volvió con un reinicio a las 21:07. El avisador no arrancó porque avisos.pid decía 4709, que tras el reinicio era Tor. arrancar.sh corregido en la fuente y en la caja (huella 4d9d3aef), avisador relanzado, latido bien. Antes de la caja se cayó también el teléfono: Termux parado desde el 05/11 a las 16:11, y su arrancar.sh sigue con el fallo.
+- P21 y P22 en PLAN-TOTAL.md, 7b, y cuant/resultados/c12_BTCUSDT.txt. Ninguna llega a 82 %. Gemini tal cual pierde (42 a 46 %). La ruptura a favor pierde (44,8 a 45,8 %). Tres toques, sin ventaja. Lo mejor: G1 al revés, 57,7 % con 2.488 apuestas, idea posterior y sin prueba a ciegas.
+- El 85 % nunca fue un resultado: fue la meta del 03/11 (85,7 % son 6 de 7). Con 55 % real, 1 de cada 10 tandas de 7 da 6 o más, y la mejor tanda de 25 llegó a 21. El «105 %» no aparece en ningún registro.
+- Prompt de cinco estrategias: PROMPT-CINCO-ESTRATEGIAS.md, escrito, sin ejecutar.
+- Faltan sus decisiones: si vuelve el agente (lo quitó el 04/11, 18:17, y la rutina de la nube sigue apagada), si G1 al revés pasa a papel en vivo y cómo quiere las dos líneas verdes.
+
 AL FRENTE (04/11/2026, 19:25): CUENTA DE PREDICCIÓN CREADA · COTIZACIÓN REAL BIEN · BOTONES CONECTADOS
-Estado: EN CURSO, EL BORRADOR REÚNE PRECIOS REALES
-SIGUIENTE PASO: que él cargue el teléfono con un cargador de pared (va en 5 %). La primera orden real solo la toca él, cuando quiera: con ella se prueban el pago desde spot y el cobro.
+Estado: AL DÍA EN EL BLOQUE DE ARRIBA
+PASO DE ENTONCES: que él cargue el teléfono con un cargador de pared (va en 5 %). La primera orden real solo la toca él, cuando quiera: con ella se prueban el pago desde spot y el cobro.
 - Cuenta de predicción creada (registró huella en el teléfono; Binance la confirma desde la app). Cotización real de 2 USDT desde spot: bien (fundingSource CEX); desde la billetera de predicción no, porque está vacía.
 - Comisión real: sale de las acciones. 2 USDT a 0,47 dan 4,1702; fallar cuesta 1 justo y el equilibrio es precio / 0,98. A 0,51, 52,04 %. Fórmula corregida en la Mesa.
 
@@ -330,6 +344,10 @@ Forma de trabajar
 
 5. ESTRATEGIAS CLASIFICADAS
 
+Medidas el 06/11/2026 (P21 y P22, a 15 min, 2024-sep 2026, 60 s tarde):
+- Rechazadas: Gemini 1 tal cual 42,3 %, Gemini 2 45,8 %, Gemini 3 45,5 %; ruptura a favor 44,8 a 45,8 %; tres toques 49,6 a 51,1 %; cruzar la mitad, sin señal.
+- En observación: ruptura de 50 velas al revés 55,1 % (pasó P21); G1 al revés 57,7 % (idea posterior, solo papel).
+
 En uso (selección de octubre de 2026)
 - Procedimiento del mes: modelo a 10 min en ETH (regresión logística propia, sin librerías nuevas).
 - Reglas de BTC: E19 EMA 12/26 con RSI 14 (1 h) al revés, a 10 min, en zona; patrón hombre colgado a 10 min en la sesión de Asia; REV15 a 10 min.
@@ -373,6 +391,16 @@ Lo que dicen los estudios de BTC y ETH
 
 
 6. ENCARGOS
+
+06/11/2026, 21:00-21:22. Pedido: leer lo que puso en el canal Centro nocturno y atenderlo.
+- [HECHO] Leídos los 38 mensajes y las 21 fotos.
+- [HECHO] Diagnóstico de la orden de las 12:39 y aviso real en la Mesa.
+- [HECHO] Estudio operativo P21 y P22.
+- [HECHO] Avisador de la caja de vuelta y arrancar.sh corregido.
+- [HECHO] Prompt de cinco estrategias escrito.
+- [PENDIENTE DE ÉL] Compra de prueba a precio normal; abrir Termux en el teléfono y cargarlo.
+- [PENDIENTE DE ÉL] Decidir el agente, G1 al revés en papel y las dos líneas verdes; decir dónde vio el 85 % o el 105 %.
+- [PENDIENTE] Llevar arrancar.sh al teléfono cuando se conecte.
 
 04/11/2026, 12:00 a 13:29. Pedido: continuar y consolidar lo de la madrugada; «quiero 5 líneas bien optimizadas para mis mínimos y máximos y la recta de la mitad»; «¿qué es ese tal pulso-btc?»; «caja conectada»; que el agente opere en la nube («creamos un nodo entre Binance, mi celular y el agente»).
 - [HECHO] Caja despierta y con arranque solo, probado con un reinicio; estado del teléfono pasado a la caja; aviso de relevo en el teléfono.
@@ -596,3 +624,5 @@ Abiertos de antes
 - 04/11/2026 18:30. Mesa de binarias, P19 y vigía de 15 min en la caja; plan v8; franja del semáforo; arranque del PC en la carpeta de Inicio.
 - 04/11/2026 19:15. P20, llamada v5, vigía en el teléfono, botones siempre disponibles y arreglos 24/7.
 - 04/11/2026 19:40. Contexto y desarrollo guardados en Obsidian (Mesa de binarias y tablero), memoria, GitHub, USB, caja y teléfono.
+- 06/11/2026 20:25. Revisión de seguridad del teléfono: Termux no corre desde el 05/11 a las 16:11 (lo cerró OneKeyClean, la limpieza de recientes; otro cierre por poca memoria a las 17:39), así que el centinela y el vigía del teléfono están parados. La caja 192.168.20.45 no respondió al barrido de la red. Batería en 7 %. No se tocó ninguna apuesta.
+- 06/11/2026 21:22. Leído su Telegram. Orden de las 12:39 FAILED y Mesa corregida; caja de vuelta tras 2.987 min y arrancar.sh corregido; P21 y P22 medidas; prompt de cinco estrategias escrito. No se tocó ninguna apuesta.

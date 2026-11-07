@@ -116,7 +116,10 @@ def ordenar(*a):
     return {"orderId": "1"}
 
 
+orden_binance = [{"status": "FILLED", "filledUsdtAmount": "2.31"}]
 C.cotizar, C.ordenar, M.log = cotizar, ordenar, lambda m: None
+C.orden = lambda d, i: orden_binance[0]
+M.PAUSA_CONFIRMAR = 0
 mo = M.Motor()
 mo.bor._guardar = lambda: None
 ah = int(time.time())
@@ -142,6 +145,25 @@ open(M.REALES, "w").close()
 precio_cot[0], n = 0.95, len(llamadas)
 r = mo.ordenar(1, 5)
 ver("cotización cara: cotiza pero no ordena", not r["ok"] and [x[0] for x in llamadas[n:]] == ["cotizar"])
+
+# 4b) la Mesa solo dice «comprada» si Binance lo confirma (caso real del 06/11: orden FAILED anunciada como enviada)
+precio_cot[0] = 0.51
+open(M.REALES, "w").close()
+orden_binance[0] = {"status": "FAILED", "filledUsdtAmount": "0"}
+r = mo.ordenar(1, 5)
+ver("orden FAILED: dice que no se compró", not r["ok"] and "no se compró" in r["msg"] and M.leer_reales()[-1]["estado"] == "FAILED")
+orden_binance[0] = {"status": "FILLED", "filledUsdtAmount": "2.31"}
+r = mo.ordenar(1, 5)
+ver("tras un rechazo se puede reintentar en ese mercado", r["ok"] and r["msg"].startswith("Comprada") and M.leer_reales()[-1]["comprado"] == 2.31)
+r = mo.ordenar(1, 5)
+ver("tras una compra real no deja repetir ese mercado", not r["ok"] and "Ya tiene" in r["msg"])
+open(M.REALES, "w").close()
+orden_binance[0] = None
+r = mo.ordenar(1, 5)
+ver("sin confirmación: no dice comprada y pide revisar", not r["ok"] and "no confirmó" in r["msg"])
+r = mo.ordenar(1, 5)
+ver("sin confirmación: no deja repetir a ciegas", not r["ok"] and "Ya tiene" in r["msg"])
+open(M.REALES, "w").close()
 
 # 5) una operación completa del borrador, de la señal al cierre oficial, con el reloj simulado
 t0 = int(time.time() // 900 * 900) - 900

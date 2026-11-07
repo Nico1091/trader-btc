@@ -179,6 +179,15 @@ def posiciones(direccion):
     return _firmado("GET", PRED + "/position/list", walletAddress=direccion, limit=100)
 
 
+def orden(direccion, id_orden):
+    """La orden tal como quedó en Binance, o None si aún no aparece. Las abiertas están en /order/list y las cerradas en /order/history."""
+    for ruta in ("/order/history", "/order/list"):
+        for o in _firmado("GET", PRED + ruta, walletAddress=direccion, limit=20).get("orders", []):
+            if str(o.get("orderId")) == str(id_orden):
+                return o
+    return None
+
+
 def _wei(usdt):
     return str(int(decimal.Decimal(str(usdt)) * 10 ** 18))
 

@@ -34,6 +34,8 @@ PARAR = os.path.join(AQUI, "PARAR")
 CONFIG = os.path.join(AQUI, "config.json")
 REGISTRO = os.path.join(Bo.DATOS, "mesa.log")
 REALES = os.path.join(Bo.DATOS, "reales.jsonl")
+ESTADOS_FALLIDOS = ("FAILED", "CANCELLED", "CANCELED", "EXPIRED", "REJECTED")
+INTENTOS_CONFIRMAR, PAUSA_CONFIRMAR = 6, 0.5
 FICHA = secrets.token_hex(24)
 ARRANQUE = int(time.time())  # si cambia, la ventana se recarga para traer la ficha nueva
 COL = dt.timezone(dt.timedelta(hours=-5))
@@ -185,7 +187,7 @@ class Motor:
             usdt = R.importe(self.saldo, pct, cfg)
             if usdt is None:
                 return {"ok": False, "msg": "El saldo no alcanza con su tope del 16 %."}
-            if any(r.get("t") == m["t"] for r in leer_reales()):
+            if any(r.get("t") == m["t"] and not rechazada(r) for r in leer_reales()):
                 return {"ok": False, "msg": "Ya tiene una orden en este mercado de 15 min."}
             e = self.evaluar()
             con_senal = bool(e["boton"] and e["sentido"] == sentido)
@@ -194,11 +196,38 @@ class Motor:
             if not precio or precio > cfg["precio_max_manual"]:
                 return {"ok": False, "msg": f"Cotización a {precio:.3f}: paga casi nada, no se envió."}
             r = C.ordenar(w["walletAddress"], w["walletId"], q["quoteId"], cfg["deslizamiento_bps"], cfg["fuente_fondos"])
-            fila = {"t": m["t"], "dir": sentido, "usdt": usdt, "precio": precio, "orden": r.get("orderId"), "topic": m["topic"], "hora": time.time(), "con_senal": con_senal}
+            final = confirmar(w["walletAddress"], r.get("orderId"))
+            comprado = float((final or {}).get("filledUsdtAmount") or 0)
+            estado = (final or {}).get("status") or "SIN CONFIRMAR"
+            fila = {"t": m["t"], "dir": sentido, "usdt": usdt, "precio": precio, "orden": r.get("orderId"), "topic": m["topic"], "hora": time.time(), "con_senal": con_senal,
+                    "estado": estado, "comprado": comprado}
             with open(REALES, "a", encoding="utf-8") as f:
                 f.write(json.dumps(fila) + "\n")
-            log(f"orden real por su toque: {'sube' if sentido == 1 else 'baja'} {usdt} USDT a {precio} · con señal: {con_senal}")
-            return {"ok": True, "msg": f"Orden enviada: {usdt:.2f} USDT a {precio:.3f}.".replace(".", ",")}
+            log(f"orden real por su toque: {'sube' if sentido == 1 else 'baja'} {usdt} USDT a {precio} · con señal: {con_senal} · estado: {estado} · comprado: {comprado}")
+            if comprado > 0:
+                return {"ok": True, "msg": f"Comprada: {comprado:.2f} USDT a {precio:.3f}.".replace(".", ",")}
+            if rechazada(fila):
+                return {"ok": False, "msg": f"Binance rechazó la orden ({estado}): no se compró nada y el saldo sigue igual."}
+            return {"ok": False, "msg": "Binance recibió la orden pero no confirmó la compra. Revísela en la app antes de repetir."}
+
+
+def rechazada(fila):
+    """Binance la cerró sin comprar nada: no cuenta como la orden de ese mercado."""
+    return fila.get("estado") in ESTADOS_FALLIDOS and not fila.get("comprado")
+
+
+def confirmar(direccion, id_orden):
+    """Binance responde a la orden con un número y la resuelve después: «enviada» no es «comprada». Lee cómo quedó."""
+    o = None
+    for _ in range(INTENTOS_CONFIRMAR):
+        try:
+            o = C.orden(direccion, id_orden) or o
+        except Exception as ex:
+            log(f"no pude leer la orden {id_orden}: {type(ex).__name__}")
+        if o and (float(o.get("filledUsdtAmount") or 0) > 0 or o.get("status") in ESTADOS_FALLIDOS):
+            return o
+        time.sleep(PAUSA_CONFIRMAR)
+    return o
 
 
 def leer_reales():
