@@ -102,16 +102,29 @@ def alertas(e):
     nivel = 2 if p >= UMBRAL else (1 if p >= CERCA else 0)
     previo = e.get("nivel")
     e["nivel"] = nivel
-    if previo is None or previo == nivel:
-        return  # al encender no avisa: solo avisa cuando cambia
+    if previo == nivel:
+        return  # sigue igual: mientras esté arriba, el latido de cada hora lo repite
+    # 07/11: al encender ya no se calla. Si el equipo arranca o siembra con 75 % o más ya alcanzado, avisa igual.
+    k, racha = aciertos(e)
     if nivel == 2:
-        voz("listo", f"YA LLEGÓ · aciertos en {p} % (últimas {VENTANA}). Mire la Mesa y espere la señal.")
-        timbrar(f"Las operaciones están acertando: {p} %.", "listo")
-    elif nivel == 1 and previo == 0:
-        voz("aproximando", f"SE ESTÁ APROXIMANDO · aciertos en {p} % (últimas {VENTANA}); pide {UMBRAL} %.")
+        voz("listo", f"YA LLEGÓ · aciertos en {p} % ({k} de {VENTANA}; {racha} seguidos al final). Mire la Mesa y espere la señal.")
+        timbrar(f"Las operaciones están acertando: {k} de {VENTANA}, {p} %.", "listo")
+    elif nivel == 1 and not previo:
+        voz("aproximando", f"SE ESTÁ APROXIMANDO · aciertos en {p} % ({k} de {VENTANA}); pide {UMBRAL} %.")
     elif previo == 2:
-        voz("bajo", f"BAJÓ · aciertos en {p} %. No se están dando los resultados: no opere.")
-    log(f"nivel {previo} → {nivel} con {p} %")
+        voz("bajo", f"BAJÓ · aciertos en {p} % ({k} de {VENTANA}). No se están dando los resultados: no opere.")
+    log(f"nivel {previo} → {nivel} con {p} % ({k} de {VENTANA})")
+
+
+def aciertos(e):
+    """(aciertos dentro de las últimas 25 cerradas, racha de aciertos seguidos al final)."""
+    u = [o for o in e["ops"] if o.get("res") is not None][-VENTANA:]
+    racha = 0
+    for o in reversed(u):
+        if o["res"] != 1:
+            break
+        racha += 1
+    return len([o for o in u if o["res"] == 1]), racha
 
 
 def timbrar(texto, audio):
@@ -252,7 +265,12 @@ def main():
             if ahora - e.get("t_latido", 0) >= 3600:
                 e["t_latido"] = ahora
                 p, n = porcentaje(e)
-                S.avisar(f"Vigía vivo [{avisos.ETIQUETA}] · aciertos {p} % en las últimas {n} · {hora(ahora)}. Sin señal no hay más mensajes: no es que esté caído.")
+                k, racha = aciertos(e)
+                if n >= VENTANA and p >= UMBRAL:
+                    S.avisar(f"YA LLEGÓ Y SIGUE [{avisos.ETIQUETA}] · aciertos {p} % ({k} de {n}; {racha} seguidos al final) · {hora(ahora)}. "
+                             "El aviso COMPRE o VENDA sale con la próxima señal: tenga la Mesa abierta.")
+                else:
+                    S.avisar(f"Vigía vivo [{avisos.ETIQUETA}] · aciertos {p} % ({k} de {n}) · {hora(ahora)}. Sin señal no hay más mensajes: no es que esté caído.")
                 guardar(e)
             t = int(ahora // PLAZO * PLAZO)
             if ahora - t >= 4 and e.get("rev") != t:

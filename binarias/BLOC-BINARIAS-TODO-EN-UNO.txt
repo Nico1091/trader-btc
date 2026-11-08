@@ -10,9 +10,21 @@ CÓMO SE USA ESTE BLOC
 - Para una sesión nueva basta decir: «Lee C:\Users\ni109\Desktop\BLOC BINARIAS - TODO EN UNO.txt y sigue desde ENCARGOS».
 
 
+AL FRENTE (07/11/2026, 19:45): COMPRAS DIAGNOSTICADAS · CENTRO DE CINCO ESTRATEGIAS · AVISO DE ACIERTOS CORREGIDO
+Estado: EN CURSO, FALTA QUE ÉL PASE USDT A LA BILLETERA DE PREDICCIÓN
+SIGUIENTE PASO: que él pase 5 USDT de Spot a su billetera de predicción en la app de Binance (Predicción, su saldo, Depositar o Transferir). Con eso la Mesa paga desde ahí (MPC) y se hace la compra de prueba de 1 USDT: desde spot Binance las rechaza todas.
+- Su pedido (07/11): implementar todo lo prometido, lograr comprar de verdad en Binance comprobándolo con poco, que el agente vea cuando ya hay más aciertos de los pedidos y un centro multiestrategia en tiempo real con las cinco en paralelo, sus indicadores y las variables más fuertes.
+- Compras: prueba autorizada por él, 19:30:06, 1 USDT a «Up» a 0,49 desde spot: FAILED en 20 ms, 0 comprado. Su toque de las 19:29:14 (2,31 USDT a 0,09) estuvo 56 s en PENDING y quedó EXPIRED, 0 comprado. Con la del 06/11 son tres de tres desde spot sin comprar; saldo intacto, 46,28 USDT. Cotizar desde spot con traslado da «-9000 The trading is temporarily paused»; las transferencias por API (outbound e inbound) dan -31002 con su llave. Cotizar desde la billetera de predicción pasa todo menos el saldo («Please ensure your account has enough USDT»: tiene 0,00). Conclusión: el pago desde spot por API está pausado en Binance; se paga desde la billetera de predicción. El precio de 0,05 no era la causa.
+- Mesa (19:40): paga desde la billetera de predicción (fuente AUTO, MPC); si ahí no alcanza no manda la orden y dice que pase USDT; si hay menos de lo pedido pero alcanza el mínimo, compra lo que hay. Muestra los dos saldos. Relee cada minuto las órdenes PENDING hasta que Binance las cierre. 51 pruebas sin fallos.
+- Aciertos: el vigía callaba al encender aunque ya estuviera en 75 % o más («al encender no avisa»). Ahora avisa al encender, dice «k de 25» y la racha, y el latido de cada hora repite «YA LLEGÓ Y SIGUE» mientras siga arriba. La Mesa dice ATENTO con los aciertos aunque el día no sume (sin botón: el SÍ sigue pidiendo que el día sume). En el teléfono desde las 19:39 (huella 09c1b308); la caja está fuera de la red y sigue con el viejo.
+- Centro de estrategias (mesa/centro.py y centro.html, http://127.0.0.1:8795/centro, enlace en la Mesa y botón «Centro de estrategias» del Escritorio): E1 ruptura de 20 velas al revés, E2 de 50 velas al revés, E3 Gemini 1 al revés, E4 Gemini 3 al revés y E5 rechazo en techo o piso azules, en papel y en paralelo, cada una con sus indicadores, qué mira ahora y a qué precio dispararía, porcentaje de las últimas 25 con sus 25 puntos, racha, fondo medido, Wilson y probabilidad de que la racha sea azar. Filtro del 82 % (21 de 25) mirado en cada vuelta: al quedar apta o dar señal estando apta, la ventana sale al frente. Variables: interés abierto que no sube, papel de hoy de cada una, caída fuerte de la hora. Paridad con c12 en 40 días: 1.155, 585, 109, 51 y 45 señales idénticas y papel idéntico (mesa/prueba_centro.py).
+- Líneas verdes: en la vista de E5, el nivel con tres toques exactos arriba y abajo (regla N3; se toma el extremo) y la verde de la mitad entre los dos. Solo para mirar, porque N3 no dio ventaja. Es una lectura de su pedido: si las quiere distinto, se corrigen.
+- A las 19:42: E1 19 de 25 (76 %), E2 64 %, E3 52 %, E4 44 %, E5 60 %. Ninguna apta.
+- Sin hacer: el filtro de Claude del prompt (la Mesa va sin IA por su orden del 04/11), el agente (sigue quitado) y la caja (apagada o fuera de la wifi).
+
 AL FRENTE (06/11/2026, 21:22): SU TELEGRAM LEÍDO · LA ORDEN REAL FALLÓ · MESA CORREGIDA · CAJA DE VUELTA · P21 Y P22
-Estado: EN CURSO, FALTA SU COMPRA DE PRUEBA
-SIGUIENTE PASO: que él haga una compra de prueba en la Mesa, con el PC encendido y a precio normal (entre 0,40 y 0,60). Si Binance la rechaza otra vez, falla el pago desde spot y toca pasar USDT a la cuenta de predicción desde la app. También abrir Termux en el teléfono y cargarlo.
+Estado: AL DÍA EN EL BLOQUE DE ARRIBA
+PASO DE ENTONCES: que él haga una compra de prueba en la Mesa, con el PC encendido y a precio normal (entre 0,40 y 0,60). Si Binance la rechaza otra vez, falla el pago desde spot y toca pasar USDT a la cuenta de predicción desde la app. También abrir Termux en el teléfono y cargarlo.
 - Su pedido: 38 mensajes por el bot Centro nocturno, 06/11, 16:43 a 17:13 (21 fotos: la guía, Gemini, Binance). Reclama que la ruptura a favor sí gana, pide probar las estrategias de Gemini, medir vectores de las líneas, línea verde con tres toques, línea verde a la mitad, cinco estrategias con filtro de Claude al 82 %, revivir la del 85 % o «105 %», arreglar las compras y conectar el agente.
 - Compras: su orden de las 12:39 (SUBE, 2,31 USDT a 0,05) nunca se ejecutó. Binance la dejó en FAILED a los 15 ms, con 0 comprado, y la Mesa dijo «Orden enviada». Saldo intacto: 46,28 USDT. Ese mercado cerró en BAJA, así que tampoco se perdió nada.
 - Causa sin probar, dos candidatas: el pago desde spot o el precio de 0,05 con orden FOK. Cotizar desde spot funciona; con fundTransferAmount da -9000 (cuatro de cuatro) y desde la billetera de predicción exige saldo. Binance no informa el motivo.
@@ -392,6 +404,15 @@ Lo que dicen los estudios de BTC y ETH
 
 6. ENCARGOS
 
+07/11/2026, 19:12 a 19:45. Pedido: implementar todo lo dicho del trading, lograr compras reales en Binance comprobándolas con poco, que el agente vea cuando los aciertos superan lo pedido y un centro multiestrategia en tiempo real.
+- [HECHO] Diagnóstico de compras con dos órdenes reales nuevas (una de prueba autorizada y una suya): desde spot Binance no compra; la Mesa ya paga desde la billetera de predicción.
+- [PENDIENTE DE ÉL] Pasar USDT de Spot a la billetera de predicción en la app; luego, compra de prueba de 1 USDT.
+- [HECHO] Aviso de aciertos al encender, «k de 25», racha y latido «YA LLEGÓ Y SIGUE»; la Mesa dice ATENTO con los aciertos.
+- [HECHO] Centro de cinco estrategias en papel en tiempo real, con paridad contra c12; G1 al revés (E3) ya en papel en vivo.
+- [HECHO] Las dos líneas verdes, como lectura de su pedido y solo para mirar.
+- [HECHO] arrancar.sh y vigía nuevo en el teléfono.
+- [PENDIENTE] Llevar quince.py nuevo a la caja cuando vuelva a la red.
+
 06/11/2026, 21:00-21:22. Pedido: leer lo que puso en el canal Centro nocturno y atenderlo.
 - [HECHO] Leídos los 38 mensajes y las 21 fotos.
 - [HECHO] Diagnóstico de la orden de las 12:39 y aviso real en la Mesa.
@@ -400,7 +421,7 @@ Lo que dicen los estudios de BTC y ETH
 - [HECHO] Prompt de cinco estrategias escrito.
 - [PENDIENTE DE ÉL] Compra de prueba a precio normal; abrir Termux en el teléfono y cargarlo.
 - [PENDIENTE DE ÉL] Decidir el agente, G1 al revés en papel y las dos líneas verdes; decir dónde vio el 85 % o el 105 %.
-- [PENDIENTE] Llevar arrancar.sh al teléfono cuando se conecte.
+- [HECHO 07/11, 19:39] Llevar arrancar.sh al teléfono.
 
 04/11/2026, 12:00 a 13:29. Pedido: continuar y consolidar lo de la madrugada; «quiero 5 líneas bien optimizadas para mis mínimos y máximos y la recta de la mitad»; «¿qué es ese tal pulso-btc?»; «caja conectada»; que el agente opere en la nube («creamos un nodo entre Binance, mi celular y el agente»).
 - [HECHO] Caja despierta y con arranque solo, probado con un reinicio; estado del teléfono pasado a la caja; aviso de relevo en el teléfono.
@@ -626,3 +647,4 @@ Abiertos de antes
 - 04/11/2026 19:40. Contexto y desarrollo guardados en Obsidian (Mesa de binarias y tablero), memoria, GitHub, USB, caja y teléfono.
 - 06/11/2026 20:25. Revisión de seguridad del teléfono: Termux no corre desde el 05/11 a las 16:11 (lo cerró OneKeyClean, la limpieza de recientes; otro cierre por poca memoria a las 17:39), así que el centinela y el vigía del teléfono están parados. La caja 192.168.20.45 no respondió al barrido de la red. Batería en 7 %. No se tocó ninguna apuesta.
 - 06/11/2026 21:22. Leído su Telegram. Orden de las 12:39 FAILED y Mesa corregida; caja de vuelta tras 2.987 min y arrancar.sh corregido; P21 y P22 medidas; prompt de cinco estrategias escrito. No se tocó ninguna apuesta.
+- 07/11/2026 19:45. Compras: tres de tres desde spot sin comprar (pausa de Binance) y la Mesa pasa a pagar desde la billetera de predicción. Centro de cinco estrategias en vivo, con paridad. Aviso de aciertos al encender. Teléfono al día; caja fuera de la red. Ninguna orden compró: saldo 46,28 USDT.

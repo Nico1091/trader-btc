@@ -23,6 +23,7 @@ sys.path.insert(0, AQUI)
 sys.path.insert(0, os.path.join(os.path.dirname(AQUI), "dispositivos"))
 import analista  # noqa: E402
 import borrador as Bo  # noqa: E402
+import centro as CE  # noqa: E402
 import conexion as C  # noqa: E402
 import graficas  # noqa: E402  (las mismas cinco líneas de la caja y de Pulso)
 import reglas as R  # noqa: E402
@@ -35,6 +36,7 @@ CONFIG = os.path.join(AQUI, "config.json")
 REGISTRO = os.path.join(Bo.DATOS, "mesa.log")
 REALES = os.path.join(Bo.DATOS, "reales.jsonl")
 ESTADOS_FALLIDOS = ("FAILED", "CANCELLED", "CANCELED", "EXPIRED", "REJECTED")
+ESTADOS_ABIERTOS = ("PENDING", "SIN CONFIRMAR", "OPENING", "NEW", "PROCESSING")
 INTENTOS_CONFIRMAR, PAUSA_CONFIRMAR = 6, 0.5
 FICHA = secrets.token_hex(24)
 ARRANQUE = int(time.time())  # si cambia, la ventana se recarga para traer la ficha nueva
@@ -65,9 +67,11 @@ class Motor:
         self.orden_cand = threading.Lock()
         self.velas, self.viva, self.lineas, self.mercado = [], None, None, None
         self.saldo, self.wallet, self.pct = 0.0, None, self.cfg["pct_defecto"]
+        self.saldo_spot = self.saldo_pred = 0.0
         self.est, self.analisis, self.nivel_prev = None, None, None
         self.error_red, self.t_velas, self.t_libro, self.t_cuenta, self.t_sembrado = None, 0.0, 0.0, 0.0, 0.0
         self.encima = False
+        self.centro = CE.Centro(C)  # las cinco estrategias en paralelo (07/11), en http://127.0.0.1:8795/centro
 
     # ------------------------------------------------------------ datos
     def _lineas(self):
@@ -104,11 +108,35 @@ class Motor:
         self.mercado = m
 
     def _refrescar_cuenta(self):
-        self.saldo = C.saldo_spot()
+        s = C.saldos()
+        self.saldo_spot, self.saldo_pred = s.get("SPOT", 0.0), s.get("CeDeFi", 0.0)
+        self.saldo = self.saldo_spot + self.saldo_pred  # el tope del 16 % va sobre todo lo que tiene
         self.wallet = C.billetera()
+        self._revisar_pendientes()
+
+    def _revisar_pendientes(self):
+        """Una orden que quedó PENDING o sin confirmar se relee cada minuto hasta que Binance la cierre (07/11: la de las 19:29 estuvo
+        56 s en PENDING y terminó EXPIRED, sin comprar nada)."""
+        filas = leer_reales()
+        abiertas = [f for f in filas if f.get("estado") in ESTADOS_ABIERTOS and time.time() - f.get("hora", 0) < 86400]
+        if not abiertas or not self.wallet:
+            return
+        cambio = False
+        for f in abiertas:
+            o = C.orden(self.wallet["walletAddress"], f.get("orden"))
+            if o and o.get("status") and o["status"] != f["estado"]:
+                f["estado"], f["comprado"] = o["status"], float(o.get("filledUsdtAmount") or 0)
+                log(f"orden {f.get('orden')}: quedó {f['estado']} con {f['comprado']} USDT comprados")
+                cambio = True
+        if cambio:
+            tmp = REALES + ".tmp"
+            with open(tmp, "w", encoding="utf-8") as fh:
+                for x in filas:
+                    fh.write(json.dumps(x) + chr(10))
+            os.replace(tmp, REALES)
 
     def evaluar(self, ahora=None):
-        return R.evaluar(self.bor.copia(), ahora or time.time(), self.mercado, self.cfg, bool(self.wallet), self.saldo, self.pct)
+        return R.evaluar(self.bor.copia(), ahora or time.time(), self.mercado, self.cfg, bool(self.wallet), self.saldo, self.pct, self.saldo_pred)
 
     # ------------------------------------------------------------ bucle
     def paso(self):
@@ -123,6 +151,7 @@ class Motor:
         if ahora - self.t_velas >= 2:
             self.t_velas = ahora
             self._refrescar_velas()
+            self._centro(ahora)
         if ahora - self.t_libro >= (2 if cerca else 5):
             self.t_libro = ahora
             self._refrescar_mercado(ahora)
@@ -138,8 +167,21 @@ class Motor:
         self.analisis = analista.leer(e, self.velas[-150:], self.lineas, ahora)
         self.error_red = None
 
+    def _centro(self, ahora):
+        """El centro mira en cada vuelta: si una estrategia queda apta (21 de 25) o da señal estando apta, la ventana sale al frente."""
+        try:
+            for tipo, k, op in self.centro.actualizar(self.velas, self.viva, ahora):
+                apta = any(e["id"] == k and e["apta"] for e in self.centro.foto.get("estrategias", []))
+                if tipo == "apta" or apta:
+                    log(f"centro: {k} {'quedó apta' if tipo == 'apta' else 'da señal ' + ('sube' if op['dir'] == 1 else 'baja') + ' estando apta'}")
+                    traer_al_frente()
+        except Exception as ex:
+            self.centro.error = f"{type(ex).__name__}: {str(ex)[:120]}"
+            log(f"centro: {self.centro.error}")
+
     def correr(self):
         log("mesa en marcha")
+        threading.Thread(target=self.centro.sembrar, daemon=True).start()
         while not os.path.exists(PARAR):
             try:
                 self.paso()
@@ -163,7 +205,7 @@ class Motor:
         return {"arranque": ARRANQUE, "ahora": ahora, "hora": dt.datetime.fromtimestamp(ahora, COL).strftime("%H:%M:%S"), "e": e, "velas": v, "viva": self.viva,
                 "lineas": self.lineas, "flechas": flechas, "error": self.error_red, "cfg": {k: self.cfg[k] for k in ("ask_max", "pct_tope", "ventana_toque")},
                 "mercado": {"t": m.get("t"), "strike": m.get("strike"), "ask": {"1": (m.get("ask") or {}).get(1), "-1": (m.get("ask") or {}).get(-1)}},
-                "saldo": self.saldo, "billetera": bool(self.wallet), "pct": self.pct,
+                "saldo": self.saldo, "saldo_spot": self.saldo_spot, "saldo_pred": self.saldo_pred, "billetera": bool(self.wallet), "pct": self.pct,
                 "puede": {str(k): self._puede(k) for k in (1, -1)},
                 "analisis": self.analisis, "encima": self.encima,
                 "ops": [{k: o.get(k) for k in ("t", "dir", "si", "ask5", "ask30", "ask60", "entra", "res", "neto", "semilla", "aviso", "fuente")} for o in ops[-40:]][::-1],
@@ -187,25 +229,29 @@ class Motor:
             usdt = R.importe(self.saldo, pct, cfg)
             if usdt is None:
                 return {"ok": False, "msg": "El saldo no alcanza con su tope del 16 %."}
+            fuente, usdt = R.fuente(cfg, usdt, self.saldo_pred)
+            if fuente is None:
+                return {"ok": False, "msg": (f"Binance no deja pagar desde spot (rechaza la orden al instante). Pase USDT a su billetera de predicción "
+                                             f"en la app de Binance; ahí tiene {self.saldo_pred:.2f}.").replace(".", ",", 1)}
             if any(r.get("t") == m["t"] and not rechazada(r) for r in leer_reales()):
                 return {"ok": False, "msg": "Ya tiene una orden en este mercado de 15 min."}
             e = self.evaluar()
             con_senal = bool(e["boton"] and e["sentido"] == sentido)
-            q = C.cotizar(w["walletAddress"], m["tokens"][sentido], usdt, cfg["deslizamiento_bps"], cfg["fuente_fondos"])
+            q = C.cotizar(w["walletAddress"], m["tokens"][sentido], usdt, cfg["deslizamiento_bps"], fuente)
             precio = float(q.get("averagePrice") or 0)
             if not precio or precio > cfg["precio_max_manual"]:
                 return {"ok": False, "msg": f"Cotización a {precio:.3f}: paga casi nada, no se envió."}
-            r = C.ordenar(w["walletAddress"], w["walletId"], q["quoteId"], cfg["deslizamiento_bps"], cfg["fuente_fondos"])
+            r = C.ordenar(w["walletAddress"], w["walletId"], q["quoteId"], cfg["deslizamiento_bps"], fuente)
             final = confirmar(w["walletAddress"], r.get("orderId"))
             comprado = float((final or {}).get("filledUsdtAmount") or 0)
             estado = (final or {}).get("status") or "SIN CONFIRMAR"
             fila = {"t": m["t"], "dir": sentido, "usdt": usdt, "precio": precio, "orden": r.get("orderId"), "topic": m["topic"], "hora": time.time(), "con_senal": con_senal,
-                    "estado": estado, "comprado": comprado}
+                    "estado": estado, "comprado": comprado, "fuente": fuente}
             with open(REALES, "a", encoding="utf-8") as f:
                 f.write(json.dumps(fila) + "\n")
             log(f"orden real por su toque: {'sube' if sentido == 1 else 'baja'} {usdt} USDT a {precio} · con señal: {con_senal} · estado: {estado} · comprado: {comprado}")
             if comprado > 0:
-                return {"ok": True, "msg": f"Comprada: {comprado:.2f} USDT a {precio:.3f}.".replace(".", ",")}
+                return {"ok": True, "msg": f"Comprada: {comprado:.2f} USDT a {precio:.3f}".replace(".", ",") + "."}
             if rechazada(fila):
                 return {"ok": False, "msg": f"Binance rechazó la orden ({estado}): no se compró nada y el saldo sigue igual."}
             return {"ok": False, "msg": "Binance recibió la orden pero no confirmó la compra. Revísela en la app antes de repetir."}
@@ -298,6 +344,11 @@ class Web(http.server.BaseHTTPRequestHandler):
                 return self._enviar(200, f.read().replace("__FICHA__", FICHA).encode("utf-8"), "text/html; charset=utf-8")
         if self.path == "/api/estado":
             return self._enviar(200, json.dumps(MOTOR.estado(), ensure_ascii=False).encode("utf-8"))
+        if self.path == "/centro":
+            with open(os.path.join(AQUI, "centro.html"), encoding="utf-8") as f:
+                return self._enviar(200, f.read().encode("utf-8"), "text/html; charset=utf-8")
+        if self.path == "/api/centro":
+            return self._enviar(200, json.dumps(MOTOR.centro.foto, ensure_ascii=False, default=str).replace("NaN", "null").encode("utf-8"))
         self._enviar(404, b"{}")
 
     def do_POST(self):

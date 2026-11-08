@@ -72,11 +72,12 @@ canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
 <main>
   <header>
     <span class="chip">BINARIA BTC · 15 MIN</span>
+    <a href="/centro" style="color:#3ddc97;font-weight:600;text-decoration:none;font-size:12.5px">Centro de estrategias →</a>
     <b id="precio">–</b>
     <span>Vence en <i id="vence">–</i></span>
     <span>Precio de inicio <i id="strike">–</i></span>
     <span>Va ganando <i id="gana">–</i></span>
-    <span>Saldo <i id="saldo">–</i> USDT</span>
+    <span>Saldo <i id="saldo">–</i> USDT <small id="saldos" style="color:#8b95a7"></small></span>
     <span><button class="chico on" id="bEst">Estocástico</button> <button class="chico" id="bRsi">RSI</button></span>
     <span id="hora"></span>
   </header>
@@ -185,7 +186,7 @@ function cabecera(){
   const gana=$("gana");if(v&&E.mercado.strike){const up=v[4]>=E.mercado.strike;gana.textContent=up?"SUBE ▲":"BAJA ▼";gana.className=up?"bien":"mal"}else gana.textContent="–";
   const paga=a=>a?`paga +${num(.98/a-1)} por cada 1 · precio ${num(a)}`:"sin precio";
   $("bcP").textContent=paga(E.mercado.ask["1"]);$("bvP").textContent=paga(E.mercado.ask["-1"]);
-  $("saldo").textContent=num(E.saldo);$("hora").textContent=E.hora;
+  $("saldo").textContent=num(E.saldo);$("saldos").textContent=E.saldo_pred!=null?`(predicción ${num(E.saldo_pred)} · spot ${num(E.saldo_spot)})`:"";$("hora").textContent=E.hora;
 }
 function estado(){
   const e=E.e,b=$("banda");

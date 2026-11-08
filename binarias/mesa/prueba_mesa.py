@@ -59,8 +59,14 @@ e = R.evaluar([], ahora, None)
 ver("sin operaciones de hoy: NO", e["nivel"] == "NO" and not e["dando"])
 e = R.evaluar(buenas + pos, ahora, mer)
 ver("borrador sumando sin señal: ATENTO", e["nivel"] == "ATENTO" and e["dando"])
+flojas = [op(hoy - 90000 + 900 * i, 1 if i % 2 else 0) for i in range(25)]
+e = R.evaluar(flojas + [op(ahora - 3000, 0, -1.0)], ahora, mer)
+ver("borrador perdiendo y aciertos flojos: NO", e["nivel"] == "NO" and not e["dando"])
 e = R.evaluar(buenas + [op(ahora - 3000, 0, -1.0)], ahora, mer)
-ver("borrador perdiendo: NO", e["nivel"] == "NO" and not e["dando"])
+ver("07/11 · día sin sumar pero 24 de 25 aciertos: ATENTO y lo dice", e["nivel"] == "ATENTO" and not e["dando"] and "24 de 25" in e["detalle"] and not e["boton"])
+ver("07/11 · racha y cumple25 en el resumen", e["resumen"]["racha"] == 0 and e["resumen"]["cumple25"] and R.resumen(buenas, ahora)["racha"] == 25)
+e = R.evaluar(buenas + [op(ahora - 3000, 0, -1.0), {**abierta, "si": False}], ahora, **K)
+ver("07/11 · señal sin SÍ con aciertos cumplidos: NO, sin botón, pero avisa los aciertos", e["nivel"] == "NO" and not e["boton"] and "ya cumple" in e["detalle"])
 ver("un SÍ perdió hoy: NO aunque sume", R.evaluar(buenas + pos * 3 + [op(ahora - 2000, 0, -1.0, si=True)], ahora, mer)["nivel"] == "NO")
 e = R.evaluar(buenas + pos + [abierta], ahora, **K)
 ver("todo cumplido y sube: COMPRE con botón", e["nivel"] == "COMPRE" and e["boton"])
@@ -98,6 +104,8 @@ tmp = tempfile.mkdtemp()
 M.REALES = os.path.join(tmp, "r.jsonl")
 Bo.ARCHIVO = os.path.join(tmp, "b.json")
 C.saldo_spot = lambda: 46.28
+saldo_pred = [46.28]
+C.saldos = lambda: {"SPOT": 46.28 - saldo_pred[0], "CeDeFi": saldo_pred[0], "FUNDING": 0.0}
 billetera = [{"walletAddress": "0xabc", "walletId": "w"}]
 C.billetera = lambda: billetera[0]
 C.mercado_15m = lambda t: {"t": t, "topic": 9, "tokens": {1: "U", -1: "D"}, "abierto": True}
@@ -134,6 +142,7 @@ ver("precio 0,95: no se envía", not mo.ordenar(1, 5)["ok"] and not llamadas)
 ask[0] = 0.51
 r = mo.ordenar(-1, 5)
 ver("vender sin señal: se puede cuando él quiera", r["ok"] and [x[0] for x in llamadas] == ["cotizar", "ordenar"] and llamadas[0][1][1] == "D")
+ver("07/11 · paga desde la billetera de predicción (MPC), no desde spot", llamadas[0][1][4] == "MPC" and llamadas[1][1][4] == "MPC" and M.leer_reales()[-1]["fuente"] == "MPC")
 ver("queda anotada como sin señal", M.leer_reales()[-1]["con_senal"] is False)
 ver("el importe respeta el 5 %", M.leer_reales()[-1]["usdt"] == 2.31)
 r = mo.ordenar(1, 5)
@@ -145,6 +154,20 @@ open(M.REALES, "w").close()
 precio_cot[0], n = 0.95, len(llamadas)
 r = mo.ordenar(1, 5)
 ver("cotización cara: cotiza pero no ordena", not r["ok"] and [x[0] for x in llamadas[n:]] == ["cotizar"])
+
+# 4a) 07/11: sin USDT en la billetera de predicción no se manda una orden que Binance rechazaría
+open(M.REALES, "w").close()
+precio_cot[0] = 0.51
+saldo_pred[0], n = 0.0, len(llamadas)
+r = mo.ordenar(1, 5)
+ver("07/11 · billetera de predicción vacía: avisa que pase USDT y no toca Binance", not r["ok"] and "billetera de predicción" in r["msg"] and len(llamadas) == n)
+saldo_pred[0] = 2.05
+r = mo.ordenar(1, 5)
+ver("07/11 · hay 2,05 y pide 2,31: compra lo que hay", r["ok"] and M.leer_reales()[-1]["usdt"] == 2.05)
+open(M.REALES, "w").close()
+saldo_pred[0] = 46.28
+e = R.evaluar(mo.bor.copia(), ah, {"ask": {1: 0.51}}, R.CFG, True, 46.28, 5, 0.0)
+ver("07/11 · señal completa sin USDT en predicción: ESPERE y lo dice", e["nivel"] == "ESPERE" and any("billetera de predicción" in f for f in e["faltan"]))
 
 # 4b) la Mesa solo dice «comprada» si Binance lo confirma (caso real del 06/11: orden FAILED anunciada como enviada)
 precio_cot[0] = 0.51
@@ -163,6 +186,9 @@ r = mo.ordenar(1, 5)
 ver("sin confirmación: no dice comprada y pide revisar", not r["ok"] and "no confirmó" in r["msg"])
 r = mo.ordenar(1, 5)
 ver("sin confirmación: no deja repetir a ciegas", not r["ok"] and "Ya tiene" in r["msg"])
+orden_binance[0] = {"status": "EXPIRED", "filledUsdtAmount": "0"}
+mo._refrescar_cuenta()
+ver("07/11 · la orden sin confirmar se relee: queda EXPIRED y libera el mercado", M.leer_reales()[-1]["estado"] == "EXPIRED" and M.rechazada(M.leer_reales()[-1]))
 open(M.REALES, "w").close()
 
 # 5) una operación completa del borrador, de la señal al cierre oficial, con el reloj simulado

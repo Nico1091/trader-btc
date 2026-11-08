@@ -168,11 +168,14 @@ def billetera():
     return w[0] if w else None
 
 
+def saldos():
+    """Saldo disponible por cuenta: SPOT, FUNDING y CeDeFi (la billetera de predicción, MPC)."""
+    return {i.get("accountType"): float(str(i.get("availableBalanceDisplay") or 0).replace(",", ""))
+            for i in _firmado("GET", PRED + "/balance/payment-options").get("items", [])}
+
+
 def saldo_spot():
-    for i in _firmado("GET", PRED + "/balance/payment-options").get("items", []):
-        if i.get("accountType") == "SPOT":
-            return float(str(i.get("availableBalanceDisplay") or 0).replace(",", ""))
-    return 0.0
+    return saldos().get("SPOT", 0.0)
 
 
 def posiciones(direccion):

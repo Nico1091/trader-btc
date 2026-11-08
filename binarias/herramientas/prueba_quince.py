@@ -48,7 +48,17 @@ ver("bajar del 75 %: voz de no opere", sal and sal[-1][1] == "bajo.mp3")
 e = serie(19)
 sal.clear()
 Q.alertas(e)
-ver("al encender no avisa", not sal and e["nivel"] == 2)
+ver("al encender ya arriba (19 de 25): avisa YA LLEGÓ", bool(sal) and sal[-1][1] == "listo.mp3" and "19 de 25" in sal[-1][2] and e["nivel"] == 2)
+sal.clear()
+Q.alertas(e)
+ver("sigue arriba: no repite en cada vuelta", not sal)
+for k, archivo in ((22, "listo.mp3"), (18, "aproximando.mp3"), (10, None)):
+    e = serie(k)
+    sal.clear()
+    Q.alertas(e)
+    ver(f"al encender con {k} de 25: {archivo or 'callado'}", (bool(sal) and sal[-1][1] == archivo and f"{k} de 25" in sal[-1][2]) if archivo else not sal)
+e = {"ops": [{"t": i, "dir": 1, "res": 0 if i < 20 else 1} for i in range(25)]}
+ver("racha: 5 aciertos, los 5 seguidos al final", Q.aciertos(e) == (5, 5))
 print("velas y líneas reales…")
 e = {"ops": []}
 n = Q.sembrar(e)

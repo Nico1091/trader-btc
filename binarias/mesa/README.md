@@ -17,6 +17,8 @@ En el PC, carpeta `mesa/`, puerto 127.0.0.1:8795:
 - `mesa.html`: pantalla. Borrador a la izquierda, velas con cinco líneas, flechas, etiqueta COMPRA o VENDE, marcas + y − de tres velas, estocástico, RSI y botones.
 - `abrir_mesa.pyw`: abre Chrome. Edge no sirve porque su blindaje lo redirige al Buscador.
 - `prueba_mesa.py`: pruebas con Binance simulada.
+- `centro.py` y `centro.html`: Centro de estrategias (07/11), en /centro. Las cinco de PROMPT-CINCO-ESTRATEGIAS.md en papel y en paralelo, con sus indicadores, sus aciertos de las últimas 25 y las variables que pasaron las pruebas. No compra.
+- `prueba_centro.py`: paridad del centro con `cuant/c12_estudio_06nov.py` (señales y papel idénticos en 40 días) y prueba de las líneas verdes.
 
 En la caja T95H y el teléfono, carpeta `dispositivos/`, 24/7 y con arranque por Termux:Boot:
 - `quince.py`, hilo de `avisos.py`: papel por velas, porcentaje de aciertos, voz, fotos de líneas, latido y aviso de detenciones. En el teléfono, página de lectura en 127.0.0.1:8796.
@@ -45,6 +47,12 @@ Primera orden real (06/11, 12:39, 2,31 USDT a 0,05): Binance la dejó en FAILED 
 
 Sin probar: una orden que Binance ejecute de verdad y el cobro (`batch-redeem`). Siguen en 0 las operaciones del borrador con precio real.
 
+## Estado al 07/11/2026, 19:45
+
+- Compras: desde spot Binance no compra (tres de tres: FAILED o EXPIRED, 0 comprado, saldo intacto). El traslado automático da «trading temporarily paused» y las transferencias por API, -31002. La Mesa paga ahora desde la billetera de predicción (MPC) y no envía la orden si ahí no hay saldo. Falta pasar USDT de Spot a esa billetera en la app de Binance.
+- Aciertos: el vigía avisa también al encender si ya está en 75 % o más, y repite cada hora mientras siga arriba.
+- Centro de estrategias en marcha; botón «Centro de estrategias» en el Escritorio (`abrir_mesa.pyw centro`).
+
 ## Trampas
 
 - Lo que hizo «detenerse» a los equipos: el teléfono se apagó por batería (`getprop sys.boot.reason`) y el resto fue silencio sin señales.
@@ -54,3 +62,5 @@ Sin probar: una orden que Binance ejecute de verdad y el cobro (`batch-redeem`).
 - Firma: `urlencode` con `quote`, no con `quote_plus`.
 - `lectura.txt` trae el secreto primero; `conexion.py` distingue por la etiqueta.
 - Parar la Mesa: crear `PARAR` en esta carpeta.
+- Pagar desde spot (`fundingSource=CEX`) no compra: Binance acepta la orden y la cierra FAILED o EXPIRED. Se paga desde la billetera de predicción (`MPC`), que se ve como `CeDeFi` en `payment-options`.
+- En un guion de Bash incrustado, `"\n"` dentro del código Python se vuelve un salto real: usar `chr(10)` o un .py aparte.
