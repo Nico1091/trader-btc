@@ -11,8 +11,8 @@ CÓMO SE USA ESTE BLOC
 
 
 AL FRENTE (07/11/2026, 19:45): COMPRAS DIAGNOSTICADAS · CENTRO DE CINCO ESTRATEGIAS · AVISO DE ACIERTOS CORREGIDO
-Estado: EN CURSO, FALTA QUE ÉL PASE USDT A LA BILLETERA DE PREDICCIÓN
-SIGUIENTE PASO: que él pase 5 USDT de Spot a su billetera de predicción en la app de Binance (Predicción, su saldo, Depositar o Transferir). Con eso la Mesa paga desde ahí (MPC) y se hace la compra de prueba de 1 USDT: desde spot Binance las rechaza todas.
+Estado: COMPRAS REALES EN ESPERA POR SU ORDEN (07/11, 19:46); LO DEMÁS CORRE SOLO
+SIGUIENTE PASO: las compras reales quedan en espera por su orden del 07/11 a las 19:46 («espera lo de las compras reales por ahora»): no recordarle fondear la billetera de predicción hasta que él lo retome. Mientras, las cinco estrategias se miden solas en el Centro de estrategias; cuando la caja vuelva a la red, llevarle el quince.py nuevo.
 - Su pedido (07/11): implementar todo lo prometido, lograr comprar de verdad en Binance comprobándolo con poco, que el agente vea cuando ya hay más aciertos de los pedidos y un centro multiestrategia en tiempo real con las cinco en paralelo, sus indicadores y las variables más fuertes.
 - Compras: prueba autorizada por él, 19:30:06, 1 USDT a «Up» a 0,49 desde spot: FAILED en 20 ms, 0 comprado. Su toque de las 19:29:14 (2,31 USDT a 0,09) estuvo 56 s en PENDING y quedó EXPIRED, 0 comprado. Con la del 06/11 son tres de tres desde spot sin comprar; saldo intacto, 46,28 USDT. Cotizar desde spot con traslado da «-9000 The trading is temporarily paused»; las transferencias por API (outbound e inbound) dan -31002 con su llave. Cotizar desde la billetera de predicción pasa todo menos el saldo («Please ensure your account has enough USDT»: tiene 0,00). Conclusión: el pago desde spot por API está pausado en Binance; se paga desde la billetera de predicción. El precio de 0,05 no era la causa.
 - Mesa (19:40): paga desde la billetera de predicción (fuente AUTO, MPC); si ahí no alcanza no manda la orden y dice que pase USDT; si hay menos de lo pedido pero alcanza el mínimo, compra lo que hay. Muestra los dos saldos. Relee cada minuto las órdenes PENDING hasta que Binance las cierre. 51 pruebas sin fallos.
@@ -406,7 +406,7 @@ Lo que dicen los estudios de BTC y ETH
 
 07/11/2026, 19:12 a 19:45. Pedido: implementar todo lo dicho del trading, lograr compras reales en Binance comprobándolas con poco, que el agente vea cuando los aciertos superan lo pedido y un centro multiestrategia en tiempo real.
 - [HECHO] Diagnóstico de compras con dos órdenes reales nuevas (una de prueba autorizada y una suya): desde spot Binance no compra; la Mesa ya paga desde la billetera de predicción.
-- [PENDIENTE DE ÉL] Pasar USDT de Spot a la billetera de predicción en la app; luego, compra de prueba de 1 USDT.
+- [EN ESPERA, SU ORDEN 07/11 19:46] Pasar USDT de Spot a la billetera de predicción en la app y hacer la compra de prueba de 1 USDT. No se recuerda hasta que él lo retome.
 - [HECHO] Aviso de aciertos al encender, «k de 25», racha y latido «YA LLEGÓ Y SIGUE»; la Mesa dice ATENTO con los aciertos.
 - [HECHO] Centro de cinco estrategias en papel en tiempo real, con paridad contra c12; G1 al revés (E3) ya en papel en vivo.
 - [HECHO] Las dos líneas verdes, como lectura de su pedido y solo para mirar.
@@ -648,3 +648,4 @@ Abiertos de antes
 - 06/11/2026 20:25. Revisión de seguridad del teléfono: Termux no corre desde el 05/11 a las 16:11 (lo cerró OneKeyClean, la limpieza de recientes; otro cierre por poca memoria a las 17:39), así que el centinela y el vigía del teléfono están parados. La caja 192.168.20.45 no respondió al barrido de la red. Batería en 7 %. No se tocó ninguna apuesta.
 - 06/11/2026 21:22. Leído su Telegram. Orden de las 12:39 FAILED y Mesa corregida; caja de vuelta tras 2.987 min y arrancar.sh corregido; P21 y P22 medidas; prompt de cinco estrategias escrito. No se tocó ninguna apuesta.
 - 07/11/2026 19:45. Compras: tres de tres desde spot sin comprar (pausa de Binance) y la Mesa pasa a pagar desde la billetera de predicción. Centro de cinco estrategias en vivo, con paridad. Aviso de aciertos al encender. Teléfono al día; caja fuera de la red. Ninguna orden compró: saldo 46,28 USDT.
+- 07/11/2026 19:46. Su orden: «espera lo de las compras reales por ahora». Compras en espera; queda anotado lo hecho y lo que falta en el bloc, la memoria y la bóveda (Mesa de binarias y sesión del 07/11).
