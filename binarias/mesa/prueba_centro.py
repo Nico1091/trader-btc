@@ -218,6 +218,55 @@ ver("Wilson de 55 de 100 entre 45 y 55", 45 < CE.wilson(55, 100) < 55)
 foto = ce._foto(None, v1[-1][0] + 120)
 ver("la foto trae las cinco con indicadores y qué hace", foto["listo"] and len(foto["estrategias"]) == 5 and all(e["que_hace"] for e in foto["estrategias"]))
 ver("la gráfica trae 97 velas, canales, bandas y líneas", len(foto["grafica"]["velas"]) >= 96 and foto["grafica"]["boll"] and foto["grafica"]["lineas"])
+# ---------------------------------------------------------------- avisos a la pantalla y a Telegram (07/11)
+enviados = []
+ce.notificar = lambda aviso, al_enviar=None: (enviados.append(aviso), al_enviar and al_enviar(555))
+
+
+def est(k25, apta=False):
+    return {"id": "E1", "n25": 25, "k25": k25, "apta": apta, "pct25": round(4 * k25), "racha": 3, "largo": 54.6, "azar": 0.023}
+
+
+ce.niveles, ce.avisos = {}, []
+ce.foto = {"estrategias": [est(19)], "precio": 75000.0}
+ce._niveles()
+ver("al encender con 19 de 25: avisa YA LLEGÓ A LO PEDIDO", enviados and "YA LLEGÓ" in enviados[-1]["texto"] and "19 de 25" in enviados[-1]["texto"])
+n = len(enviados)
+ce._niveles()
+ver("mismo nivel: no repite", len(enviados) == n)
+ce.foto = {"estrategias": [est(21, True)]}
+ce._niveles()
+ver("21 de 25: QUEDÓ APTA, con la probabilidad de azar en texto", "QUEDÓ APTA" in enviados[-1]["texto"] and "1 de cada 43 tandas" in enviados[-1]["texto"])
+ce.foto = {"estrategias": [est(17)]}
+ce._niveles()
+ver("17 de 25: BAJÓ de 75 %", "BAJÓ" in enviados[-1]["texto"])
+ce.niveles, n = {}, len(enviados)
+ce._niveles()
+ver("al encender con 17 de 25: callado", len(enviados) == n and ce.niveles["E1"] == 0)
+ce.foto = {"estrategias": [], "precio": 75950.0}
+op = {"t": (v1[-1][0] // 900) * 900, "dir": -1, "base": None, "res": None, "si": False, "doi": 0.001}
+ce._avisar_senal("E3", op)
+t = enviados[-1]["texto"]
+ver("señal: sentido, precio, vencimiento y motivo del NO", "▼ BAJA" in t and "75.950" in t and "vence" in t and "el interés abierto subió" in t and "Coincide con un mercado" in t)
+ver("la señal guarda el número del mensaje para el resultado", op.get("tg") == 555 and op.get("tg_txt") == t)
+op.update(res=1, base=75950.0, salida=75900.0)
+ce._avisar_resultado("E3", op)
+ver("resultado: corrige el mismo mensaje y dice ACIERTO", enviados[-1]["editar"] == 555 and enviados[-1]["texto"].startswith(t + "\n→ ACIERTO"))
+ver("la franja en vivo guarda los avisos", len(ce.avisos) >= 5 and ce.avisos[-1]["tipo"] == "resultado")
+import avisos_centro as AV  # noqa: E402
+registro, hechos = [], []
+nt = AV.Notificador(registro.append)
+nt._telegram = lambda texto, editar=None: (hechos.append(("tg", editar)), 777)[1]
+nt._windows = lambda titulo, texto: hechos.append(("win", titulo))
+ids = []
+nt.avisar({"titulo": "Centro · E1", "corto": "E1 ▲ SUBE", "texto": "largo"}, ids.append)
+nt.avisar({"titulo": "Centro · E1", "corto": "E1 acertó", "texto": "largo 2", "editar": 777})
+for _ in range(50):
+    if len(hechos) >= 4:
+        break
+    time.sleep(0.05)
+ver("notificador: Windows y Telegram, y el número vuelve al centro", hechos == [("win", "Centro · E1"), ("tg", None), ("win", "Centro · E1"), ("tg", 777)] and ids == [777])
+
 sint = []
 for i in range(150):
     alto = 100.5 if i in (20, 60, 100) else 99.9

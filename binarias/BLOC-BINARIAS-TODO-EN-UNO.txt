@@ -20,6 +20,7 @@ SIGUIENTE PASO: las compras reales quedan en espera por su orden del 07/11 a las
 - Centro de estrategias (mesa/centro.py y centro.html, http://127.0.0.1:8795/centro, enlace en la Mesa y botón «Centro de estrategias» del Escritorio): E1 ruptura de 20 velas al revés, E2 de 50 velas al revés, E3 Gemini 1 al revés, E4 Gemini 3 al revés y E5 rechazo en techo o piso azules, en papel y en paralelo, cada una con sus indicadores, qué mira ahora y a qué precio dispararía, porcentaje de las últimas 25 con sus 25 puntos, racha, fondo medido, Wilson y probabilidad de que la racha sea azar. Filtro del 82 % (21 de 25) mirado en cada vuelta: al quedar apta o dar señal estando apta, la ventana sale al frente. Variables: interés abierto que no sube, papel de hoy de cada una, caída fuerte de la hora. Paridad con c12 en 40 días: 1.155, 585, 109, 51 y 45 señales idénticas y papel idéntico (mesa/prueba_centro.py).
 - Líneas verdes: en la vista de E5, el nivel con tres toques exactos arriba y abajo (regla N3; se toma el extremo) y la verde de la mitad entre los dos. Solo para mirar, porque N3 no dio ventaja. Es una lectura de su pedido: si las quiere distinto, se corrigen.
 - A las 19:42: E1 19 de 25 (76 %), E2 64 %, E3 52 %, E4 44 %, E5 60 %. Ninguna apta.
+- 20:02: Avisos del Centro en vivo: en el PC salen en la pantalla (notificación de Windows y franja de la Mesa y del Centro); a Telegram los manda el teléfono, que corre 24/7, para no repetirlos. Cada señal de las cinco, su resultado sobre el mismo mensaje y cuando una llega a 75 %, queda apta (82 %) o baja; si al encender ya está arriba, avisa una vez. La Mesa muestra las cinco bajo la gráfica. El Centro quedó instalado en el teléfono (centro_tel.py, página 127.0.0.1:8797, arranque con arrancar.sh y Termux:Boot), sin botones ni llave. arrancar.sh ya no duplica procesos (los de Termux y los de ADB viven en contextos distintos; ahora busca los bucles por su línea de comando y cada bucle solo lanza si no hay copia).
 - Sin hacer: el filtro de Claude del prompt (la Mesa va sin IA por su orden del 04/11), el agente (sigue quitado) y la caja (apagada o fuera de la wifi).
 
 AL FRENTE (06/11/2026, 21:22): SU TELEGRAM LEÍDO · LA ORDEN REAL FALLÓ · MESA CORREGIDA · CAJA DE VUELTA · P21 Y P22
@@ -404,6 +405,14 @@ Lo que dicen los estudios de BTC y ETH
 
 6. ENCARGOS
 
+07/11/2026, 19:50 a 20:02. Pedido: «que todos esos avisos múltiples se muestren en vivo en la pantalla y en mi Telegram», «que se vean las 4 operaciones en el programa de mesa binarias» y que el programa quede instalado también en su celular.
+- [HECHO] Avisos del Centro a la pantalla del PC y a Telegram (desde el teléfono), con resultado sobre el mismo mensaje.
+- [HECHO] Las cinco estrategias en la Mesa, bajo la gráfica, con sus avisos en vivo.
+- [HECHO] Centro instalado en el teléfono, con arranque solo; primer aviso real a Telegram a las 19:56 (E1 llegó a lo pedido, 19 de 25).
+- [HECHO] arrancar.sh sin duplicados en el teléfono.
+- [PENDIENTE] La Mesa con botones en el teléfono: exigiría llevar la llave de operar, que por su decisión del 04/11 no sale del PC; además las compras están en espera.
+- [PENDIENTE] Llevar a la caja quince.py y arrancar.sh nuevos cuando vuelva a la red.
+
 07/11/2026, 19:12 a 19:45. Pedido: implementar todo lo dicho del trading, lograr compras reales en Binance comprobándolas con poco, que el agente vea cuando los aciertos superan lo pedido y un centro multiestrategia en tiempo real.
 - [HECHO] Diagnóstico de compras con dos órdenes reales nuevas (una de prueba autorizada y una suya): desde spot Binance no compra; la Mesa ya paga desde la billetera de predicción.
 - [EN ESPERA, SU ORDEN 07/11 19:46] Pasar USDT de Spot a la billetera de predicción en la app y hacer la compra de prueba de 1 USDT. No se recuerda hasta que él lo retome.
@@ -649,3 +658,4 @@ Abiertos de antes
 - 06/11/2026 21:22. Leído su Telegram. Orden de las 12:39 FAILED y Mesa corregida; caja de vuelta tras 2.987 min y arrancar.sh corregido; P21 y P22 medidas; prompt de cinco estrategias escrito. No se tocó ninguna apuesta.
 - 07/11/2026 19:45. Compras: tres de tres desde spot sin comprar (pausa de Binance) y la Mesa pasa a pagar desde la billetera de predicción. Centro de cinco estrategias en vivo, con paridad. Aviso de aciertos al encender. Teléfono al día; caja fuera de la red. Ninguna orden compró: saldo 46,28 USDT.
 - 07/11/2026 19:46. Su orden: «espera lo de las compras reales por ahora». Compras en espera; queda anotado lo hecho y lo que falta en el bloc, la memoria y la bóveda (Mesa de binarias y sesión del 07/11).
+- 07/11/2026 20:02. Avisos del Centro en pantalla y Telegram; las cinco en la Mesa; Centro instalado en el teléfono; arrancar.sh sin duplicados.

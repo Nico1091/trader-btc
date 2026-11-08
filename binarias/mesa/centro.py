@@ -44,6 +44,7 @@ ESTRATEGIAS = (
      "nota": "sus cinco líneas; no pasó P21, solo se mide"},
 )
 IDS = tuple(e["id"] for e in ESTRATEGIAS)
+ESTRATEGIA = {e["id"]: e for e in ESTRATEGIAS}
 
 
 # ---------------------------------------------------------------- cálculo puro (lo que compara prueba_centro.py)
@@ -266,19 +267,24 @@ class Centro:
         self.listo, self.error, self.foto = False, None, {"listo": False}
         self.doi, self.t_doi = None, 0.0
         self.aptas_prev = set()
+        self.niveles = {}            # 0 debajo de 75 %, 1 con 75 % o más (lo pedido), 2 apta (82 %); se guarda para no repetir avisos
+        self.avisos = []             # los últimos avisos, para la franja en vivo de la Mesa y del Centro
+        self.notificar = None        # avisos_centro.Notificador.avisar, lo pone la Mesa
+        self.cada_foto, self.t_foto = 0, 0.0   # en el teléfono la foto se rehace cada 10 s, no en cada vuelta
         os.makedirs(DATOS, exist_ok=True)
         try:
             with open(ARCHIVO, encoding="utf-8") as f:
                 d = json.load(f)
             self.ops = {k: d["ops"].get(k, []) for k in IDS}
             self.ultimo5 = int(d.get("ultimo5", 0))
+            self.niveles = d.get("niveles", {})
         except (OSError, ValueError, KeyError):
             pass
 
     def _guardar(self):
         tmp = ARCHIVO + ".tmp"
         with open(tmp, "w", encoding="utf-8") as f:
-            json.dump({"ops": {k: v[-2000:] for k, v in self.ops.items()}, "ultimo5": self.ultimo5}, f, ensure_ascii=False)
+            json.dump({"ops": {k: v[-2000:] for k, v in self.ops.items()}, "ultimo5": self.ultimo5, "niveles": self.niveles}, f, ensure_ascii=False)
         os.replace(tmp, ARCHIVO)
 
     def sembrar(self):
@@ -289,7 +295,9 @@ class Centro:
                 self.v1 = [tuple(x[:5]) for x in v]
                 self.cierre = {x[0]: x[4] for x in self.v1}
                 n = self._procesar(time.time(), sembrando=True)
-                self._calificar()
+                for k, op in self._calificar():  # señales vivas que cerraron mientras la Mesa estaba apagada
+                    if not op.get("semilla"):
+                        self._avisar_resultado(k, op)
                 self._guardar()
                 self.listo = True
             return n
@@ -331,6 +339,7 @@ class Centro:
         return not u or T >= u[-1]["t"] + 60 + PLAZO
 
     def _calificar(self):
+        cerradas = []
         for k in IDS:
             for o in self.ops[k]:
                 if o["res"] is not None:
@@ -341,10 +350,13 @@ class Centro:
                 if o["base"] is not None and b is not None:
                     m = (b - o["base"]) * o["dir"]
                     o["res"] = 1 if m > 0 else 0  # empate = fallo, como gana_tarde
+                    o["salida"] = b
+                    cerradas.append((k, o))
                 elif o["base"] is None and self.v1 and self.v1[-1][0] > o["t"] + 3 * PLAZO:
                     o["res"] = "hueco"  # sin vela de entrada: no se inventa
         for k in IDS:
             self.ops[k] = [o for o in self.ops[k] if o["res"] != "hueco"]
+        return cerradas
 
     # ------------------------------------------------------------ por cada vuelta de la Mesa
     def actualizar(self, cerradas, viva, ahora=None):
@@ -365,17 +377,122 @@ class Centro:
                     self.v1 = [x for x in self.v1 if x[0] >= corte]
                     self.cierre = {x[0]: x[4] for x in self.v1}
                 abiertas = self._procesar(ahora)
-                self._calificar()
+                cerradas = self._calificar()
                 for k, op in abiertas:
                     self._marcar_si(k, op, ahora)
                     eventos.append(("señal", k, op))
+                for k, op in cerradas:
+                    if not op.get("semilla"):
+                        self._avisar_resultado(k, op)
                 self._guardar()
+            if not eventos and ahora - self.t_foto < self.cada_foto:
+                return eventos
+            self.t_foto = ahora
             self.foto = self._foto(viva, ahora)
+            for k, op in [(k, op) for tipo, k, op in eventos if tipo == "señal"]:
+                self._avisar_senal(k, op)
             aptas = {e["id"] for e in self.foto["estrategias"] if e["apta"]}
             for k in aptas - self.aptas_prev:
                 eventos.append(("apta", k, None))
             self.aptas_prev = aptas
+            if self._niveles():
+                self._guardar()
+            self.foto["avisos"] = self.avisos[-40:][::-1]
         return eventos
+
+    # ------------------------------------------------------------ avisos (pantalla y Telegram)
+    def _est(self, k):
+        return next((e for e in self.foto.get("estrategias", []) if e["id"] == k), None)
+
+    def _aviso(self, k, tipo, corto, largo, color, op=None, editar=None):
+        """Lo pone en la franja en vivo y, si la Mesa conectó el notificador, en Windows y en Telegram."""
+        self.avisos.append({"t": time.time(), "id": k, "tipo": tipo, "texto": corto, "color": color})
+        self.avisos = self.avisos[-60:]
+        if self.notificar:
+            def guardar_id(mid, op=op, largo=largo):
+                if op is not None:
+                    op["tg"], op["tg_txt"] = mid, largo
+            self.notificar({"titulo": f"Centro de estrategias · {k}", "corto": corto, "texto": largo, "editar": editar}, guardar_id)
+
+    def _avisar_senal(self, k, op):
+        e = ESTRATEGIA[k]
+        f = lambda x: f"{x:,.0f}".replace(",", ".")  # noqa: E731
+        sent = "▲ SUBE" if op["dir"] == 1 else "▼ BAJA"
+        precio = self.foto.get("precio") or self.cierre.get(self.v1[-1][0])
+        r = self._resumen(k, op["t"])
+        pct = round(100 * r["k25"] / r["n25"]) if r["n25"] else 0
+        if op.get("si"):
+            regla = "SÍ por su regla: su papel de hoy suma y el interés abierto no sube."
+        else:
+            motivos = []
+            if r["perdio"]:
+                motivos.append("un SÍ ya perdió hoy")
+            elif r["neto_hoy"] <= 0:
+                motivos.append(f"su papel de hoy va {r['neto_hoy']:+.2f}".replace(".", ","))
+            if op.get("doi") is None:
+                motivos.append("sin dato del interés abierto")
+            elif op["doi"] > UMBRAL_OI:
+                motivos.append("el interés abierto subió")
+            regla = "NO por su regla: " + (" y ".join(motivos) or "no cumple") + "."
+        apta = r["n25"] >= VENTANA and r["k25"] >= FILTRO
+        largo = "\n".join(x for x in (
+            ("APTA (82 %) · " if apta else "") + f"{k} · {e['nombre']}",
+            f"{sent} · BTC en {f(precio)} · entra {hora(op['t'] + 60)} · vence {hora(op['t'] + 60 + PLAZO)}",
+            f"Últimas 25: {r['k25']} de {r['n25']} ({pct} %) · racha {r['racha']} · fondo {e['largo']:.1f} %".replace(".", ",") + (" · APTA" if apta else ""),
+            regla,
+            "Coincide con un mercado de 15 min de la Mesa." if op["t"] % 900 == 0 else "",
+            "Papel: el Centro no compra.") if x)
+        corto = f"{k} {sent} a las {hora(op['t'])} · {r['k25']} de {r['n25']} · {'SÍ' if op.get('si') else 'NO'} por su regla"
+        self._aviso(k, "señal", corto, largo, "sube" if op["dir"] == 1 else "baja", op=op)
+
+    def _avisar_resultado(self, k, op):
+        f = lambda x: f"{x:,.0f}".replace(",", ".")  # noqa: E731
+        bien = op["res"] == 1
+        r = self._resumen(k, op["t"] + 60 + PLAZO + 1)
+        pct = round(100 * r["k25"] / r["n25"]) if r["n25"] else 0
+        fin = (f"→ {'ACIERTO' if bien else 'FALLO'}: entró en {f(op['base'])} y cerró en {f(op['salida'])}. "
+               f"Quedan {r['k25']} de {r['n25']} ({pct} %), racha {r['racha']}.")
+        corto = f"{k} {'acertó' if bien else 'falló'} la de las {hora(op['t'])} · {r['k25']} de {r['n25']} ({pct} %)"
+        base = op.get("tg_txt")
+        largo = (base + "\n" + fin) if base else (f"{k} · {ESTRATEGIA[k]['nombre']}\n" + ("▲ SUBE" if op["dir"] == 1 else "▼ BAJA") + f" de las {hora(op['t'])}\n" + fin)
+        self._aviso(k, "resultado", corto, largo, "verde" if bien else "rojo", op=op, editar=op.get("tg"))
+
+    def _niveles(self):
+        """Mira en cada vuelta el nivel de cada una: 75 % o más es lo pedido; 21 de 25 (82 %) es apta. Avisa al cambiar y,
+        la primera vez, si ya está arriba (07/11: el agente nunca miraba cuando ya había más de lo pedido)."""
+        cambio = False
+        for est in self.foto.get("estrategias", []):
+            k = est["id"]
+            if est["n25"] < VENTANA:
+                continue
+            nivel = 2 if est["apta"] else (1 if est["k25"] * 100 >= 75 * est["n25"] else 0)
+            previo = self.niveles.get(k)
+            if previo == nivel:
+                continue
+            self.niveles[k] = nivel
+            cambio = True
+            if previo is None and nivel == 0:
+                continue
+            base = f"{est['k25']} de {est['n25']} ({est['pct25']} %), racha {est['racha']}"
+            azar = est.get("azar")
+            fondo = f"{est['largo']:.1f}".replace(".", ",")
+            tandas = f"{max(1, round(1 / azar)):,}".replace(",", ".") if azar else ""
+            veces = f" Con su fondo de {fondo} %, una racha así sale 1 de cada {tandas} tandas." if azar else ""
+            if nivel == 2:
+                corto, color = f"{k} QUEDÓ APTA · {base}", "verde"
+                largo = f"{k} QUEDÓ APTA (82 %) · {ESTRATEGIA[k]['nombre']}\n{base}.{veces}\nSus próximas señales llegan marcadas APTA. Papel: el Centro no compra."
+            elif nivel == 1 and (previo or 0) < 1:
+                corto, color = f"{k} YA LLEGÓ A LO PEDIDO (75 %) · {base}", "ambar"
+                largo = (f"{k} YA LLEGÓ A LO PEDIDO (75 %) · {ESTRATEGIA[k]['nombre']}\n{base}.{veces}\n"
+                         f"Para apta (82 %) le faltan {max(0, FILTRO - est['k25'])} aciertos más en la ventana.")
+            elif nivel == 1:
+                corto, color = f"{k} dejó de estar apta · {base}", "ambar"
+                largo = f"{k} dejó de estar apta, sigue sobre 75 % · {ESTRATEGIA[k]['nombre']}\n{base}."
+            else:
+                corto, color = f"{k} BAJÓ de 75 % · {base}", "rojo"
+                largo = f"{k} BAJÓ de 75 % · {ESTRATEGIA[k]['nombre']}\n{base}. No se están dando los resultados."
+            self._aviso(k, "nivel", corto, largo, color)
+        return cambio
 
     def _interes(self, T):
         if self.t_doi != T:
@@ -471,7 +588,7 @@ class Centro:
             "verdes": verdes(v1[-150:]),
             "marcas": marcas,
         }
-        return {"listo": True, "ahora": ahora, "hora": dt.datetime.fromtimestamp(ahora, COL).strftime("%H:%M:%S"), "precio": precio,
+        return {"listo": True, "avisos": self.avisos[-40:][::-1], "ahora": ahora, "hora": dt.datetime.fromtimestamp(ahora, COL).strftime("%H:%M:%S"), "precio": precio,
                 "cambio1h": None if cambio1h is None else round(cambio1h, 2), "caida_fuerte": cambio1h is not None and cambio1h <= -1,
                 "doi": None if doi is None else round(doi * 100, 3), "oi_no_sube": doi is not None and doi <= UMBRAL_OI,
                 "equilibrio": round(100 * EQUILIBRIO, 2), "filtro": FILTRO, "ventana": VENTANA, "estrategias": est,

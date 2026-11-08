@@ -25,7 +25,21 @@ aside h2{font-size:13px;margin:0;padding:11px 12px 8px;letter-spacing:.03em;disp
 .op .si{font-size:10px;font-weight:700;padding:1px 5px;border-radius:4px;background:var(--ambar);color:#111;margin-left:5px}
 .fle{font-weight:700;font-size:15px;text-align:center}
 .bien{color:var(--sube)}.mal{color:var(--baja)}.gris{color:var(--suave)}
-main{display:grid;grid-template-rows:auto 1fr auto;gap:10px;min-height:0;min-width:0}
+main{display:grid;grid-template-rows:auto 1fr auto auto;gap:10px;min-height:0;min-width:0}
+#cinco{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:4px 18px;padding:2px 4px}
+#cinco a{color:inherit;text-decoration:none;display:block;padding:2px 0}
+#cinco .n{font-size:11.5px;color:var(--suave);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#cinco .n b{margin-right:5px}
+#cinco .p{font-size:20px;font-weight:700;font-variant-numeric:tabular-nums;transition:color .4s}
+#cinco .p small{font-size:11.5px;font-weight:500;color:var(--suave);margin-left:5px}
+#cinco .p.ok{color:#3ddc97}#cinco .p.ya{color:var(--ambar)}
+#cinco .o{font-size:12px;min-height:16px;font-variant-numeric:tabular-nums}
+#cinco .apta{color:#3ddc97;font-weight:700;font-size:11px;margin-left:6px;animation:parpadeo 1.2s infinite}
+#toasts{position:absolute;left:12px;bottom:10px;display:flex;flex-direction:column-reverse;gap:6px;max-width:min(520px,70%);pointer-events:none}
+#toasts div{background:#0e1117e8;padding:7px 12px;border-radius:8px;font-size:13px;font-weight:600;animation:toast .45s ease-out;transition:opacity .6s}
+#toasts div.sube{color:#26a69a}#toasts div.baja{color:#ef5350}#toasts div.verde{color:#3ddc97}#toasts div.rojo{color:#ef5350}#toasts div.ambar{color:var(--ambar)}
+@keyframes toast{from{opacity:0;transform:translateY(10px)}}
+@media(max-width:900px){#cinco{grid-template-columns:repeat(2,minmax(0,1fr))}}
 header{display:flex;flex-wrap:wrap;gap:6px 22px;align-items:baseline;background:var(--panel);border:1px solid var(--borde);border-radius:10px;padding:9px 14px}
 header b{font-size:21px;font-variant-numeric:tabular-nums}
 header span{color:var(--suave);font-size:12.5px}
@@ -84,7 +98,9 @@ canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
   <div id="zona"><canvas id="lienzo"></canvas>
     <div id="banda" class="n-NO"><span id="tit">Cargando…</span><small id="det"></small></div>
     <div id="error" hidden></div>
+    <div id="toasts"></div>
   </div>
+  <div id="cinco"></div>
   <div id="mandos">
     <section id="agente"><h3><span id="agT">Análisis del programa</span><small id="agM"></small></h3><p id="agX"></p></section>
     <section id="botones">
@@ -217,8 +233,26 @@ $("bRsi").onclick=()=>{verRsi=!verRsi;try{localStorage.setItem("rsi",verRsi?"1":
 $("bEst").classList.toggle("on",verEst);$("bRsi").classList.toggle("on",verRsi);
 $("bCob").onclick=async()=>{const r=await post("/api/cobrar",{});$("resp").textContent=r.msg};
 let arr=null;
+const COLC={E1:"#ffb300",E2:"#c07cff",E3:"#4d7fff",E4:"#ff8a65",E5:"#4fc3f7"};
+let avisoVisto=null;
+function hhc(t){return new Date(t*1000).toLocaleTimeString("es-CO",{hour:"2-digit",minute:"2-digit",hour12:false,timeZone:"America/Bogota"})}
+function cinco(){
+  const c=E.centro||[];
+  $("cinco").innerHTML=c.length?c.map(e=>{
+    const p=e.n25?`${e.pct25} %`:"–",cl=e.apta?"ok":(e.n25>=25&&e.k25*100>=75*e.n25?"ya":"");
+    const a=e.abierta;let o="<span class='gris'>esperando señal</span>";
+    if(a){const va=a.va==null?"entra "+hhc(a.entra):(a.va>0?"va ganando":(a.va<0?"va perdiendo":"empatada"));o=`<span class="${a.dir===1?"bien":"mal"}"><b>${a.dir===1?"▲ SUBE":"▼ BAJA"}</b> · ${va} · vence ${hhc(a.vence)}</span>`}
+    return `<a href="/centro#${e.id}" title="${e.nombre}"><div class="n"><b style="color:${COLC[e.id]}">${e.id}</b>${e.nombre}</div>
+      <div class="p ${cl}">${p}<small>${e.k25} de ${e.n25} · racha ${e.racha}</small>${e.apta?'<span class="apta">APTA</span>':""}</div><div class="o">${o}</div></a>`}).join("")
+    :"<span class='gris' style='font-size:12px'>El Centro de estrategias está preparando 30 días de velas…</span>";
+  const av=(E.avisos||[]).slice().reverse();
+  if(avisoVisto===null){avisoVisto=av.length?av[av.length-1].t:0;return}
+  av.filter(x=>x.t>avisoVisto).forEach(x=>{const d=document.createElement("div");d.className=x.color||"";d.textContent=x.texto;$("toasts").prepend(d);
+    if(x.tipo!=="resultado")pitar();setTimeout(()=>{d.style.opacity=0;setTimeout(()=>d.remove(),700)},15000)});
+  if(av.length)avisoVisto=Math.max(avisoVisto,av[av.length-1].t);
+}
 async function ciclo(){
-  try{const r=await fetch("/api/estado");E=await r.json();if(arr&&arr!==E.arranque){location.reload();return}arr=E.arranque;cabecera();estado();panel();dibujar()}
+  try{const r=await fetch("/api/estado");E=await r.json();if(arr&&arr!==E.arranque){location.reload();return}arr=E.arranque;cabecera();estado();panel();dibujar();cinco()}
   catch(e){$("tit").textContent="La mesa no responde. No opere.";$("banda").className="n-NO";$("det").textContent="";$("bc").disabled=$("bv").disabled=true}
   setTimeout(ciclo,1000);
 }

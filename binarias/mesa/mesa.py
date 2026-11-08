@@ -24,6 +24,7 @@ sys.path.insert(0, os.path.join(os.path.dirname(AQUI), "dispositivos"))
 import analista  # noqa: E402
 import borrador as Bo  # noqa: E402
 import centro as CE  # noqa: E402
+import avisos_centro as AV  # noqa: E402
 import conexion as C  # noqa: E402
 import graficas  # noqa: E402  (las mismas cinco líneas de la caja y de Pulso)
 import reglas as R  # noqa: E402
@@ -72,6 +73,9 @@ class Motor:
         self.error_red, self.t_velas, self.t_libro, self.t_cuenta, self.t_sembrado = None, 0.0, 0.0, 0.0, 0.0
         self.encima = False
         self.centro = CE.Centro(C)  # las cinco estrategias en paralelo (07/11), en http://127.0.0.1:8795/centro
+        # Avisos del centro: en el PC, a la pantalla (Windows y la franja de la Mesa). Telegram lo manda el teléfono, que corre 24/7;
+        # con "telegram_centro_pc": true en config.json también lo mandaría el PC (se repetirían).
+        self.centro.notificar = AV.Notificador(log, telegram=bool(self.cfg.get("telegram_centro_pc", False))).avisar
 
     # ------------------------------------------------------------ datos
     def _lineas(self):
@@ -209,7 +213,10 @@ class Motor:
                 "puede": {str(k): self._puede(k) for k in (1, -1)},
                 "analisis": self.analisis, "encima": self.encima,
                 "ops": [{k: o.get(k) for k in ("t", "dir", "si", "ask5", "ask30", "ask60", "entra", "res", "neto", "semilla", "aviso", "fuente")} for o in ops[-40:]][::-1],
-                "reales": leer_reales()[-10:][::-1]}
+                "reales": leer_reales()[-10:][::-1],
+                "centro": [{k: x.get(k) for k in ("id", "nombre", "pct25", "k25", "n25", "racha", "apta", "abierta", "largo")}
+                           for x in self.centro.foto.get("estrategias", [])],
+                "avisos": self.centro.avisos[-12:][::-1]}
 
     def _puede(self, sentido):
         ask = ((self.mercado or {}).get("ask") or {}).get(sentido)
