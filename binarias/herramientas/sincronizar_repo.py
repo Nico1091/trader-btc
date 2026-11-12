@@ -36,7 +36,7 @@ NUEVOS_ARRIBA = ["PROMPT-AGENTE-NUBE-BINARIAS.md"]
 NUEVAS_CARPETAS = [("herramientas", (".py",)), ("herramientas/fixtures_lineas", (".csv",)), ("cuant", (".py",)),
                    ("cuant/resultados", (".txt",)), ("dispositivos", (".py", ".sh")), ("historia", (".md", ".py")),
                    ("guia", (".html", ".txt")), ("mesa", (".py", ".pyw", ".html", ".md")),
-                   ("laboratorio", (".py", ".sh", ".md")), ("laboratorio/motor", (".py",))]
+                   ("laboratorio", (".py", ".sh", ".md")), ("laboratorio/motor", (".py",)), ("laboratorio/placa", (".py",))]
 NUEVOS_PULSO = ["caja-prueba.sh"]
 NUNCA = re.compile(r"(^|/)(estado\.json|apuestas\.jsonl|senales_vivo\.jsonl|semaforo\.json|avisados\.json|REAL_AUTORIZADO|PARAR"
                    r"|.*\.(log|npy|npz|pid|zip|pdf|png|nrc|apk|so|env))$|(^|/)(__pycache__|datos|respaldos|comprobantes|salida"
