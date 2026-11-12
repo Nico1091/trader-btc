@@ -23,6 +23,12 @@ if ! pgrep -x tor >/dev/null 2>&1; then
 fi
 
 # 2) Centinela, con vigía que lo relanza si se cae
+# 11/11/2026: con ESPERA_ESTADO el centinela no arranca hasta recibir el estado del otro equipo (semaforo.json,
+# avisados.json, estado.json, apuestas.jsonl, senales_vivo.jsonl); al copiarlo se borra el archivo y se vuelve a llamar
+# a este guion. Así no da un SÍ que el otro equipo sabe perdido. Mientras tanto arrancan solo Tor y el laboratorio.
+if [ -f ESPERA_ESTADO ]; then
+  echo "$(date) ESPERA_ESTADO: el centinela espera el estado del otro equipo; arrancan solo Tor y el laboratorio" >> salida.log
+else
 if ! vivo vigia.pid binarias.py; then
   nohup sh -c 'while [ ! -f PARAR ]; do pgrep -f "^python3 -I binarias.py" >/dev/null || { nice -n 5 python3 -I binarias.py >> salida.log 2>&1; [ -f PARAR ] && break; echo "$(date) el centinela salió; relanzo en 30 s" >> salida.log; }; sleep 30; done' >/dev/null 2>&1 &
   echo $! > vigia.pid
@@ -39,4 +45,7 @@ if [ -f centro_tel.py ] && ! vivo centro.pid centro_tel.py; then
   nohup sh -c 'while [ ! -f PARAR ]; do pgrep -f "^python3 -I centro_tel.py" >/dev/null || nice -n 5 python3 -I centro_tel.py >> salida.log 2>&1; [ -f PARAR ] && break; sleep 30; done' >/dev/null 2>&1 &
   echo $! > centro.pid
 fi
-echo "centinela: vigía $(cat vigia.pid) · avisos: $(cat avisos.pid) · centro: $(cat centro.pid 2>/dev/null || echo no) · rol $ROL · en $D"
+fi
+# 5) Laboratorio de formas (11/11/2026): solo donde esté instalado (la caja). Tiene su carpeta, su PARAR y su vigía.
+[ -f /data/local/tmp/laboratorio/arrancar_lab.sh ] && sh /data/local/tmp/laboratorio/arrancar_lab.sh
+echo "centinela: vigía $(cat vigia.pid) · avisos: $(cat avisos.pid) · centro: $(cat centro.pid 2>/dev/null || echo no) · rol $ROL · en $D$([ -f ESPERA_ESTADO ] && echo ' · ESPERA_ESTADO')"

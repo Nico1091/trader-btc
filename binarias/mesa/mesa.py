@@ -27,6 +27,7 @@ import centro as CE  # noqa: E402
 import avisos_centro as AV  # noqa: E402
 import conexion as C  # noqa: E402
 import graficas  # noqa: E402  (las mismas cinco líneas de la caja y de Pulso)
+import perdida_real as PR  # noqa: E402  (11/11: comprar sobre la pérdida con el precio real, solo papel)
 import reglas as R  # noqa: E402
 
 PUERTO = 8795
@@ -73,6 +74,7 @@ class Motor:
         self.error_red, self.t_velas, self.t_libro, self.t_cuenta, self.t_sembrado = None, 0.0, 0.0, 0.0, 0.0
         self.encima = False
         self.centro = CE.Centro(C)  # las cinco estrategias en paralelo (07/11), en http://127.0.0.1:8795/centro
+        self.pr = PR.PerdidaReal(log)  # 11/11: papel de «comprar sobre la pérdida» con el precio real; lo manda a la placa ESP32
         # Avisos del centro: en el PC, a la pantalla (Windows y la franja de la Mesa). Telegram lo manda el teléfono, que corre 24/7;
         # con "telegram_centro_pc": true en config.json también lo mandaría el PC (se repetirían).
         self.centro.notificar = AV.Notificador(log, telegram=bool(self.cfg.get("telegram_centro_pc", False))).avisar
@@ -163,6 +165,10 @@ class Motor:
             self.t_cuenta = ahora
             self._refrescar_cuenta()
         self.bor.paso(ahora, self.mercado)
+        try:
+            self.pr.paso(ahora, self.mercado, self.viva, self.velas)
+        except Exception as ex:
+            log(f"pérdida real: {type(ex).__name__}: {str(ex)[:120]}")
         e = self.evaluar(ahora)
         self.est = e
         if e["nivel"] in ("COMPRE", "VENDA") and e["nivel"] != self.nivel_prev:

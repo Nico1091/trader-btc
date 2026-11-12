@@ -11,6 +11,7 @@ import os
 import shutil
 import subprocess
 import sys
+import time
 import urllib.request
 
 if hasattr(sys.stdout, "reconfigure"):
@@ -33,7 +34,7 @@ def adb(*args, timeout=40):
 def latido():
     try:
         d = json.loads(urllib.request.urlopen("http://192.168.20.45:8793/latido", timeout=5).read())
-        return float(d["ahora"]) - float(d["latido"])
+        return time.time() - float(d["latido"])  # 11/11: la edad se mide con el reloj del PC, no con el de la caja
     except Exception:
         return None
 
@@ -74,6 +75,23 @@ def main():
     ult = [a for a in e.get("apuestas", []) if a.get("res") is not None][-25:]
     print(f"  Papel reciente: {sum(a['res'] for a in ult)} de {len(ult)}; su 76 % pide 19 de 25 para el dinero real.")
     print(f"  Dinero real: {'autorizado (solo en los SÍ con su 76 %)' if real else 'no autorizado'}; nunca apalancamiento.")
+    espera = adb("-s", CAJA, "shell", "cat /data/local/tmp/centinela/ESPERA_ESTADO 2>/dev/null")
+    if quien == "la caja" and espera and espera.strip():
+        print(f"  Ojo: el centinela de la caja está detenido desde las {espera.decode().strip()[:5]} (ESPERA_ESTADO) hasta recibir el "
+              "estado del teléfono; estas cifras son de su última marcha y avisa el teléfono.")
+    lab = adb("-s", CAJA, "exec-out", "cat", "/data/local/tmp/laboratorio/latido.json")
+    print()
+    if lab:
+        try:
+            x = json.loads(lab.decode("utf-8"))
+            edad = time.time() - float(x["latido"])
+            temp = f", caja {x['temperatura']:.0f} °C" if x.get("temperatura") is not None else ""
+            print(f"Laboratorio de formas: {x.get('vivas', 0)} formas en vivo, {x.get('abiertas', 0)} apuestas de papel abiertas"
+                  f"{temp}; latido hace {edad / 60:.0f} min{' (¿detenido?)' if edad > 600 else ''}. Es papel.")
+        except (ValueError, KeyError):
+            print("Laboratorio de formas: latido ilegible.")
+    else:
+        print("Laboratorio de formas: sin latido en la caja.")
     return 0
 
 

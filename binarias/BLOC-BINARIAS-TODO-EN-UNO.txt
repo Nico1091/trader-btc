@@ -10,6 +10,30 @@ CÓMO SE USA ESTE BLOC
 - Para una sesión nueva basta decir: «Lee C:\Users\ni109\Desktop\BLOC BINARIAS - TODO EN UNO.txt y sigue desde ENCARGOS».
 
 
+AL FRENTE (11/11/2026, 19:50): LABORATORIO DE BINARIAS CON RED NEURONAL EN LA CAJA · EN CONSTRUCCIÓN
+Estado: EN CURSO (plan aprobado por él el 11/11 a las 11:39; laboratorio\PLAN-LABORATORIO.md y PROMPT-FINAL.md)
+SIGUIENTE PASO: paso 8 con él: que confirme en su Telegram el tablero anclado, el resumen de cada hora y las órdenes («lab estado», «lab perdida», «lab placa»); en marcha las 48 horas del paso 9. Pendiente de él: conectar el teléfono por USB para devolverle el centinela a la caja.
+- Su pedido (11/11): emular en papel y en tiempo real muchísimas formas de binarias BTC/USDT, las pasadas y las nuevas que propongan la red neuronal y la IA, con parámetros nuevos, para ver cuál rinde más; informes a su Telegram; todo alojado en la caja, siguiendo solo y mejorándose solo; una IA pequeña en la caja para sus peticiones, sin calentarla. La aplicación del teléfono va después. Nada de esto apuesta.
+- Papel de hoy a las 19:38, según la caja: SÍ cuando llegue la señal (17 señales, 10 aciertos, neto +1,50); papel reciente 17 de 25 (su 76 % pide 19). Compras reales en espera por su orden del 07/11.
+- Caja (19:42): volvió a la red con el reloj en hora; su centinela corría desde las 14:35 con el papel rehecho de las velas, sin las marcas de SÍ del teléfono. Se detuvo con ESPERA_ESTADO y PARAR (salió solo, sin matar procesos); Tor sigue vivo. El teléfono la releva mientras tanto, si está encendido.
+- Placa ESP32-S3 (21:05, su pedido): dedicada a las binarias, con su programa en la memoria de la placa (main.py y binarias_placa.py): arranca sola al conectarla, se reconecta al WiFi y el perro guardián la reinicia si se cuelga; probado con dos reinicios por hardware. Pide velas a Binance cada minuto, corre la misma red del laboratorio (10 min la red, 15 min la neurona; 2.174 señales iguales a las del laboratorio en la prueba) y «la pérdida» (1.040 ventanas iguales). En http://192.168.20.159:8080/estado. El acortador de noticias quedó guardado en la placa pero apagado: el bot usa su propio resumen (rinde 0,354 frente a 0,377).
+- Comprar sobre la pérdida (su idea, 21:00): tabla a ciegas jul-2025 a oct-2026 en laboratorio\datos\perdida.json; el lado perdedor gana casi en proporción a lo atrasado (minuto 14 con |z| de 2 a 3: 1 %; con |z| de 3 o más: 0,3 %). Con precio real: la Mesa del PC (mesa\perdida_real.py, solo lectura) anota papel de 1 USDT a lo último (≤ 0,02, ≤ 0,05, ≤ 0,10) y temprano (|z| ≥ 1), liquida con el ganador oficial y manda el resumen a la placa; la caja lo pone en su Telegram. Primera anotación: 21:12, BAJA a 0,01 a 159 s del cierre (si gana, 97 USDT por 1).
+Lista de avance del laboratorio (se marca al cerrar cada paso):
+✅ 0. Hooks (19:40): H1, la lista vuelve al contexto tras compactar (recordatorio_encargo.py); H2, candado de dinero real y de llaves en autoMode.soft_deny con "$defaults". Respaldos .bak-20261111, JSON válido y prueba en seco con inicio, reanudar, compactar y limpiar.
+✅ 1. Caja (19:45): centinela detenido con ESPERA_ESTADO; reloj en hora (hora automática); quince.py del 07/11 y arrancar.sh con ESPERA_ESTADO y la línea del laboratorio, con su huella igual a la del PC. Falta, con él: copiar el estado del teléfono (por USB) y borrar ESPERA_ESTADO.
+✅ 2. Prompts (19:48): PROMPT-HOOKS.md, PROMPT-ORGANIZADOR.md y PROMPT-FINAL.md en laboratorio\; sección 7d en PLAN-TOTAL.md; este AL FRENTE.
+✅ 3. Revisión con PROMPT-REVISION.md en laboratorio\REVISION.md: 21 hallazgos con su cambio; corregida la 2.3 con la primera construcción (a 15 min la valla es blanda) y agregada la 2.4 (las mejores de «elige» caen a ~54 % a ciegas: tope de 12 vivas por familia) (20:21).
+✅ 4. Construido en el PC: comun, base, velas, rasgos, formas, juez, red, busqueda, emulador, partes, peticiones, laboratorio, construir, prueba_laboratorio, llevar, arrancar_lab.sh y probar.sh; código en la caja con huella igual (20:21).
+✅ 5. Pruebas en el PC: paridad exacta con la clase Centro en 40 días (E1 721, E2 392, E3 100, E4 53 y E5 60 apuestas, señal y resultado), recorte sin cambios (43 formas, E3, E4, t33, banco y probabilidades), candado limpio; marcha en seco de 30 min en curso desde las 20:27 (20:28).
+✅ 6. Caja: redes y rasgos del PC llevados con huellas; paridad PC-caja exacta (huella 0ce55b0f72196ac0cd064ae3 en 72.093 apuestas y probabilidades de la red iguales a 12 decimales); tope de 1.000 formas confirmado (1,6 s por cierre a 53 °C); marcha en seco de 30 min en curso desde las 20:27 (20:28).
+✅ 7. Arranque solo: tras reiniciar la caja, Tor y el laboratorio volvieron solos a los 84 s y el centinela siguió esperando (ESPERA_ESTADO) (21:15).
+⬜ 8. Telegram: tablero, resumen, parte, aviso y cada petición, confirmados por él en su teléfono.
+⬜ 9. 48 horas de marcha y auditoría de un día contra las velas oficiales.
+⬜ 10. Revisión final e informe.
+⬜ 11. Consolidar: bloc, PLAN-TOTAL.md, memoria, bóveda, GitHub y USB.
+⬜ 12. IA pequeña en la caja (llama.cpp y un modelo de menos de 0,6 GB): solo si cumple calor, tiempo y 45 de 50.
+
+
 AL FRENTE (07/11/2026, 19:45): COMPRAS DIAGNOSTICADAS · CENTRO DE CINCO ESTRATEGIAS · AVISO DE ACIERTOS CORREGIDO
 Estado: COMPRAS REALES EN ESPERA POR SU ORDEN (07/11, 19:46); LO DEMÁS CORRE SOLO
 SIGUIENTE PASO: las compras reales quedan en espera por su orden del 07/11 a las 19:46 («espera lo de las compras reales por ahora»): no recordarle fondear la billetera de predicción hasta que él lo retome. Mientras, las cinco estrategias se miden solas en el Centro de estrategias; cuando la caja vuelva a la red, llevarle el quince.py nuevo.
@@ -21,6 +45,7 @@ SIGUIENTE PASO: las compras reales quedan en espera por su orden del 07/11 a las
 - Líneas verdes: en la vista de E5, el nivel con tres toques exactos arriba y abajo (regla N3; se toma el extremo) y la verde de la mitad entre los dos. Solo para mirar, porque N3 no dio ventaja. Es una lectura de su pedido: si las quiere distinto, se corrigen.
 - A las 19:42: E1 19 de 25 (76 %), E2 64 %, E3 52 %, E4 44 %, E5 60 %. Ninguna apta.
 - 20:02: Avisos del Centro en vivo: en el PC salen en la pantalla (notificación de Windows y franja de la Mesa y del Centro); a Telegram los manda el teléfono, que corre 24/7, para no repetirlos. Cada señal de las cinco, su resultado sobre el mismo mensaje y cuando una llega a 75 %, queda apta (82 %) o baja; si al encender ya está arriba, avisa una vez. La Mesa muestra las cinco bajo la gráfica. El Centro quedó instalado en el teléfono (centro_tel.py, página 127.0.0.1:8797, arranque con arrancar.sh y Termux:Boot), sin botones ni llave. arrancar.sh ya no duplica procesos (los de Termux y los de ADB viven en contextos distintos; ahora busca los bucles por su línea de comando y cada bucle solo lanza si no hay copia).
+- 20:15: App Binarias para el teléfono (Ingresos\binarias-papel\app-telefono): paquete co.binarias.motor, Java sin librerías, targetSdk 28 (como Termux, para poder ejecutar su motor). Servicio en primer plano siempre vivo (START_STICKY, alarma al cerrarla, arranque al encender) que corre los mismos programas de Termux sin cambiarlos: Tor en el puerto 9052, el centinela, el avisador con el vigía y el Centro; relanza el que se caiga a los 30 s. Notificación fija con el porcentaje de las cinco y el último aviso; al abrirla, el Centro en pantalla. El motor (Python 3.14 con numpy, Tor, curl y 26 bibliotecas, 69 MB) se copia desde el PC con instalar_motor.sh; probado fuera de Termux: Python toma su propia copia, ssl y numpy cargan y Binance responde. APK de 20 KB (huella 1a198290…) en Descargas del teléfono. Falta: que él instale Binarias.apk desde Archivos → Descargas (adb install está bloqueado y la Protección avanzada puede pedir apagarse un momento) y luego correr app-telefono\instalar_motor.sh, que pausa Termux con PARAR, aparta su arranque al encender, copia el estado, da los permisos de fondo y arranca la app. Vuelta atrás: instalar_motor.sh --volver.
 - Sin hacer: el filtro de Claude del prompt (la Mesa va sin IA por su orden del 04/11), el agente (sigue quitado) y la caja (apagada o fuera de la wifi).
 
 AL FRENTE (06/11/2026, 21:22): SU TELEGRAM LEÍDO · LA ORDEN REAL FALLÓ · MESA CORREGIDA · CAJA DE VUELTA · P21 Y P22
@@ -357,6 +382,12 @@ Forma de trabajar
 
 5. ESTRATEGIAS CLASIFICADAS
 
+Laboratorio de formas (11/11/2026, primera construcción; «elige» ene-2024 a jun-2025, «juzga» jul-2025 a oct-2026, 60 s tarde, empate = fallo):
+- Se sostienen a ciegas (devolución): E1 54,4 % en «elige» (n 10.055) y 54,8 % a ciegas (n 9.006); E2 54,9 % y 55,6 %; E3 57,7 % y 57,5 % (n 1.205); núcleo del semáforo 54,1 % y 54,7 %; techo y piso de 24 h a 15 min 54,4 % a ciegas; REV15 a 15 min 55,3 % a ciegas.
+- No se sostienen: RSI de 15 min sobre 81-84 + ruptura al revés, 15 min: 63 a 64,5 % en «elige» y 54 a 55,7 % a ciegas (selección entre cientos de variantes, no fuga). Rango de 4 h + RSI 15: 63,3 % y 49,2 %.
+- Del banco, peores que el equilibrio a ciegas: rompimiento de 20 velas a favor (45,2 a 45,8 %), alineación de medias (46,4 a 46,7 %), E12, E16, E18, E19 y los patrones de tres cuervos y tres soldados en su sentido.
+- Red de mercado propia: a 10 min 55,2 % con confianza de 0,56 en «elige» (la neurona t33 reajustada, 54,6 %); a 15 min gana la neurona (55,1 % frente a 54,7 %).
+
 Medidas el 06/11/2026 (P21 y P22, a 15 min, 2024-sep 2026, 60 s tarde):
 - Rechazadas: Gemini 1 tal cual 42,3 %, Gemini 2 45,8 %, Gemini 3 45,5 %; ruptura a favor 44,8 a 45,8 %; tres toques 49,6 a 51,1 %; cruzar la mitad, sin señal.
 - En observación: ruptura de 50 velas al revés 55,1 % (pasó P21); G1 al revés 57,7 % (idea posterior, solo papel).
@@ -404,6 +435,24 @@ Lo que dicen los estudios de BTC y ETH
 
 
 6. ENCARGOS
+
+11/11/2026, 20:45 a 21:15. Pedidos: «cámbiela (la ESP32) a hacer lo que yo quiero y que siga aunque la desconecte», «comprar sobre la pérdida cuando el mercado ofrece más dinero» y «que vea el precio real».
+- [HECHO] ESP32 dedicada a binarias, persistente y probada con reinicios por hardware.
+- [HECHO] La pérdida en la caja y en la placa (tabla a ciegas y papel en vivo, idénticas entre sí).
+- [HECHO] Precio real en la Mesa del PC (solo lectura, la llave no sale del PC), enviado a la placa y a la caja.
+- [EN CURSO] Primera liquidación con precio real (ventana de las 21:00).
+
+11/11/2026, 19:36 en adelante. Pedido: ejecutar el plan del laboratorio de binarias con red neuronal e IA pequeña en la caja (aprobado a las 11:39).
+- [HECHO] Hooks H1 y H2 con respaldo y prueba en seco.
+- [HECHO] Centinela de la caja detenido con ESPERA_ESTADO; quince.py y arrancar.sh nuevos en la caja con su huella.
+- [HECHO] Los tres prompts en laboratorio\ y la sección 7d del PLAN-TOTAL.
+- [PENDIENTE DE ÉL] Conectar el teléfono por USB para copiarle su estado a la caja; después se borra ESPERA_ESTADO y el centinela de la caja vuelve.
+- [EN CURSO] Pasos 3 a 12 del laboratorio (lista en el AL FRENTE del 11/11).
+
+07/11/2026, 20:05 a 20:15. Pedido: «empaquétalo para que quede en una aplicación que se esté ejecutando siempre en segundo plano en mi teléfono».
+- [HECHO] App Binarias armada, firmada y en Descargas del teléfono; motor copiado al PC y probado fuera de Termux.
+- [PENDIENTE DE ÉL] Instalar Binarias.apk desde Archivos → Descargas.
+- [PENDIENTE] Correr app-telefono\instalar_motor.sh tras la instalación (relevo de Termux a la app, sin duplicados).
 
 07/11/2026, 19:50 a 20:02. Pedido: «que todos esos avisos múltiples se muestren en vivo en la pantalla y en mi Telegram», «que se vean las 4 operaciones en el programa de mesa binarias» y que el programa quede instalado también en su celular.
 - [HECHO] Avisos del Centro a la pantalla del PC y a Telegram (desde el teléfono), con resultado sobre el mismo mensaje.
@@ -659,3 +708,9 @@ Abiertos de antes
 - 07/11/2026 19:45. Compras: tres de tres desde spot sin comprar (pausa de Binance) y la Mesa pasa a pagar desde la billetera de predicción. Centro de cinco estrategias en vivo, con paridad. Aviso de aciertos al encender. Teléfono al día; caja fuera de la red. Ninguna orden compró: saldo 46,28 USDT.
 - 07/11/2026 19:46. Su orden: «espera lo de las compras reales por ahora». Compras en espera; queda anotado lo hecho y lo que falta en el bloc, la memoria y la bóveda (Mesa de binarias y sesión del 07/11).
 - 07/11/2026 20:02. Avisos del Centro en pantalla y Telegram; las cinco en la Mesa; Centro instalado en el teléfono; arrancar.sh sin duplicados.
+- 07/11/2026 20:15. App Binarias para el teléfono armada y en Descargas; falta su instalación y el relevo con instalar_motor.sh.
+- 11/11/2026 19:42. Caja de vuelta con el reloj en hora; su centinela se detiene con ESPERA_ESTADO hasta recibir el estado del teléfono.
+- 11/11/2026 19:50. Laboratorio en marcha: hooks H1 y H2, quince.py y arrancar.sh en la caja, prompts y sección 7d escritos.
+- 11/11/2026 20:21. Laboratorio: revisión hecha y código construido; en la caja, 1.000 formas vivas se evalúan en 1,6 s por cierre de 5 min a 53 °C.
+- 11/11/2026 20:28. Laboratorio: pruebas del PC y de la caja en verde y paridad exacta entre los dos; marchas en seco de 30 min en curso.
+- 11/11/2026 21:15. ESP32 dedicada a binarias (red y pérdida); precio real de Predict.fun en la Mesa con papel de la pérdida; caja reiniciada de prueba: todo volvió solo.

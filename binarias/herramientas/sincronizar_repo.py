@@ -29,11 +29,14 @@ SES = Path(r"C:\Users\ni109\Desktop\obsidian\Vault\01-Sesiones")
 SESIONES = {"2026-11-03.md": "2026-11-03 Binarias v5 en BTC.md",
             "2026-11-04.md": "2026-11-04 Binarias v7 su regla SI o NO.md",
             "2026-11-04-tarde.md": "2026-11-04 Binarias cinco lineas y consolidacion.md",
-            "2026-11-04-mesa.md": "2026-11-04 Binarias plan del boton comprar o vender.md"}
+            "2026-11-04-mesa.md": "2026-11-04 Binarias plan del boton comprar o vender.md",
+            "2026-11-11-laboratorio.md": "2026-11-11 Laboratorio de binarias con red neuronal.md"}
 NUEVOS_ARRIBA = ["PROMPT-AGENTE-NUBE-BINARIAS.md"]
+# 11/11/2026: el laboratorio sube solo su código, guiones y documentos; nunca su base, su historial ni sus datos.
 NUEVAS_CARPETAS = [("herramientas", (".py",)), ("herramientas/fixtures_lineas", (".csv",)), ("cuant", (".py",)),
                    ("cuant/resultados", (".txt",)), ("dispositivos", (".py", ".sh")), ("historia", (".md", ".py")),
-                   ("guia", (".html", ".txt")), ("mesa", (".py", ".pyw", ".html", ".md"))]
+                   ("guia", (".html", ".txt")), ("mesa", (".py", ".pyw", ".html", ".md")),
+                   ("laboratorio", (".py", ".sh", ".md")), ("laboratorio/motor", (".py",))]
 NUEVOS_PULSO = ["caja-prueba.sh"]
 NUNCA = re.compile(r"(^|/)(estado\.json|apuestas\.jsonl|senales_vivo\.jsonl|semaforo\.json|avisados\.json|REAL_AUTORIZADO|PARAR"
                    r"|.*\.(log|npy|npz|pid|zip|pdf|png|nrc|apk|so|env))$|(^|/)(__pycache__|datos|respaldos|comprobantes|salida"
