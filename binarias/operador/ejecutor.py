@@ -11,6 +11,8 @@ El candado, completo, antes de cada compra:
   5. Freno del día: lo perdido en el día de Colombia, contando como perdido lo que sigue abierto, no pasa del 16 % del saldo
      con que empezó el día. Tope de 20 órdenes por día.
   6. Cotización real antes de enviar: si el precio medio cotizado no deja la ganancia esperada prudente en el margen, no envía.
+  7. (17/11/2026, aprobador) Una decisión de Claude «COMPRAR» vigente del nodo de este equipo para ese mercado y ese sentido
+     (aprobacion.py). Sin ella, con «NO COMPRAR» o sin respuesta, no hay orden real. El papel no cambia.
 Después: una orden es «comprada» solo si Binance lo confirma; cualquier estado que no sea final se relee hasta que lo sea,
 también tras un reinicio (el 12/11 dos órdenes quedaron en SUBMITTED sin releer). Lo ganado se cobra y se anota.
 Nada aquí duerme ni repite una escritura: cada paso() avanza lo que toque y devuelve el control."""
@@ -23,6 +25,7 @@ if AQUI not in sys.path:
     sys.path.insert(0, AQUI)
 import nucleo as N  # noqa: E402
 from comunes import con_signo, dia, escribir_json, hora, leer_json, num, pct, sentido  # noqa: E402
+import aprobacion as APROBACION  # noqa: E402  (17/11/2026: candado del aprobador)
 
 DESLIZAMIENTO_BPS = 200      # el de la Mesa en las compras reales del 12/11
 FUENTE = "MPC"               # la billetera de predicción; pagando desde spot Binance no compra (07/11)
@@ -216,7 +219,7 @@ class Ejecutor:
         base = {"tipo": "orden", "W": W, "t": m["t"], "topic": m.get("topic"), "m": cand["m"], "plazo": N.plazo(W, cand["m"]),
                 "lado": lado, "papel": d["papel"], "celda": cand["celda"], "p": round(d["p"], 6), "p_prud": round(d["p_prud"], 6),
                 "q_libro": d["q"], "G_prud": round(d["G_prud"], 6), "hora": round(ahora, 2), "comision": com}
-        motivo = self._frenos(ahora, m, W)
+        motivo = self._frenos(ahora, m, W) or APROBACION.falta(W, m["t"], lado, ahora)  # 17/11: Claude aprueba o no
         if motivo:
             return self._no(base, motivo)
         try:
