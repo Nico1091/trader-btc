@@ -10,6 +10,21 @@ CÓMO SE USA ESTE BLOC
 - Para una sesión nueva basta decir: «Lee C:\Users\ni109\Desktop\BLOC BINARIAS - TODO EN UNO.txt y sigue desde ENCARGOS».
 
 
+AL FRENTE (17/11/2026, 09:40): AGENTE APROBADOR EN LA NUBE · TODO CON OPUS 5.5 · LAS REGLAS DE FABLE 5.2 MANDAN · EN CURSO
+Estado: EN CURSO (rutina constructora trig_01WW3w9zNhTxEwVeoFQFWb6J, solo hoy 12:42 y 17:42; rama claude/aprobador-binarias-2026-11-17)
+SIGUIENTE PASO: leer en Telegram el informe «[Aprobador de binarias]» (12:42 y 17:42) y la rama; apagar la rutina tras las 17:42; luego estudiar la estructura del operador de la caja para programarlo, sin cambiar las reglas de Fable 5.2.
+- Su diseño (17/11, 09:30), todo automático: el programa de la caja (operador de Fable 5.2) mide sus aciertos; al llegar al umbral del plan (hoy 76 %, 19 de 25) envía CADA punto de compra a Claude en la nube, sin tope de consultas (12 a 15 por hora o más); Claude decide COMPRAR o NO COMPRAR con todo el contexto; el programa compra o no según esa decisión. Él no decide nada en el día a día; solo arma una vez (ARMADO), pone llaves y fondos.
+- Modelo (orden suya, 17/11, 09:40): todo se mueve con Claude Opus 5.5. Fable 5.2 exige créditos de pago desde el 17/11 (comprobado con una llamada real). Ojo: la sección F de la rutina todavía dice Haiku 5.5 para quien decide; él pidió dejarla quieta por ahora. Cuando se retome, el que decide va con Opus 5.5.
+- Las reglas de Fable 5.2 mandan: él lo considera la IA más avanzada a la que tiene acceso y quiere su opinión plasmada. No cambiar su lógica (miradas al cierre de cada minuto, ganancia esperada prudente, margen 0,10, libro B, tope 16 %, una orden por mercado, freno del día, 20 órdenes reales al día, tres estados, ARMADO y PARAR). Fable escribió que el operador «no decide con IA»: por eso Claude decide solo sobre los puntos que el operador propone, sin inventar compras ni cambiar montos.
+- El tiempo no es crítico: en binarias siempre se puede comprar, incluso al final (lo comprobó él).
+- Revisado el 17/11, 09:55: el operador de Fable 5.2 NO es la aplicación de aciertos hecha con Opus. El operador usa el modelo logístico de doce rasgos del comprador (ganancia esperada minuto a minuto, devolución dentro de la ventana) y no importa ni mira el Centro de estrategias (mesa/centro.py: E1 ruptura de 20 velas al revés, E2 de 50 velas al revés, E3 Gemini 1 al revés, E4 Gemini 3 al revés, E5 rechazo en techo o piso; porcentaje de las últimas 25, aviso al 75 %, filtro del 82 %). Él pidió que el Centro sea otra variable a tener en cuenta.
+- [HECHO 09:30] Su orden: integrar los dos sin romper ninguno. Sección G de la rutina: el operador de Fable y el Centro siguen como aplicaciones aparte; un NODO CENTRAL nuevo (binarias/nodo/, sin IA) junta las predicciones de los dos en un paquete por punto y es el único que habla con Claude (Opus 5.5) en la nube; Claude decide COMPRAR o NO COMPRAR; compra siempre el operador con los frenos de Fable. El que decide pasó de Haiku a Opus 5.5 (F.4).
+- Aciertos reales del Centro en el teléfono (17/11, 09:27): E1 57,0 % en vivo (69 de 121), E2 55,4 % (41 de 74), E3 66,7 % (12 de 18), E4 40 % (pierde), E5 53,8 % (49 de 91); últimas 25: 16, 17, 16, 12 y 17. Mide con precio supuesto 0,51 (equilibrio 52 %); al real 0,544 el equilibrio es 55,5 %. El operador de Fable no está instalado en la caja (solo plan y reglas): sin medición en vivo.
+- Lo repetitivo (cada minuto o cada 5 min) lo hace código sin IA en la caja; a Claude solo van los puntos.
+- GitHub: la nube clona trader-btc desde el 17/11 a las 09:03 (él reinstaló la app Claude con acceso a todo). Prueba barata: rutina apagada trig_01GGtsQE9D29zP3KLje3hmFM.
+- Sigue pendiente de él (16/11): IP de hoy en la llave de Binance, llave propia de la caja (Lectura y Predicción), fondos en la billetera de predicción y «operador armar».
+
+
 AL FRENTE (16/11/2026, 14:05): OPERADOR AUTOMÁTICO EN LA CAJA · COMPRAS Y COBROS SOLOS · 5, 10 Y 15 MIN · EN CONSTRUCCIÓN
 Estado: EN CURSO (plan en Ingresos\binarias-papel\operador\PLAN-AUTOMATICO.md y en la caja, /data/local/tmp/operador/)
 SIGUIENTE PASO: seguir las casillas de la sección 6 de operador\PLAN-AUTOMATICO.md desde la primera sin marcar. Pendiente de él: en Gestión de API de Binance poner la IP de hoy (201.221.178.15) en la llave y crear la llave propia de la caja (solo Lectura y Predicción); después fondos en la billetera de predicción y «operador armar».
@@ -461,6 +476,19 @@ Lo que dicen los estudios de BTC y ETH
 
 6. ENCARGOS
 
+17/11/2026, 08:55. Pedido: revisar la rutina del aprobador, comprobar Fable 5.2, pasarla a Opus 5.5 con esfuerzo máximo, añadirle gasto mínimo (revisiones cada 5, 10 o 15 min) y respeto a lo que dejó Fable 5.2, revisar GitHub y encenderla.
+- [HECHO] Fable 5.2 comprobado con una llamada real: «requires usage credits» (ya no entra en el plan; solo con créditos de pago).
+- [HECHO] Rutina trig_01WW3w9zNhTxEwVeoFQFWb6J: Opus 5.5, esfuerzo max, ENCENDIDA (00:00, 05:00, 10:00 y 15:00). Añadidos A a E al final del texto, sin tocar el original: modelo, seguir desde AVANCE.md o salir en una línea si hay TERMINADO.md, revisión de 5 min sin IA en la caja, gasto mínimo, y lo de Fable 5.2 manda (el aprobador solo dice NO o acota).
+- [HECHO 09:05] GitHub arreglado: él reinstaló la app Claude con acceso a todo; desde las 09:03 la nube clona trader-btc en 1-2 s (entornos Chat y Default) y el token de Telegram está presente. Antes: la nube no clonaba sus repos privados (trader-btc y granja-t95h: «repository not found»), aunque claude.ai los ve. Desde el PC trader-btc clona en 3 s. La corrida de las 00:06 y las de Proyectos fallaron por eso, antes de gastar en el modelo.
+- [PROGRAMADO] Por su orden, la rutina corre solo hoy a las 12:42 y a las 17:42 (cron 42 17,22 17 11 * UTC); apagarla después de las 17:42 para que no vuelva el 17/11/2027.
+- [HECHO 09:30] Diseño suyo escrito en la rutina (sección F): el operador mide aciertos; al llegar al umbral del plan (hoy 76 %, 19 de 25) envía cada punto de compra a Claude en la nube, sin tope de consultas; Claude (Haiku 5.5, Sonnet si hace falta; nunca Opus) responde COMPRAR o NO COMPRAR con el contexto fijo; el programa compra con las reglas de Fable 5.2 (importe, freno, 16 %, 20 órdenes al día). Claude solo decide sobre los puntos que propone el operador. Opus 5.5 max solo construye.
+
+16/11/2026, 21:38. Pedido: programar en la nube el agente que aprueba o no cada binaria (00:00) y otro que analice sus proyectos y saque algo solo (04:00), con Claude Fable 5.2 y esfuerzo máximo.
+- [HECHO] Rutina «Binarias: programar el agente aprobador (00:00)» trig_01WW3w9zNhTxEwVeoFQFWb6J, una vez el 17/11 a las 00:00; entrega en la rama claude/aprobador-binarias-2026-11-17 e informe a Telegram.
+- [HECHO] Rutina «Proyectos: analizar y sacar lo siguiente (04:00)» trig_014mdzixXBLj5jRUvKJ5Csb7, 17/11 a las 04:00; rama claude/proyectos-2026-11-17.
+- [HECHO] Operador y comprador subidos a GitHub (rama binarias/plan-v7-2026-11-04, commit b4b2548).
+- [PENDIENTE] Revisar los dos informes en Telegram por la mañana. El aprobador de cada hora queda escrito y apagado hasta su orden.
+
 11/11/2026, 20:45 a 21:15. Pedidos: «cámbiela (la ESP32) a hacer lo que yo quiero y que siga aunque la desconecte», «comprar sobre la pérdida cuando el mercado ofrece más dinero» y «que vea el precio real».
 - [HECHO] ESP32 dedicada a binarias, persistente y probada con reinicios por hardware.
 - [HECHO] La pérdida en la caja y en la placa (tabla a ciegas y papel en vivo, idénticas entre sí).
@@ -642,6 +670,11 @@ Abiertos de antes
 
 
 8. BITÁCORA
+
+- 17/11/2026, 08:55: Fable 5.2 exige créditos; rutina del aprobador a Opus 5.5 max, encendida, con gasto mínimo y respeto a lo de Fable 5.2; la nube no clona los repos privados.
+- 17/11/2026, 09:30: rutina con el diseño suyo (puntos de acierto a Claude en la nube, que decide comprar o no); solo hoy 12:42 y 17:42.
+- 17/11/2026, 09:05: GitHub arreglado (reinstalación de la app Claude); rutina del aprobador programada para las 12:42.
+- 16/11/2026, 21:40: dos rutinas de la nube programadas (aprobador 00:00, proyectos 04:00) y operador subido a GitHub.
 
 - 29/10/2026 21:51. Centinela v4 y operador Claude en marcha.
 - 29/10/2026 22:36. t25: U no reemplaza a H (30 días arriba 65,3 % frente a 65,6 %).

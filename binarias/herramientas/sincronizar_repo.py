@@ -38,7 +38,9 @@ NUEVAS_CARPETAS = [("herramientas", (".py",)), ("herramientas/fixtures_lineas", 
                    ("guia", (".html", ".txt")), ("mesa", (".py", ".pyw", ".html", ".md")),
                    ("laboratorio", (".py", ".sh", ".md")), ("laboratorio/motor", (".py",)), ("laboratorio/placa", (".py",)),
                    # 16/11/2026: el operador automático y el comprador suben solo código y documentos; nunca datos ni llaves.
-                   ("operador", (".py", ".md")), ("comprador", (".py", ".md"))]
+                   ("operador", (".py", ".md", ".sh")), ("comprador", (".py", ".md")),
+                   # 17/11/2026: el nodo puente (une los puntos de la caja y el teléfono); solo código y documentos.
+                   ("nodo", (".py", ".md", ".sh"))]
 NUEVOS_PULSO = ["caja-prueba.sh"]
 NUNCA = re.compile(r"(^|/)(estado\.json|apuestas\.jsonl|senales_vivo\.jsonl|semaforo\.json|avisados\.json|REAL_AUTORIZADO|PARAR"
                    r"|.*\.(log|npy|npz|pid|zip|pdf|png|nrc|apk|so|env))$|(^|/)(__pycache__|datos|respaldos|comprobantes|salida"
