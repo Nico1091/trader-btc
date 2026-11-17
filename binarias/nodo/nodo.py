@@ -1,22 +1,25 @@
 # -*- coding: utf-8 -*-
 """Nodo puente de las binarias (17/11/2026). Solo biblioteca estándar y sin IA propia.
 
-Pedido del dueño del 17/11/2026, 09:45: «un nodo puente en el cual se manda todo»; que una los puntos de los programas que ya
-existen (el Centro de estrategias del teléfono y el vigía de 15 min de la caja; el operador de Fable 5.2 cuando corra), que
-los mande rápido, y que si solo uno de los dos equipos está conectado se envíe lo de ese.
+Pedidos del dueño del 17/11/2026:
+- 09:45: «un nodo puente en el cual se manda todo»; que una los puntos de los programas que ya existen (Centro de estrategias,
+  vigía de 15 min y operador de Fable 5.2), que los mande rápido, y que si solo un equipo está conectado se envíe lo de ese.
+- 10:00: «el nodo central debe ser el teléfono»; «el teléfono no debe necesitar de nadie: que haga todo solo y suba todo directo
+  a la gente de arriba, que lo apruebe o no». La caja también puede hacer de central, pero solo de respaldo.
 
 Qué hace, sin tocar a los demás programas (solo LEE sus archivos):
-- Lee cada 10 s las fuentes que haya en el equipo: datos/centro.json (E1 a E5 del Centro), quince.json (vigía de 15 min) y
-  el registro del operador de Fable (si existe). De cada estrategia calcula las últimas 25 cerradas, la racha y el fondo.
+- Lee cada 10 s las fuentes que haya en su equipo: datos/centro.json (E1 a E5 del Centro), quince.json (vigía de 15 min) y
+  el registro del operador de Fable. De cada estrategia calcula las últimas 25 cerradas, la racha y el fondo.
 - Un PUNTO es una señal nueva (abierta) de una estrategia. Es ALTO si esa estrategia lleva UMBRAL o más de sus últimas 25.
-- La caja es el nodo central (IP fija y siempre encendida): recibe por la red de la casa los puntos del teléfono, junta los
-  de los dos por mercado y sentido (los que coinciden salen en un solo mensaje) y los envía. El teléfono le manda los suyos;
-  si la caja no responde, los envía él mismo. Así basta con que uno de los dos esté conectado.
-- Envío: Telegram por Tor (la misma clave y el mismo camino que avisos.py), y todo queda en puntos.jsonl.
-- Decisión de Claude en la nube: si existe ~/.config/binarias/claude (línea 1: clave de la API de Claude), cada punto ALTO se
-  le manda a Claude Opus 5.5 con el contexto fijo (CONTEXTO-NODO.md) y responde COMPRAR SUBE, COMPRAR BAJA o NO COMPRAR; queda
-  en decisiones.jsonl y en el mensaje. Sin esa clave, dice «decisión de Claude: pendiente». El nodo NO compra nada: la
-  compra la hará el operador de Fable con sus frenos cuando esté armado (ARMADO, por orden del dueño).
+- El TELÉFONO es el nodo central: junta sus puntos con los que le lleguen de la caja (los que coinciden en mercado y sentido
+  salen en un solo mensaje) y los sube él mismo. No necesita a la caja: si la caja está apagada, sigue con lo suyo.
+- La CAJA es respaldo: entrega sus puntos al teléfono; si el teléfono no late (cada 30 s le avisa que está vivo y así la caja
+  aprende su IP) o no los recibe, la caja hace de central con lo suyo.
+- Subir: a Claude en la nube (si existe ~/.config/binarias/claude, línea 1 = clave de la API de Claude; Opus 5.5 decide
+  COMPRAR SUBE, COMPRAR BAJA o NO COMPRAR con el contexto fijo CONTEXTO-NODO.md) y a Telegram por Tor (la misma clave y el
+  mismo camino que avisos.py). Todo queda en puntos.jsonl y decisiones.jsonl; la decisión se copia también al otro equipo.
+  Sin clave de Claude dice «decisión de Claude: pendiente». El nodo NO compra: compra el operador de Fable con sus frenos
+  cuando el dueño lo arme.
 
 Uso:  python3 -I nodo.py            (bucle; lo lanza arrancar_nodo.sh con su vigía)
       python3 -I nodo.py --una      (una vuelta y sale; para probar)
@@ -38,15 +41,18 @@ AQUI = os.path.dirname(os.path.abspath(__file__))
 HOME = os.path.expanduser("~")
 CONF_DIR = os.path.join(HOME, ".config", "binarias")
 TELEGRAM = os.path.join(CONF_DIR, "telegram")      # línea 1: clave del bot, línea 2: chat (la misma de avisos.py)
-SECRETO = os.path.join(CONF_DIR, "nodo")           # secreto compartido caja-teléfono (firma de los puntos)
+SECRETO = os.path.join(CONF_DIR, "nodo")           # secreto compartido caja-teléfono (firma de lo que se pasan)
 CLAUDE = os.path.join(CONF_DIR, "claude")          # línea 1: clave de la API de Claude (la pone el dueño)
 TOR = "127.0.0.1:9050"
 PUERTO = 8799
 CAJA_IP = "192.168.20.45"
+TELEFONO_IP = "192.168.20.158"   # solo el primer valor: la caja aprende la IP real del latido del teléfono
 UMBRAL = 19            # de las últimas 25 (76 %): «si los porcentajes de los aciertos son altos»
 VENTANA = 25
-ESPERA_JUNTAR = 20     # segundos que la caja espera a que lleguen los demás puntos del mismo mercado y sentido
+ESPERA_JUNTAR = 20     # segundos que el central espera a que lleguen los demás puntos del mismo mercado y sentido
 VUELTA = 10            # segundos entre lecturas
+LATIDO = 30            # cada cuánto el teléfono le avisa a la caja que está vivo
+SIN_LATIDO = 90        # sin latido en este tiempo, la caja hace de central
 MODELO = "claude-opus-5-5"
 NOMBRES = {"E1": "E1 · ruptura de 20 velas al revés", "E2": "E2 · ruptura de 50 velas al revés",
            "E3": "E3 · Gemini 1 al revés", "E4": "E4 · Gemini 3 al revés", "E5": "E5 · rechazo en techo o piso",
@@ -98,20 +104,29 @@ def anexar(n, fila):
 
 
 def config():
-    """rol (caja o telefono) y carpeta del centinela; se pueden fijar en config.json del nodo."""
+    """Rol (telefono o caja), carpetas y red; todo se puede fijar en config.json del nodo."""
     c = leer_json(ruta("config.json"), {})
     rol = c.get("rol")
     cent = c.get("centinela")
     if not cent:
-        for d in ("/data/local/tmp/centinela", os.path.join(HOME, "centinela")):
+        for d in (os.path.join(HOME, "centinela"), "/data/local/tmp/centinela"):
             if os.path.isdir(d):
                 cent = d
                 break
     if not rol:
         rol = (open(os.path.join(cent, "rol"), encoding="utf-8").read().strip() if cent and os.path.exists(
-            os.path.join(cent, "rol")) else "caja")
-    return {"rol": rol, "centinela": cent or AQUI, "operador": c.get("operador", "/data/local/tmp/operador"),
-            "umbral": int(c.get("umbral", UMBRAL)), "caja_ip": c.get("caja_ip", CAJA_IP)}
+            os.path.join(cent, "rol")) else "telefono")
+    oper = c.get("operador") or next((d for d in (os.path.join(HOME, "operador"), "/data/local/tmp/operador")
+                                      if os.path.isdir(d)), os.path.join(HOME, "operador"))
+    return {"rol": rol, "centinela": cent or AQUI, "operador": oper, "umbral": int(c.get("umbral", UMBRAL)),
+            "preferido": c.get("preferido", "telefono"),
+            "par_ip": c.get("par_ip") or (CAJA_IP if rol == "telefono" else TELEFONO_IP),
+            "puerto": int(c.get("puerto", PUERTO)), "par_puerto": int(c.get("par_puerto", PUERTO)),
+            "carpeta": c.get("carpeta", AQUI)}
+
+
+def en(c, n):
+    return os.path.join(c["carpeta"], n)
 
 
 # ---------------------------------------------------------------- fuentes (solo lectura)
@@ -148,7 +163,6 @@ def leer_fuentes(c):
     q = leer_json(os.path.join(c["centinela"], "quince.json"), None)
     if isinstance(q, dict) and isinstance(q.get("ops"), list):
         out.append(("quince", "quince", resumen(q["ops"])))
-    # Operador de Fable 5.2: si corre, deja su registro diario; se toman sus decisiones de compra (papel o real) como señal.
     reg = os.path.join(c["operador"], "registro")
     if os.path.isdir(reg):
         try:
@@ -208,7 +222,7 @@ def puntos_nuevos(c, estado):
     return nuevos
 
 
-# ---------------------------------------------------------------- firma entre equipos
+# ---------------------------------------------------------------- firma y red entre equipos
 def secreto():
     try:
         return open(SECRETO, encoding="utf-8").read().strip().encode()
@@ -220,7 +234,23 @@ def firmar(cuerpo):
     return hmac.new(secreto(), cuerpo, hashlib.sha256).hexdigest()
 
 
-# ---------------------------------------------------------------- envíos
+def enviar_par(c, ip, camino, datos):
+    """POST firmado al otro equipo. True solo si respondió 200."""
+    if not ip:
+        return False
+    cuerpo = json.dumps(datos, ensure_ascii=False).encode()
+    pet = (f"POST {camino} HTTP/1.0\r\nHost: {ip}\r\nContent-Type: application/json\r\n"
+           f"X-Firma: {firmar(cuerpo)}\r\nContent-Length: {len(cuerpo)}\r\n\r\n").encode() + cuerpo
+    try:
+        with socket.create_connection((ip, c["par_puerto"]), timeout=4) as s:
+            s.sendall(pet)
+            resp = s.recv(200)
+        return resp.split(b" ")[1:2] == [b"200"]
+    except OSError:
+        return False
+
+
+# ---------------------------------------------------------------- subir: Telegram y Claude
 def comillas(s):
     return '"' + s.replace("\\", "\\\\").replace('"', '\\"').replace("\n", "\\n").replace("\r", "") + '"'
 
@@ -249,7 +279,7 @@ def telegram(texto):
 
 
 def decision_claude(grupo):
-    """Claude Opus 5.5 decide si existe la clave del dueño. Devuelve (texto, detalle) o (None, motivo)."""
+    """Claude Opus 5.5 decide si existe la clave del dueño. Devuelve (decisión o None, detalle)."""
     try:
         clave = open(CLAUDE, encoding="utf-8").read().split()[0]
     except Exception:
@@ -258,8 +288,8 @@ def decision_claude(grupo):
         contexto = open(ruta("CONTEXTO-NODO.md"), encoding="utf-8").read()
     except OSError:
         contexto = "Binarias BTC Up or Down de Binance. Solo devolución. Responda COMPRAR SUBE, COMPRAR BAJA o NO COMPRAR."
-    paquete = json.dumps([{k: p[k] for k in ("equipo", "fuente", "estrategia", "nombre", "t", "dir", "base", "aciertos",
-                                              "de", "racha", "fondo")} for p in grupo], ensure_ascii=False)
+    paquete = json.dumps([{k: p.get(k) for k in ("equipo", "fuente", "estrategia", "nombre", "t", "dir", "base", "aciertos",
+                                                  "de", "racha", "fondo")} for p in grupo], ensure_ascii=False)
     cuerpo = json.dumps({"model": MODELO, "max_tokens": 300,
                          "system": [{"type": "text", "text": contexto, "cache_control": {"type": "ephemeral"}}],
                          "messages": [{"role": "user", "content": "Punto de los programas (JSON):\n" + paquete +
@@ -276,7 +306,7 @@ def decision_claude(grupo):
         resp = json.loads(r.stdout or "{}")
         texto = "".join(b.get("text", "") for b in resp.get("content", []) if b.get("type") == "text").strip()
     except Exception as e:
-        return None, f"sin respuesta de Claude ({type(e).__name__})"
+        return None, f"sin respuesta de Claude ({type(e).__name__}): NO COMPRAR"
     return interpretar(texto)
 
 
@@ -296,7 +326,7 @@ def flecha(d):
     return "▲ SUBE" if d == 1 else "▼ BAJA"
 
 
-def mensaje(grupo, decision, detalle):
+def mensaje(grupo, decision, detalle, quien):
     p0 = grupo[0]
     altos = [p for p in grupo if p["alto"]]
     lineas = [f"[Nodo] PUNTO {'ALTO' if altos else 'bajo'} · BTC · {flecha(p0['dir'])} · señal de las {hhmm(p0['t'])}",
@@ -306,16 +336,30 @@ def mensaje(grupo, decision, detalle):
         lineas.append(f"- {p['nombre']} ({p['equipo']}): {p['aciertos']} de {p['de']} ({pct} %), racha {p['racha']}"
                       + (f", fondo {str(p['fondo']).replace('.', ',')} %" if p["fondo"] is not None else ""))
     lineas.append(f"Decisión de Claude: {decision or detalle}" + (f" · {detalle}" if decision and detalle else ""))
-    lineas.append("El nodo no compra: compra el operador cuando esté armado.")
+    lineas.append(f"Sube: {quien}. El nodo no compra: compra el operador cuando esté armado.")
     return "\n".join(lineas)
 
 
-# ---------------------------------------------------------------- caja: nodo central
+# ---------------------------------------------------------------- el central (el teléfono; la caja solo de respaldo)
 class Central:
-    def __init__(self, c):
+    def __init__(self, c, estado):
         self.c = c
         self.lock = threading.Lock()
         self.grupos = {}          # (t//60, dir) -> {"desde": t, "puntos": [...], "enviado": bool}
+        self.par = estado.setdefault("par", {"ip": c["par_ip"], "visto": 0})
+        if c["rol"] == c["preferido"]:
+            self.par["ip"] = c["par_ip"]
+
+    def principal(self):
+        return self.c["rol"] == self.c["preferido"]
+
+    def activo(self):
+        """El teléfono siempre sube; la caja solo si el teléfono no late."""
+        return self.principal() or time.time() - self.par.get("visto", 0) > SIN_LATIDO
+
+    def latido_de(self, ip):
+        self.par["ip"] = ip
+        self.par["visto"] = time.time()
 
     def recibir(self, p):
         with self.lock:
@@ -323,7 +367,7 @@ class Central:
             g = self.grupos.setdefault(k, {"desde": time.time(), "puntos": [], "enviado": False})
             if all(x["clave"] != p["clave"] for x in g["puntos"]):
                 g["puntos"].append(p)
-                anexar(ruta("puntos.jsonl"), p)
+                anexar(en(self.c, "puntos.jsonl"), p)
 
     def despachar(self):
         ahora = time.time()
@@ -334,15 +378,18 @@ class Central:
                 g["enviado"] = True
             for k in [k for k, g in self.grupos.items() if ahora - g["desde"] > 3600]:
                 del self.grupos[k]
+        quien = "el teléfono (nodo central)" if self.principal() else "la caja (respaldo: el teléfono no respondió)"
         for k, g in listos:
             grupo = g["puntos"]
             if not any(p["alto"] for p in grupo):
-                continue                       # solo se envía lo de aciertos altos
+                continue                       # solo se sube lo de aciertos altos
             decision, detalle = decision_claude([p for p in grupo if p["alto"]])
-            anexar(ruta("decisiones.jsonl"), {"t": int(ahora), "punto": k, "decision": decision, "detalle": detalle,
-                                              "fuentes": [p["clave"] for p in grupo]})
-            telegram(mensaje(grupo, decision, detalle))
-            log(f"enviado grupo {k}: {len(grupo)} punto(s), decisión {decision or detalle}")
+            fila = {"t": int(ahora), "punto": list(k), "decision": decision, "detalle": detalle, "sube": self.c["rol"],
+                    "fuentes": [p["clave"] for p in grupo]}
+            anexar(en(self.c, "decisiones.jsonl"), fila)
+            enviar_par(self.c, self.par.get("ip"), "/decision", fila)   # copia al otro equipo, si está
+            telegram(mensaje(grupo, decision, detalle, quien))
+            log(f"subido grupo {k}: {len(grupo)} punto(s), decisión {decision or detalle}")
 
 
 def servidor(central):
@@ -350,92 +397,81 @@ def servidor(central):
         def log_message(self, *a):
             pass
 
+        def responder(self, codigo, cuerpo=b""):
+            self.send_response(codigo)
+            self.end_headers()
+            if cuerpo:
+                self.wfile.write(cuerpo)
+
         def do_POST(self):
             n = int(self.headers.get("Content-Length", "0") or 0)
-            cuerpo = self.rfile.read(min(n, 100000))
-            firma = self.headers.get("X-Firma", "")
-            if not secreto() or not hmac.compare_digest(firma, firmar(cuerpo)):
-                self.send_response(403)
-                self.end_headers()
-                return
+            cuerpo = self.rfile.read(min(n, 200000))
+            if not secreto() or not hmac.compare_digest(self.headers.get("X-Firma", ""), firmar(cuerpo)):
+                return self.responder(403)
             try:
-                for p in json.loads(cuerpo):
-                    central.recibir(p)
+                datos = json.loads(cuerpo)
+                if self.path == "/puntos":
+                    for p in datos:
+                        central.recibir(p)
+                elif self.path == "/latido":
+                    central.latido_de(self.client_address[0])
+                elif self.path == "/decision":
+                    anexar(en(central.c, "decisiones.jsonl"), dict(datos, copia_de=self.client_address[0]))
+                else:
+                    return self.responder(404)
             except (ValueError, KeyError, TypeError):
-                self.send_response(400)
-                self.end_headers()
-                return
-            self.send_response(200)
-            self.end_headers()
-            self.wfile.write(b"ok")
+                return self.responder(400)
+            self.responder(200, b"ok")
 
         def do_GET(self):
             self.send_response(200)
             self.send_header("Content-Type", "application/json")
             self.end_headers()
-            self.wfile.write(json.dumps({"nodo": "caja", "hora": hora(time.time())}).encode())
+            self.wfile.write(json.dumps({"nodo": central.c["rol"], "central": central.activo(),
+                                         "hora": hora(time.time())}).encode())
 
-    srv = ThreadingHTTPServer(("0.0.0.0", PUERTO), H)
+    srv = ThreadingHTTPServer(("0.0.0.0", central.c["puerto"]), H)
     threading.Thread(target=srv.serve_forever, daemon=True).start()
     return srv
 
 
-# ---------------------------------------------------------------- teléfono: remitente
-def a_la_caja(c, puntos):
-    cuerpo = json.dumps(puntos, ensure_ascii=False).encode()
-    pet = (f"POST /puntos HTTP/1.0\r\nHost: {c['caja_ip']}\r\nContent-Type: application/json\r\n"
-           f"X-Firma: {firmar(cuerpo)}\r\nContent-Length: {len(cuerpo)}\r\n\r\n").encode() + cuerpo
-    try:
-        with socket.create_connection((c["caja_ip"], PUERTO), timeout=4) as s:
-            s.sendall(pet)
-            resp = s.recv(200)
-        return resp.split(b" ")[1:2] == [b"200"]
-    except OSError:
-        return False
-
-
-def vuelta(c, estado, central=None):
+def vuelta(c, estado, central):
     nuevos = puntos_nuevos(c, estado)
-    escribir_json(ruta("estado.json"), estado)
+    escribir_json(en(c, "estado.json"), estado)
     if not nuevos:
         return 0
-    if central is not None:                 # caja
-        for p in nuevos:
-            central.recibir(p)
-        return len(nuevos)
-    for p in nuevos:                         # teléfono
-        anexar(ruta("puntos.jsonl"), p)
-    if a_la_caja(c, nuevos):
-        log(f"{len(nuevos)} punto(s) entregados a la caja")
-        return len(nuevos)
-    # La caja no responde: el teléfono envía lo suyo directo (basta con que uno esté conectado).
-    grupos = {}
+    if not central.activo():                 # caja con el teléfono vivo: se los entrega al teléfono
+        if enviar_par(c, central.par.get("ip"), "/puntos", nuevos):
+            for p in nuevos:
+                anexar(en(c, "puntos.jsonl"), dict(p, entregado="telefono"))
+            log(f"{len(nuevos)} punto(s) entregados al teléfono")
+            return len(nuevos)
+        log("el teléfono no los recibió: la caja hace de central con lo suyo")
+        central.par["visto"] = 0
     for p in nuevos:
-        grupos.setdefault((int(p["t"] or 0) // 60, p["dir"]), []).append(p)
-    for k, grupo in grupos.items():
-        if any(p["alto"] for p in grupo):
-            decision, detalle = decision_claude([p for p in grupo if p["alto"]])
-            anexar(ruta("decisiones.jsonl"), {"t": int(time.time()), "punto": list(k), "decision": decision,
-                                              "detalle": detalle, "fuentes": [p["clave"] for p in grupo]})
-            telegram(mensaje(grupo, decision, detalle) + "\n(la caja no respondió: lo envía el teléfono)")
-    log(f"caja sin respuesta: {len(nuevos)} punto(s) tratados en el teléfono")
+        central.recibir(p)
     return len(nuevos)
 
 
 def main():
     c = config()
-    estado = leer_json(ruta("estado.json"), {})
-    central = None
-    if c["rol"] == "caja":
-        central = Central(c)
-        if "--una" not in sys.argv:
-            servidor(central)
-    log(f"nodo arrancó: rol {c['rol']}, centinela {c['centinela']}, umbral {c['umbral']} de {VENTANA}")
+    estado = leer_json(en(c, "estado.json"), {})
+    central = Central(c, estado)
+    if "--una" not in sys.argv:
+        servidor(central)
+    log(f"nodo arrancó: rol {c['rol']} ({'central' if central.principal() else 'respaldo'}), "
+        f"centinela {c['centinela']}, operador {c['operador']}, umbral {c['umbral']} de {VENTANA}")
+    ultimo_latido, latia = 0.0, None
     while not os.path.exists(ruta("PARAR")):
         try:
             vuelta(c, estado, central)
-            if central is not None:
-                central.despachar()
+            central.despachar()
+            if central.principal() and time.time() - ultimo_latido >= LATIDO:
+                ultimo_latido = time.time()
+                ok = enviar_par(c, central.par.get("ip"), "/latido", {"rol": c["rol"], "t": int(ultimo_latido)})
+                if ok != latia:
+                    log("la caja responde: le paso las decisiones" if ok else "la caja no responde: sigo solo")
+                    latia = ok
         except Exception as e:  # el nodo no se cae por una fuente rara
             log(f"vuelta con error: {type(e).__name__}: {e}")
         if "--una" in sys.argv:

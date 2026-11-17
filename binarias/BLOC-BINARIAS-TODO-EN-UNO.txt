@@ -12,7 +12,11 @@ CÓMO SE USA ESTE BLOC
 
 AL FRENTE (17/11/2026, 09:40): AGENTE APROBADOR EN LA NUBE · TODO CON OPUS 5.5 · LAS REGLAS DE FABLE 5.2 MANDAN · EN CURSO
 Estado: EN CURSO (rutina constructora trig_01WW3w9zNhTxEwVeoFQFWb6J, solo hoy 12:42 y 17:42; rama claude/aprobador-binarias-2026-11-17)
-SIGUIENTE PASO: leer en Telegram el informe «[Aprobador de binarias]» (12:42 y 17:42) y la rama; apagar la rutina tras las 17:42; luego estudiar la estructura del operador de la caja para programarlo, sin cambiar las reglas de Fable 5.2.
+SIGUIENTE PASO: leer en Telegram el informe «[Aprobador de binarias]» (12:42 y 17:42), subir a la caja lo que deje en la rama claude/aprobador-binarias-2026-11-17 y apagar la rutina tras las 17:42. Pendiente de él: clave de Claude, llave de Binance de la caja, fondos y armar.
+- [HECHO 09:45] NODO PUENTE corriendo: caja = nodo central (/data/local/tmp/nodo, puerto 8799); teléfono = remitente (~/nodo). Junta los puntos del Centro (E1 a E5), del vigía de 15 min y del operador de Fable; los que van en 19 de 25 o más salen a Telegram como «[Nodo] PUNTO ALTO» y se consultan a Claude Opus 5.5 (falta la clave: hoy dice «pendiente»). Si la caja no responde, el teléfono envía lo suyo. Firma HMAC entre equipos (secreto en ~/.config/binarias/nodo). 15 de 15 pruebas en PC, caja y teléfono; prueba real teléfono → caja → Telegram a las 09:37. Arranca solo al encender (línea en arrancar.sh; copia arrancar.sh.antes-nodo-17-11). Código en binarias-papel
+odo y en GitHub (commit 01265c1).
+- [HECHO 09:40] Operador de Fable subido a la caja sin cambios (huellas iguales) y corriendo en su estado 1 (sin llave: solo mide). arrancar_operador.sh nuevo y en el arranque de la caja.
+- [HECHO 09:42] Rutina constructora con la sección H: construye encima del nodo; cierra el lazo (el operador solo compra real con COMPRAR vigente del nodo); prueba la llamada a Claude; no instala nada.
 - Su diseño (17/11, 09:30), todo automático: el programa de la caja (operador de Fable 5.2) mide sus aciertos; al llegar al umbral del plan (hoy 76 %, 19 de 25) envía CADA punto de compra a Claude en la nube, sin tope de consultas (12 a 15 por hora o más); Claude decide COMPRAR o NO COMPRAR con todo el contexto; el programa compra o no según esa decisión. Él no decide nada en el día a día; solo arma una vez (ARMADO), pone llaves y fondos.
 - Modelo (orden suya, 17/11, 09:40): todo se mueve con Claude Opus 5.5. Fable 5.2 exige créditos de pago desde el 17/11 (comprobado con una llamada real). Ojo: la sección F de la rutina todavía dice Haiku 5.5 para quien decide; él pidió dejarla quieta por ahora. Cuando se retome, el que decide va con Opus 5.5.
 - Las reglas de Fable 5.2 mandan: él lo considera la IA más avanzada a la que tiene acceso y quiere su opinión plasmada. No cambiar su lógica (miradas al cierre de cada minuto, ganancia esperada prudente, margen 0,10, libro B, tope 16 %, una orden por mercado, freno del día, 20 órdenes reales al día, tres estados, ARMADO y PARAR). Fable escribió que el operador «no decide con IA»: por eso Claude decide solo sobre los puntos que el operador propone, sin inventar compras ni cambiar montos.
@@ -672,6 +676,7 @@ Abiertos de antes
 8. BITÁCORA
 
 - 17/11/2026, 08:55: Fable 5.2 exige créditos; rutina del aprobador a Opus 5.5 max, encendida, con gasto mínimo y respeto a lo de Fable 5.2; la nube no clona los repos privados.
+- 17/11/2026, 09:45: nodo puente corriendo en la caja y el teléfono; operador de Fable en la caja (estado 1); rutina con la sección H.
 - 17/11/2026, 09:30: rutina con el diseño suyo (puntos de acierto a Claude en la nube, que decide comprar o no); solo hoy 12:42 y 17:42.
 - 17/11/2026, 09:05: GitHub arreglado (reinstalación de la app Claude); rutina del aprobador programada para las 12:42.
 - 16/11/2026, 21:40: dos rutinas de la nube programadas (aprobador 00:00, proyectos 04:00) y operador subido a GitHub.
