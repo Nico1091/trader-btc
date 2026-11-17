@@ -260,7 +260,7 @@ class Fuentes:
 
     def __init__(self, c):
         self.c = c
-        self.cache = {}           # ruta -> (mtime, tamaño, datos)
+        self.cache = {}           # ruta -> ((inodo, mtime en ns, tamaño), datos)
         self.cola = Cola(os.path.join(c["operador"], "registro"))
         self.llenados = {}        # (W, t, lado) -> {"t", "dir", "base", "m"}: compras de papel del operador (libro A, 5 s)
         self.ganadores = {}       # (W, t) -> ganador oficial
@@ -275,7 +275,9 @@ class Fuentes:
         except OSError:
             self.cache.pop(n, None)
             return []
-        marca = (st.st_mtime, st.st_size)
+        # 17/11/2026: con el inodo. El Centro y el vigía reescriben con os.replace (archivo nuevo, inodo nuevo); la hora
+        # sola no basta, porque en el teléfono dos escrituras seguidas comparten el tic del reloj (189 de 200 medidas).
+        marca = (st.st_ino, st.st_mtime_ns, st.st_size)
         hay = self.cache.get(n)
         if hay and hay[0] == marca:
             return hay[1]

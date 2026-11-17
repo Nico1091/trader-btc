@@ -15,7 +15,18 @@ Rama `claude/aprobador-binarias-2026-11-17`, salida de `binarias/plan-v7-2026-11
 - [x] 5. Medición en papel de la combinación frente a cada fuente sola: `nodo/medir_combinacion.py` (va con el nodo porque lee los archivos del teléfono).
 - [x] 6. Costos: una revisión del nodo medida (`nodo/medir_nodo.py`); una consulta a Claude estimada con los precios oficiales (sin clave no se pudo medir; el nodo anota el uso real de cada consulta).
 - [x] 7. `PLAN-APROBADOR.md`.
-- [x] 8. Informe a Telegram (texto) y `TERMINADO.md`. Subir la rama a GitHub: BLOQUEADO (403, ver abajo).
+- [x] 8. Informe a Telegram (texto) y `TERMINADO.md`. Subir la rama a GitHub: BLOQUEADO (403, ver abajo); resuelto a las 15:47 con /web-setup.
+- [x] 9. Llevado por la sesión del PC (17/11): teléfono a las 18:10 (nodo central y candado del operador) y caja a las 18:12 (solo el nodo; su operador sigue con PARAR). Detalle abajo, en «Llevado al teléfono y a la caja».
+
+## Llevado al teléfono y a la caja (17/11/2026, sesión del PC)
+
+- Antes de tocar lo que corría, las pruebas en una carpeta aparte de cada equipo (Python 3.14.8): `prueba_nodo.py` 65 de 65 y `prueba_aprobacion.py --antes` 36 de 36 contra el operador que corría (huellas de 7429f90). Guion: `probar.sh`.
+- La primera corrida del nodo en el teléfono falló («señal nueva con 20 de 25»): `Fuentes._resumenes` daba por igual un archivo con la misma hora y el mismo tamaño, y en el teléfono dos escrituras seguidas comparten el tic del reloj del núcleo (189 de 200 pares medidos; el inodo cambia siempre, porque el Centro y el vigía reescriben con `os.replace`). Corregido: la marca es `(st_ino, st_mtime_ns, st_size)`. Tres corridas más, 65 de 65; en la marcha real el Centro escribe una vez por minuto, así que no se perdían señales, pero la prueba quedaba a la suerte. Huella nueva de `nodo/nodo.py`: 6912c5435be5f4b6 (la tabla de abajo dice a4f578e3f59a3f7f, la de antes de la corrección).
+- Pasos 1 a 7 con `instalar.sh` (copiar, arrancar, comprobar): parados en 3 s; copias `.antes-aprobador-17-11`; 8 de 8 huellas; «nodo arrancó: rol telefono (central) … Claude claude-opus-5-5 (esfuerzo low, rutas directa, tor)»; el operador sigue en el estado 1 («Real: desarmado y sin órdenes»). Centinela, Centro, avisos y publicador sin tocar.
+- Paso 8 (`medir_nodo.py` en el teléfono): primera vuelta 177 ms; vuelta sin cambios 0,1 ms y 0 KB leídos; con el Centro reescrito 77 ms; con miradas nuevas del operador 0,5 ms; promedio 12,8 ms de procesador por revisión, unos 110 s al día.
+- Paso 9 (caja): las mismas pruebas, 65 de 65 y 36 de 36; nodo nuevo con 5 de 5 huellas, «rol caja (respaldo)». Latido del teléfono comprobado tras el reinicio de la caja (no hace de central).
+- Para volver atrás en cada equipo: `run-as com.termux sh /data/local/tmp/aprobador-17-11/instalar.sh volver` (en la caja, con `/data/local/tmp` al final).
+- Hallazgo 6 (se suma a los de abajo): con la clave puesta, el nodo llamará a Claude primero directo, con la IP de la casa, y por Tor solo si no conecta. El dueño tiene la regla de no exponer su IP; si lo quiere solo por Tor, basta `"rutas_claude": ["tor"]` en `config.json` del nodo (Anthropic puede rechazar algunas salidas de Tor). Lo decide él.
 
 ## Bloqueo: GitHub no deja escribir
 
