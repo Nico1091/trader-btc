@@ -20,10 +20,10 @@ ADB = shutil.which("adb") or os.path.expanduser(
     r"~\AppData\Local\Microsoft\WinGet\Packages\Genymobile.scrcpy_Microsoft.Winget.Source_8wekyb3d8bbwe\scrcpy-win64-v4.1\adb.exe")
 ENTORNO = dict(os.environ, MSYS_NO_PATHCONV="1")
 CODIGO = ["comun.py", "base.py", "velas.py", "rasgos.py", "formas.py", "juez.py", "red.py", "busqueda.py", "emulador.py",
-          "partes.py", "peticiones.py", "perdida.py", "laboratorio.py", "prueba_laboratorio.py", "construir.py", "centro.py", "graficas.py",
+          "partes.py", "peticiones.py", "perdida.py", "perdida_red.py", "laboratorio.py", "prueba_laboratorio.py", "construir.py", "centro.py", "graficas.py",
           "validacion.py", "arrancar_lab.sh", "probar.sh", "motor/senales.py", "motor/patrones_std.py",
           "PROMPT-FINAL.md", "REVISION.md"]
-DATOS = ["datos/interes.npz", "datos/indice.npz", "datos/red_X.npz", "datos/red_p.npz", "datos/redes.json", "datos/t33_indice.json", "datos/perdida.json"]
+DATOS = ["datos/interes.npz", "datos/indice.npz", "datos/red_X.npz", "datos/red_p.npz", "datos/redes.json", "datos/t33_indice.json", "datos/perdida.json", "datos/perdida_red.json"]
 
 
 def adb(*args, timeout=600):

@@ -5,6 +5,9 @@
 D=$(cd "$(dirname "$0")" && pwd)
 cd "$D" || exit 1
 umask 022
+# 11/11/2026: con el entorno de Termux aunque lo lance ADB (run-as) y no Termux:Boot; sin esto, python3 no se encuentra.
+P=/data/data/com.termux/files/usr
+[ -d "$P/bin" ] && export PREFIX="$P" HOME=/data/data/com.termux/files/home PATH="$P/bin:$PATH" TMPDIR="$P/tmp"
 termux-wake-lock 2>/dev/null
 rm -f PARAR
 ROL=$(cat rol 2>/dev/null || echo caja)
@@ -48,4 +51,11 @@ fi
 fi
 # 5) Laboratorio de formas (11/11/2026): solo donde esté instalado (la caja). Tiene su carpeta, su PARAR y su vigía.
 [ -f /data/local/tmp/laboratorio/arrancar_lab.sh ] && sh /data/local/tmp/laboratorio/arrancar_lab.sh
+# 6) Precio real propio de Predict.fun (11/11/2026): con su llave de SOLO LECTURA; sin ella espera. No depende del PC ni del
+#    centinela; está en su propia carpeta (la caja: /data/local/tmp/precio; el teléfono: ~/precio), con su PARAR y su vigía.
+for PRE in /data/local/tmp/precio "$HOME/precio"; do
+  if [ -f "$PRE/precio_vivo.py" ] && ! pgrep -f "while \[ ! -f PARAR \]; do .*precio_vivo.py" >/dev/null 2>&1; then
+    (cd "$PRE" && rm -f PARAR && nohup sh -c 'while [ ! -f PARAR ]; do pgrep -f "^python3 -I precio_vivo.py" >/dev/null || nice -n 10 python3 -I precio_vivo.py >> salida.log 2>&1; [ -f PARAR ] && break; sleep 30; done' >/dev/null 2>&1 &)
+  fi
+done
 echo "centinela: vigía $(cat vigia.pid) · avisos: $(cat avisos.pid) · centro: $(cat centro.pid 2>/dev/null || echo no) · rol $ROL · en $D$([ -f ESPERA_ESTADO ] && echo ' · ESPERA_ESTADO')"

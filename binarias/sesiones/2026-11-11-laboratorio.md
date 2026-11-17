@@ -18,4 +18,10 @@ Sesión desde las 19:36 de Colombia. Pedido: ejecutar el plan del laboratorio ap
 
 **Falta:** arrancar el laboratorio de verdad tras las marchas en seco, el reinicio de prueba, que él confirme en Telegram el tablero y las peticiones, 48 horas de marcha con auditoría, consolidar en GitHub y la USB, y la IA pequeña (paso 12). De él: conectar el teléfono por USB.
 
+**Placa ESP32.** A las 20:45 pidió que la placa hiciera lo que él quiere y que siguiera aunque la desconectara. Quedó dedicada a binarias con su programa guardado en la memoria (arranca sola, reconecta el WiFi, perro guardián): corre la misma red del laboratorio y la pérdida, con velas que pide a Binance, y las dos pruebas contra el laboratorio dieron igualdad exacta. El acortador de noticias quedó guardado pero apagado; el bot usa su propio resumen.
+
+**Comprar sobre la pérdida.** Su idea: comprar el lado que va perdiendo cuando paga más, y con el precio real. La tabla a ciegas muestra que el perdedor gana casi en proporción a lo atrasado (minuto 14 con |z| de 3 o más: 0,3 %), así que comprarlo a 0,01 solo deja ganancia si la app lo vende por debajo de esa frecuencia. El precio real solo se lee con su llave, que no sale del PC: la Mesa anota el papel con el libro real de Predict.fun y lo manda a la placa y a la caja. Primera ventana (21:00 a 21:15): BAJA a 0,01 a 159 s del cierre; ganó «sube» y las cuatro compras de papel perdieron 1 USDT cada una.
+
+**Cierre (21:20).** Caja reiniciada de prueba: Tor y el laboratorio volvieron solos a los 84 s. Todo en GitHub (rama binarias/plan-v7-2026-11-04). Falta: su confirmación en Telegram (paso 8), las 48 horas (paso 9), la revisión final, la USB y la IA pequeña.
+
 Relacionado: [[Binarias en papel]], [[Mesa de binarias]].

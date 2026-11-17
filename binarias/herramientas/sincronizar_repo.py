@@ -36,7 +36,9 @@ NUEVOS_ARRIBA = ["PROMPT-AGENTE-NUBE-BINARIAS.md"]
 NUEVAS_CARPETAS = [("herramientas", (".py",)), ("herramientas/fixtures_lineas", (".csv",)), ("cuant", (".py",)),
                    ("cuant/resultados", (".txt",)), ("dispositivos", (".py", ".sh")), ("historia", (".md", ".py")),
                    ("guia", (".html", ".txt")), ("mesa", (".py", ".pyw", ".html", ".md")),
-                   ("laboratorio", (".py", ".sh", ".md")), ("laboratorio/motor", (".py",)), ("laboratorio/placa", (".py",))]
+                   ("laboratorio", (".py", ".sh", ".md")), ("laboratorio/motor", (".py",)), ("laboratorio/placa", (".py",)),
+                   # 16/11/2026: el operador automático y el comprador suben solo código y documentos; nunca datos ni llaves.
+                   ("operador", (".py", ".md")), ("comprador", (".py", ".md"))]
 NUEVOS_PULSO = ["caja-prueba.sh"]
 NUNCA = re.compile(r"(^|/)(estado\.json|apuestas\.jsonl|senales_vivo\.jsonl|semaforo\.json|avisados\.json|REAL_AUTORIZADO|PARAR"
                    r"|.*\.(log|npy|npz|pid|zip|pdf|png|nrc|apk|so|env))$|(^|/)(__pycache__|datos|respaldos|comprobantes|salida"
@@ -132,7 +134,7 @@ def main():
             if patron.search(texto):
                 git("reset", "-q")
                 raise SystemExit(f"POSIBLE CLAVE en {ruta}: no se sube nada. Revíselo a mano.")
-    git("commit", "-q", "-m", mensaje + "\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>")
+    git("commit", "-q", "-m", mensaje + "\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>")
     print(f"commit {git('rev-parse', '--short', 'HEAD').strip()} con {len(reales)} archivos:")
     for c in reales:
         print("  ", c)

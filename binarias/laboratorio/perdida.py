@@ -142,6 +142,7 @@ class Perdida:
             self.con.execute("INSERT OR IGNORE INTO perdidas (ventana, m, z, lado, cubo, precio_max, t) VALUES (?, ?, ?, ?, ?, ?, ?)",
                              (w, m, float(z), int(-math.copysign(1, z)), cubo(z), precio_tabla(m, z), int(time.time())))
             nuevas += 1
+        self.proponer()
         C, O = vel.A[3], vel.A[0]
         for w, lado in self.con.execute("SELECT ventana, lado FROM perdidas WHERE res IS NULL").fetchall():
             s = (w - vel.t0) // 60
@@ -149,6 +150,26 @@ class Perdida:
                 self.con.execute("UPDATE perdidas SET res=? WHERE ventana=?", (1 if (C[s + 14] - O[s]) * lado > 0 else 0, w))
         self.con.commit()
         return nuevas
+
+    def proponer(self):
+        """La red de la pérdida al final (perdida_red.py) en el último minuto cerrado, si es el 10 a 14 de la ventana."""
+        import perdida_red as PRED
+        modelo = getattr(self, "_modelo", None) or PRED.cargar()
+        self._modelo = modelo
+        vel = self.vel
+        j = vel.n - 1
+        t_j = vel.t0 + 60 * j
+        s = j - ((t_j - vel.t0) % 900) // 60
+        m = j - s + 1
+        if not modelo or m not in PRED.MINUTOS or s < 61:
+            return
+        A = vel.A
+        r = PRED.rasgos(A[3, :vel.n], A[1, :vel.n], A[2, :vel.n], A[4, :vel.n], s, m, float(A[0, s]), t_j)
+        if r is None:
+            return
+        x, lado = r
+        p = PRED.predecir(modelo, x)
+        self.propuesta = {"ventana": int(vel.t0 + 60 * s), "m": m, "lado": lado, "p": p, "precio_max": 0.98 * p}
 
     def cifras(self, desde=0):
         n, k = self.con.execute("SELECT COUNT(*), COALESCE(SUM(res), 0) FROM perdidas WHERE res IN (0, 1) AND ventana>=?",
@@ -162,6 +183,10 @@ class Perdida:
         if self.tabla and self.tabla.get("vivo_juzga", {}).get("n"):
             j = self.tabla["vivo_juzga"]
             t += f"; a ciegas en la historia {pct(j['p'])} en {num(j['n'], 0)}; vale la pena si cuesta menos de {num(j['precio_max'], 2)}"
+        pr = getattr(self, "propuesta", None)
+        if pr and time.time() - pr["ventana"] < 900:
+            t += (f". La red, minuto {pr['m']} de la ventana de las {hora(pr['ventana'], '%H:%M')}: el lado perdedor "
+                  f"({'SUBE' if pr['lado'] > 0 else 'BAJA'}) gana {pct(pr['p'])}; compre solo si cuesta menos de {num(pr['precio_max'], 3)}")
         ab = self.con.execute("SELECT ventana, m, lado, precio_max FROM perdidas WHERE res IS NULL ORDER BY ventana DESC LIMIT 1").fetchone()
         if ab:
             w, m, lado, q = ab

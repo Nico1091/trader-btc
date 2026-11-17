@@ -146,6 +146,8 @@ Base común: el núcleo en BTC, entrada 60 s tarde, empate = fallo, pago 0,85 (g
 - Criterios escritos antes de ver resultados (PROMPT-FINAL.md, parte 6): tramos aprende 2021-2023, elige ene-2024 a jun-2025 y juzga jul-2025 a oct-2026; entra a vivo la forma nueva con 300 señales o más en elige, Wilson inferior sobre el equilibrio y Benjamini-Hochberg con q = 0,05 en su tanda; su cifra de juzga se calcula una sola vez al entrar.
 - Regla 6.2: las formas a favor del movimiento se emulan para comparar; al protocolo de dinero solo pasan las de devolución. «Apta en papel» no autoriza dinero.
 
+- Placa ESP32 y pérdida (11/11, 21:05, pedidos suyos): la ESP32-S3 corre la misma red y la pérdida, con su programa en la placa. Regla de la pérdida, escrita antes de ver resultados: ventanas de 15 min de Predict.fun; miradas en los minutos 3 a 14; z = ln(precio/apertura)/(σ60·√(15−m)); se compra en papel el lado perdedor en la primera mirada con |z| ≥ 1 y, con el precio real del libro (solo en el PC), a lo último cuando cuesta 0,02, 0,05 o 0,10 o menos; precio máximo que vale la pena = 0,98 × acierto a ciegas. Es devolución; «apta» no autoriza dinero.
+
 ## 8. Criterios para el dinero real (todos, y su orden expresa)
 
 Su orden del 04/11 (01:30): el real corre solo cuando el SÍ coincide con su 76 % (19 de las últimas 25 de papel), sin apalancamiento y con tope del 16 %. Los criterios de abajo quedan como recomendación; P1 (pago y demora reales) sigue siendo el que más vale.

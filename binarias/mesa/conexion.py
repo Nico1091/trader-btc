@@ -19,9 +19,33 @@ BASE = "https://api.binance.com"
 PRED = "/sapi/v1/w3w/wallet/prediction"
 FAPI = "https://fapi.binance.com/fapi/v1/klines?symbol=BTCUSDT&interval=1m"
 FOI = "https://fapi.binance.com/futures/data/openInterestHist?symbol=BTCUSDT&period=5m&limit=12"
+# 12/11/2026: el mercado de 15 min abre y liquida con el precio medio de CONTADO de Binance (flujo de Chainlink BTC/USDT, lo
+# dice su descripción oficial; 12 de 12 aperturas iguales al contado, ±0,01). Futuros iba 30,8 USD por debajo: para todo lo que
+# se compare con la apertura oficial se usan estas velas, no las de futuros.
+CONTADO = "https://api.binance.com/api/v3/klines?symbol=BTCUSDT&interval=1m"
 CLAVES = os.path.join(os.path.expanduser("~"), ".config", "binance", "lectura.txt")
 H = {"User-Agent": "mesa-binarias"}
 _claves = None
+_desfase, _desfase_visto = 0.0, 0.0
+
+
+def ahora():
+    """Hora de Binance: el reloj de este equipo más el desfase medido contra el servidor (se mide cada 10 min).
+    12/11/2026: el reloj del PC iba 4 s atrás, con el servicio de hora de Windows detenido. Con él, los segundos que faltan para
+    el cierre salían inflados y, pasados 10 s de atraso, Binance rechaza toda consulta firmada (-1021)."""
+    global _desfase, _desfase_visto
+    local = time.time()
+    if local - _desfase_visto > 600:
+        _desfase_visto = local - 540  # si la medida falla, se repite en 1 min y entretanto sigue el desfase anterior
+        try:
+            a = time.time()
+            servidor = _json_publico(BASE + "/api/v3/time", 8)["serverTime"] / 1000
+            b = time.time()
+            if b - a < 3:
+                _desfase, _desfase_visto = servidor - (a + b) / 2, b
+        except Exception:
+            pass
+    return time.time() + _desfase
 
 
 class ErrorBinance(Exception):
@@ -58,7 +82,7 @@ def _json_publico(url, plazo=15):
 def _firmado(metodo, ruta, **params):
     clave, secreto = _leer_claves()
     params = {k: v for k, v in params.items() if v is not None}
-    params["timestamp"] = int(time.time() * 1000)
+    params["timestamp"] = int(ahora() * 1000)
     params["recvWindow"] = 10000
     q = urllib.parse.urlencode(params, quote_via=urllib.parse.quote)  # quote_plus cambia los espacios y daña la firma
     firma = hmac.new(secreto.encode(), q.encode(), hashlib.sha256).hexdigest()
@@ -85,11 +109,26 @@ def _firmado(metodo, ruta, **params):
 def velas(limite=170, desde_ms=None):
     """(cerradas, viva): velas de 1 min de futuros como (t, apertura, máximo, mínimo, cierre)."""
     x = _json_publico(FAPI + f"&limit={limite}" + (f"&startTime={desde_ms}" if desde_ms else ""))
-    ahora = time.time() * 1000
+    ahora_ms = ahora() * 1000
     cerr, viva = [], None
     for k in x:
         v = (int(k[0]) // 1000, float(k[1]), float(k[2]), float(k[3]), float(k[4]))
-        if int(k[6]) < ahora:
+        if int(k[6]) < ahora_ms:
+            cerr.append(v)
+        else:
+            viva = v
+    return cerr, viva
+
+
+def velas_contado(limite=90, plazo=8):
+    """(cerradas, viva) de CONTADO, la fuente con la que liquida el mercado de 15 min: filas (t, apertura, máximo, mínimo,
+    cierre, volumen). El cierre de la viva es el último precio negociado."""
+    x = _json_publico(CONTADO + f"&limit={limite}", plazo)
+    ahora_ms = ahora() * 1000
+    cerr, viva = [], None
+    for k in x:
+        v = (int(k[0]) // 1000, float(k[1]), float(k[2]), float(k[3]), float(k[4]), float(k[5]))
+        if int(k[6]) < ahora_ms:
             cerr.append(v)
         else:
             viva = v
@@ -97,7 +136,7 @@ def velas(limite=170, desde_ms=None):
 
 
 def historial(dias):
-    out, desde = [], int((time.time() - dias * 86400) * 1000)
+    out, desde = [], int((ahora() - dias * 86400) * 1000)
     while True:
         x, _ = velas(1500, desde)
         if not x:
@@ -154,12 +193,31 @@ def resultado(topic):
     return _leer_mercado(topic)["ganador"]
 
 
+def libro_completo(m, lado):
+    """El libro del resultado `lado`: (ventas, compras), cada una como lista de (precio, contratos); las ventas de la más
+    barata a la más cara y las compras al revés. Lo que yo compro sale de las ventas."""
+    d = _firmado("GET", PRED + "/order-book", vendor=m["vendor"], marketId=m["marketId"], tokenId=m["tokens"][lado])
+    asks = sorted((float(a["price"]), float(a.get("size") or 0)) for a in d.get("asks", []))
+    bids = sorted(((float(a["price"]), float(a.get("size") or 0)) for a in d.get("bids", [])), reverse=True)
+    return asks, bids
+
+
 def libro(m, lado):
     """(mejor compra para mí = ask, mejor venta = bid) del resultado `lado`."""
-    d = _firmado("GET", PRED + "/order-book", vendor=m["vendor"], marketId=m["marketId"], tokenId=m["tokens"][lado])
-    asks = sorted(float(a["price"]) for a in d.get("asks", []))
-    bids = sorted((float(a["price"]) for a in d.get("bids", [])), reverse=True)
-    return (asks[0] if asks else None), (bids[0] if bids else None)
+    asks, bids = libro_completo(m, lado)
+    return (asks[0][0] if asks else None), (bids[0][0] if bids else None)
+
+
+def leer_libros(m):
+    """Deja en el mercado el mejor precio de cada lado (ask y bid, como antes), las ventas con sus tamaños (asks) y la hora de
+    Binance en que se leyó (libro_t): con eso se sabe cuántos contratos había a cada precio y si el precio es posterior a una vela."""
+    m.setdefault("ask", {}), m.setdefault("bid", {}), m.setdefault("asks", {})
+    for lado in (1, -1):
+        asks, bids = libro_completo(m, lado)
+        m["ask"][lado], m["bid"][lado] = (asks[0][0] if asks else None), (bids[0][0] if bids else None)
+        m["asks"][lado] = asks[:15]
+    m["libro_t"] = ahora()
+    return m
 
 
 def billetera():

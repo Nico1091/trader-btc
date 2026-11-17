@@ -40,6 +40,7 @@ L = array("f")
 C = array("f")
 V = array("f")
 desfase = 0      # segundos que hay que sumarle a time.time() para tener la hora Unix de Binance
+hora_ok = False  # 12/11/2026: sin la hora de Binance no se piden velas (tras un corte de corriente el reloj arranca en el año 2000)
 inicio = time.time()
 errores_red = 0
 ultimo_error = ""
@@ -119,9 +120,13 @@ def https_json(ruta, tope=30000):
 
 
 def sincronizar_hora():
-    global desfase
+    global desfase, hora_ok
     d = https_json("/fapi/v1/time")
-    desfase = int(d["serverTime"]) // 1000 - time.time()
+    servidor = int(d["serverTime"]) // 1000
+    if servidor < 1700000000:
+        raise OSError("hora de Binance imposible: %d" % servidor)
+    desfase = servidor - time.time()
+    hora_ok = True
 
 
 def poner(filas):
@@ -153,6 +158,8 @@ def poner(filas):
 
 def traer():
     """Velas que faltan: de a 60 si la memoria está vacía o atrasada; si no, las últimas 3."""
+    if not hora_ok:
+        raise OSError("sin la hora de Binance")
     if not len(T) or ahora() - T[-1] > 200:
         desde = (int(ahora()) // 60) * 60 - 60 * GUARDA if not len(T) else T[-1] + 60
         while desde < ahora() - 120:
@@ -364,6 +371,10 @@ def perdida():
         if iw < 0:
             continue
         ab = pe["abierta"]
+        if ab and ab["ventana"] < ws:
+            # quedó de una ventana que la placa no vio cerrar (estuvo apagada o sin red): no cuenta
+            pe["abierta"] = ab = None
+            cambio = True
         if m == 15 and ab and ab["ventana"] == ws:
             ab["res"] = 1 if (C[j] - O[iw]) * ab["lado"] > 0 else 0
             pe["n"] += 1
@@ -385,6 +396,58 @@ def perdida():
     return cambio
 
 
+def rasgos_final(s, m, ref, t_j):
+    """Los mismos rasgos de laboratorio\\perdida_red.py: la red que propone comprar el lado perdedor al final."""
+    j = s + m - 1
+    if j < 61 or ref <= 0:
+        return None
+    r = [math.log(C[i] / C[i - 1]) for i in range(j - 59, j + 1)]
+    sig = math.sqrt(max(sum(v * v for v in r) / 60, 1e-12))
+    sig5 = math.sqrt(max(sum(v * v for v in r[-5:]) / 5, 1e-12))
+    mov = math.log(C[j] / ref)
+    if mov == 0:
+        return None
+    z = mov / (sig * math.sqrt(15 - m))
+    lado = -1 if z > 0 else 1
+    a = min(abs(z), 8.0)
+    hi, lo = max(H[s:j + 1]), min(L[s:j + 1])
+    cruces = 0
+    for i in range(s, j):
+        if (C[i] - ref) * (C[i + 1] - ref) < 0:
+            cruces += 1
+    v3 = (V[j] + V[j - 1] + V[j - 2]) / 3
+    v60 = sum(V[j - 59:j + 1]) / 60
+    hora = ((t_j + 60) % 86400) / 3600
+    x = [a, a * a, (15 - m) / 5, sig5 / sig, (r[-1] * lado) / sig, math.log(C[j] / C[j - 3]) * lado / (sig * math.sqrt(3)),
+         (hi - lo) / (ref * sig * math.sqrt(m)), cruces / 3, math.log((v3 + 1e-9) / (v60 + 1e-9)),
+         math.sin(2 * math.pi * hora / 24), math.cos(2 * math.pi * hora / 24), math.log(a + 0.05)]
+    return x, lado
+
+
+def proponer():
+    """En los minutos 10 a 14 de la ventana: probabilidad de que gane el perdedor y precio máximo con ganancia esperada."""
+    d = modelos.get("perdida_red")
+    if not d or len(T) < 70:
+        return
+    j = len(T) - 1
+    t = T[j]
+    ws = t - t % 900
+    m = (t - ws) // 60 + 1
+    iw = indice(ws)
+    if m < 10 or m > 14 or iw < 0:
+        return
+    r = rasgos_final(iw, m, O[iw], t)
+    if r is None:
+        return
+    x, lado = r
+    z = d["w"][0]
+    for i in range(len(x)):
+        z += d["w"][i + 1] * (x[i] - d["mu"][i]) / d["de"][i]
+    z = max(-40.0, min(40.0, z))
+    p = 1 / (1 + math.exp(-z))
+    est["propuesta"] = {"ventana": ws, "m": m, "lado": lado, "p": round(p, 5), "precio_max": round(0.98 * p, 4)}
+
+
 # ---------------------------------------------------------------- servidor de la red de la casa
 def responder(cli, codigo, datos):
     cuerpo = json.dumps(datos).encode()
@@ -398,6 +461,7 @@ def resumen():
     gc.collect()
     r = {"ok": True, "dedicada": "binarias", "acortadas": 0, "encendida_s": time.time() - inicio,
          "memoria_libre": gc.mem_free(), "ultima_vela": (T[-1] + 60) if len(T) else 0, "velas": len(T),
+         "reloj": hora_ok, "hora": int(ahora()) if hora_ok else 0,
          "errores_red": errores_red, "ultimo_error": ultimo_error, "pesos": modelos.get("t"),
          "modelos": {k: modelos[k]["tipo"] for k in ("10", "15") if k in modelos}, "abiertas": est["abiertas"],
          "binarias": {}}
@@ -406,6 +470,7 @@ def resumen():
     pe = est["perdida"]
     r["perdida"] = {"n": pe["n"], "k": pe["k"], "ultimas": pe["ult"], "abierta": pe["abierta"]}
     r["real"] = est.get("real")
+    r["propuesta"] = est.get("propuesta")
     return r
 
 
@@ -508,26 +573,39 @@ def correr():
     s.listen(2)
     s.settimeout(1)
     print("binarias de la placa en el puerto", PUERTO)
-    proximo, hora_sync = 0, 0
+    # 12/11/2026: la hora de Binance se pide en la primera vuelta y después cada hora. Antes se pedía cuando time.time()
+    # pasaba de 3.600, y tras un corte de corriente el reloj de la placa arranca en cero (año 2000): pasaba una hora sin
+    # hora, descartando todas las velas por «no cerradas» y sin contar ningún error. «pausa» va con el reloj de la placa y
+    # «proximo» con la hora de Binance.
+    proximo, hora_sync, pausa = 0, None, 0
     while True:
         WDT.feed()
         revisar_wifi()
         try:
-            if time.time() - hora_sync > 3600 and _wlan.isconnected():
-                sincronizar_hora()
-                hora_sync = time.time()
-            if ahora() >= proximo and _wlan.isconnected():
-                traer()
-                cambio = decidir()
-                cambio = cerrar() or cambio
-                cambio = perdida() or cambio
-                if cambio:
-                    guardar()
-                proximo = (int(ahora()) // 60 + 1) * 60 + 4
+            if time.time() >= pausa and _wlan.isconnected():
+                if hora_sync is None or time.time() - hora_sync > 3600:
+                    try:
+                        sincronizar_hora()
+                        hora_sync = time.time()
+                    except Exception as e:
+                        if hora_sync is None:
+                            raise                       # sin hora no se piden velas: se reintenta en 15 s
+                        hora_sync = time.time() - 3300  # con la hora anterior se sigue; se reintenta en 5 min
+                        errores_red += 1
+                        ultimo_error = "hora: %s: %s" % (type(e).__name__, e)
+                if ahora() >= proximo:
+                    traer()
+                    cambio = decidir()
+                    cambio = cerrar() or cambio
+                    cambio = perdida() or cambio
+                    proponer()
+                    if cambio:
+                        guardar()
+                    proximo = (int(ahora()) // 60 + 1) * 60 + 4
         except Exception as e:
             errores_red += 1
             ultimo_error = "%s: %s" % (type(e).__name__, e)
-            proximo = ahora() + 15
+            pausa = time.time() + 15
             gc.collect()
         WDT.feed()
         try:

@@ -36,6 +36,7 @@ from comun import COL, DATOS, DESDE_PRUEBAS, PUERTO, TOPE_VIVO, TRAMO, hora, log
 
 CALIENTE, FRESCO = 70.0, 62.0
 PLACA = os.environ.get("LAB_PLACA", "http://192.168.20.159:8080")  # la ESP32-S3 en la red de la casa
+PRECIO_PROPIO = os.environ.get("LAB_PRECIO", "/data/local/tmp/precio/datos/precio.json")  # resumen del servicio de precio
 ESTADO = {"latido": 0}
 
 
@@ -102,7 +103,7 @@ class Lab:
         self.ctx.prob = EM.prob_historia(self.ctx, self.motor)
         self.emu = EM.Emulador(self.con, vel, interes, self.motor)
         self.perdida = PD.Perdida(self.con, vel)
-        P.LINEAS_EXTRA = [self.perdida.linea, self.linea_placa]
+        P.LINEAS_EXTRA = [self.perdida.linea, self.linea_precio_propio, self.linea_placa]
         log(f"cargado: {vel.n} minutos (última {hora(vel.t_ultima() + 60)}), {len(self.emu.vivas)} formas en vivo")
 
     # ------------------------------------------------------------ ciclo
@@ -234,6 +235,23 @@ class Lab:
             if time.time() - getattr(self, "placa_vista", self.inicio) > 900 and not getattr(self, "_placa_caida", False):
                 self._placa_caida = True
                 self.avisos.append("La placa ESP32 no contesta desde hace 15 min (¿desconectada o sin WiFi?).")
+
+    def linea_precio_propio(self):
+        """El precio real propio de la caja (servicio aparte, con su llave de solo lectura): aquí solo se lee su resumen."""
+        try:
+            d = json.load(open(PRECIO_PROPIO, encoding="utf-8"))
+        except (OSError, ValueError):
+            return "Precio real propio de la caja: falta la llave de solo lectura."
+        r = d.get("resumen") or {}
+        t = "Precio real propio de la caja: "
+        t += (f"{r['k']} de {r['n']} compras de papel ganadas, ganancia {num(r.get('neto', 0), 2)} USDT por "
+              f"{num(r.get('apostado', 0), 0)} apostados" if r.get("n") else "aún sin compras liquidadas")
+        red = r.get("red")
+        if red and red.get("ask") is not None and time.time() - red.get("t", 0) < 900:
+            t += (f"; la red dice que el perdedor ({'SUBE' if red['lado'] > 0 else 'BAJA'}) vale hasta {num(red['precio_max'], 3)} "
+                  f"y la app lo vende a {num(red['ask'], 3)}")
+        edad = time.time() - d.get("hora", 0)
+        return t + ("." if edad < 300 else f" (sin precio hace {num(edad / 60, 0)} min).")
 
     def linea_placa(self):
         d = getattr(self, "placa", None)

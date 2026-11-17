@@ -30,7 +30,11 @@ def pesos_placa(motor):
                          "de": redondear(n.de.tolist())}
     ruta = os.path.join(LAB, "datos", "perdida.json")
     if os.path.exists(ruta):
-        d["perdida"] = json.load(open(ruta, encoding="utf-8"))
+        d["perdida"] = {"precio": json.load(open(ruta, encoding="utf-8"))["precio"]}
+    ruta = os.path.join(LAB, "datos", "perdida_red.json")
+    if os.path.exists(ruta):
+        r = json.load(open(ruta, encoding="utf-8"))
+        d["perdida_red"] = {"w": redondear(r["w"]), "mu": redondear(r["mu"]), "de": redondear(r["de"])}
     return d
 
 

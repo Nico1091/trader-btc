@@ -10,6 +10,31 @@ CÓMO SE USA ESTE BLOC
 - Para una sesión nueva basta decir: «Lee C:\Users\ni109\Desktop\BLOC BINARIAS - TODO EN UNO.txt y sigue desde ENCARGOS».
 
 
+AL FRENTE (16/11/2026, 14:05): OPERADOR AUTOMÁTICO EN LA CAJA · COMPRAS Y COBROS SOLOS · 5, 10 Y 15 MIN · EN CONSTRUCCIÓN
+Estado: EN CURSO (plan en Ingresos\binarias-papel\operador\PLAN-AUTOMATICO.md y en la caja, /data/local/tmp/operador/)
+SIGUIENTE PASO: seguir las casillas de la sección 6 de operador\PLAN-AUTOMATICO.md desde la primera sin marcar. Pendiente de él: en Gestión de API de Binance poner la IP de hoy (201.221.178.15) en la llave y crear la llave propia de la caja (solo Lectura y Predicción); después fondos en la billetera de predicción y «operador armar».
+- Su pedido (16/11, 13:47): que la caja automatice la parte final, compras y cobros solos, con plazos de 5, 10 y 15 min y la mejor estrategia de cada uno; todo registrado en la caja; probado sin fondos; plan escrito por si la sesión no alcanza.
+- Llave: desde hoy Binance rechaza toda consulta firmada (−2015), también desde el PC. La IP de la casa cambió de 181.54.121.46 a 201.221.178.15 y la llave solo acepta la primera. En la caja nunca hubo llave.
+- Mercados con API (listado real del 04/11): «BTC Up or Down» de 5 min y de 15 min, por hora y por día. De 10 min no hay: son los Contratos de Evento, solo en la app y sin API. Los plazos de 5, 10 y 15 min se cubren comprando el mercado de 15 cuando faltan 15, 10 o 5 min, y el de 5.
+- Compras reales del 12/11 (por sus toques, desde la billetera de predicción): SUBE 4,62 USDT a 0,55, perdió; BAJA 4,11 USDT a 0,86, ganó 0,57. Neto −4,05 USDT. Dos órdenes quedaron en «SUBMITTED» sin releer.
+- Comprador por ganancia esperada del 12/11 (comprador\REGLAS-ANTES-DE-MEDIR.md): la sesión se cortó a las 19:22 por el límite de uso, con tres miradas de papel y ninguna compra; no llegó a la caja. Hoy se le agregó la enmienda 2 (mercado de 5 min y órdenes automáticas), a las 14:05, antes de medir.
+- Papel con precio real: el borrador de 15 min pagó 0,544 en promedio, no 0,51; «sobre la pérdida» va −25,4 USDT en 84 de papel. Ninguna estrategia ha mostrado ganancia con precios reales.
+- Caja: encendió a las 13:47 (estuvo apagada desde el 11/11 a las 23:15) y levantó sola Tor, centinela, avisador y laboratorio.
+Lista de avance del operador (se marca al cerrar cada paso; el detalle está en la sección 6 del plan):
+⬜ 1. Plan, enmienda 2 y este AL FRENTE.
+⬜ 2. nucleo.py con ventana de 5 o 15 y paridad con ganancia.py.
+⬜ 3. entrenar.py: reproduce el modelo de 15 y hace el de 5.
+⬜ 4. papel.py.
+⬜ 5. conexion.py de la caja.
+⬜ 6. ejecutor.py (órdenes reales con candado, relectura y cobro).
+⬜ 7. operador.py (tres estados, registro, Telegram, prueba sin fondos).
+⬜ 8. Pruebas con Binance simulado.
+⬜ 9. En la caja: huellas, una hora de marcha y arranque solo.
+⬜ 10. Plan total, memoria y bóveda.
+⬜ 11. Con él: llave. Prueba sin fondos contra Binance real.
+⬜ 12. Con él: fondos y armado. Primera compra y primer cobro comprobados.
+
+
 AL FRENTE (11/11/2026, 19:50): LABORATORIO DE BINARIAS CON RED NEURONAL EN LA CAJA · EN CONSTRUCCIÓN
 Estado: EN CURSO (plan aprobado por él el 11/11 a las 11:39; laboratorio\PLAN-LABORATORIO.md y PROMPT-FINAL.md)
 SIGUIENTE PASO: paso 8 con él: que confirme en su Telegram el tablero anclado, el resumen de cada hora y las órdenes («lab estado», «lab perdida», «lab placa»); en marcha las 48 horas del paso 9. Pendiente de él: conectar el teléfono por USB para devolverle el centinela a la caja.
@@ -30,7 +55,7 @@ Lista de avance del laboratorio (se marca al cerrar cada paso):
 ⬜ 8. Telegram: tablero, resumen, parte, aviso y cada petición, confirmados por él en su teléfono.
 ⬜ 9. 48 horas de marcha y auditoría de un día contra las velas oficiales.
 ⬜ 10. Revisión final e informe.
-⬜ 11. Consolidar: bloc, PLAN-TOTAL.md, memoria, bóveda, GitHub y USB.
+⬜ 11. Consolidar: hecho el bloc, el PLAN-TOTAL (7d), la memoria, la bóveda y GitHub (rama binarias/plan-v7-2026-11-04, dos commits del 11/11); falta la USB, que no estaba conectada.
 ⬜ 12. IA pequeña en la caja (llama.cpp y un modelo de menos de 0,6 GB): solo si cumple calor, tiempo y 45 de 50.
 
 
@@ -714,3 +739,4 @@ Abiertos de antes
 - 11/11/2026 20:21. Laboratorio: revisión hecha y código construido; en la caja, 1.000 formas vivas se evalúan en 1,6 s por cierre de 5 min a 53 °C.
 - 11/11/2026 20:28. Laboratorio: pruebas del PC y de la caja en verde y paridad exacta entre los dos; marchas en seco de 30 min en curso.
 - 11/11/2026 21:15. ESP32 dedicada a binarias (red y pérdida); precio real de Predict.fun en la Mesa con papel de la pérdida; caja reiniciada de prueba: todo volvió solo.
+- 11/11/2026 21:20. Primera liquidación con precio real: ventana de las 21:00, BAJA a 0,01, ganó «sube»: cuatro compras de papel perdidas (−4 USDT de papel). GitHub al día; USB pendiente.

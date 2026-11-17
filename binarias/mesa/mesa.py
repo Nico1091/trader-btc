@@ -30,6 +30,9 @@ import graficas  # noqa: E402  (las mismas cinco líneas de la caja y de Pulso)
 import perdida_real as PR  # noqa: E402  (11/11: comprar sobre la pérdida con el precio real, solo papel)
 import reglas as R  # noqa: E402
 
+sys.path.append(os.path.join(os.path.dirname(AQUI), "comprador"))  # al final: no tapa módulos de la Mesa
+import comprador as CP  # noqa: E402  (12/11: comprador por ganancia esperada, solo papel; aquí no hay órdenes)
+
 PUERTO = 8795
 ORIGEN = f"http://127.0.0.1:{PUERTO}"
 TITULO = "Mesa de binarias"
@@ -75,6 +78,9 @@ class Motor:
         self.encima = False
         self.centro = CE.Centro(C)  # las cinco estrategias en paralelo (07/11), en http://127.0.0.1:8795/centro
         self.pr = PR.PerdidaReal(log)  # 11/11: papel de «comprar sobre la pérdida» con el precio real; lo manda a la placa ESP32
+        # 12/11/2026: comprador por ganancia esperada, en papel. El papel lo lleva un solo proceso, el que tenga el candado del
+        # puerto 8799: esta Mesa o comprador\correr.py (sin ventana). Si lo tiene el otro, aquí cp.activo es falso.
+        self.cp = CP.Comprador(C, log)
         # Avisos del centro: en el PC, a la pantalla (Windows y la franja de la Mesa). Telegram lo manda el teléfono, que corre 24/7;
         # con "telegram_centro_pc": true en config.json también lo mandaría el PC (se repetirían).
         self.centro.notificar = AV.Notificador(log, telegram=bool(self.cfg.get("telegram_centro_pc", False))).avisar
@@ -109,8 +115,14 @@ class Motor:
                 self.mercado = None
                 return
             m["ask"], m["bid"] = {}, {}
-        for lado in (1, -1):
-            m["ask"][lado], m["bid"][lado] = C.libro(m, lado)
+        if (not m.get("strike") or not m.get("abierto")) and ahora - m.get("releido", 0) >= 10:
+            # 12/11/2026: si al abrir la ventana Binance aún no trae el precio de apertura, o el mercado no figura abierto, se
+            # vuelve a leer cada 10 s en vez de quedarse así los 15 min (sin apertura no hay botón ni papel de la pérdida).
+            m["releido"] = ahora
+            x = C._leer_mercado(m["topic"])
+            for k in ("strike", "abierto", "precio", "estado", "tokens", "marketId", "comision_bps"):
+                m[k] = x.get(k) or m.get(k)
+        C.leer_libros(m)  # mejor precio de cada lado, ventas con sus tamaños y la hora de Binance de la lectura
         self.mercado = m
 
     def _refrescar_cuenta(self):
@@ -142,11 +154,12 @@ class Motor:
             os.replace(tmp, REALES)
 
     def evaluar(self, ahora=None):
-        return R.evaluar(self.bor.copia(), ahora or time.time(), self.mercado, self.cfg, bool(self.wallet), self.saldo, self.pct, self.saldo_pred)
+        return R.evaluar(self.bor.copia(), ahora or C.ahora(), self.mercado, self.cfg, bool(self.wallet), self.saldo, self.pct, self.saldo_pred)
 
     # ------------------------------------------------------------ bucle
     def paso(self):
-        ahora = time.time()
+        # 12/11/2026: hora de Binance, no la del PC (iba 4 s atrás, con el servicio de hora de Windows detenido).
+        ahora = C.ahora()
         ops = self.bor.ops
         cerca = any(o.get("res") is None and ahora - o["t"] <= 80 for o in ops[-3:])
         if ahora - self.t_sembrado > 900:
@@ -158,7 +171,8 @@ class Motor:
             self.t_velas = ahora
             self._refrescar_velas()
             self._centro(ahora)
-        if ahora - self.t_libro >= (2 if cerca else 5):
+        # en los últimos 200 s de la ventana el libro se lee cada 2 s: ahí es donde el perdedor cae y se compra «a lo último»
+        if ahora - self.t_libro >= (2 if cerca or 900 - ahora % 900 <= 200 else 5):
             self.t_libro = ahora
             self._refrescar_mercado(ahora)
         if ahora - self.t_cuenta >= 60:
@@ -166,9 +180,15 @@ class Motor:
             self._refrescar_cuenta()
         self.bor.paso(ahora, self.mercado)
         try:
-            self.pr.paso(ahora, self.mercado, self.viva, self.velas)
+            self.cp.paso(ahora, self.mercado)
         except Exception as ex:
-            log(f"pérdida real: {type(ex).__name__}: {str(ex)[:120]}")
+            log(f"comprador: {type(ex).__name__}: {str(ex)[:120]}")
+        if self.cp.activo:  # si el papel lo lleva correr.py, la Mesa no lo duplica
+            try:
+                self.pr.extra = self.cp.corto()
+                self.pr.paso(ahora, self.mercado, self.viva, self.velas)
+            except Exception as ex:
+                log(f"pérdida real: {type(ex).__name__}: {str(ex)[:120]}")
         e = self.evaluar(ahora)
         self.est = e
         if e["nivel"] in ("COMPRE", "VENDA") and e["nivel"] != self.nivel_prev:
@@ -205,7 +225,7 @@ class Motor:
 
     # ------------------------------------------------------------ pantalla
     def estado(self):
-        ahora = time.time()
+        ahora = C.ahora()
         ops = self.bor.copia()
         e = self.est or self.evaluar(ahora)
         m = self.mercado or {}
@@ -232,7 +252,7 @@ class Motor:
         """Su toque, cuando él quiera. Topes que no se saltan: mercado abierto, cuenta, porcentaje máximo, precio y una orden por mercado."""
         with self.orden_cand:
             self.pct = pct
-            self._refrescar_mercado(time.time())
+            self._refrescar_mercado(C.ahora())
             self._refrescar_cuenta()
             m, w, cfg = self.mercado, self.wallet, self.cfg
             if not w:

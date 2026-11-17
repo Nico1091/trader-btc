@@ -111,6 +111,10 @@ C.billetera = lambda: billetera[0]
 C.mercado_15m = lambda t: {"t": t, "topic": 9, "tokens": {1: "U", -1: "D"}, "abierto": True}
 ask = [0.51]
 C.libro = lambda m, lado: (ask[0], 0.50)
+# 12/11/2026: la Mesa lee el libro con tamaños (leer_libros), relee el mercado si llega sin apertura y usa la hora de Binance
+C.libro_completo = lambda m, lado: ([(ask[0], 100.0)], [(0.50, 100.0)])
+C._leer_mercado = lambda topic: {"abierto": True}
+C.ahora = time.time
 precio_cot = [0.51]
 
 

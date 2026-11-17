@@ -61,7 +61,8 @@ def subir(s, local, remoto):
     if "ERROR" in r:
         raise SystemExit(r)
     for i in range(0, len(datos), 512):
-        orden = "f.write(binascii.a2b_base64(%r))" % binascii.b2a_base64(datos[i:i + 512]).decode().strip()
+        # cada trozo va a su posición exacta: si se repite por un error de lectura del puerto, no queda duplicado
+        orden = "f.seek(%d)\nf.write(binascii.a2b_base64(%r))" % (i, binascii.b2a_base64(datos[i:i + 512]).decode().strip())
         for intento in range(4):  # si se pierde un carácter por el puerto, el trozo falla antes de escribirse: se repite
             r = ejecutar(s, orden)
             if "ERROR" not in r:
@@ -122,7 +123,7 @@ def main():
         elif orden == "ls":
             print(ejecutar(s, "import os\nfor n in sorted(os.listdir()):\n print(n, os.stat(n)[6])"))
         elif orden == "subir":
-            ok = all(subir(s, a.partition("=")[0], a.partition("=")[2] or a.replace("\\", "/").split("/")[-1]) for a in sys.argv[2:])
+            ok = all([subir(s, a.partition("=")[0], a.partition("=")[2] or a.replace("\\", "/").split("/")[-1]) for a in sys.argv[2:]])
             return 0 if ok else 1
         elif orden == "ejecutar":
             print(ejecutar(s, sys.argv[2], 60))
