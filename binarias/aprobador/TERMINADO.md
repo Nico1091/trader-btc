@@ -10,4 +10,4 @@ Hecho y probado (Python 3.11 y 3.13; el teléfono usa 3.14):
 
 Sin probar: la llamada real a Claude (no hay clave en ningún equipo) y todo lo que pide llave, fondos o ARMADO.
 
-Bloqueado: el push de esta rama a GitHub (403). La rama completa salió como parche de git a su Telegram; los pasos para aplicarla y subirla desde el PC están en `AVANCE.md`.
+Bloqueado: el push de esta rama a GitHub (403 de GitHub: la cuenta conectada a Claude solo lee). Si este archivo está en GitHub es porque el push se logró después. Los pasos para llevarlo al teléfono están en `AVANCE.md`.
