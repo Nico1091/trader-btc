@@ -360,6 +360,39 @@ ok(r3["decision"] is None and r3["error"] == "red", "API: ninguna ruta conecta: 
 srv.shutdown()
 srv.server_close()
 
+# 15) papel de la combinación frente a cada fuente sola (medir_combinacion.py)
+import medir_combinacion as MC  # noqa: E402
+raiz = os.path.join(BASE, "medir")
+for d in ("registro", "nodo", os.path.join("centinela", "datos")):
+    os.makedirs(os.path.join(raiz, d), exist_ok=True)
+t1, t2 = V - 7200, V - 5400
+with open(os.path.join(raiz, "registro", "20261117.jsonl"), "w", encoding="utf-8") as f:
+    for fila in ({"W": 15, "tipo": "mirada", "serie": "papel", "t": t1, "m": 1, "hora": t1 + 62, "decide": 0,
+                  "lados": {"1": {"q": 0.50}, "-1": {"q": 0.52}}},
+                 {"W": 15, "tipo": "mirada", "serie": "papel", "t": t1, "m": 3, "hora": t1 + 182, "decide": 1,
+                  "lados": {"1": {"q": 0.45}, "-1": {"q": 0.57}}},
+                 {"W": 15, "tipo": "llenado", "t": t1, "lado": 1, "llenado": 5, "compra": True, "sombra": False, "q": 0.45},
+                 {"W": 15, "tipo": "resultado", "serie": "papel", "t": t1, "ganador": 1},
+                 {"W": 15, "tipo": "mirada", "serie": "papel", "t": t2, "m": 2, "hora": t2 + 122, "decide": -1,
+                  "lados": {"1": {"q": 0.70}, "-1": {"q": 0.30}}},
+                 {"W": 15, "tipo": "resultado", "serie": "papel", "t": t2, "ganador": 1}):
+        f.write(json.dumps(fila) + "\n")
+N.escribir_json(os.path.join(raiz, "centinela", "datos", "centro.json"),
+                {"ops": {"E1": [{"t": t1, "dir": 1, "res": 1}, {"t": t1 - 300, "dir": 1, "res": 1}, {"t": t2, "dir": -1, "res": 0, "semilla": True}]}})
+with open(os.path.join(raiz, "nodo", "decisiones.jsonl"), "w", encoding="utf-8") as f:
+    f.write(json.dumps({"t": t1 + 70, "W": 15, "ventana": t1, "dir": 1, "decision": "COMPRAR SUBE"}) + "\n")
+    f.write(json.dumps({"t": t1 + 75, "W": 15, "ventana": t1, "dir": 1, "decision": "COMPRAR SUBE", "copia_de": "x"}) + "\n")
+texto, cu, paradas = MC.medir(14, os.path.join(raiz, "nodo"), raiz, os.path.join(raiz, "centinela"), ahora=V)
+cn = {x.nombre[:2]: x for x in cu}
+ok(cn["A."].n == 1 and abs(cn["A."].neto - 0.96) < 1e-9, "medir: E1 sola, solo la señal viva alineada, al precio de la primera mirada")
+b15 = [x for x in cu if x.nombre.startswith("B. operador de 15")][0]
+ok(b15.n == 1 and abs(b15.neto - (0.98 / 0.45 - 1)) < 1e-9, "medir: el operador solo, a su precio de papel")
+c_claude = [x for x in cu if x.nombre.startswith("C.")][0]
+c_comb = [x for x in cu if x.nombre.startswith("D.")][0]
+ok(c_claude.n == 1 and abs(c_claude.neto - (0.98 / 0.45 - 1)) < 1e-9, "medir: Claude solo, en la mirada siguiente a su decisión")
+ok(c_comb.n == 1 and c_comb.k == 1 and paradas == 1, "medir: la combinación compra lo aprobado y cuenta lo que el candado paró")
+ok(any("Equilibrio" in x for x in texto), "medir: el informe dice el equilibrio")
+
 shutil.rmtree(BASE, ignore_errors=True)
 print(f"\n{'TODO BIEN' if not FALLOS else str(len(FALLOS)) + ' FALLO(S)'}: {CUENTA[0] - len(FALLOS)} de {CUENTA[0]}")
 sys.exit(1 if FALLOS else 0)
