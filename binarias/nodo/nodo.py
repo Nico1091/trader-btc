@@ -268,20 +268,28 @@ class Fuentes:
         self.leidos = 0           # bytes leídos en la última vuelta
         self.t_operador = 0.0     # última fila útil del operador
 
-    def _json(self, n):
+    def _resumenes(self, n, fuente):
+        """Los resúmenes de un archivo del Centro o del vigía; solo se rehacen si el archivo cambió."""
         try:
             st = os.stat(n)
         except OSError:
             self.cache.pop(n, None)
-            return None
+            return []
         marca = (st.st_mtime, st.st_size)
         hay = self.cache.get(n)
         if hay and hay[0] == marca:
             return hay[1]
         datos = leer_json(n, None)
         self.leidos += st.st_size
-        self.cache[n] = (marca, datos)
-        return datos
+        out = []
+        if fuente == "centro" and isinstance(datos, dict):
+            for e, ops in sorted((datos.get("ops") or {}).items()):
+                if isinstance(ops, list):
+                    out.append(("centro", e, 15, resumen(ops)))
+        elif fuente == "quince" and isinstance(datos, dict) and isinstance(datos.get("ops"), list):
+            out.append(("quince", "quince", 15, resumen(datos["ops"])))
+        self.cache[n] = (marca, out)
+        return out
 
     def _registro(self, ahora):
         antes = self.cola.leidos
@@ -318,15 +326,8 @@ class Fuentes:
         """Lista de (fuente, estrategia, W, resumen) con lo que haya en este equipo."""
         ahora = ahora or time.time()
         self.leidos = 0
-        out = []
-        cen = self._json(os.path.join(self.c["centinela"], "datos", "centro.json"))
-        if isinstance(cen, dict):
-            for e, ops in sorted((cen.get("ops") or {}).items()):
-                if isinstance(ops, list):
-                    out.append(("centro", e, 15, resumen(ops)))
-        q = self._json(os.path.join(self.c["centinela"], "quince.json"))
-        if isinstance(q, dict) and isinstance(q.get("ops"), list):
-            out.append(("quince", "quince", 15, resumen(q["ops"])))
+        out = list(self._resumenes(os.path.join(self.c["centinela"], "datos", "centro.json"), "centro"))
+        out += self._resumenes(os.path.join(self.c["centinela"], "quince.json"), "quince")
         if os.path.isdir(os.path.join(self.c["operador"], "registro")):
             self._registro(ahora)
             for W in (15, 5):
