@@ -422,7 +422,7 @@ def telegram(texto):
                       "form-string = " + comillas(f"text={texto[:4000]}")]) + "\n"
     usuario = f"nodo{int(time.time()) % 100000}:x"
     try:
-        r = subprocess.run(["curl", "-s", "--max-time", "60", "--socks5-hostname", f"{usuario}@{TOR}", "-K", "-"],
+        r = subprocess.run(["curl", "-s", "--max-time", "60", "--noproxy", "", "--socks5-hostname", f"{usuario}@{TOR}", "-K", "-"],
                            input=conf, capture_output=True, text=True, timeout=90)
         ok = '"ok":true' in (r.stdout or "")
         if not ok:
