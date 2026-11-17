@@ -4,8 +4,7 @@ Rama `claude/aprobador-binarias-2026-11-17`, salida de `binarias/plan-v7-2026-11
 
 ## Marca de trabajo
 
-- Sesión de las 12:42: EN CURSO. Última marca: 17/11 13:20.
-- Si usted es la corrida de las 17:42 y la última marca tiene menos de 40 minutos, la sesión de las 12:42 sigue trabajando: termine en una línea, sin escribir a Telegram y sin tocar la rama. Si tiene más, siga desde el primer paso sin marcar.
+- Sesión de las 12:42: TERMINADA el 17/11 a las 13:30 (ver `TERMINADO.md`). Si usted es la corrida de las 17:42 y ve esta rama con `TERMINADO.md`, termine en una línea, sin escribir a Telegram.
 
 ## Pasos
 
@@ -16,11 +15,13 @@ Rama `claude/aprobador-binarias-2026-11-17`, salida de `binarias/plan-v7-2026-11
 - [x] 5. Medición en papel de la combinación frente a cada fuente sola: `nodo/medir_combinacion.py` (va con el nodo porque lee los archivos del teléfono).
 - [x] 6. Costos: una revisión del nodo medida (`nodo/medir_nodo.py`); una consulta a Claude estimada con los precios oficiales (sin clave no se pudo medir; el nodo anota el uso real de cada consulta).
 - [x] 7. `PLAN-APROBADOR.md`.
-- [ ] 8. Subir la rama a GitHub: BLOQUEADO (403, ver abajo). Informe a Telegram y `TERMINADO.md`.
+- [x] 8. Informe a Telegram (texto) y `TERMINADO.md`. Subir la rama a GitHub: BLOQUEADO (403, ver abajo); por eso la rama completa también salió a su Telegram como parche de git, para que la sesión del PC la aplique y la suba.
 
 ## Bloqueo: GitHub no deja escribir
 
-A las 12:55 del 17/11 el push de la rama respondió 403 y crear la rama por la API respondió 404: la cuenta de GitHub conectada a Claude puede leer `Nico1091/trader-btc` pero no escribir. Se avisó al dueño por Telegram y por notificación a las 13:00. Solo él puede arreglarlo: en claude.ai/connect-github conectar la cuenta dueña del repositorio o dar a la app Claude permiso de escritura (Contents) sobre el repositorio. Mientras tanto los commits quedan en la sesión de la nube de las 12:42.
+A las 12:55 del 17/11 el push de la rama respondió 403 y crear la rama por la API respondió 404: la cuenta de GitHub conectada a Claude puede leer `Nico1091/trader-btc` pero no escribir. Se avisó al dueño por Telegram y por notificación a las 13:00; a las 13:20 seguía igual. Solo él puede arreglarlo: en claude.ai/connect-github conectar la cuenta dueña del repositorio o dar a la app Claude permiso de escritura (Contents) sobre el repositorio.
+
+Mientras tanto la rama viaja como parche: `aprobador-binarias-2026-11-17.patch`, enviado a su Telegram. En el PC, en el repositorio: `git fetch origin binarias/plan-v7-2026-11-04`, `git checkout -b claude/aprobador-binarias-2026-11-17 7429f90`, `git am aprobador-binarias-2026-11-17.patch` y `git push -u origin claude/aprobador-binarias-2026-11-17` (sin unir a ninguna rama). Se comprobó aquí que el parche se aplica limpio sobre 7429f90 y deja el mismo árbol.
 
 ## Pasos exactos para que la sesión del PC lo suba al teléfono
 
