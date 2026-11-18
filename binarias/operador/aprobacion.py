@@ -11,14 +11,16 @@ Vigente quiere decir: la ÚLTIMA decisión que el nodo de este equipo tomó para
 apertura) dice COMPRAR SUBE o COMPRAR BAJA, tiene menos de CADUCIDAD_S segundos y la ventana sigue abierta. El lado es el que
 ordenó la IA, aunque el punto trajera el otro. Falla cerrado: sin archivo, ilegible, sin decisión, «NO COMPRAR» (nada), sin
 respuesta, otra ventana, decisión vieja, con la hora rara o copiada de otro equipo = no hay orden real. Nunca lanza errores:
-cualquier cosa rara se vuelve un motivo para no comprar."""
+cualquier cosa rara se vuelve un motivo para no comprar. Desde el 18/11/2026 (tarde) la decisión trae también «precios», los
+que vio la IA; el ejecutor no paga más de 0,02 sobre ellos (ejecutor.precio_visto)."""
 import json
 import os
 import time
 
 HOME = os.path.expanduser("~")
 RUTAS = (os.path.join(HOME, "nodo", "decisiones.jsonl"), "/data/local/tmp/nodo/decisiones.jsonl")
-CADUCIDAD_S = 600            # una orden vale como mucho 10 minutos, y nunca más allá del cierre de su ventana
+CADUCIDAD_S = 120            # una orden vale como mucho 2 minutos (era 10: 18/11/2026, paridad con la compra a mano; en el
+                             # mercado de 5 min un lado cambia 0,15 por minuto) y nunca más allá del cierre de su ventana
 FUTURO_S = 120               # una decisión fechada más adelante que esto viene de un reloj raro: no vale
 COLA_BYTES = 262144          # solo se lee la cola del archivo (las decisiones de las últimas horas)
 COMPRAR = {1: "COMPRAR SUBE", -1: "COMPRAR BAJA"}

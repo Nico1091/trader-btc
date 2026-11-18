@@ -8,7 +8,10 @@ Binance simulado de Fable 5.2. Sin red, sin llaves reales, sin dinero.
    - con «COMPRAR SUBE» vigente: compra SUBE; con «COMPRAR BAJA» sobre un punto de SUBE: vende (compra BAJA); siempre 2 USDT,
      una por mercado; con «NO COMPRAR», vieja, copiada de la caja o sin ARMADO: nada;
    - con poco saldo, los 2 USDT pasan el 16 % y no se envía; el motivo se anota una sola vez por orden, no en cada vuelta;
-   - el papel (miradas y llenados) es idéntico con y sin órdenes de la IA.
+   - el papel (miradas y llenados) es idéntico con y sin órdenes de la IA;
+   - (18/11/2026, paridad con la compra a mano) la orden se compra al precio que vio la IA o hasta 0,02 más; si cotiza más
+     caro, no se compra; sin precio visto, no se compra; la orden vale 2 min;
+   - (18/11/2026) un −1021 se repite una sola vez con hora y firma nuevas.
 
 Uso: python3 -I prueba_aprobacion.py
 Cada escenario corre en un proceso aparte (python3 -I prueba_aprobacion.py --escenario ...), porque la conexión guarda estado."""
@@ -39,7 +42,7 @@ def pruebas_candado():
     import aprobacion as A
     d = tempfile.mkdtemp(prefix="aprob_")
     r = os.path.join(d, "decisiones.jsonl")
-    W, t, ahora = 15, T0, T0 + 300
+    W, t, ahora = 15, T0, T0 + 100      # 30 s después de la decisión (T0 + 70): vigente con los 2 min del 18/11/2026
 
     def escribir(*filas, crudo=None):
         with open(r, "w", encoding="utf-8") as f:
@@ -61,7 +64,8 @@ def pruebas_candado():
     ok(A.falta(W, t, -1, ahora, r) is not None, "candado: ordenado comprar (SUBE), vender (BAJA) no pasa")
     ok(A.falta(5, t, 1, ahora, r) is not None, "candado: ordenado el de 15 min, el de 5 min no pasa")
     ok(A.falta(W, t + 900, 1, ahora + 900, r) is not None, "candado: ordenada una ventana, la siguiente no pasa")
-    ok(A.falta(W, t, 1, T0 + 70 + A.CADUCIDAD_S + 1, r) is not None, "candado: la orden vence a los 10 minutos")
+    ok(A.CADUCIDAD_S == 120 and A.falta(W, t, 1, T0 + 70 + A.CADUCIDAD_S + 1, r) is not None, "candado: la orden vence a los 2 minutos")
+    ok(A.falta(W, t, 1, T0 + 70 + A.CADUCIDAD_S - 1, r) is None, "candado: un segundo antes de los 2 minutos todavía vale")
     ok(A.falta(W, t, 1, t + 900, r) is not None, "candado: con la ventana cerrada no pasa")
     escribir(dec("NO COMPRAR"))
     ok("NO COMPRAR" in (A.falta(W, t, 1, ahora, r) or ""), "candado: NO COMPRAR (nada), no compra")
@@ -122,12 +126,48 @@ def pruebas_candado():
 # ---------------------------------------------------------------- 2. el operador entero en el simulador (proceso aparte)
 MODELO = {"w": [0.0] + [0.0] * 12, "mu": [0.0] * 12, "de": [1.0] * 12, "h": [1.0] * 8, "H": [1.0] * 8, "p_empate": 0.0,
           "huella": "prueba-aprobador"}
-MODOS = ("ninguna", "todas", "no", "contraria", "vieja", "copia", "desarmado", "poco_saldo")
+MODOS = ("ninguna", "todas", "no", "contraria", "vieja", "copia", "desarmado", "poco_saldo", "sin_precio", "caro", "justo")
+LIBRO = {1: 0.40, -1: 0.60}          # el libro del simulador: SUBE se compra a 0,40 y BAJA a 0,60
+
+
+def escenario_reloj(C, salida):
+    """Un −1021 (hora del pedido fuera de la ventana de Binance) se repite una sola vez con hora y firma nuevas; si vuelve a
+    fallar, sube el error."""
+    llamadas, pedir, real = [], C._pedir, C.ahora
+
+    def contar(metodo, url, *a, **k):
+        llamadas.append(url.split("?")[0].rsplit("/", 1)[-1])
+        return pedir(metodo, url, *a, **k)
+    C._pedir = contar
+    atraso = [30.0]
+
+    def reloj():
+        x = real() - atraso[0]
+        atraso[0] = 0.0                   # solo el primer pedido sale con la hora atrasada 30 s
+        return x
+    C.ahora = reloj
+    try:
+        s = C.saldos()
+        bien = "CeDeFi" in s
+    except Exception as ex:
+        bien = f"{type(ex).__name__}: {ex}"
+    primera = list(llamadas)
+    C.ahora = lambda: real() - 30.0       # atrasado siempre: no tiene arreglo
+    del llamadas[:]
+    try:
+        C.saldos()
+        falla = None
+    except Exception as ex:
+        falla = getattr(ex, "codigo", None)
+    with open(salida, "w", encoding="utf-8") as f:
+        json.dump({"bien": bien, "primera": primera, "segunda": list(llamadas), "falla": falla}, f)
 
 
 def escenario(codigo, salida, modo):
     """Corre DURACION segundos de operador contra el simulador y guarda lo que pasó. modo: ninguna, todas, no, contraria,
-    vieja, copia (las decisiones que el «nodo» deja para cada ventana), desarmado (sin ARMADO) o poco_saldo (10 USDT)."""
+    vieja, copia (las decisiones que el «nodo» deja para cada ventana), desarmado (sin ARMADO), poco_saldo (10 USDT),
+    sin_precio (la decisión no trae lo que vio la IA), caro (la IA lo vio 0,10 más barato), justo (lo vio 0,01 más barato)
+    o reloj (solo la prueba del −1021)."""
     sys.path.insert(0, codigo)
     import conexion as C
     import nucleo as N
@@ -148,8 +188,13 @@ def escenario(codigo, salida, modo):
     sim.sembrar(T0 - 300 * 60, T0 + DURACION + 7200)
     sim.dar_llave("clave-falsa-del-simulador", "secreto-falso-del-simulador", operar=True)
     sim.saldo["CeDeFi"] = 10.0 if modo == "poco_saldo" else 100.0
-    sim.libro = lambda t, W, t_ini, lado: [(0.40, 1000.0)] if lado == 1 else [(0.60, 1000.0)]
+    sim.libro = lambda t, W, t_ini, lado: [(LIBRO[lado], 1000.0)]
     S.enchufar(C, sim)
+    if modo == "reloj":
+        sim.t = T0 + 1
+        escenario_reloj(C, salida)
+        shutil.rmtree(base, ignore_errors=True)
+        return
     if modo != "desarmado":
         with open(os.path.join(carpeta, "ARMADO"), "w", encoding="utf-8") as f:   # solo en esta carpeta temporal de la prueba
             json.dump({"mercados": [15, 5], "por": "prueba con el simulador", "apto": {}}, f)
@@ -184,13 +229,21 @@ def escenario(codigo, salida, modo):
                 if (W, t) in escritas or sim.t < t + 30:
                     continue
                 escritas.add((W, t))
-                fila = {"t": t + 30, "W": W, "ventana": t, "dir": 1, "decision": "COMPRAR SUBE", "sube": "telefono"}
+                # 18/11/2026: el nodo deja en la decisión los precios que vio la IA (aquí, los del libro del simulador)
+                fila = {"t": t + 30, "W": W, "ventana": t, "dir": 1, "decision": "COMPRAR SUBE", "sube": "telefono",
+                        "precios": {"1": LIBRO[1], "-1": LIBRO[-1]}}
                 if modo == "no":
                     fila["decision"] = "NO COMPRAR"
                 elif modo == "contraria":
                     fila["decision"] = "COMPRAR BAJA"      # la IA ordena vender sobre un punto de SUBE
                 elif modo == "copia":
                     fila["copia_de"] = "192.168.20.45"
+                elif modo == "sin_precio":
+                    del fila["precios"]
+                elif modo == "caro":
+                    fila["precios"] = {"1": LIBRO[1] - 0.10, "-1": LIBRO[-1] - 0.10}
+                elif modo == "justo":
+                    fila["precios"] = {"1": LIBRO[1] - 0.01, "-1": LIBRO[-1] - 0.01}
                 with open(ruta_dec, "a", encoding="utf-8") as f:
                     f.write(json.dumps(fila) + "\n")
         try:
@@ -209,7 +262,7 @@ def escenario(codigo, salida, modo):
     ordenes_reg = [{k: r.get(k) for k in ("W", "t", "m", "lado", "enviada", "motivo", "usdt", "cotizado", "estado", "origen")}
                    for r in filas if r.get("tipo") == "orden"]
     ordenes = [{k: o.get(k) for k in ("id", "W", "t", "lado", "usdt", "cotizado", "estado", "comprado", "res", "neto", "origen",
-                                      "decision")} for o in op.ej.ordenes]
+                                      "decision", "visto")} for o in op.ej.ordenes]
     with open(salida, "w", encoding="utf-8") as f:
         json.dump({"pasos": pasos, "papel": papel, "ordenes_reg": ordenes_reg, "ordenes": ordenes, "saldo": sim.saldo,
                    "escrituras": sim.escrituras, "avisos": correo.textos, "decisiones": len(escritas),
@@ -270,6 +323,27 @@ def pruebas_operador():
     mot = [o["motivo"] or "" for o in p["ordenes_reg"] if o["enviada"] is False]
     ok(not p["ordenes"] and p["escrituras"] == 0 and mot and all("16 %" in x for x in mot),
        f"con 10 USDT de saldo los 2 USDT pasan el 16 %: no se envía ({len(mot)} filas, una por orden)")
+    # 18/11/2026, paridad con la compra a mano: el precio que vio la IA manda
+    ok(all(o["visto"] == LIBRO[1] and o["cotizado"] <= o["visto"] + 0.02 + 1e-9 for o in s["ordenes"])
+       and all(o["visto"] == LIBRO[-1] and o["cotizado"] <= o["visto"] + 0.02 + 1e-9 for o in c["ordenes"]),
+       "paridad: cada orden de la IA se compró al precio que ella vio (nunca más de 0,02 por encima)")
+    x = res["sin_precio"]
+    mot = [o["motivo"] or "" for o in x["ordenes_reg"] if o["enviada"] is False]
+    ok(not x["ordenes"] and x["escrituras"] == 0 and x["saldo"]["CeDeFi"] == 100.0 and mot and all("a ciegas" in m for m in mot),
+       f"paridad: una orden sin el precio que vio la IA no se compra ({len(mot)} filas, una por orden)")
+    x = res["caro"]
+    mot = [o["motivo"] or "" for o in x["ordenes_reg"] if o["enviada"] is False]
+    ok(not x["ordenes"] and x["escrituras"] == 0 and x["saldo"]["CeDeFi"] == 100.0 and mot
+       and all("no se paga más" in m for m in mot) and len(mot) <= x["decisiones"],
+       f"paridad: la IA lo vio a 0,30 y cotiza a 0,40: no se compra, y el motivo se anota una vez por orden ({len(mot)} filas)")
+    x = res["justo"]
+    ok(len(x["ordenes"]) == len(s["ordenes"]) and all(abs(o["visto"] - (LIBRO[1] - 0.01)) < 1e-9 for o in x["ordenes"]),
+       f"paridad: lo vio a 0,39 y cotiza a 0,40 (dentro de 0,02): sí compra ({len(x['ordenes'])} órdenes)")
+    r = correr(AQUI, "reloj")
+    ok(r is not None and r["bien"] is True and r["primera"] == ["payment-options", "time", "payment-options"],
+       "−1021: con la hora atrasada, mide la hora de Binance y repite una sola vez; la segunda vez pasa")
+    ok(r is not None and r["falla"] == -1021 and r["segunda"].count("payment-options") == 2,
+       "−1021: si vuelve a fallar, no insiste más (dos intentos) y sube el error")
 
 
 if __name__ == "__main__":

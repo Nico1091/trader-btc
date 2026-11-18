@@ -2,9 +2,9 @@
 """Papel de la combinación frente a cada fuente sola (17/11/2026). Solo lee archivos; no compra, no llama a nadie, sin IA.
 
 Pedido del dueño (rutina constructora, sección G): «deje cómo medir en papel la combinación contra cada uno por separado».
-Todo se juzga con el ganador del mercado de Binance de esa ventana y, cuando lo hay, con el precio real del libro que el
-operador leyó en su mirada; sin libro se usa el precio medio medido de 0,544 y se dice. Neto por cada USDT puesto:
-acierto 0,98 / q − 1, empate 0,49 / q − 1, fallo −1.
+Todo se juzga con el ganador del mercado de Binance de esa ventana y con el precio real del libro que el operador leyó en su
+mirada. Desde el 18/11/2026 (paridad con la apuesta a mano) nunca se supone un precio: lo que no tiene libro no se cuenta y
+se informa aparte como «sin precio real». Neto por cada USDT puesto: acierto 0,98 / q − 1, empate 0,49 / q − 1, fallo −1.
 
   A. Cada estrategia del Centro sola (E1 a E5), sus señales vivas que caen en la apertura de un mercado de 15 min, compradas
      en la primera mirada del operador (minuto 1).
@@ -18,15 +18,14 @@ acierto 0,98 / q − 1, empate 0,49 / q − 1, fallo −1.
 Uso en el teléfono: python3 -I medir_combinacion.py [--dias 14] [--nodo ~/nodo] [--operador ~/operador] [--centinela ~/centinela]
 Lo que la combinación debe mostrar antes de pensar en dinero: más aciertos que el equilibrio de su propio precio y neto
 positivo con muestra grande, mejor que cada fuente sola. Mientras el operador no tenga una llave que lea, no hay precios
-reales: D queda vacía y A y C se miden con el precio supuesto."""
+reales y no se mide nada: todo queda como «sin precio real»."""
 import json
 import os
 import sys
 import time
 
 HOME = os.path.expanduser("~")
-PRECIO_SUPUESTO = 0.544
-CADUCIDAD_S = 600
+CADUCIDAD_S = 120          # lo mismo que operador/aprobacion.py (era 600)
 UTILES = (b'"tipo": "mirada"', b'"tipo": "llenado"', b'"tipo": "resultado"', b'"tipo": "liquidaci')
 
 
@@ -81,9 +80,13 @@ def leer_registro(carpeta, desde):
 class Cuenta:
     def __init__(self, nombre, por_usdt=True):
         self.nombre, self.n, self.k, self.neto, self.reales, self.sin_ganador = nombre, 0, 0, 0.0, 0, 0
+        self.sin_precio = 0
         self.por_usdt = por_usdt
 
     def sumar(self, g, lado, q, real):
+        if not q or not real:          # sin precio real del libro no se cuenta: nunca se supone un precio
+            self.sin_precio += 1
+            return
         x = neto(g, lado, q)
         if x is None:
             self.sin_ganador += 1
@@ -94,25 +97,28 @@ class Cuenta:
         self.reales += 1 if real else 0
 
     def linea(self):
+        sin = f"; sin precio real (no cuentan): {self.sin_precio}" if self.sin_precio else ""
         if not self.n:
-            return f"{self.nombre}: sin compras medidas" + (f" ({self.sin_ganador} sin ganador todavía)" if self.sin_ganador else "")
+            return (f"{self.nombre}: sin compras medidas" + (f" ({self.sin_ganador} sin ganador todavía)" if self.sin_ganador else "")
+                    + sin)
         if not self.por_usdt:
             return (f"{self.nombre}: {self.n}, {self.k} aciertos ({100 * self.k / self.n:.1f} %), neto real {self.neto:+.2f} USDT"
                     ).replace(".", ",")
         return (f"{self.nombre}: {self.n} compras, {self.k} aciertos ({100 * self.k / self.n:.1f} %), neto {self.neto:+.2f} USDT "
-                f"por 1 USDT cada una ({self.neto / self.n:+.3f} por compra); con precio real {self.reales} de {self.n}").replace(".", ",")
+                f"por 1 USDT cada una ({self.neto / self.n:+.3f} por compra); todas con precio real" + sin).replace(".", ",")
 
 
 def precio(mir, lado, desde_hora=None):
-    """El precio real del lado en la primera mirada (o la primera después de una hora dada), y si era real."""
+    """El precio real del lado en la primera mirada (o la primera después de una hora dada), y si era real. Sin libro en esa
+    mirada: (None, False), y la compra no se cuenta."""
     for x in mir or []:
         if desde_hora is not None and x["hora"] < desde_hora:
             continue
         q = x["q"].get(lado)
         if q:
             return q, True
-        return PRECIO_SUPUESTO, False
-    return PRECIO_SUPUESTO, False
+        return None, False
+    return None, False
 
 
 def medir(dias=14, nodo=None, operador=None, centinela=None, ahora=None):
@@ -179,7 +185,7 @@ def medir(dias=14, nodo=None, operador=None, centinela=None, ahora=None):
             vig = [d for d in lista if d["t"] <= x["hora"] + 120]
             d = vig[-1] if vig else None
             if d and x["hora"] - d["t"] <= CADUCIDAD_S and d.get("decision") == {1: "COMPRAR SUBE", -1: "COMPRAR BAJA"}[lado]:
-                comb.sumar(ganador.get(k), lado, x["q"].get(lado) or PRECIO_SUPUESTO, bool(x["q"].get(lado)))
+                comb.sumar(ganador.get(k), lado, x["q"].get(lado), bool(x["q"].get(lado)))
                 break
             paradas += 1
     cuentas.append(comb)
@@ -193,7 +199,8 @@ def medir(dias=14, nodo=None, operador=None, centinela=None, ahora=None):
     texto = [f"Papel de la combinación, últimos {dias} días (hasta {time.strftime('%d/%m %H:%M', time.gmtime(ahora - 5 * 3600))}):"]
     texto += [x.linea() for x in cuentas]
     texto.append(f"Miradas del operador con compra que el candado paró por no tener un COMPRAR vigente: {paradas}.")
-    texto.append("Equilibrio: acertar más que q / 0,98 (55,5 % a 0,544). Solo cuenta lo que gane con muestra grande y precio real.")
+    texto.append("Equilibrio: acertar más que q / 0,98 en cada compra (a 0,46, 46,9 %; a 0,58, 59,2 %). Solo cuenta lo que gane "
+                 "con muestra grande y precio real.")
     return texto, cuentas, paradas
 
 

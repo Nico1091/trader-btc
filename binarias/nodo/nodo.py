@@ -38,6 +38,13 @@ Qué hace, sin tocar a los demás programas (solo LEE sus archivos, y solo lo nu
   Nico1091/binarias-aprobador (con el acceso de GitHub del equipo). La anota igual que la de la API, donde la lee el candado.
   Sin token, sin disparo, sin respuesta en 6 min, ventana cerrada o decisión ilegible = no hay compra. Salida directa, sin
   Tor (orden del dueño, 17/11, 18:20: «está bien que quede consolidada la IP»).
+- Paridad con la apuesta a mano (18/11/2026, tarde; su pedido: «la rutina da menos dinero que si yo apuesto manual, cuando
+  ambas deberían dar lo mismo»; ver binarias-papel/paridad). La historia de cada estrategia del Centro y del vigía se lleva
+  como la llevaría él con el botón: ese lado, en el mercado de 15 min donde cae la señal, al precio real del libro en el minuto
+  de entrada (el de la señal más uno; si esa mirada se perdió, el siguiente) y con el ganador oficial (Libreta, dinero.json).
+  Nunca un precio supuesto. La medida propia de la estrategia queda aparte, solo para mirar. La IA ve de los dos lados el
+  precio real, lo que paga por USDT y el equilibrio; sin precio real no se la consulta. La decisión guarda los precios que
+  vio, y el operador solo compra hasta 0,02 por encima de ellos, durante 2 min. La demora baja a unos 25 s.
 
 Uso:  python3 -I nodo.py            (bucle; lo lanza arrancar_nodo.sh con su vigía)
       python3 -I nodo.py --una      (una vuelta y sale; para probar)
@@ -69,12 +76,15 @@ CAJA_IP = "192.168.20.45"
 TELEFONO_IP = "192.168.20.158"   # solo el primer valor: la caja aprende la IP real del latido del teléfono
 UMBRAL = 19            # de las últimas 25 (76 %): «si los porcentajes de los aciertos son altos»
 VENTANA = 25
-ESPERA_JUNTAR = 20     # segundos que el central espera a que lleguen los demás puntos del mismo mercado y sentido
+ESPERA_JUNTAR = 8      # segundos que el central espera a que lleguen los demás puntos del mismo mercado y sentido (era 20:
+                       # 18/11/2026, paridad; el Centro escribe sus cinco estrategias de una vez)
 ESPERA_OPERADOR = 90   # segundos que un grupo espera la mirada del operador de su mercado (el vector de ganancia)
-VUELTA = 10            # segundos entre lecturas
+VUELTA = 5             # segundos entre lecturas (era 10)
+VUELTA_ESPERA = 2      # mientras haya un grupo por subir o una decisión por leer: cada segundo cuenta en el precio
 LATIDO = 30            # cada cuánto el teléfono le avisa a la caja que está vivo
 SIN_LATIDO = 90        # sin latido en este tiempo, la caja hace de central
-CADUCIDAD_S = 600      # lo mismo que operador/aprobacion.py: una aprobación vale 10 min y nunca más allá de su ventana
+CADUCIDAD_S = 120      # lo mismo que operador/aprobacion.py: una orden vale 2 min (era 10) y nunca más allá de su ventana
+TOLERANCIA_IA = 0.02   # lo mismo que operador/ejecutor.py: la orden se compra al precio que vio la IA o hasta 0,02 más
 # Claude (API de mensajes, revisada con la documentación oficial el 17/11/2026)
 MODELO = "claude-opus-5-5"
 API_URL = "https://api.anthropic.com/v1/messages"
@@ -96,9 +106,8 @@ NOMBRES = {"E1": "E1 · ruptura de 20 velas al revés", "E2": "E2 · ruptura de 
            "quince": "vigía de 15 min", "operador": "operador de Fable 5.2",
            "operador15": "operador de Fable 5.2 (15 min)", "operador5": "operador de Fable 5.2 (5 min)"}
 COL = -5 * 3600
-# La ganancia antes que el acierto (17/11/2026, 18:40)
-PAGO = 0.98            # el acierto paga 1 por contrato menos el 2 % de comisión (lo mismo que medir_combinacion.py)
-PRECIO_MEDIDO = 0.544  # precio medio real pagado en el mercado de 15 min (papel con libro del 12/11): sin libro se usa este
+# La ganancia antes que el acierto (17/11/2026, 18:40), contada como a mano (18/11/2026): nunca con un precio supuesto
+PAGO = 0.98            # el acierto paga 1 por contrato menos el 2 % de comisión: el «Ganar» de la app es 0,98 / precio
 # La rutina aprobadora de claude.ai (17/11/2026, 16:29), disparada por su API propia (documentación oficial de las rutinas)
 RUTINA_ID = "trig_01Ep7i969sChfFw4Mb3eN4qM"
 RUTINA_URL = "https://api.anthropic.com/v1/claude_code/routines/{id}/fire"
@@ -108,7 +117,7 @@ GITHUB_TOKEN = os.path.join(CONF_DIR, "github")   # línea 1: acceso de GitHub d
 GITHUB_API = "https://api.github.com"
 REPO_DECISIONES = "Nico1091/binarias-aprobador"
 ESPERA_RUTINA = 360    # segundos que se espera la decisión de la rutina; sin ella, no se compra
-MIRAR_DECISION = 10    # segundos entre lecturas de cada decisión pendiente en GitHub
+MIRAR_DECISION = 3     # segundos entre lecturas de cada decisión pendiente en GitHub (era 10)
 TOPE_DISPAROS = 25     # disparos por hora (la rutina admite 30 por hora)
 
 
@@ -191,8 +200,11 @@ def en(c, n):
 
 # ---------------------------------------------------------------- fuentes (solo lectura, solo lo nuevo)
 def resumen(ops):
-    """Últimas 25 cerradas, racha de aciertos al final, fondo, lo vivo (sin las rehechas con velas) y la señal abierta más nueva.
-    Cerrada es res 0, 1 o 0,5 (empate del vigía); solo res 1 es acierto: el empate cuenta como fallo."""
+    """La medida propia de una estrategia: últimas 25 cerradas, racha de aciertos al final, fondo, lo vivo (sin las rehechas
+    con velas) y la señal abierta más nueva. Cerrada es res 0, 1 o 0,5 (empate del vigía); solo res 1 es acierto: el empate
+    cuenta como fallo. Las cifras de dinero (aciertos, de, neto, precio...) son las de cuenta() con las cerradas que traen
+    precio real y ganador oficial (las compras de papel del operador); el Centro y el vigía las toman de su Libreta.
+    «aciertos_propios» y «de_propios» guardan la medida propia."""
     cerradas = [o for o in ops if o.get("res") in (0, 1, 0.5)]
     ult = cerradas[-VENTANA:]
     aciertos = 0
@@ -214,31 +226,116 @@ def resumen(ops):
             if o["res"] == 1:
                 vivas_k += 1
     abiertas = [o for o in ops if o.get("res") is None]
-    # La ganancia antes que el acierto (17/11/2026, 18:40): neto por cada USDT de las mismas 25, al precio que se paga.
-    neto = suma_q = 0.0
-    supuestos = 0
-    for o in ult:            # en bucle, no sum()
-        q = precio_de(o)
-        if not _precio_real(o):
-            supuestos += 1
-        suma_q += q
-        neto += PAGO / q - 1 if o["res"] == 1 else (PAGO / 2 / q - 1 if o["res"] == 0.5 else -1.0)
-    precio = suma_q / len(ult) if ult else PRECIO_MEDIDO
-    return {"aciertos": aciertos, "de": len(ult), "racha": racha,
-            "fondo": round(100 * total / len(cerradas), 1) if cerradas else None,
-            "vivo": [vivas_k, vivas], "abierta": abiertas[-1] if abiertas else None,
-            "neto": round(neto, 3), "precio": round(precio, 3), "equilibrio": round(precio / PAGO, 3),
-            "con_ganancias": bool(ult) and neto > 0, "precio_supuesto": supuestos}
+    r = {"aciertos_propios": aciertos, "de_propios": len(ult), "racha": racha,
+         "fondo": round(100 * total / len(cerradas), 1) if cerradas else None,
+         "vivo": [vivas_k, vivas], "abierta": abiertas[-1] if abiertas else None}
+    r.update(cuenta(cerradas))
+    return r
 
 
-def _precio_real(o):
-    q = o.get("q")
+def _real(q):
     return isinstance(q, (int, float)) and not isinstance(q, bool) and 0 < q < 1
 
 
-def precio_de(o):
-    """Precio pagado por contrato en esa señal: el real del libro si la señal lo trae; si no, el medido (0,544)."""
-    return float(o["q"]) if _precio_real(o) else PRECIO_MEDIDO
+def _precio_real(o):
+    return _real(o.get("q"))
+
+
+def cuenta(entradas):
+    """La cuenta a mano (18/11/2026; antes, «la ganancia antes que el acierto» del 17/11): de las últimas 25 entradas con precio
+    real del libro (q) y ganador oficial de su mercado (g), los aciertos (g igual al lado), el neto por USDT al precio pagado
+    (0,98 / q − 1 si acierta, la mitad si hay empate, −1 si falla: lo mismo que paga la app), el precio medio y el equilibrio
+    (precio / 0,98). Una entrada sin precio real o sin ganador no cuenta: nunca se supone un precio."""
+    ult = [e for e in entradas if _precio_real(e) and e.get("g") in (1, -1, 0) and e.get("dir") in (1, -1)][-VENTANA:]
+    aciertos, neto, suma_q = 0, 0.0, 0.0
+    for e in ult:            # en bucle, no sum()
+        q = float(e["q"])
+        suma_q += q
+        if e["g"] == e["dir"]:
+            aciertos += 1
+            neto += PAGO / q - 1
+        elif e["g"] == 0:
+            neto += PAGO / 2 / q - 1
+        else:
+            neto -= 1.0
+    precio = suma_q / len(ult) if ult else None
+    return {"aciertos": aciertos, "de": len(ult), "neto": round(neto, 3), "precio": round(precio, 3) if ult else None,
+            "equilibrio": round(precio / PAGO, 3) if ult else None, "con_ganancias": bool(ult) and neto > 0,
+            "precio_supuesto": 0, "cuenta": "a mano"}
+
+
+class Libreta:
+    """La cuenta a mano de cada estrategia del Centro y del vigía (18/11/2026, paridad con la apuesta del dueño). Cada señal
+    cerrada se apunta como si él hubiera comprado ese lado con el botón: en el mercado de 15 min donde cae la señal, al precio
+    real del libro en el minuto de entrada (el de la señal más uno, como el Centro, que entra 60 s tarde; si esa mirada del
+    operador se perdió, la del minuto siguiente) y con el ganador oficial. Sin las dos cosas no se apunta. Queda en
+    dinero.json y sobrevive a los reinicios; de cada estrategia se guardan las últimas MAXIMO."""
+    MAXIMO = 200
+    REVISAR = 60   # últimas cerradas de cada estrategia que se intentan apuntar en cada vuelta
+
+    def __init__(self, ruta_archivo):
+        self.ruta = ruta_archivo
+        d = leer_json(ruta_archivo, {}) or {}
+        self.por = {k: [e for e in v if isinstance(e, dict)] for k, v in (d.get("estrategias") or {}).items() if isinstance(v, list)}
+        self.vistas = {(k, e.get("t"), e.get("dir")) for k, v in self.por.items() for e in v}
+        self.cambio = False
+
+    @staticmethod
+    def entrada(o, libros, ganadores):
+        """La entrada a mano de una señal cerrada (t, dir), o None si todavía no hay precio real o ganador oficial."""
+        t, d = o.get("t"), o.get("dir")
+        if isinstance(t, bool) or not isinstance(t, int) or d not in (1, -1):
+            return None
+        v = t - t % 900
+        g = ganadores.get((15, v))
+        if g not in (1, -1, 0):
+            return None
+        m_sig = (t - v) // 60
+        miradas = libros.get((15, v)) or {}
+        for m in (m_sig + 1, m_sig + 2):
+            x = miradas.get(m)
+            q = x[0 if d == 1 else 1] if x else None
+            if _real(q):
+                return {"t": t, "dir": d, "v": v, "m": m, "q": float(q), "g": g}
+        return None
+
+    def apuntar(self, fuente, est, ops, libros, ganadores):
+        k = f"{fuente}|{est}"
+        cerradas = [o for o in ops if o.get("res") in (0, 1, 0.5)]
+        nuevas = []
+        for o in cerradas[-self.REVISAR:]:
+            if (k, o.get("t"), o.get("dir")) in self.vistas:
+                continue
+            e = self.entrada(o, libros, ganadores)
+            if e:
+                nuevas.append(e)
+                self.vistas.add((k, e["t"], e["dir"]))
+        if nuevas:
+            lista = sorted(self.por.get(k, []) + nuevas, key=lambda e: e.get("t") or 0)
+            self.por[k] = lista[-self.MAXIMO:]
+            self.cambio = True
+        return len(nuevas)
+
+    def entradas(self, fuente, est):
+        return self.por.get(f"{fuente}|{est}", [])
+
+    def guardar(self):
+        if self.cambio:
+            escribir_json(self.ruta, {"nota": "cuenta a mano de cada estrategia: precio real del libro y ganador oficial "
+                                              "(nodo.py, Libreta)", "estrategias": self.por})
+            self.cambio = False
+
+
+def precios_vistos(v):
+    """Los precios reales de compra de los dos lados en una mirada del operador con libro, {"1": q, "-1": q}; None si la mirada
+    no trae libro (sin llave) o ningún lado tiene precio. Es lo que la IA ve y lo que el operador respeta al comprar."""
+    if not v or v.get("serie") != "papel":
+        return None
+    out = {}
+    for k in ("1", "-1"):
+        q = ((v.get("lados") or {}).get(k) or {}).get("q")
+        out[k] = float(q) if _real(q) else None
+    return out if any(x is not None for x in out.values()) else None
 
 
 def mercado_de(fuente, op, W=None):
@@ -254,9 +351,11 @@ def mercado_de(fuente, op, W=None):
 
 class Cola:
     """Las líneas nuevas del registro del operador (un archivo AAAAMMDD.jsonl por día), sin releer lo ya leído.
-    Solo se descifran las filas que sirven (llenado, resultado y las miradas de la última media hora)."""
+    Solo se descifran las filas que sirven: llenado, resultado, las miradas con libro real (de ellas sale el precio de la
+    cuenta a mano) y las sin libro de la última media hora."""
     UTILES = (b'"tipo": "llenado"', b'"tipo": "resultado"')
     MIRADA = b'"tipo": "mirada"'
+    CON_LIBRO = b'"serie": "papel"'
     T_RE = re.compile(rb'"t": (\d+)')
 
     def __init__(self, carpeta, dias=3):
@@ -292,9 +391,10 @@ class Cola:
                 if any(u in linea for u in self.UTILES):
                     pass
                 elif self.MIRADA in linea:
-                    m = self.T_RE.search(linea)
-                    if not m or int(m.group(1)) < ahora - 1800:
-                        continue
+                    if self.CON_LIBRO not in linea:
+                        m = self.T_RE.search(linea)
+                        if not m or int(m.group(1)) < ahora - 1800:
+                            continue
                 else:
                     continue
                 try:
@@ -317,6 +417,9 @@ class Fuentes:
         self.llenados = {}        # (W, t, lado) -> {"t", "dir", "base", "m"}: compras de papel del operador (libro A, 5 s)
         self.ganadores = {}       # (W, t) -> ganador oficial
         self.miradas = {}         # (W, t) -> la última mirada del operador en esa ventana
+        self.libros = {}          # (W, t) -> {minuto: (precio de SUBE, precio de BAJA)}: el libro real de cada mirada
+        self.ops = {}             # (fuente, estrategia) -> sus señales, tal como las escribió el Centro o el vigía
+        self.libreta = Libreta(os.path.join(c.get("carpeta", AQUI), "dinero.json"))
         self.leidos = 0           # bytes leídos en la última vuelta
         self.t_operador = 0.0     # última fila útil del operador
 
@@ -339,8 +442,10 @@ class Fuentes:
         if fuente == "centro" and isinstance(datos, dict):
             for e, ops in sorted((datos.get("ops") or {}).items()):
                 if isinstance(ops, list):
+                    self.ops[("centro", e)] = ops
                     out.append(("centro", e, 15, resumen(ops)))
         elif fuente == "quince" and isinstance(datos, dict) and isinstance(datos.get("ops"), list):
+            self.ops[("quince", "quince")] = datos["ops"]
             out.append(("quince", "quince", 15, resumen(datos["ops"])))
         self.cache[n] = (marca, out)
         return out
@@ -362,9 +467,14 @@ class Fuentes:
                 if r.get("serie", "papel") == "papel" and r.get("ganador") in (1, -1, 0):
                     self.ganadores[(W, t)] = r["ganador"]
             elif tipo == "mirada":
-                self.miradas[(W, t)] = r
+                if r.get("serie") == "papel":    # el libro real de esa mirada: el precio de la cuenta a mano
+                    L = r.get("lados") or {}
+                    self.libros.setdefault((W, t), {})[int(r.get("m") or 0)] = ((L.get("1") or {}).get("q"),
+                                                                               (L.get("-1") or {}).get("q"))
+                if t >= ahora - 1800:
+                    self.miradas[(W, t)] = r
         self.leidos += self.cola.leidos - antes
-        for d, n in ((self.llenados, 600), (self.ganadores, 600), (self.miradas, 8)):
+        for d, n in ((self.llenados, 600), (self.ganadores, 600), (self.miradas, 8), (self.libros, 600)):
             if len(d) > n:
                 for k in sorted(d, key=lambda k: k[1])[:len(d) - n]:
                     del d[k]
@@ -390,10 +500,16 @@ class Fuentes:
                     if w != W:
                         continue
                     g = self.ganadores.get((w, t))
-                    # «base» del llenado es el precio real pagado (q): con él se mide si el acierto va con ganancias
-                    ops.append(dict(o, q=o.get("base"), res=None if g is None else (1 if g == lado else 0)))
+                    # «base» del llenado es el precio real pagado (q) y g el ganador oficial: su cuenta ya es a mano
+                    ops.append(dict(o, q=o.get("base"), g=g, res=None if g is None else (1 if g == lado else 0)))
                 if ops:
                     out.append(("operador", f"operador{W}", W, resumen(ops)))
+        # 18/11/2026, paridad: el Centro y el vigía se cuentan como a mano (precio real del libro y ganador oficial)
+        for i, (fuente, est, W, r) in enumerate(out):
+            if fuente in ("centro", "quince"):
+                self.libreta.apuntar(fuente, est, self.ops.get((fuente, est)) or [], self.libros, self.ganadores)
+                out[i] = (fuente, est, W, dict(r, **cuenta(self.libreta.entradas(fuente, est))))
+        self.libreta.guardar()
         return out
 
 
@@ -423,8 +539,10 @@ def puntos_nuevos(c, estado, fuentes):
              "t": o.get("t"), "dir": o.get("dir"), "base": o.get("base"), "W": Wm, "ventana": ventana, "minuto": minuto,
              "alineado": alineado, "aciertos": r["aciertos"], "de": r["de"], "racha": r["racha"], "fondo": r["fondo"],
              "vivo": r["vivo"], "neto": r["neto"], "precio": r["precio"], "equilibrio": r["equilibrio"],
-             "con_ganancias": r["con_ganancias"], "precio_supuesto": r["precio_supuesto"],
-             # alto: 76 % o más de las últimas 25 Y con ganancias al precio que se paga (orden del dueño, 17/11, 18:40)
+             "con_ganancias": r["con_ganancias"], "precio_supuesto": r["precio_supuesto"], "cuenta": r.get("cuenta"),
+             "aciertos_propios": r.get("aciertos_propios"), "de_propios": r.get("de_propios"),
+             # alto: 76 % o más de las últimas 25 Y con ganancias (orden del dueño, 17/11, 18:40), las dos cosas contadas como
+             # a mano: precio real del libro y ganador oficial del mercado (18/11/2026, paridad)
              "alto": r["de"] >= VENTANA and r["aciertos"] >= c["umbral"] and r["con_ganancias"], "visto": int(time.time())}
         if fuente == "centro":
             p["si_regla"], p["oi_no_sube"] = o.get("si"), (None if o.get("doi") is None else o["doi"] <= 0.00022)
@@ -704,13 +822,19 @@ def precio(x):
 
 
 def vector_corto(v):
-    """El vector de ganancia del operador, en pocos números, para Claude."""
+    """El vector de ganancia del operador, en pocos números, para Claude. Con libro real, cada lado trae además lo que paga
+    por USDT si acierta («paga», el «Ganar» de la app: 0,98 / q) y su equilibrio (q / 0,98), como lo vería el dueño."""
     if not v:
         return None
     lados = {}
     for k, nombre in (("1", "SUBE"), ("-1", "BAJA")):
         d = (v.get("lados") or {}).get(k) or {}
-        lados[nombre] = {c: (round(d[c], 3) if isinstance(d.get(c), float) else d.get(c)) for c in ("papel", "p", "p_prud", "q", "G_prud", "limite")}
+        x = {c: (round(d[c], 3) if isinstance(d.get(c), float) else d.get(c)) for c in ("papel", "p", "p_prud", "q", "G_prud", "limite")}
+        if v.get("serie") == "papel" and _real(d.get("q")):
+            x["paga"] = round(PAGO / d["q"], 2)
+            x["equilibrio"] = round(d["q"] / PAGO, 3)
+            x["compra_hasta"] = round(d["q"] + TOLERANCIA_IA, 2)   # el operador no paga más que esto por ese lado
+        lados[nombre] = x
     return {"minuto": v.get("m"), "serie": v.get("serie"), "resta_s": v.get("resta_s"), "z": v.get("z"),
             "decide": {1: "SUBE", -1: "BAJA"}.get(v.get("decide")), "motivo": v.get("motivo"), "lados": lados}
 
@@ -719,7 +843,8 @@ def paquete(clave, puntos, en_contra, vector):
     """Lo que Claude recibe de un grupo: el mercado, los puntos, los que van en contra y el vector del operador."""
     W, ventana, d = clave
     campos = ("fuente", "estrategia", "nombre", "equipo", "alto", "aciertos", "de", "racha", "fondo", "vivo", "minuto",
-              "alineado", "si_regla", "oi_no_sube", "neto", "precio", "equilibrio", "con_ganancias", "precio_supuesto")
+              "alineado", "si_regla", "oi_no_sube", "neto", "precio", "equilibrio", "con_ganancias", "precio_supuesto",
+              "cuenta", "aciertos_propios", "de_propios")
 
     def corto(p):
         x = {k: p.get(k) for k in campos if p.get(k) is not None}
@@ -739,18 +864,24 @@ def mensaje(clave, grupo, r, quien, en_contra=(), vector=None, hoy=None):
     for p in grupo:
         pc = round(100 * p["aciertos"] / p["de"]) if p["de"] else 0
         extra = f", fondo {str(p['fondo']).replace('.', ',')} %" if p.get("fondo") is not None else ""
-        if p.get("neto") is not None:
-            extra += (f", neto {p['neto']:+.2f} por USDT en sus 25 a {precio(p.get('precio'))} "
+        if p.get("neto") is not None and p.get("de"):
+            extra += (f", neto {p['neto']:+.2f} por USDT a {precio(p.get('precio'))} "
                       f"({'con ganancias' if p.get('con_ganancias') else 'con pérdidas'})").replace(".", ",")
-        lineas.append(f"- {p['nombre']} ({p['equipo']}): {p['aciertos']} de {p['de']} ({pc} %), racha {p['racha']}{extra} · "
+        if p.get("de_propios") is not None and p.get("fuente") != "operador":
+            extra += f"; su medida propia, {p.get('aciertos_propios')} de {p.get('de_propios')}"
+        lineas.append(f"- {p['nombre']} ({p['equipo']}): a mano {p['aciertos']} de {p['de']} ({pc} %), racha {p['racha']}{extra} · "
                       f"señal {hhmm(p['t']) if p.get('t') else '?'}" + ("" if p.get("alineado", True) else " (a mitad de ventana)"))
     if en_contra:
         lineas.append("En contra en la misma ventana: " + ", ".join(f"{p['nombre']} {flecha(p['dir'])}" for p in en_contra))
     v = vector_corto(vector)
     if v:
         s, b = v["lados"]["SUBE"], v["lados"]["BAJA"]
+
+        def lado_txt(nombre, x):
+            paga = f" (paga {precio(x['paga'])} por USDT)" if x.get("paga") else ""
+            return f"{nombre} {pct(x['p_prud'])} prudente a {precio(x['q'])}{paga}"
         lineas.append(f"Operador, minuto {v['minuto']} ({'sin libro' if v['serie'] == 'sin_llave' else 'con libro'}): "
-                      f"SUBE {pct(s['p_prud'])} prudente a {precio(s['q'])} · BAJA {pct(b['p_prud'])} prudente a {precio(b['q'])}")
+                      f"{lado_txt('SUBE', s)} · {lado_txt('BAJA', b)}")
     dec = r.get("decision")
     orden = {"COMPRAR SUBE": " (comprar)", "COMPRAR BAJA": " (vender)", "NO COMPRAR": " (nada)"}.get(dec, "")
     lineas.append(f"Decisión de Claude: {dec or r.get('motivo')}{orden}" + (f" · {r['motivo']}" if dec and r.get("motivo") else ""))
@@ -760,7 +891,8 @@ def mensaje(clave, grupo, r, quien, en_contra=(), vector=None, hoy=None):
         lineas.append(f"Consulta: {r['segundos']:.0f} s, {r['costo_usd'] * 100:.2f} centavos de dólar".replace(".", ",")
                       + (f" (hoy {hoy[0]} consultas, {hoy[1]:.2f} USD)".replace(".", ",") if hoy else ""))
     lineas.append(f"Sube: {quien}. Si la IA ordenó comprar o vender, el operador lo ejecuta con 2 USDT si está ARMADO, dentro "
-                  f"de sus topes de dinero y mientras la orden siga vigente ({CADUCIDAD_S // 60} min).")
+                  f"de sus topes de dinero, mientras la orden siga vigente ({CADUCIDAD_S // 60} min) y sin pagar más de "
+                  f"{precio(TOLERANCIA_IA)} sobre el precio que vio la IA.")
     return "\n".join(lineas)
 
 
@@ -790,11 +922,20 @@ class Central:
         self.par["ip"] = ip
         self.par["visto"] = time.time()
 
+    def pendientes(self):
+        """Hay un grupo por subir o una decisión de la rutina por leer: el bucle va más rápido."""
+        with self.lock:
+            return bool(self.esperando) or any(g["pendiente"] for g in self.grupos.values())
+
     def recibir(self, p):
         with self.lock:
             if not all(k in p for k in ("W", "ventana")):   # un punto de un nodo viejo: se pone en su mercado aquí
                 W, v, mnt, al = mercado_de(p.get("fuente"), p, p.get("W"))
                 p = dict(p, W=W, ventana=v, minuto=mnt, alineado=al)
+            if p.get("alto") and p.get("cuenta") != "a mano":
+                # 18/11/2026: un nodo sin la cuenta a mano (la caja con el código de antes) mide con precio supuesto: su
+                # punto se muestra, pero no es alto
+                p = dict(p, alto=False, nota="nodo sin la cuenta a mano: no cuenta como alto")
             k = (int(p["W"]), int(p["ventana"]), p["dir"])
             g = self.grupos.setdefault(k, {"desde": time.time(), "puntos": [], "pendiente": True, "envios": 0})
             if all(x["clave"] != p["clave"] for x in g["puntos"]):
@@ -841,6 +982,14 @@ class Central:
             if not any(p["alto"] for p in grupo):
                 continue                       # solo se sube lo de aciertos altos con ganancias
             vector = self.vector_de(k[0], k[1])
+            if not precios_vistos(vector):
+                # 18/11/2026, paridad: sin el precio real del libro la IA decidiría a ciegas y el operador no compraría
+                # (no sabe cuánto vio ella). No se gasta una corrida de la rutina.
+                self._registrar(k, grupo, contra[k], vector,
+                                {"decision": None, "motivo": "sin precio real del libro en ese mercado (el operador no lo ha "
+                                 "mirado con libro): no se consulta a la IA y no se compra", "error": "sin_precio",
+                                 "ruta": self.c.get("decisor") or "api", "segundos": 0.0}, quien, ahora)
+                continue
             if self.c.get("decisor") == "rutina":
                 # con la hora del disparo y cuatro letras al azar: nunca se lee una decisión vieja ni la de otro grupo
                 ident = (f"{self.c['rol']}-{k[0]}m-{k[1]}-{'sube' if k[2] == 1 else 'baja'}-{g['envios']}-{int(ahora)}-"
@@ -860,7 +1009,9 @@ class Central:
                 "sube": self.c["rol"], "fuentes": [p["clave"] for p in grupo], "altos": [p["estrategia"] for p in grupo if p["alto"]],
                 "en_contra": [p["clave"] for p in contra], "modelo": MODELO, "uso": r.get("uso"),
                 "costo_usd": r.get("costo_usd"), "segundos": r.get("segundos"), "ruta": r.get("ruta"), "error": r.get("error"),
-                "vence": int(min(ahora + CADUCIDAD_S, k[1] + 60 * k[0]))}
+                "vence": int(min(ahora + CADUCIDAD_S, k[1] + 60 * k[0])),
+                # 18/11/2026, paridad: los precios que vio la IA; el operador no paga más de TOLERANCIA_IA sobre ellos
+                "precios": precios_vistos(vector), "precios_m": (vector or {}).get("m"), "precios_hora": (vector or {}).get("hora")}
         if r.get("id"):
             fila.update(id=r["id"], sesion=r.get("sesion"))
         anexar(en(self.c, "decisiones.jsonl"), fila)
@@ -1017,7 +1168,9 @@ def main():
               if c["decisor"] == "rutina" else
               f"Claude {MODELO} (esfuerzo {c['esfuerzo']}, rutas {', '.join(r[0] for r in c['rutas_claude'])})")
     log(f"nodo arrancó: rol {c['rol']} ({'central' if central.principal() else 'respaldo'}), "
-        f"centinela {c['centinela']}, operador {c['operador']}, umbral {c['umbral']} de {VENTANA} con ganancias, {decide}")
+        f"centinela {c['centinela']}, operador {c['operador']}, umbral {c['umbral']} de {VENTANA} con ganancias, {decide}; "
+        f"cuenta a mano (precio real del libro y ganador oficial), compra hasta {TOLERANCIA_IA} sobre lo que vio la IA, "
+        f"órdenes de {CADUCIDAD_S} s")
     ultimo_latido, latia = 0.0, None
     medida = {"n": 0, "ms": 0.0, "max_ms": 0.0, "bytes": 0, "max_bytes": 0, "desde": time.time()}
     while not os.path.exists(ruta("PARAR")):
@@ -1046,7 +1199,11 @@ def main():
             log(f"vuelta con error: {type(e).__name__}: {e}")
         if "--una" in sys.argv:
             break
-        time.sleep(VUELTA)
+        try:
+            espera = VUELTA_ESPERA if central.pendientes() else VUELTA
+        except Exception:
+            espera = VUELTA
+        time.sleep(espera)
     log("nodo detenido")
 
 

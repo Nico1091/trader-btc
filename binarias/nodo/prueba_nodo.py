@@ -34,6 +34,32 @@ def ops(aciertos, total=25, abierta=None, t0=1794900000):
     return lista
 
 
+# Ventanas propias de cada estrategia de la prueba, para que sus mercados no se pisen (un mercado tiene un solo ganador)
+T_E2, T_E4, T_E1, T_Q = 1794900000, 1794000000, 1794600000, 1794300000
+
+
+def con_libro(c, lista, q=0.5):
+    """Lo que el operador habría anotado (18/11/2026, cuenta a mano): por cada señal cerrada, la mirada con libro real del
+    minuto de entrada (el de la señal más uno) y el ganador oficial de su mercado de 15 min."""
+    reg = os.path.join(c["operador"], "registro")
+    os.makedirs(reg, exist_ok=True)
+    with open(os.path.join(reg, "20261101.jsonl"), "a", encoding="utf-8") as f:
+        for o in lista:
+            if o.get("res") not in (0, 1, 0.5):
+                continue
+            v = o["t"] - o["t"] % 900
+            m = (o["t"] - v) // 60 + 1
+            g = o["dir"] if o["res"] == 1 else (0 if o["res"] == 0.5 else -o["dir"])
+            f.write(json.dumps({"W": 15, "tipo": "mirada", "serie": "papel", "t": v, "m": m, "hora": v + 60 * m, "decide": 0,
+                                "lados": {"1": {"q": q}, "-1": {"q": q}}}) + "\n")
+            f.write(json.dumps({"W": 15, "tipo": "resultado", "serie": "papel", "t": v, "ganador": g, "fuente": "oficial"}) + "\n")
+
+
+VEC = {"W": 15, "tipo": "mirada", "serie": "papel", "m": 1, "hora": 0, "decide": 0,
+       "lados": {"1": {"papel": "perdedor", "p": 0.4, "p_prud": 0.38, "q": 0.40, "limite": 0.3},
+                 "-1": {"papel": "ganador", "p": 0.6, "p_prud": 0.58, "q": 0.62, "limite": 0.5}}}
+
+
 BASE = tempfile.mkdtemp(prefix="nodo_prueba_")
 N.AQUI = BASE            # el registro (nodo.log) de la prueba va a la carpeta temporal, nunca al del equipo
 FIN = chr(13) + chr(10)
@@ -80,11 +106,11 @@ open(N.SECRETO, "w").write("prueba-secreta")
 T = 1794930300   # múltiplo de 900
 V = int(time.time() // 900) * 900   # la ventana de 15 min en curso: el candado del operador mira la hora real
 
-# 1) resumen con sumas en bucle; el empate del vigía (0,5) cuenta como cerrada y como fallo
+# 1) resumen con sumas en bucle; el empate del vigía (0,5) cuenta como cerrada y como fallo (medida propia)
 r = N.resumen(ops(20) + [{"t": 1, "dir": 1, "res": 1}, {"t": 2, "dir": 1, "res": 1}])
-ok(r["aciertos"] == 20 and r["racha"] == 2, "resumen: últimas 25 y racha")
+ok(r["aciertos_propios"] == 20 and r["racha"] == 2, "resumen: últimas 25 y racha")
 r = N.resumen(ops(20) + [{"t": 3, "dir": 1, "res": 0.5}])
-ok(r["abierta"] is None and r["racha"] == 0 and r["de"] == 25 and r["aciertos"] == 19,
+ok(r["abierta"] is None and r["racha"] == 0 and r["de_propios"] == 25 and r["aciertos_propios"] == 19,
    "resumen: un empate (0,5) es cerrada y fallo, no una señal abierta")
 
 # 2) mercado de cada señal
@@ -94,24 +120,35 @@ ok(N.mercado_de("operador", {"t": T + 300, "m": 2}, 5) == (5, T + 300, 2, True),
 
 # 3) señales: lo abierto al arrancar no se reenvía; señal nueva alta; no se repite; señal baja
 tel = equipo("telefono", 18801, 18802, centro={"E2": ops(20, abierta=(T, -1))})
+con_libro(tel, ops(20, t0=T_E2))
 ft = N.Fuentes(tel)
 est_t = {}
 ok(N.puntos_nuevos(tel, est_t, ft) == [], "primera vuelta: lo abierto al arrancar no se reenvía")
 N.escribir_json(os.path.join(tel["centinela"], "datos", "centro.json"), {"ops": {"E2": ops(20, abierta=(T + 900, -1))}})
 nuevos = N.puntos_nuevos(tel, est_t, ft)
-ok(len(nuevos) == 1 and nuevos[0]["alto"] and nuevos[0]["W"] == 15 and nuevos[0]["ventana"] == T + 900,
-   "señal nueva con 20 de 25: punto ALTO en el mercado de 15 min de su ventana")
+ok(len(nuevos) == 1 and nuevos[0]["alto"] and nuevos[0]["W"] == 15 and nuevos[0]["ventana"] == T + 900
+   and nuevos[0]["cuenta"] == "a mano" and nuevos[0]["aciertos"] == 20 and nuevos[0]["de"] == 25,
+   "señal nueva con 20 de 25 a mano (precio real y ganador oficial): punto ALTO en el mercado de 15 min de su ventana")
 ok(N.puntos_nuevos(tel, est_t, ft) == [], "la misma señal no se repite")
-N.escribir_json(os.path.join(tel["centinela"], "datos", "centro.json"), {"ops": {"E2": ops(16, abierta=(T + 1800, 1))}})
+con_libro(tel, ops(16, t0=T_E4))
+N.escribir_json(os.path.join(tel["centinela"], "datos", "centro.json"), {"ops": {"E4": ops(16, abierta=(T + 1800, 1), t0=T_E4)}})
 bajo = N.puntos_nuevos(tel, est_t, ft)
 ok(len(bajo) == 1 and not bajo[0]["alto"], "señal con 16 de 25: punto bajo")
 ft.leer()
 ok(ft.leidos == 0, "sin cambios en los archivos: la vuelta no lee nada (0 bytes)")
+sin_libro = equipo("solo", 18899, 18898, centro={"E2": ops(20, abierta=(T, -1))})
+fs, est_s = N.Fuentes(sin_libro), {}
+N.puntos_nuevos(sin_libro, est_s, fs)
+N.escribir_json(os.path.join(sin_libro["centinela"], "datos", "centro.json"), {"ops": {"E2": ops(20, abierta=(T + 900, -1))}})
+ps = N.puntos_nuevos(sin_libro, est_s, fs)
+ok(len(ps) == 1 and not ps[0]["alto"] and ps[0]["de"] == 0 and ps[0]["aciertos_propios"] == 20,
+   "paridad: 20 de 25 propios sin precio real del libro no son alto (nada de precio supuesto)")
 
 # 4) EL TELÉFONO SOLO (la caja apagada): sube él mismo, sin depender de nadie
-ct = N.Central(tel, est_t, ft.vector, ft.operador_vivo)
+ct = N.Central(tel, est_t, lambda W, t: ft.vector(W, t) or VEC, ft.operador_vivo)
 ok(ct.principal() and ct.activo(), "el teléfono es el nodo central")
-N.escribir_json(os.path.join(tel["centinela"], "datos", "centro.json"), {"ops": {"E1": ops(21, abierta=(T + 2700, -1))}})
+con_libro(tel, ops(21, t0=T_E1))
+N.escribir_json(os.path.join(tel["centinela"], "datos", "centro.json"), {"ops": {"E1": ops(21, abierta=(T + 2700, -1), t0=T_E1)}})
 N.vuelta(tel, est_t, ct, ft)
 ct.despachar()
 ok(len(enviados) == 1 and "el teléfono (nodo central)" in enviados[0] and "COMPRAR BAJA" in enviados[0],
@@ -119,6 +156,8 @@ ok(len(enviados) == 1 and "el teléfono (nodo central)" in enviados[0] and "COMP
 dec = lineas(tel, "decisiones.jsonl")
 ok(len(dec) == 1 and dec[0]["W"] == 15 and dec[0]["ventana"] == T + 2700 and dec[0]["dir"] == -1 and dec[0]["decision"] == "COMPRAR BAJA",
    "la decisión queda en el teléfono con su mercado, ventana y sentido")
+ok(dec[0].get("precios") == {"1": 0.40, "-1": 0.62} and "paga 1,58 por USDT" in enviados[0] and "a mano 21 de 25" in enviados[0],
+   "paridad: la decisión guarda los precios que vio la IA y el aviso dice lo que paga cada lado y la cuenta a mano")
 ok(dec[0]["costo_usd"] == 0.0052 and dec[0]["uso"]["cache_read_input_tokens"] == 2600 and est_t["claude_hoy"]["consultas"] == 1,
    "la decisión guarda tokens y costo, y se suma al gasto del día")
 ct.recibir(dict(bajo[0], clave="bajo-otro", t=T + 3600, ventana=T + 3600))
@@ -126,18 +165,19 @@ ct.despachar()
 ok(len(enviados) == 1, "grupo sin puntos altos: no se sube")
 
 # 5) LOS DOS ENCENDIDOS: el teléfono late, la caja aprende su IP y le entrega sus puntos; sube el teléfono
-caja = equipo("caja", 18802, 18801, quince=ops(19, abierta=(T + 5400, -1)))
+caja = equipo("caja", 18802, 18801, quince=ops(19, abierta=(T + 5400, -1), t0=T_Q))
+con_libro(caja, ops(19, t0=T_Q))
 fc = N.Fuentes(caja)
 est_c = {}
-cc = N.Central(caja, est_c, fc.vector, fc.operador_vivo)
+cc = N.Central(caja, est_c, lambda W, t: fc.vector(W, t) or VEC, fc.operador_vivo)
 ok(not cc.principal() and cc.activo(), "la caja sin latido del teléfono hace de central (respaldo)")
 srv_t, srv_c = N.servidor(ct), N.servidor(cc)
 time.sleep(0.3)
 ok(N.enviar_par(tel, "127.0.0.1", "/latido", {"rol": "telefono"}), "latido del teléfono a la caja")
 ok(not cc.activo() and cc.par["ip"] == "127.0.0.1", "con latido, la caja deja de ser central y conoce la IP del teléfono")
 N.puntos_nuevos(caja, est_c, fc)                  # primera vuelta de la caja
-N.escribir_json(os.path.join(caja["centinela"], "quince.json"), {"ops": ops(19, abierta=(T + 6300, -1))})
-N.escribir_json(os.path.join(tel["centinela"], "datos", "centro.json"), {"ops": {"E1": ops(21, abierta=(T + 6300, -1))}})
+N.escribir_json(os.path.join(caja["centinela"], "quince.json"), {"ops": ops(19, abierta=(T + 6300, -1), t0=T_Q)})
+N.escribir_json(os.path.join(tel["centinela"], "datos", "centro.json"), {"ops": {"E1": ops(21, abierta=(T + 6300, -1), t0=T_E1)}})
 antes = len(enviados)
 N.vuelta(caja, est_c, cc, fc)                     # la caja entrega al teléfono
 N.vuelta(tel, est_t, ct, ft)                      # el teléfono suma lo suyo
@@ -157,7 +197,7 @@ ok((15, T + 7200, 1) in ct.grupos, "punto de un nodo viejo: se pone en el mercad
 # 7) EL TELÉFONO CAÍDO: la caja no lo encuentra y sube lo suyo
 srv_t.shutdown()
 srv_t.server_close()
-N.escribir_json(os.path.join(caja["centinela"], "quince.json"), {"ops": ops(20, abierta=(T + 8100, 1))})
+N.escribir_json(os.path.join(caja["centinela"], "quince.json"), {"ops": ops(19, abierta=(T + 8100, 1), t0=T_Q)})
 antes = len(enviados)
 N.vuelta(caja, est_c, cc, fc)
 cc.despachar()
@@ -195,9 +235,9 @@ ok(len(fu) == 1 and fu[0][1] == "operador15" and fu[0][3]["aciertos"] == 20 and 
    "operador: 20 de 25 en su mercado de 15 min; la sombra, la escapada y el resultado del de 5 min no cuentan")
 leido = ft2.cola.leidos
 with open(dia, "a", encoding="utf-8") as f:
-    f.write(json.dumps({"W": 15, "tipo": "mirada", "serie": "sin_llave", "t": V, "m": 3, "hora": ahora, "decide": 0,
-                        "lados": {"1": {"papel": "perdedor", "p": 0.31, "p_prud": 0.29, "q": None, "limite": 0.25},
-                                  "-1": {"papel": "ganador", "p": 0.69, "p_prud": 0.66, "q": None, "limite": 0.58}}}) + "\n")
+    f.write(json.dumps({"W": 15, "tipo": "mirada", "serie": "papel", "t": V, "m": 3, "hora": ahora, "decide": 0,
+                        "lados": {"1": {"papel": "perdedor", "p": 0.31, "p_prud": 0.29, "q": 0.33, "limite": 0.25},
+                                  "-1": {"papel": "ganador", "p": 0.69, "p_prud": 0.66, "q": 0.69, "limite": 0.58}}}) + "\n")
     f.write('{"W": 15, "tipo": "mirada", "t": ')      # línea a medio escribir
 ft2.leer()
 ok(ft2.cola.leidos - leido < 1000 and ft2.vector(15, V)["m"] == 3, "registro: solo lee lo nuevo y espera la línea incompleta")
@@ -206,10 +246,10 @@ ok(ft2.operador_vivo(), "operador vivo: anotó una mirada hace menos de 5 min")
 # 10) grupos por mercado, puntos en contra y vector del operador en el paquete; espera la mirada del operador
 consultas.clear()
 est3 = {}
-c3 = N.Central(tel, est3, ft2.vector, ft2.operador_vivo)
+c3 = N.Central(tel, est3, lambda W, t: ft2.vector(W, t) or (VEC if t < V else None), ft2.operador_vivo)
 p15 = {"clave": "a", "equipo": "telefono", "fuente": "centro", "estrategia": "E1", "nombre": N.NOMBRES["E1"], "t": V,
        "dir": 1, "W": 15, "ventana": V, "minuto": 0, "alineado": True, "aciertos": 20, "de": 25, "racha": 2,
-       "fondo": 55.0, "vivo": [69, 121], "alto": True}
+       "fondo": 55.0, "vivo": [69, 121], "alto": True, "cuenta": "a mano", "aciertos_propios": 20, "de_propios": 25}
 c3.recibir(p15)
 c3.recibir(dict(p15, clave="b", W=5, ventana=V))
 c3.recibir(dict(p15, clave="c", estrategia="E5", dir=-1, alto=False))
@@ -220,6 +260,16 @@ c3.despachar()
 paq = next((q for q in consultas if q["W"] == 15), None)
 ok(paq and paq["operador"]["minuto"] == 3 and paq["operador"]["lados"]["SUBE"]["p_prud"] == 0.29,
    "el paquete lleva el vector de ganancia del operador de ese mercado")
+ok(paq and paq["operador"]["lados"]["SUBE"]["paga"] == 2.97 and paq["operador"]["lados"]["SUBE"]["compra_hasta"] == 0.35
+   and paq["operador"]["lados"]["BAJA"]["equilibrio"] == round(0.69 / 0.98, 3),
+   "paridad: el paquete dice lo que paga cada lado (0,98 / 0,33 = 2,97), su equilibrio y hasta cuánto se compra")
+ok(c3.grupos[(5, V, 1)]["pendiente"] and not any(q["W"] == 5 for q in consultas),
+   "paridad: con el operador vivo, el de 5 min sin mirada con libro espera su mirada (hasta 90 s)")
+c3.grupos[(5, V, 1)]["desde"] -= N.ESPERA_OPERADOR + 1          # pasan los 90 s sin mirada con libro en el de 5 min
+c3.despachar()
+d5 = [d for d in lineas(tel, "decisiones.jsonl") if d["W"] == 5 and d["ventana"] == V]
+ok(not any(q["W"] == 5 for q in consultas) and d5 and d5[-1]["error"] == "sin_precio",
+   "paridad: a los 90 s sin libro, el de 5 min no se consulta a la IA («sin precio») y no se compra")
 ok(paq and len(paq["en_contra"]) == 1 and paq["en_contra"][0]["estrategia"] == "E5", "el paquete lleva los puntos en contra de la misma ventana")
 c3.grupos[(15, V + 900, 1)] = {"desde": time.time() - 30, "puntos": [dict(p15, clave="d", t=V + 900, ventana=V + 900)],
                                  "pendiente": True, "envios": 0}

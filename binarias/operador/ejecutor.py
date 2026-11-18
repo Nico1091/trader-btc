@@ -18,6 +18,11 @@ operador ya no compra por su cuenta (intentar() queda sin uso). La compra real l
 (ejecutar_ia): comprar = SUBE, vender = BAJA, en el lado que ella diga, por IMPORTE_IA USDT fijos y sin revisarla con el modelo.
 Siguen 1, 2, 3 y 5, el tope del 16 % del saldo, la cotización real (precio entre 0,01 y 0,90, deslizamiento de 2 %) y que
 queden al menos 10 s. Lo que se deja de lado de la regla de Fable: el Kelly del importe y el margen de ganancia esperada.
+PARIDAD CON LA COMPRA A MANO (18/11/2026, tarde; su pedido: «la rutina da menos dinero que si yo apuesto manual, cuando
+ambas deberían dar lo mismo»): la orden de la IA se compra al precio que ella vio, como cuando el dueño toca el botón. El nodo
+deja en la decisión los precios de la mirada que la IA vio («precios»); si la cotización pasa ese precio en más de
+TOLERANCIA_IA (0,02), no se compra y se vuelve a cotizar cada 15 s mientras la orden siga vigente (2 min). Sin precio visto
+para ese lado, no se compra: la IA habría decidido a ciegas.
 Después: una orden es «comprada» solo si Binance lo confirma; cualquier estado que no sea final se relee hasta que lo sea,
 también tras un reinicio (el 12/11 dos órdenes quedaron en SUBMITTED sin releer). Lo ganado se cobra y se anota.
 Nada aquí duerme ni repite una escritura: cada paso() avanza lo que toque y devuelve el control."""
@@ -50,13 +55,20 @@ PROHIBIDOS = {"enableWithdrawals": "retiros", "enableInternalTransfer": "transfe
               "enableVanillaOptions": "opciones", "enablePortfolioMarginTrading": "margen de cartera"}
 IMPORTE_IA = 2.0             # 18/11/2026, orden del dueño: 2 USDT por cada orden de la IA
 REINTENTO_IA_S = 15          # una orden de la IA que un freno pasajero detuvo se reintenta cada 15 s mientras siga vigente
+TOLERANCIA_IA = 0.02         # 18/11/2026, paridad: la orden de la IA se compra al precio que ella vio o hasta 0,02 más
 CAMPOS_ORDEN = ("id", "W", "t", "topic", "m", "plazo", "lado", "papel", "celda", "p", "p_prud", "q_libro", "G_prud", "G_cot",
                 "usdt", "saldo", "cotizado", "contratos_cot", "comision", "estado", "orden", "motivo", "hora", "hora_envio",
-                "cupo_dia", "origen", "decision", "decision_t", "decision_id")
+                "cupo_dia", "origen", "decision", "decision_t", "decision_id", "visto")
 
 
 def texto_error(ex):
     return f"{type(ex).__name__}: {str(ex)[:140]}"
+
+
+def precio_visto(d, lado):
+    """El precio real de compra de `lado` que vio la IA al decidir (lo deja el nodo en la decisión, «precios»), o None."""
+    q = ((d or {}).get("precios") or {}).get(str(lado)) if isinstance(d, dict) else None
+    return float(q) if isinstance(q, (int, float)) and not isinstance(q, bool) and 0 < q < 1 else None
 
 
 class Ejecutor:
@@ -349,9 +361,13 @@ class Ejecutor:
             return None
         v["t"] = ahora
         minuto = max(0, min(W - 1, int((ahora - m["t"]) // 60)))
+        visto = precio_visto(d, lado)
         base = {"tipo": "orden", "origen": "ia", "W": W, "t": m["t"], "topic": m.get("topic"), "m": minuto,
                 "plazo": N.plazo(W, minuto), "lado": lado, "decision": d.get("decision"), "decision_t": d.get("t"),
-                "decision_id": d.get("id"), "hora": round(ahora, 2), "comision": (m.get("comision_bps") or 200) / 10000}
+                "decision_id": d.get("id"), "hora": round(ahora, 2), "comision": (m.get("comision_bps") or 200) / 10000,
+                "visto": visto}
+        if visto is None:
+            return self._no_ia(v, base, "la IA decidió sin ver el precio real de ese lado: no se compra a ciegas")
         motivo = self._frenos(ahora, m, W)
         if motivo:
             return self._no_ia(v, base, motivo)
@@ -389,8 +405,13 @@ class Ejecutor:
         base.update(cotizado=precio, comision=com_cot, contratos_cot=round(contratos_cot, 4) if contratos_cot else None)
         if not q.get("quoteId") or not N.PRECIO_MIN - 1e-9 <= precio <= N.PRECIO_MAX + 1e-9:
             return self._no_ia(v, base, f"cotización a {num(precio, 3)}: fuera de 0,01 a 0,90")
+        if precio > visto + TOLERANCIA_IA + 1e-9:
+            # como a mano: no se paga más de lo que se vio; se vuelve a cotizar cada 15 s mientras la orden siga vigente
+            return self._no_ia(v, base, f"el precio pasó lo que vio la IA ({num(visto, 3)}) en más de {num(TOLERANCIA_IA)}: "
+                                        "no se paga más")
         texto = (f"Operador · ORDEN REAL por orden de la IA en el mercado de {W} min, con {max(0, int(resta // 60))} min por delante: "
-                 f"{APROBACION.ORDEN[lado]}, {num(usdt)} USDT cotizados a {num(precio, 3)}. ")
+                 f"{APROBACION.ORDEN[lado]}, {num(usdt)} USDT cotizados a {num(precio, 3)} (la IA lo vio a {num(visto, 3)}; si "
+                 f"acierta paga {num((1 - com_cot) / precio)} por USDT). ")
         o = self._enviar(ahora, base, m, w, token, q, usdt, precio, texto)
         v["hecha"] = o["estado"] != "RECHAZADA"     # tras un rechazo claro se puede intentar otra vez (máximo dos por mercado)
         return o

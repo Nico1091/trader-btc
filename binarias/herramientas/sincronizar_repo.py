@@ -40,8 +40,12 @@ NUEVAS_CARPETAS = [("herramientas", (".py",)), ("herramientas/fixtures_lineas", 
                    # 16/11/2026: el operador automático y el comprador suben solo código y documentos; nunca datos ni llaves.
                    ("operador", (".py", ".md", ".sh")), ("comprador", (".py", ".md")),
                    # 17/11/2026: el nodo puente (une los puntos de la caja y el teléfono); solo código y documentos.
-                   ("nodo", (".py", ".md", ".sh"))]
+                   ("nodo", (".py", ".md", ".sh")),
+                   # 18/11/2026: la paridad con la apuesta a mano (revisión, análisis, consolidación, pruebas y su resultado).
+                   ("paridad", (".py", ".md")), ("paridad/resultados", (".txt",))]
 NUEVOS_PULSO = ["caja-prueba.sh"]
+# Firma del commit: el modelo que hace el trabajo (18/11/2026: Opus 5.5). Otra sesión la cambia con la variable COAUTOR.
+COAUTOR = os.environ.get("COAUTOR") or "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>"
 NUNCA = re.compile(r"(^|/)(estado\.json|apuestas\.jsonl|senales_vivo\.jsonl|semaforo\.json|avisados\.json|REAL_AUTORIZADO|PARAR"
                    r"|.*\.(log|npy|npz|pid|zip|pdf|png|nrc|apk|so|env))$|(^|/)(__pycache__|datos|respaldos|comprobantes|salida"
                    r"|auditor_cache|prueba_semaforo_tmp|audio|lib|obj|assets)/")
@@ -136,7 +140,7 @@ def main():
             if patron.search(texto):
                 git("reset", "-q")
                 raise SystemExit(f"POSIBLE CLAVE en {ruta}: no se sube nada. Revíselo a mano.")
-    git("commit", "-q", "-m", mensaje + "\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>")
+    git("commit", "-q", "-m", mensaje + "\n\n" + COAUTOR)
     print(f"commit {git('rev-parse', '--short', 'HEAD').strip()} con {len(reales)} archivos:")
     for c in reales:
         print("  ", c)

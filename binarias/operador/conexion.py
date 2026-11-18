@@ -169,22 +169,34 @@ def marca_llave():
 
 
 def _firmado(metodo, ruta, **params):
+    """Consulta o escritura firmada. Si Binance contesta -1021 (la hora del pedido quedó fuera de su ventana), no ejecutó
+    nada: se vuelve a medir su hora y se repite UNA sola vez con hora y firma nuevas (18/11/2026: hubo 11 en un día, con la
+    red inestable). Cualquier otro error sube tal cual."""
     if llave() is None:
         raise ErrorBinance(0, "este equipo no tiene llave")
     clave, secreto = _claves["par"]
     params = {k: v for k, v in params.items() if v is not None}
-    params["timestamp"] = int(ahora() * 1000)
-    params["recvWindow"] = 10000
-    q = urllib.parse.urlencode(params, quote_via=urllib.parse.quote)  # quote_plus cambia los espacios y daña la firma
-    firma = hmac.new(secreto.encode(), q.encode(), hashlib.sha256).hexdigest()
-    url, cuerpo = BASE + ruta, None
-    cab = {**H, "X-MBX-APIKEY": clave}
-    if metodo == "GET":
-        url += f"?{q}&signature={firma}"
-    else:
-        cuerpo = f"{q}&signature={firma}".encode()
-        cab["Content-Type"] = "application/x-www-form-urlencoded"
-    return _json(*_pedir(metodo, url, cuerpo, cab, 20))
+    for intento in (1, 2):
+        params["timestamp"] = int(ahora() * 1000)
+        params["recvWindow"] = 10000
+        q = urllib.parse.urlencode(params, quote_via=urllib.parse.quote)  # quote_plus cambia los espacios y daña la firma
+        firma = hmac.new(secreto.encode(), q.encode(), hashlib.sha256).hexdigest()
+        url, cuerpo = BASE + ruta, None
+        cab = {**H, "X-MBX-APIKEY": clave}
+        if metodo == "GET":
+            url += f"?{q}&signature={firma}"
+        else:
+            cuerpo = f"{q}&signature={firma}".encode()
+            cab["Content-Type"] = "application/x-www-form-urlencoded"
+        try:
+            return _json(*_pedir(metodo, url, cuerpo, cab, 20))
+        except ErrorBinance as ex:
+            if ex.codigo != -1021 or intento == 2:
+                raise
+            try:
+                _sincronizar()
+            except Exception:
+                raise ex from None
 
 
 def restricciones():

@@ -37,7 +37,7 @@ import nucleo as N  # noqa: E402
 import papel as PA  # noqa: E402
 from comunes import con_signo, dia, escribir_json, hora, leer_json, num, pct, sentido, temperatura  # noqa: E402
 
-VERSION = "2 · 18/11/2026 (ordena la IA)"
+VERSION = "3 · 18/11/2026 (ordena la IA, al precio que vio)"
 PUERTO = 8794                # candado de instancia única (el 8792 y el 8793 son del centinela)
 HORA_PARTE = 7               # hora de Colombia del parte diario
 JUICIO_CADA_S = 6 * 3600
@@ -323,7 +323,9 @@ class Operador:
         if primero and ahora - self.mem.get("arranque", 0) > 1800:
             self.mem["arranque"] = round(ahora)
             self._guardar_mem()
-            self.avisar(f"Operador en marcha en la caja (versión {VERSION}). " + self.linea_estado(ahora)
+            # 18/11/2026: decía «en la caja» también en el teléfono; la caja corre desde /data/local/tmp
+            equipo = "la caja" if AQUI.startswith("/data/local/tmp") else "el teléfono"
+            self.avisar(f"Operador en marcha en {equipo} (versión {VERSION}). " + self.linea_estado(ahora)
                         + " Escriba «operador ayuda» para ver las órdenes.")
 
     # ------------------------------------------------------------ mercados
