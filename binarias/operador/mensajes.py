@@ -13,7 +13,7 @@ import threading
 import time
 
 CLAVE = os.path.expanduser("~/.config/binarias/telegram")
-TOR = os.environ.get("OPERADOR_TOR", "127.0.0.1:9050")
+TOR = os.environ.get("OPERADOR_TOR", "")   # 18/11/2026: binarias solo con la IP de la casa, sin Tor (vacío = directo)
 REINTENTOS = 8           # un aviso que no sale se reintenta este número de veces, cada vez más espaciado
 CADA_S = 20              # cada cuánto se mira el chat
 
@@ -46,7 +46,8 @@ class Correo:
             conf.append("form-string = " + _comillas(f"{k}={v}"))
         usuario = f"op{int(time.time()) % 100000}:x"  # circuito propio por llamada
         try:
-            r = subprocess.run(["curl", "-s", "--max-time", str(tiempo), "--socks5-hostname", f"{usuario}@{self.tor}", "-K", "-"],
+            red = ["--socks5-hostname", f"{usuario}@{self.tor}"] if self.tor else ["--noproxy", "*"]
+            r = subprocess.run(["curl", "-s", "--max-time", str(tiempo), *red, "-K", "-"],
                                input="\n".join(conf) + "\n", capture_output=True, text=True, timeout=tiempo + 30)
             return json.loads(r.stdout) if r.stdout.strip() else None
         except Exception as ex:

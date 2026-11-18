@@ -30,7 +30,16 @@ ROL = os.environ.get("AVISOS_ROL", "caja")
 ETIQUETA = {"caja": "caja", "telefono": "teléfono"}.get(ROL, ROL)
 CAJAS = [x for x in os.environ.get("AVISOS_CAJA", "192.168.20.45,192.168.20.156").split(",") if x]
 PUERTO_LATIDO = 8793
-TOR = os.environ.get("AVISOS_TOR", "127.0.0.1:9050")
+# 18/11/2026, orden del dueño: «todo lo de binarias únicamente con mi IP de casa y nada en lo absoluto de Tor».
+# Vacío = directo por la IP de la casa (lo normal). Tor solo si alguien lo pidiera en AVISOS_TOR, y ya nada lo pide.
+TOR = os.environ.get("AVISOS_TOR", "")
+
+
+def red(usuario):
+    """Cómo sale curl: directo por la IP de la casa, sin proxies del entorno; por Tor solo si AVISOS_TOR lo pidiera."""
+    return ["--socks5-hostname", f"{usuario}@{TOR}"] if TOR else ["--noproxy", "*"]
+
+
 CUENTAS = ("REGLA", "BTC FIJO")
 SIMBOLOS_AVISO = ("BTCUSDT",)  # 03/11: Nicolás unificó todo en BTC/USDT; ETH queda solo como medición, sin avisos
 CAIDO_S = 180
@@ -102,7 +111,7 @@ def enviar(texto):
     ]) + "\n"
     usuario = f"binarias{int(time.time()) % 100000}:x"  # circuito propio por aviso
     try:
-        r = subprocess.run(["curl", "-s", "--max-time", "90", "--socks5-hostname", f"{usuario}@{TOR}", "-K", "-"],
+        r = subprocess.run(["curl", "-s", "--max-time", "90", *red(usuario), "-K", "-"],
                            input=conf, capture_output=True, text=True, timeout=120)
         ok = '"ok":true' in (r.stdout or "")
         if not ok:
@@ -132,7 +141,7 @@ def enviar_archivo(ruta, texto="", metodo="sendDocument", campo="document", chat
     ]) + "\n"
     usuario = f"binarias{int(time.time()) % 100000}:x"
     try:
-        r = subprocess.run(["curl", "-s", "--max-time", "60", "--socks5-hostname", f"{usuario}@{TOR}", "-K", "-"],
+        r = subprocess.run(["curl", "-s", "--max-time", "60", *red(usuario), "-K", "-"],
                            input=conf, capture_output=True, text=True, timeout=90)
         ok = '"ok":true' in (r.stdout or "")
         if not ok:

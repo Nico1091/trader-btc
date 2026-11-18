@@ -98,7 +98,7 @@ def telegram(texto, editar=None):
     for intento in range(3):
         usuario = f"centro{int(time.time()) % 100000}:x"
         try:
-            r = subprocess.run(["curl", "-s", "--max-time", "90", "--socks5-hostname", f"{usuario}@{avisos.TOR}", "-K", "-"],
+            r = subprocess.run(["curl", "-s", "--max-time", "90", *avisos.red(usuario), "-K", "-"],
                                input="\n".join(conf) + "\n", capture_output=True, text=True, timeout=120)
             d = json.loads(r.stdout or "{}")
         except Exception as ex:

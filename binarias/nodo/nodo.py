@@ -62,7 +62,8 @@ CONF_DIR = os.path.join(HOME, ".config", "binarias")
 TELEGRAM = os.path.join(CONF_DIR, "telegram")      # línea 1: clave del bot, línea 2: chat (la misma de avisos.py)
 SECRETO = os.path.join(CONF_DIR, "nodo")           # secreto compartido caja-teléfono (firma de lo que se pasan)
 CLAUDE = os.path.join(CONF_DIR, "claude")          # línea 1: clave de la API de Claude (la pone el dueño)
-TOR = os.environ.get("NODO_TOR") or os.environ.get("AVISOS_TOR") or "127.0.0.1:9050"   # en la app Binarias, su Tor (9052)
+# 18/11/2026, orden del dueño: «todo lo de binarias únicamente con mi IP de casa y nada en lo absoluto de Tor».
+TOR = os.environ.get("NODO_TOR") or os.environ.get("AVISOS_TOR") or ""   # vacío = directo por la IP de la casa
 PUERTO = 8799
 CAJA_IP = "192.168.20.45"
 TELEFONO_IP = "192.168.20.158"   # solo el primer valor: la caja aprende la IP real del latido del teléfono
@@ -83,7 +84,7 @@ MAX_TOKENS = 2048      # tope de pensamiento + respuesta; si se alcanza, la resp
 CACHE_TTL = "1h"       # el contexto fijo queda en caché una hora: con consultas cada pocos minutos se paga casi solo la lectura
 PRECIOS = {"entrada": 4.0, "cache_5m": 5.0, "cache_1h": 8.0, "cache_leida": 0.20, "salida": 20.0}  # USD por millón (Opus 5.5)
 # «--noproxy ""» obliga a usar Tor aunque el equipo tenga una lista de excepciones de proxy (no_proxy)
-RUTAS_CLAUDE = (("directa", ["--noproxy", "*"]), ("tor", ["--noproxy", "", "--socks5-hostname", "{usuario}@" + TOR]))
+RUTAS_CLAUDE = (("directa", ["--noproxy", "*"]),) + ((("tor", ["--noproxy", "", "--socks5-hostname", "{usuario}@" + TOR]),) if TOR else ())
 SIN_LLEGAR = (5, 6, 7, 35, 97)   # curl no llegó a conectar (DNS, conexión, TLS o proxy): se prueba la ruta siguiente
 REINTENTAR = (429, 500, 502, 503, 529)
 DECISIONES = ("COMPRAR SUBE", "COMPRAR BAJA", "NO COMPRAR")
@@ -479,7 +480,8 @@ def telegram(texto):
                       "form-string = " + comillas(f"text={texto[:4000]}")]) + "\n"
     usuario = f"nodo{int(time.time()) % 100000}:x"
     try:
-        r = subprocess.run(["curl", "-s", "--max-time", "60", "--noproxy", "", "--socks5-hostname", f"{usuario}@{TOR}", "-K", "-"],
+        red = ["--noproxy", "", "--socks5-hostname", f"{usuario}@{TOR}"] if TOR else ["--noproxy", "*"]   # directo por la casa
+        r = subprocess.run(["curl", "-s", "--max-time", "60", *red, "-K", "-"],
                            input=conf, capture_output=True, text=True, timeout=90)
         ok = '"ok":true' in (r.stdout or "")
         if not ok:
