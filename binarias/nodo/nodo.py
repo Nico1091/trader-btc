@@ -15,7 +15,9 @@ Qué hace, sin tocar a los demás programas (solo LEE sus archivos, y solo lo nu
   calcula las últimas 25 cerradas, la racha y el fondo (empate = fallo, como en el resto de las binarias).
 - Un PUNTO es una señal nueva (abierta) de una estrategia, ya puesta en su mercado de Binance: el de 15 min que la contiene
   para el Centro y el vigía; el de 5 o 15 min de la compra de papel para el operador. Es ALTO si esa estrategia lleva UMBRAL o
-  más de sus últimas 25. Los puntos del mismo mercado, ventana y sentido se juntan en un grupo.
+  más de sus últimas 25 Y ese acierto va con ganancias: el neto de esas 25 al precio que se paga (el del libro del operador
+  cuando lo hay; sin libro, el 0,544 medido) es positivo (orden del dueño, 17/11, 18:40: «el porcentaje de acierto debe ir con
+  ganancias, no con pérdidas»). Los puntos del mismo mercado, ventana y sentido se juntan en un grupo.
 - Antes de subir un grupo espera 20 s a que lleguen los demás y, si el operador corre en el equipo, hasta 90 s a que mire ese
   mercado: así Claude ve el vector de ganancia del operador (probabilidad, precio real y ganancia esperada de cada lado)
   aunque el punto venga solo del Centro. También ve los puntos en contra de la misma ventana.
@@ -26,6 +28,13 @@ Qué hace, sin tocar a los demás programas (solo LEE sus archivos, y solo lo nu
   Queda en puntos.jsonl y decisiones.jsonl (mercado W, ventana, sentido, decisión, motivo, tokens, costo y segundos); la
   decisión se copia también al otro equipo. Falla cerrado: sin clave, sin respuesta, error, respuesta ilegible o cortada,
   negativa o el sentido contrario al punto = no hay compra. El nodo NO compra: compra el operador con sus frenos.
+- Decisor «rutina» (17/11/2026, 19:00; «decisor»: «rutina» en config.json): sin claves de la API de Claude (orden del dueño:
+  «no tengo plata»). El teléfono dispara directo la rutina aprobadora de claude.ai (trig_01Ep7i969sChfFw4Mb3eN4qM, Opus 5.5,
+  gasta el plan del dueño y no dinero) con todos los grupos listos en un solo disparo (POST /fire con su token; tope de 25
+  por hora, la rutina admite 30) y lee la decisión de cada uno en decisiones/<id>.json del repositorio privado
+  Nico1091/binarias-aprobador (con el acceso de GitHub del equipo). La anota igual que la de la API, donde la lee el candado.
+  Sin token, sin disparo, sin respuesta en 6 min, ventana cerrada o decisión ilegible = no hay compra. Salida directa, sin
+  Tor (orden del dueño, 17/11, 18:20: «está bien que quede consolidada la IP»).
 
 Uso:  python3 -I nodo.py            (bucle; lo lanza arrancar_nodo.sh con su vigía)
       python3 -I nodo.py --una      (una vuelta y sale; para probar)
@@ -83,6 +92,20 @@ NOMBRES = {"E1": "E1 · ruptura de 20 velas al revés", "E2": "E2 · ruptura de 
            "quince": "vigía de 15 min", "operador": "operador de Fable 5.2",
            "operador15": "operador de Fable 5.2 (15 min)", "operador5": "operador de Fable 5.2 (5 min)"}
 COL = -5 * 3600
+# La ganancia antes que el acierto (17/11/2026, 18:40)
+PAGO = 0.98            # el acierto paga 1 por contrato menos el 2 % de comisión (lo mismo que medir_combinacion.py)
+PRECIO_MEDIDO = 0.544  # precio medio real pagado en el mercado de 15 min (papel con libro del 12/11): sin libro se usa este
+# La rutina aprobadora de claude.ai (17/11/2026, 16:29), disparada por su API propia (documentación oficial de las rutinas)
+RUTINA_ID = "trig_01Ep7i969sChfFw4Mb3eN4qM"
+RUTINA_URL = "https://api.anthropic.com/v1/claude_code/routines/{id}/fire"
+RUTINA_BETA = "experimental-cc-routine-2026-04-01"
+RUTINA_TOKEN = os.path.join(CONF_DIR, "rutina")   # línea 1: token de disparo de la rutina (lo genera el dueño en claude.ai)
+GITHUB_TOKEN = os.path.join(CONF_DIR, "github")   # línea 1: acceso de GitHub del dueño, para leer las decisiones
+GITHUB_API = "https://api.github.com"
+REPO_DECISIONES = "Nico1091/binarias-aprobador"
+ESPERA_RUTINA = 360    # segundos que se espera la decisión de la rutina; sin ella, no se compra
+MIRAR_DECISION = 10    # segundos entre lecturas de cada decisión pendiente en GitHub
+TOPE_DISPAROS = 25     # disparos por hora (la rutina admite 30 por hora)
 
 
 def ruta(n):
@@ -152,7 +175,10 @@ def config():
             "par_ip": c.get("par_ip") or (CAJA_IP if rol == "telefono" else TELEFONO_IP),
             "puerto": int(c.get("puerto", PUERTO)), "par_puerto": int(c.get("par_puerto", PUERTO)),
             "carpeta": c.get("carpeta", AQUI), "rutas_claude": rutas or list(RUTAS_CLAUDE),
-            "esfuerzo": c.get("esfuerzo", ESFUERZO) if c.get("esfuerzo") in ("low", "medium", "high", "xhigh", "max") else ESFUERZO}
+            "esfuerzo": c.get("esfuerzo", ESFUERZO) if c.get("esfuerzo") in ("low", "medium", "high", "xhigh", "max") else ESFUERZO,
+            "decisor": c.get("decisor") if c.get("decisor") in ("api", "rutina") else "api",
+            "rutina_id": c.get("rutina_id", RUTINA_ID), "repo_decisiones": c.get("repo_decisiones", REPO_DECISIONES),
+            "tope_disparos": int(c.get("tope_disparos", TOPE_DISPAROS))}
 
 
 def en(c, n):
@@ -184,9 +210,31 @@ def resumen(ops):
             if o["res"] == 1:
                 vivas_k += 1
     abiertas = [o for o in ops if o.get("res") is None]
+    # La ganancia antes que el acierto (17/11/2026, 18:40): neto por cada USDT de las mismas 25, al precio que se paga.
+    neto = suma_q = 0.0
+    supuestos = 0
+    for o in ult:            # en bucle, no sum()
+        q = precio_de(o)
+        if not _precio_real(o):
+            supuestos += 1
+        suma_q += q
+        neto += PAGO / q - 1 if o["res"] == 1 else (PAGO / 2 / q - 1 if o["res"] == 0.5 else -1.0)
+    precio = suma_q / len(ult) if ult else PRECIO_MEDIDO
     return {"aciertos": aciertos, "de": len(ult), "racha": racha,
             "fondo": round(100 * total / len(cerradas), 1) if cerradas else None,
-            "vivo": [vivas_k, vivas], "abierta": abiertas[-1] if abiertas else None}
+            "vivo": [vivas_k, vivas], "abierta": abiertas[-1] if abiertas else None,
+            "neto": round(neto, 3), "precio": round(precio, 3), "equilibrio": round(precio / PAGO, 3),
+            "con_ganancias": bool(ult) and neto > 0, "precio_supuesto": supuestos}
+
+
+def _precio_real(o):
+    q = o.get("q")
+    return isinstance(q, (int, float)) and not isinstance(q, bool) and 0 < q < 1
+
+
+def precio_de(o):
+    """Precio pagado por contrato en esa señal: el real del libro si la señal lo trae; si no, el medido (0,544)."""
+    return float(o["q"]) if _precio_real(o) else PRECIO_MEDIDO
 
 
 def mercado_de(fuente, op, W=None):
@@ -338,7 +386,8 @@ class Fuentes:
                     if w != W:
                         continue
                     g = self.ganadores.get((w, t))
-                    ops.append(dict(o, res=None if g is None else (1 if g == lado else 0)))
+                    # «base» del llenado es el precio real pagado (q): con él se mide si el acierto va con ganancias
+                    ops.append(dict(o, q=o.get("base"), res=None if g is None else (1 if g == lado else 0)))
                 if ops:
                     out.append(("operador", f"operador{W}", W, resumen(ops)))
         return out
@@ -369,7 +418,10 @@ def puntos_nuevos(c, estado, fuentes):
         p = {"clave": clave, "equipo": c["rol"], "fuente": fuente, "estrategia": est, "nombre": NOMBRES.get(est, est),
              "t": o.get("t"), "dir": o.get("dir"), "base": o.get("base"), "W": Wm, "ventana": ventana, "minuto": minuto,
              "alineado": alineado, "aciertos": r["aciertos"], "de": r["de"], "racha": r["racha"], "fondo": r["fondo"],
-             "vivo": r["vivo"], "alto": r["de"] >= VENTANA and r["aciertos"] >= c["umbral"], "visto": int(time.time())}
+             "vivo": r["vivo"], "neto": r["neto"], "precio": r["precio"], "equilibrio": r["equilibrio"],
+             "con_ganancias": r["con_ganancias"], "precio_supuesto": r["precio_supuesto"],
+             # alto: 76 % o más de las últimas 25 Y con ganancias al precio que se paga (orden del dueño, 17/11, 18:40)
+             "alto": r["de"] >= VENTANA and r["aciertos"] >= c["umbral"] and r["con_ganancias"], "visto": int(time.time())}
         if fuente == "centro":
             p["si_regla"], p["oi_no_sube"] = o.get("si"), (None if o.get("doi") is None else o["doi"] <= 0.00022)
         nuevos.append(p)
@@ -563,6 +615,77 @@ def decision_claude(paquete, c=None, plazo=90):
             pass
 
 
+# ---------------------------------------------------------------- la rutina aprobadora (sin claves de la API)
+def leer_token(n):
+    try:
+        return open(n, encoding="utf-8").read().split()[0]
+    except Exception:
+        return None
+
+
+def _http(metodo, url, cabeceras, cuerpo=None, plazo=20):
+    """Petición directa por la IP de la casa (sin Tor ni proxies del entorno). (código, texto); código 0 si no llegó."""
+    import urllib.error
+    import urllib.request
+    abridor = urllib.request.build_opener(urllib.request.ProxyHandler({}))
+    pet = urllib.request.Request(url, data=cuerpo, method=metodo, headers=cabeceras)
+    try:
+        with abridor.open(pet, timeout=plazo) as r:
+            return r.status, r.read().decode("utf-8", "replace")
+    except urllib.error.HTTPError as e:
+        try:
+            texto = e.read().decode("utf-8", "replace")
+        except Exception:
+            texto = ""
+        return e.code, texto
+    except Exception as e:
+        return 0, type(e).__name__
+
+
+def disparar_rutina(c, puntos):
+    """Dispara la rutina aprobadora con los puntos ([{"id", "paquete"}]): llegan en su bloque <routine-fire-payload>.
+    (True, enlace de la sesión, None) o (False, motivo, error)."""
+    token = leer_token(RUTINA_TOKEN)
+    if not token:
+        return False, "falta el token de disparo de la rutina en el equipo (~/.config/binarias/rutina)", "sin_token_rutina"
+    url = c.get("rutina_url") or RUTINA_URL.format(id=c.get("rutina_id", RUTINA_ID))
+    texto = json.dumps({"puntos": puntos}, ensure_ascii=False, separators=(",", ":"))
+    cab = {"Authorization": "Bearer " + token, "anthropic-beta": RUTINA_BETA, "anthropic-version": "2023-06-01",
+           "Content-Type": "application/json", "User-Agent": "nodo-binarias"}
+    codigo, resp = _http("POST", url, cab, json.dumps({"text": texto}, ensure_ascii=False).encode(), plazo=30)
+    if codigo == 200:
+        try:
+            enlace = (json.loads(resp) or {}).get("claude_code_session_url") or ""
+        except (ValueError, AttributeError):
+            enlace = ""
+        return True, enlace, None
+    error = "rutina_token" if codigo in (401, 403) else ("rutina_limite" if codigo == 429 else "rutina_red")
+    return False, f"la rutina no se pudo disparar ({'sin conexión: ' + resp if not codigo else 'HTTP ' + str(codigo)})", error
+
+
+def decision_de_rutina(c, ident):
+    """La decisión que la rutina dejó en decisiones/<id>.json. None si todavía no está; un dict con «decision» y «motivo» si
+    está (lo ilegible o de otro id cuenta como NO COMPRAR); {"error": ...} si no se pudo leer."""
+    token = leer_token(GITHUB_TOKEN)
+    if not token:
+        return {"error": "sin_github", "motivo": "falta el acceso de GitHub en el equipo (~/.config/binarias/github)"}
+    url = (f"{c.get('github_api', GITHUB_API)}/repos/{c.get('repo_decisiones', REPO_DECISIONES)}/contents/decisiones/"
+           f"{ident}.json?ref=main")
+    codigo, texto = _http("GET", url, {"Authorization": "Bearer " + token, "Accept": "application/vnd.github.raw+json",
+                                         "X-GitHub-Api-Version": "2022-11-28", "User-Agent": "nodo-binarias"})
+    if codigo == 404:
+        return None
+    if codigo != 200:
+        return {"error": "github", "motivo": f"GitHub respondió {codigo or texto} al leer la decisión"}
+    try:
+        d = json.loads(texto)
+    except ValueError:
+        return {"decision": "NO COMPRAR", "motivo": "decisión ilegible de la rutina (cuenta como NO COMPRAR)"}
+    if not isinstance(d, dict) or d.get("id") != ident or d.get("decision") not in DECISIONES:
+        return {"decision": "NO COMPRAR", "motivo": "decisión de la rutina fuera de formato (cuenta como NO COMPRAR)"}
+    return {"decision": d["decision"], "motivo": str(d.get("motivo") or "")[:300], "t_rutina": d.get("t")}
+
+
 def flecha(d):
     return "▲ SUBE" if d == 1 else "▼ BAJA"
 
@@ -591,7 +714,7 @@ def paquete(clave, puntos, en_contra, vector):
     """Lo que Claude recibe de un grupo: el mercado, los puntos, los que van en contra y el vector del operador."""
     W, ventana, d = clave
     campos = ("fuente", "estrategia", "nombre", "equipo", "alto", "aciertos", "de", "racha", "fondo", "vivo", "minuto",
-              "alineado", "si_regla", "oi_no_sube")
+              "alineado", "si_regla", "oi_no_sube", "neto", "precio", "equilibrio", "con_ganancias", "precio_supuesto")
 
     def corto(p):
         x = {k: p.get(k) for k in campos if p.get(k) is not None}
@@ -611,6 +734,9 @@ def mensaje(clave, grupo, r, quien, en_contra=(), vector=None, hoy=None):
     for p in grupo:
         pc = round(100 * p["aciertos"] / p["de"]) if p["de"] else 0
         extra = f", fondo {str(p['fondo']).replace('.', ',')} %" if p.get("fondo") is not None else ""
+        if p.get("neto") is not None:
+            extra += (f", neto {p['neto']:+.2f} por USDT en sus 25 a {precio(p.get('precio'))} "
+                      f"({'con ganancias' if p.get('con_ganancias') else 'con pérdidas'})").replace(".", ",")
         lineas.append(f"- {p['nombre']} ({p['equipo']}): {p['aciertos']} de {p['de']} ({pc} %), racha {p['racha']}{extra} · "
                       f"señal {hhmm(p['t']) if p.get('t') else '?'}" + ("" if p.get("alineado", True) else " (a mitad de ventana)"))
     if en_contra:
@@ -622,6 +748,8 @@ def mensaje(clave, grupo, r, quien, en_contra=(), vector=None, hoy=None):
                       f"SUBE {pct(s['p_prud'])} prudente a {precio(s['q'])} · BAJA {pct(b['p_prud'])} prudente a {precio(b['q'])}")
     dec = r.get("decision")
     lineas.append(f"Decisión de Claude: {dec or r.get('motivo')}" + (f" · {r['motivo']}" if dec and r.get("motivo") else ""))
+    if r.get("ruta") == "rutina" and dec:
+        lineas.append(f"Decidió la rutina aprobadora (su plan, sin API) en {r.get('segundos') or 0:.0f} s".replace(".", ","))
     if r.get("uso"):
         lineas.append(f"Consulta: {r['segundos']:.0f} s, {r['costo_usd'] * 100:.2f} centavos de dólar".replace(".", ",")
                       + (f" (hoy {hoy[0]} consultas, {hoy[1]:.2f} USD)".replace(".", ",") if hoy else ""))
@@ -640,6 +768,8 @@ class Central:
         self.estado = estado
         self.vector_de = vector_de or (lambda W, t: None)
         self.operador_vivo = operador_vivo or (lambda: False)
+        self.esperando = {}       # id -> grupo disparado a la rutina que espera su decisión en GitHub
+        self.disparos = []        # horas de los disparos de la última hora (tope por hora)
         if c["rol"] == c["preferido"]:
             self.par["ip"] = c["par_ip"]
 
@@ -699,41 +829,115 @@ class Central:
             contra = {k: [p for (W, v, d), g in self.grupos.items() if (W, v) == k[:2] and d != k[2] for p in g["puntos"]]
                       for k, _g in listos}
         quien = "el teléfono (nodo central)" if self.principal() else "la caja (respaldo: el teléfono no respondió)"
+        lote = []
         for k, g in listos:
             grupo = list(g["puntos"])
             if not any(p["alto"] for p in grupo):
-                continue                       # solo se sube lo de aciertos altos
+                continue                       # solo se sube lo de aciertos altos con ganancias
             vector = self.vector_de(k[0], k[1])
+            if self.c.get("decisor") == "rutina":
+                # con la hora del disparo y cuatro letras al azar: nunca se lee una decisión vieja ni la de otro grupo
+                ident = (f"{self.c['rol']}-{k[0]}m-{k[1]}-{'sube' if k[2] == 1 else 'baja'}-{g['envios']}-{int(ahora)}-"
+                         f"{os.urandom(2).hex()}")
+                lote.append((ident, k, grupo, contra[k], vector))
+                continue
             r = decision_claude(paquete(k, grupo, contra[k], vector), self.c)
-            dec = r.get("decision")
-            if dec in COMPRAR.values() and dec != COMPRAR[k[2]]:
-                r["motivo"] = f"Claude propuso {dec[8:]} sobre un punto de {'SUBE' if k[2] == 1 else 'BAJA'}: no se compra ({r.get('motivo')})"
-                dec = r["decision"] = "NO COMPRAR"
-            hoy = self._hoy(r.get("costo_usd") or 0.0) if r.get("uso") else None
-            fila = {"t": int(ahora), "W": k[0], "ventana": k[1], "dir": k[2], "decision": dec, "detalle": r.get("motivo"),
-                    "sube": self.c["rol"], "fuentes": [p["clave"] for p in grupo], "altos": [p["estrategia"] for p in grupo if p["alto"]],
-                    "en_contra": [p["clave"] for p in contra[k]], "modelo": MODELO, "uso": r.get("uso"),
-                    "costo_usd": r.get("costo_usd"), "segundos": r.get("segundos"), "ruta": r.get("ruta"), "error": r.get("error"),
-                    "vence": int(min(ahora + CADUCIDAD_S, k[1] + 60 * k[0]))}
-            anexar(en(self.c, "decisiones.jsonl"), fila)
-            enviar_par(self.c, self.par.get("ip"), "/decision", fila)   # copia al otro equipo, si está
-            telegram(mensaje(k, grupo, r, quien, contra[k], vector, hoy))
-            self._alerta(r)
-            log(f"subido grupo {k}: {len(grupo)} punto(s), decisión {dec or r.get('motivo')}"
-                + (f", {r['segundos']} s, {r['costo_usd']} USD" if r.get("uso") else ""))
+            self._registrar(k, grupo, contra[k], vector, r, quien, ahora)
+        if lote:
+            self._disparar(lote, quien, ahora)
+
+    def _registrar(self, k, grupo, contra, vector, r, quien, ahora):
+        """Anota la decisión donde la lee el candado del operador, la copia al otro equipo y avisa por Telegram."""
+        dec = r.get("decision")
+        if dec in COMPRAR.values() and dec != COMPRAR[k[2]]:
+            r["motivo"] = f"Claude propuso {dec[8:]} sobre un punto de {'SUBE' if k[2] == 1 else 'BAJA'}: no se compra ({r.get('motivo')})"
+            dec = r["decision"] = "NO COMPRAR"
+        hoy = self._hoy(r.get("costo_usd") or 0.0) if r.get("uso") else None
+        fila = {"t": int(ahora), "W": k[0], "ventana": k[1], "dir": k[2], "decision": dec, "detalle": r.get("motivo"),
+                "sube": self.c["rol"], "fuentes": [p["clave"] for p in grupo], "altos": [p["estrategia"] for p in grupo if p["alto"]],
+                "en_contra": [p["clave"] for p in contra], "modelo": MODELO, "uso": r.get("uso"),
+                "costo_usd": r.get("costo_usd"), "segundos": r.get("segundos"), "ruta": r.get("ruta"), "error": r.get("error"),
+                "vence": int(min(ahora + CADUCIDAD_S, k[1] + 60 * k[0]))}
+        if r.get("id"):
+            fila.update(id=r["id"], sesion=r.get("sesion"))
+        anexar(en(self.c, "decisiones.jsonl"), fila)
+        enviar_par(self.c, self.par.get("ip"), "/decision", fila)   # copia al otro equipo, si está
+        telegram(mensaje(k, grupo, r, quien, contra, vector, hoy))
+        self._alerta(r)
+        log(f"subido grupo {k}: {len(grupo)} punto(s), decisión {dec or r.get('motivo')}"
+            + (f", {r['segundos']} s, {r['costo_usd']} USD" if r.get("uso") else "")
+            + (f", rutina en {r.get('segundos')} s" if r.get("ruta") == "rutina" and dec else ""))
+
+    def _disparar(self, lote, quien, ahora):
+        """Un solo disparo de la rutina aprobadora con todos los grupos listos; sus decisiones se leen después en GitHub."""
+        self.disparos = [x for x in self.disparos if ahora - x < 3600]
+        tope = int(self.c.get("tope_disparos", TOPE_DISPAROS))
+        if len(self.disparos) >= tope:
+            ok, motivo, error = False, f"tope de {tope} disparos de la rutina en la última hora: no se consultó", "rutina_tope"
+        else:
+            puntos = [{"id": ident, "paquete": paquete(k, grupo, contra, vector)} for ident, k, grupo, contra, vector in lote]
+            ok, motivo, error = disparar_rutina(self.c, puntos)
+        if not ok:
+            for ident, k, grupo, contra, vector in lote:
+                self._registrar(k, grupo, contra, vector, {"decision": None, "motivo": f"{motivo}: no se compra",
+                                                          "ruta": "rutina", "error": error, "segundos": 0.0, "id": ident},
+                                quien, time.time())
+            return
+        self.disparos.append(ahora)
+        for ident, k, grupo, contra, vector in lote:
+            self.esperando[ident] = {"k": k, "grupo": grupo, "contra": contra, "vector": vector, "t": ahora, "mirado": ahora,
+                                     "sesion": motivo, "quien": quien}
+        log(f"rutina disparada con {len(lote)} grupo(s): {', '.join(x[0] for x in lote)}" + (f" · {motivo}" if motivo else ""))
+
+    def revisar_rutina(self):
+        """Lee en GitHub la decisión de cada grupo disparado (cada MIRAR_DECISION s). Sin ella en ESPERA_RUTINA s, o con la
+        ventana ya cerrada, queda sin decisión: no se compra."""
+        ahora = time.time()
+        for ident, e in list(self.esperando.items()):
+            k = e["k"]
+            fin_ventana = k[1] + 60 * k[0]
+            vence = ahora >= fin_ventana or ahora - e["t"] >= ESPERA_RUTINA
+            if not vence and ahora - e["mirado"] < MIRAR_DECISION:
+                continue
+            e["mirado"] = ahora
+            d = decision_de_rutina(self.c, ident)
+            base = {"ruta": "rutina", "segundos": round(ahora - e["t"], 1), "id": ident, "sesion": e["sesion"]}
+            if d and not d.get("error"):
+                r = dict(base, decision=d["decision"], motivo=d["motivo"])
+            elif vence:
+                motivo = ("la ventana cerró sin decisión de la rutina" if ahora >= fin_ventana
+                          else f"la rutina no respondió en {ESPERA_RUTINA // 60} min")
+                if d:
+                    motivo += f" ({d.get('motivo')})"
+                r = dict(base, decision=None, motivo=motivo + ": no se compra",
+                         error=(d or {}).get("error") or "rutina_sin_respuesta")
+            else:
+                continue
+            del self.esperando[ident]
+            self._registrar(k, e["grupo"], e["contra"], e["vector"], r, e["quien"], ahora)
+
+    AVISOS = {
+        "autenticacion": "Revise la clave de la API de Claude del teléfono y el saldo de la cuenta.",
+        "permiso": "Revise la clave de la API de Claude del teléfono y el saldo de la cuenta.",
+        "facturacion": "Revise la clave de la API de Claude del teléfono y el saldo de la cuenta.",
+        "modelo": "Revise la clave de la API de Claude del teléfono y el saldo de la cuenta.",
+        "sin_token_rutina": "Falta el token de disparo de la rutina aprobadora en el teléfono (se genera en claude.ai, "
+                            "en la rutina, con «Generate token»; no es de pago: gasta su plan).",
+        "rutina_token": "La rutina aprobadora rechazó el token de disparo: hay que volver a generarlo en claude.ai.",
+        "sin_github": "Falta el acceso de GitHub en el teléfono para leer las decisiones de la rutina.",
+    }
 
     def _alerta(self, r):
-        """Una falla de Claude que pide al dueño (clave, saldo o modelo) se le avisa aparte, como mucho cada 6 h."""
+        """Una falla que pide al dueño (clave, token, acceso o saldo) se le avisa aparte, como mucho cada 6 h."""
         err = r.get("error")
-        if err not in ("autenticacion", "permiso", "facturacion", "modelo"):
+        if err not in self.AVISOS:
             return
         a = self.estado.setdefault("alertas", {})
         if time.time() - a.get(err, 0) < 6 * 3600:
             return
         a[err] = int(time.time())
         self.estado["_cambio"] = True
-        telegram(f"[Nodo] Claude no está decidiendo: {r.get('motivo')}. Mientras tanto no se compra nada. "
-                 "Revise la clave de la API de Claude del teléfono y el saldo de la cuenta.")
+        telegram(f"[Nodo] Claude no está decidiendo: {r.get('motivo')}. Mientras tanto no se compra nada. {self.AVISOS[err]}")
 
 
 def servidor(central):
@@ -805,9 +1009,12 @@ def main():
     central = Central(c, estado, fuentes.vector, fuentes.operador_vivo)
     if "--una" not in sys.argv:
         servidor(central)
+    decide = (f"decide la rutina aprobadora {c['rutina_id']} (tope {c['tope_disparos']} disparos por hora; token "
+              f"{'listo' if leer_token(RUTINA_TOKEN) else 'FALTA'}, GitHub {'listo' if leer_token(GITHUB_TOKEN) else 'FALTA'})"
+              if c["decisor"] == "rutina" else
+              f"Claude {MODELO} (esfuerzo {c['esfuerzo']}, rutas {', '.join(r[0] for r in c['rutas_claude'])})")
     log(f"nodo arrancó: rol {c['rol']} ({'central' if central.principal() else 'respaldo'}), "
-        f"centinela {c['centinela']}, operador {c['operador']}, umbral {c['umbral']} de {VENTANA}, Claude {MODELO} "
-        f"(esfuerzo {c['esfuerzo']}, rutas {', '.join(r[0] for r in c['rutas_claude'])})")
+        f"centinela {c['centinela']}, operador {c['operador']}, umbral {c['umbral']} de {VENTANA} con ganancias, {decide}")
     ultimo_latido, latia = 0.0, None
     medida = {"n": 0, "ms": 0.0, "max_ms": 0.0, "bytes": 0, "max_bytes": 0, "desde": time.time()}
     while not os.path.exists(ruta("PARAR")):
@@ -823,6 +1030,7 @@ def main():
                     f"{medida['max_bytes'] / 1024:.0f} KB)")
                 medida.update(n=0, ms=0.0, max_ms=0.0, bytes=0, max_bytes=0, desde=time.time())
             central.despachar()
+            central.revisar_rutina()
             if estado.pop("_cambio", False):
                 escribir_json(en(c, "estado.json"), estado)
             if central.principal() and time.time() - ultimo_latido >= LATIDO:

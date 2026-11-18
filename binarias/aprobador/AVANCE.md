@@ -17,6 +17,16 @@ Rama `claude/aprobador-binarias-2026-11-17`, salida de `binarias/plan-v7-2026-11
 - [x] 7. `PLAN-APROBADOR.md`.
 - [x] 8. Informe a Telegram (texto) y `TERMINADO.md`. Subir la rama a GitHub: BLOQUEADO (403, ver abajo); resuelto a las 15:47 con /web-setup.
 - [x] 9. Llevado por la sesión del PC (17/11): teléfono a las 18:10 (nodo central y candado del operador) y caja a las 18:12 (solo el nodo; su operador sigue con PARAR). Detalle abajo, en «Llevado al teléfono y a la caja».
+- [x] 10. Sin claves de la API (orden del dueño, 17/11, 18:30: «no tengo plata»): el que decide es la rutina aprobadora `trig_01Ep7i969sChfFw4Mb3eN4qM` (repo privado `Nico1091/binarias-aprobador`, creada a las 16:29). Detalle abajo, en «Decisor rutina».
+
+## Decisor rutina y la ganancia antes que el acierto (17/11/2026, 19:00)
+
+- Orden del dueño (18:40): el teléfono junta los puntos del Centro y del operador y se los manda directo a la rutina; antes se revisa que el acierto vaya con ganancias y no con pérdidas («la idea es siempre ganar»); si la rutina aprueba, se compra solo.
+- `nodo.py`: cada estrategia lleva el neto de sus últimas 25 al precio que se paga (el del libro del operador; sin libro, 0,544), su precio medio y su acierto de equilibrio (precio / 0,98). Un punto es alto solo con 19 de 25 o más Y con ganancias. Con `"decisor": "rutina"` en `config.json`, los grupos listos van en un solo disparo a `/fire` de la rutina (token en `~/.config/binarias/rutina`, tope de 25 por hora) y la decisión se lee en `decisiones/<id>.json` de binarias-aprobador (acceso de GitHub en `~/.config/binarias/github`); se anota igual que antes en `decisiones.jsonl`, donde la lee el candado. El id lleva la hora del disparo y cuatro letras al azar. Sin token, sin acceso, sin respuesta en 6 min, ventana cerrada, decisión ilegible o del otro sentido: no se compra.
+- `CONTEXTO-NODO.md` (y `CONTEXTO.md` de binarias-aprobador, idénticos, commit b2c6d71): la regla de la ganancia al frente del criterio.
+- Pruebas: `nodo/prueba_rutina.py` 27 de 27 (rutina y GitHub falsos en 127.0.0.1, el candado de verdad) y `prueba_nodo.py` 65 de 65, en el PC (3.11), el teléfono y la caja (3.14.8). Instalado en el teléfono y la caja a las 19:00 con `aprobador/rutina.sh` (copias `.antes-rutina-17-11`; `rutina.sh volver` deshace).
+- Ruta directa por orden del dueño (18:20): `"rutas_claude": ["directa"]` (`aprobador/ruta_directa.sh`).
+- Falta, del dueño: el token de disparo de la rutina (claude.ai, «Generate token»; gasta su plan, no dinero) y el acceso de GitHub del teléfono para leer las decisiones (copiar la credencial del PC necesita su autorización expresa). Mientras falten, el nodo no compra.
 
 ## Llevado al teléfono y a la caja (17/11/2026, sesión del PC)
 
