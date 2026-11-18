@@ -44,12 +44,40 @@ JUICIO_CADA_S = 6 * 3600
 ARMAR_VENCE_S = 600
 MENSAJE_VIEJO_S = 600
 ESPERA_MERCADO_S = 30        # si Binance no publica el mercado en este tiempo, la ventana se mide solo con velas
+# 18/11/2026, orden del dueño: «cuando esté en el 70 % o por encima, que se arme solo y empiece a moverse solo». Con el archivo
+# ARMAR_AL_70 en esta carpeta, una vez por minuto se mira el Centro (las cinco estrategias, últimas 25 cerradas): si alguna va en
+# 18 de 25 o más (72 %, el primer valor que llega al 70 %) y la llave y la billetera están bien, se arma solo y se le avisa.
+# «operador parar» desarma y quita la regla (nunca se vuelve a armar contra su orden); «operador automático» la vuelve a poner.
+REGLA_ARMAR = "ARMAR_AL_70"
+UMBRAL_ARMAR = 18
+CENTRO_API = "http://127.0.0.1:8797/api/centro"
 NOMBRE_ESTADO = {0: "arrancando", 1: "sin llave que pase", 2: "papel con precios reales",
                  3: "ARMADO: ejecuta de verdad las órdenes de la IA"}
 AYUDA = ("Operador · órdenes: «operador estado» (cómo va ahora), «operador parte» (el parte completo), «operador armar» "
          "(compras reales en los dos mercados; «operador armar 15» o «operador armar 5» para uno solo), «operador armar igual» "
          "(confirma un armado cuando el papel todavía no es apto), «operador parar» (no más compras; lo ya comprado se sigue "
-         "leyendo y cobrando) y «operador prueba» (la prueba sin fondos contra Binance).")
+         "leyendo y cobrando; también quita la regla de armarse solo), «operador automático» (se arma solo cuando una "
+         "estrategia del Centro llega a 18 de 25, el 70 % o más) y «operador prueba» (la prueba sin fondos contra Binance).")
+
+
+def estrategias_centro(plazo=5):
+    """Las cinco estrategias del Centro del teléfono (id, nombre, k25 de n25, pct25), o None si no responde o aún no está
+    listo. Pregunta directo a 127.0.0.1, sin proxies."""
+    import urllib.request
+    try:
+        abridor = urllib.request.build_opener(urllib.request.ProxyHandler({}))
+        with abridor.open(CENTRO_API, timeout=plazo) as r:
+            d = json.loads(r.read().decode("utf-8", "replace"))
+        if not isinstance(d, dict) or not d.get("listo"):
+            return None
+        out = []
+        for e in d.get("estrategias") or []:
+            if isinstance(e, dict) and isinstance(e.get("k25"), int) and isinstance(e.get("n25"), int):
+                out.append({"id": str(e.get("id")), "nombre": str(e.get("nombre") or e.get("id")), "k25": e["k25"],
+                            "n25": e["n25"], "pct25": e.get("pct25")})
+        return out
+    except Exception:
+        return None
 
 
 def tomar_candado(puerto=PUERTO):
@@ -164,6 +192,7 @@ class Operador:
         self.juicio = self.mem.get("juicio") or {}
         self.juez_en_hilo, self.juez_hilo, self.juicio_nuevo, self.juicio_piden = juez_en_hilo, None, None, []
         self.pend_armar, self.t_estado, self.t_juicio, self.t_latido, self.t_reloj = None, -1e9, None, None, -1e9
+        self.t_regla, self.regla_motivo = -1e9, None    # la regla del 70 % (18/11/2026)
         self.errores = {}
         for W in N.VENTANAS:
             if self.modelos[W] is None:
@@ -458,10 +487,23 @@ class Operador:
             return None
         if cmd in ("parar", "pare", "desarmar", "alto"):
             self.pend_armar = None
+            regla = os.path.exists(self.ruta_regla())
+            if regla:   # su orden de parar manda sobre la regla: no se vuelve a armar solo
+                os.remove(self.ruta_regla())
+                self.fila({"tipo": "regla del 70 %", "hora": round(ahora, 2), "puesta": False, "por": f"mensaje {msg['id']}"})
+            extra = (" La regla de armarse solo al 70 % quedó quitada; para volver a ponerla: «operador automático»."
+                     if regla else "")
             if self.ej.desarmar(ahora, f"su orden por Telegram (mensaje {msg['id']})"):
                 return ("Operador · desarmado: no hay más compras reales. Lo ya comprado se sigue leyendo, liquidando y cobrando. "
-                        "El papel sigue midiendo. Para volver a comprar: «operador armar».")
-            return "Operador · ya estaba desarmado: no hay compras reales. El papel sigue midiendo."
+                        "El papel sigue midiendo. Para volver a comprar: «operador armar»." + extra)
+            return "Operador · ya estaba desarmado: no hay compras reales. El papel sigue midiendo." + extra
+        if cmd in ("automatico", "auto", "solo"):
+            with open(self.ruta_regla(), "w", encoding="utf-8") as f:
+                f.write(f"Regla puesta por su orden por Telegram (mensaje {msg['id']}), {hora(ahora, '%d/%m/%Y %H:%M')}.\n")
+            self.t_regla, self.regla_motivo = -1e9, None
+            self.fila({"tipo": "regla del 70 %", "hora": round(ahora, 2), "puesta": True, "por": f"mensaje {msg['id']}"})
+            return ("Operador · regla puesta: me armo solo cuando una estrategia del Centro llegue a 18 de 25 (72 %, el 70 % o "
+                    "más) y después ejecuto solo las órdenes de la IA. «operador parar» me desarma y quita la regla.")
         if cmd == "prueba":
             if not self.llave["ok"]:
                 return "Operador · no hay una llave que pase en Binance: la prueba sin fondos espera a la llave. " + self.linea_llave()
@@ -549,6 +591,8 @@ class Operador:
         elif e == 2:
             t += self.linea_llave() + " Llevo el papel con los precios reales del libro. No ejecuto órdenes de la IA: falta " + (
                 "su orden «operador armar»." if self.llave["tipo"] == "operar" else "la llave de operar y su orden de armar.")
+            if os.path.exists(self.ruta_regla()):
+                t += " Regla puesta: me armo solo cuando una estrategia del Centro llegue a 18 de 25 (72 %)."
         elif e == 3:
             a = self.ej.armado() or {}
             t += (f"Armado desde el {a.get('cuando', '?')} para {' y '.join(str(w) + ' min' for w in a.get('mercados', []))}. "
@@ -650,6 +694,40 @@ class Operador:
             self.t_latido = ahora
             self.log("sigo · " + self.linea_estado(ahora) + " · " + " · ".join(
                 f"{W} min: {self.papel[W].cont['miradas']} miradas, {self.papel[W].cont['perdidas']} perdidas" for W in N.VENTANAS))
+        self._armar_solo(ahora)
+
+    # ------------------------------------------------------------ la regla del 70 % (18/11/2026)
+    def ruta_regla(self):
+        return os.path.join(self.carpeta, REGLA_ARMAR)
+
+    def _armar_solo(self, ahora):
+        """Si la regla está puesta y el operador no está armado: una vez por minuto mira el Centro y, con una estrategia en 18 de
+        25 o más, arma los dos mercados y le avisa. Si la llave o la billetera no están bien, no arma y lo dice una vez."""
+        if not os.path.exists(self.ruta_regla()) or self.ej.armado() or ahora - self.t_regla < 60:
+            return
+        self.t_regla = ahora
+        es = estrategias_centro()
+        if not es:
+            return
+        buenas = sorted([e for e in es if e["n25"] >= 25 and e["k25"] >= UMBRAL_ARMAR], key=lambda e: -e["k25"])
+        if not buenas:
+            self.regla_motivo = None
+            return
+        mejor = buenas[0]
+        falta = self._falta_para_armar(ahora)
+        if falta:
+            if self.regla_motivo != falta:
+                self.regla_motivo = falta
+                self.avisar(f"Operador · su regla del 70 % se cumplió ({mejor['id']} va en {mejor['k25']} de 25), pero no "
+                            f"me armo: {falta}")
+            return
+        apto = {str(W): bool((self.juicio.get(str(W)) or {}).get("apto")) for W in N.VENTANAS}
+        que = f"{mejor['nombre']} ({mejor['id']}) va en {mejor['k25']} de 25 ({round(100 * mejor['k25'] / 25)} %)"
+        d = self.ej.armar(ahora, list(N.VENTANAS), "su regla del 18/11/2026: armarse solo con una estrategia del Centro en "
+                          "el 70 % o más", apto, que)
+        self.regla_motivo = None
+        self.avisar(f"Operador · su regla del 70 % se cumplió: {que}. Me armé solo; desde ahora ejecuto solo las órdenes de la "
+                    "IA, sin que usted escriba nada.\n" + self._texto_armado(ahora, d))
 
 
 def main(argv):
