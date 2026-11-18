@@ -190,15 +190,18 @@ ok(A.falta(15, V, 1, time.time(), r=DEC) is not None, "candado: no puede comprar
 ok(any("Decisión de Claude: COMPRAR BAJA" in m and "rutina aprobadora" in m and "con ganancias" in m for m in ENVIADOS),
    "Telegram: avisa la decisión, que la tomó la rutina y que el punto va con ganancias")
 
-# 5) la rutina aprueba el sentido contrario: no se compra
+# 5) 18/11/2026: la rutina ordena el lado contrario al punto y sin motivo: su orden queda tal cual y abre ese lado
 V5 = int(time.time() // 300) * 300
 ct.recibir(punto(5, V5, 1, est="E3"))
 ct.despachar()
 ident2 = json.loads(Falso.disparos[-1]["cuerpo"]["text"])["puntos"][0]["id"]
-Falso.decisiones[ident2] = {"id": ident2, "decision": "COMPRAR BAJA", "motivo": "al revés", "t": int(time.time())}
+Falso.decisiones[ident2] = {"id": ident2, "decision": "COMPRAR BAJA", "t": int(time.time())}
 ct.revisar_rutina()
-ok(lineas()[-1]["decision"] == "NO COMPRAR" and lineas()[-1]["id"] == ident2,
-   "rutina: si aprueba el sentido contrario al punto, queda NO COMPRAR")
+ok(lineas()[-1]["decision"] == "COMPRAR BAJA" and lineas()[-1]["id"] == ident2 and lineas()[-1]["dir"] == 1,
+   "rutina: si ordena el lado contrario al punto (vender), queda su orden tal cual")
+ok(A.orden(5, V5, time.time(), r=DEC)[0] == -1 and A.falta(5, V5, 1, time.time(), r=DEC) is not None,
+   "candado: esa orden abre vender (BAJA) en el mercado de 5 min, no comprar (SUBE)")
+ok(any("COMPRAR BAJA (vender)" in m for m in ENVIADOS), "Telegram: la orden sin motivo se avisa como «vender»")
 
 # 6) decisión ilegible o de otro id: NO COMPRAR
 ct.recibir(punto(15, V, 1, est="E2"))

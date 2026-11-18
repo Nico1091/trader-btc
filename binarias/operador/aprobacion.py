@@ -1,15 +1,16 @@
-"""Candado del aprobador (17/11/2026): el operador de Fable 5.2 solo envía una orden REAL si el nodo de este mismo equipo dejó
-una decisión de Claude «COMPRAR SUBE» o «COMPRAR BAJA» vigente para ese mercado y ese sentido.
+"""Candado del aprobador (17/11/2026; desde el 18/11/2026, la orden de la IA): lee lo que el nodo de este mismo equipo dejó
+para cada mercado y dice si hay una orden vigente de la IA y de qué lado.
 
-Pedido del dueño del 17/11/2026 (rutina constructora, sección H.5.b): Claude aprueba o no cada operación desde la nube y el
-operador ejecuta con sus frenos. Aquí no se decide nada ni se cambia nada del operador: solo se lee la cola del archivo de
-decisiones del nodo (~/nodo/decisiones.jsonl en el teléfono, /data/local/tmp/nodo/decisiones.jsonl en la caja) y se dice si
-hay aprobación. El papel no pasa por aquí y sigue igual.
+Orden del dueño del 18/11/2026: «ninguno de los dos programas ordena compra». El Centro y el operador de Fable 5.2 le mandan
+todo a la IA por el nodo; la IA ordena comprar (SUBE), vender (BAJA) o nada, en cualquiera de los dos lados; el script
+ejecuta esa orden tal cual (ejecutor.ejecutar_ia), con sus topes de dinero. Aquí no se decide nada: solo se lee la cola del
+archivo de decisiones del nodo (~/nodo/decisiones.jsonl en el teléfono, /data/local/tmp/nodo/decisiones.jsonl en la caja).
+El papel no pasa por aquí y sigue igual.
 
 Vigente quiere decir: la ÚLTIMA decisión que el nodo de este equipo tomó para ese mercado (W minutos) y esa ventana (t de
-apertura), en cualquier sentido, dice COMPRAR en el mismo sentido de la orden, tiene menos de CADUCIDAD_S segundos y la
-ventana sigue abierta. Falla cerrado: sin archivo, ilegible, sin decisión, «NO COMPRAR», sin respuesta de Claude, el otro
-sentido, otra ventana, decisión vieja, con la hora rara o copiada de otro equipo = no hay orden real. Nunca lanza errores:
+apertura) dice COMPRAR SUBE o COMPRAR BAJA, tiene menos de CADUCIDAD_S segundos y la ventana sigue abierta. El lado es el que
+ordenó la IA, aunque el punto trajera el otro. Falla cerrado: sin archivo, ilegible, sin decisión, «NO COMPRAR» (nada), sin
+respuesta, otra ventana, decisión vieja, con la hora rara o copiada de otro equipo = no hay orden real. Nunca lanza errores:
 cualquier cosa rara se vuelve un motivo para no comprar."""
 import json
 import os
@@ -17,10 +18,12 @@ import time
 
 HOME = os.path.expanduser("~")
 RUTAS = (os.path.join(HOME, "nodo", "decisiones.jsonl"), "/data/local/tmp/nodo/decisiones.jsonl")
-CADUCIDAD_S = 600            # una aprobación vale como mucho 10 minutos, y nunca más allá del cierre de su ventana
+CADUCIDAD_S = 600            # una orden vale como mucho 10 minutos, y nunca más allá del cierre de su ventana
 FUTURO_S = 120               # una decisión fechada más adelante que esto viene de un reloj raro: no vale
 COLA_BYTES = 262144          # solo se lee la cola del archivo (las decisiones de las últimas horas)
 COMPRAR = {1: "COMPRAR SUBE", -1: "COMPRAR BAJA"}
+ORDEN = {1: "comprar (SUBE)", -1: "vender (BAJA)"}
+_CACHE = {"ruta": None, "marca": None, "filas": []}
 
 
 def ruta():
@@ -41,6 +44,29 @@ def _cola(r):
     return datos.decode("utf-8", "replace").splitlines()
 
 
+def _filas(r):
+    """Las filas legibles de la cola. El ejecutor pregunta en cada vuelta: solo se relee si el archivo cambió. La marca lleva
+    inodo, tamaño, hora en ns y los últimos 512 bytes: dos escrituras seguidas pueden compartir tamaño y tic del reloj
+    (pasó en la prueba: «COMPRAR SUBE» y «COMPRAR BAJA» miden lo mismo), y las decisiones nuevas caen siempre al final."""
+    with open(r, "rb") as f:
+        st = os.fstat(f.fileno())
+        f.seek(max(0, st.st_size - 512))
+        fin = f.read(512)
+    marca = (st.st_ino, st.st_size, st.st_mtime_ns, fin)
+    if _CACHE["ruta"] == r and _CACHE["marca"] == marca:
+        return _CACHE["filas"]
+    filas = []
+    for linea in _cola(r):
+        try:
+            d = json.loads(linea)
+        except ValueError:
+            continue
+        if isinstance(d, dict):
+            filas.append(d)
+    _CACHE.update(ruta=r, marca=marca, filas=filas)
+    return filas
+
+
 def _hora(t):
     return time.strftime("%H:%M", time.gmtime(t - 5 * 3600))
 
@@ -50,47 +76,46 @@ def decisiones(W, t, r=None):
     r = r or ruta()
     if not r:
         return None
-    out = []
-    for linea in _cola(r):
-        try:
-            d = json.loads(linea)
-        except ValueError:
-            continue
-        if not isinstance(d, dict) or d.get("copia_de") or d.get("W") != W or d.get("ventana") != t:
-            continue
-        if not isinstance(d.get("t"), (int, float)):
-            continue
-        out.append(d)
+    out = [d for d in _filas(r) if not d.get("copia_de") and d.get("W") == W and d.get("ventana") == t
+           and isinstance(d.get("t"), (int, float)) and not isinstance(d.get("t"), bool)]
     out.sort(key=lambda d: d["t"])
     return out
 
 
-def falta(W, t, lado, ahora, r=None):
-    """None si hay una aprobación vigente para comprar `lado` en el mercado de W min que abrió en t; si no, el motivo."""
+def orden(W, t, ahora, r=None):
+    """La orden vigente de la IA para el mercado de W min que abrió en t: (lado, decisión) con lado 1 = comprar (SUBE) o
+    -1 = vender (BAJA); (None, motivo) si no hay orden que ejecutar."""
     try:
-        if lado not in COMPRAR:
-            return "sin aprobación de Claude: sentido desconocido"
         if ahora >= t + 60 * W:
-            return "sin aprobación de Claude: la ventana ya cerró"
+            return None, "sin orden de la IA: la ventana ya cerró"
         lista = decisiones(W, t, r)
         if lista is None:
-            return "sin aprobación de Claude: no está el archivo de decisiones del nodo"
+            return None, "sin orden de la IA: no está el archivo de decisiones del nodo"
         validas = [d for d in lista if t - 120 <= d["t"] <= ahora + FUTURO_S]
         if not validas:
-            return "sin aprobación de Claude: el nodo no ha decidido sobre este mercado"
+            return None, "sin orden de la IA: el nodo no ha decidido sobre este mercado"
         d = validas[-1]
         dec = d.get("decision")
         cuando = _hora(d["t"])
-        if dec != COMPRAR[lado]:
-            if dec in COMPRAR.values():
-                return f"sin aprobación de Claude: a las {cuando} aprobó {dec[8:]}, no {COMPRAR[lado][8:]}"
+        lado = next((k for k, v in COMPRAR.items() if v == dec), None)
+        if lado is None:
             if dec == "NO COMPRAR":
-                return f"sin aprobación de Claude: a las {cuando} dijo NO COMPRAR"
-            return f"sin aprobación de Claude: a las {cuando} no hubo respuesta válida"
+                return None, f"sin orden de la IA: a las {cuando} dijo nada (NO COMPRAR)"
+            return None, f"sin orden de la IA: a las {cuando} no hubo respuesta válida"
         if ahora - d["t"] > CADUCIDAD_S:
-            return f"sin aprobación de Claude: la de las {cuando} ya venció ({CADUCIDAD_S // 60} min)"
-        if d.get("dir") not in (None, lado):
-            return "sin aprobación de Claude: la decisión no coincide con su punto"
-        return None
+            return None, f"sin orden de la IA: la de las {cuando} ya venció ({CADUCIDAD_S // 60} min)"
+        return lado, d
     except Exception as ex:   # falla cerrado
-        return f"sin aprobación de Claude: no pude leer las decisiones ({type(ex).__name__})"
+        return None, f"sin orden de la IA: no pude leer las decisiones ({type(ex).__name__})"
+
+
+def falta(W, t, lado, ahora, r=None):
+    """None si hay una orden vigente de la IA para `lado` en el mercado de W min que abrió en t; si no, el motivo."""
+    if lado not in COMPRAR:
+        return "sin orden de la IA: sentido desconocido"
+    l, d = orden(W, t, ahora, r)
+    if l is None:
+        return d
+    if l != lado:
+        return f"sin orden de la IA: a las {_hora(d['t'])} ordenó {ORDEN[l]}, no {ORDEN[lado]}"
+    return None

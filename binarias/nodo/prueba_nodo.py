@@ -232,14 +232,14 @@ c3.recibir(dict(p15, clave="e", estrategia="E2"))
 c3.despachar()
 ok(len(consultas) == n_antes + 1 and len(consultas[-1]["puntos"]) == 2, "punto alto nuevo en un grupo ya subido: se vuelve a consultar")
 
-# 11) Claude propone el sentido contrario al punto: no se compra
+# 11) 18/11/2026: la IA ordena el lado contrario al punto: su orden queda tal cual (vender), sin cambiarla
 RESPUESTA.update(decision="COMPRAR BAJA", motivo="al revés")
 c3.recibir(dict(p15, clave="f", t=T + 10800, ventana=T + 10800))
 c3.grupos[(15, T + 10800, 1)]["desde"] -= 200
 c3.despachar()
 ult = lineas(tel, "decisiones.jsonl")[-1]
-ok(ult["ventana"] == T + 10800 and ult["decision"] == "NO COMPRAR" and "propuso BAJA" in ult["detalle"],
-   "Claude propone el sentido contrario: queda NO COMPRAR")
+ok(ult["ventana"] == T + 10800 and ult["decision"] == "COMPRAR BAJA" and ult["dir"] == 1 and "propuso" not in (ult["detalle"] or ""),
+   "la IA ordena el lado contrario al punto: queda su orden (vender) tal cual")
 
 # 12) del nodo al operador: la decisión del nodo es la que abre (o no) el candado del operador
 sys.path.insert(0, os.path.join(os.path.dirname(AQUI), "operador"))

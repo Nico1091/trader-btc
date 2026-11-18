@@ -26,8 +26,11 @@ Qué hace, sin tocar a los demás programas (solo LEE sus archivos, y solo lo nu
 - Subir: a Claude en la nube (si existe ~/.config/binarias/claude, línea 1 = clave de la API; Opus 5.5 con el contexto fijo
   CONTEXTO-NODO.md en caché de 1 h y salida en JSON forzada) y a Telegram por Tor (la clave y el camino de avisos.py).
   Queda en puntos.jsonl y decisiones.jsonl (mercado W, ventana, sentido, decisión, motivo, tokens, costo y segundos); la
-  decisión se copia también al otro equipo. Falla cerrado: sin clave, sin respuesta, error, respuesta ilegible o cortada,
-  negativa o el sentido contrario al punto = no hay compra. El nodo NO compra: compra el operador con sus frenos.
+  decisión se copia también al otro equipo. Falla cerrado: sin clave, sin respuesta, error, respuesta ilegible o cortada
+  o negativa = no hay compra. El nodo NO compra: ejecuta el operador con sus frenos de dinero.
+- Orden del dueño del 18/11/2026: «ninguno de los dos programas ordena compra». El nodo junta lo del Centro y lo del operador
+  de Fable y se lo manda todo a la IA; la IA ordena comprar (SUBE), vender (BAJA) o nada, en cualquiera de los dos lados,
+  aunque el punto traiga el otro, y solo manda la orden. El nodo la anota tal cual y el operador la ejecuta (2 USDT).
 - Decisor «rutina» (17/11/2026, 19:00; «decisor»: «rutina» en config.json): sin claves de la API de Claude (orden del dueño:
   «no tengo plata»). El teléfono dispara directo la rutina aprobadora de claude.ai (trig_01Ep7i969sChfFw4Mb3eN4qM, Opus 5.5,
   gasta el plan del dueño y no dinero) con todos los grupos listos en un solo disparo (POST /fire con su token; tope de 25
@@ -747,14 +750,15 @@ def mensaje(clave, grupo, r, quien, en_contra=(), vector=None, hoy=None):
         lineas.append(f"Operador, minuto {v['minuto']} ({'sin libro' if v['serie'] == 'sin_llave' else 'con libro'}): "
                       f"SUBE {pct(s['p_prud'])} prudente a {precio(s['q'])} · BAJA {pct(b['p_prud'])} prudente a {precio(b['q'])}")
     dec = r.get("decision")
-    lineas.append(f"Decisión de Claude: {dec or r.get('motivo')}" + (f" · {r['motivo']}" if dec and r.get("motivo") else ""))
+    orden = {"COMPRAR SUBE": " (comprar)", "COMPRAR BAJA": " (vender)", "NO COMPRAR": " (nada)"}.get(dec, "")
+    lineas.append(f"Decisión de Claude: {dec or r.get('motivo')}{orden}" + (f" · {r['motivo']}" if dec and r.get("motivo") else ""))
     if r.get("ruta") == "rutina" and dec:
         lineas.append(f"Decidió la rutina aprobadora (su plan, sin API) en {r.get('segundos') or 0:.0f} s".replace(".", ","))
     if r.get("uso"):
         lineas.append(f"Consulta: {r['segundos']:.0f} s, {r['costo_usd'] * 100:.2f} centavos de dólar".replace(".", ",")
                       + (f" (hoy {hoy[0]} consultas, {hoy[1]:.2f} USD)".replace(".", ",") if hoy else ""))
-    lineas.append(f"Sube: {quien}. El nodo no compra: compra el operador si está ARMADO, si su ganancia esperada llega al "
-                  f"margen y si esta decisión sigue vigente ({CADUCIDAD_S // 60} min).")
+    lineas.append(f"Sube: {quien}. Si la IA ordenó comprar o vender, el operador lo ejecuta con 2 USDT si está ARMADO, dentro "
+                  f"de sus topes de dinero y mientras la orden siga vigente ({CADUCIDAD_S // 60} min).")
     return "\n".join(lineas)
 
 
@@ -848,10 +852,7 @@ class Central:
 
     def _registrar(self, k, grupo, contra, vector, r, quien, ahora):
         """Anota la decisión donde la lee el candado del operador, la copia al otro equipo y avisa por Telegram."""
-        dec = r.get("decision")
-        if dec in COMPRAR.values() and dec != COMPRAR[k[2]]:
-            r["motivo"] = f"Claude propuso {dec[8:]} sobre un punto de {'SUBE' if k[2] == 1 else 'BAJA'}: no se compra ({r.get('motivo')})"
-            dec = r["decision"] = "NO COMPRAR"
+        dec = r.get("decision")       # 18/11/2026: la orden de la IA queda tal cual, también si es del otro lado del punto
         hoy = self._hoy(r.get("costo_usd") or 0.0) if r.get("uso") else None
         fila = {"t": int(ahora), "W": k[0], "ventana": k[1], "dir": k[2], "decision": dec, "detalle": r.get("motivo"),
                 "sube": self.c["rol"], "fuentes": [p["clave"] for p in grupo], "altos": [p["estrategia"] for p in grupo if p["alto"]],

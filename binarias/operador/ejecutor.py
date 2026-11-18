@@ -13,6 +13,11 @@ El candado, completo, antes de cada compra:
   6. Cotización real antes de enviar: si el precio medio cotizado no deja la ganancia esperada prudente en el margen, no envía.
   7. (17/11/2026, aprobador) Una decisión de Claude «COMPRAR» vigente del nodo de este equipo para ese mercado y ese sentido
      (aprobacion.py). Sin ella, con «NO COMPRAR» o sin respuesta, no hay orden real. El papel no cambia.
+DESDE EL 18/11/2026 (orden del dueño: «ninguno de los dos programas ordena compra»; la IA ordena y el script ejecuta): el
+operador ya no compra por su cuenta (intentar() queda sin uso). La compra real la abre solo una orden vigente de la IA
+(ejecutar_ia): comprar = SUBE, vender = BAJA, en el lado que ella diga, por IMPORTE_IA USDT fijos y sin revisarla con el modelo.
+Siguen 1, 2, 3 y 5, el tope del 16 % del saldo, la cotización real (precio entre 0,01 y 0,90, deslizamiento de 2 %) y que
+queden al menos 10 s. Lo que se deja de lado de la regla de Fable: el Kelly del importe y el margen de ganancia esperada.
 Después: una orden es «comprada» solo si Binance lo confirma; cualquier estado que no sea final se relee hasta que lo sea,
 también tras un reinicio (el 12/11 dos órdenes quedaron en SUBMITTED sin releer). Lo ganado se cobra y se anota.
 Nada aquí duerme ni repite una escritura: cada paso() avanza lo que toque y devuelve el control."""
@@ -43,6 +48,11 @@ N_FALLIDOS = ("FAILED", "CANCELLED", "CANCELED", "EXPIRED", "REJECTED")
 PROHIBIDOS = {"enableWithdrawals": "retiros", "enableInternalTransfer": "transferencias internas",
               "permitsUniversalTransfer": "transferencia universal", "enableMargin": "margen", "enableFutures": "futuros",
               "enableVanillaOptions": "opciones", "enablePortfolioMarginTrading": "margen de cartera"}
+IMPORTE_IA = 2.0             # 18/11/2026, orden del dueño: 2 USDT por cada orden de la IA
+REINTENTO_IA_S = 15          # una orden de la IA que un freno pasajero detuvo se reintenta cada 15 s mientras siga vigente
+CAMPOS_ORDEN = ("id", "W", "t", "topic", "m", "plazo", "lado", "papel", "celda", "p", "p_prud", "q_libro", "G_prud", "G_cot",
+                "usdt", "saldo", "cotizado", "contratos_cot", "comision", "estado", "orden", "motivo", "hora", "hora_envio",
+                "cupo_dia", "origen", "decision", "decision_t", "decision_id")
 
 
 def texto_error(ex):
@@ -60,6 +70,7 @@ class Ejecutor:
         self.billetera, self.saldo, self.saldos, self.t_cuenta = None, None, {}, -1e9
         self.permisos = {"llave": None, "ok": False, "motivo": "sin revisar", "t": -1e9, "notas": []}
         self.t_error = -1e9
+        self.vistas_ia = {}       # orden de la IA -> {"t": último intento, "motivo": último motivo, "hecha": bool, "fin": cierre}
         cambio = False
         for o in self.ordenes:  # se apagó entre anotar la orden y saber si Binance la recibió: hay que aclararla
             if o["estado"] == "POR ENVIAR":
@@ -266,7 +277,15 @@ class Ejecutor:
         base["G_cot"] = round(G_cot, 6)
         if G_cot < pol["margen"] - 1e-12:
             return self._no(base, f"la cotización a {num(precio, 3)} ya no deja el margen (ganancia esperada prudente {pct(G_cot, 0)})")
-        # desde aquí hay orden: primero queda anotada y después se envía; si se va la luz en medio, al volver se aclara
+        texto = (f"Operador · ORDEN REAL en el mercado de {W} min, con {W - cand['m']} min por delante: {sentido(lado)}, {num(usdt)} USDT "
+                 f"cotizados a {num(precio, 3)}. El modelo le da {pct(d['p'])} (prudente {pct(d['p_prud'])}); ganancia esperada "
+                 f"prudente {pct(G_cot, 0)}. ")
+        return self._enviar(ahora, base, m, w, token, q, usdt, precio, texto)
+
+    def _enviar(self, ahora, base, m, w, token, q, usdt, precio, texto):
+        """Desde aquí hay orden: primero queda anotada y después se envía; si se va la luz en medio, al volver se aclara. Es el
+        mismo envío para toda orden real; `texto` es el comienzo del aviso. Devuelve la orden."""
+        W, lado = base["W"], base["lado"]
         hoy = self.dias[dia(ahora)]
         hoy["fijo"] = True
         o = {k: v for k, v in base.items() if k != "tipo"}
@@ -290,14 +309,9 @@ class Ejecutor:
             else:
                 o.update(estado="DUDOSA", motivo="Binance respondió sin número de orden")
         self._guardar()
-        self.fila({"tipo": "orden", "enviada": True, **{k: o.get(k) for k in (
-            "id", "W", "t", "topic", "m", "plazo", "lado", "papel", "celda", "p", "p_prud", "q_libro", "G_prud", "G_cot", "usdt", "saldo",
-            "cotizado", "contratos_cot", "comision", "estado", "orden", "motivo", "hora", "hora_envio", "cupo_dia")}})
+        self.fila({"tipo": "orden", "enviada": True, **{k: o.get(k) for k in CAMPOS_ORDEN}})
         self.log(f"ORDEN REAL {o['id']}: {sentido(lado)} {usdt} USDT a {precio} en el mercado de {W} min · estado {o['estado']}"
                  + (f" · {o.get('motivo')}" if o.get("motivo") else ""))
-        texto = (f"Operador · ORDEN REAL en el mercado de {W} min, con {W - cand['m']} min por delante: {sentido(lado)}, {num(usdt)} USDT "
-                 f"cotizados a {num(precio, 3)}. El modelo le da {pct(d['p'])} (prudente {pct(d['p_prud'])}); ganancia esperada "
-                 f"prudente {pct(G_cot, 0)}. ")
         if o["estado"] == "ENVIADA":
             texto += f"Binance la recibió (orden {o['orden']}); le aviso cuando la confirme."
         elif o["estado"] == "RECHAZADA":
@@ -305,6 +319,80 @@ class Ejecutor:
         else:
             texto += "Binance no respondió al envío: la busco en su cuenta antes de hacer nada más."
         self.avisar(texto)
+        return o
+
+    # ------------------------------------------------------------ la orden de la IA (18/11/2026)
+    def _no_ia(self, v, base, motivo):
+        """Una orden de la IA que no se pudo ejecutar: se anota una vez por motivo, no en cada vuelta."""
+        if v.get("motivo") != motivo:
+            v["motivo"] = motivo
+            self._no(base, motivo)
+        return None
+
+    def ejecutar_ia(self, ahora, m):
+        """Orden del dueño del 18/11/2026: «cuando la IA manda a comprar, el script compra; cuando manda a vender, el script
+        vende». Si el nodo de este equipo dejó una orden vigente de la IA para este mercado, la ejecuta en el lado que ella dijo,
+        por IMPORTE_IA USDT, sin revisarla con el modelo; solo con los frenos de dinero. Devuelve la orden o None."""
+        if not m or m.get("sintetico") or not self.armado(m["W"]):
+            return None
+        W = m["W"]
+        lado, d = APROBACION.orden(W, m["t"], ahora)
+        if lado is None:
+            return None                    # sin orden de la IA no se hace nada (ni se anota: sería una fila por vuelta)
+        clave = f"{W}-{m['t']}-{d['t']}-{lado}"
+        v = self.vistas_ia.get(clave)
+        if v is None:
+            if len(self.vistas_ia) > 300:  # se olvidan las de ventanas ya cerradas
+                self.vistas_ia = {k: x for k, x in self.vistas_ia.items() if x["fin"] > ahora}
+            v = self.vistas_ia[clave] = {"t": -1e9, "motivo": None, "hecha": False, "fin": m["t"] + 60 * W}
+        if v["hecha"] or ahora - v["t"] < REINTENTO_IA_S:
+            return None
+        v["t"] = ahora
+        minuto = max(0, min(W - 1, int((ahora - m["t"]) // 60)))
+        base = {"tipo": "orden", "origen": "ia", "W": W, "t": m["t"], "topic": m.get("topic"), "m": minuto,
+                "plazo": N.plazo(W, minuto), "lado": lado, "decision": d.get("decision"), "decision_t": d.get("t"),
+                "decision_id": d.get("id"), "hora": round(ahora, 2), "comision": (m.get("comision_bps") or 200) / 10000}
+        motivo = self._frenos(ahora, m, W)
+        if motivo:
+            return self._no_ia(v, base, motivo)
+        try:
+            if not self.cuenta(ahora, forzar=True):
+                return self._no_ia(v, base, "la cuenta no tiene billetera de predicción")
+        except Exception as ex:
+            return self._no_ia(v, base, f"no pude leer la billetera o el saldo ({texto_error(ex)})")
+        w, saldo = self.billetera, self.saldo
+        usdt = IMPORTE_IA
+        cupo = math.floor(self.cupo_hoy(ahora) * 100 + 1e-9) / 100
+        base.update(usdt=usdt, saldo=round(saldo, 4), cupo_dia=cupo)
+        if usdt > N.TOPE_SALDO * saldo + 1e-9:
+            return self._no_ia(v, base, f"los {num(usdt)} USDT pasan el 16 % del saldo de la billetera de predicción "
+                                        f"({num(saldo)} USDT)")
+        if usdt > cupo + 1e-9:
+            if not self.dias[dia(ahora)].get("avisado"):
+                self.dias[dia(ahora)]["avisado"] = True
+                self._guardar()
+                self.avisar(f"Operador · freno del día: lo perdido hoy ({num(self.perdido_hoy(ahora))} USDT, contando lo abierto) ya no deja "
+                            f"sitio dentro del 16 % del saldo con que empezó ({num(self.dias[dia(ahora)]['saldo_inicial'])} USDT). "
+                            "No ejecuta más órdenes de la IA hasta mañana.")
+            return self._no_ia(v, base, "freno del día: ya no cabe otra compra dentro del 16 %")
+        resta = m["t"] + 60 * W - self.C.ahora()
+        if resta < N.MIN_RESTA_S:
+            return self._no_ia(v, base, "quedan menos de 10 s")
+        token = m["tokens"][lado]
+        try:
+            q = self.C.cotizar(w["walletAddress"], token, usdt, DESLIZAMIENTO_BPS, FUENTE)
+        except Exception as ex:
+            return self._no_ia(v, base, f"sin cotización ({texto_error(ex)})")
+        precio = float(q.get("averagePrice") or 0)
+        com_cot = float(q.get("feeRateBps") or 0) / 10000 or base["comision"]
+        contratos_cot = int(q["amountOut"]) / 1e18 if str(q.get("amountOut") or "").isdigit() else None
+        base.update(cotizado=precio, comision=com_cot, contratos_cot=round(contratos_cot, 4) if contratos_cot else None)
+        if not q.get("quoteId") or not N.PRECIO_MIN - 1e-9 <= precio <= N.PRECIO_MAX + 1e-9:
+            return self._no_ia(v, base, f"cotización a {num(precio, 3)}: fuera de 0,01 a 0,90")
+        texto = (f"Operador · ORDEN REAL por orden de la IA en el mercado de {W} min, con {max(0, int(resta // 60))} min por delante: "
+                 f"{APROBACION.ORDEN[lado]}, {num(usdt)} USDT cotizados a {num(precio, 3)}. ")
+        o = self._enviar(ahora, base, m, w, token, q, usdt, precio, texto)
+        v["hecha"] = o["estado"] != "RECHAZADA"     # tras un rechazo claro se puede intentar otra vez (máximo dos por mercado)
         return o
 
     # ------------------------------------------------------------ después de enviar

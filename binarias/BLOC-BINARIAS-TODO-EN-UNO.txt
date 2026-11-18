@@ -22,9 +22,21 @@ Creado el 30/10/2026 a las 14:10, hora de Colombia. Reemplaza al «PROMPT BINARI
 - Las líneas «Estado:» y «SIGUIENTE PASO:» de cada AL FRENTE van sin formato y al inicio de la línea: así las leen el aviso de inicio de Claude (recordatorio_encargo.py) y laboratorio\marcar_bloc.py.
 - Para una sesión nueva basta decir: «Lee la nota Bloc de binarias - todo en uno de Obsidian y sigue desde ENCARGOS», o abrir NUEVA SESION BINARIAS.cmd.
 
-## AL FRENTE (18/11/2026, 09:40): TOKEN DE LA RUTINA EN EL TELÉFONO · PRUEBA DE PUNTA A PUNTA BIEN · RUTINAS CONSTRUCTORAS BORRADAS · FALTA EL ACCESO DE GITHUB DEL TELÉFONO
+## AL FRENTE (18/11/2026, 10:16): LA IA ORDENA Y EL SCRIPT EJECUTA · 2 USDT POR ORDEN · CIRCUITO COMPLETO EN EL TELÉFONO
 Estado: EN CURSO
-SIGUIENTE PASO: con su sí expreso en el chat, pasar al teléfono el acceso de GitHub del PC, solo para leer las decisiones (python -I C:\Users\ni109\Ingresos\binarias-papel\dispositivos\aprobador-18-11\poner_llave.py github), y comprobar la lectura desde el teléfono (run-as com.termux sh /data/local/tmp/aprobador-17-11/rutina.sh comprobar). Pendiente de él también: la IP 201.221.178.15 en la llave actual de Binance.
+SIGUIENTE PASO: lo que queda es suyo y no lo hace ningún agente: la IP 201.221.178.15 en la llave actual de Binance (hoy la rechaza, −2015, y sin eso el operador no ve precios ni puede ejecutar). Cuando pase, el ejecutor revisa que la llave no traiga futuros, margen ni transferencias (si los trae, no ejecuta y lo avisa); después, al menos 12,50 USDT en la billetera de predicción (2 USDT dentro del 16 %) y «operador armar» (o «operador armar igual»).
+- Su orden (18/11, 09:55 a 10:02): «el script no tiene que hacer nada; lo único que tiene que hacer es consolidar y enviárselo a la IA; la IA manda a comprar o manda a vender y ya»; «ninguno de los dos programas ordena compra: el que compra es el programa que se consolida con la IA y los dos programas»; «el script compra o vende, no solo compra, según lo decida el agente»; el agente de la nube manda «solamente la orden de compra o la orden de venta final». Sus respuestas: 2 USDT por orden; la IA elige el lado libre, también el contrario al del punto (se le advirtió que eso es apostar a la continuación); la IA puede decir «nada». Sobre los topes de dinero no dijo quitarlos: siguen.
+- [HECHO 09:43] Acceso de GitHub del PC en el teléfono (~/.config/binarias/github, 600, huella 6a00a425 igual), con su autorización (corrió él mismo la orden; falló por las barras de la ruta y la pasé yo). A las 09:45 el teléfono leyó en GitHub la decisión de la prueba de las 09:33; un id que no existe da «nada».
+- [HECHO 10:05] Rutina de la nube con instrucciones nuevas (mismo token, modelo, esfuerzo, entorno y repositorio): ordena «COMPRAR SUBE» (comprar), «COMPRAR BAJA» (vender) o «NO COMPRAR» (nada), en cualquiera de los dos lados, y escribe solo {"id", "decision", "t"}, sin motivo. Sus órdenes del 18/11 mandan sobre CONTEXTO.md donde no coincidan (CONTEXTO.md sigue en main con el texto viejo: no se sube a main desde una sesión). Copia de la configuración anterior: binarias-papel\respaldos\rutina-aprobadora-antes-18-11.json.
+- [HECHO 10:08] Teléfono: nodo, candado, ejecutor y operador nuevos (7 huellas iguales; copias .antes-ia-18-11). El operador ya no compra por su cuenta: su papel y su vector siguen y van a la IA por el nodo; la compra real la abre solo una orden vigente de la IA (ejecutor.ejecutar_ia): el lado que ella diga, 2 USDT, sin Kelly ni margen del modelo, con ARMADO, llave restringida, una orden por mercado, 20 al día, freno del día, tope del 16 %, cotización real entre 0,01 y 0,90 y al menos 10 s. El nodo anota la orden de la IA tal cual (ya no convierte el otro lado en NO COMPRAR) y el aviso de Telegram dice «(comprar)», «(vender)» o «(nada)». Arrancó con «token listo, GitHub listo»; operador «versión 2 · 18/11/2026 (ordena la IA)», sin ARMADO.
+- [HECHO 10:09] Caja: solo el nodo nuevo (3 huellas iguales); su operador sigue con PARAR. Sin token ni acceso de GitHub a propósito (ADB abierto en la red): si hace de central, no dispara y no hay compra.
+- Pruebas (Python 3.11 en el PC y 3.14.8 en los equipos): nodo 65 de 65 y rutina 29 de 29 en el PC, el teléfono y la caja (dos nuevas: la orden del otro lado abre vender y se avisa como «vender»); candado y operador entero con el Binance simulado 50 de 50 en el PC y el teléfono (sin orden de la IA no hay compra aunque el papel compre; comprar = SUBE y vender = BAJA, siempre 2 USDT; nada, vencida, copiada o sin ARMADO = ninguna orden; con 10 USDT de saldo los 2 USDT pasan el 16 % y no se envía; el papel queda idéntico). La prueba destapó una trampa: dos escrituras seguidas del mismo tamaño en el mismo tic del reloj dejaban la caché del candado con la orden vieja; la marca lleva ahora también los últimos 512 bytes del archivo.
+- [HECHO 10:11] Prueba de punta a punta con las instrucciones nuevas: el teléfono disparó (prueba-18-11-101010), la rutina respondió en unos 10 s {"decision": "NO COMPRAR"} sin motivo, y el teléfono la leyó.
+- Para volver atrás: en el teléfono, run-as com.termux sh /data/local/tmp/ia-18-11/instalar.sh volver; en la caja, lo mismo con /data/local/tmp al final; la rutina, con la copia de respaldos. Paquete en binarias-papel\dispositivos\ia-18-11; lo de antes en binarias-papel\respaldos\antes-ia-18-11.
+
+## AL FRENTE (18/11/2026, 09:40): TOKEN DE LA RUTINA EN EL TELÉFONO · PRUEBA DE PUNTA A PUNTA BIEN · RUTINAS CONSTRUCTORAS BORRADAS · FALTA EL ACCESO DE GITHUB DEL TELÉFONO
+Estado: HECHO (el acceso de GitHub del teléfono quedó a las 09:43; sigue en el AL FRENTE de las 10:16)
+PASO DE ENTONCES: con su sí expreso en el chat, pasar al teléfono el acceso de GitHub del PC, solo para leer las decisiones (python -I C:\Users\ni109\Ingresos\binarias-papel\dispositivos\aprobador-18-11\poner_llave.py github), y comprobar la lectura desde el teléfono (run-as com.termux sh /data/local/tmp/aprobador-17-11/rutina.sh comprobar). Pendiente de él también: la IP 201.221.178.15 en la llave actual de Binance.
 - Su aclaración (18/11, 09:30): la IA no toca Binance; compra el sistema, según lo que la IA decida. A la IA solo le llegan los patrones que de verdad van ganando dinero; los demás no se mandan, para no gastar tokens, y cada disparo lleva todo el contexto de una vez. Así está en el nodo: un punto es alto solo con 25 cerradas, 19 aciertos o más y neto positivo al precio que se paga; el paquete lleva el grupo, los puntos en contra y el vector del operador.
 - [HECHO 09:24] Él generó el token de disparo de la rutina aprobadora (activador de API en claude.ai) y lo dejó en Descargas\Clave para API Rutina.txt. Comprobado sin mostrarlo: coincide con la pista que da la rutina y la dirección apunta a trig_01Ep7i969sChfFw4Mb3eN4qM.
 - [HECHO 09:30] Token en el teléfono: ~/.config/binarias/rutina, permisos 600, huella 90c05aa7 igual a la del PC. Viajó por la entrada de adb exec-in, sin copia temporal ni pantalla. El nodo lo lee en cada disparo, así que no hubo que reiniciarlo (su línea de arranque seguirá diciendo «token FALTA» hasta el próximo arranque).
@@ -35,9 +47,9 @@ SIGUIENTE PASO: con su sí expreso en el chat, pasar al teléfono el acceso de G
 - El token sigue también en Descargas\Clave para API Rutina.txt, en texto plano; el PC no lo necesita.
 Lista de avance del aprobador:
 ✅ 1 a 3. Nodo con la ganancia antes que el acierto, decisor rutina y criterio de la rutina (17/11).
-⬜ 4. Acceso de GitHub del teléfono: falta su sí expreso.
+✅ 4. Acceso de GitHub del teléfono (09:43, con su autorización; lectura comprobada a las 09:45).
 ✅ 5. Token de la rutina en el teléfono y prueba de punta a punta (09:33; la decisión, leída desde el PC).
-✅ 6. Bloc, memoria y GitHub (09:45).
+✅ 6. Bloc, memoria y GitHub (09:45; rama binarias/plan-v7-2026-11-04, commit f55b28c, sin claves).
 
 ## AL FRENTE (17/11/2026, 18:45): EL TELÉFONO DISPARA LA RUTINA APROBADORA QUE YA EXISTE · SIN CLAVES DE PAGO · LA GANANCIA ANTES QUE EL ACIERTO · EN CONSTRUCCIÓN
 Estado: HECHO EN PARTE (sigue en el AL FRENTE del 18/11/2026, 09:40: token y prueba hechos; falta el acceso de GitHub del teléfono)
@@ -378,6 +390,12 @@ Lo que queda abierto
 
 ## 1. REGLAS SUYAS (todas vigentes)
 
+Nuevas del 18/11/2026 (mandan sobre lo anterior donde no coincidan)
+- Ninguno de los dos programas (el Centro y el operador de Fable 5.2) ordena compra. El programa que los consolida (el nodo) le manda todo a la IA, y solo lo que va ganando dinero, para no gastar tokens, con todo el contexto de una vez.
+- La IA de la nube ordena comprar (SUBE), vender (BAJA) o nada, en cualquiera de los dos lados, también el contrario al del punto. Manda solo la orden final, sin explicación.
+- El script ejecuta la orden tal cual: compra o vende 2 USDT por orden, sin volver a revisarla con el modelo. La IA no toca Binance: compra o vende el script.
+- Siguen sus topes de dinero: ARMADO, sin apalancamiento, tope del 16 % del saldo, freno del día, 20 órdenes al día y una por mercado.
+
 Nuevas del 03/11/2026
 - Todo se unifica en BTC/USDT. ETH se mide en silencio.
 - En real, sin apalancamiento; el apalancamiento solo en papel (y solo como estudio de futuros).
@@ -537,6 +555,13 @@ Lo que dicen los estudios de BTC y ETH
 
 
 ## 6. ENCARGOS
+
+18/11/2026, 09:55. Pedido: «el script no tiene que hacer nada»: consolidar y enviárselo a la IA; la IA manda a comprar o a vender y el script compra o vende; el agente de la nube manda solo la orden final. Sus respuestas: 2 USDT por orden, la IA elige el lado libre y puede decir «nada».
+- [HECHO 09:43] Acceso de GitHub en el teléfono (su autorización: corrió él la orden); lectura comprobada a las 09:45.
+- [HECHO 10:05] Rutina de la nube: ordena comprar, vender o nada, en cualquier lado, y solo manda la orden.
+- [HECHO 10:08] Teléfono: el operador ya no compra por su cuenta; ejecuta la orden de la IA con 2 USDT y los topes de dinero. Caja: solo el nodo (10:09).
+- [HECHO 10:11] Prueba de punta a punta con las instrucciones nuevas: orden sin motivo, leída por el teléfono.
+- [PENDIENTE DE ÉL] La IP 201.221.178.15 en la llave de Binance; que la llave no traiga futuros, margen ni transferencias; al menos 12,50 USDT en la billetera de predicción; «operador armar».
 
 18/11/2026, 09:30. Pedido: con el token que generó (Descargas), terminar lo que falta del aprobador y borrar solo las rutinas que lo construyeron («no elimine todas las rutinas»).
 - [HECHO 09:30] Token de la rutina en el teléfono (~/.config/binarias/rutina, huella igual a la del PC).
@@ -855,3 +880,7 @@ Abiertos de antes
 - 18/11/2026 09:30. Token de disparo de la rutina en el teléfono (huella igual a la del PC); el paso del acceso de GitHub al teléfono, otra vez negado por el control de permisos: espera su sí.
 - 18/11/2026 09:33. Prueba de punta a punta: teléfono → rutina (16 s) → decisiones/prueba-18-11-093257.json, NO COMPRAR; leída desde el PC.
 - 18/11/2026 09:40. Borradas de claude.ai las seis rutinas que construyeron el aprobador (copia de su configuración en respaldos).
+- 18/11/2026 09:43. Acceso de GitHub en el teléfono con su autorización; a las 09:45 el teléfono lee las decisiones de la rutina: circuito completo.
+- 18/11/2026 10:05. Su orden: la IA ordena comprar, vender o nada (cualquier lado, solo la orden) y el script ejecuta con 2 USDT. Rutina de la nube con las instrucciones nuevas.
+- 18/11/2026 10:09. Nodo, candado, ejecutor y operador nuevos en el teléfono y nodo en la caja; nodo 65 y rutina 29 de 29 en los tres, operador 50 de 50 en el PC y el teléfono.
+- 18/11/2026 10:11. Prueba de punta a punta con las instrucciones nuevas: la rutina manda solo la orden y el teléfono la lee.

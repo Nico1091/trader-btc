@@ -5,8 +5,11 @@ Mira los mercados «BTC Up or Down» de 15 y de 5 minutos de Binance Wallet. Al 
 ganancia (lo que vale cada lado según el modelo frente a lo que cuesta en el libro) y pasa solo de un estado a otro:
   1. Sin llave que pase: mide con velas públicas si el modelo acierta lo que dice. Ni papel ni órdenes.
   2. Con una llave que lee: papel con precios reales del libro y llenado honesto, la serie que decide si queda apto.
-  3. Con la llave de operar propia de la caja y el archivo ARMADO: además compra de verdad, relee cada orden hasta que
-     Binance la cierre, liquida y cobra lo ganado. El importe y los frenos están en ejecutor.py.
+  3. Con la llave de operar propia de la caja y el archivo ARMADO: además ejecuta de verdad las órdenes de la IA, relee cada
+     orden hasta que Binance la cierre, liquida y cobra lo ganado. El importe y los frenos están en ejecutor.py.
+Desde el 18/11/2026 (orden del dueño: «ninguno de los dos programas ordena compra»): el operador ya no compra por su cuenta.
+Sigue mirando, llevando el papel y dándole su vector al nodo, que se lo pasa a la IA con lo del Centro; la compra real la abre
+solo una orden vigente de la IA (comprar = SUBE, vender = BAJA, 2 USDT), que el ejecutor cumple con los frenos de dinero.
 Todo queda en registro/AAAAMMDD.jsonl (cada mirada, decisión, orden, lectura, liquidación, cobro y aviso), en estado.json y en
 operador.log, y lo importante llega a Telegram. Órdenes desde su Telegram: «operador estado», «operador parte», «operador
 armar» (o «operador armar 15»), «operador armar igual», «operador parar», «operador prueba» y «operador ayuda».
@@ -34,14 +37,15 @@ import nucleo as N  # noqa: E402
 import papel as PA  # noqa: E402
 from comunes import con_signo, dia, escribir_json, hora, leer_json, num, pct, sentido, temperatura  # noqa: E402
 
-VERSION = "1 · 16/11/2026"
+VERSION = "2 · 18/11/2026 (ordena la IA)"
 PUERTO = 8794                # candado de instancia única (el 8792 y el 8793 son del centinela)
 HORA_PARTE = 7               # hora de Colombia del parte diario
 JUICIO_CADA_S = 6 * 3600
 ARMAR_VENCE_S = 600
 MENSAJE_VIEJO_S = 600
 ESPERA_MERCADO_S = 30        # si Binance no publica el mercado en este tiempo, la ventana se mide solo con velas
-NOMBRE_ESTADO = {0: "arrancando", 1: "sin llave que pase", 2: "papel con precios reales", 3: "ARMADO: compra de verdad"}
+NOMBRE_ESTADO = {0: "arrancando", 1: "sin llave que pase", 2: "papel con precios reales",
+                 3: "ARMADO: ejecuta de verdad las órdenes de la IA"}
 AYUDA = ("Operador · órdenes: «operador estado» (cómo va ahora), «operador parte» (el parte completo), «operador armar» "
          "(compras reales en los dos mercados; «operador armar 15» o «operador armar 5» para uno solo), «operador armar igual» "
          "(confirma un armado cuando el papel todavía no es apto), «operador parar» (no más compras; lo ya comprado se sigue "
@@ -346,9 +350,9 @@ class Operador:
         for W in N.VENTANAS:
             try:
                 m = self._mercado(W, ahora)
-                cand = self.papel[W].paso(C.ahora(), m)
-                if cand and self._estado() == 3:
-                    self.ej.intentar(C.ahora(), m, cand)
+                self.papel[W].paso(C.ahora(), m)       # el papel sigue y da su vector; ya no abre compras reales
+                if m and self._estado() == 3:
+                    self.ej.ejecutar_ia(C.ahora(), m)   # 18/11/2026: solo la orden de la IA abre una compra real
             except Exception as ex:
                 self._error(f"mercado de {W} min", ex, ahora)
         if self.llave["ok"]:
@@ -514,11 +518,12 @@ class Operador:
     def _texto_armado(self, ahora, d):
         saldo = self.ej.saldo or 0.0
         t = (f"Operador · ARMADO a las {hora(ahora, '%H:%M')} para {' y '.join(str(w) + ' min' for w in d['mercados'])}. Billetera de "
-             f"predicción: {num(saldo)} USDT. Cada compra: una cuarta parte del Kelly prudente, tope del 16 % del saldo "
-             f"({num(0.16 * saldo)} USDT), mínimo 2 USDT, una por mercado, hasta 20 al día, y se detiene si lo perdido en el día "
-             "llega al 16 %. «operador parar» lo desarma.")
-        if saldo < N.MIN_USDT:
-            t += " Con ese saldo no alcanza para el mínimo: no comprará hasta que pase USDT a la billetera de predicción."
+             f"predicción: {num(saldo)} USDT. Ejecuta solo las órdenes de la IA (comprar = SUBE, vender = BAJA): "
+             f"{num(EJ.IMPORTE_IA)} USDT cada una, sin pasar del 16 % del saldo ({num(0.16 * saldo)} USDT), una por mercado, hasta "
+             "20 al día, y se detiene si lo perdido en el día llega al 16 %. «operador parar» lo desarma.")
+        if EJ.IMPORTE_IA > N.TOPE_SALDO * saldo + 1e-9:
+            t += (f" Con ese saldo los {num(EJ.IMPORTE_IA)} USDT pasan el 16 %: no ejecutará órdenes hasta que la billetera de "
+                  f"predicción tenga al menos {num(EJ.IMPORTE_IA / N.TOPE_SALDO)} USDT.")
         return t
 
     # ------------------------------------------------------------ prueba sin fondos (criterio 5)
@@ -542,7 +547,7 @@ class Operador:
         if e == 1:
             t += self.linea_llave() + " Mido con velas de contado si el modelo acierta lo que dice; sin precios reales no hay papel ni órdenes."
         elif e == 2:
-            t += self.linea_llave() + " Llevo el papel con los precios reales del libro. No compro: falta " + (
+            t += self.linea_llave() + " Llevo el papel con los precios reales del libro. No ejecuto órdenes de la IA: falta " + (
                 "su orden «operador armar»." if self.llave["tipo"] == "operar" else "la llave de operar y su orden de armar.")
         elif e == 3:
             a = self.ej.armado() or {}
