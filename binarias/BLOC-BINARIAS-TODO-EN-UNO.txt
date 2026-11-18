@@ -22,9 +22,21 @@ Creado el 30/10/2026 a las 14:10, hora de Colombia. Reemplaza al «PROMPT BINARI
 - Las líneas «Estado:» y «SIGUIENTE PASO:» de cada AL FRENTE van sin formato y al inicio de la línea: así las leen el aviso de inicio de Claude (recordatorio_encargo.py) y laboratorio\marcar_bloc.py.
 - Para una sesión nueva basta decir: «Lee la nota Bloc de binarias - todo en uno de Obsidian y sigue desde ENCARGOS», o abrir NUEVA SESION BINARIAS.cmd.
 
-## AL FRENTE (18/11/2026, 10:16): LA IA ORDENA Y EL SCRIPT EJECUTA · 2 USDT POR ORDEN · CIRCUITO COMPLETO EN EL TELÉFONO
+## AL FRENTE (18/11/2026, 10:45): TODO DENTRO DE LA APP BINARIAS DEL TELÉFONO · MOTOR Y LLAVES ADENTRO · SIN PC · TERMUX DE RESPALDO
 Estado: EN CURSO
-SIGUIENTE PASO: lo que queda es suyo y no lo hace ningún agente: la IP 201.221.178.15 en la llave actual de Binance (hoy la rechaza, −2015, y sin eso el operador no ve precios ni puede ejecutar). Cuando pase, el ejecutor revisa que la llave no traiga futuros, margen ni transferencias (si los trae, no ejecuta y lo avisa); después, al menos 12,50 USDT en la billetera de predicción (2 USDT dentro del 16 %) y «operador armar» (o «operador armar igual»).
+SIGUIENTE PASO: lo que queda es suyo y no lo hace ningún agente: (1) en el teléfono, Ajustes → Apps → Binarias → activar «Inicio automático» (HyperOS lo tiene en «ignorar»; sin eso, tras reiniciar el teléfono la app solo la despierta Termux); (2) la IP 201.221.178.15 en la llave actual de Binance (hoy −2015); cuando pase, el ejecutor revisa que la llave no traiga futuros, margen ni transferencias (es para que nunca se pueda pedir apalancamiento ni préstamos); después, al menos 12,50 USDT en la billetera de predicción y «operador armar».
+- Su orden (18/11, 10:20): «nunca de los nunca pedir apalancamiento ni préstamos»; «falta el motor, conecte el teléfono al PC… la llave API debe estar directamente en el de binarias en mi celular… migre todo al teléfono… con mucho cuidado, protéjalas muy bien… cada que no me hace caso me hace perder dinero». El aviso salía de la app Binarias (co.binarias.motor, Motor.java): desde el 07/11 estaba instalada sin su motor, y lo de binarias corría en Termux.
+- [HECHO 10:28] App Binarias versión 2 instalada por cable (adb install -r, «Success», sin pedir nada en el teléfono): corre Tor 9052, centinela, avisador, Centro, nodo, operador y publicador de GitHub, cada uno en su carpeta y con su PARAR; relanza a los 30 s; home/PARAR detiene todo; ya no dice «conecte el teléfono al PC».
+- [HECHO 10:31] Motor dentro de la app (Python 3.14.8, numpy 2.5.4, OpenSSL 3.6.5, curl 8.23, Tor 0.4.9.15) y, con ese motor, las pruebas: nodo 65, rutina 29, operador con Binance simulado 50 y publicador 42, todas bien.
+- [HECHO 10:34] Relevo: Termux en pausa con sus PARAR (sin matar nada; 0 programas vivos), su arranque al encender apartado (20-centinela.sh.en-la-app) y un respaldo (10-despertar-binarias.sh) que despierta la app al encender. Programas, estado y llaves (401 MB) pasaron de Termux a la app en un solo chorro por el cable, sin quedar en el PC. Llaves en la carpeta privada de la app, 600 en carpetas 700. Config del nodo sin rutas de Termux; el nodo lee su Tor de NODO_TOR. A las 10:34:52 corrían los siete procesos dentro de la app; nodo con «token listo, GitHub listo» y la caja respondiendo; Centro listo a las 10:37 (BTC 63.484,8); operador en estado 1 por la IP de la llave.
+- [HECHO 10:36] Llaves del publicador de GitHub dentro de la app: github (copiada dentro del teléfono, la misma del nodo), correo-usuario y correo-clave (la clave de aplicación de Google de Descargas\credenciales gumroad.txt, pasada sin mostrarla). Su fallo era «falta la llave de GitHub».
+- La llave de Binance del teléfono (operar.txt) es la misma del PC (lectura.txt sin los saltos de línea de Windows): comprobado por huella.
+- Ventas, revisado: el publicador de Gumroad del teléfono funciona (publicó un producto por día esta semana, hoy Habit Tracker a las 08:46). El Kit de Tesis falló el 23/10 en Gumroad al subir INICIAR.bat (525 y 500) y sus reenvíos del 25/10 y 13/11 no se reintentaron. El nodo de atención (agent-data-toolkit en Render) está caído: /health da 404 «Not Found» por Tor; el keepalive falla desde el 28/08 y GitHub lo deshabilitó el 27/09; volver a desplegarlo pide su cuenta de Render.
+- Para volver atrás: cd binarias-papel\app-telefono; sh instalar_motor.sh volver (la app queda en PARAR y Termux vuelve a correr todo). Ver cómo va: sh instalar_motor.sh comprobar.
+
+## AL FRENTE (18/11/2026, 10:16): LA IA ORDENA Y EL SCRIPT EJECUTA · 2 USDT POR ORDEN · CIRCUITO COMPLETO EN EL TELÉFONO
+Estado: HECHO (sigue en el AL FRENTE de las 10:45: todo dentro de la app Binarias)
+PASO DE ENTONCES: lo que queda es suyo y no lo hace ningún agente: la IP 201.221.178.15 en la llave actual de Binance (hoy la rechaza, −2015, y sin eso el operador no ve precios ni puede ejecutar). Cuando pase, el ejecutor revisa que la llave no traiga futuros, margen ni transferencias (si los trae, no ejecuta y lo avisa); después, al menos 12,50 USDT en la billetera de predicción (2 USDT dentro del 16 %) y «operador armar» (o «operador armar igual»).
 - Su orden (18/11, 09:55 a 10:02): «el script no tiene que hacer nada; lo único que tiene que hacer es consolidar y enviárselo a la IA; la IA manda a comprar o manda a vender y ya»; «ninguno de los dos programas ordena compra: el que compra es el programa que se consolida con la IA y los dos programas»; «el script compra o vende, no solo compra, según lo decida el agente»; el agente de la nube manda «solamente la orden de compra o la orden de venta final». Sus respuestas: 2 USDT por orden; la IA elige el lado libre, también el contrario al del punto (se le advirtió que eso es apostar a la continuación); la IA puede decir «nada». Sobre los topes de dinero no dijo quitarlos: siguen.
 - [HECHO 09:43] Acceso de GitHub del PC en el teléfono (~/.config/binarias/github, 600, huella 6a00a425 igual), con su autorización (corrió él mismo la orden; falló por las barras de la ruta y la pasé yo). A las 09:45 el teléfono leyó en GitHub la decisión de la prueba de las 09:33; un id que no existe da «nada».
 - [HECHO 10:05] Rutina de la nube con instrucciones nuevas (mismo token, modelo, esfuerzo, entorno y repositorio): ordena «COMPRAR SUBE» (comprar), «COMPRAR BAJA» (vender) o «NO COMPRAR» (nada), en cualquiera de los dos lados, y escribe solo {"id", "decision", "t"}, sin motivo. Sus órdenes del 18/11 mandan sobre CONTEXTO.md donde no coincidan (CONTEXTO.md sigue en main con el texto viejo: no se sube a main desde una sesión). Copia de la configuración anterior: binarias-papel\respaldos\rutina-aprobadora-antes-18-11.json.
@@ -391,6 +403,8 @@ Lo que queda abierto
 ## 1. REGLAS SUYAS (todas vigentes)
 
 Nuevas del 18/11/2026 (mandan sobre lo anterior donde no coincidan)
+- Nunca de los nunca pedir apalancamiento ni préstamos, tampoco a cuenta de un error.
+- Todo en el teléfono, dentro de la app Binarias: el motor, los programas y las llaves; nada debe depender del PC («cada que no me hace caso me hace perder dinero»). Las llaves, con mucho cuidado y bien protegidas.
 - Ninguno de los dos programas (el Centro y el operador de Fable 5.2) ordena compra. El programa que los consolida (el nodo) le manda todo a la IA, y solo lo que va ganando dinero, para no gastar tokens, con todo el contexto de una vez.
 - La IA de la nube ordena comprar (SUBE), vender (BAJA) o nada, en cualquiera de los dos lados, también el contrario al del punto. Manda solo la orden final, sin explicación.
 - El script ejecuta la orden tal cual: compra o vende 2 USDT por orden, sin volver a revisarla con el modelo. La IA no toca Binance: compra o vende el script.
@@ -555,6 +569,13 @@ Lo que dicen los estudios de BTC y ETH
 
 
 ## 6. ENCARGOS
+
+18/11/2026, 10:20. Pedido: nunca apalancamiento ni préstamos; que la app de binarias del teléfono tenga su motor y no pida el PC; todas las llaves en el teléfono, protegidas; revisar los errores de ventas (publicador) y que el nodo esté bien.
+- [HECHO 10:28] App Binarias versión 2 instalada (corre los siete programas de binarias).
+- [HECHO 10:34] Motor, programas, estado y llaves dentro de la app; Termux en pausa y de respaldo al encender. Pruebas 65, 29, 50 y 42 con el motor de la app.
+- [HECHO 10:36] Llaves del publicador de GitHub dentro de la app.
+- [HECHO 10:40] Ventas revisadas: Gumroad publica bien; Kit de Tesis falla por INICIAR.bat; nodo de atención (Render) caído desde agosto.
+- [PENDIENTE DE ÉL] Inicio automático de la app Binarias en HyperOS; IP en la llave de Binance; decidir qué se hace con el Kit de Tesis y con el servicio de Render.
 
 18/11/2026, 09:55. Pedido: «el script no tiene que hacer nada»: consolidar y enviárselo a la IA; la IA manda a comprar o a vender y el script compra o vende; el agente de la nube manda solo la orden final. Sus respuestas: 2 USDT por orden, la IA elige el lado libre y puede decir «nada».
 - [HECHO 09:43] Acceso de GitHub en el teléfono (su autorización: corrió él la orden); lectura comprobada a las 09:45.
@@ -884,3 +905,6 @@ Abiertos de antes
 - 18/11/2026 10:05. Su orden: la IA ordena comprar, vender o nada (cualquier lado, solo la orden) y el script ejecuta con 2 USDT. Rutina de la nube con las instrucciones nuevas.
 - 18/11/2026 10:09. Nodo, candado, ejecutor y operador nuevos en el teléfono y nodo en la caja; nodo 65 y rutina 29 de 29 en los tres, operador 50 de 50 en el PC y el teléfono.
 - 18/11/2026 10:11. Prueba de punta a punta con las instrucciones nuevas: la rutina manda solo la orden y el teléfono la lee.
+- 18/11/2026 10:20. Su regla: nunca pedir apalancamiento ni préstamos. Su orden: todo en el teléfono, motor y llaves dentro de la app Binarias.
+- 18/11/2026 10:34. App Binarias versión 2 con motor, programas, estado y llaves; los siete corren dentro de la app; Termux en pausa y de respaldo al encender.
+- 18/11/2026 10:40. Llaves del publicador de GitHub dentro de la app; ventas revisadas (Gumroad bien; Kit de Tesis por INICIAR.bat; Render caído).
