@@ -1,0 +1,28 @@
+test_la_ventana_desplaza_los_fallos_antiguos (__main__.Determinista.test_la_ventana_desplaza_los_fallos_antiguos) ... ok
+test_sin_suficientes_aciertos_no_arma (__main__.Determinista.test_sin_suficientes_aciertos_no_arma) ... ok
+test_todos_aciertos_arma_al_llenar_la_ventana (__main__.Determinista.test_todos_aciertos_arma_al_llenar_la_ventana) ... ok
+test_pago_085_da_54_05_por_ciento (__main__.Equilibrio.test_pago_085_da_54_05_por_ciento) ... ok
+test_pago_fuera_de_rango_falla (__main__.Equilibrio.test_pago_fuera_de_rango_falla) ... ok
+test_regla_mal_escrita_da_error (__main__.Linea.test_regla_mal_escrita_da_error) ... ok
+test_salida_completa_y_codigo_cero (__main__.Linea.test_salida_completa_y_codigo_cero) ... ok
+test_18_de_25_con_moneda_justa_es_la_suma_exacta (__main__.ProbabilidadExacta.test_18_de_25_con_moneda_justa_es_la_suma_exacta) ... ok
+test_casos_extremos (__main__.ProbabilidadExacta.test_casos_extremos) ... ok
+test_montecarlo_de_una_ventana_coincide_con_la_exacta (__main__.ProbabilidadExacta.test_montecarlo_de_una_ventana_coincide_con_la_exacta) ... ok
+test_k_de_n_se_cumple_desde_k (__main__.Reglas.test_k_de_n_se_cumple_desde_k) ... ok
+test_reglas_mal_escritas_fallan (__main__.Reglas.test_reglas_mal_escritas_fallan) ... ok
+test_wilson_exige_pasar_el_equilibrio_con_muchas_apuestas (__main__.Reglas.test_wilson_exige_pasar_el_equilibrio_con_muchas_apuestas) ... ok
+test_con_moneda_justa_la_regla_actual_arma_casi_siempre (__main__.Simulacion.test_con_moneda_justa_la_regla_actual_arma_casi_siempre) ... ok
+test_con_todos_aciertos_arma_en_los_primeros_dias (__main__.Simulacion.test_con_todos_aciertos_arma_en_los_primeros_dias) ... ok
+test_misma_semilla_misma_salida (__main__.Simulacion.test_misma_semilla_misma_salida) ... ok
+test_sin_aciertos_nunca_arma (__main__.Simulacion.test_sin_aciertos_nunca_arma) ... ok
+test_ventana_incompleta_no_arma (__main__.Simulacion.test_ventana_incompleta_no_arma) ... ok
+test_wilson_400_casi_no_arma_sin_ventaja (__main__.Simulacion.test_wilson_400_casi_no_arma_sin_ventaja) ... ok
+test_limite_con_todos_aciertos_tiene_forma_cerrada (__main__.Wilson.test_limite_con_todos_aciertos_tiene_forma_cerrada) ... ok
+test_sin_aciertos_no_da_ventaja (__main__.Wilson.test_sin_aciertos_no_da_ventaja) ... ok
+test_sin_apuestas_da_cero (__main__.Wilson.test_sin_apuestas_da_cero) ... ok
+test_valor_de_18_de_25 (__main__.Wilson.test_valor_de_18_de_25) ... ok
+
+----------------------------------------------------------------------
+Ran 23 tests in 0.385s
+
+OK

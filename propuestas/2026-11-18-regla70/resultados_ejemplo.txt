@@ -1,0 +1,20 @@
+Simulación: 5 estrategias, 30 días, 5000 repeticiones por celda, semilla 20261118.
+Pago 0,85 por 1; equilibrio 54,1 %.
+Celda: probabilidad de que la regla arme dinero real al menos una vez en el plazo, y en paréntesis la mediana del día del primer armado entre las que arman.
+
+Regla                                  p = 50,00 %           p = 54,05 %           p = 55,00 %           p = 58,00 %
+--------------------------------------------------------------------------------------------------------------------
+18 de 25 (actual)                     99,3 % (6 d)         100,0 % (3 d)         100,0 % (3 d)         100,0 % (2 d)
+30 de 40                             21,7 % (16 d)         61,0 % (13 d)         72,1 % (12 d)          94,1 % (8 d)
+Wilson 200 apuestas, z 1.96           4,6 % (19 d)         49,4 % (17 d)         66,5 % (15 d)         97,7 % (11 d)
+Wilson 400 apuestas, z 1.96           0,5 % (18 d)         21,2 % (22 d)         37,6 % (22 d)         91,1 % (16 d)
+
+Una sola ventana de 25 apuestas (sin tiempo ni varias estrategias), para comparar:
+  p = 50,00 %: la regla 18 de 25 se cumple con probabilidad 2,2 % en cada ventana.
+  p = 54,05 %: la regla 18 de 25 se cumple con probabilidad 5,3 % en cada ventana.
+  p = 55,00 %: la regla 18 de 25 se cumple con probabilidad 6,4 % en cada ventana.
+  p = 58,00 %: la regla 18 de 25 se cumple con probabilidad 11,1 % en cada ventana.
+
+No modela: el control de aptitud del papel (la regla automática no lo exige), la dependencia entre
+estrategias y entre apuestas de una misma hora, los cambios de régimen del mercado y la selección de las
+estrategias entre cientos de variantes (que eleva el acierto aparente de las elegidas).
