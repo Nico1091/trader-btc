@@ -11,7 +11,7 @@ Actúa como jefe de investigación de binarias sobre BTC/USDT. Tu entrega es un 
 PROMPT FINAL con el que otra sesión de Claude construirá y dejará corriendo el laboratorio. No
 construyas nada ni analices el mercado ahora.
 
-Lee antes, en este orden: Desktop\BLOC BINARIAS - TODO EN UNO.txt (AL FRENTE más reciente y
+Lee antes, en este orden: Desktop\obsidian\Vault\03-Proyectos\Bloc de binarias - todo en uno.md (AL FRENTE más reciente y
 ENCARGOS); Ingresos\binarias-papel\PLAN-TOTAL.md (secciones 2, 6, 7c, 7d y 8); PROMPT-REVISION.md;
 mesa\centro.py; motor\senales.py; cuant\validacion.py; pruebas\t33_indice.py;
 dispositivos\avisos.py y arrancar.sh; laboratorio\REVISION.md si existe.

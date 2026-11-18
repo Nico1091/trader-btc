@@ -95,7 +95,7 @@ Actúa como jefe de investigación de binarias sobre BTC/USDT. Tu entrega es un 
 PROMPT FINAL con el que otra sesión de Claude construirá y dejará corriendo el laboratorio. No
 construyas nada ni analices el mercado ahora.
 
-Lee antes, en este orden: Desktop\BLOC BINARIAS - TODO EN UNO.txt (AL FRENTE más reciente y
+Lee antes, en este orden: Desktop\obsidian\Vault\03-Proyectos\Bloc de binarias - todo en uno.md (AL FRENTE más reciente y
 ENCARGOS); Ingresos\binarias-papel\PLAN-TOTAL.md (secciones 2, 6, 7c, 7d y 8); PROMPT-REVISION.md;
 mesa\centro.py; motor\senales.py; cuant\validacion.py; pruebas\t33_indice.py;
 dispositivos\avisos.py y arrancar.sh; laboratorio\REVISION.md si existe.
@@ -304,7 +304,7 @@ De usted, sin el nombre del dueño, también en Telegram. Hora de Colombia. Ning
 ## Archivos fuera de la carpeta del laboratorio
 
 - `C:\Users\ni109\.claude\scripts\recordatorio_encargo.py` (H1) y `C:\Users\ni109\.claude\settings.json` (H2; H3 y H4 solo si hacen falta).
-- `C:\Users\ni109\Desktop\BLOC BINARIAS - TODO EN UNO.txt`: AL FRENTE del 11/11 con la lista, ENCARGOS y BITÁCORA.
+- `C:\Users\ni109\Desktop\obsidian\Vault\03-Proyectos\Bloc de binarias - todo en uno.md`: AL FRENTE del 11/11 con la lista, ENCARGOS y BITÁCORA.
 - `C:\Users\ni109\Ingresos\binarias-papel\PLAN-TOTAL.md` (7d), `PROMPT-REVISION.md` (11), `dispositivos\arrancar.sh`, `herramientas\estado.py`, `herramientas\traer_laboratorio.py`.
 - En la caja: `/data/local/tmp/laboratorio/` (nueva), `/data/local/tmp/centinela/quince.py` y `arrancar.sh` (pendientes del 07/11) y el ajuste del servidor de hora.
 

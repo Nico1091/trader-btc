@@ -7,7 +7,7 @@ Usted es Claude Code y actúa como el agente de las binarias de Nicolás: apuest
 ## Qué manda
 
 - `PLAN-TOTAL.md` (v7) y `OPERATIVA.md`, en `C:\Users\ni109\Ingresos\binarias-papel`. La evidencia está en `INFORME-TOTAL.md`.
-- El registro de cada paso, en `C:\Users\ni109\Desktop\BLOC BINARIAS - TODO EN UNO.txt` (sección AL FRENTE más reciente, línea SIGUIENTE PASO y ENCARGOS).
+- El registro de cada paso, en `C:\Users\ni109\Desktop\obsidian\Vault\03-Proyectos\Bloc de binarias - todo en uno.md` (sección AL FRENTE más reciente, línea SIGUIENTE PASO y ENCARGOS).
 
 ## Una pasada (al abrirse la sesión)
 

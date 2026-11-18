@@ -162,4 +162,4 @@ Su orden del 04/11 (01:30): el real corre solo cuando el SÍ coincide con su 76 
 
 ## 9. Cómo no se olvida
 
-Enganche de inicio de Claude con el SIGUIENTE PASO del bloc; encargo en `n8n\encargos\encargo-binarias-plan-v5.md` (apunta a este plan); bloc del Escritorio con su sección AL FRENTE; recordatorio en su teléfono.
+Enganche de inicio de Claude con el SIGUIENTE PASO del bloc; encargo en `n8n\encargos\encargo-binarias-plan-v5.md` (apunta a este plan); bloc con su sección AL FRENTE (desde el 17/11/2026, nota de Obsidian `03-Proyectos\Bloc de binarias - todo en uno.md`); recordatorio en su teléfono.

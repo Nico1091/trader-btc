@@ -5,7 +5,7 @@ import datetime as dt
 import re
 import sys
 
-BLOC = r"C:\Users\ni109\Desktop\BLOC BINARIAS - TODO EN UNO.txt"
+BLOC = r"C:\Users\ni109\Desktop\obsidian\Vault\03-Proyectos\Bloc de binarias - todo en uno.md"  # 17/11/2026: el bloc vive en Obsidian
 COL = dt.timezone(dt.timedelta(hours=-5))
 
 
@@ -14,7 +14,8 @@ def main():
     ahora = dt.datetime.now(COL)
     texto = open(BLOC, encoding="utf-8").read()
     inicio = texto.find("AL FRENTE (")
-    fin = texto.find("\nAL FRENTE (", inicio + 1)
+    otra = re.compile(r"\n(?:#+ +)?AL FRENTE \(").search(texto, inicio + 1)  # 17/11/2026: títulos de Obsidian
+    fin = otra.start() if otra else len(texto)
     bloque = texto[inicio:fin]
     patron = re.compile(r"^(⬜|✅) " + re.escape(numero) + r"\. .*$", re.MULTILINE)
     if not patron.search(bloque):

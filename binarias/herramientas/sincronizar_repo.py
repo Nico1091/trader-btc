@@ -3,7 +3,7 @@
 Refleja en la rama binarias/plan-v7-2026-11-04 de github.com/Nico1091/trader-btc (privado) lo vigente de:
 - C:\\Users\\ni109\\Ingresos\\binarias-papel  →  binarias/
 - C:\\Users\\ni109\\Ingresos\\pulso-btc       →  binarias/pulso/
-- el bloc del Escritorio y las notas de sesión de la bóveda  →  binarias/BLOC-BINARIAS-TODO-EN-UNO.txt y binarias/sesiones/
+- el bloc (nota de Obsidian desde el 17/11/2026) y las notas de sesión de la bóveda  →  binarias/BLOC-BINARIAS-TODO-EN-UNO.txt y binarias/sesiones/
 Pone al día lo que el repositorio ya guarda y suma lo nuevo solo de carpetas permitidas (herramientas, cuant, dispositivos,
 historia, guía, sesiones). Nunca sube datos, estados, registros, comprobantes, binarios ni claves: antes del commit barre
 el texto en busca de claves y, si encuentra una, no sube nada. Trabaja en su propio árbol, .claude/worktrees/binarias-v7
@@ -24,7 +24,7 @@ RAMA = "binarias/plan-v7-2026-11-04"
 ARBOL = REPO / ".claude" / "worktrees" / "binarias-v7"
 B = Path(r"C:\Users\ni109\Ingresos\binarias-papel")
 P = Path(r"C:\Users\ni109\Ingresos\pulso-btc")
-BLOC = Path(r"C:\Users\ni109\Desktop\BLOC BINARIAS - TODO EN UNO.txt")
+BLOC = Path(r"C:\Users\ni109\Desktop\obsidian\Vault\03-Proyectos\Bloc de binarias - todo en uno.md")  # 17/11/2026: el bloc vive en Obsidian; en el repositorio conserva su nombre
 SES = Path(r"C:\Users\ni109\Desktop\obsidian\Vault\01-Sesiones")
 SESIONES = {"2026-11-03.md": "2026-11-03 Binarias v5 en BTC.md",
             "2026-11-04.md": "2026-11-04 Binarias v7 su regla SI o NO.md",
