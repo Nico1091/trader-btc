@@ -31,7 +31,9 @@ SESIONES = {"2026-11-03.md": "2026-11-03 Binarias v5 en BTC.md",
             "2026-11-04-tarde.md": "2026-11-04 Binarias cinco lineas y consolidacion.md",
             "2026-11-04-mesa.md": "2026-11-04 Binarias plan del boton comprar o vender.md",
             "2026-11-11-laboratorio.md": "2026-11-11 Laboratorio de binarias con red neuronal.md"}
-NUEVOS_ARRIBA = ["PROMPT-AGENTE-NUBE-BINARIAS.md"]
+NUEVOS_ARRIBA = ["PROMPT-AGENTE-NUBE-BINARIAS.md",
+                 # 18/11/2026: la revisión de la app del teléfono (criterios A a I) y sus resultados del día
+                 "REVISION-PROMPT.md", "REVISION-18-11.md", "REVISION-18-11-tarde.md"]
 # 11/11/2026: el laboratorio sube solo su código, guiones y documentos; nunca su base, su historial ni sus datos.
 NUEVAS_CARPETAS = [("herramientas", (".py",)), ("herramientas/fixtures_lineas", (".csv",)), ("cuant", (".py",)),
                    ("cuant/resultados", (".txt",)), ("dispositivos", (".py", ".sh")), ("historia", (".md", ".py")),
