@@ -1,0 +1,719 @@
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794286800, "lado": -1, "compra": true, "sombra": false, "llenado": 5, "q": 0.532, "hora": 1794286862.48, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 15, "t": 1794286800, "lado": 1, "compra": true, "sombra": false, "llenado": 5, "q": 0.56, "hora": 1794286868.95, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 15, "t": 1794286800, "lado": 1, "compra": true, "sombra": false, "llenado": 15, "q": 0.56, "hora": 1794286878.95, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794287100, "lado": 1, "compra": true, "sombra": true, "llenado": 5, "q": 0.535, "hora": 1794287170.7, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794286800, "ganador": 1, "fuente": "oficial", "hora": 1794287190, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794287400, "lado": 1, "compra": true, "sombra": false, "llenado": 5, "q": 0.51, "hora": 1794287464.23, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794287100, "ganador": -1, "fuente": "oficial", "hora": 1794287490, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 15, "t": 1794287700, "lado": -1, "compra": true, "sombra": false, "llenado": 5, "q": 0.575, "hora": 1794287764.54, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794287700, "lado": 1, "compra": true, "sombra": false, "llenado": 5, "q": 0.504, "hora": 1794287770.58, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794287700, "lado": 1, "compra": true, "sombra": false, "llenado": 15, "q": 0.504, "hora": 1794287780.58, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794287400, "ganador": -1, "fuente": "oficial", "hora": 1794287790, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 15, "t": 1794286800, "ganador": -1, "fuente": "oficial", "hora": 1794287790, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794288000, "lado": -1, "compra": true, "sombra": false, "llenado": 5, "q": 0.555, "hora": 1794288063.03, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794287700, "ganador": 1, "fuente": "oficial", "hora": 1794288090, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794288300, "lado": 1, "compra": true, "sombra": false, "llenado": 5, "q": 0.55, "hora": 1794288366.96, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794288000, "ganador": 1, "fuente": "oficial", "hora": 1794288390, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794288600, "lado": -1, "compra": true, "sombra": false, "llenado": 5, "q": 0.52, "hora": 1794288663.8, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 15, "t": 1794288600, "lado": 1, "compra": true, "sombra": true, "llenado": 5, "q": 0.552, "hora": 1794288678.17, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794288300, "ganador": -1, "fuente": "oficial", "hora": 1794288690, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 15, "t": 1794287700, "ganador": 1, "fuente": "oficial", "hora": 1794288690, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794288900, "lado": -1, "compra": true, "sombra": false, "llenado": 5, "q": 0.558, "hora": 1794288964.88, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794288600, "ganador": -1, "fuente": "oficial", "hora": 1794288990, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794289200, "lado": 1, "compra": true, "sombra": false, "llenado": 5, "q": 0.512, "hora": 1794289266.89, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794289200, "lado": 1, "compra": true, "sombra": false, "llenado": 15, "q": 0.512, "hora": 1794289276.89, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794288900, "ganador": -1, "fuente": "oficial", "hora": 1794289290, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794289500, "lado": -1, "compra": true, "sombra": false, "llenado": 5, "q": 0.548, "hora": 1794289567.8, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 15, "t": 1794289500, "lado": -1, "compra": true, "sombra": false, "llenado": 5, "q": 0.513, "hora": 1794289570.61, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794289200, "ganador": -1, "fuente": "oficial", "hora": 1794289590, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 15, "t": 1794288600, "ganador": -1, "fuente": "oficial", "hora": 1794289590, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794289800, "lado": -1, "compra": true, "sombra": false, "llenado": 5, "q": 0.505, "hora": 1794289869.31, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794289500, "ganador": -1, "fuente": "oficial", "hora": 1794289890, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794290100, "lado": -1, "compra": true, "sombra": false, "llenado": 5, "q": 0.571, "hora": 1794290165.47, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794289800, "ganador": -1, "fuente": "oficial", "hora": 1794290190, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794290400, "lado": -1, "compra": true, "sombra": true, "llenado": 5, "q": 0.561, "hora": 1794290471.29, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 15, "t": 1794290400, "lado": -1, "compra": true, "sombra": false, "llenado": 5, "q": 0.513, "hora": 1794290471.66, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 15, "t": 1794290400, "lado": -1, "compra": true, "sombra": false, "llenado": 15, "q": 0.513, "hora": 1794290481.66, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794290100, "ganador": 1, "fuente": "oficial", "hora": 1794290490, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 15, "t": 1794289500, "ganador": -1, "fuente": "oficial", "hora": 1794290490, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794290700, "lado": -1, "compra": true, "sombra": true, "llenado": 5, "q": 0.536, "hora": 1794290775.49, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794290400, "ganador": -1, "fuente": "oficial", "hora": 1794290790, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794291000, "lado": -1, "compra": true, "sombra": false, "llenado": 5, "q": 0.579, "hora": 1794291068.83, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794290700, "ganador": -1, "fuente": "oficial", "hora": 1794291090, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 15, "t": 1794291300, "lado": -1, "compra": true, "sombra": false, "llenado": 5, "q": 0.562, "hora": 1794291366.53, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794291300, "lado": 1, "compra": true, "sombra": true, "llenado": 5, "q": 0.553, "hora": 1794291370.12, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 15, "t": 1794291300, "lado": -1, "compra": true, "sombra": false, "llenado": 15, "q": 0.562, "hora": 1794291376.53, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794291000, "ganador": 1, "fuente": "oficial", "hora": 1794291390, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 15, "t": 1794290400, "ganador": 1, "fuente": "oficial", "hora": 1794291390, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794291600, "lado": -1, "compra": true, "sombra": false, "llenado": 5, "q": 0.512, "hora": 1794291667.35, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794291300, "ganador": 1, "fuente": "oficial", "hora": 1794291690, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794291900, "lado": 1, "compra": true, "sombra": false, "llenado": 5, "q": 0.57, "hora": 1794291971.52, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794291600, "ganador": 1, "fuente": "oficial", "hora": 1794291990, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794292200, "lado": -1, "compra": true, "sombra": false, "llenado": 5, "q": 0.539, "hora": 1794292266.0, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 15, "t": 1794292200, "lado": -1, "compra": true, "sombra": false, "llenado": 5, "q": 0.55, "hora": 1794292268.51, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794292200, "lado": -1, "compra": true, "sombra": false, "llenado": 15, "q": 0.539, "hora": 1794292276.0, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794291900, "ganador": -1, "fuente": "oficial", "hora": 1794292290, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 15, "t": 1794291300, "ganador": -1, "fuente": "oficial", "hora": 1794292290, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794292500, "lado": 1, "compra": true, "sombra": true, "llenado": 5, "q": 0.548, "hora": 1794292571.02, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794292200, "ganador": -1, "fuente": "oficial", "hora": 1794292590, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794292800, "lado": -1, "compra": true, "sombra": false, "llenado": 5, "q": 0.506, "hora": 1794292864.08, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794292500, "ganador": 1, "fuente": "oficial", "hora": 1794292890, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 15, "t": 1794293100, "lado": 1, "compra": true, "sombra": false, "llenado": 5, "q": 0.525, "hora": 1794293166.29, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794293100, "lado": -1, "compra": true, "sombra": false, "llenado": 5, "q": 0.509, "hora": 1794293166.88, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794292800, "ganador": -1, "fuente": "oficial", "hora": 1794293190, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 15, "t": 1794292200, "ganador": 1, "fuente": "oficial", "hora": 1794293190, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794293400, "lado": 1, "compra": true, "sombra": true, "llenado": 5, "q": 0.56, "hora": 1794293477.4, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794293100, "ganador": -1, "fuente": "oficial", "hora": 1794293490, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794293700, "lado": 1, "compra": true, "sombra": false, "llenado": 5, "q": 0.576, "hora": 1794293765.62, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794293400, "ganador": 1, "fuente": "oficial", "hora": 1794293790, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 15, "t": 1794294000, "lado": 1, "compra": true, "sombra": false, "llenado": 5, "q": 0.523, "hora": 1794294062.02, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794294000, "lado": 1, "compra": true, "sombra": false, "llenado": 5, "q": 0.521, "hora": 1794294065.67, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 15, "t": 1794294000, "lado": 1, "compra": true, "sombra": false, "llenado": 15, "q": 0.523, "hora": 1794294072.02, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794294000, "lado": 1, "compra": true, "sombra": false, "llenado": 15, "q": 0.521, "hora": 1794294075.67, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794293700, "ganador": -1, "fuente": "oficial", "hora": 1794294090, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 15, "t": 1794293100, "ganador": -1, "fuente": "oficial", "hora": 1794294090, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794294300, "lado": 1, "compra": true, "sombra": false, "llenado": 5, "q": 0.563, "hora": 1794294369.58, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794294300, "lado": 1, "compra": true, "sombra": false, "llenado": 15, "q": 0.563, "hora": 1794294379.58, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794294000, "ganador": -1, "fuente": "oficial", "hora": 1794294390, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794294600, "lado": 1, "compra": true, "sombra": true, "llenado": 5, "q": 0.539, "hora": 1794294677.31, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794294300, "ganador": -1, "fuente": "oficial", "hora": 1794294690, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 15, "t": 1794294900, "lado": -1, "compra": true, "sombra": false, "llenado": 5, "q": 0.565, "hora": 1794294970.67, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794294900, "lado": -1, "compra": true, "sombra": false, "llenado": 5, "q": 0.555, "hora": 1794294971.57, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794294600, "ganador": -1, "fuente": "oficial", "hora": 1794294990, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 15, "t": 1794294000, "ganador": 1, "fuente": "oficial", "hora": 1794294990, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794295200, "lado": -1, "compra": true, "sombra": true, "llenado": 5, "q": 0.508, "hora": 1794295274.7, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794294900, "ganador": -1, "fuente": "oficial", "hora": 1794295290, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794295500, "lado": 1, "compra": true, "sombra": false, "llenado": 5, "q": 0.552, "hora": 1794295570.0, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794295500, "lado": 1, "compra": true, "sombra": false, "llenado": 15, "q": 0.552, "hora": 1794295580.0, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794295200, "ganador": -1, "fuente": "oficial", "hora": 1794295590, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 15, "t": 1794295800, "lado": -1, "compra": true, "sombra": false, "llenado": 5, "q": 0.543, "hora": 1794295866.85, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794295800, "lado": 1, "compra": true, "sombra": false, "llenado": 5, "q": 0.514, "hora": 1794295869.89, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794295500, "ganador": -1, "fuente": "oficial", "hora": 1794295890, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 15, "t": 1794294900, "ganador": -1, "fuente": "oficial", "hora": 1794295890, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794296100, "lado": -1, "compra": true, "sombra": false, "llenado": 5, "q": 0.576, "hora": 1794296169.25, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794296100, "lado": -1, "compra": true, "sombra": false, "llenado": 15, "q": 0.576, "hora": 1794296179.25, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794295800, "ganador": -1, "fuente": "oficial", "hora": 1794296190, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794296400, "lado": -1, "compra": true, "sombra": false, "llenado": 5, "q": 0.512, "hora": 1794296470.27, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794296100, "ganador": 1, "fuente": "oficial", "hora": 1794296490, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794296700, "lado": 1, "compra": true, "sombra": false, "llenado": 5, "q": 0.51, "hora": 1794296762.14, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 15, "t": 1794296700, "lado": -1, "compra": true, "sombra": false, "llenado": 5, "q": 0.554, "hora": 1794296766.65, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 15, "t": 1794296700, "lado": -1, "compra": true, "sombra": false, "llenado": 15, "q": 0.554, "hora": 1794296776.65, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794296400, "ganador": -1, "fuente": "oficial", "hora": 1794296790, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 15, "t": 1794295800, "ganador": 1, "fuente": "oficial", "hora": 1794296790, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794297000, "lado": -1, "compra": true, "sombra": false, "llenado": 5, "q": 0.516, "hora": 1794297070.74, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794297000, "lado": -1, "compra": true, "sombra": false, "llenado": 15, "q": 0.516, "hora": 1794297080.74, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794296700, "ganador": 1, "fuente": "oficial", "hora": 1794297090, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794297300, "lado": -1, "compra": true, "sombra": false, "llenado": 5, "q": 0.534, "hora": 1794297363.31, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794297000, "ganador": 1, "fuente": "oficial", "hora": 1794297390, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794297600, "lado": -1, "compra": true, "sombra": false, "llenado": 5, "q": 0.57, "hora": 1794297663.31, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 15, "t": 1794297600, "lado": -1, "compra": true, "sombra": false, "llenado": 5, "q": 0.507, "hora": 1794297670.07, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794297600, "lado": -1, "compra": true, "sombra": false, "llenado": 15, "q": 0.57, "hora": 1794297673.31, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794297300, "ganador": -1, "fuente": "oficial", "hora": 1794297690, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 15, "t": 1794296700, "ganador": 1, "fuente": "oficial", "hora": 1794297690, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794297900, "lado": 1, "compra": true, "sombra": false, "llenado": 5, "q": 0.562, "hora": 1794297963.5, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794297900, "lado": 1, "compra": true, "sombra": false, "llenado": 15, "q": 0.562, "hora": 1794297973.5, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794297600, "ganador": -1, "fuente": "oficial", "hora": 1794297990, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794298200, "lado": 1, "compra": true, "sombra": false, "llenado": 5, "q": 0.541, "hora": 1794298267.55, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794297900, "ganador": 1, "fuente": "oficial", "hora": 1794298290, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 15, "t": 1794298500, "lado": -1, "compra": true, "sombra": false, "llenado": 5, "q": 0.547, "hora": 1794298563.89, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794298500, "lado": 1, "compra": true, "sombra": true, "llenado": 5, "q": 0.503, "hora": 1794298570.98, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 15, "t": 1794298500, "lado": -1, "compra": true, "sombra": false, "llenado": 15, "q": 0.547, "hora": 1794298573.89, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794298200, "ganador": 1, "fuente": "oficial", "hora": 1794298590, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 15, "t": 1794297600, "ganador": -1, "fuente": "oficial", "hora": 1794298590, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794298800, "lado": 1, "compra": true, "sombra": false, "llenado": 5, "q": 0.549, "hora": 1794298867.06, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794298500, "ganador": 1, "fuente": "oficial", "hora": 1794298890, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794299100, "lado": -1, "compra": true, "sombra": false, "llenado": 5, "q": 0.52, "hora": 1794299167.23, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794298800, "ganador": -1, "fuente": "oficial", "hora": 1794299190, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 15, "t": 1794299400, "lado": -1, "compra": true, "sombra": false, "llenado": 5, "q": 0.529, "hora": 1794299469.8, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794299400, "lado": -1, "compra": true, "sombra": true, "llenado": 5, "q": 0.51, "hora": 1794299474.42, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794299100, "ganador": 1, "fuente": "oficial", "hora": 1794299490, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 15, "t": 1794298500, "ganador": -1, "fuente": "oficial", "hora": 1794299490, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794299700, "lado": -1, "compra": true, "sombra": true, "llenado": 5, "q": 0.554, "hora": 1794299777.84, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794299400, "ganador": 1, "fuente": "oficial", "hora": 1794299790, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794300000, "lado": -1, "compra": true, "sombra": true, "llenado": 5, "q": 0.571, "hora": 1794300079.68, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794299700, "ganador": 1, "fuente": "oficial", "hora": 1794300090, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 15, "t": 1794300300, "lado": -1, "compra": true, "sombra": false, "llenado": 5, "q": 0.53, "hora": 1794300366.63, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794300300, "lado": -1, "compra": true, "sombra": false, "llenado": 5, "q": 0.513, "hora": 1794300368.68, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 15, "t": 1794300300, "lado": -1, "compra": true, "sombra": false, "llenado": 15, "q": 0.53, "hora": 1794300376.63, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794300300, "lado": -1, "compra": true, "sombra": false, "llenado": 15, "q": 0.513, "hora": 1794300378.68, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794300000, "ganador": 1, "fuente": "oficial", "hora": 1794300390, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 15, "t": 1794299400, "ganador": -1, "fuente": "oficial", "hora": 1794300390, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794300600, "lado": -1, "compra": true, "sombra": false, "llenado": 5, "q": 0.529, "hora": 1794300662.92, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794300300, "ganador": -1, "fuente": "oficial", "hora": 1794300690, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794300900, "lado": -1, "compra": true, "sombra": false, "llenado": 5, "q": 0.531, "hora": 1794300967.17, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794300900, "lado": -1, "compra": true, "sombra": false, "llenado": 15, "q": 0.531, "hora": 1794300977.17, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794300600, "ganador": -1, "fuente": "oficial", "hora": 1794300990, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 15, "t": 1794301200, "lado": -1, "compra": true, "sombra": false, "llenado": 5, "q": 0.549, "hora": 1794301262.94, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794301200, "lado": 1, "compra": true, "sombra": false, "llenado": 5, "q": 0.508, "hora": 1794301264.66, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 15, "t": 1794301200, "lado": -1, "compra": true, "sombra": false, "llenado": 15, "q": 0.549, "hora": 1794301272.94, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794301200, "lado": 1, "compra": true, "sombra": false, "llenado": 15, "q": 0.508, "hora": 1794301274.66, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794300900, "ganador": 1, "fuente": "oficial", "hora": 1794301290, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 15, "t": 1794300300, "ganador": 1, "fuente": "oficial", "hora": 1794301290, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794301500, "lado": 1, "compra": true, "sombra": false, "llenado": 5, "q": 0.568, "hora": 1794301568.76, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794301200, "ganador": -1, "fuente": "oficial", "hora": 1794301590, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794301800, "lado": -1, "compra": true, "sombra": true, "llenado": 5, "q": 0.505, "hora": 1794301876.88, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794301500, "ganador": -1, "fuente": "oficial", "hora": 1794301890, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 15, "t": 1794302100, "lado": 1, "compra": true, "sombra": false, "llenado": 5, "q": 0.562, "hora": 1794302166.26, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794302100, "lado": -1, "compra": true, "sombra": false, "llenado": 5, "q": 0.551, "hora": 1794302170.02, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794302100, "lado": -1, "compra": true, "sombra": false, "llenado": 15, "q": 0.551, "hora": 1794302180.02, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794301800, "ganador": 1, "fuente": "oficial", "hora": 1794302190, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 15, "t": 1794301200, "ganador": -1, "fuente": "oficial", "hora": 1794302190, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794302400, "lado": -1, "compra": true, "sombra": false, "llenado": 5, "q": 0.536, "hora": 1794302465.39, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794302100, "ganador": 1, "fuente": "oficial", "hora": 1794302490, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794302700, "lado": 1, "compra": true, "sombra": true, "llenado": 5, "q": 0.557, "hora": 1794302779.38, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794302400, "ganador": -1, "fuente": "oficial", "hora": 1794302790, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 15, "t": 1794303000, "lado": -1, "compra": true, "sombra": false, "llenado": 5, "q": 0.527, "hora": 1794303071.95, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794303000, "lado": 1, "compra": true, "sombra": true, "llenado": 5, "q": 0.575, "hora": 1794303076.29, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794302700, "ganador": -1, "fuente": "oficial", "hora": 1794303090, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 15, "t": 1794302100, "ganador": 1, "fuente": "oficial", "hora": 1794303090, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794303300, "lado": -1, "compra": true, "sombra": false, "llenado": 5, "q": 0.554, "hora": 1794303364.71, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794303000, "ganador": 1, "fuente": "oficial", "hora": 1794303390, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794303600, "lado": 1, "compra": true, "sombra": true, "llenado": 5, "q": 0.54, "hora": 1794303679.78, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794303300, "ganador": 1, "fuente": "oficial", "hora": 1794303690, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 15, "t": 1794303900, "lado": -1, "compra": true, "sombra": false, "llenado": 5, "q": 0.537, "hora": 1794303971.47, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794303900, "lado": -1, "compra": true, "sombra": true, "llenado": 5, "q": 0.566, "hora": 1794303974.32, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794303600, "ganador": 1, "fuente": "oficial", "hora": 1794303990, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 15, "t": 1794303000, "ganador": 1, "fuente": "oficial", "hora": 1794303990, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794304200, "lado": -1, "compra": true, "sombra": false, "llenado": 5, "q": 0.579, "hora": 1794304265.43, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794303900, "ganador": -1, "fuente": "oficial", "hora": 1794304290, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794304500, "lado": -1, "compra": true, "sombra": false, "llenado": 5, "q": 0.579, "hora": 1794304570.37, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794304500, "lado": -1, "compra": true, "sombra": false, "llenado": 15, "q": 0.579, "hora": 1794304580.37, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794304200, "ganador": 1, "fuente": "oficial", "hora": 1794304590, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 15, "t": 1794304800, "lado": 1, "compra": true, "sombra": false, "llenado": 5, "q": 0.507, "hora": 1794304865.19, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 15, "t": 1794304800, "lado": 1, "compra": true, "sombra": false, "llenado": 15, "q": 0.507, "hora": 1794304875.19, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794304800, "lado": -1, "compra": true, "sombra": true, "llenado": 5, "q": 0.507, "hora": 1794304878.41, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794304500, "ganador": -1, "fuente": "oficial", "hora": 1794304890, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 15, "t": 1794303900, "ganador": -1, "fuente": "oficial", "hora": 1794304890, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794305100, "lado": 1, "compra": true, "sombra": false, "llenado": 5, "q": 0.504, "hora": 1794305163.85, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794305100, "lado": 1, "compra": true, "sombra": false, "llenado": 15, "q": 0.504, "hora": 1794305173.85, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794304800, "ganador": -1, "fuente": "oficial", "hora": 1794305190, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794305400, "lado": -1, "compra": true, "sombra": false, "llenado": 5, "q": 0.578, "hora": 1794305467.47, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794305400, "lado": -1, "compra": true, "sombra": false, "llenado": 15, "q": 0.578, "hora": 1794305477.47, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794305100, "ganador": 0, "fuente": "oficial", "hora": 1794305490, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794305700, "lado": 1, "compra": true, "sombra": false, "llenado": 5, "q": 0.5, "hora": 1794305765.82, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 15, "t": 1794305700, "lado": 1, "compra": true, "sombra": false, "llenado": 5, "q": 0.513, "hora": 1794305771.66, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794305400, "ganador": -1, "fuente": "oficial", "hora": 1794305790, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 15, "t": 1794304800, "ganador": -1, "fuente": "oficial", "hora": 1794305790, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794306000, "lado": 1, "compra": true, "sombra": false, "llenado": 5, "q": 0.5, "hora": 1794306064.64, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794306000, "lado": 1, "compra": true, "sombra": false, "llenado": 15, "q": 0.5, "hora": 1794306074.64, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794305700, "ganador": 1, "fuente": "oficial", "hora": 1794306090, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794306300, "lado": -1, "compra": true, "sombra": true, "llenado": 5, "q": 0.524, "hora": 1794306372.33, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794306000, "ganador": 1, "fuente": "oficial", "hora": 1794306390, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794306600, "lado": -1, "compra": true, "sombra": false, "llenado": 5, "q": 0.558, "hora": 1794306666.94, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 15, "t": 1794306600, "lado": -1, "compra": true, "sombra": false, "llenado": 5, "q": 0.505, "hora": 1794306667.53, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794306600, "lado": -1, "compra": true, "sombra": false, "llenado": 15, "q": 0.558, "hora": 1794306676.94, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 15, "t": 1794306600, "lado": -1, "compra": true, "sombra": false, "llenado": 15, "q": 0.505, "hora": 1794306677.53, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794306300, "ganador": 1, "fuente": "oficial", "hora": 1794306690, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 15, "t": 1794305700, "ganador": 1, "fuente": "oficial", "hora": 1794306690, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794306900, "lado": 1, "compra": true, "sombra": false, "llenado": 5, "q": 0.557, "hora": 1794306967.13, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794306600, "ganador": 1, "fuente": "oficial", "hora": 1794306990, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794307200, "lado": 1, "compra": true, "sombra": false, "llenado": 5, "q": 0.547, "hora": 1794307270.93, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794306900, "ganador": 1, "fuente": "oficial", "hora": 1794307290, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794307500, "lado": 1, "compra": true, "sombra": true, "llenado": 5, "q": 0.511, "hora": 1794307573.61, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 15, "t": 1794307500, "lado": -1, "compra": true, "sombra": true, "llenado": 5, "q": 0.512, "hora": 1794307577.55, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794307200, "ganador": 1, "fuente": "oficial", "hora": 1794307590, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 15, "t": 1794306600, "ganador": -1, "fuente": "oficial", "hora": 1794307590, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794307800, "lado": 1, "compra": true, "sombra": false, "llenado": 5, "q": 0.55, "hora": 1794307868.81, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794307500, "ganador": -1, "fuente": "oficial", "hora": 1794307890, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794308100, "lado": 1, "compra": true, "sombra": false, "llenado": 5, "q": 0.54, "hora": 1794308167.35, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794307800, "ganador": 0, "fuente": "oficial", "hora": 1794308190, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794308400, "lado": -1, "compra": true, "sombra": false, "llenado": 5, "q": 0.568, "hora": 1794308464.35, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 15, "t": 1794308400, "lado": -1, "compra": true, "sombra": false, "llenado": 5, "q": 0.508, "hora": 1794308465.24, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 15, "t": 1794308400, "lado": -1, "compra": true, "sombra": false, "llenado": 15, "q": 0.508, "hora": 1794308475.24, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794308100, "ganador": -1, "fuente": "oficial", "hora": 1794308490, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 15, "t": 1794307500, "ganador": -1, "fuente": "oficial", "hora": 1794308490, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794308700, "lado": -1, "compra": true, "sombra": false, "llenado": 5, "q": 0.506, "hora": 1794308771.1, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794308700, "lado": -1, "compra": true, "sombra": false, "llenado": 15, "q": 0.506, "hora": 1794308781.1, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794308400, "ganador": -1, "fuente": "oficial", "hora": 1794308790, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794309000, "lado": 1, "compra": true, "sombra": false, "llenado": 5, "q": 0.527, "hora": 1794309068.52, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794308700, "ganador": 1, "fuente": "oficial", "hora": 1794309090, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 15, "t": 1794309300, "lado": -1, "compra": true, "sombra": true, "llenado": 5, "q": 0.519, "hora": 1794309371.43, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794309300, "lado": 1, "compra": true, "sombra": false, "llenado": 5, "q": 0.539, "hora": 1794309371.73, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794309300, "lado": 1, "compra": true, "sombra": false, "llenado": 15, "q": 0.539, "hora": 1794309381.73, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794309000, "ganador": 1, "fuente": "oficial", "hora": 1794309390, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 15, "t": 1794308400, "ganador": -1, "fuente": "oficial", "hora": 1794309390, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794309600, "lado": -1, "compra": true, "sombra": false, "llenado": 5, "q": 0.523, "hora": 1794309666.66, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794309300, "ganador": -1, "fuente": "oficial", "hora": 1794309690, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794309900, "lado": -1, "compra": true, "sombra": false, "llenado": 5, "q": 0.575, "hora": 1794309962.18, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794309600, "ganador": 1, "fuente": "oficial", "hora": 1794309990, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 15, "t": 1794310200, "lado": -1, "compra": true, "sombra": false, "llenado": 5, "q": 0.516, "hora": 1794310262.36, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794310200, "lado": -1, "compra": true, "sombra": false, "llenado": 5, "q": 0.573, "hora": 1794310271.31, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794310200, "lado": -1, "compra": true, "sombra": false, "llenado": 15, "q": 0.573, "hora": 1794310281.31, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794309900, "ganador": -1, "fuente": "oficial", "hora": 1794310290, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 15, "t": 1794309300, "ganador": 1, "fuente": "oficial", "hora": 1794310290, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794310500, "lado": -1, "compra": true, "sombra": true, "llenado": 5, "q": 0.566, "hora": 1794310575.09, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794310200, "ganador": -1, "fuente": "oficial", "hora": 1794310590, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794310800, "lado": 1, "compra": true, "sombra": false, "llenado": 5, "q": 0.57, "hora": 1794310865.94, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794310800, "lado": 1, "compra": true, "sombra": false, "llenado": 15, "q": 0.57, "hora": 1794310875.94, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794310500, "ganador": -1, "fuente": "oficial", "hora": 1794310890, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794311100, "lado": -1, "compra": true, "sombra": false, "llenado": 5, "q": 0.511, "hora": 1794311165.44, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 15, "t": 1794311100, "lado": 1, "compra": true, "sombra": false, "llenado": 5, "q": 0.577, "hora": 1794311171.26, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794310800, "ganador": -1, "fuente": "oficial", "hora": 1794311190, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 15, "t": 1794310200, "ganador": -1, "fuente": "oficial", "hora": 1794311190, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794311400, "lado": -1, "compra": true, "sombra": false, "llenado": 5, "q": 0.567, "hora": 1794311463.2, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794311100, "ganador": 1, "fuente": "oficial", "hora": 1794311490, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794311700, "lado": -1, "compra": true, "sombra": false, "llenado": 5, "q": 0.531, "hora": 1794311771.99, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794311400, "ganador": -1, "fuente": "oficial", "hora": 1794311790, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794312000, "lado": -1, "compra": true, "sombra": false, "llenado": 5, "q": 0.522, "hora": 1794312062.52, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 15, "t": 1794312000, "lado": -1, "compra": true, "sombra": false, "llenado": 5, "q": 0.526, "hora": 1794312064.34, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 15, "t": 1794312000, "lado": -1, "compra": true, "sombra": false, "llenado": 15, "q": 0.526, "hora": 1794312074.34, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794311700, "ganador": -1, "fuente": "oficial", "hora": 1794312090, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 15, "t": 1794311100, "ganador": 1, "fuente": "oficial", "hora": 1794312090, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794312300, "lado": 1, "compra": true, "sombra": false, "llenado": 5, "q": 0.535, "hora": 1794312365.16, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794312000, "ganador": 1, "fuente": "oficial", "hora": 1794312390, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794312600, "lado": 1, "compra": true, "sombra": false, "llenado": 5, "q": 0.55, "hora": 1794312671.13, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794312300, "ganador": -1, "fuente": "oficial", "hora": 1794312690, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 15, "t": 1794312900, "lado": 1, "compra": true, "sombra": false, "llenado": 5, "q": 0.514, "hora": 1794312966.51, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794312900, "lado": 1, "compra": true, "sombra": false, "llenado": 5, "q": 0.533, "hora": 1794312968.15, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794312900, "lado": 1, "compra": true, "sombra": false, "llenado": 15, "q": 0.533, "hora": 1794312978.15, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794312600, "ganador": 1, "fuente": "oficial", "hora": 1794312990, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 15, "t": 1794312000, "ganador": -1, "fuente": "oficial", "hora": 1794312990, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794313200, "lado": 1, "compra": true, "sombra": false, "llenado": 5, "q": 0.544, "hora": 1794313263.71, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794312900, "ganador": -1, "fuente": "oficial", "hora": 1794313290, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794313500, "lado": -1, "compra": true, "sombra": false, "llenado": 5, "q": 0.519, "hora": 1794313566.83, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794313200, "ganador": -1, "fuente": "oficial", "hora": 1794313590, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 15, "t": 1794313800, "lado": -1, "compra": true, "sombra": false, "llenado": 5, "q": 0.52, "hora": 1794313862.25, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794313800, "lado": 1, "compra": true, "sombra": false, "llenado": 5, "q": 0.572, "hora": 1794313866.97, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794313800, "lado": 1, "compra": true, "sombra": false, "llenado": 15, "q": 0.572, "hora": 1794313876.97, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794313500, "ganador": 1, "fuente": "oficial", "hora": 1794313890, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 15, "t": 1794312900, "ganador": 1, "fuente": "oficial", "hora": 1794313890, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794314100, "lado": -1, "compra": true, "sombra": true, "llenado": 5, "q": 0.515, "hora": 1794314170.91, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794313800, "ganador": -1, "fuente": "oficial", "hora": 1794314190, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794314400, "lado": -1, "compra": true, "sombra": false, "llenado": 5, "q": 0.521, "hora": 1794314467.7, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794314100, "ganador": 1, "fuente": "oficial", "hora": 1794314490, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794314700, "lado": -1, "compra": true, "sombra": false, "llenado": 5, "q": 0.542, "hora": 1794314765.77, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 15, "t": 1794314700, "lado": -1, "compra": true, "sombra": false, "llenado": 5, "q": 0.525, "hora": 1794314771.03, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 15, "t": 1794314700, "lado": -1, "compra": true, "sombra": false, "llenado": 15, "q": 0.525, "hora": 1794314781.03, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794314400, "ganador": -1, "fuente": "oficial", "hora": 1794314790, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 15, "t": 1794313800, "ganador": 1, "fuente": "oficial", "hora": 1794314790, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794315000, "lado": -1, "compra": true, "sombra": true, "llenado": 5, "q": 0.54, "hora": 1794315076.3, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794314700, "ganador": -1, "fuente": "oficial", "hora": 1794315090, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794315300, "lado": 1, "compra": true, "sombra": false, "llenado": 5, "q": 0.52, "hora": 1794315366.0, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794315000, "ganador": 1, "fuente": "oficial", "hora": 1794315390, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 15, "t": 1794315600, "lado": 1, "compra": true, "sombra": false, "llenado": 5, "q": 0.567, "hora": 1794315663.19, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794315600, "lado": 1, "compra": true, "sombra": true, "llenado": 5, "q": 0.557, "hora": 1794315678.96, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794315300, "ganador": 1, "fuente": "oficial", "hora": 1794315690, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 15, "t": 1794314700, "ganador": 1, "fuente": "oficial", "hora": 1794315690, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794315900, "lado": 1, "compra": true, "sombra": true, "llenado": 5, "q": 0.574, "hora": 1794315979.28, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794315600, "ganador": -1, "fuente": "oficial", "hora": 1794315990, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794316200, "lado": -1, "compra": true, "sombra": false, "llenado": 5, "q": 0.509, "hora": 1794316263.54, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794315900, "ganador": -1, "fuente": "oficial", "hora": 1794316290, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 15, "t": 1794316500, "lado": -1, "compra": true, "sombra": false, "llenado": 5, "q": 0.574, "hora": 1794316562.98, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794316500, "lado": 1, "compra": true, "sombra": false, "llenado": 5, "q": 0.503, "hora": 1794316569.82, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 15, "t": 1794316500, "lado": -1, "compra": true, "sombra": false, "llenado": 15, "q": 0.574, "hora": 1794316572.98, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794316500, "lado": 1, "compra": true, "sombra": false, "llenado": 15, "q": 0.503, "hora": 1794316579.82, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794316200, "ganador": -1, "fuente": "oficial", "hora": 1794316590, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 15, "t": 1794315600, "ganador": -1, "fuente": "oficial", "hora": 1794316590, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794316800, "lado": 1, "compra": true, "sombra": false, "llenado": 5, "q": 0.542, "hora": 1794316866.37, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794316500, "ganador": -1, "fuente": "oficial", "hora": 1794316890, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794317100, "lado": 1, "compra": true, "sombra": false, "llenado": 5, "q": 0.518, "hora": 1794317168.01, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794317100, "lado": 1, "compra": true, "sombra": false, "llenado": 15, "q": 0.518, "hora": 1794317178.01, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794316800, "ganador": -1, "fuente": "oficial", "hora": 1794317190, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794317400, "lado": -1, "compra": true, "sombra": false, "llenado": 5, "q": 0.552, "hora": 1794317470.84, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 15, "t": 1794317400, "lado": -1, "compra": true, "sombra": true, "llenado": 5, "q": 0.551, "hora": 1794317474.42, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794317100, "ganador": -1, "fuente": "oficial", "hora": 1794317490, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 15, "t": 1794316500, "ganador": 1, "fuente": "oficial", "hora": 1794317490, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794317700, "lado": 1, "compra": true, "sombra": false, "llenado": 5, "q": 0.556, "hora": 1794317765.07, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794317700, "lado": 1, "compra": true, "sombra": false, "llenado": 15, "q": 0.556, "hora": 1794317775.07, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794317400, "ganador": 1, "fuente": "oficial", "hora": 1794317790, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794318000, "lado": 1, "compra": true, "sombra": false, "llenado": 5, "q": 0.553, "hora": 1794318071.25, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794318000, "lado": 1, "compra": true, "sombra": false, "llenado": 15, "q": 0.553, "hora": 1794318081.25, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794317700, "ganador": -1, "fuente": "oficial", "hora": 1794318090, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794318300, "lado": -1, "compra": true, "sombra": false, "llenado": 5, "q": 0.532, "hora": 1794318362.07, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794318300, "lado": -1, "compra": true, "sombra": false, "llenado": 15, "q": 0.532, "hora": 1794318372.07, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 15, "t": 1794318300, "lado": -1, "compra": true, "sombra": true, "llenado": 5, "q": 0.567, "hora": 1794318375.27, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794318000, "ganador": -1, "fuente": "oficial", "hora": 1794318390, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 15, "t": 1794317400, "ganador": 1, "fuente": "oficial", "hora": 1794318390, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794318600, "lado": 1, "compra": true, "sombra": false, "llenado": 5, "q": 0.516, "hora": 1794318669.66, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794318600, "lado": 1, "compra": true, "sombra": false, "llenado": 15, "q": 0.516, "hora": 1794318679.66, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794318300, "ganador": 1, "fuente": "oficial", "hora": 1794318690, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794318900, "lado": -1, "compra": true, "sombra": true, "llenado": 5, "q": 0.55, "hora": 1794318976.1, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794318600, "ganador": -1, "fuente": "oficial", "hora": 1794318990, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 15, "t": 1794319200, "lado": 1, "compra": true, "sombra": false, "llenado": 5, "q": 0.517, "hora": 1794319267.71, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794319200, "lado": -1, "compra": true, "sombra": false, "llenado": 5, "q": 0.505, "hora": 1794319267.95, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 15, "t": 1794319200, "lado": 1, "compra": true, "sombra": false, "llenado": 15, "q": 0.517, "hora": 1794319277.71, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794318900, "ganador": -1, "fuente": "oficial", "hora": 1794319290, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 15, "t": 1794318300, "ganador": -1, "fuente": "oficial", "hora": 1794319290, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794319500, "lado": 1, "compra": true, "sombra": false, "llenado": 5, "q": 0.557, "hora": 1794319563.84, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794319200, "ganador": 1, "fuente": "oficial", "hora": 1794319590, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794319800, "lado": 1, "compra": true, "sombra": false, "llenado": 5, "q": 0.575, "hora": 1794319865.29, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794319800, "lado": 1, "compra": true, "sombra": false, "llenado": 15, "q": 0.575, "hora": 1794319875.29, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794319500, "ganador": -1, "fuente": "oficial", "hora": 1794319890, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794320100, "lado": 1, "compra": true, "sombra": false, "llenado": 5, "q": 0.558, "hora": 1794320170.39, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 15, "t": 1794320100, "lado": 1, "compra": true, "sombra": true, "llenado": 5, "q": 0.506, "hora": 1794320170.87, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794319800, "ganador": -1, "fuente": "oficial", "hora": 1794320190, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 15, "t": 1794319200, "ganador": 1, "fuente": "oficial", "hora": 1794320190, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794320400, "lado": 1, "compra": true, "sombra": true, "llenado": 5, "q": 0.506, "hora": 1794320474.2, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794320100, "ganador": 1, "fuente": "oficial", "hora": 1794320490, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794320700, "lado": -1, "compra": true, "sombra": false, "llenado": 5, "q": 0.566, "hora": 1794320770.22, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794320400, "ganador": 1, "fuente": "oficial", "hora": 1794320790, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794321000, "lado": 1, "compra": true, "sombra": false, "llenado": 5, "q": 0.574, "hora": 1794321063.93, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 15, "t": 1794321000, "lado": -1, "compra": true, "sombra": true, "llenado": 5, "q": 0.511, "hora": 1794321076.7, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794320700, "ganador": -1, "fuente": "oficial", "hora": 1794321090, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 15, "t": 1794320100, "ganador": -1, "fuente": "oficial", "hora": 1794321090, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794321300, "lado": -1, "compra": true, "sombra": false, "llenado": 5, "q": 0.55, "hora": 1794321366.05, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794321000, "ganador": 1, "fuente": "oficial", "hora": 1794321390, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794321600, "lado": -1, "compra": true, "sombra": true, "llenado": 5, "q": 0.505, "hora": 1794321676.06, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794321300, "ganador": 1, "fuente": "oficial", "hora": 1794321690, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794321900, "lado": 1, "compra": true, "sombra": false, "llenado": 5, "q": 0.557, "hora": 1794321965.16, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 15, "t": 1794321900, "lado": -1, "compra": true, "sombra": false, "llenado": 5, "q": 0.505, "hora": 1794321969.33, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794321900, "lado": 1, "compra": true, "sombra": false, "llenado": 15, "q": 0.557, "hora": 1794321975.16, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794321600, "ganador": -1, "fuente": "oficial", "hora": 1794321990, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 15, "t": 1794321000, "ganador": 1, "fuente": "oficial", "hora": 1794321990, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794322200, "lado": 1, "compra": true, "sombra": true, "llenado": 5, "q": 0.519, "hora": 1794322274.75, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794321900, "ganador": 0, "fuente": "oficial", "hora": 1794322290, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794322500, "lado": -1, "compra": true, "sombra": false, "llenado": 5, "q": 0.565, "hora": 1794322563.33, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794322200, "ganador": -1, "fuente": "oficial", "hora": 1794322590, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794322800, "lado": -1, "compra": true, "sombra": false, "llenado": 5, "q": 0.562, "hora": 1794322868.07, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 15, "t": 1794322800, "lado": -1, "compra": true, "sombra": false, "llenado": 5, "q": 0.567, "hora": 1794322870.65, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794322500, "ganador": 0, "fuente": "oficial", "hora": 1794322890, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 15, "t": 1794321900, "ganador": 1, "fuente": "oficial", "hora": 1794322890, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794323100, "lado": 1, "compra": true, "sombra": false, "llenado": 5, "q": 0.531, "hora": 1794323163.6, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794322800, "ganador": -1, "fuente": "oficial", "hora": 1794323190, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794323400, "lado": -1, "compra": true, "sombra": true, "llenado": 5, "q": 0.534, "hora": 1794323471.05, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794323100, "ganador": -1, "fuente": "oficial", "hora": 1794323490, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 15, "t": 1794323700, "lado": -1, "compra": true, "sombra": true, "llenado": 5, "q": 0.553, "hora": 1794323772.48, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794323700, "lado": 1, "compra": true, "sombra": true, "llenado": 5, "q": 0.54, "hora": 1794323777.1, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794323400, "ganador": 1, "fuente": "oficial", "hora": 1794323790, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 15, "t": 1794322800, "ganador": 0, "fuente": "oficial", "hora": 1794323790, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794324000, "lado": 1, "compra": true, "sombra": false, "llenado": 5, "q": 0.55, "hora": 1794324068.74, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794323700, "ganador": 1, "fuente": "oficial", "hora": 1794324090, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794324300, "lado": -1, "compra": true, "sombra": false, "llenado": 5, "q": 0.545, "hora": 1794324365.73, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794324000, "ganador": 1, "fuente": "oficial", "hora": 1794324390, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794324600, "lado": 1, "compra": true, "sombra": false, "llenado": 5, "q": 0.512, "hora": 1794324670.84, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 15, "t": 1794324600, "lado": 1, "compra": true, "sombra": true, "llenado": 5, "q": 0.53, "hora": 1794324675.95, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794324300, "ganador": 1, "fuente": "oficial", "hora": 1794324690, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 15, "t": 1794323700, "ganador": -1, "fuente": "oficial", "hora": 1794324690, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794324900, "lado": -1, "compra": true, "sombra": false, "llenado": 5, "q": 0.541, "hora": 1794324964.31, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794324600, "ganador": -1, "fuente": "oficial", "hora": 1794324990, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794325200, "lado": 1, "compra": true, "sombra": true, "llenado": 5, "q": 0.571, "hora": 1794325272.31, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794324900, "ganador": 1, "fuente": "oficial", "hora": 1794325290, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794325500, "lado": 1, "compra": true, "sombra": false, "llenado": 5, "q": 0.519, "hora": 1794325562.5, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 15, "t": 1794325500, "lado": -1, "compra": true, "sombra": false, "llenado": 5, "q": 0.506, "hora": 1794325565.57, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 15, "t": 1794325500, "lado": -1, "compra": true, "sombra": false, "llenado": 15, "q": 0.506, "hora": 1794325575.57, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794325200, "ganador": -1, "fuente": "oficial", "hora": 1794325590, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 15, "t": 1794324600, "ganador": 0, "fuente": "oficial", "hora": 1794325590, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794325800, "lado": 1, "compra": true, "sombra": false, "llenado": 5, "q": 0.569, "hora": 1794325866.49, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794325800, "lado": 1, "compra": true, "sombra": false, "llenado": 15, "q": 0.569, "hora": 1794325876.49, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794325500, "ganador": 1, "fuente": "oficial", "hora": 1794325890, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794326100, "lado": 1, "compra": true, "sombra": false, "llenado": 5, "q": 0.557, "hora": 1794326165.5, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794326100, "lado": 1, "compra": true, "sombra": false, "llenado": 15, "q": 0.557, "hora": 1794326175.5, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794325800, "ganador": 1, "fuente": "oficial", "hora": 1794326190, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 15, "t": 1794326400, "lado": -1, "compra": true, "sombra": false, "llenado": 5, "q": 0.572, "hora": 1794326464.92, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794326400, "lado": 1, "compra": true, "sombra": false, "llenado": 5, "q": 0.503, "hora": 1794326469.32, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 15, "t": 1794326400, "lado": -1, "compra": true, "sombra": false, "llenado": 15, "q": 0.572, "hora": 1794326474.92, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794326100, "ganador": 1, "fuente": "oficial", "hora": 1794326490, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 15, "t": 1794325500, "ganador": -1, "fuente": "oficial", "hora": 1794326490, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794326700, "lado": -1, "compra": true, "sombra": false, "llenado": 5, "q": 0.515, "hora": 1794326765.12, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794326700, "lado": -1, "compra": true, "sombra": false, "llenado": 15, "q": 0.515, "hora": 1794326775.12, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794326400, "ganador": -1, "fuente": "oficial", "hora": 1794326790, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794327000, "lado": 1, "compra": true, "sombra": false, "llenado": 5, "q": 0.564, "hora": 1794327068.64, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794327000, "lado": 1, "compra": true, "sombra": false, "llenado": 15, "q": 0.564, "hora": 1794327078.64, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794326700, "ganador": -1, "fuente": "oficial", "hora": 1794327090, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 15, "t": 1794327300, "lado": 1, "compra": true, "sombra": false, "llenado": 5, "q": 0.543, "hora": 1794327362.21, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794327300, "lado": -1, "compra": true, "sombra": false, "llenado": 5, "q": 0.533, "hora": 1794327364.83, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794327000, "ganador": 1, "fuente": "oficial", "hora": 1794327390, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 15, "t": 1794326400, "ganador": -1, "fuente": "oficial", "hora": 1794327390, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794327600, "lado": -1, "compra": true, "sombra": false, "llenado": 5, "q": 0.501, "hora": 1794327669.67, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794327300, "ganador": -1, "fuente": "oficial", "hora": 1794327690, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794327900, "lado": -1, "compra": true, "sombra": false, "llenado": 5, "q": 0.5, "hora": 1794327971.02, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794327600, "ganador": -1, "fuente": "oficial", "hora": 1794327990, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794328200, "lado": -1, "compra": true, "sombra": false, "llenado": 5, "q": 0.513, "hora": 1794328262.15, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 15, "t": 1794328200, "lado": 1, "compra": true, "sombra": true, "llenado": 5, "q": 0.52, "hora": 1794328278.17, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794327900, "ganador": -1, "fuente": "oficial", "hora": 1794328290, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 15, "t": 1794327300, "ganador": 1, "fuente": "oficial", "hora": 1794328290, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794328500, "lado": 1, "compra": true, "sombra": false, "llenado": 5, "q": 0.574, "hora": 1794328569.37, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794328500, "lado": 1, "compra": true, "sombra": false, "llenado": 15, "q": 0.574, "hora": 1794328579.37, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794328200, "ganador": -1, "fuente": "oficial", "hora": 1794328590, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794328800, "lado": 1, "compra": true, "sombra": false, "llenado": 5, "q": 0.509, "hora": 1794328866.91, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794328500, "ganador": 1, "fuente": "oficial", "hora": 1794328890, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 15, "t": 1794329100, "lado": 1, "compra": true, "sombra": false, "llenado": 5, "q": 0.567, "hora": 1794329168.37, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794329100, "lado": -1, "compra": true, "sombra": true, "llenado": 5, "q": 0.575, "hora": 1794329179.76, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794328800, "ganador": 1, "fuente": "oficial", "hora": 1794329190, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 15, "t": 1794328200, "ganador": 1, "fuente": "oficial", "hora": 1794329190, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794329400, "lado": -1, "compra": true, "sombra": true, "llenado": 5, "q": 0.557, "hora": 1794329476.88, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794329100, "ganador": 1, "fuente": "oficial", "hora": 1794329490, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794329700, "lado": -1, "compra": true, "sombra": false, "llenado": 5, "q": 0.516, "hora": 1794329766.73, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794329400, "ganador": 1, "fuente": "oficial", "hora": 1794329790, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 15, "t": 1794330000, "lado": 1, "compra": true, "sombra": false, "llenado": 5, "q": 0.508, "hora": 1794330063.79, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794330000, "lado": -1, "compra": true, "sombra": false, "llenado": 5, "q": 0.512, "hora": 1794330071.71, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 15, "t": 1794330000, "lado": 1, "compra": true, "sombra": false, "llenado": 15, "q": 0.508, "hora": 1794330073.79, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794329700, "ganador": 1, "fuente": "oficial", "hora": 1794330090, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 15, "t": 1794329100, "ganador": -1, "fuente": "oficial", "hora": 1794330090, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794330300, "lado": -1, "compra": true, "sombra": true, "llenado": 5, "q": 0.548, "hora": 1794330375.5, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794330000, "ganador": 1, "fuente": "oficial", "hora": 1794330390, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794330600, "lado": -1, "compra": true, "sombra": false, "llenado": 5, "q": 0.52, "hora": 1794330665.89, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794330300, "ganador": -1, "fuente": "oficial", "hora": 1794330690, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 15, "t": 1794330900, "lado": 1, "compra": true, "sombra": true, "llenado": 5, "q": 0.532, "hora": 1794330971.37, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794330900, "lado": 1, "compra": true, "sombra": true, "llenado": 5, "q": 0.579, "hora": 1794330974.65, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794330600, "ganador": 1, "fuente": "oficial", "hora": 1794330990, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 15, "t": 1794330000, "ganador": -1, "fuente": "oficial", "hora": 1794330990, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794331200, "lado": 1, "compra": true, "sombra": false, "llenado": 5, "q": 0.532, "hora": 1794331262.67, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794330900, "ganador": -1, "fuente": "oficial", "hora": 1794331290, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794331500, "lado": 1, "compra": true, "sombra": true, "llenado": 5, "q": 0.51, "hora": 1794331579.22, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794331200, "ganador": -1, "fuente": "oficial", "hora": 1794331590, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 15, "t": 1794331800, "lado": 1, "compra": true, "sombra": false, "llenado": 5, "q": 0.537, "hora": 1794331865.97, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794331800, "lado": 1, "compra": true, "sombra": false, "llenado": 5, "q": 0.572, "hora": 1794331868.53, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794331500, "ganador": 1, "fuente": "oficial", "hora": 1794331890, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 15, "t": 1794330900, "ganador": 1, "fuente": "oficial", "hora": 1794331890, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794332100, "lado": 1, "compra": true, "sombra": true, "llenado": 5, "q": 0.579, "hora": 1794332174.92, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794331800, "ganador": 1, "fuente": "oficial", "hora": 1794332190, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794332400, "lado": 1, "compra": true, "sombra": true, "llenado": 5, "q": 0.528, "hora": 1794332477.56, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794332100, "ganador": 1, "fuente": "oficial", "hora": 1794332490, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 15, "t": 1794332700, "lado": -1, "compra": true, "sombra": false, "llenado": 5, "q": 0.548, "hora": 1794332768.03, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 15, "t": 1794332700, "lado": -1, "compra": true, "sombra": false, "llenado": 15, "q": 0.548, "hora": 1794332778.03, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794332700, "lado": -1, "compra": true, "sombra": true, "llenado": 5, "q": 0.54, "hora": 1794332779.2, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794332400, "ganador": -1, "fuente": "oficial", "hora": 1794332790, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 15, "t": 1794331800, "ganador": 0, "fuente": "oficial", "hora": 1794332790, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794333000, "lado": 1, "compra": true, "sombra": false, "llenado": 5, "q": 0.503, "hora": 1794333063.82, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794333000, "lado": 1, "compra": true, "sombra": false, "llenado": 15, "q": 0.503, "hora": 1794333073.82, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794332700, "ganador": -1, "fuente": "oficial", "hora": 1794333090, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794333300, "lado": -1, "compra": true, "sombra": true, "llenado": 5, "q": 0.563, "hora": 1794333371.15, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794333000, "ganador": -1, "fuente": "oficial", "hora": 1794333390, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 15, "t": 1794333600, "lado": -1, "compra": true, "sombra": false, "llenado": 5, "q": 0.519, "hora": 1794333665.35, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794333600, "lado": -1, "compra": true, "sombra": false, "llenado": 5, "q": 0.546, "hora": 1794333670.83, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794333600, "lado": -1, "compra": true, "sombra": false, "llenado": 15, "q": 0.546, "hora": 1794333680.83, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794333300, "ganador": -1, "fuente": "oficial", "hora": 1794333690, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 15, "t": 1794332700, "ganador": 1, "fuente": "oficial", "hora": 1794333690, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794333900, "lado": -1, "compra": true, "sombra": false, "llenado": 5, "q": 0.579, "hora": 1794333967.77, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794333600, "ganador": -1, "fuente": "oficial", "hora": 1794333990, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794334200, "lado": 1, "compra": true, "sombra": true, "llenado": 5, "q": 0.559, "hora": 1794334270.48, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794333900, "ganador": -1, "fuente": "oficial", "hora": 1794334290, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 15, "t": 1794334500, "lado": -1, "compra": true, "sombra": false, "llenado": 5, "q": 0.504, "hora": 1794334567.17, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794334500, "lado": -1, "compra": true, "sombra": false, "llenado": 5, "q": 0.579, "hora": 1794334567.86, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794334200, "ganador": -1, "fuente": "oficial", "hora": 1794334590, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 15, "t": 1794333600, "ganador": -1, "fuente": "oficial", "hora": 1794334590, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794334800, "lado": 1, "compra": true, "sombra": false, "llenado": 5, "q": 0.523, "hora": 1794334868.26, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794334500, "ganador": 1, "fuente": "oficial", "hora": 1794334890, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794335100, "lado": 1, "compra": true, "sombra": false, "llenado": 5, "q": 0.549, "hora": 1794335162.46, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794335100, "lado": 1, "compra": true, "sombra": false, "llenado": 15, "q": 0.549, "hora": 1794335172.46, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794334800, "ganador": 1, "fuente": "oficial", "hora": 1794335190, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 15, "t": 1794335400, "lado": -1, "compra": true, "sombra": false, "llenado": 5, "q": 0.501, "hora": 1794335463.09, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794335400, "lado": 1, "compra": true, "sombra": false, "llenado": 5, "q": 0.543, "hora": 1794335466.13, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 15, "t": 1794335400, "lado": -1, "compra": true, "sombra": false, "llenado": 15, "q": 0.501, "hora": 1794335473.09, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794335100, "ganador": -1, "fuente": "oficial", "hora": 1794335490, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 15, "t": 1794334500, "ganador": 1, "fuente": "oficial", "hora": 1794335490, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794335700, "lado": -1, "compra": true, "sombra": true, "llenado": 5, "q": 0.501, "hora": 1794335778.02, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794335400, "ganador": -1, "fuente": "oficial", "hora": 1794335790, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794336000, "lado": 1, "compra": true, "sombra": true, "llenado": 5, "q": 0.512, "hora": 1794336076.65, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794335700, "ganador": -1, "fuente": "oficial", "hora": 1794336090, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 15, "t": 1794336300, "lado": 1, "compra": true, "sombra": false, "llenado": 5, "q": 0.534, "hora": 1794336365.97, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794336300, "lado": 1, "compra": true, "sombra": true, "llenado": 5, "q": 0.566, "hora": 1794336378.93, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794336000, "ganador": -1, "fuente": "oficial", "hora": 1794336390, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 15, "t": 1794335400, "ganador": 1, "fuente": "oficial", "hora": 1794336390, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794336600, "lado": -1, "compra": true, "sombra": false, "llenado": 5, "q": 0.572, "hora": 1794336662.44, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794336300, "ganador": -1, "fuente": "oficial", "hora": 1794336690, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794336900, "lado": 1, "compra": true, "sombra": true, "llenado": 5, "q": 0.562, "hora": 1794336970.12, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794336600, "ganador": 1, "fuente": "oficial", "hora": 1794336990, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794337200, "lado": 1, "compra": true, "sombra": false, "llenado": 5, "q": 0.541, "hora": 1794337268.43, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 15, "t": 1794337200, "lado": 1, "compra": true, "sombra": true, "llenado": 5, "q": 0.551, "hora": 1794337272.66, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794336900, "ganador": 1, "fuente": "oficial", "hora": 1794337290, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 15, "t": 1794336300, "ganador": 1, "fuente": "oficial", "hora": 1794337290, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794337500, "lado": -1, "compra": true, "sombra": true, "llenado": 5, "q": 0.55, "hora": 1794337579.94, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794337200, "ganador": 1, "fuente": "oficial", "hora": 1794337590, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794337800, "lado": 1, "compra": true, "sombra": false, "llenado": 5, "q": 0.535, "hora": 1794337871.12, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794337800, "lado": 1, "compra": true, "sombra": false, "llenado": 15, "q": 0.535, "hora": 1794337881.12, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794337500, "ganador": -1, "fuente": "oficial", "hora": 1794337890, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 15, "t": 1794338100, "lado": 1, "compra": true, "sombra": false, "llenado": 5, "q": 0.52, "hora": 1794338167.2, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794338100, "lado": 1, "compra": true, "sombra": false, "llenado": 5, "q": 0.521, "hora": 1794338168.44, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794338100, "lado": 1, "compra": true, "sombra": false, "llenado": 15, "q": 0.521, "hora": 1794338178.44, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794337800, "ganador": 1, "fuente": "oficial", "hora": 1794338190, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 15, "t": 1794337200, "ganador": -1, "fuente": "oficial", "hora": 1794338190, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794338400, "lado": 1, "compra": true, "sombra": false, "llenado": 5, "q": 0.544, "hora": 1794338466.36, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794338100, "ganador": -1, "fuente": "oficial", "hora": 1794338490, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794338700, "lado": -1, "compra": true, "sombra": false, "llenado": 5, "q": 0.577, "hora": 1794338764.17, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794338400, "ganador": -1, "fuente": "oficial", "hora": 1794338790, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 15, "t": 1794339000, "lado": 1, "compra": true, "sombra": false, "llenado": 5, "q": 0.552, "hora": 1794339063.2, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794339000, "lado": -1, "compra": true, "sombra": false, "llenado": 5, "q": 0.567, "hora": 1794339064.03, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794339000, "lado": -1, "compra": true, "sombra": false, "llenado": 15, "q": 0.567, "hora": 1794339074.03, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794338700, "ganador": 0, "fuente": "oficial", "hora": 1794339090, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 15, "t": 1794338100, "ganador": -1, "fuente": "oficial", "hora": 1794339090, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794339300, "lado": -1, "compra": true, "sombra": false, "llenado": 5, "q": 0.519, "hora": 1794339371.08, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794339000, "ganador": 1, "fuente": "oficial", "hora": 1794339390, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794339600, "lado": -1, "compra": true, "sombra": false, "llenado": 5, "q": 0.556, "hora": 1794339670.58, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794339300, "ganador": -1, "fuente": "oficial", "hora": 1794339690, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 15, "t": 1794339900, "lado": 1, "compra": true, "sombra": false, "llenado": 5, "q": 0.543, "hora": 1794339963.48, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794339900, "lado": 1, "compra": true, "sombra": false, "llenado": 5, "q": 0.547, "hora": 1794339967.65, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 15, "t": 1794339900, "lado": 1, "compra": true, "sombra": false, "llenado": 15, "q": 0.543, "hora": 1794339973.48, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794339900, "lado": 1, "compra": true, "sombra": false, "llenado": 15, "q": 0.547, "hora": 1794339977.65, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794339600, "ganador": -1, "fuente": "oficial", "hora": 1794339990, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 15, "t": 1794339000, "ganador": -1, "fuente": "oficial", "hora": 1794339990, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794340200, "lado": 1, "compra": true, "sombra": false, "llenado": 5, "q": 0.513, "hora": 1794340271.77, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794339900, "ganador": 1, "fuente": "oficial", "hora": 1794340290, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794340500, "lado": 1, "compra": true, "sombra": false, "llenado": 5, "q": 0.559, "hora": 1794340562.66, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794340200, "ganador": 1, "fuente": "oficial", "hora": 1794340590, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 15, "t": 1794340800, "lado": -1, "compra": true, "sombra": false, "llenado": 5, "q": 0.522, "hora": 1794340869.36, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794340800, "lado": -1, "compra": true, "sombra": true, "llenado": 5, "q": 0.516, "hora": 1794340871.12, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794340500, "ganador": 1, "fuente": "oficial", "hora": 1794340890, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 15, "t": 1794339900, "ganador": -1, "fuente": "oficial", "hora": 1794340890, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794341100, "lado": -1, "compra": true, "sombra": false, "llenado": 5, "q": 0.511, "hora": 1794341169.92, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794340800, "ganador": 1, "fuente": "oficial", "hora": 1794341190, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794341400, "lado": -1, "compra": true, "sombra": false, "llenado": 5, "q": 0.528, "hora": 1794341471.3, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794341400, "lado": -1, "compra": true, "sombra": false, "llenado": 15, "q": 0.528, "hora": 1794341481.3, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794341100, "ganador": -1, "fuente": "oficial", "hora": 1794341490, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794341700, "lado": -1, "compra": true, "sombra": false, "llenado": 5, "q": 0.549, "hora": 1794341762.31, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 15, "t": 1794341700, "lado": 1, "compra": true, "sombra": false, "llenado": 5, "q": 0.516, "hora": 1794341769.1, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794341400, "ganador": -1, "fuente": "oficial", "hora": 1794341790, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 15, "t": 1794340800, "ganador": -1, "fuente": "oficial", "hora": 1794341790, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794342000, "lado": -1, "compra": true, "sombra": false, "llenado": 5, "q": 0.504, "hora": 1794342067.66, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794341700, "ganador": 1, "fuente": "oficial", "hora": 1794342090, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794342300, "lado": 1, "compra": true, "sombra": false, "llenado": 5, "q": 0.542, "hora": 1794342364.88, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794342000, "ganador": -1, "fuente": "oficial", "hora": 1794342390, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 15, "t": 1794342600, "lado": -1, "compra": true, "sombra": false, "llenado": 5, "q": 0.502, "hora": 1794342665.34, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 15, "t": 1794342600, "lado": -1, "compra": true, "sombra": false, "llenado": 15, "q": 0.502, "hora": 1794342675.34, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794342600, "lado": -1, "compra": true, "sombra": true, "llenado": 5, "q": 0.556, "hora": 1794342678.25, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794342300, "ganador": -1, "fuente": "oficial", "hora": 1794342690, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 15, "t": 1794341700, "ganador": -1, "fuente": "oficial", "hora": 1794342690, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794342900, "lado": -1, "compra": true, "sombra": false, "llenado": 5, "q": 0.513, "hora": 1794342970.15, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794342600, "ganador": -1, "fuente": "oficial", "hora": 1794342990, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794343200, "lado": 1, "compra": true, "sombra": false, "llenado": 5, "q": 0.561, "hora": 1794343266.9, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794342900, "ganador": 1, "fuente": "oficial", "hora": 1794343290, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794343500, "lado": -1, "compra": true, "sombra": false, "llenado": 5, "q": 0.532, "hora": 1794343565.95, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 15, "t": 1794343500, "lado": 1, "compra": true, "sombra": false, "llenado": 5, "q": 0.513, "hora": 1794343571.52, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794343200, "ganador": 1, "fuente": "oficial", "hora": 1794343590, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 15, "t": 1794342600, "ganador": -1, "fuente": "oficial", "hora": 1794343590, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794343800, "lado": -1, "compra": true, "sombra": false, "llenado": 5, "q": 0.521, "hora": 1794343871.01, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794343500, "ganador": 1, "fuente": "oficial", "hora": 1794343890, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794344100, "lado": -1, "compra": true, "sombra": true, "llenado": 5, "q": 0.548, "hora": 1794344176.89, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794343800, "ganador": 1, "fuente": "oficial", "hora": 1794344190, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 15, "t": 1794344400, "lado": -1, "compra": true, "sombra": false, "llenado": 5, "q": 0.517, "hora": 1794344462.57, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794344400, "lado": -1, "compra": true, "sombra": false, "llenado": 5, "q": 0.542, "hora": 1794344470.68, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 15, "t": 1794344400, "lado": -1, "compra": true, "sombra": false, "llenado": 15, "q": 0.517, "hora": 1794344472.57, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794344100, "ganador": 1, "fuente": "oficial", "hora": 1794344490, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 15, "t": 1794343500, "ganador": -1, "fuente": "oficial", "hora": 1794344490, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794344700, "lado": 1, "compra": true, "sombra": false, "llenado": 5, "q": 0.555, "hora": 1794344764.57, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794344700, "lado": 1, "compra": true, "sombra": false, "llenado": 15, "q": 0.555, "hora": 1794344774.57, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794344400, "ganador": -1, "fuente": "oficial", "hora": 1794344790, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794345000, "lado": 1, "compra": true, "sombra": false, "llenado": 5, "q": 0.56, "hora": 1794345070.27, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794344700, "ganador": 1, "fuente": "oficial", "hora": 1794345090, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794345300, "lado": -1, "compra": true, "sombra": false, "llenado": 5, "q": 0.528, "hora": 1794345364.36, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 15, "t": 1794345300, "lado": -1, "compra": true, "sombra": false, "llenado": 5, "q": 0.541, "hora": 1794345370.34, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794345000, "ganador": 1, "fuente": "oficial", "hora": 1794345390, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 15, "t": 1794344400, "ganador": -1, "fuente": "oficial", "hora": 1794345390, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794345600, "lado": 1, "compra": true, "sombra": false, "llenado": 5, "q": 0.508, "hora": 1794345665.84, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794345300, "ganador": 1, "fuente": "oficial", "hora": 1794345690, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794345900, "lado": -1, "compra": true, "sombra": false, "llenado": 5, "q": 0.509, "hora": 1794345971.11, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794345900, "lado": -1, "compra": true, "sombra": false, "llenado": 15, "q": 0.509, "hora": 1794345981.11, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794345600, "ganador": -1, "fuente": "oficial", "hora": 1794345990, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 15, "t": 1794346200, "lado": 1, "compra": true, "sombra": false, "llenado": 5, "q": 0.553, "hora": 1794346263.4, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 15, "t": 1794346200, "lado": 1, "compra": true, "sombra": false, "llenado": 15, "q": 0.553, "hora": 1794346273.4, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794346200, "lado": 1, "compra": true, "sombra": true, "llenado": 5, "q": 0.568, "hora": 1794346274.37, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794345900, "ganador": -1, "fuente": "oficial", "hora": 1794346290, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 15, "t": 1794345300, "ganador": 1, "fuente": "oficial", "hora": 1794346290, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794346500, "lado": -1, "compra": true, "sombra": true, "llenado": 5, "q": 0.521, "hora": 1794346577.38, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794346200, "ganador": -1, "fuente": "oficial", "hora": 1794346590, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794346800, "lado": 1, "compra": true, "sombra": false, "llenado": 5, "q": 0.534, "hora": 1794346867.74, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794346500, "ganador": 0, "fuente": "oficial", "hora": 1794346890, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794347100, "lado": 1, "compra": true, "sombra": false, "llenado": 5, "q": 0.551, "hora": 1794347166.54, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 15, "t": 1794347100, "lado": 1, "compra": true, "sombra": false, "llenado": 5, "q": 0.559, "hora": 1794347169.6, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794346800, "ganador": 1, "fuente": "oficial", "hora": 1794347190, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 15, "t": 1794346200, "ganador": -1, "fuente": "oficial", "hora": 1794347190, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794347400, "lado": -1, "compra": true, "sombra": false, "llenado": 5, "q": 0.532, "hora": 1794347469.13, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794347400, "lado": -1, "compra": true, "sombra": false, "llenado": 15, "q": 0.532, "hora": 1794347479.13, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794347100, "ganador": 1, "fuente": "oficial", "hora": 1794347490, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794347700, "lado": -1, "compra": true, "sombra": true, "llenado": 5, "q": 0.569, "hora": 1794347775.18, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794347400, "ganador": -1, "fuente": "oficial", "hora": 1794347790, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794348000, "lado": -1, "compra": true, "sombra": false, "llenado": 5, "q": 0.531, "hora": 1794348066.9, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 15, "t": 1794348000, "lado": -1, "compra": true, "sombra": false, "llenado": 5, "q": 0.5, "hora": 1794348069.66, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794347700, "ganador": 1, "fuente": "oficial", "hora": 1794348090, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 15, "t": 1794347100, "ganador": 1, "fuente": "oficial", "hora": 1794348090, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794348300, "lado": 1, "compra": true, "sombra": false, "llenado": 5, "q": 0.576, "hora": 1794348364.0, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794348000, "ganador": 1, "fuente": "oficial", "hora": 1794348390, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794348600, "lado": 1, "compra": true, "sombra": false, "llenado": 5, "q": 0.541, "hora": 1794348668.39, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794348300, "ganador": -1, "fuente": "oficial", "hora": 1794348690, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794348900, "lado": -1, "compra": true, "sombra": false, "llenado": 5, "q": 0.555, "hora": 1794348965.92, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 15, "t": 1794348900, "lado": -1, "compra": true, "sombra": false, "llenado": 5, "q": 0.522, "hora": 1794348968.21, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 15, "t": 1794348900, "lado": -1, "compra": true, "sombra": false, "llenado": 15, "q": 0.522, "hora": 1794348978.21, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794348600, "ganador": -1, "fuente": "oficial", "hora": 1794348990, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 15, "t": 1794348000, "ganador": 1, "fuente": "oficial", "hora": 1794348990, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794349200, "lado": 1, "compra": true, "sombra": false, "llenado": 5, "q": 0.531, "hora": 1794349262.62, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794349200, "lado": 1, "compra": true, "sombra": false, "llenado": 15, "q": 0.531, "hora": 1794349272.62, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794348900, "ganador": -1, "fuente": "oficial", "hora": 1794349290, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794349500, "lado": -1, "compra": true, "sombra": true, "llenado": 5, "q": 0.524, "hora": 1794349574.0, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794349200, "ganador": -1, "fuente": "oficial", "hora": 1794349590, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 15, "t": 1794349800, "lado": -1, "compra": true, "sombra": false, "llenado": 5, "q": 0.523, "hora": 1794349865.91, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794349800, "lado": -1, "compra": true, "sombra": false, "llenado": 5, "q": 0.513, "hora": 1794349871.29, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794349800, "lado": -1, "compra": true, "sombra": false, "llenado": 15, "q": 0.513, "hora": 1794349881.29, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794349500, "ganador": 1, "fuente": "oficial", "hora": 1794349890, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 15, "t": 1794348900, "ganador": -1, "fuente": "oficial", "hora": 1794349890, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794350100, "lado": -1, "compra": true, "sombra": false, "llenado": 5, "q": 0.558, "hora": 1794350170.15, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794350100, "lado": -1, "compra": true, "sombra": false, "llenado": 15, "q": 0.558, "hora": 1794350180.15, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794349800, "ganador": 1, "fuente": "oficial", "hora": 1794350190, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794350400, "lado": -1, "compra": true, "sombra": false, "llenado": 5, "q": 0.561, "hora": 1794350468.5, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794350100, "ganador": -1, "fuente": "oficial", "hora": 1794350490, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 15, "t": 1794350700, "lado": 1, "compra": true, "sombra": false, "llenado": 5, "q": 0.568, "hora": 1794350767.0, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794350700, "lado": -1, "compra": true, "sombra": false, "llenado": 5, "q": 0.555, "hora": 1794350771.83, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794350400, "ganador": 1, "fuente": "oficial", "hora": 1794350790, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 15, "t": 1794349800, "ganador": -1, "fuente": "oficial", "hora": 1794350790, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794351000, "lado": -1, "compra": true, "sombra": false, "llenado": 5, "q": 0.524, "hora": 1794351066.8, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794350700, "ganador": -1, "fuente": "oficial", "hora": 1794351090, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794351300, "lado": 1, "compra": true, "sombra": false, "llenado": 5, "q": 0.568, "hora": 1794351362.57, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794351000, "ganador": -1, "fuente": "oficial", "hora": 1794351390, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794351600, "lado": -1, "compra": true, "sombra": false, "llenado": 5, "q": 0.501, "hora": 1794351662.11, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 15, "t": 1794351600, "lado": 1, "compra": true, "sombra": false, "llenado": 5, "q": 0.53, "hora": 1794351664.32, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794351300, "ganador": 1, "fuente": "oficial", "hora": 1794351690, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 15, "t": 1794350700, "ganador": -1, "fuente": "oficial", "hora": 1794351690, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794351900, "lado": 1, "compra": true, "sombra": false, "llenado": 5, "q": 0.568, "hora": 1794351963.86, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794351600, "ganador": -1, "fuente": "oficial", "hora": 1794351990, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794352200, "lado": -1, "compra": true, "sombra": false, "llenado": 5, "q": 0.513, "hora": 1794352270.91, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794351900, "ganador": 1, "fuente": "oficial", "hora": 1794352290, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794352500, "lado": 1, "compra": true, "sombra": false, "llenado": 5, "q": 0.517, "hora": 1794352562.79, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 15, "t": 1794352500, "lado": -1, "compra": true, "sombra": false, "llenado": 5, "q": 0.534, "hora": 1794352571.11, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 15, "t": 1794352500, "lado": -1, "compra": true, "sombra": false, "llenado": 15, "q": 0.534, "hora": 1794352581.11, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794352200, "ganador": -1, "fuente": "oficial", "hora": 1794352590, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 15, "t": 1794351600, "ganador": 1, "fuente": "oficial", "hora": 1794352590, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794352800, "lado": 1, "compra": true, "sombra": false, "llenado": 5, "q": 0.519, "hora": 1794352863.39, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794352500, "ganador": 1, "fuente": "oficial", "hora": 1794352890, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794353100, "lado": 1, "compra": true, "sombra": false, "llenado": 5, "q": 0.52, "hora": 1794353163.65, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794352800, "ganador": -1, "fuente": "oficial", "hora": 1794353190, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 15, "t": 1794353400, "lado": -1, "compra": true, "sombra": false, "llenado": 5, "q": 0.562, "hora": 1794353467.38, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794353400, "lado": -1, "compra": true, "sombra": false, "llenado": 5, "q": 0.545, "hora": 1794353468.65, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794353100, "ganador": 1, "fuente": "oficial", "hora": 1794353490, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 15, "t": 1794352500, "ganador": -1, "fuente": "oficial", "hora": 1794353490, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794353700, "lado": 1, "compra": true, "sombra": true, "llenado": 5, "q": 0.529, "hora": 1794353776.47, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794353400, "ganador": -1, "fuente": "oficial", "hora": 1794353790, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794354000, "lado": -1, "compra": true, "sombra": false, "llenado": 5, "q": 0.508, "hora": 1794354066.84, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794353700, "ganador": 1, "fuente": "oficial", "hora": 1794354090, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 15, "t": 1794354300, "lado": -1, "compra": true, "sombra": false, "llenado": 5, "q": 0.503, "hora": 1794354368.76, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794354300, "lado": -1, "compra": true, "sombra": false, "llenado": 5, "q": 0.527, "hora": 1794354370.62, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794354000, "ganador": 1, "fuente": "oficial", "hora": 1794354390, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 15, "t": 1794353400, "ganador": -1, "fuente": "oficial", "hora": 1794354390, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794354600, "lado": -1, "compra": true, "sombra": false, "llenado": 5, "q": 0.534, "hora": 1794354667.54, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794354300, "ganador": 1, "fuente": "oficial", "hora": 1794354690, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794354900, "lado": -1, "compra": true, "sombra": false, "llenado": 5, "q": 0.579, "hora": 1794354970.73, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794354600, "ganador": -1, "fuente": "oficial", "hora": 1794354990, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794355200, "lado": 1, "compra": true, "sombra": false, "llenado": 5, "q": 0.525, "hora": 1794355264.99, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 15, "t": 1794355200, "lado": 1, "compra": true, "sombra": false, "llenado": 5, "q": 0.508, "hora": 1794355265.74, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794354900, "ganador": -1, "fuente": "oficial", "hora": 1794355290, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 15, "t": 1794354300, "ganador": 0, "fuente": "oficial", "hora": 1794355290, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794355500, "lado": -1, "compra": true, "sombra": false, "llenado": 5, "q": 0.571, "hora": 1794355567.45, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794355500, "lado": -1, "compra": true, "sombra": false, "llenado": 15, "q": 0.571, "hora": 1794355577.45, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794355200, "ganador": 1, "fuente": "oficial", "hora": 1794355590, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794355800, "lado": 1, "compra": true, "sombra": true, "llenado": 5, "q": 0.574, "hora": 1794355876.09, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794355500, "ganador": 1, "fuente": "oficial", "hora": 1794355890, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 15, "t": 1794356100, "lado": 1, "compra": true, "sombra": false, "llenado": 5, "q": 0.539, "hora": 1794356166.4, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794356100, "lado": 1, "compra": true, "sombra": false, "llenado": 5, "q": 0.556, "hora": 1794356167.96, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794355800, "ganador": -1, "fuente": "oficial", "hora": 1794356190, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 15, "t": 1794355200, "ganador": 1, "fuente": "oficial", "hora": 1794356190, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794356400, "lado": 1, "compra": true, "sombra": true, "llenado": 5, "q": 0.515, "hora": 1794356470.37, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794356100, "ganador": -1, "fuente": "oficial", "hora": 1794356490, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794356700, "lado": -1, "compra": true, "sombra": false, "llenado": 5, "q": 0.511, "hora": 1794356765.09, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794356400, "ganador": 1, "fuente": "oficial", "hora": 1794356790, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794357000, "lado": -1, "compra": true, "sombra": true, "llenado": 5, "q": 0.502, "hora": 1794357075.66, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 15, "t": 1794357000, "lado": 1, "compra": true, "sombra": true, "llenado": 5, "q": 0.525, "hora": 1794357079.78, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794356700, "ganador": 1, "fuente": "oficial", "hora": 1794357090, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 15, "t": 1794356100, "ganador": -1, "fuente": "oficial", "hora": 1794357090, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794357300, "lado": -1, "compra": true, "sombra": false, "llenado": 5, "q": 0.503, "hora": 1794357363.19, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794357000, "ganador": 1, "fuente": "oficial", "hora": 1794357390, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794357600, "lado": -1, "compra": true, "sombra": true, "llenado": 5, "q": 0.554, "hora": 1794357675.94, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794357300, "ganador": -1, "fuente": "oficial", "hora": 1794357690, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794357900, "lado": -1, "compra": true, "sombra": false, "llenado": 5, "q": 0.544, "hora": 1794357962.83, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 15, "t": 1794357900, "lado": 1, "compra": true, "sombra": false, "llenado": 5, "q": 0.524, "hora": 1794357965.43, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794357600, "ganador": 1, "fuente": "oficial", "hora": 1794357990, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 15, "t": 1794357000, "ganador": 1, "fuente": "oficial", "hora": 1794357990, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794358200, "lado": -1, "compra": true, "sombra": true, "llenado": 5, "q": 0.555, "hora": 1794358271.22, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794357900, "ganador": 1, "fuente": "oficial", "hora": 1794358290, "_SINTETICO": true}
+{"tipo": "llenado", "serie": "papel", "W": 5, "t": 1794358500, "lado": 1, "compra": true, "sombra": false, "llenado": 5, "q": 0.51, "hora": 1794358562.18, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794358200, "ganador": 1, "fuente": "oficial", "hora": 1794358590, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 5, "t": 1794358500, "ganador": 1, "fuente": "oficial", "hora": 1794358890, "_SINTETICO": true}
+{"tipo": "resultado", "serie": "papel", "W": 15, "t": 1794357900, "ganador": -1, "fuente": "oficial", "hora": 1794358890, "_SINTETICO": true}
