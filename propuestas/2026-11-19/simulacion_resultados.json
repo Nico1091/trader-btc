@@ -1,0 +1,46 @@
+[
+  {
+    "ventaja_real": 0.0,
+    "actual": {
+      "p_armar": 1.0,
+      "mediana_apuestas": 53.0
+    },
+    "secuencial": {
+      "p_armar": 0.002,
+      "mediana_apuestas": 829
+    }
+  },
+  {
+    "ventaja_real": 0.03,
+    "actual": {
+      "p_armar": 1.0,
+      "mediana_apuestas": 35.0
+    },
+    "secuencial": {
+      "p_armar": 0.444,
+      "mediana_apuestas": 783.0
+    }
+  },
+  {
+    "ventaja_real": 0.05,
+    "actual": {
+      "p_armar": 1.0,
+      "mediana_apuestas": 31.0
+    },
+    "secuencial": {
+      "p_armar": 0.962,
+      "mediana_apuestas": 629
+    }
+  },
+  {
+    "ventaja_real": 0.1,
+    "actual": {
+      "p_armar": 1.0,
+      "mediana_apuestas": 25.0
+    },
+    "secuencial": {
+      "p_armar": 1.0,
+      "mediana_apuestas": 322.0
+    }
+  }
+]

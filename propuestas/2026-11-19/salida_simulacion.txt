@@ -1,0 +1,11 @@
+Simulación: 500 réplicas · 5 estrategias · 1000 apuestas cada una · semilla 1 · ventaja a detectar 0,030 · alfa 0,05
+Las estrategias se simulan independientes (ver LEEME: en el mercado real no lo son).
+
+Ventaja real    Regla actual: arma   mediana    Secuencial: arma   mediana
+ninguna                    100,0 %        53               0,2 %       829
++0,03                      100,0 %        35              44,4 %       783
++0,05                      100,0 %        31              96,2 %       629
++0,10                      100,0 %        25             100,0 %       322
+
+«arma» = proporción de réplicas en las que la regla arma en alguna de las K estrategias dentro del horizonte.
+«mediana» = apuestas por estrategia hasta el primer armado (solo réplicas que arman).

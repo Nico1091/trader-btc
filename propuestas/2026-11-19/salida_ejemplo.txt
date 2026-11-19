@@ -1,0 +1,13 @@
+Prueba secuencial · ventaja a detectar 0,030 · alfa total 0,05 · 5 estrategia(s)
+Límite para declarar VENTAJA: 4,61 (razón 100,0 a 1)
+Límite para descartar: -1,61
+
+Estrategia   Apuestas  Acierto Equilib.  Log-razón  Estado         Decidida  Faltan*
+E1                 60   61,7 %   51,1 %       0,65  ABIERTA               —     2183
+E2                 60   45,0 %   50,6 %      -0,52  ABIERTA               —     2833
+E3                 60   65,0 %   50,7 %       0,93  ABIERTA               —     2033
+E4                 60   48,3 %   50,4 %      -0,26  ABIERTA               —     2691
+E5                 60   46,7 %   50,6 %      -0,40  ABIERTA               —     2766
+
+* Faltan: apuestas aproximadas que harían falta, si la ventaja real fuera exactamente la que se detecta.
+  Las estrategias con «SIN VENTAJA» o «VENTAJA» ya quedaron decididas en la apuesta indicada.

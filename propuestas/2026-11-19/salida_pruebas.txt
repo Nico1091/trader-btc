@@ -1,0 +1,30 @@
+test_cada_estrategia_se_mira_por_separado (__main__.Analisis.test_cada_estrategia_se_mira_por_separado) ... ok
+test_pocas_apuestas_quedan_abiertas_y_dicen_cuantas_faltan (__main__.Analisis.test_pocas_apuestas_quedan_abiertas_y_dicen_cuantas_faltan) ... ok
+test_todo_aciertos_declara_ventaja_en_el_n_exacto (__main__.Analisis.test_todo_aciertos_declara_ventaja_en_el_n_exacto) ... ok
+test_todo_fallos_descarta_sin_ventaja (__main__.Analisis.test_todo_fallos_descarta_sin_ventaja) ... ok
+test_comision_cero_da_el_precio (__main__.Equilibrio.test_comision_cero_da_el_precio) ... ok
+test_equilibrio_con_pago_098 (__main__.Equilibrio.test_equilibrio_con_pago_098) ... ok
+test_acierto_suma_y_fallo_resta (__main__.Incrementos.test_acierto_suma_y_fallo_resta) ... ok
+test_esperanza_bajo_h0_no_es_positiva (__main__.Incrementos.test_esperanza_bajo_h0_no_es_positiva) ... ok
+test_kl_es_cero_si_son_iguales_y_positiva_si_no (__main__.Incrementos.test_kl_es_cero_si_son_iguales_y_positiva_si_no) ... ok
+test_acierto_distinto_de_0_1_se_rechaza (__main__.Lectura.test_acierto_distinto_de_0_1_se_rechaza) ... ok
+test_csv_con_coma_y_punto (__main__.Lectura.test_csv_con_coma_y_punto) ... ok
+test_falta_columna (__main__.Lectura.test_falta_columna) ... ok
+test_jsonl (__main__.Lectura.test_jsonl) ... ok
+test_jsonl_mal_formado_dice_la_linea (__main__.Lectura.test_jsonl_mal_formado_dice_la_linea) ... ok
+test_precio_51_se_rechaza (__main__.Lectura.test_precio_51_se_rechaza) ... ok
+test_precio_donde_no_cabe_la_ventaja (__main__.Lectura.test_precio_donde_no_cabe_la_ventaja) ... ok
+test_ejemplo_y_analisis_por_linea_de_comandos (__main__.Linea.test_ejemplo_y_analisis_por_linea_de_comandos) ... ok
+test_error_de_datos_sale_con_codigo_2 (__main__.Linea.test_error_de_datos_sale_con_codigo_2) ... ERROR: línea 2: el precio debe estar entre 0 y 1 (se leyó 51.0); use 0,51 o 0.51
+ok
+test_con_ventaja_grande_la_secuencial_arma (__main__.Simulacion.test_con_ventaja_grande_la_secuencial_arma) ... ok
+test_la_regla_actual_arma_casi_siempre_sin_ventaja (__main__.Simulacion.test_la_regla_actual_arma_casi_siempre_sin_ventaja) ... ok
+test_misma_semilla_mismo_resultado (__main__.Simulacion.test_misma_semilla_mismo_resultado) ... ok
+test_sin_ventaja_la_prueba_secuencial_casi_nunca_arma (__main__.Simulacion.test_sin_ventaja_la_prueba_secuencial_casi_nunca_arma) ... ok
+test_cinco_estrategias_reparten_el_alfa (__main__.Umbrales.test_cinco_estrategias_reparten_el_alfa) ... ok
+test_una_estrategia (__main__.Umbrales.test_una_estrategia) ... ok
+
+----------------------------------------------------------------------
+Ran 24 tests in 1.029s
+
+OK
