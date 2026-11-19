@@ -1,0 +1,26 @@
+test_archivo_vacio_es_error (__main__.PruebasArchivos.test_archivo_vacio_es_error) ... ok
+test_columna_60s_opcional (__main__.PruebasArchivos.test_columna_60s_opcional) ... ok
+test_empate_cuenta_como_fallo (__main__.PruebasArchivos.test_empate_cuenta_como_fallo) ... ok
+test_falta_columna_resultado_es_error (__main__.PruebasArchivos.test_falta_columna_resultado_es_error) ... ok
+test_separador_coma (__main__.PruebasArchivos.test_separador_coma) ... ok
+test_separador_punto_y_coma_con_bom (__main__.PruebasArchivos.test_separador_punto_y_coma_con_bom) ... ok
+test_valor_desconocido_es_error (__main__.PruebasArchivos.test_valor_desconocido_es_error) ... ok
+test_perdida_grande (__main__.PruebasDecision.test_perdida_grande) ... ok
+test_pocas_apuestas_no_deciden (__main__.PruebasDecision.test_pocas_apuestas_no_deciden) ... ok
+test_precio_maximo_con_centro (__main__.PruebasDecision.test_precio_maximo_con_centro) ... ok
+test_ventaja_grande_con_muchas_apuestas (__main__.PruebasDecision.test_ventaja_grande_con_muchas_apuestas) ... ok
+test_archivo_malo_da_codigo_2_y_no_se_calla (__main__.PruebasLinea.test_archivo_malo_da_codigo_2_y_no_se_calla) ... ok
+test_carpeta_completa_y_json (__main__.PruebasLinea.test_carpeta_completa_y_json) ... ok
+test_cobro_y_precio_fuera_de_rango (__main__.PruebasLinea.test_cobro_y_precio_fuera_de_rango) ... ok
+test_sin_archivos_da_codigo_2 (__main__.PruebasLinea.test_sin_archivos_da_codigo_2) ... ok
+test_equilibrio_y_valor_esperado (__main__.PruebasMatematicas.test_equilibrio_y_valor_esperado) ... ok
+test_pago_fijo_085_da_el_54_1_del_bloc (__main__.PruebasMatematicas.test_pago_fijo_085_da_el_54_1_del_bloc) ... ok
+test_veredicto (__main__.PruebasMatematicas.test_veredicto) ... ok
+test_wilson_contiene_la_proporcion (__main__.PruebasMatematicas.test_wilson_contiene_la_proporcion) ... ok
+test_wilson_sin_datos (__main__.PruebasMatematicas.test_wilson_sin_datos) ... ok
+test_wilson_valor_conocido (__main__.PruebasMatematicas.test_wilson_valor_conocido) ... ok
+
+----------------------------------------------------------------------
+Ran 21 tests in 0.044s
+
+OK

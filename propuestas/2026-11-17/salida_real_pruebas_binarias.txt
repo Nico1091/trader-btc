@@ -1,0 +1,188 @@
+
+== t18_BTCUSDT_apuestas.csv
+   apuestas 16961 · aciertos 9829 · fallos 7121 · empates 11 (cuentan como fallo)
+   acierto 57,95 %  IC 95 % [57,21 %, 58,69 %]
+   entrada 60 s tarde: acierto 56,45 %  IC 95 % [55,70 %, 57,19 %]  diferencia -1,50 puntos
+   precio máximo de compra con el centro: 0,568 · con IC 95 %: 0,561
+   precio máximo con IC 95 % y entrada 60 s tarde: 0,546
+    precio  equilibrio        EV veredicto                          EV 60 s veredicto 60 s                  
+     0,500     51,02 %  +13,58 % ventaja demostrada (IC 95 %)      +10,64 % ventaja demostrada (IC 95 %)    
+     0,544     55,51 %   +4,40 % ventaja demostrada (IC 95 %)       +1,69 % ventaja demostrada (IC 95 %)    
+     0,550     56,12 %   +3,26 % ventaja demostrada (IC 95 %)       +0,58 % sin decidir                     
+     0,600     61,22 %   -5,35 % pérdida demostrada (IC 95 %)       -7,80 % pérdida demostrada (IC 95 %)    
+
+== t18_ETHUSDT_apuestas.csv
+   apuestas 11070 · aciertos 6266 · fallos 4786 · empates 18 (cuentan como fallo)
+   acierto 56,60 %  IC 95 % [55,68 %, 57,52 %]
+   entrada 60 s tarde: acierto 55,31 %  IC 95 % [54,38 %, 56,24 %]  diferencia -1,29 puntos
+   precio máximo de compra con el centro: 0,555 · con IC 95 %: 0,546
+   precio máximo con IC 95 % y entrada 60 s tarde: 0,533
+    precio  equilibrio        EV veredicto                          EV 60 s veredicto 60 s                  
+     0,500     51,02 %  +10,94 % ventaja demostrada (IC 95 %)       +8,41 % ventaja demostrada (IC 95 %)    
+     0,544     55,51 %   +1,97 % ventaja demostrada (IC 95 %)       -0,36 % sin decidir                     
+     0,550     56,12 %   +0,86 % sin decidir                        -1,44 % sin decidir                     
+     0,600     61,22 %   -7,55 % pérdida demostrada (IC 95 %)       -9,66 % pérdida demostrada (IC 95 %)    
+
+== t18_PAXGUSDT_apuestas.csv
+   apuestas 7142 · aciertos 4006 · fallos 2568 · empates 568 (cuentan como fallo)
+   acierto 56,09 %  IC 95 % [54,94 %, 57,24 %]
+   entrada 60 s tarde: acierto 54,86 %  IC 95 % [53,70 %, 56,01 %]  diferencia -1,23 puntos
+   precio máximo de compra con el centro: 0,550 · con IC 95 %: 0,538
+   precio máximo con IC 95 % y entrada 60 s tarde: 0,526
+    precio  equilibrio        EV veredicto                          EV 60 s veredicto 60 s                  
+     0,500     51,02 %   +9,94 % ventaja demostrada (IC 95 %)       +7,52 % ventaja demostrada (IC 95 %)    
+     0,544     55,51 %   +1,05 % sin decidir                        -1,17 % sin decidir                     
+     0,550     56,12 %   -0,06 % sin decidir                        -2,25 % pérdida demostrada (IC 95 %)    
+     0,600     61,22 %   -8,39 % pérdida demostrada (IC 95 %)      -10,40 % pérdida demostrada (IC 95 %)    
+
+== t18_XAUUSDT_apuestas.csv
+   apuestas 1671 · aciertos 896 · fallos 766 · empates 9 (cuentan como fallo)
+   acierto 53,62 %  IC 95 % [51,22 %, 56,00 %]
+   entrada 60 s tarde: acierto 54,28 %  IC 95 % [51,88 %, 56,65 %]  diferencia +0,66 puntos
+   precio máximo de compra con el centro: 0,525 · con IC 95 %: 0,502
+   precio máximo con IC 95 % y entrada 60 s tarde: 0,508
+    precio  equilibrio        EV veredicto                          EV 60 s veredicto 60 s                  
+     0,500     51,02 %   +5,10 % ventaja demostrada (IC 95 %)       +6,39 % ventaja demostrada (IC 95 %)    
+     0,544     55,51 %   -3,40 % sin decidir                        -2,22 % sin decidir                     
+     0,550     56,12 %   -4,46 % pérdida demostrada (IC 95 %)       -3,28 % sin decidir                     
+     0,600     61,22 %  -12,42 % pérdida demostrada (IC 95 %)      -11,34 % pérdida demostrada (IC 95 %)    
+
+== t19_BTCUSDT_apuestas.csv
+   apuestas 43164 · aciertos 24726 · fallos 18411 · empates 27 (cuentan como fallo)
+   acierto 57,28 %  IC 95 % [56,82 %, 57,75 %]
+   entrada 60 s tarde: acierto 55,82 %  IC 95 % [55,36 %, 56,29 %]  diferencia -1,46 puntos
+   precio máximo de compra con el centro: 0,561 · con IC 95 %: 0,557
+   precio máximo con IC 95 % y entrada 60 s tarde: 0,542
+    precio  equilibrio        EV veredicto                          EV 60 s veredicto 60 s                  
+     0,500     51,02 %  +12,28 % ventaja demostrada (IC 95 %)       +9,42 % ventaja demostrada (IC 95 %)    
+     0,544     55,51 %   +3,20 % ventaja demostrada (IC 95 %)       +0,57 % sin decidir                     
+     0,550     56,12 %   +2,07 % ventaja demostrada (IC 95 %)       -0,53 % sin decidir                     
+     0,600     61,22 %   -6,44 % pérdida demostrada (IC 95 %)       -8,82 % pérdida demostrada (IC 95 %)    
+
+== t19_ETHUSDT_apuestas.csv
+   apuestas 36370 · aciertos 20497 · fallos 15845 · empates 28 (cuentan como fallo)
+   acierto 56,36 %  IC 95 % [55,85 %, 56,87 %]
+   entrada 60 s tarde: acierto 55,00 %  IC 95 % [54,49 %, 55,51 %]  diferencia -1,36 puntos
+   precio máximo de compra con el centro: 0,552 · con IC 95 %: 0,547
+   precio máximo con IC 95 % y entrada 60 s tarde: 0,534
+    precio  equilibrio        EV veredicto                          EV 60 s veredicto 60 s                  
+     0,500     51,02 %  +10,46 % ventaja demostrada (IC 95 %)       +7,80 % ventaja demostrada (IC 95 %)    
+     0,544     55,51 %   +1,53 % ventaja demostrada (IC 95 %)       -0,92 % sin decidir                     
+     0,550     56,12 %   +0,42 % sin decidir                        -2,00 % pérdida demostrada (IC 95 %)    
+     0,600     61,22 %   -7,95 % pérdida demostrada (IC 95 %)      -10,16 % pérdida demostrada (IC 95 %)    
+
+== t19_PAXGUSDT_apuestas.csv
+   apuestas 21368 · aciertos 12546 · fallos 7223 · empates 1599 (cuentan como fallo)
+   acierto 58,71 %  IC 95 % [58,05 %, 59,37 %]
+   entrada 60 s tarde: acierto 56,54 %  IC 95 % [55,87 %, 57,20 %]  diferencia -2,18 puntos
+   precio máximo de compra con el centro: 0,575 · con IC 95 %: 0,569
+   precio máximo con IC 95 % y entrada 60 s tarde: 0,548
+    precio  equilibrio        EV veredicto                          EV 60 s veredicto 60 s                  
+     0,500     51,02 %  +15,08 % ventaja demostrada (IC 95 %)      +10,81 % ventaja demostrada (IC 95 %)    
+     0,544     55,51 %   +5,77 % ventaja demostrada (IC 95 %)       +1,85 % ventaja demostrada (IC 95 %)    
+     0,550     56,12 %   +4,62 % ventaja demostrada (IC 95 %)       +0,74 % sin decidir                     
+     0,600     61,22 %   -4,10 % pérdida demostrada (IC 95 %)       -7,65 % pérdida demostrada (IC 95 %)    
+
+== t19_XAUUSDT_apuestas.csv
+   apuestas 999 · aciertos 527 · fallos 468 · empates 4 (cuentan como fallo)
+   acierto 52,75 %  IC 95 % [49,65 %, 55,83 %]
+   entrada 60 s tarde: acierto 52,95 %  IC 95 % [49,85 %, 56,03 %]  diferencia +0,20 puntos
+   precio máximo de compra con el centro: 0,517 · con IC 95 %: 0,487
+   precio máximo con IC 95 % y entrada 60 s tarde: 0,489
+    precio  equilibrio        EV veredicto                          EV 60 s veredicto 60 s                  
+     0,500     51,02 %   +3,40 % sin decidir                        +3,79 % sin decidir                     
+     0,544     55,51 %   -4,97 % sin decidir                        -4,61 % sin decidir                     
+     0,550     56,12 %   -6,00 % pérdida demostrada (IC 95 %)       -5,65 % pérdida demostrada (IC 95 %)    
+     0,600     61,22 %  -13,84 % pérdida demostrada (IC 95 %)      -13,51 % pérdida demostrada (IC 95 %)    
+
+== t25_unificado_apuestas.csv
+   apuestas 23049 · aciertos 13425 · fallos 9596 · empates 28 (cuentan como fallo)
+   acierto 58,25 %  IC 95 % [57,61 %, 58,88 %]
+   entrada 60 s tarde: acierto 55,99 %  IC 95 % [55,35 %, 56,63 %]  diferencia -2,26 puntos
+   precio máximo de compra con el centro: 0,571 · con IC 95 %: 0,565
+   precio máximo con IC 95 % y entrada 60 s tarde: 0,542
+    precio  equilibrio        EV veredicto                          EV 60 s veredicto 60 s                  
+     0,500     51,02 %  +14,16 % ventaja demostrada (IC 95 %)       +9,74 % ventaja demostrada (IC 95 %)    
+     0,544     55,51 %   +4,93 % ventaja demostrada (IC 95 %)       +0,86 % sin decidir                     
+     0,550     56,12 %   +3,78 % ventaja demostrada (IC 95 %)       -0,24 % sin decidir                     
+     0,600     61,22 %   -4,87 % pérdida demostrada (IC 95 %)       -8,55 % pérdida demostrada (IC 95 %)    
+
+== t29_BTCUSDT_apuestas.csv
+   apuestas 35174 · aciertos 16050 · fallos 19098 · empates 26 (cuentan como fallo)
+   acierto 45,63 %  IC 95 % [45,11 %, 46,15 %]
+   precio máximo de compra con el centro: 0,447 · con IC 95 %: 0,442
+    precio  equilibrio        EV veredicto                       
+     0,500     51,02 %  -10,56 % pérdida demostrada (IC 95 %)    
+     0,544     55,51 %  -17,80 % pérdida demostrada (IC 95 %)    
+     0,550     56,12 %  -18,70 % pérdida demostrada (IC 95 %)    
+     0,600     61,22 %  -25,47 % pérdida demostrada (IC 95 %)    
+
+== t29_ETHUSDT_apuestas.csv
+   apuestas 35682 · aciertos 16206 · fallos 19406 · empates 70 (cuentan como fallo)
+   acierto 45,42 %  IC 95 % [44,90 %, 45,93 %]
+   precio máximo de compra con el centro: 0,445 · con IC 95 %: 0,440
+    precio  equilibrio        EV veredicto                       
+     0,500     51,02 %  -10,98 % pérdida demostrada (IC 95 %)    
+     0,544     55,51 %  -18,18 % pérdida demostrada (IC 95 %)    
+     0,550     56,12 %  -19,07 % pérdida demostrada (IC 95 %)    
+     0,600     61,22 %  -25,82 % pérdida demostrada (IC 95 %)    
+
+== t30_BTCUSDT_apuestas.csv
+   apuestas 7027 · aciertos 3204 · fallos 3815 · empates 8 (cuentan como fallo)
+   acierto 45,60 %  IC 95 % [44,43 %, 46,76 %]
+   precio máximo de compra con el centro: 0,447 · con IC 95 %: 0,435
+    precio  equilibrio        EV veredicto                       
+     0,500     51,02 %  -10,63 % pérdida demostrada (IC 95 %)    
+     0,544     55,51 %  -17,86 % pérdida demostrada (IC 95 %)    
+     0,550     56,12 %  -18,76 % pérdida demostrada (IC 95 %)    
+     0,600     61,22 %  -25,53 % pérdida demostrada (IC 95 %)    
+
+== t30_ETHUSDT_apuestas.csv
+   apuestas 7076 · aciertos 3181 · fallos 3883 · empates 12 (cuentan como fallo)
+   acierto 44,95 %  IC 95 % [43,80 %, 46,12 %]
+   precio máximo de compra con el centro: 0,441 · con IC 95 %: 0,429
+    precio  equilibrio        EV veredicto                       
+     0,500     51,02 %  -11,89 % pérdida demostrada (IC 95 %)    
+     0,544     55,51 %  -19,02 % pérdida demostrada (IC 95 %)    
+     0,550     56,12 %  -19,90 % pérdida demostrada (IC 95 %)    
+     0,600     61,22 %  -26,57 % pérdida demostrada (IC 95 %)    
+
+== t31_BTCUSDT_giro30_apuestas.csv
+   apuestas 34846 · aciertos 14969 · fallos 19856 · empates 21 (cuentan como fallo)
+   acierto 42,96 %  IC 95 % [42,44 %, 43,48 %]
+   precio máximo de compra con el centro: 0,421 · con IC 95 %: 0,416
+    precio  equilibrio        EV veredicto                       
+     0,500     51,02 %  -15,80 % pérdida demostrada (IC 95 %)    
+     0,544     55,51 %  -22,61 % pérdida demostrada (IC 95 %)    
+     0,550     56,12 %  -23,46 % pérdida demostrada (IC 95 %)    
+     0,600     61,22 %  -29,84 % pérdida demostrada (IC 95 %)    
+
+== t31_BTCUSDT_giro5_apuestas.csv
+   apuestas 23474 · aciertos 10254 · fallos 13203 · empates 17 (cuentan como fallo)
+   acierto 43,68 %  IC 95 % [43,05 %, 44,32 %]
+   precio máximo de compra con el centro: 0,428 · con IC 95 %: 0,422
+    precio  equilibrio        EV veredicto                       
+     0,500     51,02 %  -14,38 % pérdida demostrada (IC 95 %)    
+     0,544     55,51 %  -21,31 % pérdida demostrada (IC 95 %)    
+     0,550     56,12 %  -22,17 % pérdida demostrada (IC 95 %)    
+     0,600     61,22 %  -28,65 % pérdida demostrada (IC 95 %)    
+
+== t31_ETHUSDT_giro30_apuestas.csv
+   apuestas 34688 · aciertos 15140 · fallos 19481 · empates 67 (cuentan como fallo)
+   acierto 43,65 %  IC 95 % [43,13 %, 44,17 %]
+   precio máximo de compra con el centro: 0,428 · con IC 95 %: 0,423
+    precio  equilibrio        EV veredicto                       
+     0,500     51,02 %  -14,45 % pérdida demostrada (IC 95 %)    
+     0,544     55,51 %  -21,37 % pérdida demostrada (IC 95 %)    
+     0,550     56,12 %  -22,23 % pérdida demostrada (IC 95 %)    
+     0,600     61,22 %  -28,71 % pérdida demostrada (IC 95 %)    
+
+== t31_ETHUSDT_giro5_apuestas.csv
+   apuestas 23749 · aciertos 10364 · fallos 13341 · empates 44 (cuentan como fallo)
+   acierto 43,64 %  IC 95 % [43,01 %, 44,27 %]
+   precio máximo de compra con el centro: 0,428 · con IC 95 %: 0,421
+    precio  equilibrio        EV veredicto                       
+     0,500     51,02 %  -14,47 % pérdida demostrada (IC 95 %)    
+     0,544     55,51 %  -21,38 % pérdida demostrada (IC 95 %)    
+     0,550     56,12 %  -22,24 % pérdida demostrada (IC 95 %)    
+     0,600     61,22 %  -28,72 % pérdida demostrada (IC 95 %)    
