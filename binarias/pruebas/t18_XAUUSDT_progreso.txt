@@ -1,0 +1,7 @@
+XAUUSDT: 37 estrategias, 89,115 señales · 1 s
+principal: 1671 apuestas · 1 s
+ventana de 6 meses: 1783 apuestas · 2 s
+ventana de 24 meses: 1671 apuestas · 2 s
+1 elegida: 584 apuestas · 2 s
+5 elegidas: 1770 apuestas · 2 s
+listo · 2 s

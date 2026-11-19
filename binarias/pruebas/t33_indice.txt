@@ -1,0 +1,6 @@
+T33 · ÍNDICE DE ESTABILIDAD (una neurona logística) · BTCUSDT · aprende 2021-23, se mide a ciegas en 2024-26, 10 min
+2024-26 con confianza ≥ 0.50: 296638 señales, acierto 52.1 %, 288.00 al día
+2024-26 con confianza ≥ 0.52: 204312 señales, acierto 52.9 %, 198.36 al día
+2024-26 con confianza ≥ 0.54: 121602 señales, acierto 54.1 %, 118.06 al día
+2024-26 con confianza ≥ 0.56: 59380 señales, acierto 55.6 %, 57.65 al día
+Pesos (variable estandarizada → empuje hacia la subida): rend 1 min -0.031; rend 5 min -0.049; rend 15 min -0.026; rend 60 min +0.007; volatilidad 15/240 +0.005; posición en 4 h -0.069; volumen 15/240 -0.007; estocástico 5 min -0.080; hora (seno) -0.007; hora (coseno) +0.010

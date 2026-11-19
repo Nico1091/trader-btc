@@ -1,0 +1,20 @@
+T4 · SEÑALES DEL CURSO COMO BINARIAS · velas de 5 min de futuros de Binance, 2020-2026 · empate = se devuelve
+acierto 2020-23 / 2024-26 (apuestas de la segunda mitad) · LIBRO = entra al cierre de la vela · REAL = un minuto después
+para no perder: 55,6 % con pago 0,80 · 54,1 % con 0,85 · 52,6 % con 0,90 · 52,1 % con 0,92
+
+== tres_cuervos AL REVÉS (sube) ==
+   vence en  5 min:  BTC libro 58,71 / 54,80 % (n=2.106)  BTC real 54,13 / 53,62 % (n=2.102)  NUEVAS libro 54,25 / 54,01 % (n=19.815)  NUEVAS real 52,12 / 53,13 % (n=19.774)
+   vence en 10 min:  BTC libro 55,67 / 54,63 % (n=2.107)  BTC real 52,80 / 52,89 % (n=2.108)  NUEVAS libro 54,16 / 53,36 % (n=19.922)  NUEVAS real 52,64 / 52,77 % (n=19.958)
+   vence en 15 min:  BTC libro 53,67 / 53,51 % (n=2.108)  BTC real 52,46 / 52,28 % (n=2.108)  NUEVAS libro 54,00 / 53,10 % (n=20.054)  NUEVAS real 52,76 / 52,16 % (n=20.044)
+
+== tres_soldados AL REVÉS (baja) ==
+   vence en  5 min:  BTC libro 56,13 / 53,60 % (n=2.304)  BTC real 54,16 / 54,02 % (n=2.301)  NUEVAS libro 53,06 / 51,20 % (n=22.811)  NUEVAS real 51,60 / 51,28 % (n=22.822)
+   vence en 10 min:  BTC libro 53,56 / 54,92 % (n=2.307)  BTC real 52,44 / 52,21 % (n=2.304)  NUEVAS libro 52,29 / 51,80 % (n=23.071)  NUEVAS real 50,60 / 51,63 % (n=23.028)
+   vence en 15 min:  BTC libro 54,50 / 52,67 % (n=2.305)  BTC real 53,11 / 53,31 % (n=2.309)  NUEVAS libro 51,67 / 51,20 % (n=23.139)  NUEVAS real 50,50 / 51,14 % (n=23.123)
+
+== martillo_invertido (sube) ==
+   vence en  5 min:  BTC libro 53,86 / 53,62 % (n=4.636)  BTC real 52,22 / 52,14 % (n=4.641)  NUEVAS libro 52,50 / 51,94 % (n=41.961)  NUEVAS real 51,11 / 51,16 % (n=41.924)
+   vence en 10 min:  BTC libro 54,57 / 52,67 % (n=4.638)  BTC real 53,06 / 52,66 % (n=4.643)  NUEVAS libro 52,70 / 51,29 % (n=42.318)  NUEVAS real 51,71 / 51,13 % (n=42.311)
+   vence en 15 min:  BTC libro 54,15 / 53,34 % (n=4.642)  BTC real 52,65 / 52,67 % (n=4.644)  NUEVAS libro 53,12 / 52,05 % (n=42.504)  NUEVAS real 52,05 / 51,79 % (n=42.541)
+
+CONFIRMADAS EN LAS 11 MONEDAS NUEVAS (entrada REAL, ≥ 54,1 % en las dos mitades): ninguna

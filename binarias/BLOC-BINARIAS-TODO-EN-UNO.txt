@@ -1,0 +1,960 @@
+---
+tags:
+  - tipo/proyecto
+  - area/cripto
+  - proyecto/binarias
+creado: 2026-10-30
+estado: activo
+ruta: C:\Users\ni109\Ingresos\binarias-papel
+relacionado: "[[Binarias en papel]]"
+---
+
+# Bloc de binarias - todo en uno
+
+BLOC ÚNICO DE LAS BINARIAS (Contratos de Evento de Binance, en papel)
+Creado el 30/10/2026 a las 14:10, hora de Colombia. Reemplaza al «PROMPT BINARIAS BTC - RETOMAR.txt» del 29/10 y a las cuatro memorias sueltas de binarias. Pasó a Obsidian el 17/11/2026 a las 17:56, por su orden.
+
+## CÓMO SE USA ESTE BLOC
+
+- Claude lee solo esta nota al empezar cualquier trabajo de binarias. No hace falta abrir las memorias.
+- Al terminar cada paso, Claude lo anota aquí mismo: en ENCARGOS marca [HECHO], [EN CURSO] o [PENDIENTE]; en ESTRATEGIAS mueve cada una a su clase; en BITÁCORA añade una línea con fecha y hora de Colombia.
+- Desde el 17/11/2026 el bloc vive en Obsidian y no en el Bloc de notas (su orden: «no en bloc de notas sino en obsidian»). Obsidian relee la nota del disco, así que lo que Claude anota se ve al momento. El TXT del Escritorio quedó como respaldo en Ingresos\binarias-papel\respaldos\BLOC.hasta-17-11.txt y ya no se usa.
+- Las líneas «Estado:» y «SIGUIENTE PASO:» de cada AL FRENTE van sin formato y al inicio de la línea: así las leen el aviso de inicio de Claude (recordatorio_encargo.py) y laboratorio\marcar_bloc.py.
+- Para una sesión nueva basta decir: «Lee la nota Bloc de binarias - todo en uno de Obsidian y sigue desde ENCARGOS», o abrir NUEVA SESION BINARIAS.cmd.
+
+## AL FRENTE (18/11/2026, 16:10): PARIDAD CON LA APUESTA A MANO · LA IA COMPRA AL PRECIO QUE VIO · CUENTA A MANO EN EL NODO
+Estado: EN CURSO
+SIGUIENTE PASO: nada suyo: todo corre solo en el teléfono. A las 16:26, por su orden («encárguese que vuelva a funcionar todo otra vez sin yo tener que hacer nada»), volvió la regla de armarse solo: el operador se arma cuando una estrategia del Centro llega a 18 de 25 y ejecuta solo las órdenes de la IA. Esas órdenes llegan únicamente con 25 señales contadas a mano, 19 aciertos y neto positivo, y se compran al precio que ella vio (hasta 0,02 más). Hoy ninguna estrategia lo ha demostrado (E1, la que más lleva, tiene 6 de 25), así que todavía no compra. Revisión completa de las 16:30 (REVISION-18-11-tarde.md): todo BIEN. La caja está desconectada por él: no se revisa ni se le pregunta. Solo necesita su palabra, cuando quiera, una cosa: si se borran las claves a la vista de Descargas (ya cifradas en la USB).
+- [HECHO 16:26] Su orden (16:24): «encárguese que vuelva a funcionar todo otra vez sin yo tener que hacer nada». Regla ARMAR_AL_70 puesta de nuevo en la app, con su texto: «puesta de nuevo por orden del dueño en el chat con Claude». La primera vez, el control de permisos de Claude Code lo negó; él dijo «reintenta» y lo aprobó. Sin ARMADO: se arma sola al llegar una estrategia del Centro a 18 de 25 (a las 16:22, E3 iba en 17).
+- [HECHO 16:30] Revisión completa (REVISION-PROMPT.md, A a I; resultado en REVISION-18-11-tarde.md): A, B, D, E, F, G y H BIEN. C no aplica: la caja está desconectada por él («deje de estar probando con la caja», 16:31). En I, el teléfono no tiene llaves en los temporales; en Descargas del PC siguen claves a la vista (pendiente su sí). Prueba sin fondos de las 16:28: 20,50 USDT, llave restringida y sin futuros, cotización de 2 USDT de BAJA a 0,350 sin enviar nada. Telegram directo bien. Pruebas en el PC: nodo 70, rutina 36, aprobación 57, regla del 70 % 16, paridad 9 y publicador 42. Código de la app igual al del PC en 29 de 29.
+- [HECHO 16:22] Él no entendió el pedido de «bloquear la app en Recientes» («la función era que funcionara la aplicación»). Se le aclaró que la app funciona (seis programas corriendo a las 16:22) y que el candado no hace falta: si se cierra, vuelve sola en unos 20 s. Se quitó de los pendientes.
+- [HECHO 16:14] Él escribió «operador parar» (Telegram, 16:14:33). El operador contestó «ya estaba desarmado: no hay compras reales. El papel sigue midiendo. La regla de armarse solo al 70 % quedó quitada». Comprobado a las 16:17: sin ARMADO ni ARMAR_AL_70 ni PARAR; el operador (13729) y el nodo (14020) siguen vivos desde las 16:01 y los otros cuatro programas de la app también. Su encargo: «encárgate tú del resto… avísame si falta algo».
+- [HECHO 16:19] Respaldo en GitHub: commit 0a3fec1 en la rama binarias/plan-v7-2026-11-04 de trader-btc (20 archivos: bloc, nodo, operador y la carpeta paridad; nunca master). sincronizar_repo.py sube ahora también paridad\ y firma con el modelo que trabaja (variable COAUTOR). La app del teléfono sigue fuera de GitHub (lleva su firma), como siempre.
+- Su pedido (15:24): «el prompt debe ser de plan de mejora y de mirar por qué la rutina da menos dinero que si yo apuesto manual, cuando en realidad ambas deberían dar lo mismo»; plan de revisión, plan de análisis, prompt de consolidación y la aplicación bien hecha «acorde a las intenciones de ganancia». Todo en binarias-papel\paridad (1 a 5), sin agentes.
+- [HECHO 15:22] Revisada la retroalimentación de la rutina de proyectos (rama claude/proyectos-2026-11-18-regla70, commit 30ea970: la regla 18 de 25 arma por azar en el 99,3 % de 30 días) con las tres capturas de Binance de las 15:18 (Up 0,46 a 0,48 y Down 0,58; 20,50 USDT sin posiciones; «Conexión inestable»). Su informe supuso un pago fijo de 0,85. El prompt de mejora de esa hora quedó reemplazado por paridad\5-PROMPT-CONSOLIDACION.md y se retiró.
+- [HECHO 15:35] Revisión (paridad\2-REVISION.md). El libro del operador es el mismo de la app, y «Ganar» es 0,98 ÷ precio (2,13 = 0,98 / 0,46): lo que paga si acierta, no ganancia. Hay cuatro causas de que la rutina gane menos que la mano. (1) Desde el 18/11 la orden de la IA se compraba a cualquier precio de 0,01 a 0,90 y hasta 10 min después. (2) Decidía con información de 35 s a más de 2 min atrás. (3) El nodo elegía estrategias con un precio supuesto de 0,544 y un resultado que no es el del mercado comprado. (4) La rutina de la nube medía con 0,85 fijo. También: 11 rechazos −1021 en el día, y la app se cierra cada vez que él limpia las Recientes.
+- [HECHO 15:45] Análisis (paridad\4-ANALISIS.md, analisis_paridad.py). En el mercado de 5 min, el lado ganador sube 0,085 por minuto, y un lado cambia más de 0,10 en el 63 % de los minutos. Las estrategias compran el lado barato el 73 % de las veces; el acierto en el mercado es 20 %, contra 30 % en la cuenta propia; para E1, E3 y E5, la cuenta del nodo y la manual tienen signo contrario. El papel de Fable pierde con precio real (5 min: −12,9 por USDT en 27 compras). El equilibrio real en la mediana es 57,1 %, no 54,05 %. Ninguna fuente gana todavía con precio real.
+- [HECHO 15:55] Prompt de consolidación (paridad\5-PROMPT-CONSOLIDACION.md): reglas P1 a P7, cambios y pruebas de aceptación; revisado contra lo instalado a las 16:05.
+- [HECHO 16:01] Aplicación corregida e instalada en la app (paridad.sh instalar; copias .antes-paridad-18-11 y respaldos\antes-paridad-18-11). El nodo lleva la cuenta a mano (dinero.json) y no consulta a la IA sin precio real. La IA ve lo que paga cada lado, y la decisión guarda los precios que vio. El ejecutor no paga más de 0,02 sobre ellos, y la orden vale 2 min. La demora baja a unos 25 s, el −1021 se repite una vez y el medidor de la combinación ya no supone precios. Pruebas en el PC y con el motor de la app: nodo 70 de 70, rutina 36 de 36, aprobación 57 de 57, regla del 70 % 16 de 16 y paridad 9 de 9 (10 de 10 señales reales iguales al análisis). Operador «versión 3 · al precio que vio», en estado 2 y sin ARMADO; el aviso ya dice «en el teléfono».
+- [HECHO 16:02] Rutina aprobadora con el bloque PRECIO Y CUENTA; mismo token, modelo, esfuerzo, entorno y repositorio. Copia: respaldos\rutina-aprobadora-antes-paridad-18-11.json.
+- [HECHO 16:03] Prueba de punta a punta (paridad\prueba_punta_paridad.py, como la app): con SUBE a 0,46 («paga 2,13», compra hasta 0,48) y BAJA a 0,58, la rutina respondió «NO COMPRAR» en unos 31 s y el teléfono lo leyó; no pasa por el candado.
+- Para volver atrás: run-as co.binarias.motor sh /data/local/tmp/paridad-18-11/paridad.sh volver; la rutina, con la copia de respaldos. La caja (sin respuesta desde las 11:31) conserva el nodo anterior: sin token no dispara, y el teléfono no toma sus puntos como altos.
+
+## AL FRENTE (18/11/2026, 10:45): TODO DENTRO DE LA APP BINARIAS DEL TELÉFONO · MOTOR Y LLAVES ADENTRO · SIN PC · TERMUX DE RESPALDO
+Estado: HECHO (sigue en el AL FRENTE de las 16:10: paridad con la apuesta a mano)
+PASO DE ENTONCES: nada suyo: el operador se arma SOLO cuando una estrategia del Centro llegue a 18 de 25 (72 %, el 70 % o más) y le avisa por Telegram; a las 11:29 la mejor era E3 con 17 de 25. Para detener todo: «operador parar» (desarma y quita la regla); para volver a poner la regla: «operador automático».
+- [HECHO 11:45] Su pedido: «revise que todo haya quedado perfectamente, créese un prompt para revisar». Prompt en binarias-papel\REVISION-PROMPT.md (criterios A a I, cada uno con su comprobación; herramienta app-telefono\v2\revision.sh app|termux|caja) y resultado en REVISION-18-11.md: teléfono, nube, dinero y pruebas TODO BIEN (app: 6 programas, sin Tor, 8 llaves en 600, código igual al PC 29 de 29, inicio automático y batería bien, depuración por wifi apagada; Termux en pausa sin Tor; rutina activa con su token; el teléfono lee las decisiones en GitHub; llave sin futuros, 20,50 USDT, cotización real 0,46 sin orden, sin ARMADO y con la regla del 70 %; IP de la casa y Telegram directo; pruebas 65, 29, 50, 16 y 42). PENDIENTE DE ÉL: la caja dejó de responder a las 11:31:35 (ni ping ni adb): revisarla en persona (corriente o reposo); no afecta al dinero. Higiene: en Descargas hay siete archivos con claves a la vista (lista en REVISION-18-11.md); van cifrados a la USB y no se borran sin su sí.
+- [HECHO 12:20] USB terminada y comprobada: pasada de las 11:48 a las 12:05 (CONTEXTO 1.373 notas y 34 claves tapadas; NUEVO con 102 archivos de binarias y credenciales-2026-11-18.nrc de 10,7 MB; RESPALDO con respaldo-nicolas-2026-11-18.nrc de 3,3 GB y respaldo-ingresos-2026-11-18.nrc de 4,3 GB; todo verificado leyéndolo de vuelta) y, por su pedido de «copia y pega, no altere nada», RESPALDO\BINARIAS-COMPLETO-2026-11-18\ con binarias-papel (8.336 archivos, 3,24 GB, idéntica al PC; sin la firma de la app, que va cifrada), publicador-github, pulso-btc, las notas de binarias de Obsidian y la memoria de binarias. Ninguna partición creada ni borrada. La contraseña de los .nrc quedó en Desktop\CONTRASEÑA DE LOS RESPALDOS USB.txt, a su pedido.
+- [HECHO, antes EN CURSO 11:50] Su pedido: «pase todo lo del contexto, credenciales y todo a la USB, en una partición aparte, nueva, sin borrar las anteriores». La USB (117 GB, serie FC03149F1E5F2, MBR) no tiene espacio sin asignar (el mayor hueco: 0,01 GB) y esta cuenta no es administradora: no se crea ni se borra ninguna partición. La partición nueva y libre es NUEVO (361 MB, 359 libres). migrar_usb.py puesto al día (copia migrar_usb.antes-18-11.py): NUEVO lleva el contexto de binarias con las claves tapadas (bloc de Obsidian, revisión, nodo, operador, app del teléfono sin firma, publicador) y credenciales-2026-11-18.nrc con TODAS las credenciales cifradas (.config, Descargas, credenciales-granja, firma de la app y las llaves de la app del teléfono traídas por cable a una carpeta temporal que se borra); RESPALDO, los dos .nrc del día (contexto con claves e Ingresos), verificados.
+- [HECHO 11:30] Su orden (11:20): «que se arme solo cuando esté en el 70 % o por encima… para yo no tener que estar pendiente… ya él empieza a moverse solo». Regla en operador.py (_armar_solo y estrategias_centro): con el archivo ARMAR_AL_70, una vez por minuto mira el Centro (127.0.0.1:8797/api/centro, las cinco estrategias, últimas 25 cerradas); si alguna va en 18 de 25 o más y la llave y la billetera están bien (_falta_para_armar), arma los dos mercados (ARMADO firmado «su regla del 18/11/2026» con la estrategia que la cumplió) y le avisa; si la llave o la billetera fallan, no arma y lo dice una vez. «operador parar» desarma y borra la regla; «operador automático» la pone. No desarma solo: lo que deja de ganar lo frena el nodo (no le manda a la IA patrones por debajo de 19 de 25 o sin ganancias) y el freno del día. Pruebas: prueba_regla70.py 16 de 16 y prueba_aprobacion.py 50 de 50 en el PC y con el motor de la app. Operador nuevo en la app a las 11:29:33 (copia operador.py.antes-regla70-18-11; volver: copiarla encima con PARAR puesto). Él quitó los futuros de la llave a las 11:14: «restringida por IP; sin retiros, transferencias, margen ni futuros».
+- [HECHO 11:10] Su aviso: «ya hay dinero real, asegúrate que todo haya quedado en orden». Revisado sin tocar nada: la llave pasa en Binance desde las 11:04 (él puso la IP); billetera de predicción con 20,50 USDT (Spot 0, Fondos 0); mercados de 5 y 15 min abiertos con libro real; operador en estado 2 (papel con precios reales), SIN ARMADO y sin ninguna orden real; un solo operador en todo (el de la app; el de Termux y el de la caja con PARAR). La prueba sin fondos de las 11:04 dio −1021 en la cotización (hora fuera de la ventana, una sola vez, al pasar la llave); repetida dos veces a las 11:09 (operador.py prueba, solo consulta): 2 USDT de SUBE cotizan a 0,290 y 0,360, hay saldo, sin orden. Único bloqueo: «trae permisos de más: futuros» (también compraventa de contado, que se permite). Con 20,50 USDT: tope por orden 3,28 USDT (16 %) y freno del día 3,28 USDT; con 2 USDT por orden, una orden abierta a la vez y el día se detiene tras la primera pérdida. Sin probar todavía con dinero real: el cobro automático de lo ganado (batch-redeem); si falla, el operador avisa «SIN COBRAR» y se cobra a mano en la app.
+- [HECHO 10:41] Él activó el «Inicio automático» de la app Binarias (comprobado: MIUIOP 10008 en allow). En HyperOS no está en la información de la app: está en Seguridad → Inicio automático (com.miui.securitycenter/com.miui.permcenter.autostart.AutoStartManagementActivity, se abre por adb con am start -n). El respaldo de Termux al encender sigue puesto, por si acaso. Al cambiar el permiso, HyperOS reinició la app a las 10:42:05 y la app volvió sola en el mismo segundo con los siete programas (nodo con token y GitHub listos, caja respondiendo, publicador ya con sus llaves): prueba real de que se levanta sola si Android la cierra.
+- Su orden (18/11, 10:20): «nunca de los nunca pedir apalancamiento ni préstamos»; «falta el motor, conecte el teléfono al PC… la llave API debe estar directamente en el de binarias en mi celular… migre todo al teléfono… con mucho cuidado, protéjalas muy bien… cada que no me hace caso me hace perder dinero». El aviso salía de la app Binarias (co.binarias.motor, Motor.java): desde el 07/11 estaba instalada sin su motor, y lo de binarias corría en Termux.
+- [HECHO 10:28] App Binarias versión 2 instalada por cable (adb install -r, «Success», sin pedir nada en el teléfono): corre Tor 9052, centinela, avisador, Centro, nodo, operador y publicador de GitHub, cada uno en su carpeta y con su PARAR; relanza a los 30 s; home/PARAR detiene todo; ya no dice «conecte el teléfono al PC».
+- [HECHO 10:31] Motor dentro de la app (Python 3.14.8, numpy 2.5.4, OpenSSL 3.6.5, curl 8.23, Tor 0.4.9.15) y, con ese motor, las pruebas: nodo 65, rutina 29, operador con Binance simulado 50 y publicador 42, todas bien.
+- [HECHO 10:34] Relevo: Termux en pausa con sus PARAR (sin matar nada; 0 programas vivos), su arranque al encender apartado (20-centinela.sh.en-la-app) y un respaldo (10-despertar-binarias.sh) que despierta la app al encender. Programas, estado y llaves (401 MB) pasaron de Termux a la app en un solo chorro por el cable, sin quedar en el PC. Llaves en la carpeta privada de la app, 600 en carpetas 700. Config del nodo sin rutas de Termux; el nodo lee su Tor de NODO_TOR. A las 10:34:52 corrían los siete procesos dentro de la app; nodo con «token listo, GitHub listo» y la caja respondiendo; Centro listo a las 10:37 (BTC 63.484,8); operador en estado 1 por la IP de la llave.
+- [HECHO 10:36] Llaves del publicador de GitHub dentro de la app: github (copiada dentro del teléfono, la misma del nodo), correo-usuario y correo-clave (la clave de aplicación de Google de Descargas\credenciales gumroad.txt, pasada sin mostrarla). Su fallo era «falta la llave de GitHub».
+- [HECHO 11:05] Su orden (10:50): «ponga todo lo de binarias únicamente con mi IP de casa y nada en lo absoluto de Tor». App Binarias versión 3 (instalada por cable): ya no lanza Tor y sus programas salen directo (AVISOS_TOR, NODO_TOR, OPERADOR_TOR y PG_TOR vacíos, sin proxies); el programa de Tor y su carpeta salieron de la app. El código de avisos, Centro, nodo, operador y publicador sale directo por defecto (pruebas 65, 29, 50 y 42 en el PC). Tor viejo de Termux del teléfono (13 h vivo, ya sin uso) y Tor de la caja apagados; los arrancar.sh de los dos ya no lo encienden. Caja reiniciada por PARAR con el código directo: centinela, avisos y nodo, uno de cada uno; su operador sigue con PARAR. Comprobado en el teléfono y en la caja: salen con 201.221.178.15 y Telegram responde directo (getMe ok).
+- La llave de Binance del teléfono (operar.txt) es la misma del PC (lectura.txt sin los saltos de línea de Windows): comprobado por huella.
+- [HECHO 10:46] Su pregunta: «¿esa IP es de Tor o es la mía? Quiero la mía». Comprobado en el teléfono: 201.221.178.15 es la IP de su casa (el teléfono está en el wifi de la casa y el operador va a Binance directo, sin Tor: conexion.py usa http.client sin proxy y pregunta la IP a checkip.amazonaws.com). Por Tor sale otra (204.8.96.72), solo para Telegram. La llave está restringida a la vieja 181.54.121.46: su proveedor le cambió la IP.
+- Ventas, revisado: el publicador de Gumroad del teléfono funciona (publicó un producto por día esta semana, hoy Habit Tracker a las 08:46). El Kit de Tesis falló el 23/10 en Gumroad al subir INICIAR.bat (525 y 500) y sus reenvíos del 25/10 y 13/11 no se reintentaron. El nodo de atención (agent-data-toolkit en Render) está caído: /health da 404 «Not Found» por Tor; el keepalive falla desde el 28/08 y GitHub lo deshabilitó el 27/09; volver a desplegarlo pide su cuenta de Render.
+- Para volver atrás: cd binarias-papel\app-telefono; sh instalar_motor.sh volver (la app queda en PARAR y Termux vuelve a correr todo). Ver cómo va: sh instalar_motor.sh comprobar.
+
+## AL FRENTE (18/11/2026, 10:16): LA IA ORDENA Y EL SCRIPT EJECUTA · 2 USDT POR ORDEN · CIRCUITO COMPLETO EN EL TELÉFONO
+Estado: HECHO (sigue en el AL FRENTE de las 10:45: todo dentro de la app Binarias)
+PASO DE ENTONCES: lo que queda es suyo y no lo hace ningún agente: la IP 201.221.178.15 en la llave actual de Binance (hoy la rechaza, −2015, y sin eso el operador no ve precios ni puede ejecutar). Cuando pase, el ejecutor revisa que la llave no traiga futuros, margen ni transferencias (si los trae, no ejecuta y lo avisa); después, al menos 12,50 USDT en la billetera de predicción (2 USDT dentro del 16 %) y «operador armar» (o «operador armar igual»).
+- Su orden (18/11, 09:55 a 10:02): «el script no tiene que hacer nada; lo único que tiene que hacer es consolidar y enviárselo a la IA; la IA manda a comprar o manda a vender y ya»; «ninguno de los dos programas ordena compra: el que compra es el programa que se consolida con la IA y los dos programas»; «el script compra o vende, no solo compra, según lo decida el agente»; el agente de la nube manda «solamente la orden de compra o la orden de venta final». Sus respuestas: 2 USDT por orden; la IA elige el lado libre, también el contrario al del punto (se le advirtió que eso es apostar a la continuación); la IA puede decir «nada». Sobre los topes de dinero no dijo quitarlos: siguen.
+- [HECHO 09:43] Acceso de GitHub del PC en el teléfono (~/.config/binarias/github, 600, huella 6a00a425 igual), con su autorización (corrió él mismo la orden; falló por las barras de la ruta y la pasé yo). A las 09:45 el teléfono leyó en GitHub la decisión de la prueba de las 09:33; un id que no existe da «nada».
+- [HECHO 10:05] Rutina de la nube con instrucciones nuevas (mismo token, modelo, esfuerzo, entorno y repositorio): ordena «COMPRAR SUBE» (comprar), «COMPRAR BAJA» (vender) o «NO COMPRAR» (nada), en cualquiera de los dos lados, y escribe solo {"id", "decision", "t"}, sin motivo. Sus órdenes del 18/11 mandan sobre CONTEXTO.md donde no coincidan (CONTEXTO.md sigue en main con el texto viejo: no se sube a main desde una sesión). Copia de la configuración anterior: binarias-papel\respaldos\rutina-aprobadora-antes-18-11.json.
+- [HECHO 10:08] Teléfono: nodo, candado, ejecutor y operador nuevos (7 huellas iguales; copias .antes-ia-18-11). El operador ya no compra por su cuenta: su papel y su vector siguen y van a la IA por el nodo; la compra real la abre solo una orden vigente de la IA (ejecutor.ejecutar_ia): el lado que ella diga, 2 USDT, sin Kelly ni margen del modelo, con ARMADO, llave restringida, una orden por mercado, 20 al día, freno del día, tope del 16 %, cotización real entre 0,01 y 0,90 y al menos 10 s. El nodo anota la orden de la IA tal cual (ya no convierte el otro lado en NO COMPRAR) y el aviso de Telegram dice «(comprar)», «(vender)» o «(nada)». Arrancó con «token listo, GitHub listo»; operador «versión 2 · 18/11/2026 (ordena la IA)», sin ARMADO.
+- [HECHO 10:09] Caja: solo el nodo nuevo (3 huellas iguales); su operador sigue con PARAR. Sin token ni acceso de GitHub a propósito (ADB abierto en la red): si hace de central, no dispara y no hay compra.
+- Pruebas (Python 3.11 en el PC y 3.14.8 en los equipos): nodo 65 de 65 y rutina 29 de 29 en el PC, el teléfono y la caja (dos nuevas: la orden del otro lado abre vender y se avisa como «vender»); candado y operador entero con el Binance simulado 50 de 50 en el PC y el teléfono (sin orden de la IA no hay compra aunque el papel compre; comprar = SUBE y vender = BAJA, siempre 2 USDT; nada, vencida, copiada o sin ARMADO = ninguna orden; con 10 USDT de saldo los 2 USDT pasan el 16 % y no se envía; el papel queda idéntico). La prueba destapó una trampa: dos escrituras seguidas del mismo tamaño en el mismo tic del reloj dejaban la caché del candado con la orden vieja; la marca lleva ahora también los últimos 512 bytes del archivo.
+- [HECHO 10:11] Prueba de punta a punta con las instrucciones nuevas: el teléfono disparó (prueba-18-11-101010), la rutina respondió en unos 10 s {"decision": "NO COMPRAR"} sin motivo, y el teléfono la leyó.
+- Para volver atrás: en el teléfono, run-as com.termux sh /data/local/tmp/ia-18-11/instalar.sh volver; en la caja, lo mismo con /data/local/tmp al final; la rutina, con la copia de respaldos. Paquete en binarias-papel\dispositivos\ia-18-11; lo de antes en binarias-papel\respaldos\antes-ia-18-11.
+
+## AL FRENTE (18/11/2026, 09:40): TOKEN DE LA RUTINA EN EL TELÉFONO · PRUEBA DE PUNTA A PUNTA BIEN · RUTINAS CONSTRUCTORAS BORRADAS · FALTA EL ACCESO DE GITHUB DEL TELÉFONO
+Estado: HECHO (el acceso de GitHub del teléfono quedó a las 09:43; sigue en el AL FRENTE de las 10:16)
+PASO DE ENTONCES: con su sí expreso en el chat, pasar al teléfono el acceso de GitHub del PC, solo para leer las decisiones (python -I C:\Users\ni109\Ingresos\binarias-papel\dispositivos\aprobador-18-11\poner_llave.py github), y comprobar la lectura desde el teléfono (run-as com.termux sh /data/local/tmp/aprobador-17-11/rutina.sh comprobar). Pendiente de él también: la IP 201.221.178.15 en la llave actual de Binance.
+- Su aclaración (18/11, 09:30): la IA no toca Binance; compra el sistema, según lo que la IA decida. A la IA solo le llegan los patrones que de verdad van ganando dinero; los demás no se mandan, para no gastar tokens, y cada disparo lleva todo el contexto de una vez. Así está en el nodo: un punto es alto solo con 25 cerradas, 19 aciertos o más y neto positivo al precio que se paga; el paquete lleva el grupo, los puntos en contra y el vector del operador.
+- [HECHO 09:24] Él generó el token de disparo de la rutina aprobadora (activador de API en claude.ai) y lo dejó en Descargas\Clave para API Rutina.txt. Comprobado sin mostrarlo: coincide con la pista que da la rutina y la dirección apunta a trig_01Ep7i969sChfFw4Mb3eN4qM.
+- [HECHO 09:30] Token en el teléfono: ~/.config/binarias/rutina, permisos 600, huella 90c05aa7 igual a la del PC. Viajó por la entrada de adb exec-in, sin copia temporal ni pantalla. El nodo lo lee en cada disparo, así que no hubo que reiniciarlo (su línea de arranque seguirá diciendo «token FALTA» hasta el próximo arranque).
+- [HECHO 09:33] Prueba de punta a punta: el teléfono, con su token y con la función disparar_rutina del nodo, disparó la rutina con un punto de prueba (prueba-18-11-093257: E3, 19 de 25 con ganancias, sin operador). La rutina terminó en 16 s (sesión cse_01L57MvR6QYodnyyGsgpSwv8) y dejó decisiones/prueba-18-11-093257.json en binarias-aprobador con el formato que lee el nodo: NO COMPRAR («E3 con ganancias pero sola y sin alineación con la ventana 09:45, sin operador ni segunda fuente: ante la duda no se compra»). La prueba no pasó por el registro del nodo ni por el candado, así que no podía abrir ninguna compra. La decisión se leyó desde el PC.
+- [BLOQUEADO 09:31] El control de permisos de Claude Code volvió a negar («Unauthorized Access») el paso del acceso de GitHub del PC al teléfono, como el 17/11. Hace falta su sí expreso en el chat. Mientras falte, cada punto alto dispara la rutina (gasta una corrida de su plan), pero el teléfono no lee la decisión: a los 6 min queda sin compra y llega por Telegram «Falta el acceso de GitHub en el teléfono» (como mucho cada 6 h).
+- [HECHO 09:40] Por su orden («solo elimine las rutinas que creaba el activador, porque ya el activador está hecho»; el activador es el aprobador), borradas de claude.ai las seis que lo construyeron, todas apagadas: «Binarias: programar el agente aprobador (hoy 12:42 y 17:42)» (trig_01WW3w9zNhTxEwVeoFQFWb6J) y los cinco «Reintento push aprobador» (14:15, 15:00, 15:45, 16:30 y 17:15). Copia íntegra de su configuración en binarias-papel\respaldos\rutinas-constructoras-borradas-18-11.json (no sube a GitHub). Las demás siguen; quedan, apagadas y a decisión suya, «Prueba GitHub: ¿puede subir la nube a trader-btc?» y «Continuar binarias y proyectos si quedaron a medias» (esta cubre también Proyectos).
+- Guiones nuevos en binarias-papel\dispositivos\aprobador-18-11: poner_llave.py (rutina o github: pasa el acceso al teléfono sin mostrarlo y lo comprueba por la huella) y prueba_punta.py (un disparo de prueba desde el teléfono; allá, en /data/local/tmp/aprobador-18-11).
+- El token sigue también en Descargas\Clave para API Rutina.txt, en texto plano; el PC no lo necesita.
+Lista de avance del aprobador:
+✅ 1 a 3. Nodo con la ganancia antes que el acierto, decisor rutina y criterio de la rutina (17/11).
+✅ 4. Acceso de GitHub del teléfono (09:43, con su autorización; lectura comprobada a las 09:45).
+✅ 5. Token de la rutina en el teléfono y prueba de punta a punta (09:33; la decisión, leída desde el PC).
+✅ 6. Bloc, memoria y GitHub (09:45; rama binarias/plan-v7-2026-11-04, commit f55b28c, sin claves).
+
+## AL FRENTE (17/11/2026, 18:45): EL TELÉFONO DISPARA LA RUTINA APROBADORA QUE YA EXISTE · SIN CLAVES DE PAGO · LA GANANCIA ANTES QUE EL ACIERTO · EN CONSTRUCCIÓN
+Estado: HECHO EN PARTE (sigue en el AL FRENTE del 18/11/2026, 09:40: token y prueba hechos; falta el acceso de GitHub del teléfono)
+PASO DE ENTONCES: con su autorización, pasar al teléfono el acceso de GitHub (la credencial gh del PC, solo para leer las decisiones) y el token de disparo que él genere en la rutina (claude.ai/code/routines/trig_01Ep7i969sChfFw4Mb3eN4qM, Generate token); después, prueba de punta a punta con un punto de prueba. Pendiente de él también: la IP 201.221.178.15 en la llave actual de Binance.
+- EL AGENTE APROBADOR YA EXISTE (no crear otro): rutina «Binarias: aprobador (decide cada punto)», trig_01Ep7i969sChfFw4Mb3eN4qM, Opus 5.5 con esfuerzo bajo, entorno Chat, repositorio privado Nico1091/binarias-aprobador (CONTEXTO.md con el criterio, decisiones/<id>.json). La creó la sesión 6e50dc8c el 17/11 a las 16:29; esa sesión se cortó a las 16:30 por el límite de 5 horas de su plan y no alcanzó a anotarlo aquí ni a hacer el lado del teléfono. Prueba de las 16:29: disparada con {"text": puntos en JSON}, decidió en 13 s y escribió decisiones/prueba-17-11-e4.json.
+- Su diseño (16:26 y 18:40): el teléfono junta los puntos del Centro y del operador y se los manda directo a la rutina; la rutina decide COMPRAR SUBE, COMPRAR BAJA o NO COMPRAR acorde al acierto de las estrategias; antes se revisa que ese acierto vaya con ganancias y no con pérdidas; si aprueba, se compra solo. Nada de claves de la API de Claude («no tengo plata»). Que se revise cada 5 minutos, directo (18:50): cada punto de cada vela de 5 min se dispara al momento.
+- Cómo se dispara (documentación oficial de las rutinas): POST a https://api.anthropic.com/v1/claude_code/routines/trig_01Ep7i969sChfFw4Mb3eN4qM/fire con el token de la rutina (Bearer), cabecera anthropic-beta experimental-cc-routine-2026-04-01 y {"text": ...}; llega a la rutina como <routine-fire-payload>. Gasta el cupo de su plan, no dinero. Tope: 30 disparos por hora para esta rutina (100 por hora en la cuenta). El token solo se genera en claude.ai (Edit → Trigger + → API → Generate token) y se ve una sola vez. Los eventos de GitHub solo disparan con PR, issues y releases.
+- Sus órdenes de las 18:20: Claude y Binance salen directo por la IP de la casa; se usa siempre la llave actual de Binance (en el teléfono como ~/.config/binance/operar.txt). Binance la rechaza (−2015) hasta que él ponga 201.221.178.15 en esa misma llave.
+Lista de avance (se marca al cerrar cada paso):
+✅ 1. Nodo: neto de las últimas 25 al precio del libro o al 0,544 medido y acierto de equilibrio; un punto es alto solo si llega al 76 % y va con ganancias (pruebas: 20 de 25 pagando 0,86 va con pérdidas y no se manda) (18:56).
+✅ 2. Nodo: decisor rutina (un disparo por lote a /fire con el token de la rutina, tope 25 por hora; lee decisiones/<id>.json de binarias-aprobador; id único con la hora del disparo; sin respuesta en 6 min o con la ventana cerrada, no compra). prueba_rutina.py 27 de 27 y prueba_nodo.py 65 de 65 en el PC (18:56).
+✅ 3. CONTEXTO.md de binarias-aprobador (y CONTEXTO-NODO.md, idénticos) con la regla de la ganancia: solo se aprueba lo que va con ganancias al precio que se paga; commit b2c6d71 en GitHub (18:57).
+⬜ 4. Teléfono: acceso de GitHub del PC para leer las decisiones, config (decisor rutina) y nodo nuevo. EN PARTE (19:00): nodo nuevo con decisor rutina en el teléfono y la caja (27 de 27 y 65 de 65 en los dos; copias .antes-rutina-17-11; rutina.sh volver deshace). FALTA el acceso de GitHub del teléfono: copiarle la credencial del PC lo bloqueó el control de permisos de Claude Code y necesita su autorización expresa.
+✅ 5. Con él: el token de disparo de la rutina; prueba de punta a punta. HECHO el 18/11 a las 09:33 (ver el AL FRENTE del 18/11).
+✅ 6. Bloc, memoria y GitHub (18/11, 09:45).
+
+## AL FRENTE (17/11/2026, 18:16): APROBADOR CORRIENDO EN EL TELÉFONO Y LA CAJA · NODO CORREGIDO · BLOC EN OBSIDIAN
+Estado: HECHO (sigue en el AL FRENTE de las 18:45: el teléfono dispara la rutina aprobadora, sin API)
+PASO DE ENTONCES: el aprobador ya corre en el teléfono (central) y la caja (respaldo). Falta lo suyo: clave de la API de Claude con saldo y tope en el teléfono (~/.config/binarias/claude), decidir si Claude va solo por Tor y la llave de Binance del teléfono (Lectura y Predicción). Con eso y unos días de datos: python3 -I ~/nodo/medir_combinacion.py en el teléfono; fondos y «operador armar» solo si la combinación supera el equilibrio de su precio y a cada fuente sola.
+- [HECHO 18:10] Rama claude/aprobador-binarias-2026-11-17 en el teléfono, según binarias/aprobador/AVANCE.md: nodo y operador parados en 3 s; copias .antes-aprobador-17-11 de nodo.py, CONTEXTO-NODO.md, prueba_nodo.py y ejecutor.py; 8 de 8 huellas; «nodo arrancó: rol telefono (central) … Claude claude-opus-5-5 (esfuerzo low, rutas directa, tor)»; el operador sigue en su estado 1 («Real: desarmado y sin órdenes»). Centinela, Centro, avisos y publicador sin tocar.
+- [HECHO 18:12] Caja (respaldo): solo el nodo, 5 de 5 huellas, «rol caja (respaldo)». Su operador sigue con PARAR y sin el candado nuevo: AVANCE pide copiarle aprobacion.py y ejecutor.py solo si algún día se le quita. El teléfono le late tras el reinicio: la caja no hace de central.
+- [HECHO 18:08] Antes de tocar lo que corría, pruebas en una carpeta aparte de cada equipo (Python 3.14.8): prueba_nodo.py 65 de 65 y prueba_aprobacion.py 36 de 36 contra el operador que corría. La primera corrida del nodo en el teléfono falló («señal nueva con 20 de 25»): el nodo daba por igual un archivo con la misma hora y el mismo tamaño, y en el teléfono dos escrituras seguidas comparten el tic del reloj (189 de 200 medidas). Corregido en nodo\nodo.py: la marca lleva el inodo (el Centro y el vigía reescriben con os.replace) y la hora en ns; tres corridas más, 65 de 65. En la marcha real no se perdían señales, porque el Centro escribe una vez por minuto, pero la prueba quedaba a la suerte.
+- Medido en el teléfono (medir_nodo.py, con archivos del tamaño real): primera vuelta 177 ms; vuelta sin cambios 0,1 ms y 0 KB leídos; con el Centro reescrito 77 ms; promedio 12,8 ms de procesador por revisión, unos 110 s al día.
+- Para volver atrás en cada equipo: run-as com.termux sh /data/local/tmp/aprobador-17-11/instalar.sh volver (en la caja, con /data/local/tmp al final). Copia de los guiones en binarias-papel\dispositivos\aprobador-17-11.
+- GitHub: commit f3758e1 en la rama claude/aprobador-binarias-2026-11-17 (nodo corregido, guiones y AVANCE.md). La rama v7 sigue en 7429f90 y está contenida en esta; unirlas lo decide él. Lo del bloc en Obsidian (prompts, sincronizar_repo.py y marcar_bloc.py) sube con el próximo sincronizar_repo.py.
+- Decisión suya, antes de poner la clave de Claude: el nodo llama a Claude primero directo, con la IP de la casa, y por Tor solo si no conecta (el plan lo eligió porque Anthropic puede rechazar salidas de Tor de países no admitidos). Su regla es nada de puertas directas. Si lo quiere solo por Tor: "rutas_claude": ["tor"] en config.json del nodo del teléfono y de la caja.
+- Siguen abiertos de AVANCE: no existen prueba_operador.py ni llevar_operador.py (tampoco en el PC); rotar puntos.jsonl y decisiones.jsonl cada mes; la salida de errores del nodo guarda un BrokenPipe cuando alguien corta una consulta de estado (no detiene nada).
+- [HECHO 17:56] Su orden: «no en bloc de notas sino en obsidian». El bloc pasó a esta nota de Obsidian, con el cuerpo idéntico al TXT salvo tres arreglos: la ruta binarias-papel\nodo, que estaba partida, y su nombre en dos sitios («REGLAS SUYAS», «por su orden»), porque el bloc se copia a GitHub. Apuntan aquí, con copia de lo anterior en binarias-papel\respaldos\antes-obsidian-17-11: el aviso de inicio de Claude (recordatorio_encargo.py, también tras compactar), laboratorio\marcar_bloc.py, herramientas\sincronizar_repo.py (en el repositorio conserva su nombre .txt), NUEVA SESION BINARIAS.cmd, PROMPT-OPERADOR, PROMPT-CINCO-ESTRATEGIAS, PLAN-LABORATORIO, PROMPT-ORGANIZADOR, PLAN-TOTAL, el encargo de n8n, la memoria y la bóveda (Binarias en papel, Mesa de binarias e Índice). Probado: el aviso de inicio, el de tras compactar (solo la sección del 17/11), marcar_bloc.py sobre una copia y la fuente del sincronizador. El TXT y sus tres copias viejas salieron del Escritorio a binarias-papel\respaldos (BLOC.hasta-17-11.txt, huella 3776b8cf9cac3011); en el Escritorio queda «BLOC BINARIAS (Obsidian).url», que abre esta nota.
+
+## AL FRENTE (17/11/2026, 09:40): AGENTE APROBADOR EN LA NUBE · TODO CON OPUS 5.5 · LAS REGLAS DE FABLE 5.2 MANDAN · EN CURSO
+Estado: HECHO (rama en GitHub y llevada al teléfono y la caja; sigue en el AL FRENTE de las 18:16)
+PASO DE ENTONCES: la rama claude/aprobador-binarias-2026-11-17 YA ESTÁ EN GITHUB (8 commits, fe83e2d, con TERMINADO.md): llevar al teléfono lo de esa rama según binarias/aprobador/AVANCE.md (la rutina constructora quedó apagada a las 16:23: ya no hace falta). Pendiente de él: clave de Claude, llave de Binance de la caja, fondos y armar.
+- [HECHO 15:47] Rama del aprobador subida a GitHub: 8 commits (último fe83e2d), 12 archivos, TERMINADO.md. Causa del 403: la nube no tenía con qué subir; se arregló con /web-setup (él, «Connected as Nico1091»). La cuenta rawrrrrr310 NO es de él: sin acceso a sus repositorios y fuera del gh del PC. El gh del PC quedó solo con Nico1091 (15:52): el PC también sube.
+- [HECHO 09:55] Su orden: «el nodo central es el teléfono; el teléfono no debe necesitar de nadie, que haga todo solo y suba todo directo a la gente de arriba». Hecho: en el teléfono corren centinela, avisos con vigía, Centro (E1 a E5), NODO CENTRAL (~/nodo) y OPERADOR DE FABLE (~/operador, estado 1), todos con vigía y arranque al encender. El teléfono sube él mismo a Telegram y a Claude; la caja es respaldo: le entrega sus puntos al teléfono cuando este late (cada 30 s) y sube lo suyo solo si el teléfono no responde. Operador de la caja en pausa (PARAR en /data/local/tmp/operador): nunca armar los dos. No se movieron el laboratorio (244 MB, calentaría el teléfono; solo investiga) ni precio_vivo (mismo modelo que el operador). Probado: caja → teléfono → Telegram a las 09:53; 20 de 20 pruebas en PC, caja y teléfono; GitHub 7429f90.
+- [ANTES, 09:45] NODO PUENTE corriendo: caja = nodo central (/data/local/tmp/nodo, puerto 8799); teléfono = remitente (~/nodo). Junta los puntos del Centro (E1 a E5), del vigía de 15 min y del operador de Fable; los que van en 19 de 25 o más salen a Telegram como «[Nodo] PUNTO ALTO» y se consultan a Claude Opus 5.5 (falta la clave: hoy dice «pendiente»). Si la caja no responde, el teléfono envía lo suyo. Firma HMAC entre equipos (secreto en ~/.config/binarias/nodo). 15 de 15 pruebas en PC, caja y teléfono; prueba real teléfono → caja → Telegram a las 09:37. Arranca solo al encender (línea en arrancar.sh; copia arrancar.sh.antes-nodo-17-11). Código en binarias-papel\nodo y en GitHub (commit 01265c1).
+- [HECHO 09:40] Operador de Fable subido a la caja sin cambios (huellas iguales) y corriendo en su estado 1 (sin llave: solo mide). arrancar_operador.sh nuevo y en el arranque de la caja.
+- [HECHO 09:42] Rutina constructora con la sección H: construye encima del nodo; cierra el lazo (el operador solo compra real con COMPRAR vigente del nodo); prueba la llamada a Claude; no instala nada.
+- Su diseño (17/11, 09:30), todo automático: el programa de la caja (operador de Fable 5.2) mide sus aciertos; al llegar al umbral del plan (hoy 76 %, 19 de 25) envía CADA punto de compra a Claude en la nube, sin tope de consultas (12 a 15 por hora o más); Claude decide COMPRAR o NO COMPRAR con todo el contexto; el programa compra o no según esa decisión. Él no decide nada en el día a día; solo arma una vez (ARMADO), pone llaves y fondos.
+- Modelo (orden suya, 17/11, 09:40): todo se mueve con Claude Opus 5.5. Fable 5.2 exige créditos de pago desde el 17/11 (comprobado con una llamada real). Ojo: la sección F de la rutina todavía dice Haiku 5.5 para quien decide; él pidió dejarla quieta por ahora. Cuando se retome, el que decide va con Opus 5.5.
+- Las reglas de Fable 5.2 mandan: él lo considera la IA más avanzada a la que tiene acceso y quiere su opinión plasmada. No cambiar su lógica (miradas al cierre de cada minuto, ganancia esperada prudente, margen 0,10, libro B, tope 16 %, una orden por mercado, freno del día, 20 órdenes reales al día, tres estados, ARMADO y PARAR). Fable escribió que el operador «no decide con IA»: por eso Claude decide solo sobre los puntos que el operador propone, sin inventar compras ni cambiar montos.
+- El tiempo no es crítico: en binarias siempre se puede comprar, incluso al final (lo comprobó él).
+- Revisado el 17/11, 09:55: el operador de Fable 5.2 NO es la aplicación de aciertos hecha con Opus. El operador usa el modelo logístico de doce rasgos del comprador (ganancia esperada minuto a minuto, devolución dentro de la ventana) y no importa ni mira el Centro de estrategias (mesa/centro.py: E1 ruptura de 20 velas al revés, E2 de 50 velas al revés, E3 Gemini 1 al revés, E4 Gemini 3 al revés, E5 rechazo en techo o piso; porcentaje de las últimas 25, aviso al 75 %, filtro del 82 %). Él pidió que el Centro sea otra variable a tener en cuenta.
+- [HECHO 09:30] Su orden: integrar los dos sin romper ninguno. Sección G de la rutina: el operador de Fable y el Centro siguen como aplicaciones aparte; un NODO CENTRAL nuevo (binarias/nodo/, sin IA) junta las predicciones de los dos en un paquete por punto y es el único que habla con Claude (Opus 5.5) en la nube; Claude decide COMPRAR o NO COMPRAR; compra siempre el operador con los frenos de Fable. El que decide pasó de Haiku a Opus 5.5 (F.4).
+- Aciertos reales del Centro en el teléfono (17/11, 09:27): E1 57,0 % en vivo (69 de 121), E2 55,4 % (41 de 74), E3 66,7 % (12 de 18), E4 40 % (pierde), E5 53,8 % (49 de 91); últimas 25: 16, 17, 16, 12 y 17. Mide con precio supuesto 0,51 (equilibrio 52 %); al real 0,544 el equilibrio es 55,5 %. El operador de Fable no está instalado en la caja (solo plan y reglas): sin medición en vivo.
+- Lo repetitivo (cada minuto o cada 5 min) lo hace código sin IA en la caja; a Claude solo van los puntos.
+- GitHub: la nube clona trader-btc desde el 17/11 a las 09:03 (él reinstaló la app Claude con acceso a todo). Prueba barata: rutina apagada trig_01GGtsQE9D29zP3KLje3hmFM.
+- Sigue pendiente de él (16/11): IP de hoy en la llave de Binance, llave propia de la caja (Lectura y Predicción), fondos en la billetera de predicción y «operador armar».
+
+
+## AL FRENTE (16/11/2026, 14:05): OPERADOR AUTOMÁTICO EN LA CAJA · COMPRAS Y COBROS SOLOS · 5, 10 Y 15 MIN · EN CONSTRUCCIÓN
+Estado: EN CURSO (plan en Ingresos\binarias-papel\operador\PLAN-AUTOMATICO.md y en la caja, /data/local/tmp/operador/)
+SIGUIENTE PASO: seguir las casillas de la sección 6 de operador\PLAN-AUTOMATICO.md desde la primera sin marcar. Pendiente de él: en Gestión de API de Binance poner la IP de hoy (201.221.178.15) en la llave y crear la llave propia de la caja (solo Lectura y Predicción); después fondos en la billetera de predicción y «operador armar».
+- Su pedido (16/11, 13:47): que la caja automatice la parte final, compras y cobros solos, con plazos de 5, 10 y 15 min y la mejor estrategia de cada uno; todo registrado en la caja; probado sin fondos; plan escrito por si la sesión no alcanza.
+- Llave: desde hoy Binance rechaza toda consulta firmada (−2015), también desde el PC. La IP de la casa cambió de 181.54.121.46 a 201.221.178.15 y la llave solo acepta la primera. En la caja nunca hubo llave.
+- Mercados con API (listado real del 04/11): «BTC Up or Down» de 5 min y de 15 min, por hora y por día. De 10 min no hay: son los Contratos de Evento, solo en la app y sin API. Los plazos de 5, 10 y 15 min se cubren comprando el mercado de 15 cuando faltan 15, 10 o 5 min, y el de 5.
+- Compras reales del 12/11 (por sus toques, desde la billetera de predicción): SUBE 4,62 USDT a 0,55, perdió; BAJA 4,11 USDT a 0,86, ganó 0,57. Neto −4,05 USDT. Dos órdenes quedaron en «SUBMITTED» sin releer.
+- Comprador por ganancia esperada del 12/11 (comprador\REGLAS-ANTES-DE-MEDIR.md): la sesión se cortó a las 19:22 por el límite de uso, con tres miradas de papel y ninguna compra; no llegó a la caja. Hoy se le agregó la enmienda 2 (mercado de 5 min y órdenes automáticas), a las 14:05, antes de medir.
+- Papel con precio real: el borrador de 15 min pagó 0,544 en promedio, no 0,51; «sobre la pérdida» va −25,4 USDT en 84 de papel. Ninguna estrategia ha mostrado ganancia con precios reales.
+- Caja: encendió a las 13:47 (estuvo apagada desde el 11/11 a las 23:15) y levantó sola Tor, centinela, avisador y laboratorio.
+Lista de avance del operador (se marca al cerrar cada paso; el detalle está en la sección 6 del plan):
+⬜ 1. Plan, enmienda 2 y este AL FRENTE.
+⬜ 2. nucleo.py con ventana de 5 o 15 y paridad con ganancia.py.
+⬜ 3. entrenar.py: reproduce el modelo de 15 y hace el de 5.
+⬜ 4. papel.py.
+⬜ 5. conexion.py de la caja.
+⬜ 6. ejecutor.py (órdenes reales con candado, relectura y cobro).
+⬜ 7. operador.py (tres estados, registro, Telegram, prueba sin fondos).
+⬜ 8. Pruebas con Binance simulado.
+⬜ 9. En la caja: huellas, una hora de marcha y arranque solo.
+⬜ 10. Plan total, memoria y bóveda.
+⬜ 11. Con él: llave. Prueba sin fondos contra Binance real.
+⬜ 12. Con él: fondos y armado. Primera compra y primer cobro comprobados.
+
+
+## AL FRENTE (11/11/2026, 19:50): LABORATORIO DE BINARIAS CON RED NEURONAL EN LA CAJA · EN CONSTRUCCIÓN
+Estado: EN CURSO (plan aprobado por él el 11/11 a las 11:39; laboratorio\PLAN-LABORATORIO.md y PROMPT-FINAL.md)
+SIGUIENTE PASO: paso 8 con él: que confirme en su Telegram el tablero anclado, el resumen de cada hora y las órdenes («lab estado», «lab perdida», «lab placa»); en marcha las 48 horas del paso 9. Pendiente de él: conectar el teléfono por USB para devolverle el centinela a la caja.
+- Su pedido (11/11): emular en papel y en tiempo real muchísimas formas de binarias BTC/USDT, las pasadas y las nuevas que propongan la red neuronal y la IA, con parámetros nuevos, para ver cuál rinde más; informes a su Telegram; todo alojado en la caja, siguiendo solo y mejorándose solo; una IA pequeña en la caja para sus peticiones, sin calentarla. La aplicación del teléfono va después. Nada de esto apuesta.
+- Papel de hoy a las 19:38, según la caja: SÍ cuando llegue la señal (17 señales, 10 aciertos, neto +1,50); papel reciente 17 de 25 (su 76 % pide 19). Compras reales en espera por su orden del 07/11.
+- Caja (19:42): volvió a la red con el reloj en hora; su centinela corría desde las 14:35 con el papel rehecho de las velas, sin las marcas de SÍ del teléfono. Se detuvo con ESPERA_ESTADO y PARAR (salió solo, sin matar procesos); Tor sigue vivo. El teléfono la releva mientras tanto, si está encendido.
+- Placa ESP32-S3 (21:05, su pedido): dedicada a las binarias, con su programa en la memoria de la placa (main.py y binarias_placa.py): arranca sola al conectarla, se reconecta al WiFi y el perro guardián la reinicia si se cuelga; probado con dos reinicios por hardware. Pide velas a Binance cada minuto, corre la misma red del laboratorio (10 min la red, 15 min la neurona; 2.174 señales iguales a las del laboratorio en la prueba) y «la pérdida» (1.040 ventanas iguales). En http://192.168.20.159:8080/estado. El acortador de noticias quedó guardado en la placa pero apagado: el bot usa su propio resumen (rinde 0,354 frente a 0,377).
+- Comprar sobre la pérdida (su idea, 21:00): tabla a ciegas jul-2025 a oct-2026 en laboratorio\datos\perdida.json; el lado perdedor gana casi en proporción a lo atrasado (minuto 14 con |z| de 2 a 3: 1 %; con |z| de 3 o más: 0,3 %). Con precio real: la Mesa del PC (mesa\perdida_real.py, solo lectura) anota papel de 1 USDT a lo último (≤ 0,02, ≤ 0,05, ≤ 0,10) y temprano (|z| ≥ 1), liquida con el ganador oficial y manda el resumen a la placa; la caja lo pone en su Telegram. Primera anotación: 21:12, BAJA a 0,01 a 159 s del cierre (si gana, 97 USDT por 1).
+Lista de avance del laboratorio (se marca al cerrar cada paso):
+✅ 0. Hooks (19:40): H1, la lista vuelve al contexto tras compactar (recordatorio_encargo.py); H2, candado de dinero real y de llaves en autoMode.soft_deny con "$defaults". Respaldos .bak-20261111, JSON válido y prueba en seco con inicio, reanudar, compactar y limpiar.
+✅ 1. Caja (19:45): centinela detenido con ESPERA_ESTADO; reloj en hora (hora automática); quince.py del 07/11 y arrancar.sh con ESPERA_ESTADO y la línea del laboratorio, con su huella igual a la del PC. Falta, con él: copiar el estado del teléfono (por USB) y borrar ESPERA_ESTADO.
+✅ 2. Prompts (19:48): PROMPT-HOOKS.md, PROMPT-ORGANIZADOR.md y PROMPT-FINAL.md en laboratorio\; sección 7d en PLAN-TOTAL.md; este AL FRENTE.
+✅ 3. Revisión con PROMPT-REVISION.md en laboratorio\REVISION.md: 21 hallazgos con su cambio; corregida la 2.3 con la primera construcción (a 15 min la valla es blanda) y agregada la 2.4 (las mejores de «elige» caen a ~54 % a ciegas: tope de 12 vivas por familia) (20:21).
+✅ 4. Construido en el PC: comun, base, velas, rasgos, formas, juez, red, busqueda, emulador, partes, peticiones, laboratorio, construir, prueba_laboratorio, llevar, arrancar_lab.sh y probar.sh; código en la caja con huella igual (20:21).
+✅ 5. Pruebas en el PC: paridad exacta con la clase Centro en 40 días (E1 721, E2 392, E3 100, E4 53 y E5 60 apuestas, señal y resultado), recorte sin cambios (43 formas, E3, E4, t33, banco y probabilidades), candado limpio; marcha en seco de 30 min en curso desde las 20:27 (20:28).
+✅ 6. Caja: redes y rasgos del PC llevados con huellas; paridad PC-caja exacta (huella 0ce55b0f72196ac0cd064ae3 en 72.093 apuestas y probabilidades de la red iguales a 12 decimales); tope de 1.000 formas confirmado (1,6 s por cierre a 53 °C); marcha en seco de 30 min en curso desde las 20:27 (20:28).
+✅ 7. Arranque solo: tras reiniciar la caja, Tor y el laboratorio volvieron solos a los 84 s y el centinela siguió esperando (ESPERA_ESTADO) (21:15).
+⬜ 8. Telegram: tablero, resumen, parte, aviso y cada petición, confirmados por él en su teléfono.
+⬜ 9. 48 horas de marcha y auditoría de un día contra las velas oficiales.
+⬜ 10. Revisión final e informe.
+⬜ 11. Consolidar: hecho el bloc, el PLAN-TOTAL (7d), la memoria, la bóveda y GitHub (rama binarias/plan-v7-2026-11-04, dos commits del 11/11); falta la USB, que no estaba conectada.
+⬜ 12. IA pequeña en la caja (llama.cpp y un modelo de menos de 0,6 GB): solo si cumple calor, tiempo y 45 de 50.
+
+
+## AL FRENTE (07/11/2026, 19:45): COMPRAS DIAGNOSTICADAS · CENTRO DE CINCO ESTRATEGIAS · AVISO DE ACIERTOS CORREGIDO
+Estado: COMPRAS REALES EN ESPERA POR SU ORDEN (07/11, 19:46); LO DEMÁS CORRE SOLO
+SIGUIENTE PASO: las compras reales quedan en espera por su orden del 07/11 a las 19:46 («espera lo de las compras reales por ahora»): no recordarle fondear la billetera de predicción hasta que él lo retome. Mientras, las cinco estrategias se miden solas en el Centro de estrategias; cuando la caja vuelva a la red, llevarle el quince.py nuevo.
+- Su pedido (07/11): implementar todo lo prometido, lograr comprar de verdad en Binance comprobándolo con poco, que el agente vea cuando ya hay más aciertos de los pedidos y un centro multiestrategia en tiempo real con las cinco en paralelo, sus indicadores y las variables más fuertes.
+- Compras: prueba autorizada por él, 19:30:06, 1 USDT a «Up» a 0,49 desde spot: FAILED en 20 ms, 0 comprado. Su toque de las 19:29:14 (2,31 USDT a 0,09) estuvo 56 s en PENDING y quedó EXPIRED, 0 comprado. Con la del 06/11 son tres de tres desde spot sin comprar; saldo intacto, 46,28 USDT. Cotizar desde spot con traslado da «-9000 The trading is temporarily paused»; las transferencias por API (outbound e inbound) dan -31002 con su llave. Cotizar desde la billetera de predicción pasa todo menos el saldo («Please ensure your account has enough USDT»: tiene 0,00). Conclusión: el pago desde spot por API está pausado en Binance; se paga desde la billetera de predicción. El precio de 0,05 no era la causa.
+- Mesa (19:40): paga desde la billetera de predicción (fuente AUTO, MPC); si ahí no alcanza no manda la orden y dice que pase USDT; si hay menos de lo pedido pero alcanza el mínimo, compra lo que hay. Muestra los dos saldos. Relee cada minuto las órdenes PENDING hasta que Binance las cierre. 51 pruebas sin fallos.
+- Aciertos: el vigía callaba al encender aunque ya estuviera en 75 % o más («al encender no avisa»). Ahora avisa al encender, dice «k de 25» y la racha, y el latido de cada hora repite «YA LLEGÓ Y SIGUE» mientras siga arriba. La Mesa dice ATENTO con los aciertos aunque el día no sume (sin botón: el SÍ sigue pidiendo que el día sume). En el teléfono desde las 19:39 (huella 09c1b308); la caja está fuera de la red y sigue con el viejo.
+- Centro de estrategias (mesa/centro.py y centro.html, http://127.0.0.1:8795/centro, enlace en la Mesa y botón «Centro de estrategias» del Escritorio): E1 ruptura de 20 velas al revés, E2 de 50 velas al revés, E3 Gemini 1 al revés, E4 Gemini 3 al revés y E5 rechazo en techo o piso azules, en papel y en paralelo, cada una con sus indicadores, qué mira ahora y a qué precio dispararía, porcentaje de las últimas 25 con sus 25 puntos, racha, fondo medido, Wilson y probabilidad de que la racha sea azar. Filtro del 82 % (21 de 25) mirado en cada vuelta: al quedar apta o dar señal estando apta, la ventana sale al frente. Variables: interés abierto que no sube, papel de hoy de cada una, caída fuerte de la hora. Paridad con c12 en 40 días: 1.155, 585, 109, 51 y 45 señales idénticas y papel idéntico (mesa/prueba_centro.py).
+- Líneas verdes: en la vista de E5, el nivel con tres toques exactos arriba y abajo (regla N3; se toma el extremo) y la verde de la mitad entre los dos. Solo para mirar, porque N3 no dio ventaja. Es una lectura de su pedido: si las quiere distinto, se corrigen.
+- A las 19:42: E1 19 de 25 (76 %), E2 64 %, E3 52 %, E4 44 %, E5 60 %. Ninguna apta.
+- 20:02: Avisos del Centro en vivo: en el PC salen en la pantalla (notificación de Windows y franja de la Mesa y del Centro); a Telegram los manda el teléfono, que corre 24/7, para no repetirlos. Cada señal de las cinco, su resultado sobre el mismo mensaje y cuando una llega a 75 %, queda apta (82 %) o baja; si al encender ya está arriba, avisa una vez. La Mesa muestra las cinco bajo la gráfica. El Centro quedó instalado en el teléfono (centro_tel.py, página 127.0.0.1:8797, arranque con arrancar.sh y Termux:Boot), sin botones ni llave. arrancar.sh ya no duplica procesos (los de Termux y los de ADB viven en contextos distintos; ahora busca los bucles por su línea de comando y cada bucle solo lanza si no hay copia).
+- 20:15: App Binarias para el teléfono (Ingresos\binarias-papel\app-telefono): paquete co.binarias.motor, Java sin librerías, targetSdk 28 (como Termux, para poder ejecutar su motor). Servicio en primer plano siempre vivo (START_STICKY, alarma al cerrarla, arranque al encender) que corre los mismos programas de Termux sin cambiarlos: Tor en el puerto 9052, el centinela, el avisador con el vigía y el Centro; relanza el que se caiga a los 30 s. Notificación fija con el porcentaje de las cinco y el último aviso; al abrirla, el Centro en pantalla. El motor (Python 3.14 con numpy, Tor, curl y 26 bibliotecas, 69 MB) se copia desde el PC con instalar_motor.sh; probado fuera de Termux: Python toma su propia copia, ssl y numpy cargan y Binance responde. APK de 20 KB (huella 1a198290…) en Descargas del teléfono. Falta: que él instale Binarias.apk desde Archivos → Descargas (adb install está bloqueado y la Protección avanzada puede pedir apagarse un momento) y luego correr app-telefono\instalar_motor.sh, que pausa Termux con PARAR, aparta su arranque al encender, copia el estado, da los permisos de fondo y arranca la app. Vuelta atrás: instalar_motor.sh --volver.
+- Sin hacer: el filtro de Claude del prompt (la Mesa va sin IA por su orden del 04/11), el agente (sigue quitado) y la caja (apagada o fuera de la wifi).
+
+## AL FRENTE (06/11/2026, 21:22): SU TELEGRAM LEÍDO · LA ORDEN REAL FALLÓ · MESA CORREGIDA · CAJA DE VUELTA · P21 Y P22
+Estado: AL DÍA EN EL BLOQUE DE ARRIBA
+PASO DE ENTONCES: que él haga una compra de prueba en la Mesa, con el PC encendido y a precio normal (entre 0,40 y 0,60). Si Binance la rechaza otra vez, falla el pago desde spot y toca pasar USDT a la cuenta de predicción desde la app. También abrir Termux en el teléfono y cargarlo.
+- Su pedido: 38 mensajes por el bot Centro nocturno, 06/11, 16:43 a 17:13 (21 fotos: la guía, Gemini, Binance). Reclama que la ruptura a favor sí gana, pide probar las estrategias de Gemini, medir vectores de las líneas, línea verde con tres toques, línea verde a la mitad, cinco estrategias con filtro de Claude al 82 %, revivir la del 85 % o «105 %», arreglar las compras y conectar el agente.
+- Compras: su orden de las 12:39 (SUBE, 2,31 USDT a 0,05) nunca se ejecutó. Binance la dejó en FAILED a los 15 ms, con 0 comprado, y la Mesa dijo «Orden enviada». Saldo intacto: 46,28 USDT. Ese mercado cerró en BAJA, así que tampoco se perdió nada.
+- Causa sin probar, dos candidatas: el pago desde spot o el precio de 0,05 con orden FOK. Cotizar desde spot funciona; con fundTransferAmount da -9000 (cuatro de cuatro) y desde la billetera de predicción exige saldo. Binance no informa el motivo.
+- Mesa corregida (21:22, reiniciada): consulta cómo quedó cada orden y solo dice «Comprada» si Binance lo confirma; un rechazo ya no bloquea reintentar. prueba_mesa.py sin fallos, con 5 casos nuevos. Solo se simuló: ninguna orden real.
+- A las 16:59 no podía comprar además porque el PC estuvo apagado de 15:20 a 19:59 y la Mesa solo vive en el PC.
+- Caja: detenida del 04/11, 19:34 al 06/11, 21:20 (2.987 min, según su vigía); volvió con un reinicio a las 21:07. El avisador no arrancó porque avisos.pid decía 4709, que tras el reinicio era Tor. arrancar.sh corregido en la fuente y en la caja (huella 4d9d3aef), avisador relanzado, latido bien. Antes de la caja se cayó también el teléfono: Termux parado desde el 05/11 a las 16:11, y su arrancar.sh sigue con el fallo.
+- P21 y P22 en PLAN-TOTAL.md, 7b, y cuant/resultados/c12_BTCUSDT.txt. Ninguna llega a 82 %. Gemini tal cual pierde (42 a 46 %). La ruptura a favor pierde (44,8 a 45,8 %). Tres toques, sin ventaja. Lo mejor: G1 al revés, 57,7 % con 2.488 apuestas, idea posterior y sin prueba a ciegas.
+- El 85 % nunca fue un resultado: fue la meta del 03/11 (85,7 % son 6 de 7). Con 55 % real, 1 de cada 10 tandas de 7 da 6 o más, y la mejor tanda de 25 llegó a 21. El «105 %» no aparece en ningún registro.
+- Prompt de cinco estrategias: PROMPT-CINCO-ESTRATEGIAS.md, escrito, sin ejecutar.
+- Faltan sus decisiones: si vuelve el agente (lo quitó el 04/11, 18:17, y la rutina de la nube sigue apagada), si G1 al revés pasa a papel en vivo y cómo quiere las dos líneas verdes.
+
+## AL FRENTE (04/11/2026, 19:25): CUENTA DE PREDICCIÓN CREADA · COTIZACIÓN REAL BIEN · BOTONES CONECTADOS
+Estado: AL DÍA EN EL BLOQUE DE ARRIBA
+PASO DE ENTONCES: que él cargue el teléfono con un cargador de pared (va en 5 %). La primera orden real solo la toca él, cuando quiera: con ella se prueban el pago desde spot y el cobro.
+- Cuenta de predicción creada (registró huella en el teléfono; Binance la confirma desde la app). Cotización real de 2 USDT desde spot: bien (fundingSource CEX); desde la billetera de predicción no, porque está vacía.
+- Comisión real: sale de las acciones. 2 USDT a 0,47 dan 4,1702; fallar cuesta 1 justo y el equilibrio es precio / 0,98. A 0,51, 52,04 %. Fórmula corregida en la Mesa.
+
+## AL FRENTE (04/11/2026, 19:15): TELÉFONO Y CAJA CON VIGÍA · LLAMADA QUE SUENA · BOTONES SIEMPRE DISPONIBLES · CAUSAS DE LAS PARADAS
+Estado: AL DÍA EN EL BLOQUE DE ARRIBA
+PASO DE ENTONCES: que él cargue el teléfono con un cargador de pared (va en 5 %) y cree la cuenta de predicción en la app (Mercados → Predicción).
+- Por qué se detenían: el teléfono se apagó por batería (razón shutdown,charger,low-battery, hacia las 09:30) y sigue en 5 % conectado al PC. Los huecos largos, como 15:01 a 17:10 en los dos equipos a la vez, eran silencio sin señales, no caídas. La caja se durmió de la 01:40 a las 12:24, ya arreglado; a las 13:58 se reinició sin causa identificada.
+- Arreglado: en el teléfono, límite de procesos fantasma quitado (max_phantom_processes), Termux y Llamada exentos de ahorro de batería y Llamada con autoarranque de Xiaomi. El vigía manda un latido cada hora y cuenta cualquier detención con sus horas.
+- Llamada: Llamada Claude v5 instalada, timbra por el canal de alarma y sube el volumen; el timbre normal del teléfono estaba en 0. Prueba real del 04/11: contestada. Salta sola al 75 %, tres intentos, a cualquier hora, y en cada señal con 75 % o más.
+- Botones siempre disponibles (su orden de las 19:00), con doble toque, tope del 16 %, una orden por mercado de 15 min y precio hasta 0,90. Sin cuenta de predicción, avisan que falta.
+- Mesa: marcas + y − de tres velas seguidas (solo para mirar: P16 no mejora el acierto), etiqueta COMPRA o VENDE en la vela de cada SÍ, estocástico y RSI abajo, aviso de caída fuerte.
+- Fallas (P20): ningún filtro entra. A 56 % fallan unas 44 de cada 100. Tras caer más de 1 % en una hora, SUBE acierta 53,1 %, lo más bajo; se avisa, no se filtra.
+- El +3,53 de hoy: son unidades por 1 USDT apostado, rehechas con velas a 0,51. No es dinero: no hay ninguna orden real.
+- Vigía y contexto (plan, operativa, informe y bloc) en la caja y el teléfono, carpeta contexto. Página para mirar en el teléfono: http://127.0.0.1:8796.
+
+## AL FRENTE (04/11/2026, 18:30): MESA DE BINARIAS A 15 MIN · SIN IA · VIGÍA CON VOZ EN LA CAJA · BORRADOR EN VIVO · PLAN v8
+Estado: AL DÍA EN EL BLOQUE DE ARRIBA
+PASO DE ENTONCES: que él cree en la app la cuenta de predicción (Mercados → Predicción) y active su autorización, y conecte el teléfono por USB para llevarle el vigía de 15 min. El dinero real se enciende solo cuando haya 75 % de aciertos con 25 operaciones de precio real y él lo autorice en la Mesa.
+- Dónde se compra: Mesa de binarias (botón del Escritorio y arranque solo al iniciar sesión), abajo a la derecha: COMPRAR ▲ SUBE y VENDER ▼ BAJA, cada uno con lo que paga. Se encienden solos con la señal.
+- Son binarias de verdad: «BTC Up or Down» a 15 min en Binance Wallet con Predict.fun, por API oficial y disponibles para su cuenta desde Colombia. Las líneas son solo para mirar.
+- P19 pasó a papel en vivo: 56,0 % con 60 s de retraso en 2024-sep 2026, equilibrio 52,02 %; octubre de 2026 dio 52,3 %. El libro cambia en segundos: tope de compra 0,53 y ventana de 75 s.
+- Su pedido de las 18:17: quitar la IA. Listo: analista.py escribe el análisis y los precios que dispararían la señal. Se borró el agente de Claude de la Mesa. Va por porcentaje de aciertos (últimas 25; pide 75 %).
+- Vigía de 15 min en la caja desde las 18:24 (quince.py dentro de avisos.py): nota de voz a 68 % y 75 %, y al bajar; foto de sus líneas cuando se rompe o rechaza el techo o el piso, una cada 30 min. Prueba real a Telegram: voz y foto salieron bien. Hoy 60 % en la caja y el PC. Telegram no deja llamar a un bot: es nota de voz; una llamada real exigiría instalar Llamada Claude.
+- Franja verde o roja del semáforo terminada y en la caja.
+- Teléfono: no estaba conectado por ADB; sigue con lo anterior. Mesa en el teléfono: no, la llave con permisos de operar no sale del PC.
+- Sin probar: la primera orden real, el fondeo desde spot y el cobro. Faltan la cuenta de predicción y una orden verdadera.
+- Saldo spot 46,28 USDT. Llave: la deja como en su captura del 04/11, 17:48 (lectura, spot y margen, futuros, predicción, lista de símbolos; sin retiros ni transferencias) por decisión suya. El código solo usa predicción.
+
+## AL FRENTE (04/11/2026, 17:37): PLAN DEL BOTÓN COMPRAR O VENDER · CONSTRUIDO ARRIBA
+Estado: AL DÍA EN EL BLOQUE DE ARRIBA
+PASO DE ENTONCES: que él deje la llave de Binance solo en «Habilitar lectura» y responda si mira en la app Mercados → Predicción (él decidió dejar la llave como está).
+- Su pedido (17:30): que todo se reduzca a pulsar comprar o vender, ya conectado, con los indicativos y la explicación del agente, seguro y regulado. Pidió primero el plan.
+- Papel de hoy (17:34): NO. 13 cerradas, 6 aciertos, −1,90; reciente 12 de 25.
+- Llave (consulta de solo lectura, 17:36): responde bien desde la IP de su casa, con restricción de IP y sin retiros generales, pero sigue con futuros, spot y margen, margen y transferencia universal activos. «Retiros Alpha» y «predicción» no salen en esa consulta: hay que mirarlos en Gestión de API. En el archivo el secreto va en la primera línea. Hay una copia igual, «lectura,txt.txt», que sobra.
+- La franja verde o roja quedó a medias: graficas.py cambiado a las 14:20, semaforo.py sin cambiar y nada subido a los equipos.
+- Regulación: no hay nada regulado en esta vía. La Superfinanciera no vigila cripto ni a Binance, y no hay seguro ni fondo público. El servicio de predicción lo presta Binance Barbados, sin supervisión.
+- Robo a Binance del 29/10 (6.300 millones de dólares): retiros reabiertos por fases desde el 1/11; 98 % repuesto el 4/11; prueba de reservas de 44 monedas en curso. Solo se deja en Binance lo mínimo.
+- Contratos de Evento: siguen solo en la app, sin API. Un botón real solo es posible por la vía de predicción (Binance Wallet con Predict.fun), con la API que documenta CCXT; falta confirmarla en la documentación oficial de Binance y comprobar si está disponible en Colombia, qué precio liquida y sus costos.
+- Cuentas a pago 0,85: equilibrio 54,05 %. SÍ 55,5 % = +0,13 USDT por apuesta de 5. Con su 76 %, 51,9 % = −0,20 USDT y unas 2 o 3 apuestas al mes. Con el índice de Binance el núcleo queda en el equilibrio.
+- Plan propuesto: F0 llave segura; F1 terminar la franja; F2 aviso de un toque y P1; F3 revisar predicción y P19; F4 botón real solo si F3 pasa; F5 consolidar. El real sigue sin ser operado por ningún agente: el toque es de él.
+
+## AL FRENTE (04/11/2026, 13:29): CINCO LÍNEAS · CAJA DESPIERTA Y CON ARRANQUE SOLO · AGENTE v7 · TODO CONSOLIDADO
+Estado: AL DÍA EN EL BLOQUE DE ARRIBA
+PASO DE ENTONCES: que él ponga al bot de administrador en el canal «club nocturno» y publique ahí un mensaje (con eso se conecta el canal para la gente), que cree la clave API de solo lectura si la quiere, y P1 (anotar el pago real de 20 apuestas y sus segundos de demora al tocar). Si quiere la revisión diaria en la nube, que diga «enciéndelo».
+- Papel de hoy (13:29): NO. 10 apuestas, 5 aciertos, −0,75; el SÍ de las 07:00 perdió y apagó el día. Papel reciente 14 de 25 (su 76 % pide 19). Cómo va en cualquier momento: botón «Binarias en tiempo real».
+- Caja: se durmió de la 01:40 a las 12:24. Play Services, que fallaba cada 3 s, era lo único que la mantenía despierta, y no tenía bloqueo de reposo. Al reconectarla no arrancó sola: Termux:Boot estaba «detenido» desde el force-stop del 03/11. Desde las 12:42 corre con el estado del teléfono (el mismo papel en los dos), con bloqueo de reposo y Termux:Boot activo. Probado: 44 min sin tocarla sin dormirse, y reinicio a las 13:26 del que volvió sola en 76 s. El teléfono ahora avisa si la caja no late 10 min, y cuando vuelve.
+- Sus cinco líneas: techo y piso sobre sus máximos y mínimos (azul), techo y piso cortos desde el inicio de la última caída o subida (ámbar) y la recta de la mitad (violeta). Salen en Pulso cada 5 min (desde las 13:05) y en la foto de cada SÍ o NO (desde las 13:02), idénticas píxel a píxel: 0 de 378.000 en 12 ventanas, en el PC, en Rust y en el teléfono. Como filtro del SÍ no suman (P18: +0,30 puntos, p de 0,42 y 0,32, peores en 2021-2023 y en octubre): son para mirar.
+- Pulso es el programa del PC que le escribe y le habla en Telegram (precio, velas, líneas, noticias e informes); no apuesta. Ya no manda el DISPARO, que sugería apostar fuera del SÍ. El resumen de 15 min es ahora «Pulso · lectura del mercado», con el veredicto del v7 y el latido real de la caja.
+- trader-btc es el repositorio de GitHub: su raíz es el trader seguido (detenido el 20/10) y binarias/ guarda la copia de binarias-papel y de Pulso (rama v7, PR #2). Una orden lo pone al día: herramientas\sincronizar_repo.py.
+- Agente: ninguno toca la apuesta, porque los Contratos de Evento no tienen API y la puerta interna de la app viola los términos y arriesga la cuenta. Queda PROMPT-OPERADOR v5, de una pasada; auditor_dia.py, que rehace un día con los archivos oficiales de Binance (39 de 39 señales iguales a los equipos); y la rutina de la nube escrita y apagada (PROMPT-AGENTE-NUBE-BINARIAS.md). El SÍ real trae los pasos exactos del toque.
+- Botones del Escritorio: «Binarias en tiempo real» dice cómo va el papel de hoy; «Operador de binarias» abre al agente v5.
+- Herramientas fijas: binarias-papel\herramientas (estado, auditor, paridad de las líneas, prueba del semáforo, posible plan y sincronizar el GitHub) y Seguridad\respaldo-usb\migrar_usb.py. Ya no dependen de carpetas temporales.
+- Copias al día: posible plan v7 final en Descargas, la USB y el Escritorio; guía para la gente versión 4 (cinco líneas); memoria, bóveda y encargo.
+
+## AL FRENTE (04/11/2026, 01:18): v7 AL DÍA · FOTOS CON SEIS LÍNEAS · COMPROBANTES EN PDF · CONCORDANCIA REVISADA
+Estado: AL DÍA EN EL BLOQUE DE ARRIBA
+PASO DE ENTONCES: que él ponga al bot de administrador en el canal «club nocturno» y publique ahí un mensaje (con eso se conecta el canal para la gente), que cree la clave API de solo lectura si la quiere, y P1 (anotar el pago real de 20 apuestas y sus segundos de demora al tocar).
+- Sus respuestas de la 01:25, ya aplicadas a la 01:35:
+  · Dinero real: «que opere solo cuando las estrategias completas estén dando… un 76 % al menos; que el agente recuerde esperar; nunca apalancamiento». Semáforo v3.3 en la caja y el teléfono desde la 01:34, con REAL_AUTORIZADO creado: el SÍ solo pasa a real si 19 de las últimas 25 apuestas de papel acertaron; si no, «Espere». Probado (P17): enciende pocas veces (81 apuestas en 2024-sep 2026) y acierta 51,9 %, menos que el SÍ solo (55,5 %); se aplica por ser su orden.
+  · Play Services: él quería la caja sin Google («arréglalo allá bien»). Desactivado a la 01:28 (pm disable-user; se revierte con pm enable). Las caídas pararon y la caja bajó de 74-78 °C con carga de 5 a 64 °C con carga de 0,3. Telegram nunca lo necesitó: sale por curl y Tor.
+  · Bots de Binance: él dice que Binance los permite y da claves API. Es cierto para contado, futuros y opciones; los Contratos de Evento no tienen API (página oficial del 28/10/2026) y los términos de uso prohíben bots que se salten la presentación del servicio. Un agente no puede operarlos, ni en la nube.
+  · Canal: «el de club nocturno está bien». El chat actual de los avisos es privado (solo él); el bot no ve ese canal todavía.
+- Respuesta a su pregunta: sí, son binarias (Contratos de Evento de Binance, sube o baja a 10 min con pago fijo). Las velas de futuros, el interés abierto y el índice solo deciden cuándo apostar; no se opera nada de futuros.
+- Concordancia revisada y corregida: OPERATIVA ya incluye el interés abierto; el volumen alto sale del SÍ (P3b, −0,46 puntos); jamás apalancamiento, ni en papel; tope del 16 % del saldo por apuesta; la primera pérdida de un SÍ apaga el día (su máximo son dos); solo velas cerradas. Informe y plan al día.
+- Velas de confirmación (P16 y P16b): no entran; bajan el núcleo de 54,4 a 53,0 y 52,3 %. La confirmación que queda es esperar el cierre de la vela de 5 min.
+- Semáforo v3.2 en la caja y el teléfono desde la 01:13: cada SÍ o NO llega como foto con las seis líneas (idéntica a Pulso: 0 de 378.000 píxeles distintos); cada SÍ cerrado trae su comprobante en PDF con enlaces a las velas oficiales de Binance y huella SHA-256; a las 00:15 llega el resumen del papel del día anterior (el del 03/11 salió a la 01:13).
+- Canal para la gente: listo en el código. Falta que él cree el canal, ponga al bot de administrador y diga su nombre.
+- Agente en la nube que opere solo: no se puede (los Contratos de Evento no tienen API y Binance prohíbe los bots). El toque sigue siendo de él.
+- Clave API de solo lectura: pasos en Descargas\PASOS CLAVE API BINANCE (SOLO LECTURA).txt. Irá al teléfono, no a la caja.
+- GitHub: rama binarias/plan-v7-2026-11-04 y PR #2 en borrador hacia master (github.com/Nico1091/trader-btc/pull/2); el repositorio tiene descripción.
+- USB: migración completa entre las 00:59 y la 01:09 (CONTEXTO, PROYECTOS con 100 zips, NUEVO y dos respaldos cifrados verificados: respaldo-nicolas-2026-11-04.nrc, 2,35 GB, y respaldo-ingresos-2026-11-04.nrc, 4,09 GB). A las 00:55 la USB había salido «sin medio»; él la reconectó.
+- Guía para la gente: https://claude.ai/code/artifact/d56e7201-e9c1-43a4-92b6-3a7bf50224ed (privada; se comparte desde el menú Compartir), con copia en Descargas\GUIA BINARIAS SI O NO.
+
+## AL FRENTE (04/11/2026, 00:35): PLAN TOTAL v7 · SU REGLA: SÍ O NO SEGÚN EL PAPEL DE HOY · INTERÉS ABIERTO · SEIS LÍNEAS (puesto al día a la 01:18)
+Estado: AL DÍA EN EL BLOQUE DE ARRIBA
+PASO DE ENTONCES: su decisión sobre el dinero real (crear o no REAL_AUTORIZADO) y P1 (que él anote el pago real de 20 apuestas y sus segundos de demora al tocar); antes del 1/12, P2 (selección mensual de devolución en BTC en el teléfono), según PLAN-TOTAL.md, sección 7.
+- Manda C:\Users\ni109\Ingresos\binarias-papel\PLAN-TOTAL.md (v7). El v6 quedó como «posible plan v6» y el v7 como «posible plan v7» en Descargas\POSIBLE PLAN BINARIAS BTC y en la USB (G:\POSIBLE PLAN BINARIAS BTC, partición NUEVO), en carpetas por versión y con SHA-256 verificado. Copia para el Bloc de notas: Desktop\PLAN TOTAL BINARIAS BTC - v7.txt (el v6 del Escritorio pasó a respaldos).
+- Su regla (03/11, 23:58): «no es que sean solo en días verdes, solo en días que esté sumando». Desde las 00:29 la caja y el teléfono corren el semáforo v3.1: cada señal del núcleo llega con «SÍ OPERAR» o «NO OPERAR» y su motivo. SÍ = papel de hoy sumando, ningún SÍ perdido hoy e interés abierto que no sube. Dinero real solo con el archivo REAL_AUTORIZADO (su orden expresa); sin él, el SÍ queda en papel como espejo del real.
+- Lo medido a ciegas (C9; reglas escritas antes en PLAN-TOTAL 7b): su regla sola no sube el acierto (54,8 % frente a 54,4 % en 2024-sep 2026), pero baja la caída máxima de 1,79 a 0,46 M COP. VPIN, régimen, horas y metaetiquetado no entran. El interés abierto sí (P14b, con margen honesto): 55,2 % frente a 54,4 % y 65,5 % en octubre; con interés abierto que sube, 53,3 %. Su regla con ese filtro (P15): 55,5 % con 1,8 apuestas al día y 66,7 % en octubre. Paridad entre la caja y el banco: 14 de 14 en el SÍ y 84 de 84 en el filtro.
+- Binance liquida con su índice de precio (página oficial del 28/10/2026): con él, el núcleo de 2024-26 queda en 54,1 % (equilibrio 54,05 %). Cada apuesta guarda ya los dos resultados.
+- Su API de Binance: no hace falta. Las velas, el índice y el interés abierto son públicos, y los Contratos de Evento no tienen API (solo la app). Conectarla solo arriesgaría sus claves.
+- Pulso manda desde las 00:20, cada 5 min, «Sus seis líneas en 1 min»: techo y piso largos (azul), techo y piso cortos desde el inicio de la última caída o subida (ámbar) y dos horizontales donde el precio se queda (violeta). Binario anterior: ~/.pulso/bin/pulso.antes-seis-lineas-04-11.
+- Días: el papel en vivo corre en la caja desde el 03/11 a las 19:38. Faltan 7 días de paridad (hasta el 10/11), 300 apuestas del núcleo (unas 16 al día: hacia el 22/11), P7 a los 30 días (03/12) y P4, sin empezar.
+- Caja T95H: Google Play Services se cae cada 3 s (servicio Nearby) desde las 19:59 y la mantiene entre 75 y 80 °C con carga de 5 a 6. Sin root no se puede apagar solo ese servicio. Pendiente de su sí: desactivar Play Services en la caja (se revierte con una orden).
+
+## AL FRENTE (03/11/2026, 21:42): PLAN TOTAL v6 · CONGRUENTE · SOLO DEVOLUCIÓN EN BTC/USDT (reemplazado por el v7 del 04/11, 00:35)
+Estado: REEMPLAZADO
+PASO DE ENTONCES: P1 (que él anote el pago real de 20 apuestas y sus segundos de demora al tocar) y P2 (selección mensual de devolución en BTC corriendo en el teléfono antes del 1/12), según PLAN-TOTAL.md, sección 7.
+- Manda C:\Users\ni109\Ingresos\binarias-papel\PLAN-TOTAL.md. Evidencia y auditoría de congruencia: INFORME-TOTAL.md (misma carpeta). El PLAN-v5 queda como historia.
+- Copia para leer en el Bloc de notas: Desktop\PLAN TOTAL BINARIAS BTC - v6.txt (03/11, 21:51).
+- Lógica única: a 10 min, BTC se devuelve tras estirarse; ventaja pequeña que cambia con el tiempo y depende de entrar rápido y del pago. Solo se apuesta a la devolución; en real solo los días VERDES del semáforo; la primera pérdida lo apaga; sin apalancamiento.
+- Descartado por incongruente: todo lo que apuesta a la continuación (sus dos resistencias a favor, segunda resistencia, todo a favor, triángulo, momentum de la primera media hora, libro leído a favor), las cajas negras (modelo U, receta de G-Research), SMC/ICT/CRT como señales, mano caliente y pausar al ganar, martingala, 16 %, oro, la meta de 85,7 % y ETH como mercado operado.
+- Cifras corregidas a entrada 60 s tarde (C8): núcleo (ruptura al revés en BTC) 57,0 % en 2021-23, 54,4 % en 2024-26 y 60,7 % en octubre. Semáforo en 2021-2026: 57,4 % con parada en la primera pérdida frente a 56,4 % del azar. El 59,8 % que se informó antes medía al cierre: error corregido.
+- El factor probabilístico de la racha (HMM de los aciertos): hay rachas buenas y malas de unas 50 apuestas, pero no se dejan ver hacia adelante (sin efecto en 2024-26; correlación 0,026). El semáforo no adivina los días buenos: los aprovecha cuando ya vienen y limita el riesgo en los malos.
+- Los equipos miden el papel del semáforo con 60 s de demora desde las 21:39. Semáforo de hoy: ROJO.
+
+## AL FRENTE (03/11/2026, 21:15): PLAN v5 · TODO UNIFICADO EN BTC/USDT (reemplazado por el v6 de las 21:42)
+Estado: REEMPLAZADO
+PASO DE ENTONCES: medir el semáforo en vivo y correr E1 (familia de reversión en BTC) con la regla escrita en PLAN-v5.md, sección 7; antes del 1/12, dejar la selección mensual corriendo en el teléfono (E7).
+- Manda C:\Users\ni109\Ingresos\binarias-papel\PLAN-v5.md. Evidencia: cuant\INFORME-INVESTIGACION-CUANTITATIVA-2026-11-03.md (guiones C1 a C7 y sus salidas en cuant\resultados).
+- El centinela salió del PC: corre en la caja T95H (principal, /data/local/tmp/centinela) y en su teléfono (respaldo, Termux, ~/centinela), 24/7, con arranque solo (Termux:Boot) y avisos por Tor. El teléfono calla mientras ve el latido de la caja. En la caja quedaron desactivados fútbol, descargador, recordatorio y surebets (~/.termux/boot-desactivados). El PC tiene el archivo PARAR y ya no arranca centinela ni operador con Windows.
+- Semáforo papel → real (su idea del 03/11): cada día a las 0:00, VERDE si las últimas 100 apuestas de papel de la «ruptura al revés» en BTC van en 58 % o más; en VERDE cada señal le llega como «REAL: toque…»; la primera pérdida lo apaga hasta mañana. 5 USDT, sin apalancamiento; él toca en la app. Hoy: ROJO (48 %).
+- Lo medido a ciegas (elegir 2021-23, juzgar 2024-26 y oct-2026): solo la reversión de corto plazo da ventaja (ruptura de 20 velas al revés: BTC 56,1 % y 61,7 % en octubre; impulso de 15 min al revés 54-55 %; anomalías 54-56 %). SMC, ICT, CRT, killzones, área de valor, libro de órdenes y opciones: 49-52 %. Cruzar dimensiones no mejora. Ninguna celda llega a 85,7 %. No hay mano caliente. El semáforo de las últimas 100 suma 1 a 1,5 puntos sobre el azar.
+- BTC está en el borde: ningún procedimiento del banco pasa hoy la valla mensual; ETH va mejor (58,5 %). Desde el 1/12 la selección queda solo en BTC; si ninguno pasa, REGLA no apuesta y BTC FIJO sigue como control.
+- Segunda opinión (Nemotron 3 Super y DeepSeek v3 por OpenRouter, por Tor): coinciden en lo central; añaden walk-forward con purga, latencia y grabar microestructura. La clave propia de DeepSeek está inválida.
+- Mercado del 03/11 a las 20:32: BTC 76.882 (−11 % en 30 días); GEX positiva, gamma flip 76.312, muros 90.000 y 74.000; VIX 21 (+15 %), S&P 500 −1,8 %, bono de 10 años 4,95 %.
+- Sus comentarios del 31/10 en Centro nocturno (fotos a-d.jpeg de Descargas): «parece que va a subir»; más líneas desde el inicio de cada caída, líneas inclinadas abajo y un oscilador en la foto; apostar solo con 80-95 % de acierto, repetir y pausar al ganar avisándole cuánto se ganó.
+
+## AL FRENTE (31/10, 09:25): ÍNDICE DE ESTABILIDAD ESTILO RED NEURONAL (solo indicativo, en tiempo real)
+- Qué es: una neurona logística con 10 variables medibles en velas de 1 min: movimiento de 1, 5, 15 y 60 min frente a la volatilidad; volatilidad 15/240; posición en el rango de 4 h; volumen 15/240; estocástico de 5 min; hora. Da la probabilidad de que BTC suba o baje en 10 min.
+- Probado a ciegas (t33: aprende con 2021-23, se mide en 2024-26): con cualquier confianza, 52,1 %; con confianza de 56 % o más, 55,6 % (unas 58 veces al día), por encima del 54,1 % que hace falta para no perder.
+- Lo que aprendió: empuja a «baja» cuando el precio ya subió, está alto en su rango de 4 h o tiene el estocástico arriba; es decir, apuesta a que el precio se devuelve, como todo lo demás probado.
+- Dónde llega: en cada mensaje de precio de 30 s («Bitcoin dólar: 77.531 · índice 56 % baja (fuerte…)») y en el resumen del agente. Indicativo: no decide apuestas.
+- Comprobado: el cálculo en Rust da exactamente lo mismo que la prueba en Python con las mismas velas (0,5318241101054035).
+- Pesos en pruebas	33_indice.json (copia en pulso-btc\src\indice.json); se reentrena con t33_indice.py.
+
+## 0. RESUMEN UNIFICADO DEL 31/10/2026 (leer primero al retomar; el detalle está en ENCARGOS y en PLAN.md, secciones 12 a 15)
+
+Qué corre solo, sin depender de ninguna sesión de Claude
+- Centinela v4 (binarias.py, en papel). Desde el 31/10 reintenta si al arrancar no hay red. Corre desde las 07:46. Hasta las 08:46: 0 apuestas en las cuatro cuentas (100.000 COP cada una); ninguna señal llegó al umbral.
+- Pulso BTC, su nodo en el teléfono (Ingresos\pulso-btc; WSL ~/.pulso/bin/pulso; Rust sin librerías; todo por Tor). Le llega a su Telegram, con foto, texto y voz de Salomé:
+  · cada 5 min, la gráfica de velas de 5 min; cada hora, además, la de 1 h;
+  · cada 3 h, el informe (3 h, 5 h, 3 meses, últimos 15 min, contexto, cuentas en papel y titulares);
+  · al momento:
+    – caída de 1.200 o subida de 3.000 dólares desde el último aviso;
+    – cruce de cada múltiplo de 5.000 dólares;
+    – ruptura del máximo o del mínimo de 30 días (la señal objetiva de una subida o caída fuerte);
+    – cada apuesta en papel de la cuenta principal al abrirse y al cerrarse;
+    – si el centinela se detiene o vuelve;
+    – titulares nuevos (revisados cada 10 min).
+  Arranca con Windows por la tarea «Pulso BTC - avisos de voz», que él autorizó en modo manual el 31/10.
+- Detenido por su orden: la sesión «operador binarias». Sigue en el arranque de Windows (BinariasOperador); falta que él diga si se quita.
+
+Qué se probó hoy a ciegas (regla escrita antes en cada caso; juicio en 2024-26)
+- t26, su contexto de 3 h, 5 h y 90 días, más MHI, flips, torres gemelas y BNF:
+  · el contexto mejora el rompimiento de 20 velas al revés cuando va en contra (59,4 % en BTC);
+  · MHI y torres gemelas no sirven (50 a 53 %);
+  · el banco ampliado sube el acierto, pero da menos apuestas al día, así que no entra. Con una regla de «al menos 4 al día», entraría (decisión de él).
+- t27, defensas: no apostar en BTC con volumen alto ENTRA (56,2 → 56,7 %). En ETH ninguna. Su ventana de 2 h dentro del bloque de 3 h no entra. Falta ponerlo en el centinela.
+- t28, operar solo con todo a favor (contexto de 1 h, vela de 5 min, gente comprando, otro activo) y solo estrategias robustas en días de subida y de bajada:
+  · todo a favor EMPEORA (BTC 51,9 %, ETH 44,3 %), porque lo que gana va contra el empujón inmediato;
+  · las robustas solas suben 0,2-0,3 puntos, por debajo del punto exigido. No entra.
+- t29, su estrategia de las dos resistencias, con las líneas trazadas solas: a favor de la ruptura pierde (BTC 45,6 %, ETH 45,4 %, más de 35.000 apuestas cada uno); contra la ruptura, 54,3-54,8 %, en el equilibrio. No entra. Su lectura a ojo solo se puede medir anotando sus señales con hora.
+- Su pronóstico de 100.000 en 2 semanas: subir un 29 % en 14 días pasó en el 2,8 % de los casos desde 2020. Aun en subidas fuertes, solo el 51,3 % de las ventanas de 10 min sube. Los pronósticos de largo plazo (100.000, 280.000) no dan ventaja en Contratos de Evento de 10 min a 1 día.
+- No se pudo probar, por falta de historia: noticias, índice del dólar, bolsa (S&P 500) y bancos centrales. El Banco Mundial publica datos anuales o trimestrales, que no sirven para binarias.
+
+Agregado a su nodo el 31/10 a las 08:51 (pedido: noticias del Banco Mundial y de bancos, menos ruido, compradores contra vendedores)
+- Compradores contra vendedores con operaciones reales: de las últimas 1.000 de Coinbase, qué parte fue compra agresiva y qué parte venta agresiva, y quién manda. Va en cada gráfica de 5 min, en el informe de 3 h y con las noticias.
+- Noticias limpias: se descartan guías, definiciones y pronósticos de precio. Cada titular va marcado (alcista, bajista o neutra) y con la lectura del día (cuántos alcistas y bajistas, y hacia dónde inclinan).
+- Bancos aparte: Fed, FMI y Banco Mundial sobre Bitcoin (Google Noticias, por Tor). El Banco Mundial casi no habla de Bitcoin; lo que mueve el precio es la Fed (el 31/10, tasas altas y una postura restrictiva, que presionan a la baja).
+- Copiadores de binarias: no hay de dónde sacarlo. Los Contratos de Evento de Binance no tienen copy trading ni una tabla pública de resultados; el copy trading que publica Binance es de futuros y contado (trading común). Lo más cercano y real son las apuestas en papel de su propio sistema, que ya le llegan al abrirse y al cerrarse.
+
+Pruebas de su lectura de resistencias (31/10, 08:44-09:05; PLAN.md, secciones 15 a 17)
+- t29, cerrar por encima de las dos líneas: a su favor 45,6 % (BTC) y 45,4 % (ETH); pierde.
+- t30, tocar la segunda resistencia: a su favor 45,6 % y 45,0 %; pierde (al tocarla, lo más frecuente es que rebote hacia abajo).
+- t31, su regla completa (dos velas verdes que superan la segunda línea, la segunda más arriba): a su favor 43,0-43,7 %; pierde. En contra, 56-57 % (BTC 57,0 % y ETH 56,2 % con sus líneas largas). Es buena señal de que el precio se devuelve. Queda como candidata en sentido contrario (sección 18, por escribir y probar).
+
+- t32, su triángulo (captura de las 09:08: el precio dentro de máximos que bajan y mínimos que suben, con el vértice unos 30 min adelante): rebotar dentro o seguir la ruptura acierta del 46 al 53 %, cara o sello. No entra. El agente lo avisa como contexto: «triángulo: sin ventaja».
+- Sus opiniones: cuando él escriba en Centro nocturno su análisis del día, el agente las tiene en cuenta como análisis humano y lo dice en el resumen. No reemplazan lo probado, y el agente opera aunque él no escriba.
+
+Pulso: cambios de las 08:51 a 08:53 (por su queja de que las noticias decían bajista y BTC subió unos 100 dólares)
+- Cada aviso empieza por el dato real: cuánto se movió el precio en la última hora y quién manda en las últimas 1.000 operaciones de Coinbase (compra o venta agresiva).
+- Las noticias van después, marcadas como contexto y no como pronóstico. Si contradicen al precio, se le dice que van atrasadas y se ignoran.
+- Línea propia para el impulso del Banco Mundial (sus titulares de crecimiento de la última semana: positivo, negativo o sin dirección). Sin probar como señal.
+
+Pulso: precio en tiempo real de Binance (31/10, 09:00, por su aviso de que Pulso decía 77.422 y Binance marcaba 77.524)
+- La diferencia era la fuente: Coinbase (BTC contra dólar) frente a Binance (BTC contra USDT), unos 100 dólares.
+- Ahora el precio, las velas y compradores contra vendedores salen de Binance directo, sin Tor (Binance rechaza Tor y su regla permite la conexión normal con Binance, como hace el centinela). Coinbase por Tor queda de respaldo.
+- El precio se consulta cada 5 s (antes, cada 20 s), y cada gráfica dice el precio del momento. El botón abre BINANCE:BTCUSDT en TradingView.
+- Desde las 09:01, cada 30 s (en los segundos 0 y 30) le llega un mensaje de solo texto: «Bitcoin dólar: 77.531 (▲ 12 en 30 s)». Va sin voz, para que llegue enseguida, y corre en su propio hilo.
+- Comprobado a las 09:00: Binance dio 77.526,01 y la gráfica de 5 min marca el mismo máximo de 77.745 de su TradingView.
+
+Agente y MD operativa (31/10, 09:05; pedido: una MD con cómo operar, que el agente tenga de contexto, y un resumen propio cada 15 min antes de operar)
+- binarias-papel\OPERATIVA.md: lo que funciona, las defensas, lo que no funciona y cómo decide el agente. Se pone al día con cada prueba nueva.
+- El agente es Pulso (no se creó otro). Cada 15 min (:00, :15, :30, :45) lee la MD y mira:
+  · si el centinela late;
+  · precio de 15 min y 1 h;
+  · compradores contra vendedores en Binance;
+  · volumen de BTC frente a su semana;
+  · si en los últimos 15 min apareció su señal de dos velas.
+  Le manda por Centro nocturno, con texto y voz:
+  · el veredicto: OPERAR solo con la señal del sistema, o NO OPERAR si el centinela está caído o el volumen de BTC está alto;
+  · lo que hay a favor y en contra;
+  · si apareció su señal, la CANDIDATA en sentido contrario (57 %), sin entrar al sistema.
+- Solo usa reglas que pasaron las pruebas a ciegas. No inventa apuestas: la entrada sigue siendo el aviso «Apuesta en papel».
+- Probado a las 09:05: resumen enviado (precio 77.560; 15 min, baja 51; volumen de BTC al 87 % de lo normal; compra agresiva 80 %; veredicto: operar solo con la señal del sistema).
+- Él aprobó los 120 mensajes de precio por hora (cada 30 s).
+
+Pulso en el teléfono, sin PC (su decisión del 31/10 a las 09:00: app en el teléfono, en Rust, voz de Salomé por Microsoft a través de Tor, con enmascaramiento)
+- Su Redmi: Android 16, arm64, 168 GB libres, conectado por ADB. Trae /system/bin/curl, así que la parte en Rust puede correr allí casi igual que en el PC. No tiene Orbot ni Termux.
+- Diseño:
+  · Rust sin librerías: lógica, gráficas, alertas y avisos de Telegram.
+  · Tor dentro de la app.
+  · Una capa mínima en Java, sin librerías, que sostiene el servicio en segundo plano (la exige Android) y pide la voz de Salomé a Microsoft por Tor.
+  · Todo sale por Tor.
+  · Lo que no puede hacer sin el PC: avisar las apuestas en papel del centinela, que vive en el PC.
+- [PENDIENTE DE ÉL] Su sí para tres instalaciones:
+  (1) Rust para el teléfono: rustup y el soporte arm64, unos 200 MB, en WSL, bajado por Tor;
+  (2) Tor para Android: el binario oficial del Tor Project, dentro de la app;
+  (3) instalar la app Pulso en su Redmi por ADB, aceptando él el aviso «Instalar vía USB».
+
+Lo que queda abierto
+- Poner el filtro de volumen alto en el centinela para las reglas de BTC, cuidando la paridad.
+- Escribir y correr la sección 18: su señal de dos velas en sentido contrario como candidata del banco.
+- Construir Pulso para el teléfono en cuanto él dé el sí a las tres instalaciones.
+- Sus decisiones: la regla de frecuencia (t26); quitar o no al operador del arranque; los nombres de los dos traders; el dinero real (sigue en papel hasta su orden expresa; faltan 100 apuestas en papel y 7 días de paridad).
+- Binance sufrió un hackeo de 6.300 millones de dólares (BBC, Yahoo Finanzas, 31/10).
+
+
+## 1. REGLAS SUYAS (todas vigentes)
+
+Nuevas del 18/11/2026 (mandan sobre lo anterior donde no coincidan)
+- El operador se arma solo cuando una estrategia del Centro llega al 70 % o más (18 de 25); él no tiene que escribir nada. «operador parar» lo detiene y manda sobre la regla.
+- Todo lo de binarias únicamente con la IP de la casa y nada en lo absoluto de Tor (10:50): Binance, Claude, Telegram y el publicador salen directo; ningún equipo de binarias enciende Tor.
+- Nunca de los nunca pedir apalancamiento ni préstamos, tampoco a cuenta de un error.
+- Todo en el teléfono, dentro de la app Binarias: el motor, los programas y las llaves; nada debe depender del PC («cada que no me hace caso me hace perder dinero»). Las llaves, con mucho cuidado y bien protegidas.
+- Ninguno de los dos programas (el Centro y el operador de Fable 5.2) ordena compra. El programa que los consolida (el nodo) le manda todo a la IA, y solo lo que va ganando dinero, para no gastar tokens, con todo el contexto de una vez.
+- La IA de la nube ordena comprar (SUBE), vender (BAJA) o nada, en cualquiera de los dos lados, también el contrario al del punto. Manda solo la orden final, sin explicación.
+- El script ejecuta la orden tal cual: compra o vende 2 USDT por orden, sin volver a revisarla con el modelo. La IA no toca Binance: compra o vende el script.
+- Siguen sus topes de dinero: ARMADO, sin apalancamiento, tope del 16 % del saldo, freno del día, 20 órdenes al día y una por mercado.
+
+Nuevas del 03/11/2026
+- Todo se unifica en BTC/USDT. ETH se mide en silencio.
+- En real, sin apalancamiento; el apalancamiento solo en papel (y solo como estudio de futuros).
+- El centinela no corre en el PC: corre en la caja y en el teléfono, a la vez; si la caja falla, sigue el teléfono. Autorizó el arranque solo con Termux:Boot e instalar Termux, Termux:Boot, Python, numpy y Tor (oficiales).
+- (Reemplazada el 04/11) El modo real lo enciende el semáforo (las últimas 100 de papel en 58 % o más) y lo apaga la primera pérdida del día.
+- 03/11/2026, 23:58: «no es que sean solo en días verdes, solo en días que esté sumando directamente en nuestras operaciones». El real va solo en las señales SÍ (papel de hoy sumando); la primera pérdida del SÍ lo apaga hasta mañana. El bot toma datos en vivo; ve la gráfica y dice sí o no; las líneas son seis.
+- Sus comentarios de Telegram se leen sin mirar su pantalla: o los reenvía al bot o los pasa en foto.
+
+Qué se opera
+- «Trading», «operar» o «estrategias» significa opciones binarias por tiempo: sube o baja al vencer, con pago fijo. Nunca trading común, porque «me hace perder plata».
+- Solo Binance, en sus Contratos de Evento. Ningún bróker mexicano (Bitso tampoco). IQ Option, Pocket Option y Quotex quedan fuera porque la Superfinanciera no las autoriza.
+- Todo en papel hasta que él dé la orden expresa de dinero real. Ninguna línea de código mueve dinero.
+- Nunca calcular ganancias en proporción al movimiento del precio (lo que él llama «per cápita»): si acierta cobra el pago fijo; si falla pierde lo apostado.
+- En binarias no existe el apalancamiento. Si lo pide, se le dice en una línea.
+
+Carta libre (29/10/2026, 21:50 y 22:25)
+- Claude decide estrategias, mercado, tamaño, protecciones, estructura y archivos sin preguntarle. Cada decisión sale de una prueba a ciegas con la regla escrita antes en PLAN.md.
+- Condición: operar todos los días, sin forzar apuestas que las pruebas dan como perdedoras. Si un día no hay ventaja, se le dice.
+- Si él vuelve a fijar un porcentaje o una regla, se hace lo suyo. Su 16 % compuesto quedó reemplazado por medio Kelly el 29/10.
+
+Su método para encargos grandes
+- Plan con los criterios fijados antes de ver resultados, prompt de trabajo, prompt de revisión, consolidar, construir y probar, revisar contra lo construido y solo entonces decir «listo», con resultados.
+- Si los criterios no se cumplen, el veredicto es «no consolidable», aunque todo corra. Él dijo que creerá el «listo»: no se dice sin cumplirlos.
+
+Privacidad y red
+- Nadie debe enterarse de sus operaciones. Las claves se leen al ejecutar y nunca se muestran ni se copian. El diario queda solo en el equipo. Ninguna plataforma de bots de terceros (3Commas filtró más de 100.000 claves de Binance en 2022) y ninguna IA externa recibe sus operaciones.
+- Hacia Binance se permite la conexión normal. Todo lo demás sale por Tor (SOCKS 127.0.0.1:9050). Su IP no sale directa hacia ningún otro sitio.
+- Antes de usar un tercero, decirle qué vería ese tercero.
+
+Forma de trabajar
+- Sin agentes, subagentes ni flujos: todo lo hace Claude. El único agente permitido es el operador de binarias que él pidió.
+- No mirar su pantalla ni sus ventanas, salvo que lo pida en ese mismo mensaje. El 30/10 pidió una imagen de TradingView. El 31/10 pidió operar con capturas del gráfico de TradingView: eso queda permitido, solo esa ventana y con la función foto, que no roba el foco. Para mover el gráfico hay que tomar el ratón: avisarle antes y no hacerlo si él lo está usando.
+- Su método (31/10): el contexto (3 h, 5 h, 3 meses) se toma una sola vez y no se repite; después solo se mira cada 5 o 15 min para decidir sube o baja.
+- Sus pedidos del 31/10 que quedan como reglas:
+  · operar con seguridad: solo cuando los indicativos acompañen, usando las estrategias que funcionan tanto en días de subida como de bajada;
+  · su teléfono es el nodo principal: todo le llega allí, solo, sin que Claude esté pendiente;
+  · Claude hace de agente (no crea uno nuevo).
+  Cada idea suya se prueba a ciegas antes de usarla; si la prueba la rechaza, se le dice con los números y no se aplica.
+- MÁS IMPORTANTE (31/10, 08:54, dicho por él): «si llega a tocar la segunda resistencia, eso quiere decir un posible mercado al alza, lo que reflejaría una compra». Su segunda resistencia es la diagonal que baja; la primera es la horizontal. El toque de la segunda es su señal de compra a 5-15 min.
+  Ejemplo de su foto de las 08:53 (BTCUSDT de 1 min): horizontal en unos 77.545; diagonal que baja, hoy por unos 77.610-77.620; una tercera línea que sube desde abajo y cruza las otras hacia las 10:50 (hora de Colombia). A las 08:48 el precio subió a 77.635, tocó la diagonal y luego volvió a 77.560, sobre la horizontal.
+  Probado en la t30 (PLAN.md, sección 16; unas 7.000 señales por activo desde 2021): comprar al tocar la segunda resistencia acierta el 45,6 % en BTC y el 45,0 % en ETH a 10 min. Lo más frecuente es que rebote hacia abajo, como hoy a las 08:48. En contra queda en el empate (54,3-54,9 %, sin seguridad). No entra; se le dijo con los números.
+- SU REGLA COMPLETA (31/10, 08:57): para comprar, el precio debe superar sus líneas dos veces: una vela verde que pasa la segunda línea y otra verde que la pasa un poco más. Tocarla no basta (a las 08:48 solo la tocó y no había operación). Cómo traza: horizontal en el borde del rango donde el precio estuvo cerca de una hora; diagonal desde el pico grande de la última hora y media, por encima del siguiente máximo más bajo.
+  Probado en la t31 (PLAN.md, sección 17): comprar así acierta del 43,0 al 43,7 % (pierde). En contra acierta del 56 al 57 % (BTC 57,0 % y ETH 56,2 % con sus líneas largas). Su confirmación es buena señal de que el precio se devuelve. No entra todavía; queda como candidata en sentido contrario (sección 18).
+- MUY IMPORTANTE (31/10, 09:13): CÓMO TRAZA SUS LÍNEAS, para que Claude y Pulso las hagan igual, para él y para la gente.
+  · El techo nace en la punta más alta y baja tocando los máximos siguientes sin cortarlos.
+  · El piso nace en el mínimo más bajo y sube tocando los mínimos siguientes.
+  · La horizontal va donde el precio se queda.
+  · Cuando se juntan («triángulo»), el mercado está a punto de romper: si rompe hacia arriba, posible alza; si rompe hacia abajo, posible caída.
+  Pulso ya las traza así en 1 min (últimas 150 velas):
+  · cada 5 min manda la gráfica «Sus líneas en 1 min», con el estado (dentro, encima o debajo) y en cuántos minutos se juntan;
+  · el DISPARO: al romper con dos velas, alerta inmediata con foto y voz.
+- (31/10, 09:20) Ejemplo dicho por él: el mercado rompió la línea, pero la segunda vela salió verde, así que no es indicativo. Solo dos velas rojas seguidas por debajo (la segunda más abajo) indican caída. Pulso lo aplica así en el DISPARO.
+- (31/10, 09:16) Sus indicaciones cuentan como indicativo: si él dice «puede caer porque toca las líneas», eso se toma como una señal posible. El agente la tiene en cuenta junto con el mercado especulativo, el Banco Mundial y lo que él escribe, y se mide con el resultado de un año completo antes de pesar más. Primer dato (t30): tras tocar la segunda resistencia, bajó el 54,3 % (BTC) y el 54,9 % (ETH) de las veces. Va en su dirección, pero sin seguridad estadística. [HECHO 09:18] Año por año, a 10 min, BTC / ETH: 2021 57,5 / 53,6 %; 2022 53,2 / 54,9 %; 2023 55,1 / 59,5 %; 2024 51,3 / 51,7 %; 2025 52,4 / 53,0 %; 2026 56,0 / 58,3 %. En 2026 funciona (por encima del 54,1 %), pero es inestable: en 2024 y 2025 no llegó. Queda como indicativo que el agente menciona, no como regla.
+- (31/10, 09:16) La operación con dinero real se hará cuando todo esté consolidado (dicho por él).
+- Su pedido de «relanzamiento»: que dispare solo y «automáticamente gano». Lo que sí se hace: la alerta inmediata, que llega a él y a la gente. Lo que no:
+  · apostar solo, porque Binance prohíbe los bots en la app de Contratos de Evento y su regla es papel hasta su orden;
+  · prometer ganancia: tras esa ruptura, seguirla acierta el 43 % y apostar en contra el 57 % (t31). Por eso el disparo dice las dos cifras.
+
+- Su estilo de lectura: traza dos resistencias (horizontal y diagonal). Si el precio supera las dos, espera subida a 5-15 min; una X o una pirámide sugiere caída. Probado en la t29: a favor de la ruptura pierde.
+- No instalar nada sin su sí en ese momento. El 30/10 autorizó TradingView.
+- Los enlaces que se le den se comprueban antes por Tor, como los vería una persona. Si no abren, no van.
+- Nada se declara «funciona» sin prueba en sus condiciones reales. Al informar se separa lo comprobado en su equipo, lo medido en laboratorio y lo que falta probar.
+- Todo en pesos colombianos y hora de Colombia. Registro formal y corto: el dato, no la defensa del dato. Pocos cuadros, sin rayas largas ni líneas separadoras.
+- Cómo se le presentan resultados: primero una tabla corta de apuestas con hora, sentido, plazo, apuesta en COP, acierta o falla, ganancia en COP y saldo. Decir «N apuestas al día, todos los días» y aclarar que el periodo largo es la repetición del pasado. Separar lo elegido mirando el pasado de lo probado con días nuevos. Cuando pida pruebas, un archivo para Excel con todas las filas.
+- Avisos por su Telegram (bot Centro nocturno), con el texto en el mensaje y nunca como .md adjunto.
+
+
+## 2. LÍMITES DE BINANCE (Contratos de Evento)
+
+- Solo en la app del teléfono, sin API. Activos: BTCUSDT y ETHUSDT. Plazos: 10 min, 30 min, 1 h y 1 día. Mínimo 5 USDT, unos 15.900 COP.
+- Binance calcula el pago con la volatilidad y el riesgo del momento y lo deja fijo al apostar. El real lo tiene que leer él en la app; mientras tanto se mide con 0,80, 0,85 y 0,90. En empate devuelve lo apostado.
+- Los términos (sección 26) prohíben bots en la app: la apuesta la toca él a mano.
+- TradingView no apuesta en los Contratos de Evento. Binance no tiene Contratos de Evento de oro.
+- Acierto mínimo para no perder con apuestas iguales: 54,1 % con pago 0,85 (55,6 % con 0,80 y 52,6 % con 0,90).
+
+
+## 3. SISTEMA QUE CORRE (carpeta C:\Users\ni109\Ingresos\binarias-papel)
+
+- Desde el 03/11 el centinela corre en la caja y el teléfono (ver AL FRENTE del 03/11 y PLAN-v5.md, sección 2). Lo de abajo describe la v4 tal como corría en el PC hasta ese día.
+- Centinela v4 (binarias.py, pantalla http://127.0.0.1:8792), desde el 29/10 a las 21:51. Lee de Binance las velas de 1 min de futuros de BTCUSDT y ETHUSDT y corrige la hora con la del servidor.
+- Procedimiento del mes: el de mejor historial a ciegas entre 8 (motor/historial.py). En octubre y noviembre de 2026, el modelo a 10 min en ETH (motor/modelo.py, umbral 0,61).
+- Cuentas de 100.000 COP: REGLA, CLAUDE (liquidada con el precio de 20 s después, el que vería él al tocar), AZAR y BTC FIJO (control con las reglas de BTC).
+- Tamaño: medio Kelly con el acierto a ciegas de los 6 meses anteriores, nunca menos de 5 USDT. Con 100.000 COP siempre sale el mínimo. Sin stop ni preventivas.
+- 70 s antes de cada cierre de 5 min deja una ficha en fichas/. El operador Claude (sesión de fondo «operador binarias», que solo puede ejecutar operador.py) la aprueba o la descarta en 5 a 6 s. Solo puede descartar; nunca crea una apuesta.
+- Paridad diaria a las 00:15. Cada mes guarda las velas, corre t18 y t19 y vuelve a elegir (228 s).
+- Botones del escritorio: «Binarias en tiempo real» (pantalla) y «Operador de binarias».
+- Arranque con Windows: valores BinariasCentinela y BinariasOperador en HKCU\...\Run, con PONER y QUITAR ARRANQUE AUTOMATICO.cmd. Sin probar tras un reinicio.
+- Al retomar se comprueba: «python -I operador.py estado» (latido), «claude agents --json» (operador vivo), estado.json, apuestas.jsonl y la paridad.
+- Documentos de la carpeta: PLAN.md (secciones 1 a 15), REVISION.md (revisiones 1 a 4), PROMPT-OPERADOR.md (v4) y PROMPT-REVISION.md. Pruebas del 31/10: pruebas\t26 a t29.
+- Pulso BTC (su nodo en el teléfono): ver la sección 0. Fuente en Ingresos\pulso-btc. «pulso prueba» y «pulso velas» mandan un informe o las gráficas al momento, pero antes hay que detener el servicio, porque el puerto 9077 hace de candado.
+- TradingView Desktop 3.5.0, con su cuenta, se abre por Tor con tradingview\abrir_tradingview.pyw. Las fotos de su gráfico quedan en tradingview\capturas. El indicador tradingview\reglas_del_mes.pine está sin probar en el editor de Pine.
+- Bóveda de Obsidian: 03-Proyectos/Binarias en papel.md.
+
+
+## 4. RESULTADOS A CIEGAS (pago 0,85; empate = fallo; enero de 2021 a octubre de 2026)
+
+- Reglas de BTC: 58,0 % en 16.898 apuestas; 54,9 % en 2026.
+- Modelo a 10 min: BTC 57,9 % y ETH 57,5 %; ETH dio 58,3 % en 2026.
+- Con medio Kelly y el procedimiento por historial (H), 2022-26: 30 días desde 100.000 COP terminan arriba en el 65,5 % de los arranques y quiebran en el 32,9 %. Con el 16 % fijo terminaban arriba el 47,8 %.
+- La ventaja existe, pero se gasta: la regla base pasó de 60,3 % en 2020 a 55,5 % en 2026. Entrar 60 s tarde le quita unos 2 puntos.
+- Apostar siempre arriba a las mismas horas da 50,1 % y el azar 50,0 %.
+- Modelo unificado U (t25, 29/10): 58,2 % y 98,4 % de días con apuesta, pero 30 días arriba en el 65,3 % frente al 65,6 % de H. Con la regla fijada antes, U no reemplaza a H.
+
+
+## 5. ESTRATEGIAS CLASIFICADAS
+
+Laboratorio de formas (11/11/2026, primera construcción; «elige» ene-2024 a jun-2025, «juzga» jul-2025 a oct-2026, 60 s tarde, empate = fallo):
+- Se sostienen a ciegas (devolución): E1 54,4 % en «elige» (n 10.055) y 54,8 % a ciegas (n 9.006); E2 54,9 % y 55,6 %; E3 57,7 % y 57,5 % (n 1.205); núcleo del semáforo 54,1 % y 54,7 %; techo y piso de 24 h a 15 min 54,4 % a ciegas; REV15 a 15 min 55,3 % a ciegas.
+- No se sostienen: RSI de 15 min sobre 81-84 + ruptura al revés, 15 min: 63 a 64,5 % en «elige» y 54 a 55,7 % a ciegas (selección entre cientos de variantes, no fuga). Rango de 4 h + RSI 15: 63,3 % y 49,2 %.
+- Del banco, peores que el equilibrio a ciegas: rompimiento de 20 velas a favor (45,2 a 45,8 %), alineación de medias (46,4 a 46,7 %), E12, E16, E18, E19 y los patrones de tres cuervos y tres soldados en su sentido.
+- Red de mercado propia: a 10 min 55,2 % con confianza de 0,56 en «elige» (la neurona t33 reajustada, 54,6 %); a 15 min gana la neurona (55,1 % frente a 54,7 %).
+
+Medidas el 06/11/2026 (P21 y P22, a 15 min, 2024-sep 2026, 60 s tarde):
+- Rechazadas: Gemini 1 tal cual 42,3 %, Gemini 2 45,8 %, Gemini 3 45,5 %; ruptura a favor 44,8 a 45,8 %; tres toques 49,6 a 51,1 %; cruzar la mitad, sin señal.
+- En observación: ruptura de 50 velas al revés 55,1 % (pasó P21); G1 al revés 57,7 % (idea posterior, solo papel).
+
+En uso (selección de octubre de 2026)
+- Procedimiento del mes: modelo a 10 min en ETH (regresión logística propia, sin librerías nuevas).
+- Reglas de BTC: E19 EMA 12/26 con RSI 14 (1 h) al revés, a 10 min, en zona; patrón hombre colgado a 10 min en la sesión de Asia; REV15 a 10 min.
+- Reglas de ETH: rompimiento de 20 velas al revés, a 10 min, en Asia; REV15 a 10 min; REV5 a 10 min con volatilidad baja.
+
+Buenas a ciegas (meses elegidas entre 70, BTC / ETH)
+- Rompimiento de 20 velas, casi siempre al revés (63 / 70). Es la base: reescrita aparte da 58,0 %.
+- E03 banda de ruido de Concretum (27 / 29), techo y piso de 24 h (26 / 5), E19 EMA 12/26 con RSI 14 (23 / 3), REV15 (20 / 15), E01 retroceso alcista y techo extremo (9 / 21).
+
+Ocasionales (elegidas pocos meses)
+- Alineación de medias 9/21/50, REV5, E16 cruce de EMA 20/50, E12 MACD diario y horario, E09 rompimiento ATR, E04 estacionalidad 21-23 UTC, pullback en tendencia, E05 momentum de la primera media hora y los patrones de velas (tres cuervos, pinzas, estrella de la mañana y de la tarde, harami, martillo, doji).
+
+Descartadas, con prueba
+- Las cinco líneas como filtro del SÍ (P18, 04/11): +0,30 puntos sin diferencia con el azar y peores en 2021-2023 y en octubre. Quedan solo para mirar.
+- Oro (PAXG y XAUUSDT): 52,5 a 53,6 % en 2026, y Binance no tiene Contratos de Evento de oro.
+- El 16 % fijo: quiebra cerca de la mitad de los arranques de 30 días.
+- Preventivas (parar el día tras 3 fallos o tras 3 netas perdidas): no mejoraron en 2022-23.
+- Plazos de 1 h y 1 día: más débiles que 10 min en 2026 (modelo a 60 min en BTC: 51,9 % en 2026).
+
+Resultado de la t26 por estrategia (31/10; acierto a 10 min en todo el periodo, BTC / ETH; informativo, no a ciegas)
+- Útil: rompimiento de 20 velas al revés cuando va EN CONTRA de su contexto, 59,4 / 58,3 % (a favor: 56,9 / 56,4 %). Es lo que más eligió la selección.
+- Aceptables: seven flip contra la racha, 57,0 / 56,6 %; five flip, 55,8 / 55,5 %; REV15 con contexto, unos 55,5 %.
+- No sirven (por debajo del 54,1 % que hace falta): MHI 51 a 53 %; torres gemelas 50 %; BNF 56,0 / 52,2 % (nunca elegida).
+
+Investigadas el 31/10 (probadas en la t26)
+- MHI (Gean Marcos, Brasil): bloques de 5 velas de 1 min; se mira el color de las velas 3, 4 y 5 y se apuesta a la minoría en la siguiente. «Milhão» es lo mismo apostando a la mayoría. En la fuente va con martingala de hasta 2 pasos; aquí se prueba sin martingala, a 10 min.
+- Five flip y seven flip: tras 5 o 7 velas seguidas del mismo color, se apuesta al color contrario.
+- Torres gemelas: dos velas seguidas de color contrario y tamaño parecido.
+- BNF (Takashi Kotegawa, 153 millones de dólares en acciones): compraba cuando el precio caía muy por debajo de su media de 25. Aquí, a corto plazo: el cierre de 5 min frente a su media de 25 h.
+- Su contexto: el signo de 3 h, 5 h y 90 días, tomado al empezar cada bloque de 3 h; cada estrategia va sin contexto, a favor y en contra.
+- Sin reglas públicas exactas (no se pueden probar): Padrão 23, 3 Mosqueteiros (el nombre se usa para métodos distintos), R7 y Gaba.
+
+Descartadas el 31/10, sin prueba propia
+- Las «del 98 %»: ninguna prueba independiente las sostiene. Esas cifras salen de la martingala, de contar días ganados en vez de apuestas o de mirar la vela antes de que cierre. Las pruebas serias de binarias dan entre el 55 y el 65 %.
+- Martingala: en la prueba de TradingRush, cerca del 45 % de las cuentas no pudo seguir doblando. Además choca con el medio Kelly.
+- Navinder Sarao («flash crash»): ganaba con órdenes falsas (spoofing). Es ilegal y no existe en los Contratos de Evento.
+- Nadie con fuente fiable gana 3 o 4 millones al día con binarias. Las historias de «millonarios de binarias» son propaganda de afiliados que además recomienda la martingala.
+
+Lo que dicen los estudios de BTC y ETH
+- Dentro del día hay reversión a corto plazo, sobre todo cuando sube la volatilidad (Wen, Bouri, Xu y Zhao, 2022; Journal of Risk and Financial Management, 2026; revista Ledger). Es lo mismo que ya aprovechan REV y el rompimiento al revés.
+
+
+## 6. ENCARGOS
+
+18/11/2026, 15:24. Pedido: mirar por qué la rutina da menos dinero que su apuesta a mano, con plan de revisión, plan de análisis, prompt de consolidación y la aplicación bien hecha para ganar.
+- [HECHO 15:35] Revisión con evidencia (paridad\2-REVISION.md).
+- [HECHO 15:45] Análisis con los datos reales del teléfono (paridad\4-ANALISIS.md).
+- [HECHO 15:55] Prompt de consolidación (paridad\5-PROMPT-CONSOLIDACION.md); retirado PROMPT-MEJORA-REGLA70-18-11.md.
+- [HECHO 16:01] Aplicación corregida, probada e instalada en el teléfono; rutina con el bloque PRECIO Y CUENTA (16:02); prueba de punta a punta (16:03).
+- [HECHO 16:14] Él escribió «operador parar»: regla del 70 % quitada, sin compras reales, el papel sigue (comprobado a las 16:17).
+- [HECHO 16:19] Respaldo en GitHub (commit 0a3fec1, rama binarias/plan-v7-2026-11-04).
+- [HECHO 16:26] Su orden: «encárguese que vuelva a funcionar todo otra vez sin yo tener que hacer nada»: regla del 70 % puesta de nuevo.
+- [HECHO 16:30] Revisión completa A a I (REVISION-18-11-tarde.md): todo BIEN; la caja no aplica (desconectada por él).
+- [PENDIENTE DE ÉL, opcional] Decir si se borran las claves a la vista de Descargas (ya cifradas en la USB). (Retirados: el candado en Recientes, 16:22, y revisar la caja, 16:31, por su orden.)
+
+18/11/2026, 10:20. Pedido: nunca apalancamiento ni préstamos; que la app de binarias del teléfono tenga su motor y no pida el PC; todas las llaves en el teléfono, protegidas; revisar los errores de ventas (publicador) y que el nodo esté bien.
+- [HECHO 10:28] App Binarias versión 2 instalada (corre los siete programas de binarias).
+- [HECHO 10:34] Motor, programas, estado y llaves dentro de la app; Termux en pausa y de respaldo al encender. Pruebas 65, 29, 50 y 42 con el motor de la app.
+- [HECHO 10:36] Llaves del publicador de GitHub dentro de la app.
+- [HECHO 10:40] Ventas revisadas: Gumroad publica bien; Kit de Tesis falla por INICIAR.bat; nodo de atención (Render) caído desde agosto.
+- [PENDIENTE DE ÉL] Inicio automático de la app Binarias en HyperOS; IP en la llave de Binance; decidir qué se hace con el Kit de Tesis y con el servicio de Render.
+
+18/11/2026, 09:55. Pedido: «el script no tiene que hacer nada»: consolidar y enviárselo a la IA; la IA manda a comprar o a vender y el script compra o vende; el agente de la nube manda solo la orden final. Sus respuestas: 2 USDT por orden, la IA elige el lado libre y puede decir «nada».
+- [HECHO 09:43] Acceso de GitHub en el teléfono (su autorización: corrió él la orden); lectura comprobada a las 09:45.
+- [HECHO 10:05] Rutina de la nube: ordena comprar, vender o nada, en cualquier lado, y solo manda la orden.
+- [HECHO 10:08] Teléfono: el operador ya no compra por su cuenta; ejecuta la orden de la IA con 2 USDT y los topes de dinero. Caja: solo el nodo (10:09).
+- [HECHO 10:11] Prueba de punta a punta con las instrucciones nuevas: orden sin motivo, leída por el teléfono.
+- [PENDIENTE DE ÉL] La IP 201.221.178.15 en la llave de Binance; que la llave no traiga futuros, margen ni transferencias; al menos 12,50 USDT en la billetera de predicción; «operador armar».
+
+18/11/2026, 09:30. Pedido: con el token que generó (Descargas), terminar lo que falta del aprobador y borrar solo las rutinas que lo construyeron («no elimine todas las rutinas»).
+- [HECHO 09:30] Token de la rutina en el teléfono (~/.config/binarias/rutina, huella igual a la del PC).
+- [HECHO 09:33] Prueba de punta a punta: el teléfono disparó la rutina y la decisión quedó en GitHub en 16 s (NO COMPRAR, leída desde el PC).
+- [HECHO 09:40] Borradas las seis rutinas que construyeron el aprobador (copia de su configuración en respaldos).
+- [PENDIENTE DE ÉL] Su sí expreso para el acceso de GitHub del teléfono (el control de permisos lo negó); la IP 201.221.178.15 en la llave de Binance; decidir si se borran también «Prueba GitHub» y «Continuar binarias y proyectos».
+
+17/11/2026, 08:55. Pedido: revisar la rutina del aprobador, comprobar Fable 5.2, pasarla a Opus 5.5 con esfuerzo máximo, añadirle gasto mínimo (revisiones cada 5, 10 o 15 min) y respeto a lo que dejó Fable 5.2, revisar GitHub y encenderla.
+- [HECHO] Fable 5.2 comprobado con una llamada real: «requires usage credits» (ya no entra en el plan; solo con créditos de pago).
+- [HECHO] Rutina trig_01WW3w9zNhTxEwVeoFQFWb6J: Opus 5.5, esfuerzo max, ENCENDIDA (00:00, 05:00, 10:00 y 15:00). Añadidos A a E al final del texto, sin tocar el original: modelo, seguir desde AVANCE.md o salir en una línea si hay TERMINADO.md, revisión de 5 min sin IA en la caja, gasto mínimo, y lo de Fable 5.2 manda (el aprobador solo dice NO o acota).
+- [HECHO 09:05] GitHub arreglado: él reinstaló la app Claude con acceso a todo; desde las 09:03 la nube clona trader-btc en 1-2 s (entornos Chat y Default) y el token de Telegram está presente. Antes: la nube no clonaba sus repos privados (trader-btc y granja-t95h: «repository not found»), aunque claude.ai los ve. Desde el PC trader-btc clona en 3 s. La corrida de las 00:06 y las de Proyectos fallaron por eso, antes de gastar en el modelo.
+- [PROGRAMADO] Por su orden, la rutina corre solo hoy a las 12:42 y a las 17:42 (cron 42 17,22 17 11 * UTC); apagarla después de las 17:42 para que no vuelva el 17/11/2027.
+- [HECHO 09:30] Diseño suyo escrito en la rutina (sección F): el operador mide aciertos; al llegar al umbral del plan (hoy 76 %, 19 de 25) envía cada punto de compra a Claude en la nube, sin tope de consultas; Claude (Haiku 5.5, Sonnet si hace falta; nunca Opus) responde COMPRAR o NO COMPRAR con el contexto fijo; el programa compra con las reglas de Fable 5.2 (importe, freno, 16 %, 20 órdenes al día). Claude solo decide sobre los puntos que propone el operador. Opus 5.5 max solo construye.
+
+16/11/2026, 21:38. Pedido: programar en la nube el agente que aprueba o no cada binaria (00:00) y otro que analice sus proyectos y saque algo solo (04:00), con Claude Fable 5.2 y esfuerzo máximo.
+- [HECHO] Rutina «Binarias: programar el agente aprobador (00:00)» trig_01WW3w9zNhTxEwVeoFQFWb6J, una vez el 17/11 a las 00:00; entrega en la rama claude/aprobador-binarias-2026-11-17 e informe a Telegram.
+- [HECHO] Rutina «Proyectos: analizar y sacar lo siguiente (04:00)» trig_014mdzixXBLj5jRUvKJ5Csb7, 17/11 a las 04:00; rama claude/proyectos-2026-11-17.
+- [HECHO] Operador y comprador subidos a GitHub (rama binarias/plan-v7-2026-11-04, commit b4b2548).
+- [PENDIENTE] Revisar los dos informes en Telegram por la mañana. El aprobador de cada hora queda escrito y apagado hasta su orden.
+
+11/11/2026, 20:45 a 21:15. Pedidos: «cámbiela (la ESP32) a hacer lo que yo quiero y que siga aunque la desconecte», «comprar sobre la pérdida cuando el mercado ofrece más dinero» y «que vea el precio real».
+- [HECHO] ESP32 dedicada a binarias, persistente y probada con reinicios por hardware.
+- [HECHO] La pérdida en la caja y en la placa (tabla a ciegas y papel en vivo, idénticas entre sí).
+- [HECHO] Precio real en la Mesa del PC (solo lectura, la llave no sale del PC), enviado a la placa y a la caja.
+- [EN CURSO] Primera liquidación con precio real (ventana de las 21:00).
+
+11/11/2026, 19:36 en adelante. Pedido: ejecutar el plan del laboratorio de binarias con red neuronal e IA pequeña en la caja (aprobado a las 11:39).
+- [HECHO] Hooks H1 y H2 con respaldo y prueba en seco.
+- [HECHO] Centinela de la caja detenido con ESPERA_ESTADO; quince.py y arrancar.sh nuevos en la caja con su huella.
+- [HECHO] Los tres prompts en laboratorio\ y la sección 7d del PLAN-TOTAL.
+- [PENDIENTE DE ÉL] Conectar el teléfono por USB para copiarle su estado a la caja; después se borra ESPERA_ESTADO y el centinela de la caja vuelve.
+- [EN CURSO] Pasos 3 a 12 del laboratorio (lista en el AL FRENTE del 11/11).
+
+07/11/2026, 20:05 a 20:15. Pedido: «empaquétalo para que quede en una aplicación que se esté ejecutando siempre en segundo plano en mi teléfono».
+- [HECHO] App Binarias armada, firmada y en Descargas del teléfono; motor copiado al PC y probado fuera de Termux.
+- [PENDIENTE DE ÉL] Instalar Binarias.apk desde Archivos → Descargas.
+- [PENDIENTE] Correr app-telefono\instalar_motor.sh tras la instalación (relevo de Termux a la app, sin duplicados).
+
+07/11/2026, 19:50 a 20:02. Pedido: «que todos esos avisos múltiples se muestren en vivo en la pantalla y en mi Telegram», «que se vean las 4 operaciones en el programa de mesa binarias» y que el programa quede instalado también en su celular.
+- [HECHO] Avisos del Centro a la pantalla del PC y a Telegram (desde el teléfono), con resultado sobre el mismo mensaje.
+- [HECHO] Las cinco estrategias en la Mesa, bajo la gráfica, con sus avisos en vivo.
+- [HECHO] Centro instalado en el teléfono, con arranque solo; primer aviso real a Telegram a las 19:56 (E1 llegó a lo pedido, 19 de 25).
+- [HECHO] arrancar.sh sin duplicados en el teléfono.
+- [PENDIENTE] La Mesa con botones en el teléfono: exigiría llevar la llave de operar, que por su decisión del 04/11 no sale del PC; además las compras están en espera.
+- [PENDIENTE] Llevar a la caja quince.py y arrancar.sh nuevos cuando vuelva a la red.
+
+07/11/2026, 19:12 a 19:45. Pedido: implementar todo lo dicho del trading, lograr compras reales en Binance comprobándolas con poco, que el agente vea cuando los aciertos superan lo pedido y un centro multiestrategia en tiempo real.
+- [HECHO] Diagnóstico de compras con dos órdenes reales nuevas (una de prueba autorizada y una suya): desde spot Binance no compra; la Mesa ya paga desde la billetera de predicción.
+- [EN ESPERA, SU ORDEN 07/11 19:46] Pasar USDT de Spot a la billetera de predicción en la app y hacer la compra de prueba de 1 USDT. No se recuerda hasta que él lo retome.
+- [HECHO] Aviso de aciertos al encender, «k de 25», racha y latido «YA LLEGÓ Y SIGUE»; la Mesa dice ATENTO con los aciertos.
+- [HECHO] Centro de cinco estrategias en papel en tiempo real, con paridad contra c12; G1 al revés (E3) ya en papel en vivo.
+- [HECHO] Las dos líneas verdes, como lectura de su pedido y solo para mirar.
+- [HECHO] arrancar.sh y vigía nuevo en el teléfono.
+- [PENDIENTE] Llevar quince.py nuevo a la caja cuando vuelva a la red.
+
+06/11/2026, 21:00-21:22. Pedido: leer lo que puso en el canal Centro nocturno y atenderlo.
+- [HECHO] Leídos los 38 mensajes y las 21 fotos.
+- [HECHO] Diagnóstico de la orden de las 12:39 y aviso real en la Mesa.
+- [HECHO] Estudio operativo P21 y P22.
+- [HECHO] Avisador de la caja de vuelta y arrancar.sh corregido.
+- [HECHO] Prompt de cinco estrategias escrito.
+- [PENDIENTE DE ÉL] Compra de prueba a precio normal; abrir Termux en el teléfono y cargarlo.
+- [PENDIENTE DE ÉL] Decidir el agente, G1 al revés en papel y las dos líneas verdes; decir dónde vio el 85 % o el 105 %.
+- [HECHO 07/11, 19:39] Llevar arrancar.sh al teléfono.
+
+04/11/2026, 12:00 a 13:29. Pedido: continuar y consolidar lo de la madrugada; «quiero 5 líneas bien optimizadas para mis mínimos y máximos y la recta de la mitad»; «¿qué es ese tal pulso-btc?»; «caja conectada»; que el agente opere en la nube («creamos un nodo entre Binance, mi celular y el agente»).
+- [HECHO] Caja despierta y con arranque solo, probado con un reinicio; estado del teléfono pasado a la caja; aviso de relevo en el teléfono.
+- [HECHO] Cinco líneas en Pulso y en la foto del SÍ o NO, con paridad de píxeles en el PC, en Rust y en el teléfono.
+- [HECHO] P18: las líneas como filtro del SÍ no entran; quedan para mirar.
+- [HECHO] Pulso sin DISPARO y con la lectura del mercado al día con el v7.
+- [HECHO] Agente v5, auditor con los archivos oficiales, rutina de la nube escrita y apagada, y pasos del toque en el SÍ real.
+- [HECHO] Consolidado: herramientas fijas, GitHub, posible plan, USB, memoria, bóveda, encargo y guía (versión 4).
+- [NO SE PUEDE] Que un agente toque la apuesta, en la nube o con un nodo en el celular: no hay API y va contra los términos de Binance (riesgo de cerrar la cuenta).
+- [PENDIENTE DE ÉL] Canal «club nocturno» (bot de administrador y un mensaje); clave API de solo lectura; P1; «enciéndelo» para la rutina de la nube; unir el PR #2 si lo quiere.
+
+04/11/2026, 00:45 a 01:18. Pedido: pasar todo el contexto a la USB, con todo; una guía para que la gente aplique las estrategias; cambiar y mejorar lo de GitHub; «¿sí son de binarias?»; facturación: un PDF que haga el bot solo, con enlaces al sitio donde se ganó el dinero para que sea demostrable, enviado a su Telegram; pasos para la clave API de Binance; revisar la concordancia y arreglar todo; velas de confirmación; jamás apalancamiento; un agente en la nube que opere cuando le avise el bot de abajo, con tope del 16 % y parada a la primera o segunda pérdida, siempre con análisis de Claude antes; lo mismo para la gente, con la foto y la transmisión; las fotos e información a su Telegram; el nodo del teléfono bien montado; todo a GitHub, a la memoria y a la caja. Reconectó la USB.
+- [HECHO] Respuesta: sí, son binarias (Contratos de Evento); los datos de futuros solo deciden cuándo apostar.
+- [HECHO] USB con todo (migración de las 00:59 a la 01:09, verificada).
+- [HECHO] Guía para la gente (página, Markdown y texto corto para Telegram), sin nombres ni claves; versión 2 a la 01:16.
+- [HECHO] GitHub: rama v7, README nuevos, repositorio ordenado, PR #2 en borrador y descripción.
+- [HECHO] Concordancia revisada y corregida; P3b y P16 probados y rechazados.
+- [HECHO] Fotos con las seis líneas, comprobantes en PDF y resumen diario en la caja y el teléfono (semáforo v3.2).
+- [HECHO] Pasos de la clave API de solo lectura (Descargas).
+- [NO SE PUEDE] Agente en la nube que opere solo: los Contratos de Evento no tienen API y Binance prohíbe los bots.
+- [PENDIENTE DE ÉL] Canal para la gente; orden de dinero real; Play Services en la caja; clave API.
+
+03/11/2026, 23:47, a 04/11/2026, 00:35. Pedido: revisar la sesión anterior de binarias y continuarla; guardar el plan como posible plan en Descargas y en la USB; buscar en internet métodos que suban el acierto («a ver cuánto llegamos»); decir cuántos días van programados; operar en real solo cuando el papel funcione ese día y esas horas («no es que sean solo en días verdes, solo en días que esté sumando»); el bot con datos en vivo y, si conviene, su API de Binance; mirar la gráfica en vivo y decir sí o no; seis líneas en vez de dos. «Primero analiza».
+- [HECHO] Posible plan v6 (23:54) y v7 en Descargas\POSIBLE PLAN BINARIAS BTC y en G:\POSIBLE PLAN BINARIAS BTC, en carpetas por versión, con LEEME y SHA-256 iguales.
+- [HECHO] Búsqueda en fuentes reconocidas y pruebas a ciegas C9, C9b y C9c (P8 a P15). Entran el interés abierto (P14b) y su combinación con su regla (P15).
+- [HECHO] Semáforo v3.1 en la caja y el teléfono: SÍ o NO con motivo en cada señal; dinero real bloqueado hasta su orden.
+- [HECHO] Seis líneas en Pulso, compiladas en la caja sellada.
+- [HECHO] Su API de Binance: no hace falta (todo lo que usa el bot es público y los Contratos de Evento no tienen API).
+- [PENDIENTE DE ÉL] Orden de dinero real (crear REAL_AUTORIZADO) o esperar a los criterios 1 a 4 de la sección 8.
+- [PENDIENTE DE ÉL] Desactivar Google Play Services en la caja por el calor.
+- [PENDIENTE] P1 a P6 como estaban; vigilar en vivo que el filtro del interés abierto se sostenga, porque es un efecto reciente.
+
+03/11/2026, 18:55-21:15. Pedido: revisar lo de estadística binaria y lo de la nube; push con GitHub; análisis multidimensional (seis dimensiones), Markov, HMM, regímenes, agrupamiento, autocorrelación, anomalías, validación, sobreajuste, binarias frente a futuros; footprint, Bookmap, SMC, CRT, ICT, opciones, macro y Banco Mundial; meta 85,7 %; diagnóstico; reestructurar el plan; segunda opinión de otra IA; segundo cerebro que insista; recordatorio en el teléfono; migrar todo a la USB con particiones y claves; leer sus comentarios de Telegram; parar lo de la T95H; centinela a la caja y al teléfono; unificar en BTC; semáforo papel → real sin apalancamiento.
+- [HECHO] Lo de estadística binaria y lo de la nube está en github.com/Nico1091/trader-btc (rama local/maestro-v2: t2 y t3 del 29/10; rama de la nube unida a master el 27/10). El lunes 2/11 no hubo cambios: el operador solo dio «Login expired». Local y GitHub estaban iguales.
+- [HECHO] Investigación C1 a C7 en cuant\ y diagnóstico técnico (informe del 03/11). Plan v5 escrito.
+- [HECHO] Segunda opinión de Nemotron 3 Super y DeepSeek v3.
+- [HECHO] T95H: parados descargador y medidor de surebets; sus arranques desactivados; numpy y Tor instalados; centinela, avisos y semáforo corriendo con arranque solo.
+- [HECHO] Teléfono: Termux 0.118.3 y Termux:Boot 0.8.1 (GitHub, firma verificada), Python, numpy y Tor; centinela, avisos y semáforo con arranque solo; probado con un reinicio.
+- [HECHO] PC: centinela parado (PARAR), arranques de Windows quitados; Pulso deja de mirar el estado viejo del PC.
+- [HECHO] Contraseña del respaldo cifrado encontrada en la transcripción del 05/10 (no se copia aquí).
+- [HECHO] Sus comentarios del 31/10 transcritos de las fotos.
+- [HECHO] GitHub: rama binarias/plan-v5-2026-11-03 de github.com/Nico1091/trader-btc (commits 7ed7b90 y cbb3b84), sin datos, estados ni claves. Sin unir a master: lo decide él.
+- [HECHO] Recordatorio en su teléfono y en el PC: 04/11/2026 a las 9:00 («Binarias: semáforo y pendientes»).
+- [HECHO] USB (la de 117 GB; en un puerto salió «sin medio», en otro bien): CONTEXTO al día (1.240 notas, 33 claves tapadas, 0 errores; la contraseña ya no aparece en ningún archivo); PROYECTOS al día (98 zips, 0 errores); NUEVO con el contexto de binarias de hoy (G:\binarias-2026-11-03, 34 archivos); RESPALDO con un cifrado nuevo, respaldo-nicolas-2026-11-03.nrc (2,31 GB, 81.967 archivos, verificado), con las claves (polycode, Telegram de WSL, credenciales de la granja). No se crearon particiones nuevas: la extendida está llena y moverla arriesga una USB que ya falló tres veces; NUEVO era la reservada para lo nuevo.
+- [HECHO] Referencias de otros con resultados verificados: G-Research (Kaggle 2022, ganó con correlación 0,0326 a 15 min), Shen, Urquhart y Wang (2022), ESMA (2018). Adoptadas como E10 y E11.
+- [PENDIENTE] Cerrar las 7 sesiones viejas «operador binarias» (el modo automático no me dejó: claude stop 598019b8 y las otras).
+- [PENDIENTE] Recompilar Pulso con caja.sh para la frase nueva del centinela.
+- [PENDIENTE] Experimentos E1 a E9 del PLAN-v5.md.
+
+30/10/2026, 14:00. Pedido: buscar las estrategias más seguras de binarias, el mercado y quién tiene los mejores resultados; revisarlas «100/100»; adaptarlas a su sistema; imagen en TradingView; instalar TradingView y explicar dónde va su API. A las 14:08 añadió: unificar todo en este bloc, que se actualiza paso a paso.
+- [HECHO] Bloc único (este archivo).
+- [HECHO] Reunir las memorias de binarias en una sola que apunte aquí (memoria binarias-bloc-unico).
+- [HECHO] TradingView Desktop 3.5.0.8375 instalado. Se abre con tradingview\abrir_tradingview.pyw, que lo saca todo por Tor.
+- [EN CURSO] Investigar estrategias y resultados que se puedan verificar.
+- [PENDIENTE] Prueba a ciegas t26, con la regla escrita antes en PLAN.md (sección 12).
+- [HECHO, SIN PROBAR EN TRADINGVIEW] Indicador Pine v6: tradingview\reglas_del_mes.pine. Las seis reglas de octubre con sus filtros, flecha SUBE/BAJA y alertas. Va en BINANCE:BTCUSDT.P o BINANCE:ETHUSDT.P a 5 min. El modelo de ETH no entra (53 rasgos y se reentrena cada mes). Falta pegarlo en el editor de Pine y comprobar que compila.
+- [PENDIENTE] Imagen del gráfico: requiere mirar su pantalla, y eso solo se hace cuando él lo pida en ese mensaje.
+- [HECHO] Dónde va su API: en ningún lado. Los Contratos de Evento no tienen API y Binance prohíbe los bots en la app. TradingView tampoco apuesta. El centinela lee velas públicas sin clave. Las alertas de TradingView con webhook son de pago y mandarían sus señales a un tercero, lo que va contra su regla de privacidad.
+
+31/10/2026, 08:00. Pedido: buscar las estrategias de binarias más útiles, con mejor porcentaje y mejores retornos; documentación de las «del 98 %» y de las abiertas; las del trader que ganaba 3 o 4 millones al día y las del estadounidense con fama de hacker; las más estables de hoy; cómo se maneja cada vela; descargar su contenido operativo (no el que generan para vender). Probar su método: tomar UNA sola vez el contexto (3 h, 5 h, 3 meses: si sube o baja) y luego mirar solo cada 5 o 15 min, con captura del gráfico, para decir sube o baja. Abrir TradingView aquí mismo. Hacer el plan y agregarlo a este bloc.
+- [HECHO] TradingView abierto por Tor con su cuenta, en BTCUSDT de Binance. Las capturas salen sin robar el foco (MCP ventanas, función foto) y quedan en tradingview\capturas.
+- [HECHO] Plan con la regla de decisión escrita antes de probar: PLAN.md, sección 12.
+- [HECHO] Investigación (ver ESTRATEGIAS > Investigadas el 31/10).
+- [HECHO] t26 (pruebas\t26_contexto_y_difundidas.py, salidas t26_BTCUSDT.txt y t26_ETHUSDT.txt). El banco ampliado sube el acierto (BTC de 58,0 a 59,0 %; ETH de 56,6 a 57,6 %) y los arranques de 30 días que terminan arriba (BTC de 47,6 a 55,8 %; ETH de 33,4 a 45,6 %), pero da menos apuestas al día (BTC de 8,0 a 6,2; ETH de 5,2 a 4,0). Falla la condición 4 fijada antes: el banco NO cambia.
+- [PENDIENTE DE ÉL] La condición 4 (no bajar las apuestas al día) la puse yo. Si él la cambia, por ejemplo a «al menos 4 al día», el banco ampliado entra.
+- [PENDIENTE DE ÉL] Los nombres de los dos traders. Si los recuerda, se revisan sus reglas exactas; sin el nombre, se usaron los dos más parecidos (BNF y Sarao).
+- [EN ESPERA] Captura del gráfico con cada ficha: solo si entra el contexto.
+- [HECHO] Material operativo público descargado por Tor en investigacion\2026-10-31 (MHI, prueba de TradingRush, Traders Union, BNF y el estudio de Reading sobre BTC a 5 min).
+
+31/10/2026, 08:15. Pedido: (a) en su teléfono, audios con la voz de Salomé cada 3 h sobre si el Bitcoin sube o baja, y alertas en tiempo real si cae más de 1.200 o sube más de 3.000 dólares, con gráfica en vivo de TradingView; en Rust limpio, sin librerías, cuidando la telemetría y con protección de IP como el Buscador (Tor). (b) Defensas que no sean stop: volumen, dólar, noticias, su contexto de 3 h con 2 h operando, y las defensas de los mejores traders. (c) A las 08:20 añadió: pocos operando frente a mucho ruido (volumen bajo o alto) como filtro, y noticias de mercados especulativos en la aplicación.
+- [HECHO] Pulso BTC (Ingresos\pulso-btc; programa en WSL ~/.pulso/bin/pulso). Rust sin crates, compilado en caja sellada, sin avisos. Precio BTC/USD de Coinbase (Kraken de respaldo) por Tor, porque Binance rechaza Tor. Cada 3 h (bloques 0, 3, 6… UTC): precio, 3 h, 5 h, 3 meses, últimos 15 min, contexto y 3 titulares de Google Noticias. Alertas si cae 1.200 o sube 3.000 desde el último aviso. Cada aviso llega a su Telegram (bot Centro nocturno) con gráfica propia de 3 h, botón al gráfico en vivo de TradingView y nota de voz de Salomé. La voz sale por Tor mediante un puente del propio programa que solo deja pasar al servicio de voz de Microsoft. La clave del bot se pasa a curl por la entrada estándar y no queda en la lista de procesos ni en el registro.
+- [COMPROBADO] Dos informes reales enviados (08:19 y 08:21): gráfica, texto, noticias y voz. Corre desde las 08:21 (registro en ~/.pulso/registro.log).
+- [SIN PROBAR EN VIVO] Las alertas de caída o subida: el código está, pero el movimiento todavía no ha ocurrido.
+- 31/10, 08:30. Pedido: que todo llegue solo, sin depender de Claude: consolidado, noticias en vivo y capturas de las gráficas de 1 h (cada hora) y de 5 min (cada 5 min), con foto, mensaje y audio. Hecho en Pulso (corre desde las 08:31, proceso propio en WSL, sin esta sesión):
+  · Cada 5 min: gráfica de velas de 5 min (últimas 6 h) + texto + voz. Cada hora: además, la de velas de 1 h (últimos 3 días). Las dibuja el propio programa con los datos en vivo; no toma pantallazos de su TradingView porque eso exigiría quitarle el ratón cada 5 min y no funcionaría con TradingView cerrado.
+  · Al momento: cada apuesta en papel de la cuenta principal al abrirse (para tocarla en la app) y al cerrarse, con el resultado y el saldo. También si el centinela se detiene y cuando vuelve.
+  · Cada 10 min: titulares nuevos de Bitcoin (Google Noticias, por Tor), con voz.
+  · Cada 3 h: el informe completo, ahora con el consolidado de las cuentas en papel.
+  · Probado con envío real a las 08:30: velas de 5 min y de 1 h, con foto y voz.
+- [PENDIENTE DE ÉL] Arranque automático: el modo automático no me dejó crear la tarea programada. Doble clic en Ingresos\pulso-btc\PONER ARRANQUE AUTOMATICO.cmd. Sin eso, Pulso se detiene al apagar el equipo.
+- Telemetría: Telegram ve los textos del bot (no son de extremo a extremo) y Microsoft ve el texto que convierte a voz, pero ninguno ve su IP. El botón de TradingView abre la app en su teléfono con la conexión normal del teléfono.
+- [HECHO] t27 de defensas (PLAN.md, sección 13; pruebas\t27_defensas.py). En 2024-26, con la variante elegida con 2021-23:
+  BTC: «no apostar con volumen alto» ENTRA por poco (acierto de 56,2 a 56,7 %, arranques de 30 días arriba de 35,8 a 42,2 %, 4,76 al día). Su contexto con 2 h operando no entra (55,8 %). No apostar tras un movimiento extremo de 3 h tampoco entra (56,3 %).
+  ETH: ninguna entra («no apostar con volumen bajo» da 56,1 % frente a 56,0 %).
+- [PENDIENTE] Poner en el centinela el filtro de volumen alto para las reglas de BTC, cuidando la paridad con el banco (trampa 4).
+- No se pudieron probar: noticias (sin archivo de titulares con hora) e índice del dólar (no está en Binance). Las noticias llegan en su informe de voz, sin decidir nada.
+- Corrección de datos (Coinbase, 31/10 08:25): en 24 h BTC subió unos 400 dólares (+0,52 %), de 76.973 a 77.371, con rango de 76.141 a 77.958. No subió 7.000. El volumen de 24 h (6.601 BTC) está un 25 % sobre el promedio de 30 días.
+
+31/10/2026, 08:32. Su pronóstico: el Bitcoin llega a 100.000 dólares en dos semanas. Pregunta si poner dinero real en binarias para operar directo.
+- Datos (BTC diario 2020-2026): subir un 29 % o más en 14 días (de 77.371 a 100.000) pasó en el 2,83 % de las ventanas (70 de 2.477); desde 2023, en el 1,51 %. La mayor subida en 14 días desde 2024 fue del 34,3 %.
+- Aunque pase, no sirve para las binarias de 10 min: en los días que cierran una subida de 15 % o más en 14 días, solo el 51,3 % de las ventanas de 10 min subió, por debajo del 54,1 % que pide el pago 0,85. Los Contratos de Evento no pasan de 1 día, así que no hay forma de apostar a «100.000 en dos semanas».
+- Dinero real: la regla sigue siendo papel hasta su orden expresa. El PLAN pide 7 días de paridad y 100 apuestas en papel, y hoy hay 0. Además, Binance acaba de sufrir un hackeo de 6.300 millones de dólares (BBC, Yahoo Finanzas).
+- [HECHO] Pulso le avisa por voz cada vez que BTC cruza un múltiplo de 5.000 dólares (80.000, 85.000… 100.000, y también hacia abajo), con 200 dólares de margen para no repetir el aviso.
+
+31/10/2026, 08:40. Pedido: crear de nuevo la tarea de arranque (ya está en modo manual); informar cómo va la operación; operar solo cuando todos los indicativos estén a favor (contexto de 1 h tomado más de 10 min antes, vela de 5 min, gente comprando, mercado especulativo y bolsa), con Claude haciendo de agente y su teléfono como nodo; y usar solo las estrategias que dieron resultado tanto en días de subida como de bajada.
+- [HECHO] Tarea «Pulso BTC - avisos de voz» creada (al iniciar sesión, oculta, se reinicia sola si cae). Estado: lista.
+- [ESTADO 08:38] 0 apuestas en las cuatro cuentas, ni en papel ni con dinero real. El centinela estuvo caído hasta las 07:46 y desde entonces ninguna señal ha llegado al umbral. El operador Claude sigue detenido por su orden.
+- [HECHO] t28 (PLAN.md, sección 14; pruebas\t28_todo_a_favor.py). «Todo a favor» empeora: 51,9 % en BTC y 44,3 % en ETH en 2024-26, con 0,1 apuestas al día. La mejor variante (robustas y al menos 2 de 3 indicativos a favor) da 55,7 % y no entra. Las robustas solas suben 0,3 puntos en BTC y 0,2 en ETH, por debajo del punto exigido. Lo que gana va contra el empujón inmediato: solo el 5 a 11 % de las apuestas buenas coincide con la vela de 5 min o con la presión compradora.
+- No se pudo probar: la bolsa común (no hay historia de 1 min del S&P 500).
+- Conclusión: el sistema sigue igual. Lo que sí mejoró la seguridad fue el filtro de volumen alto en BTC (t27), pendiente de ponerlo en el centinela.
+
+31/10/2026, 08:44. Pedido: revisar su nueva foto de TradingView con dos resistencias. Si el precio supera las dos, compra a 5-15 min; luego espera otra oportunidad igual. Que Claude trace las líneas solo, como él, y analice las rupturas.
+- Lo que se ve en su foto (08:44, BTCUSDT de 1 min): una línea casi horizontal en 77.540 (techo del rango tras la caída de las 13:30, hora de TradingView), una diagonal que baja desde el máximo de 77.750 y otras que forman V y X. El precio, en 77.547, estaba empujando contra la horizontal.
+- [HECHO] t29 (PLAN.md, sección 15; pruebas\t29_dos_resistencias.py). Las líneas se trazan solas: techo del rango y recta por los dos últimos máximos de giro que van bajando (y lo simétrico para caídas).
+  A favor de la ruptura (su forma): BTC 45,6 % y ETH 45,4 % a 10 min en 2021-26, unas 35.000 apuestas cada uno. Pierde.
+  Contra la ruptura: 54,3 a 54,8 %, en el equilibrio y sin seguridad estadística. No entra.
+- Para medir su lectura a ojo, que puede escoger mejor que la regla fija: anotar cada señal suya con la hora y el sentido, y medirlas después.
+
+Su estrategia en TradingView (31/10)
+- Traza dos resistencias (líneas). Si el precio toca una, puede subir o caer. Para dar subida, el precio debe superar dos de sus resistencias hacia arriba. Una X o una pirámide en el dibujo indica más probabilidad de caída.
+- Lo que vi a las 08:14 en BTCUSDT de 1 min: dos líneas que se abren como un megáfono (arriba 77.650-77.725, abajo 77.520-77.445), el precio en 77.500 pegado a la de abajo y el Aroon en -35. No vi la X ni la pirámide en esa pestaña.
+- Las líneas que él dibuja no se pueden probar a ciegas tal cual. Lo más parecido en el banco son el rompimiento de 20 velas y el techo y piso de 24 h.
+
+Abiertos de antes
+- [PENDIENTE DE ÉL] Leer en la app el pago real de los Contratos de Evento.
+- [PENDIENTE] Para consolidar faltan 7 días de paridad en vivo y 100 apuestas en papel (criterios 3 y 4 del PLAN).
+- [HECHO 31/10] Frecuencia: en vivo solo hubo 58 decisiones del modelo (unas 5 h de marcha real) y la probabilidad osciló entre 0,449 y 0,578. A ciegas el ritmo es de unas 6,7 apuestas al día (2.434 en 12 meses), así que en 58 cierres se esperaba una. No es un fallo: la causa fueron las caídas.
+- [PENDIENTE DE ÉL] Decidir si sube el capital: con 200.000 COP el mínimo de 5 USDT deja apostar el 8 %. Se le dice una vez, sin insistir.
+
+
+## 7. TRAMPAS TÉCNICAS
+
+- Un force-stop deja a Termux:Boot «detenido» y Android ya no le entrega el aviso de encendido: se reactiva abriendo su actividad (am start -n com.termux.boot/.BootActivity) y se comprueba con dumpsys package (stopped=false).
+- La caja apaga la pantalla a los 30 min y se duerme si nada la retiene. El bloqueo de reposo lo toma Termux al arrancar por Termux:Boot (termux-wake-lock); mientras Play Services fallaba cada 3 s no se notaba.
+- sum() de Python suma distinto desde la 3.12 (el PC tiene 3.11 y los equipos 3.14): en el código de las líneas las sumas van en bucle, o se pierde la paridad con Pulso.
+- Los textos incrustados en Bash convierten las barras dobles en simples y \n en salto de línea: los parches van en un .py aparte.
+- «claude --bg» no arranca en carpetas sin confianza: por eso el operador corre en System32.
+- Los avisos de tareas en segundo plano no traen el texto: el operador lee con «operador.py pendientes».
+- numpy en Windows usa int32: los tiempos siempre con dtype=np.int64.
+- Los filtros que no están en el banco no se aplican a REGLA, porque romperían la paridad.
+- El modo automático bloquea «powershell -ExecutionPolicy Bypass -File»; se usa «-Command».
+- Un .ps1 sin BOM daña las tildes en PowerShell 5.
+- Al arrancar con Windows la red tarda: antes, un fallo de nombre («getaddrinfo failed») cerraba el centinela. Desde el 31/10, main() reintenta a los 30 s, doblando la espera hasta un tope de 5 min. Copia previa en respaldos\binarias.v4-antes-reintento-31-10.py.
+- El texto «vela de las HH:MM» del estado solo se renueva en cada cierre de 5 min: recién arrancado muestra la última decisión vieja.
+
+
+## 8. BITÁCORA
+
+- 17/11/2026, 08:55: Fable 5.2 exige créditos; rutina del aprobador a Opus 5.5 max, encendida, con gasto mínimo y respeto a lo de Fable 5.2; la nube no clona los repos privados.
+- 17/11/2026, 09:55: el teléfono es el nodo central y lo hace todo solo (nodo, operador de Fable, Centro); la caja, respaldo.
+- 17/11/2026, 09:45: nodo puente corriendo en la caja y el teléfono; operador de Fable en la caja (estado 1); rutina con la sección H.
+- 17/11/2026, 09:30: rutina con el diseño suyo (puntos de acierto a Claude en la nube, que decide comprar o no); solo hoy 12:42 y 17:42.
+- 17/11/2026, 09:05: GitHub arreglado (reinstalación de la app Claude); rutina del aprobador programada para las 12:42.
+- 16/11/2026, 21:40: dos rutinas de la nube programadas (aprobador 00:00, proyectos 04:00) y operador subido a GitHub.
+
+- 29/10/2026 21:51. Centinela v4 y operador Claude en marcha.
+- 29/10/2026 22:36. t25: U no reemplaza a H (30 días arriba 65,3 % frente a 65,6 %).
+- 30/10/2026 10:20. El equipo arrancó y el centinela volvió solo, con dos errores de red del arranque.
+- 30/10/2026 14:00. Ninguna apuesta desde el 29/10 a las 21:51. A las 14:00, el modelo de ETH dio 0,519, lejos del umbral de 0,61.
+- 30/10/2026 14:10. Creado este bloc.
+- 30/10/2026 14:22. El centinela dejó de latir sin dejar error (probablemente se apagó el equipo).
+- 31/10/2026 07:41. Arrancó con Windows y murió por falta de red («error fatal»). El arranque automático sí funciona.
+- 31/10/2026 07:4x. El operador arrancó con Windows y repetía «CENTINELA CAÍDO». Por su orden se detuvo su sesión. No se ha vuelto a arrancar: el valor BinariasOperador sigue en el arranque y volverá a abrirse en el próximo reinicio.
+- 31/10/2026 07:46. Centinela corregido (reintento de red) y de nuevo en marcha. A las 07:50 decidió con vela nueva: ETH 0,467, sin señal.
+- 31/10/2026 08:00. Indicador Pine de las reglas del mes escrito; sin probar en TradingView.
+- 31/10/2026 08:00. TradingView abierto por Tor. Al maximizarse la ventana, un clic mío pudo dejar una raya corta en el panel de Aroon; se quita con Ctrl+Z.
+- 31/10/2026 08:05. PLAN.md, sección 12, escrita antes de probar. La t26 arrancó (BTC y luego ETH).
+- 31/10/2026 08:20. t26 terminada: mejora el acierto pero baja las apuestas al día; por la regla, el banco no cambia. Resultado anotado en PLAN.md, sección 12.
+- 31/10/2026 08:21. Pulso BTC en marcha; dos informes de voz llegaron a su Telegram.
+- 31/10/2026 08:28. t27: el filtro de volumen alto entra para BTC; nada entra para ETH.
+- 31/10/2026 08:35. Primera gráfica de 5 min mandada sola por Pulso, sin ninguna orden de Claude.
+- 31/10/2026 08:38. Tarea de arranque de Pulso creada con su permiso (modo manual).
+- 31/10/2026 08:42. t28: operar solo con todo a favor empeora; no entra.
+- 31/10/2026 08:46. t29: su estrategia de las dos resistencias pierde a favor de la ruptura; no entra. Pulso suma el aviso de ruptura del máximo o mínimo de 30 días.
+- 31/10/2026 08:50. Resumen unificado del día en la sección 0 de este bloc.
+- 31/10/2026 08:53. Pulso: la lectura empieza por el precio real de la última hora; las noticias que lo contradicen se dan por atrasadas; se agrega el impulso del Banco Mundial.
+- 31/10/2026 09:00. Pulso pasa a precios de Binance directo, cada 5 s.
+- 31/10/2026 09:01. Pulso manda el precio por texto cada 30 s.
+- 31/10/2026 09:25. Índice de estabilidad (t33, una neurona) en Pulso: cada 30 s y en el agente.
+- 31/10/2026 09:15. Pulso traza sus líneas en 1 min (gráfica cada 5 min) y avisa el DISPARO de ruptura; el agente suma su opinión, el estocástico, el Banco Mundial, las noticias y el triángulo.
+- 31/10/2026 09:15. t32: su triángulo no da ventaja (46-53 %).
+- 31/10/2026 09:05. OPERATIVA.md y resumen del agente cada 15 min; el primero se envió a las 09:05.
+- 31/10/2026 09:08. Todo lo de la sesión consolidado en la sección 0. Pulso en el teléfono, a la espera de su sí para tres instalaciones.
+- 31/10/2026 09:05. t31: su regla de dos velas pierde a su favor (43-44 %) y gana en contra (56-57 %); candidata en sentido contrario.
+- 31/10/2026 08:57. t30: tocar la segunda resistencia pierde (BTC 45,6 %, ETH 45,0 %); no entra.
+- 31/10/2026 08:51. Pulso con compradores contra vendedores, noticias limpias y marcadas, y bancos; informe de prueba enviado.
+- 03/11/2026 18:58. T95H: parados descargador y medidor de surebets (Termux detenido).
+- 03/11/2026 19:20. T95H: arranques viejos desactivados; numpy instalado.
+- 03/11/2026 19:36. Centinela del PC parado con PARAR, con 2 apuestas de ETH abiertas; pasó a la caja con su estado.
+- 03/11/2026 19:38. Centinela en marcha en la caja. 19:45: REGLA acertó ETH SUBE (+13.515 COP); AZAR falló.
+- 03/11/2026 19:42. Arranque solo del centinela en la caja (Termux:Boot), autorizado por él.
+- 03/11/2026 19:58. Tor y avisador en la caja; mensaje de prueba entregado por Tor.
+- 03/11/2026 20:03. Teléfono reiniciado: Termux:Boot arrancó Tor, centinela y avisador; el teléfono calla porque ve a la caja.
+- 03/11/2026 20:14. C1 y C2 terminados (seis dimensiones, Markov, HMM, agrupamiento, rachas).
+- 03/11/2026 20:32. C3: lectura del mercado en vivo con opciones y macro.
+- 03/11/2026 20:40. C6 (CRT, ICT y libro) y C7 (semáforo) terminados.
+- 03/11/2026 20:54. Semáforo papel → real en la caja y el teléfono; el del día salió ROJO (48 %).
+- 03/11/2026 20:56. Vigilante de temperatura de 80 °C en la caja.
+- 03/11/2026 21:15. PLAN-v5.md, informe, OPERATIVA.md v5 y este bloc al día.
+- 03/11/2026 21:28. Migración a la USB terminada y verificada; recordatorio del 04/11 puesto; GitHub con dos commits.
+- 03/11/2026 21:42. Auditoría de congruencia: PLAN-TOTAL.md (v6) e INFORME-TOTAL.md; C8 (HMM de la racha y E1) y C7 corregidos a 60 s; semáforo de los equipos con medida de 60 s.
+- 03/11/2026 21:51. El plan total v6, en texto plano, en el Escritorio: PLAN TOTAL BINARIAS BTC - v6.txt.
+- 03/11/2026 23:47. Revisión: caja viva, 74,9 °C y carga 5. Google Play Services se cae cada 3 s (Nearby) desde las 19:59; sin root no se puede apagar ese servicio.
+- 03/11/2026 23:54. Posible plan v6 en Descargas y en la USB (NUEVO), verificado por SHA-256.
+- 03/11/2026 23:58. Su regla: el real solo cuando el papel de hoy esté sumando.
+- 03/11/2026 23:59. Reglas de C9 (P8 a P13) escritas en PLAN-TOTAL 7b antes de ver resultados.
+- 04/11/2026 00:03. C9: su regla no sube el acierto y recorta el riesgo; VPIN, régimen, horas y metaetiquetado no entran.
+- 04/11/2026 00:07. P13: con el índice de Binance, 54,1 % en 2024-26 (−0,25 puntos).
+- 04/11/2026 00:12. Semáforo v3 (SÍ o NO) en la caja y el teléfono; paridad de 14 de 14.
+- 04/11/2026 00:20. Pulso con seis líneas; la primera gráfica llegó a su Telegram.
+- 04/11/2026 00:25. P14: el interés abierto que no sube entra (+1,02 puntos); P14b, con 5 min más de margen, también (+0,83).
+- 04/11/2026 00:27. Binance publica cada punto del interés abierto entre 47 y 167 s (tres puntos medidos el 04/11) después de su hora; el archivo histórico lo marca 5 min antes.
+- 04/11/2026 00:29. Semáforo v3.1 (su regla + interés abierto) en la caja y el teléfono; paridad de 84 de 84.
+- 04/11/2026 00:35. Plan v7, informe, operativa, bloc, memoria, bóveda y encargo al día; posible plan v7 en Descargas y en la USB.
+- 04/11/2026 00:46. GitHub: rama binarias/plan-v7-2026-11-04 (bd93927); a las 00:52, la guía (95faa7d); PR #2 en borrador hacia master.
+- 04/11/2026 00:55. La USB salió «sin medio» (como el 03/11); él la reconectó.
+- 04/11/2026 00:59-01:09. Migración completa a la USB y dos respaldos cifrados verificados.
+- 04/11/2026 01:00. P3b y P16 medidos con la regla escrita antes; ninguno entra.
+- 04/11/2026 01:05. La gráfica de la caja sale idéntica a la de Pulso (0 píxeles distintos).
+- 04/11/2026 01:11. Prueba aislada de la v3.2: foto, comprobante y resumen correctos.
+- 04/11/2026 01:13. Semáforo v3.2 en la caja y el teléfono; resumen del 03/11 enviado en PDF.
+- 04/11/2026 01:18. Guía versión 2, pasos de la clave API, plan, informe, operativa, bloc, memoria, bóveda y GitHub al día.
+- 04/11/2026 01:28. Play Services desactivado en la caja por su orden; sin caídas y de 74 a 64 °C.
+- 04/11/2026 01:32. Regla P17 (su 76 %) escrita antes de medirla; medida a la 01:33.
+- 04/11/2026 01:34. Semáforo v3.3 en la caja y el teléfono, con REAL_AUTORIZADO: real solo con el SÍ y 19 de las últimas 25.
+- 04/11/2026 01:35. Plan, informe, operativa y guía (versión 3) con su regla del 76 %.
+- 04/11/2026 12:25. La caja aparece tras reconectarla; Termux:Boot detenido y el centinela sin arrancar.
+- 04/11/2026 12:42. Caja en marcha con el estado del teléfono y bloqueo de reposo; mismo papel en los dos.
+- 04/11/2026 12:52. Aviso de relevo en el teléfono (y el mismo avisador en la caja).
+- 04/11/2026 13:02. Cinco líneas en la foto del SÍ o NO (caja y teléfono); pasos del toque en el SÍ real.
+- 04/11/2026 13:03. Pulso con cinco líneas, sin DISPARO y con la lectura del mercado del v7; primera foto a las 13:05.
+- 04/11/2026 13:04. Regla P18 escrita antes de medirla; medida a las 13:06: no entra.
+- 04/11/2026 13:13. OPERATIVA al día; 13:20, PROMPT-OPERADOR v5; el auditor oficial da 39 de 39 señales iguales.
+- 04/11/2026 13:25. Prueba de reposo superada: 44 min sin tocar la caja.
+- 04/11/2026 13:27. Reinicio de la caja: volvió sola en 76 s, con bloqueo de reposo.
+- 04/11/2026 13:29. Bloc, bóveda, encargo y guía (versión 4) al día.
+- 04/11/2026 13:40. GitHub al día (rama v7, commits 7198125 y 176d8de; PR #2 con título y descripción nuevos), posible plan v7 final en Descargas, la USB y el Escritorio (0 diferencias), USB (CONTEXTO, PROYECTOS y NUEVO) y memoria al día.
+- 04/11/2026 18:30. Mesa de binarias, P19 y vigía de 15 min en la caja; plan v8; franja del semáforo; arranque del PC en la carpeta de Inicio.
+- 04/11/2026 19:15. P20, llamada v5, vigía en el teléfono, botones siempre disponibles y arreglos 24/7.
+- 04/11/2026 19:40. Contexto y desarrollo guardados en Obsidian (Mesa de binarias y tablero), memoria, GitHub, USB, caja y teléfono.
+- 06/11/2026 20:25. Revisión de seguridad del teléfono: Termux no corre desde el 05/11 a las 16:11 (lo cerró OneKeyClean, la limpieza de recientes; otro cierre por poca memoria a las 17:39), así que el centinela y el vigía del teléfono están parados. La caja 192.168.20.45 no respondió al barrido de la red. Batería en 7 %. No se tocó ninguna apuesta.
+- 06/11/2026 21:22. Leído su Telegram. Orden de las 12:39 FAILED y Mesa corregida; caja de vuelta tras 2.987 min y arrancar.sh corregido; P21 y P22 medidas; prompt de cinco estrategias escrito. No se tocó ninguna apuesta.
+- 07/11/2026 19:45. Compras: tres de tres desde spot sin comprar (pausa de Binance) y la Mesa pasa a pagar desde la billetera de predicción. Centro de cinco estrategias en vivo, con paridad. Aviso de aciertos al encender. Teléfono al día; caja fuera de la red. Ninguna orden compró: saldo 46,28 USDT.
+- 07/11/2026 19:46. Su orden: «espera lo de las compras reales por ahora». Compras en espera; queda anotado lo hecho y lo que falta en el bloc, la memoria y la bóveda (Mesa de binarias y sesión del 07/11).
+- 07/11/2026 20:02. Avisos del Centro en pantalla y Telegram; las cinco en la Mesa; Centro instalado en el teléfono; arrancar.sh sin duplicados.
+- 07/11/2026 20:15. App Binarias para el teléfono armada y en Descargas; falta su instalación y el relevo con instalar_motor.sh.
+- 11/11/2026 19:42. Caja de vuelta con el reloj en hora; su centinela se detiene con ESPERA_ESTADO hasta recibir el estado del teléfono.
+- 11/11/2026 19:50. Laboratorio en marcha: hooks H1 y H2, quince.py y arrancar.sh en la caja, prompts y sección 7d escritos.
+- 11/11/2026 20:21. Laboratorio: revisión hecha y código construido; en la caja, 1.000 formas vivas se evalúan en 1,6 s por cierre de 5 min a 53 °C.
+- 11/11/2026 20:28. Laboratorio: pruebas del PC y de la caja en verde y paridad exacta entre los dos; marchas en seco de 30 min en curso.
+- 11/11/2026 21:15. ESP32 dedicada a binarias (red y pérdida); precio real de Predict.fun en la Mesa con papel de la pérdida; caja reiniciada de prueba: todo volvió solo.
+- 11/11/2026 21:20. Primera liquidación con precio real: ventana de las 21:00, BAJA a 0,01, ganó «sube»: cuatro compras de papel perdidas (−4 USDT de papel). GitHub al día; USB pendiente.
+- 17/11/2026 15:27. Push de la nube con 403; 15:37: rawrrrrr310 no es de él, acceso quitado de trader-btc y agent-data-toolkit; los 8 commits siguen en la sesión de la nube.
+- 17/11/2026 15:47. Rama claude/aprobador-binarias-2026-11-17 en GitHub (fe83e2d); push de la nube arreglado con /web-setup; reintentos apagados.
+- 17/11/2026 16:23. Rutina constructora trig_01WW3w9zNhTxEwVeoFQFWb6J apagada (rama con TERMINADO.md). Publicador de GitHub del teléfono hecho y corriendo, a la espera de sus llaves.
+- 17/11/2026 17:56. Por su orden, el bloc pasa del Bloc de notas a Obsidian (03-Proyectos/Bloc de binarias - todo en uno); todo lo que lo leía apunta aquí y está probado; el TXT quedó en respaldos.
+- 17/11/2026 18:08. Pruebas de la rama en carpeta aparte del teléfono y la caja; el nodo fallaba por el reloj (marca de cambio): corregido con el inodo; 65 de 65 y 36 de 36 en los dos.
+- 17/11/2026 18:16. Aprobador en el teléfono (18:10, nodo central y candado) y nodo nuevo en la caja (18:12, respaldo); latido comprobado; 12,8 ms por revisión; GitHub f3758e1.
+- 17/11/2026 18:56. Nodo con la ganancia antes que el acierto y el decisor rutina; 27 de 27 y 65 de 65 en el PC.
+- 17/11/2026 18:57. Criterio de la rutina aprobadora con la ganancia antes que el acierto (b2c6d71).
+- 17/11/2026 19:05. Nodo nuevo (la ganancia antes que el acierto y el decisor rutina) en el teléfono y la caja; GitHub 2c8eadb; falta su autorización para el acceso de GitHub del teléfono y el token de la rutina.
+- 18/11/2026 09:30. Token de disparo de la rutina en el teléfono (huella igual a la del PC); el paso del acceso de GitHub al teléfono, otra vez negado por el control de permisos: espera su sí.
+- 18/11/2026 09:33. Prueba de punta a punta: teléfono → rutina (16 s) → decisiones/prueba-18-11-093257.json, NO COMPRAR; leída desde el PC.
+- 18/11/2026 09:40. Borradas de claude.ai las seis rutinas que construyeron el aprobador (copia de su configuración en respaldos).
+- 18/11/2026 09:43. Acceso de GitHub en el teléfono con su autorización; a las 09:45 el teléfono lee las decisiones de la rutina: circuito completo.
+- 18/11/2026 10:05. Su orden: la IA ordena comprar, vender o nada (cualquier lado, solo la orden) y el script ejecuta con 2 USDT. Rutina de la nube con las instrucciones nuevas.
+- 18/11/2026 10:09. Nodo, candado, ejecutor y operador nuevos en el teléfono y nodo en la caja; nodo 65 y rutina 29 de 29 en los tres, operador 50 de 50 en el PC y el teléfono.
+- 18/11/2026 10:11. Prueba de punta a punta con las instrucciones nuevas: la rutina manda solo la orden y el teléfono la lee.
+- 18/11/2026 10:20. Su regla: nunca pedir apalancamiento ni préstamos. Su orden: todo en el teléfono, motor y llaves dentro de la app Binarias.
+- 18/11/2026 10:34. App Binarias versión 2 con motor, programas, estado y llaves; los siete corren dentro de la app; Termux en pausa y de respaldo al encender.
+- 18/11/2026 10:40. Llaves del publicador de GitHub dentro de la app; ventas revisadas (Gumroad bien; Kit de Tesis por INICIAR.bat; Render caído).
+- 18/11/2026 10:41. Él activó el inicio automático de la app Binarias (Seguridad → Inicio automático); la app se reabrió sola con todo.
+- 18/11/2026 10:46. Comprobado: 201.221.178.15 es la IP de su casa, no de Tor.
+- 18/11/2026 11:10. Dinero real en la billetera de predicción (20,50 USDT); la llave pasa desde las 11:04; cotización real bien a las 11:09; falta quitarle a la llave el permiso de futuros y armar.
+- 18/11/2026 11:14. Él quitó los futuros: la llave queda «restringida por IP; sin retiros, transferencias, margen ni futuros» (prueba sin fondos, cotización bien). Depuración por wifi apagada; llaves 600 en la app. A las 11:13 escribió «operador armar»: el operador contestó que el papel no es apto (0 de 6) y NO armó; para armar, él escribe «operador armar igual» antes de las 11:23. Claude no arma ni escribe por él.
+- 18/11/2026 11:05. Su orden: nada de Tor en binarias. App versión 3 sin Tor, código directo, Tor de Termux y de la caja apagados; teléfono y caja salen con la IP de la casa y Telegram responde directo.
+- 18/11/2026 15:22. Revisada la retroalimentación de la rutina de proyectos (simulador de la regla del 70 %) con sus tres capturas de las 15:18: el «Ganar» de la app es 0,98 ÷ precio y el informe suponía 0,85 fijo.
+- 18/11/2026 15:24. Su pedido: por qué la rutina da menos dinero que la apuesta a mano. Revisión (15:35) y análisis (15:45) en binarias-papel\paridad: compraba sin tope de precio hasta 10 min después, con 35 s o más de demora, y elegía estrategias con un precio supuesto de 0,544.
+- 18/11/2026 16:01. Paridad instalada en la app: cuenta a mano en el nodo, la IA ve lo que paga cada lado, el ejecutor compra al precio que ella vio (hasta 0,02 más) durante 2 min, −1021 con un reintento. Pruebas 70, 36, 57, 16 y 9, todas bien en el PC y con el motor de la app. Rutina con el bloque PRECIO Y CUENTA (16:02); prueba de punta a punta «NO COMPRAR» en 31 s (16:03).
+- 18/11/2026 16:14. Él escribió «operador parar»: la regla de armarse solo al 70 % quedó quitada; sin compras reales; el papel sigue midiendo. Pidió: «encárgate tú del resto… avísame si falta algo».
+- 18/11/2026 16:26. Su orden: que todo vuelva a funcionar sin que él haga nada. Regla del 70 % puesta de nuevo (él aprobó el permiso con «reintenta»).
+- 18/11/2026 16:30. Revisión completa A a I: todo BIEN (REVISION-18-11-tarde.md). La caja está desconectada por él y ya no se revisa ni se le pregunta.

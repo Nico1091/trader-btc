@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Pulso: los avisos del Bitcoin desde el propio teléfono, sin PC. El motor es Rust (libpulso.so); Tor y su enmascaramiento
+     (libtor.so, liblyrebird.so) salen del Tor Browser oficial. Esta capa en Java solo sostiene el servicio y pide la voz. -->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="co.nicolas.pulso">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_SPECIAL_USE" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS" />
+
+    <application
+        android:label="Pulso"
+        android:icon="@drawable/icono"
+        android:allowBackup="false"
+        android:extractNativeLibs="true">
+
+        <activity
+            android:name=".Principal"
+            android:exported="true"
+            android:launchMode="singleTask">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <service
+            android:name=".Servicio"
+            android:exported="false"
+            android:foregroundServiceType="specialUse">
+            <property
+                android:name="android.app.PROPERTY_SPECIAL_USE_FGS_SUBTYPE"
+                android:value="Avisos del precio del Bitcoin en tiempo real" />
+        </service>
+
+        <!-- Solo el PC por ADB entrega la clave del bot y los puentes: el permiso DUMP lo tiene el usuario shell y ninguna app. -->
+        <receiver
+            android:name=".Claves"
+            android:exported="true"
+            android:permission="android.permission.DUMP">
+            <intent-filter>
+                <action android:name="co.nicolas.pulso.CLAVES" />
+            </intent-filter>
+        </receiver>
+
+        <receiver
+            android:name=".Arranque"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.MY_PACKAGE_REPLACED" />
+            </intent-filter>
+        </receiver>
+    </application>
+</manifest>

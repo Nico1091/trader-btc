@@ -1,0 +1,5 @@
+PAXGUSDT: 648,746 muestras × 53 rasgos · 10 s
+plazo 10: 4161 apuestas · 30 s
+plazo 30: 8236 apuestas · 50 s
+plazo 60: 8971 apuestas · 72 s
+listo · 72 s

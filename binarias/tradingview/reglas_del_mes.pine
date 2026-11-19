@@ -1,0 +1,87 @@
+//@version=6
+// Reglas de octubre de 2026 del centinela de binarias, copiadas de motor/senales.py, motor/patrones_std.py
+// y seleccion.json. Va en el gráfico de 5 min de BINANCE:BTCUSDT.P o BINANCE:ETHUSDT.P (futuros, como el centinela).
+// Solo marca: TradingView no apuesta en los Contratos de Evento. La flecha sale al cerrar la vela; la apuesta
+// entra al abrir el minuto siguiente, a 10 min. El modelo de ETH (53 rasgos, reentrenado cada mes) no está aquí:
+// su señal la da solo el centinela.
+indicator("Binarias: reglas del mes", overlay = true, max_labels_count = 500)
+
+esBTC = str.contains(syminfo.ticker, "BTC")
+esETH = str.contains(syminfo.ticker, "ETH")
+
+// Hora UTC de entrada (cierre de la vela de 5 min). Asia = 0 a 7 UTC (19:00 a 01:59 en Colombia).
+entrada = time_close
+horaUTC = hour(entrada, "UTC")
+enAsia = horaUTC >= 0 and horaUTC < 7
+
+// Contexto diario: signo del cierre de ayer frente a la media de los 50 cierres diarios hasta ayer.
+[cAyer, smaAyer] = request.security(syminfo.tickerid, "D", [close[1], ta.sma(close, 50)[1]], lookahead = barmerge.lookahead_on)
+ctx = na(smaAyer) ? 0.0 : math.sign(cAyer - smaAyer)
+
+// Media de las n velas anteriores, sin la actual.
+mediaPrevia(x, n) => ta.sma(x, n)[1]
+
+// REV: cuerpo al menos el doble de la media de los 100 anteriores; se apuesta contra la vela.
+rev(o, c) =>
+    cu = math.abs(c - o)
+    cu >= 2 * mediaPrevia(cu, 100) ? -math.sign(c - o) : 0.0
+
+// Volatilidad de 5 min: alta si el rango medio de 20 velas supera al de 500 (ambos sin la actual).
+rango5 = high - low
+volAlta = mediaPrevia(rango5, 20) > mediaPrevia(rango5, 500)
+
+rev5 = rev(open, close)
+
+// REV15 en velas de 15 min; solo cuenta en la vela de 5 min que cierra la de 15.
+[rev15v, t15] = request.security(syminfo.tickerid, "15", [rev(open, close), time_close], lookahead = barmerge.lookahead_off)
+rev15 = time_close == t15 ? rev15v : 0.0
+
+// Rompimiento de 20 velas de 5 min (solo la vela que rompe).
+rompeArriba = close > ta.highest(high, 20)[1]
+rompeAbajo = close < ta.lowest(low, 20)[1]
+rup = rompeArriba and not rompeArriba[1]
+rdn = rompeAbajo and not rompeAbajo[1]
+romp = rup ? 1.0 : rdn ? -1.0 : 0.0
+
+// Hombre colgado (5 min): tendencia de 10 velas al alza y vela tipo martillo.
+cu = math.abs(close - open)
+sup = high - math.max(open, close)
+inf = math.min(open, close) - low
+rg = high - low
+tend = (close[1] - close[11]) / close[11]
+martillo = cu > 0 and inf >= 2 * cu and sup <= 0.5 * cu and rg > 0.5 * mediaPrevia(rg, 20)
+colgado = tend > 0 and martillo
+
+// E19 en velas de 1 h: cruce de EMA 12/26 confirmado por RSI 14.
+e19f() =>
+    e12 = ta.ema(close, 12)
+    e26 = ta.ema(close, 26)
+    r = ta.rsi(close, 14)
+    ta.crossover(e12, e26) and r > 50 ? 1.0 : ta.crossunder(e12, e26) and r < 50 ? -1.0 : 0.0
+[e19v, t60] = request.security(syminfo.tickerid, "60", [e19f(), time_close], lookahead = barmerge.lookahead_off)
+e19 = time_close == t60 ? e19v : 0.0
+
+// Dirección de cada apuesta (+1 sube, −1 baja, 0 nada), en el orden de prioridad del centinela.
+dirBTC_E19 = esBTC and e19 != 0 and -e19 == ctx ? -e19 : 0.0
+dirBTC_col = esBTC and colgado and enAsia ? -1.0 : 0.0
+dirBTC_R15 = esBTC ? rev15 : 0.0
+dirETH_rom = esETH and romp != 0 and enAsia ? -romp : 0.0
+dirETH_R15 = esETH ? rev15 : 0.0
+dirETH_R5 = esETH and rev5 != 0 and not volAlta ? rev5 : 0.0
+
+dir = dirBTC_E19 != 0 ? dirBTC_E19 : dirBTC_col != 0 ? dirBTC_col : dirBTC_R15 != 0 ? dirBTC_R15 :
+      dirETH_rom != 0 ? dirETH_rom : dirETH_R15 != 0 ? dirETH_R15 : dirETH_R5
+regla = dirBTC_E19 != 0 ? "E19 al revés" : dirBTC_col != 0 ? "Hombre colgado" : dirBTC_R15 != 0 ? "REV15" :
+      dirETH_rom != 0 ? "Rompimiento 20 al revés" : dirETH_R15 != 0 ? "REV15" : dirETH_R5 != 0 ? "REV5" : ""
+
+confirmada = barstate.isconfirmed or not barstate.isrealtime
+sube = confirmada and dir > 0
+baja = confirmada and dir < 0
+
+if sube
+    label.new(bar_index, low, "SUBE 10 min\n" + regla, style = label.style_label_up, color = color.new(#1b7f3b, 0), textcolor = color.white, size = size.small)
+if baja
+    label.new(bar_index, high, "BAJA 10 min\n" + regla, style = label.style_label_down, color = color.new(#b3261e, 0), textcolor = color.white, size = size.small)
+
+alertcondition(sube, "Binarias: SUBE", "{{ticker}} SUBE a 10 min (regla del mes)")
+alertcondition(baja, "Binarias: BAJA", "{{ticker}} BAJA a 10 min (regla del mes)")

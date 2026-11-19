@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Mesa de binarias · Centro de estrategias</title>
+<style>
+:root{--fondo:#0e1117;--texto:#e7eaf0;--suave:#8b95a7;--tenue:#4b5466;--sube:#26a69a;--baja:#ef5350;--ambar:#ffb300;--azul:#4d7fff;--violeta:#c07cff;--acento:#3ddc97}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html,body{margin:0;background:var(--fondo);color:var(--texto);font:14px/1.4 "Segoe UI",system-ui,sans-serif}
+body{padding:18px 28px 40px;max-width:1500px;margin:0 auto}
+a{color:var(--suave);text-decoration:none}
+a:hover{color:var(--texto)}
+.num{font-variant-numeric:tabular-nums}
+header{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px 28px;margin-bottom:14px}
+header h1{font-size:15px;font-weight:600;letter-spacing:.04em;margin:0;color:var(--suave)}
+#precio{font-size:38px;font-weight:700;transition:color .6s}
+#precio.subio{color:var(--sube);transition:none}#precio.bajo{color:var(--baja);transition:none}
+.dato{color:var(--suave);font-size:13px}.dato b{color:var(--texto);font-weight:600}
+.vivo{color:var(--sube);font-size:12px;font-weight:600}.vivo::before{content:"● ";animation:latir 1.6s infinite}
+@keyframes latir{50%{opacity:.2}}
+.ok{color:var(--sube)}.no{color:var(--baja)}.av{color:var(--ambar)}
+#volver{margin-left:auto}
+#lienzo{position:relative;height:min(46vh,430px);margin:0 -6px 6px}
+canvas{width:100%;height:100%;display:block}
+#leyenda{font-size:12.5px;color:var(--suave);min-height:18px;margin-bottom:22px}
+#leyenda i{font-style:normal;font-weight:700}
+#cargando{color:var(--suave);font-size:15px;padding:40px 0}
+.est{display:grid;grid-template-columns:minmax(210px,1.05fr) minmax(300px,2.1fr) minmax(270px,1.25fr);gap:6px 34px;padding:16px 0;cursor:pointer;opacity:.82;transition:opacity .25s}
+.est:hover,.est.sel{opacity:1}
+.est .ver{display:none;color:var(--suave);font-size:11.5px;margin-left:8px;font-weight:500}
+.est.sel .ver{display:inline;animation:entra .4s ease-out}
+.est h2{margin:0;font-size:16px;font-weight:650}
+.est h2 .id{color:var(--suave);font-weight:600;margin-right:8px}
+.est .sub{color:var(--suave);font-size:12.5px;margin-top:2px}
+.est .apta{display:inline-block;margin-top:8px;color:var(--acento);font-weight:700;font-size:13px;letter-spacing:.03em;animation:brillo 1.4s ease-in-out infinite}
+@keyframes brillo{50%{text-shadow:0 0 14px var(--acento);opacity:.75}}
+.hace{font-size:13.5px}
+.abierta{font-weight:700;font-size:15px;margin-bottom:5px;animation:entra .5s ease-out}
+.abierta small{font-weight:500;color:var(--suave);font-size:12.5px;margin-left:6px}
+@keyframes entra{from{opacity:0;transform:translateY(-4px)}}
+.inds{display:flex;flex-wrap:wrap;gap:3px 22px;margin-top:7px;font-size:12.5px;color:var(--suave)}
+.inds b{color:var(--texto);font-weight:600}
+.lista{display:flex;flex-wrap:wrap;gap:3px 16px;margin-top:6px;font-size:12.5px}
+.lista span{color:var(--tenue);transition:color .3s}.lista span.si{color:var(--texto)}
+.lista span::before{content:"○ ";}.lista span.si::before{content:"● ";color:var(--acento)}
+.cif{display:grid;grid-template-columns:auto 1fr;gap:0 16px;align-items:center}
+.grande{font-size:34px;font-weight:700;line-height:1;transition:color .4s}
+.grande.verde{color:var(--acento)}
+.puntos{display:flex;gap:3px;flex-wrap:nowrap}
+.puntos i{width:7px;height:7px;border-radius:50%;background:var(--baja);opacity:.85;animation:aparece .4s ease-out}
+.puntos i.g{background:var(--sube)}
+@keyframes aparece{from{transform:scale(0)}}
+.mini{grid-column:1/3;color:var(--suave);font-size:12.5px;margin-top:7px}
+.mini b{color:var(--texto);font-weight:600}
+h3{font-size:13px;color:var(--suave);font-weight:600;letter-spacing:.04em;margin:30px 0 8px}
+#ultimas{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:4px 26px;font-size:12.5px}
+#ultimas div{color:var(--suave)}#ultimas b{color:var(--texto);font-weight:600}
+#pie{margin-top:26px;color:var(--tenue);font-size:12px;max-width:900px}
+#error{color:var(--baja);font-size:12.5px}
+@media(max-width:980px){.puntos{flex-wrap:wrap}body{padding:14px 16px 30px}.est{grid-template-columns:1fr;gap:8px}#precio{font-size:30px}#volver{margin-left:0}}
+</style>
+</head>
+<body>
+<header>
+  <h1>CENTRO DE ESTRATEGIAS · BTC/USDT</h1>
+  <span id="precio" class="num">–</span>
+  <span class="dato">última hora <b id="h1" class="num">–</b></span>
+  <span class="dato">interés abierto <b id="oi">–</b></span>
+  <span class="dato">se gana desde <b id="eq" class="num">–</b></span>
+  <span class="vivo" id="hora">–</span>
+  <a id="volver" href="/">← volver a la Mesa</a>
+</header>
+<div id="cargando">Preparando 30 días de velas para las cinco estrategias…</div>
+<div id="todo" hidden>
+  <div id="lienzo"><canvas id="cv"></canvas></div>
+  <div id="leyenda"></div>
+  <div id="lista"></div>
+  <h3>ÚLTIMAS SEÑALES DE LAS CINCO</h3>
+  <div id="ultimas"></div>
+  <p id="pie">Las cinco corren en papel con velas cerradas de Binance: entrada al cierre del minuto siguiente, vencimiento a 15 min y empate como fallo, igual que en el estudio de 2024 a septiembre de 2026. «Apta» exige 21 de las últimas 25 (82 %). El SÍ de cada señal sigue su regla: el papel de hoy de esa estrategia sumando, ningún SÍ perdido hoy y el interés abierto sin subir. Nada aquí compra: los botones están en la Mesa.</p>
+  <p id="error"></p>
+</div>
+<script>
+const $=id=>document.getElementById(id);
+const COLOR={E1:"#ffb300",E2:"#c07cff",E3:"#4d7fff",E4:"#ff8a65",E5:"#4fc3f7"};
+let D=null,sel="E3",precioAnt=null;
+try{sel=localStorage.getItem("centro_sel")||sel}catch(e){}if(/^#E[1-5]$/.test(location.hash))sel=location.hash.slice(1);
+const miles=(x,d=0)=>x==null||!isFinite(x)?"–":x.toLocaleString("es-CO",{minimumFractionDigits:d,maximumFractionDigits:d});
+const hh=t=>new Date(t*1000).toLocaleTimeString("es-CO",{hour:"2-digit",minute:"2-digit",hour12:false,timeZone:"America/Bogota"});
+const pct=x=>x==null?"–":`${miles(x,1)} %`;
+function azarTxt(p){if(p==null)return"–";if(p>=0.5)return"normal para su fondo";const n=Math.round(1/p);return`1 de cada ${miles(n)} tandas`}
+
+async function tick(){
+  try{
+    const r=await fetch("/api/centro",{cache:"no-store"});
+    D=await r.json();
+  }catch(e){$("hora").textContent="sin conexión con la Mesa";return}
+  if(!D.listo){$("cargando").hidden=false;$("todo").hidden=true;if(D.error)$("cargando").textContent=D.error;return}
+  $("cargando").hidden=true;$("todo").hidden=false;
+  pintarCabeza();pintarLista();pintarUltimas();dibujar();
+}
+
+function pintarCabeza(){
+  const p=$("precio");
+  if(precioAnt!=null&&D.precio!==precioAnt){p.className="num "+(D.precio>precioAnt?"subio":"bajo");requestAnimationFrame(()=>requestAnimationFrame(()=>p.className="num"))}
+  precioAnt=D.precio;p.textContent=miles(D.precio,1);
+  const h=$("h1");h.textContent=D.cambio1h==null?"–":`${D.cambio1h>0?"+":""}${miles(D.cambio1h,2)} %`;h.className="num "+(D.caida_fuerte?"no":"");
+  if(D.caida_fuerte)h.title="Cayó más de 1 % en una hora: tras esto SUBE acierta 53,1 % (P20). Se avisa, no se filtra.";
+  const oi=$("oi");oi.textContent=D.doi==null?"sin dato":(D.oi_no_sube?`no sube (${miles(D.doi,3)} %)`:`subió (${miles(D.doi,3)} %)`);oi.className=D.doi==null?"":(D.oi_no_sube?"ok":"no");
+  $("eq").textContent=`${miles(D.equilibrio,2)} %`;$("hora").textContent=`${D.hora} · en vivo`;
+  $("error").textContent=D.error||"";
+}
+
+function pintarLista(){
+  const cont=$("lista");
+  D.estrategias.forEach(e=>{
+    let f=document.getElementById("est-"+e.id);
+    if(!f){f=document.createElement("div");f.id="est-"+e.id;f.className="est";f.onclick=()=>{sel=e.id;try{localStorage.setItem("centro_sel",sel)}catch(x){};pintarLista();dibujar()};cont.appendChild(f)}
+    f.classList.toggle("sel",e.id===sel);
+    const a=e.abierta;
+    let abierta="";
+    if(a){
+      const sent=a.dir===1?"▲ SUBE":"▼ BAJA",col=a.dir===1?"ok":"no";
+      const va=a.va==null?"entra al cierre de las "+hh(a.entra):(a.va>0?`va ganando (+${miles(a.va,0)} USD)`:(a.va<0?`va perdiendo (${miles(a.va,0)} USD)`:"empatado"));
+      const si=a.si==null?"":(a.si?" · SÍ":" · NO por su regla");
+      abierta=`<div class="abierta ${col}" title="Señal abierta">${sent} desde ${miles(a.base,0)}<small>${va} · vence ${hh(a.vence)}${si}${a.mesa?" · coincide con un mercado de la Mesa":""}</small></div>`;
+    }
+    const inds=(e.indicadores||[]).map(x=>`<span>${x[0]} <b class="num">${x[1]}</b>${x[2]?" "+x[2]:""}</span>`).join("");
+    const lista=(e.lista||[]).map(x=>`<span class="${x[1]?"si":""}">${x[0]}</span>`).join("");
+    const puntos=(e.puntos||[]).map(r=>`<i class="${r===1?"g":""}"></i>`).join("");
+    const verde=e.apta?"verde":"";
+    f.innerHTML=`
+      <div><h2><span class="id" style="color:${COLOR[e.id]}">${e.id}</span>${e.nombre}<span class="ver">● en la gráfica</span></h2>
+        <div class="sub">velas de ${e.marco} · ${e.nota}</div>
+        ${e.apta?`<div class="apta">APTA · ${e.k25} DE ${e.n25} (82 % O MÁS)</div>`:""}</div>
+      <div class="hace">${abierta}<div>${e.que_hace}</div><div class="inds">${inds}</div><div class="lista">${lista}</div></div>
+      <div class="cif"><div><div class="grande num ${verde}">${e.n25?e.pct25+" %":"–"}</div><div class="sub num">${e.k25} de ${e.n25} últimas</div></div>
+        <div class="puntos" title="Últimas 25: verde acierto, rojo fallo; la más reciente a la derecha">${puntos}</div>
+        <div class="mini num">racha <b>${e.racha}</b> seguidos · de fondo <b>${pct(e.largo)}</b> en ${miles(e.n_largo)} · aquí <b>${pct(e.pct_total)}</b> en ${e.nt}<br>
+        hoy <b>${e.aciertos_hoy} de ${e.hoy}</b> (${e.neto_hoy>0?"+":""}${miles(e.neto_hoy,2)} por 1 USDT) · si fuera solo su fondo, este ${e.pct25} % sale <b>${azarTxt(e.azar)}</b></div></div>`;
+  });
+}
+
+function pintarUltimas(){
+  const nom=Object.fromEntries(D.estrategias.map(e=>[e.id,e.nombre]));
+  $("ultimas").innerHTML=D.ultimas.map(u=>{
+    const r=u.res==null?"abierta":(u.res===1?"<span class='ok'>acierto</span>":"<span class='no'>fallo</span>");
+    return `<div><b style="color:${COLOR[u.id]}">${u.id}</b> ${hh(u.t)} · <b>${u.dir===1?"▲ sube":"▼ baja"}</b> · ${r}${u.si?" · SÍ":""}${u.semilla?" · rehecha con velas":""}</div>`}).join("");
+}
+
+function dibujar(){
+  if(!D||!D.listo)return;
+  const cv=$("cv"),r=cv.getBoundingClientRect(),dpr=window.devicePixelRatio||1;
+  cv.width=r.width*dpr;cv.height=r.height*dpr;const cx=cv.getContext("2d");cx.setTransform(dpr,0,0,dpr,0,0);
+  const W=r.width,Hh=r.height,g=D.grafica,v=g.velas;if(!v.length)return;
+  const sub=(sel==="E3"||sel==="E4");const H=sub?Hh*0.76:Hh,yS0=H+8,hS=Hh-yS0-4;
+  const t0=v[0][0]-300,t1=v[v.length-1][0]+1500,der=64;
+  const X=t=>(t-t0)/(t1-t0)*(W-der);
+  let lo=Infinity,hi=-Infinity;v.forEach(x=>{lo=Math.min(lo,x[3]);hi=Math.max(hi,x[2])});
+  const extra=[];
+  if(sel==="E1")g.canal20.forEach(c=>{if(c[1])extra.push(c[1],c[2])});
+  if(sel==="E2")g.canal50.forEach(c=>{if(c[1])extra.push(c[1],c[2])});
+  if(sel==="E3")g.boll.forEach(b=>{if(b[0]>=t0&&b[1])extra.push(b[1],b[3])});
+  if(sel==="E4")g.boll.forEach(b=>{if(b[0]>=t0)extra.push(b[4])});
+  if(sel==="E5")Object.values(g.lineas).forEach(l=>extra.push(l[1],l[3]));if(sel==="E5")Object.values(g.verdes||{}).forEach(l=>extra.push(l[1]));
+  const rango=hi-lo;extra.forEach(y=>{if(isFinite(y)&&y>lo-rango*.6&&y<hi+rango*.6){lo=Math.min(lo,y);hi=Math.max(hi,y)}});
+  const pad=(hi-lo)*.08||10;lo-=pad;hi+=pad;
+  const Y=p=>H-(p-lo)/(hi-lo)*(H-10)-5;
+  cx.font="11px Segoe UI";cx.fillStyle="#4b5466";cx.textAlign="left";
+  for(let k=0;k<=4;k++){const p=lo+(hi-lo)*k/4;cx.fillText(miles(p,0),W-der+8,Y(p)+4)}
+  const ancho=Math.max(1.5,X(300)-X(0)-2);
+  v.forEach((x,i)=>{const s=x[4]>=x[1],c=s?"#26a69a":"#ef5350",xm=X(x[0]-150);cx.strokeStyle=c;cx.fillStyle=c;cx.globalAlpha=i===v.length-1?.6:1;
+    cx.beginPath();cx.moveTo(xm,Y(x[2]));cx.lineTo(xm,Y(x[3]));cx.stroke();
+    const a=Y(Math.max(x[1],x[4])),b=Y(Math.min(x[1],x[4]));cx.fillRect(xm-ancho/2,a,ancho,Math.max(1,b-a))});
+  cx.globalAlpha=1;
+  const escalon=(pts,col,wid,dash)=>{cx.strokeStyle=col;cx.lineWidth=wid;cx.setLineDash(dash||[]);cx.beginPath();let on=false;
+    pts.forEach(p=>{if(p[2]==null||!isFinite(p[2])){on=false;return}const xa=X(p[0]),xb=X(p[1]),y=Y(p[2]);if(!on){cx.moveTo(xa,y);on=true}else cx.lineTo(xa,y);cx.lineTo(xb,y)});cx.stroke();cx.setLineDash([]);cx.lineWidth=1};
+  const linea=(pts,col,wid,dash)=>{cx.strokeStyle=col;cx.lineWidth=wid;cx.setLineDash(dash||[]);cx.beginPath();let on=false;
+    pts.forEach(p=>{if(p[1]==null||!isFinite(p[1])){on=false;return}if(!on){cx.moveTo(X(p[0]),Y(p[1]));on=true}else cx.lineTo(X(p[0]),Y(p[1]))});cx.stroke();cx.setLineDash([]);cx.lineWidth=1};
+  let ley="";
+  if(sel==="E1"||sel==="E2"){const c=sel==="E1"?g.canal20:g.canal50,col=COLOR[sel];
+    escalon(c.map(k=>[k[0]-300,k[0],k[1]]),col,1.6);escalon(c.map(k=>[k[0]-300,k[0],k[2]]),col,1.6);
+    ley=`<i style="color:${col}">${sel}</i> · techo y piso del canal de ${sel==="E1"?20:50} velas de 5 min. Un cierre por fuera apuesta al revés.`}
+  if(sel==="E3"){const b=g.boll.filter(k=>k[0]-900>=t0-900);cx.fillStyle="rgba(77,127,255,.08)";cx.beginPath();
+    b.forEach((k,i)=>{const x=X(k[0]-450);i?cx.lineTo(x,Y(k[1])):cx.moveTo(x,Y(k[1]))});[...b].reverse().forEach(k=>cx.lineTo(X(k[0]-450),Y(k[3])));cx.closePath();cx.fill();
+    linea(b.map(k=>[k[0]-450,k[1]]),"#4d7fff",1.5);linea(b.map(k=>[k[0]-450,k[3]]),"#4d7fff",1.5);linea(b.map(k=>[k[0]-450,k[2]]),"#4d7fff88",1,[4,4]);
+    ley=`<i style="color:${COLOR.E3}">E3</i> · bandas de Bollinger de 15 min (20 velas, 2 desviaciones). Abajo, RSI 14 con sus límites de 55 y 45.`}
+  if(sel==="E4"){const b=g.boll.filter(k=>k[0]>=t0);linea(b.map(k=>[k[0]-450,k[4]]),COLOR.E4,2);
+    ley=`<i style="color:${COLOR.E4}">E4</i> · EMA 50 de 15 min. Abajo, MACD (12, 26) y su señal (9): el cruce tras tocar la EMA dispara, al revés.`}
+  if(sel==="E5"){const L=g.lineas,dib=(k,col,w,d)=>{if(L[k]){cx.strokeStyle=col;cx.lineWidth=w;cx.setLineDash(d||[]);cx.beginPath();cx.moveTo(X(L[k][0]),Y(L[k][1]));cx.lineTo(X(L[k][2]),Y(L[k][3]));cx.stroke();cx.setLineDash([]);cx.lineWidth=1}};
+    dib("techo","#2f6bff",2.2);dib("piso","#2f6bff",2.2);dib("techo_c","#7fa6ff",1.2,[6,4]);dib("piso_c","#7fa6ff",1.2,[6,4]);dib("mitad","#c07cff",1.2,[3,4]);const V=g.verdes||{};["verde_techo","verde_piso","verde_mitad"].forEach(k=>{const l=V[k];if(!l)return;cx.strokeStyle="#3ddc97";cx.lineWidth=k==="verde_mitad"?1.2:1.8;cx.setLineDash(k==="verde_mitad"?[5,4]:[]);cx.beginPath();cx.moveTo(X(l[0]),Y(l[1]));cx.lineTo(X(l[2]),Y(l[3]));cx.stroke();cx.setLineDash([]);cx.lineWidth=1});
+    ley=`<i style="color:${COLOR.E5}">E5</i> · sus cinco líneas sobre las últimas 150 velas de 1 min: techo y piso azules, los cortos y la mitad. En verde, sus dos líneas: el nivel con tres toques exactos arriba o abajo y la de la mitad (solo para mirar).`}
+  const ult=v[v.length-1][4];cx.strokeStyle="#e7eaf055";cx.setLineDash([2,3]);cx.beginPath();cx.moveTo(0,Y(ult));cx.lineTo(W-der,Y(ult));cx.stroke();cx.setLineDash([]);
+  cx.fillStyle="#e7eaf0";cx.fillRect(W-der+2,Y(ult)-9,der-4,18);cx.fillStyle="#0e1117";cx.font="700 11px Segoe UI";cx.fillText(miles(ult,0),W-der+7,Y(ult)+4);
+  g.marcas.forEach(m=>{if(m.t<t0)return;const x=X(m.t-150),base=m.base||ult,y=Y(base),s=m.dir,es=m.id===sel;
+    cx.globalAlpha=es?1:.35;cx.fillStyle=m.res==null?"#ffffff":(m.res===1?"#3ddc97":"#ef5350");
+    const yy=s===1?y+14:y-14;cx.beginPath();if(s===1){cx.moveTo(x,yy-7);cx.lineTo(x-5,yy+2);cx.lineTo(x+5,yy+2)}else{cx.moveTo(x,yy+7);cx.lineTo(x-5,yy-2);cx.lineTo(x+5,yy-2)}cx.fill();
+    if(es){cx.font="600 10px Segoe UI";cx.fillStyle=COLOR[m.id];cx.textAlign="center";cx.fillText(m.id,x,s===1?yy+14:yy-9);cx.textAlign="left"}});
+  cx.globalAlpha=1;
+  if(sub&&hS>20){const b=g.boll.filter(k=>k[0]>=t0);
+    if(sel==="E3"){const YR=x=>yS0+hS-((Math.min(Math.max(x,20),80)-20)/60)*hS;[55,45].forEach(l=>{cx.strokeStyle="#4b546688";cx.setLineDash([3,3]);cx.beginPath();cx.moveTo(0,YR(l));cx.lineTo(W-der,YR(l));cx.stroke();cx.setLineDash([]);cx.fillStyle="#4b5466";cx.fillText(l,W-der+8,YR(l)+4)});
+      cx.strokeStyle=COLOR.E3;cx.lineWidth=1.5;cx.beginPath();b.forEach((k,i)=>{const x=X(k[0]-450);i?cx.lineTo(x,YR(k[5])):cx.moveTo(x,YR(k[5]))});cx.stroke();cx.lineWidth=1;
+      cx.fillStyle="#8b95a7";cx.fillText("RSI "+miles(b.length?b[b.length-1][5]:null,0),4,yS0+11)}
+    else{let m=0;b.forEach(k=>{m=Math.max(m,Math.abs(k[6]),Math.abs(k[7]))});m=m||1;const YM=x=>yS0+hS/2-(x/m)*(hS/2-2);
+      cx.strokeStyle="#4b546688";cx.beginPath();cx.moveTo(0,YM(0));cx.lineTo(W-der,YM(0));cx.stroke();
+      [[6,COLOR.E4],[7,"#8b95a7"]].forEach(([c,col])=>{cx.strokeStyle=col;cx.lineWidth=1.5;cx.beginPath();b.forEach((k,i)=>{const x=X(k[0]-450);i?cx.lineTo(x,YM(k[c])):cx.moveTo(x,YM(k[c]))});cx.stroke()});cx.lineWidth=1;
+      cx.fillStyle="#8b95a7";cx.fillText("MACD y señal",4,yS0+11)}}
+  $("leyenda").innerHTML=ley+` Triángulos: señales de las cinco (blanco abierta, verde acierto, rojo fallo); resaltadas las de ${sel}.`;
+}
+window.addEventListener("resize",dibujar);
+tick();setInterval(tick,2000);
+</script>
+</body>
+</html>

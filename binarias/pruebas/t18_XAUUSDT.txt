@@ -1,0 +1,123 @@
+T18 · REGLAS A CIEGAS · XAUUSDT · velas de 1 min de futuros de Binance, 11/12/2025 a 29/10/2026
+Cada mes se elige con los 12 meses anteriores y se opera sin tocar nada. 10, 30 y 60 min; una abierta a la vez; hasta 16 al día;
+16 % del saldo o 5 USDT si no alcanza; empate = fallo. Para no perder: 55,6 % (pago 0,80), 54,1 % (0,85), 52,6 % (0,90).
+Para crecer al 16 %: 59,1 %, 57,8 % y 56,4 %. Límite corregido = Wilson al 99,375 % de una cola (8 procedimientos).
+
+== RESULTADO PRINCIPAL ==
+Todo el periodo: 1.671 apuestas, 896 aciertos (53,6 %), 9 empates · límite 95 % 51,2 % · límite corregido 50,6 %
+   5,54 apuestas al día, todos los días (1.671 en 302 días)
+   2021-23: sin apuestas
+   2024-26: 1.671 apuestas, 896 aciertos (53,6 %), 9 empates · límite 95 % 51,2 % · límite corregido 50,6 %
+      2021: sin apuestas
+      2022: sin apuestas
+      2023: sin apuestas
+      2024: sin apuestas
+      2025: sin apuestas
+      2026: 1.671 apuestas, 896 aciertos (53,6 %), 9 empates · límite 95 % 51,2 % · límite corregido 50,6 %
+Entrando 60 s tarde: 1.671 apuestas, 907 aciertos (54,3 %), 9 empates · límite 95 % 51,9 % · límite corregido 51,2 %
+Siempre arriba, mismas horas y plazos: 1.671 apuestas, 841 aciertos (50,3 %), 9 empates · límite 95 % 47,9 % · límite corregido 47,3 %
+Azar en las mismas horas (200 repeticiones): 49,8 % (de 47,6 a 52,2 %)
+Sin los 5 mejores días: 1.609 apuestas, 846 aciertos (52,6 %), 9 empates · límite 95 % 50,1 % · límite corregido 49,5 %
+
+== EN PESOS: 100.000 COP durante 30 días, arrancando cada día del periodo ==
+pago 0,80: termina arriba en 14,3 % de los 273 arranques · quiebra en 81,0 % · mediana 0 · peor 10 % 0 · mejor 10 % 235.902
+pago 0,85: termina arriba en 17,2 % de los 273 arranques · quiebra en 71,8 % · mediana 0 · peor 10 % 0 · mejor 10 % 866.504
+pago 0,90: termina arriba en 24,2 % de los 273 arranques · quiebra en 61,2 % · mediana 0 · peor 10 % 0 · mejor 10 % 1.369.210
+
+== VARIANTES DE SENSIBILIDAD (se informan, no se escogen) ==
+principal: 1.671 apuestas, 896 aciertos (53,6 %), 9 empates · límite 95 % 51,2 % · límite corregido 50,6 %
+ventana de 6 meses: 1.783 apuestas, 950 aciertos (53,3 %), 10 empates · límite 95 % 51,0 % · límite corregido 50,3 %
+ventana de 24 meses: 1.671 apuestas, 896 aciertos (53,6 %), 9 empates · límite 95 % 51,2 % · límite corregido 50,6 %
+1 elegida: 584 apuestas, 324 aciertos (55,5 %), 3 empates · límite 95 % 51,4 % · límite corregido 50,3 %
+5 elegidas: 1.770 apuestas, 949 aciertos (53,6 %), 10 empates · límite 95 % 51,3 % · límite corregido 50,6 %
+
+== MES A MES (principal): elegidas con los 12 meses anteriores y su resultado en el mes ==
+2021-01: 0 apuestas, - % · 100.000 → 100.000 · ninguna supera 54,1 %: no se apuesta
+2021-02: 0 apuestas, - % · 100.000 → 100.000 · ninguna supera 54,1 %: no se apuesta
+2021-03: 0 apuestas, - % · 100.000 → 100.000 · ninguna supera 54,1 %: no se apuesta
+2021-04: 0 apuestas, - % · 100.000 → 100.000 · ninguna supera 54,1 %: no se apuesta
+2021-05: 0 apuestas, - % · 100.000 → 100.000 · ninguna supera 54,1 %: no se apuesta
+2021-06: 0 apuestas, - % · 100.000 → 100.000 · ninguna supera 54,1 %: no se apuesta
+2021-07: 0 apuestas, - % · 100.000 → 100.000 · ninguna supera 54,1 %: no se apuesta
+2021-08: 0 apuestas, - % · 100.000 → 100.000 · ninguna supera 54,1 %: no se apuesta
+2021-09: 0 apuestas, - % · 100.000 → 100.000 · ninguna supera 54,1 %: no se apuesta
+2021-10: 0 apuestas, - % · 100.000 → 100.000 · ninguna supera 54,1 %: no se apuesta
+2021-11: 0 apuestas, - % · 100.000 → 100.000 · ninguna supera 54,1 %: no se apuesta
+2021-12: 0 apuestas, - % · 100.000 → 100.000 · ninguna supera 54,1 %: no se apuesta
+2022-01: 0 apuestas, - % · 100.000 → 100.000 · ninguna supera 54,1 %: no se apuesta
+2022-02: 0 apuestas, - % · 100.000 → 100.000 · ninguna supera 54,1 %: no se apuesta
+2022-03: 0 apuestas, - % · 100.000 → 100.000 · ninguna supera 54,1 %: no se apuesta
+2022-04: 0 apuestas, - % · 100.000 → 100.000 · ninguna supera 54,1 %: no se apuesta
+2022-05: 0 apuestas, - % · 100.000 → 100.000 · ninguna supera 54,1 %: no se apuesta
+2022-06: 0 apuestas, - % · 100.000 → 100.000 · ninguna supera 54,1 %: no se apuesta
+2022-07: 0 apuestas, - % · 100.000 → 100.000 · ninguna supera 54,1 %: no se apuesta
+2022-08: 0 apuestas, - % · 100.000 → 100.000 · ninguna supera 54,1 %: no se apuesta
+2022-09: 0 apuestas, - % · 100.000 → 100.000 · ninguna supera 54,1 %: no se apuesta
+2022-10: 0 apuestas, - % · 100.000 → 100.000 · ninguna supera 54,1 %: no se apuesta
+2022-11: 0 apuestas, - % · 100.000 → 100.000 · ninguna supera 54,1 %: no se apuesta
+2022-12: 0 apuestas, - % · 100.000 → 100.000 · ninguna supera 54,1 %: no se apuesta
+2023-01: 0 apuestas, - % · 100.000 → 100.000 · ninguna supera 54,1 %: no se apuesta
+2023-02: 0 apuestas, - % · 100.000 → 100.000 · ninguna supera 54,1 %: no se apuesta
+2023-03: 0 apuestas, - % · 100.000 → 100.000 · ninguna supera 54,1 %: no se apuesta
+2023-04: 0 apuestas, - % · 100.000 → 100.000 · ninguna supera 54,1 %: no se apuesta
+2023-05: 0 apuestas, - % · 100.000 → 100.000 · ninguna supera 54,1 %: no se apuesta
+2023-06: 0 apuestas, - % · 100.000 → 100.000 · ninguna supera 54,1 %: no se apuesta
+2023-07: 0 apuestas, - % · 100.000 → 100.000 · ninguna supera 54,1 %: no se apuesta
+2023-08: 0 apuestas, - % · 100.000 → 100.000 · ninguna supera 54,1 %: no se apuesta
+2023-09: 0 apuestas, - % · 100.000 → 100.000 · ninguna supera 54,1 %: no se apuesta
+2023-10: 0 apuestas, - % · 100.000 → 100.000 · ninguna supera 54,1 %: no se apuesta
+2023-11: 0 apuestas, - % · 100.000 → 100.000 · ninguna supera 54,1 %: no se apuesta
+2023-12: 0 apuestas, - % · 100.000 → 100.000 · ninguna supera 54,1 %: no se apuesta
+2024-01: 0 apuestas, - % · 100.000 → 100.000 · ninguna supera 54,1 %: no se apuesta
+2024-02: 0 apuestas, - % · 100.000 → 100.000 · ninguna supera 54,1 %: no se apuesta
+2024-03: 0 apuestas, - % · 100.000 → 100.000 · ninguna supera 54,1 %: no se apuesta
+2024-04: 0 apuestas, - % · 100.000 → 100.000 · ninguna supera 54,1 %: no se apuesta
+2024-05: 0 apuestas, - % · 100.000 → 100.000 · ninguna supera 54,1 %: no se apuesta
+2024-06: 0 apuestas, - % · 100.000 → 100.000 · ninguna supera 54,1 %: no se apuesta
+2024-07: 0 apuestas, - % · 100.000 → 100.000 · ninguna supera 54,1 %: no se apuesta
+2024-08: 0 apuestas, - % · 100.000 → 100.000 · ninguna supera 54,1 %: no se apuesta
+2024-09: 0 apuestas, - % · 100.000 → 100.000 · ninguna supera 54,1 %: no se apuesta
+2024-10: 0 apuestas, - % · 100.000 → 100.000 · ninguna supera 54,1 %: no se apuesta
+2024-11: 0 apuestas, - % · 100.000 → 100.000 · ninguna supera 54,1 %: no se apuesta
+2024-12: 0 apuestas, - % · 100.000 → 100.000 · ninguna supera 54,1 %: no se apuesta
+2025-01: 0 apuestas, - % · 100.000 → 100.000 · ninguna supera 54,1 %: no se apuesta
+2025-02: 0 apuestas, - % · 100.000 → 100.000 · ninguna supera 54,1 %: no se apuesta
+2025-03: 0 apuestas, - % · 100.000 → 100.000 · ninguna supera 54,1 %: no se apuesta
+2025-04: 0 apuestas, - % · 100.000 → 100.000 · ninguna supera 54,1 %: no se apuesta
+2025-05: 0 apuestas, - % · 100.000 → 100.000 · ninguna supera 54,1 %: no se apuesta
+2025-06: 0 apuestas, - % · 100.000 → 100.000 · ninguna supera 54,1 %: no se apuesta
+2025-07: 0 apuestas, - % · 100.000 → 100.000 · ninguna supera 54,1 %: no se apuesta
+2025-08: 0 apuestas, - % · 100.000 → 100.000 · ninguna supera 54,1 %: no se apuesta
+2025-09: 0 apuestas, - % · 100.000 → 100.000 · ninguna supera 54,1 %: no se apuesta
+2025-10: 0 apuestas, - % · 100.000 → 100.000 · ninguna supera 54,1 %: no se apuesta
+2025-11: 0 apuestas, - % · 100.000 → 100.000 · ninguna supera 54,1 %: no se apuesta
+2025-12: 0 apuestas, - % · 100.000 → 100.000 · ninguna supera 54,1 %: no se apuesta
+2026-01: 208 apuestas, 52,9 % · 100.000 → 0 · alineación de medias 9/21/50 [al revés, 60 min, volatilidad baja, 56,3 %]; patrón doji lapida [al revés, 30 min, 56,0 %]
+2026-02: 320 apuestas, 54,1 % · 100.000 → 0 · alineación de medias 9/21/50 [al revés, 60 min, Europa, 65,3 %]; rompimiento de 20 velas [al revés, 60 min, volatilidad alta, 54,5 %]; 50 SMA + precio [al revés, 60 min, 54,2 %]
+2026-03: 305 apuestas, 53,4 % · 100.000 → 0 · alineación de medias 9/21/50 [al revés, 60 min, Europa, 62,1 %]; rompimiento de 20 velas [al revés, 60 min, Europa, volatilidad baja, 55,1 %]; REV5 [normal, 10 min, América, volatilidad alta, 55,0 %]
+2026-04: 283 apuestas, 49,1 % · 100.000 → 0 · alineación de medias 9/21/50 [al revés, 60 min, Europa, 59,1 %]; rompimiento de 20 velas [al revés, 60 min, Europa, volatilidad baja, 54,7 %]; 50 SMA + precio [al revés, 10 min, a favor del contexto, volatilidad baja, 54,2 %]
+2026-05: 150 apuestas, 58,7 % · 100.000 → 0 · alineación de medias 9/21/50 [al revés, 60 min, Europa, 57,7 %]; techo y piso de 24 h [normal, 10 min, a favor del contexto, América, 57,0 %]; REV15 [normal, 10 min, Europa, volatilidad alta, 54,5 %]
+2026-06: 86 apuestas, 66,3 % · 100.000 → 949.364 · alineación de medias 9/21/50 [al revés, 60 min, Europa, volatilidad baja, 58,1 %]; REV15 [normal, 10 min, Europa, volatilidad alta, 55,9 %]
+2026-07: 102 apuestas, 49,0 % · 100.000 → 0 · alineación de medias 9/21/50 [al revés, 60 min, Europa, volatilidad baja, 58,6 %]; REV15 [normal, 10 min, Europa, volatilidad alta, 57,2 %]; patrón harami bajista [normal, 60 min, Europa, volatilidad alta, 54,3 %]
+2026-08: 83 apuestas, 57,8 % · 100.000 → 139.759 · alineación de medias 9/21/50 [al revés, 60 min, Europa, volatilidad baja, 56,5 %]; techo y piso de 24 h [normal, 10 min, a favor del contexto, Europa, 55,8 %]; E04 estacionalidad 21-23 UTC [normal, 60 min, volatilidad baja, 55,0 %]
+2026-09: 98 apuestas, 52,0 % · 100.000 → 0 · E04 estacionalidad 21-23 UTC [normal, 60 min, volatilidad baja, 56,4 %]; techo y piso de 24 h [normal, 10 min, a favor del contexto, Europa, 55,5 %]; pullback en tendencia [normal, 60 min, América, volatilidad alta, 54,7 %]
+2026-10: 36 apuestas, 47,2 % · 100.000 → 20.705 · E04 estacionalidad 21-23 UTC [normal, 60 min, volatilidad baja, 57,5 %]; patrón pinzas abajo [normal, 60 min, a favor del contexto, Asia, volatilidad baja, 55,8 %]; E12 MACD diario y horario [al revés, 10 min, volatilidad baja, 55,4 %]
+
+== CUÁNTOS MESES FUE ELEGIDA CADA ESTRATEGIA ==
+  8 · alineación de medias 9/21/50
+  3 · rompimiento de 20 velas
+  3 · techo y piso de 24 h
+  3 · REV15
+  3 · E04 estacionalidad 21-23 UTC
+  2 · 50 SMA + precio
+  1 · patrón doji lapida
+  1 · REV5
+  1 · patrón harami bajista
+  1 · pullback en tendencia
+  1 · patrón pinzas abajo
+  1 · E12 MACD diario y horario
+
+== LO QUE SE ELEGIRÍA HOY (12 meses hasta 29/10/2026) ==
+E04 estacionalidad 21-23 UTC [normal, 60 min, volatilidad baja] · 155/248 en la ventana · límite 56,3 %
+patrón pinzas abajo [normal, 60 min, a favor del contexto, Asia, volatilidad baja] · 71/109 en la ventana · límite 55,8 %
+alineación de medias 9/21/50 [al revés, 60 min, Europa, volatilidad baja] · 268/445 en la ventana · límite 55,6 %

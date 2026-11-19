@@ -1,0 +1,5 @@
+parejas listas: 903 mezclas · 57 s
+tríos listos: 12383 mezclas · 73 s
+crecimiento y azar listos: 16876 mezclas · 95 s
+
+96 s en total

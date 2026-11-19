@@ -1,0 +1,7 @@
+BTCUSDT: 42 estrategias, 636,913 señales · 29 s
+principal: 16898 apuestas · 30 s
+ventana de 6 meses: 18733 apuestas · 31 s
+ventana de 24 meses: 9874 apuestas · 32 s
+1 elegida: 9406 apuestas · 33 s
+5 elegidas: 20333 apuestas · 33 s
+listo · 34 s

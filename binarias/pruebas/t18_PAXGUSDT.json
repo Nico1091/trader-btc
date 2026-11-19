@@ -1,0 +1,73 @@
+{
+ "arriba_0.8": 0.17818008575512148,
+ "arriba_0.85": 0.20962363030014292,
+ "arriba_0.9": 0.23630300142925204,
+ "simbolo": "PAXGUSDT",
+ "apuestas": 7142,
+ "aciertos": 4006,
+ "empates": 568,
+ "acierto": 0.5609073088770653,
+ "lb_corregido": 0.546193029121071,
+ "tramos": {
+  "2021-2023": [
+   5394,
+   3060,
+   508
+  ],
+  "2024-2026": [
+   1748,
+   946,
+   60
+  ]
+ },
+ "tarde_60s": [
+  7142,
+  3918,
+  569
+ ],
+ "siempre_arriba": [
+  7142,
+  3214,
+  568
+ ],
+ "seleccion_hoy": [
+  {
+   "nombre": "rompimiento de 20 velas",
+   "conf": {
+    "sentido": -1,
+    "plazo": 30,
+    "zona": true,
+    "sesion": "Europa",
+    "vol": "alta"
+   },
+   "lb": 0.5844511068377012,
+   "aciertos": 162,
+   "apuestas": 251
+  },
+  {
+   "nombre": "tres resistencias 5 min",
+   "conf": {
+    "sentido": 1,
+    "plazo": 30,
+    "sesion": "Asia",
+    "vol": "baja"
+   },
+   "lb": 0.559995202445723,
+   "aciertos": 121,
+   "apuestas": 192
+  },
+  {
+   "nombre": "techo y piso de 24 h",
+   "conf": {
+    "sentido": 1,
+    "plazo": 60,
+    "zona": true,
+    "vol": "alta"
+   },
+   "lb": 0.5506317643329229,
+   "aciertos": 234,
+   "apuestas": 390
+  }
+ ],
+ "por_dia": 3.357567150657428
+}

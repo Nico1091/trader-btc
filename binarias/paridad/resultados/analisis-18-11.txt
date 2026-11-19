@@ -1,0 +1,80 @@
+Registros: operador_registro_20261117.jsonl, operador_registro_20261118.jsonl · mercados 426 · ganadores 422 · señales 1608 · libro real de 18/11 11:06 a 18/11 15:37
+
+== A1, cuenta del nodo frente a cuenta manual (solo libro real): 10 señales con precio y ganador oficial
+E1      n=  4 (alineadas 2) · acierto propio 50% · acierto en el mercado 50% · coinciden 100% · lado barato 50% · precio medio 0.372
+        neto por USDT: cuenta del nodo -0.40 (-0.099 por señal) · cuenta manual +2.54 (+0.635 por señal) · distinto signo en 0 de 4
+        coinciden: alineadas 100%, a mitad de ventana 100%
+        a mitad de ventana, comprar al dar la señal frente a 60 s después: +1.06 frente a +3.16 (2 señales)
+E2      n=  1 (alineadas 1) · acierto propio 0% · acierto en el mercado 0% · coinciden 100% · lado barato 0% · precio medio 0.560
+        neto por USDT: cuenta del nodo -1.00 (-1.000 por señal) · cuenta manual -1.00 (-1.000 por señal) · distinto signo en 0 de 1
+        coinciden: alineadas 100%
+E5      n=  3 (alineadas 0) · acierto propio 0% · acierto en el mercado 0% · coinciden 100% · lado barato 67% · precio medio 0.277
+        neto por USDT: cuenta del nodo -3.00 (-1.000 por señal) · cuenta manual -3.00 (-1.000 por señal) · distinto signo en 0 de 3
+        a mitad de ventana, comprar al dar la señal frente a 60 s después: -2.00 frente a -2.00 (2 señales)
+quince  n=  2 (alineadas 2) · acierto propio 50% · acierto en el mercado 50% · coinciden 100% · lado barato 0% · precio medio 0.635
+        neto por USDT: cuenta del nodo -0.20 (-0.099 por señal) · cuenta manual -0.62 (-0.310 por señal) · distinto signo en 0 de 2
+        coinciden: alineadas 100%
+TODAS   n= 10 (alineadas 5) · acierto propio 30% · acierto en el mercado 30% · coinciden 100% · lado barato 40% · precio medio 0.415
+        neto por USDT: cuenta del nodo -4.60 (-0.460 por señal) · cuenta manual -2.08 (-0.208 por señal) · distinto signo en 0 de 10
+        coinciden: alineadas 100%, a mitad de ventana 100%
+        a mitad de ventana, comprar al dar la señal frente a 60 s después: -0.94 frente a +1.16 (4 señales)
+
+Detalle (hora de Colombia · estrategia · lado · minuto de entrada · precio · acierto propio · ganador · neto nodo · neto manual):
+  18/11 11:15 E1     SUBE m1  0.56  propio no · mercado BAJA · -1.00 · -1.00
+  18/11 11:15 E2     SUBE m1  0.56  propio no · mercado BAJA · -1.00 · -1.00
+  18/11 11:15 quince SUBE m1  0.56  propio no · mercado BAJA · -1.00 · -1.00
+  18/11 12:20 E5     BAJA m6  0.05  propio no · mercado SUBE · -1.00 · -1.00
+  18/11 12:30 E1     BAJA m1  0.71  propio sí · mercado BAJA · +0.80 · +0.38
+  18/11 12:30 quince BAJA m1  0.71  propio sí · mercado BAJA · +0.80 · +0.38
+  18/11 13:20 E5     SUBE m6  0.67  propio no · mercado BAJA · -1.00 · -1.00
+  18/11 13:55 E5     SUBE m11 0.11  propio no · mercado BAJA · -1.00 · -1.00
+  18/11 14:05 E1     SUBE m6  0.03  propio no · mercado BAJA · -1.00 · -1.00
+  18/11 14:50 E1     SUBE m6  0.19  propio sí · mercado SUBE · +0.80 · +4.16
+
+== A2, costo de un minuto de demora (lado que terminó ganando frente al que perdió)
+   5 min · todos           · pares 128 · el que gana sube +0.085 · el que pierde -0.084 · |cambio| medio 0.151, más de 0,05 en 85%, más de 0,10 en 63% · pago perdido por USDT del que gana +0.270
+   5 min · faltan 1-2 min  · pares  38 · el que gana sube +0.058 · el que pierde -0.048 · |cambio| medio 0.141, más de 0,05 en 76%, más de 0,10 en 63% · pago perdido por USDT del que gana +0.130
+   5 min · faltan 3-5 min  · pares  90 · el que gana sube +0.097 · el que pierde -0.102 · |cambio| medio 0.155, más de 0,05 en 89%, más de 0,10 en 63% · pago perdido por USDT del que gana +0.329
+  15 min · todos           · pares 171 · el que gana sube +0.027 · el que pierde -0.026 · |cambio| medio 0.086, más de 0,05 en 60%, más de 0,10 en 35% · pago perdido por USDT del que gana +0.052
+  15 min · faltan 1-2 min  · pares   6 · el que gana sube +0.135 · el que pierde -0.088 · |cambio| medio 0.101, más de 0,05 en 62%, más de 0,10 en 38% · pago perdido por USDT del que gana +0.289
+  15 min · faltan 3-5 min  · pares  38 · el que gana sube +0.043 · el que pierde -0.037 · |cambio| medio 0.099, más de 0,05 en 58%, más de 0,10 en 33% · pago perdido por USDT del que gana +0.163
+  15 min · faltan 6-14 min · pares 127 · el que gana sube +0.017 · el que pierde -0.015 · |cambio| medio 0.081, más de 0,05 en 61%, más de 0,10 en 36% · pago perdido por USDT del que gana +0.007
+
+== A3, precio real de compra frente a la probabilidad del modelo del operador
+  828 lados · diferencia media +0.006 · error medio absoluto 0.033
+  probabilidad 0.0-0.1:  100 lados · diferencia media +0.012 · error medio absoluto 0.019
+  probabilidad 0.1-0.3:  137 lados · diferencia media +0.013 · error medio absoluto 0.037
+  probabilidad 0.3-0.7:  390 lados · diferencia media +0.006 · error medio absoluto 0.036
+  probabilidad 0.7-0.9:  137 lados · diferencia media -0.001 · error medio absoluto 0.035
+  probabilidad 0.9-1.0:   64 lados · diferencia media -0.004 · error medio absoluto 0.020
+
+== A3, muestra larga (precio real o estimado con el modelo, marcado con *): 44 señales con precio y ganador oficial
+E1      n= 15 (alineadas 3) · acierto propio 27% · acierto en el mercado 13% · coinciden 87% · lado barato 80% · precio medio 0.201
+        neto por USDT: cuenta del nodo -7.79 (-0.520 por señal) · cuenta manual -8.46 (-0.564 por señal) · distinto signo en 2 de 15
+        coinciden: alineadas 100%, a mitad de ventana 83%
+        a mitad de ventana, comprar al dar la señal frente a 60 s después: +1.06 frente a +3.16 (2 señales)
+E2      n=  9 (alineadas 2) · acierto propio 0% · acierto en el mercado 0% · coinciden 100% · lado barato 78% · precio medio 0.190
+        neto por USDT: cuenta del nodo -9.00 (-1.000 por señal) · cuenta manual -9.00 (-1.000 por señal) · distinto signo en 0 de 9
+        coinciden: alineadas 100%, a mitad de ventana 100%
+E3      n=  4 (alineadas 4) · acierto propio 25% · acierto en el mercado 25% · coinciden 100% · lado barato 75% · precio medio 0.406
+        neto por USDT: cuenta del nodo -2.20 (-0.550 por señal) · cuenta manual +1.11 (+0.278 por señal) · distinto signo en 0 de 4
+        coinciden: alineadas 100%
+E5      n= 11 (alineadas 2) · acierto propio 55% · acierto en el mercado 36% · coinciden 82% · lado barato 82% · precio medio 0.237
+        neto por USDT: cuenta del nodo -0.19 (-0.017 por señal) · cuenta manual +2.20 (+0.200 por señal) · distinto signo en 2 de 11
+        coinciden: alineadas 100%, a mitad de ventana 78%
+        a mitad de ventana, comprar al dar la señal frente a 60 s después: -2.00 frente a -2.00 (2 señales)
+quince  n=  5 (alineadas 5) · acierto propio 40% · acierto en el mercado 40% · coinciden 100% · lado barato 20% · precio medio 0.582
+        neto por USDT: cuenta del nodo -1.40 (-0.279 por señal) · cuenta manual -2.31 (-0.462 por señal) · distinto signo en 0 de 5
+        coinciden: alineadas 100%
+TODAS   n= 44 (alineadas 16) · acierto propio 30% · acierto en el mercado 20% · coinciden 91% · lado barato 73% · precio medio 0.270
+        neto por USDT: cuenta del nodo -20.58 (-0.468 por señal) · cuenta manual -16.46 (-0.374 por señal) · distinto signo en 4 de 44
+        coinciden: alineadas 100%, a mitad de ventana 86%
+        a mitad de ventana, comprar al dar la señal frente a 60 s después: -0.94 frente a +1.16 (4 señales)
+
+== A4, compras de papel del operador con el ganador oficial
+   5 min, llenado a 5 s: 13 compras · aciertos 2 · precio medio 0.135 · neto -5.96 por USDT (-0.459 por compra)
+   5 min, llenado a 15 s: 14 compras · aciertos 3 · precio medio 0.170 · neto -6.95 por USDT (-0.496 por compra)
+  15 min, llenado a 5 s: 6 compras · aciertos 2 · precio medio 0.390 · neto -1.10 por USDT (-0.183 por compra)
+  15 min, llenado a 15 s: 5 compras · aciertos 2 · precio medio 0.314 · neto +0.10 por USDT (+0.021 por compra)
+
+== A5, precio de entrada de las señales del Centro con libro real (8): mediana 0.56, 10 % 0.03, 90 % 0.71; acierto mínimo para no perder 57.1% en la mediana (la rutina de la nube supuso 54,05 % fijo)

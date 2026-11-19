@@ -1,0 +1,35 @@
+{
+ "simbolo": "ETHUSDT",
+ "actual": {
+  "apuestas": 10995,
+  "acierto": 0.5657116871305139,
+  "acierto_2024_26": 0.5598521029117239,
+  "arriba_30d": 0.33428707677634717,
+  "por_dia": 5.174236011934914
+ },
+ "ampliado": {
+  "apuestas": 8542,
+  "acierto": 0.5756263170217748,
+  "acierto_2024_26": 0.5676429567642957,
+  "arriba_30d": 0.4558893657606104,
+  "por_dia": 4.019442887742648
+ },
+ "condiciones": {
+  "acierto de todo el periodo": true,
+  "acierto 2024-26": true,
+  "30 días arriba (pago 0,85)": true,
+  "apuestas al día": false
+ },
+ "entra": false,
+ "meses_elegidas": {
+  "REV15 · contexto a favor": 17,
+  "rompimiento de 20 velas · contexto en contra": 36,
+  "REV5 · contexto a favor": 1,
+  "five flip · contexto a favor": 3,
+  "five flip": 1,
+  "rompimiento de 20 velas · contexto a favor": 27,
+  "seven flip": 7,
+  "five flip · contexto en contra": 7,
+  "REV15 · contexto en contra": 3
+ }
+}

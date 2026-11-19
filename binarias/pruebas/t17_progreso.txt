@@ -1,0 +1,37 @@
+42 estrategias, 57869 señales · carga 26 s
+plazo 5 · sin preventiva: 15757 mezclas, 41 ganan en los dos · 43 s
+plazo 5 · para el día tras 2 fallos seguidos: 15769 mezclas, 64 ganan en los dos · 59 s
+plazo 5 · solo a favor de la tendencia del día: 15759 mezclas, 1 ganan en los dos · 73 s
+plazo 5 · solo con volatilidad baja: 15757 mezclas, 104 ganan en los dos · 86 s
+plazo 5 · tendencia del día + para tras 2 fallos: 15762 mezclas, 5 ganan en los dos · 99 s
+plazo 10 · sin preventiva: 15754 mezclas, 31 ganan en los dos · 117 s
+plazo 10 · para el día tras 2 fallos seguidos: 15771 mezclas, 35 ganan en los dos · 132 s
+plazo 10 · solo a favor de la tendencia del día: 15750 mezclas, 16 ganan en los dos · 147 s
+plazo 10 · solo con volatilidad baja: 15762 mezclas, 295 ganan en los dos · 160 s
+plazo 10 · tendencia del día + para tras 2 fallos: 15761 mezclas, 16 ganan en los dos · 173 s
+plazo 15 · sin preventiva: 15755 mezclas, 74 ganan en los dos · 190 s
+plazo 15 · para el día tras 2 fallos seguidos: 15762 mezclas, 97 ganan en los dos · 206 s
+plazo 15 · solo a favor de la tendencia del día: 15759 mezclas, 38 ganan en los dos · 220 s
+plazo 15 · solo con volatilidad baja: 15762 mezclas, 107 ganan en los dos · 233 s
+plazo 15 · tendencia del día + para tras 2 fallos: 15765 mezclas, 28 ganan en los dos · 246 s
+plazo 20 · sin preventiva: 15752 mezclas, 158 ganan en los dos · 263 s
+plazo 20 · para el día tras 2 fallos seguidos: 15768 mezclas, 96 ganan en los dos · 279 s
+plazo 20 · solo a favor de la tendencia del día: 15758 mezclas, 194 ganan en los dos · 293 s
+plazo 20 · solo con volatilidad baja: 15763 mezclas, 143 ganan en los dos · 307 s
+plazo 20 · tendencia del día + para tras 2 fallos: 15767 mezclas, 119 ganan en los dos · 319 s
+plazo 30 · sin preventiva: 15754 mezclas, 98 ganan en los dos · 337 s
+plazo 30 · para el día tras 2 fallos seguidos: 15759 mezclas, 123 ganan en los dos · 353 s
+plazo 30 · solo a favor de la tendencia del día: 15758 mezclas, 27 ganan en los dos · 367 s
+plazo 30 · solo con volatilidad baja: 15765 mezclas, 146 ganan en los dos · 381 s
+plazo 30 · tendencia del día + para tras 2 fallos: 15764 mezclas, 39 ganan en los dos · 393 s
+plazo 60 · sin preventiva: 15759 mezclas, 317 ganan en los dos · 410 s
+plazo 60 · para el día tras 2 fallos seguidos: 15756 mezclas, 336 ganan en los dos · 426 s
+plazo 60 · solo a favor de la tendencia del día: 15763 mezclas, 4 ganan en los dos · 440 s
+plazo 60 · solo con volatilidad baja: 15765 mezclas, 809 ganan en los dos · 453 s
+plazo 60 · tendencia del día + para tras 2 fallos: 15761 mezclas, 4 ganan en los dos · 466 s
+plazo 1440 · sin preventiva: 15777 mezclas, 55 ganan en los dos · 480 s
+plazo 1440 · para el día tras 2 fallos seguidos: 15772 mezclas, 55 ganan en los dos · 494 s
+plazo 1440 · solo a favor de la tendencia del día: 15768 mezclas, 0 ganan en los dos · 506 s
+plazo 1440 · solo con volatilidad baja: 15761 mezclas, 369 ganan en los dos · 517 s
+plazo 1440 · tendencia del día + para tras 2 fallos: 15770 mezclas, 0 ganan en los dos · 529 s
+listo: 40927 filas en el CSV · 529 s

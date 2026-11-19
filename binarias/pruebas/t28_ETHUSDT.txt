@@ -1,0 +1,26 @@
+T28 · SOLO CON TODO A FAVOR Y ESTRATEGIAS ROBUSTAS · ETHUSDT (otro activo: BTCUSDT) · secuencia a ciegas de la t18, pago 0,85
+Regla fijada antes (PLAN.md, sección 14): en 2024-26, +1,0 punto de acierto, no menos arranques arriba y ≥ 1 apuesta al día.
+
+== 2021-23 (elección) ==
+Sin filtro: 4.504 apuestas · 57,4 % · 30 días arriba 38,0 % · 4,11 al día
+V1 robustas: 3.035 apuestas · 58,3 % · 30 días arriba 58,4 % · 2,77 al día
+V2 C1, C3 y C4 a favor: 113 apuestas · 60,2 % · 30 días arriba 51,3 % · 0,10 al día
+V3 C1, C2, C3 y C4 a favor: 31 apuestas · 51,6 % · 30 días arriba 20,4 % · 0,03 al día
+V4 al menos 2 de C1, C3 y C4: 1.795 apuestas · 57,8 % · 30 días arriba 56,4 % · 1,64 al día
+V5 robustas con V2: 57 apuestas · 56,1 % · 30 días arriba 30,9 % · 0,05 al día
+V6 robustas con V4: 1.248 apuestas · 58,9 % · 30 días arriba 66,4 % · 1,14 al día
+
+== 2024-26 (juicio) ==
+Sin filtro: 6.491 apuestas · 56,0 % · 30 días arriba 29,5 % · 6,30 al día
+V1 robustas: 5.649 apuestas · 56,2 % · 30 días arriba 34,7 % · 5,48 al día
+V2 C1, C3 y C4 a favor: 115 apuestas · 44,3 % · 30 días arriba 31,5 % · 0,11 al día
+V3 C1, C2, C3 y C4 a favor: 28 apuestas · 42,9 % · 30 días arriba 16,5 % · 0,03 al día
+V4 al menos 2 de C1, C3 y C4: 2.539 apuestas · 54,7 % · 30 días arriba 38,6 % · 2,46 al día
+V5 robustas con V2: 64 apuestas · 46,9 % · 30 días arriba 27,0 % · 0,06 al día
+V6 robustas con V4: 2.233 apuestas · 55,7 % · 30 días arriba 49,4 % · 2,17 al día
+
+Elegida con 2021-23: V6 robustas con V4
+Acierto +1 punto: no · arranques: sí · frecuencia: sí
+VEREDICTO: no entra
+
+Coincidencia de cada indicativo con la apuesta (todo el periodo): C1 47,5 % · C2 10,7 % · C3 6,1 % · C4 47,2 % · R 79,0 %

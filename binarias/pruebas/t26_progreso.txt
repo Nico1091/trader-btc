@@ -1,0 +1,6 @@
+BTCUSDT: grupo N con 24 estrategias · 60 s
+elección a ciegas lista · 68 s
+listo · 68 s
+ETHUSDT: grupo N con 24 estrategias · 20 s
+elección a ciegas lista · 28 s
+listo · 28 s

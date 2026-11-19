@@ -1,0 +1,42 @@
+T20 · ROBUSTEZ · empate = fallo · para no perder con pago 0,85 hace falta 54,1 %
+
+== a) Rompimiento de 20 velas al revés, 10 min, escrito de nuevo, FUTUROS, sin filtros y sin solapes ==
+   2020: 6.458 apuestas, 60,3 % de acierto
+   2021: 7.103 apuestas, 59,7 % de acierto
+   2022: 6.304 apuestas, 60,1 % de acierto
+   2023: 6.509 apuestas, 58,1 % de acierto
+   2024: 7.452 apuestas, 57,3 % de acierto
+   2025: 8.001 apuestas, 55,4 % de acierto
+   2026: 6.108 apuestas, 55,5 % de acierto
+   Todo: 47.935 apuestas, 58,0 % de acierto · 19,2 al día
+   Todo, entrando 60 s tarde: 47.935 apuestas, 55,9 % de acierto
+
+== b) La misma regla sobre CONTADO de 1 min (2023-2026) ==
+   2023: 7.114 apuestas, 57,1 % de acierto
+   2024: 7.902 apuestas, 56,3 % de acierto
+   2025: 8.507 apuestas, 55,1 % de acierto
+   2026: 6.365 apuestas, 55,1 % de acierto
+   Todo: 29.888 apuestas, 55,9 % de acierto
+   Mismas horas medidas con futuros: 29.889 apuestas, 56,3 % de acierto
+
+== c) Apuestas a ciegas de T18 (BTC) medidas con contado, 2023 a 19/10/2026 ==
+   10 min: 6.201 apuestas · acierto con futuros 57,0 % · con contado 56,4 %
+   30 min: 2.457 apuestas · acierto con futuros 58,4 % · con contado 57,9 %
+   60 min: 802 apuestas · acierto con futuros 55,0 % · con contado 55,0 %
+   Mismo resultado con los dos precios en 98,0 % de 9.460 apuestas
+
+== d) Retraso real con velas de 1 s de CONTADO (01/05 a 19/10/2026) ==
+   Apuestas a ciegas de T18 en ese periodo: 957
+      entrando  0 s tarde: 957 apuestas, 54,6 % de acierto
+      entrando  5 s tarde: 957 apuestas, 55,5 % de acierto
+      entrando 10 s tarde: 957 apuestas, 55,1 % de acierto
+      entrando 20 s tarde: 957 apuestas, 56,3 % de acierto
+      entrando 30 s tarde: 957 apuestas, 55,8 % de acierto
+      entrando 60 s tarde: 957 apuestas, 55,7 % de acierto
+   Regla cruda (rompimiento al revés, 10 min) en ese periodo: 3807 apuestas
+      entrando  0 s tarde: 3.807 apuestas, 54,5 % de acierto
+      entrando  5 s tarde: 3.807 apuestas, 54,8 % de acierto
+      entrando 10 s tarde: 3.807 apuestas, 54,7 % de acierto
+      entrando 20 s tarde: 3.807 apuestas, 55,0 % de acierto
+      entrando 30 s tarde: 3.807 apuestas, 54,3 % de acierto
+      entrando 60 s tarde: 3.807 apuestas, 54,4 % de acierto

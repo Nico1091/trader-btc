@@ -1,0 +1,32 @@
+T9 · APOSTAR UN % FIJO DEL SALDO CON INTERÉS COMPUESTO · BTCUSDT · 4 binarias al día · pago 0,85 · desde 150 mil COP
+
+== Ganó en los dos · las cuatro juntas ==
+   apuesta    2 % · 2024-26 :  3215 apuestas, acierto  55,1 % · 150 mil →       297.444 COP (+147.444) · caída máxima   67 % · peor racha 7 pérdidas seguidas
+   apuesta    2 % · el mes  :    93 apuestas, acierto  58,1 % · 150 mil →       169.527 COP (+19.527) · caída máxima   10 % · peor racha 4 pérdidas seguidas
+   apuesta    5 % · 2024-26 :  3215 apuestas, acierto  55,1 % · 150 mil →       106.142 COP (-43.858) · caída máxima   96 % · peor racha 7 pérdidas seguidas
+   apuesta    5 % · el mes  :    93 apuestas, acierto  58,1 % · 150 mil →       192.052 COP (+42.052) · caída máxima   24 % · peor racha 4 pérdidas seguidas
+   apuesta   10 % · 2024-26 :  3215 apuestas, acierto  55,1 % · 150 mil →            72 COP (-149.928) · caída máxima  100 % · peor racha 7 pérdidas seguidas
+   apuesta   10 % · el mes  :    93 apuestas, acierto  58,1 % · 150 mil →       201.723 COP (+51.723) · caída máxima   46 % · peor racha 4 pérdidas seguidas
+   apuesta   16 % · 2024-26 :  3215 apuestas, acierto  55,1 % · 150 mil →             0 COP (-150.000) · caída máxima  100 % · peor racha 7 pérdidas seguidas
+   apuesta   16 % · el mes  :    93 apuestas, acierto  58,1 % · 150 mil →       163.461 COP (+13.461) · caída máxima   72 % · peor racha 4 pérdidas seguidas
+
+== Plan 28/10 · tres cuervos al revés 5 min ==
+   apuesta    2 % · 2024-26 :  1436 apuestas, acierto  55,7 % · 150 mil →       279.750 COP (+129.750) · caída máxima   43 % · peor racha 8 pérdidas seguidas
+   apuesta    2 % · el mes  :    50 apuestas, acierto  44,0 % · 150 mil →       123.448 COP (-26.552) · caída máxima   27 % · peor racha 4 pérdidas seguidas
+   apuesta    5 % · 2024-26 :  1436 apuestas, acierto  55,7 % · 150 mil →       285.285 COP (+135.285) · caída máxima   83 % · peor racha 8 pérdidas seguidas
+   apuesta    5 % · el mes  :    50 apuestas, acierto  44,0 % · 150 mil →        89.130 COP (-60.870) · caída máxima   55 % · peor racha 4 pérdidas seguidas
+   apuesta   10 % · 2024-26 :  1436 apuestas, acierto  55,7 % · 150 mil →        24.718 COP (-125.282) · caída máxima   99 % · peor racha 8 pérdidas seguidas
+   apuesta   10 % · el mes  :    50 apuestas, acierto  44,0 % · 150 mil →        47.243 COP (-102.757) · caída máxima   82 % · peor racha 4 pérdidas seguidas
+   apuesta   16 % · 2024-26 :  1436 apuestas, acierto  55,7 % · 150 mil →            19 COP (-149.981) · caída máxima  100 % · peor racha 8 pérdidas seguidas
+   apuesta   16 % · el mes  :    50 apuestas, acierto  44,0 % · 150 mil →        18.803 COP (-131.197) · caída máxima   95 % · peor racha 4 pérdidas seguidas
+
+== Plan de hoy · REV15 con contexto 10 min ==
+   apuesta    2 % · 2024-26 :  2621 apuestas, acierto  56,0 % · 150 mil →       654.168 COP (+504.168) · caída máxima   47 % · peor racha 8 pérdidas seguidas
+   apuesta    2 % · el mes  :    82 apuestas, acierto  47,6 % · 150 mil →       121.431 COP (-28.569) · caída máxima   24 % · peor racha 6 pérdidas seguidas
+   apuesta    5 % · 2024-26 :  2621 apuestas, acierto  56,0 % · 150 mil →     1.120.330 COP (+970.330) · caída máxima   84 % · peor racha 8 pérdidas seguidas
+   apuesta    5 % · el mes  :    82 apuestas, acierto  47,6 % · 150 mil →        83.786 COP (-66.214) · caída máxima   51 % · peor racha 6 pérdidas seguidas
+   apuesta   10 % · 2024-26 :  2621 apuestas, acierto  56,0 % · 150 mil →        29.807 COP (-120.193) · caída máxima   99 % · peor racha 8 pérdidas seguidas
+   apuesta   10 % · el mes  :    82 apuestas, acierto  47,6 % · 150 mil →        38.930 COP (-111.070) · caída máxima   80 % · peor racha 6 pérdidas seguidas
+   apuesta   16 % · 2024-26 :  2621 apuestas, acierto  56,0 % · 150 mil →             0 COP (-150.000) · caída máxima  100 % · peor racha 8 pérdidas seguidas
+   apuesta   16 % · el mes  :    82 apuestas, acierto  47,6 % · 150 mil →        12.019 COP (-137.981) · caída máxima   94 % · peor racha 6 pérdidas seguidas
+

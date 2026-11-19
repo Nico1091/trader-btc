@@ -1,0 +1,153 @@
+{
+ "simbolo": "XAUUSDT",
+ "rasgos": [
+  "rendimiento 1 min",
+  "rendimiento 3 min",
+  "rendimiento 5 min",
+  "rendimiento 10 min",
+  "rendimiento 15 min",
+  "rendimiento 30 min",
+  "rendimiento 60 min",
+  "rendimiento 120 min",
+  "rendimiento 240 min",
+  "volatilidad 15/240",
+  "volatilidad 60/1440",
+  "volatilidad 240",
+  "volumen 5 min",
+  "volumen 60 min",
+  "distancia a la media de 240 min",
+  "distancia a la media de 1440 min",
+  "pendiente de la media de 240 min",
+  "posición en el rango de 4 h",
+  "posición en el rango de 24 h",
+  "cuerpo de la vela",
+  "mecha de arriba",
+  "mecha de abajo",
+  "hora (seno)",
+  "hora (coseno)",
+  "fin de semana",
+  "contexto diario",
+  "patrón envolvente alcista",
+  "patrón envolvente bajista",
+  "patrón harami alcista",
+  "patrón harami bajista",
+  "patrón peonza",
+  "patrón doji piernas largas",
+  "patrón doji cuatro precios",
+  "patrón doji lapida",
+  "patrón doji libelula",
+  "patrón pinzas arriba",
+  "patrón pinzas abajo",
+  "patrón tres soldados",
+  "patrón tres cuervos",
+  "patrón estrella manana",
+  "patrón estrella tarde",
+  "patrón martillo",
+  "patrón martillo invertido",
+  "patrón hombre colgado",
+  "patrón estrella fugaz",
+  "tres resistencias 5 min",
+  "tres resistencias 15 min",
+  "50 SMA + precio",
+  "pendiente de la media 48 (Quantdemy)",
+  "alineación de medias 9/21/50",
+  "pullback en tendencia",
+  "techo y piso de 24 h",
+  "rompimiento de 20 velas"
+ ],
+ "plazos": {
+  "10": {
+   "apuestas": 0,
+   "aciertos": 0,
+   "empates": 0,
+   "acierto": null,
+   "auc": 0.513418711576555,
+   "lb_corregido": null,
+   "por_dia": 0.0,
+   "tramos": {
+    "2021-2023": [
+     0,
+     0,
+     0
+    ],
+    "2024-2026": [
+     0,
+     0,
+     0
+    ]
+   },
+   "tarde_60s": [
+    0,
+    0,
+    0
+   ],
+   "siempre_arriba": [
+    0,
+    0,
+    0
+   ]
+  },
+  "30": {
+   "apuestas": 665,
+   "aciertos": 349,
+   "empates": 2,
+   "acierto": 0.524812030075188,
+   "auc": 0.5165109047289569,
+   "lb_corregido": 0.47643750809847785,
+   "por_dia": 4.425752183759301,
+   "tramos": {
+    "2021-2023": [
+     0,
+     0,
+     0
+    ],
+    "2024-2026": [
+     665,
+     349,
+     2
+    ]
+   },
+   "tarde_60s": [
+    665,
+    344,
+    5
+   ],
+   "siempre_arriba": [
+    665,
+    335,
+    2
+   ]
+  },
+  "60": {
+   "apuestas": 334,
+   "aciertos": 178,
+   "empates": 2,
+   "acierto": 0.5329341317365269,
+   "auc": 0.5205733300103602,
+   "lb_corregido": 0.46476993766228547,
+   "por_dia": 1.5858873959277884,
+   "tramos": {
+    "2021-2023": [
+     0,
+     0,
+     0
+    ],
+    "2024-2026": [
+     334,
+     178,
+     2
+    ]
+   },
+   "tarde_60s": [
+    334,
+    185,
+    3
+   ],
+   "siempre_arriba": [
+    334,
+    170,
+    2
+   ]
+  }
+ }
+}

@@ -1,0 +1,37 @@
+T8 · PRUEBA DIRECTA DE LOS PLANES QUE GANARON ANTES, TAL CUAL · BTCUSDT · 4 binarias al día · 2 % del saldo desde 150 mil COP
+pago 0,85 (hace falta 54,1 %) · margen operativo = resultado / lo cobrado en aciertos
+
+plan                                                 periodo    apuestas  acierto   ingresos   pérdidas   resultado   margen  días +   con 0,80
+Plan 28/10 · tres cuervos al revés 5 min             2024-26        1436    55,7 %  3.370.811  3.241.061    +129.750    +3,8 % 376/822    -22.407
+Plan 28/10 · tres cuervos al revés 5 min             EL MES           50    44,0 %     52.061     78.614     -26.552   -51,0 %   8/26     -29.196
+
+Plan 28/10 · tres soldados al revés 5 min            2024-26        1579    53,6 %  1.661.974  1.726.376     -64.402    -3,9 % 377/870   -112.686
+Plan 28/10 · tres soldados al revés 5 min            EL MES           49    51,0 %     61.631     70.851      -9.220   -15,0 %  11/27     -12.640
+
+Plan 28/10 · martillo invertido 10 min               2024-26        2587    52,5 %  1.192.519  1.320.239    -127.719   -10,7 % 413/986   -144.125
+Plan 28/10 · martillo invertido 10 min               EL MES           91    53,8 %    121.863    125.203      -3.340    -2,7 %  11/30     -10.242
+
+Plan 28/10 · los tres juntos                         2024-26        3502    52,9 %  1.384.043  1.515.644    -131.601    -9,5 % 395/1002   -147.010
+Plan 28/10 · los tres juntos                         EL MES          110    50,9 %    129.775    150.274     -20.499   -15,8 %   8/30     -27.440
+
+Plan de hoy · REV15 con contexto 10 min              2024-26        2621    56,0 %  9.861.709  9.357.541    +504.168    +5,1 % 477/989     +4.345
+Plan de hoy · REV15 con contexto 10 min              EL MES           82    47,6 %     89.620    118.189     -28.569   -31,9 %  12/30     -33.140
+
+T95H · P05c 15 min                                   2024-26          44    38,6 %     37.123     71.338     -34.215   -92,2 %  17/43     -36.136
+T95H · P05c 15 min                                   EL MES            0     nan %          0          0          +0    +0,0 %   0/0           +0
+
+Ganó en los dos · pendiente de la media al revés     2024-26         764    56,9 %  1.496.990  1.354.060    +142.930    +9,5 % 288/580    +41.135
+Ganó en los dos · pendiente de la media al revés     EL MES           26    60,0 %     38.498     30.676      +7.822   +20,3 %  12/22      +5.510
+
+Ganó en los dos · alineación de medias al revés      2024-26        3017    54,9 %  5.055.178  4.980.812     +74.366    +1,5 % 444/991   -105.958
+Ganó en los dos · alineación de medias al revés      EL MES           91    56,0 %    130.296    122.352      +7.944    +6,1 %  13/29        +215
+
+Ganó en los dos · harami alcista                     2024-26         598    54,8 %  1.009.335    997.749     +11.586    +1,1 % 231/482    -32.978
+Ganó en los dos · harami alcista                     EL MES           22    59,1 %     32.348     26.645      +5.703   +17,6 %   9/18      +3.725
+
+Ganó en los dos · doji lápida                        2024-26         504    55,8 %  1.133.446  1.093.711     +39.735    +3,5 % 157/327     -5.948
+Ganó en los dos · doji lápida                        EL MES            8    62,5 %     12.669      9.075      +3.594   +28,4 %   3/5       +2.840
+
+Ganó en los dos · las cuatro juntas                  2024-26        3215    55,1 %  6.696.720  6.549.276    +147.444    +2,2 % 436/996    -97.859
+Ganó en los dos · las cuatro juntas                  EL MES           93    58,1 %    135.192    115.665     +19.527   +14,4 %  16/29     +10.756
+

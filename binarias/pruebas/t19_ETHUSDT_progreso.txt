@@ -1,0 +1,5 @@
+ETHUSDT: 717,395 muestras × 53 rasgos · 12 s
+plazo 10: 15127 apuestas · 62 s
+plazo 30: 8848 apuestas · 108 s
+plazo 60: 12302 apuestas · 163 s
+listo · 163 s

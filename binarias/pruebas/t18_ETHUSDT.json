@@ -1,0 +1,68 @@
+{
+ "arriba_0.8": 0.2602283539486204,
+ "arriba_0.85": 0.3358705994291151,
+ "arriba_0.9": 0.4362511893434824,
+ "simbolo": "ETHUSDT",
+ "apuestas": 11070,
+ "aciertos": 6266,
+ "empates": 18,
+ "acierto": 0.5660343270099367,
+ "lb_corregido": 0.5542347498561582,
+ "tramos": {
+  "2021-2023": [
+   4504,
+   2586,
+   7
+  ],
+  "2024-2026": [
+   6566,
+   3680,
+   11
+  ]
+ },
+ "tarde_60s": [
+  11070,
+  6123,
+  13
+ ],
+ "siempre_arriba": [
+  11070,
+  5530,
+  18
+ ],
+ "seleccion_hoy": [
+  {
+   "nombre": "rompimiento de 20 velas",
+   "conf": {
+    "sentido": -1,
+    "plazo": 10,
+    "sesion": "Asia"
+   },
+   "lb": 0.5641963968771996,
+   "aciertos": 1047,
+   "apuestas": 1783
+  },
+  {
+   "nombre": "REV15",
+   "conf": {
+    "sentido": 1,
+    "plazo": 10
+   },
+   "lb": 0.5634071676559975,
+   "aciertos": 2242,
+   "apuestas": 3872
+  },
+  {
+   "nombre": "REV5",
+   "conf": {
+    "sentido": 1,
+    "plazo": 10,
+    "vol": "baja"
+   },
+   "lb": 0.5566140571065893,
+   "aciertos": 2671,
+   "apuestas": 4679
+  }
+ ],
+ "por_dia": 5.197301712023945
+}

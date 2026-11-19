@@ -1,0 +1,110 @@
+T26 · CONTEXTO DE 3 H, 5 H Y 90 DÍAS Y ESTRATEGIAS DIFUNDIDAS · BTCUSDT · a ciegas, 12 meses, 3 elegidas, pago 0,85
+Regla fijada antes (PLAN.md, sección 12): el banco ampliado entra solo si iguala o mejora las cuatro medidas.
+
+Banco actual: 16.898 apuestas · acierto 58,0 % · 2024-26 56,2 % · 30 días arriba 47,6 % · 7,96 al día
+Banco ampliado: 13.157 apuestas · acierto 59,0 % · 2024-26 56,9 % · 30 días arriba 55,8 % · 6,19 al día
+
+cumple · acierto de todo el periodo
+cumple · acierto 2024-26
+cumple · 30 días arriba (pago 0,85)
+NO cumple · apuestas al día
+
+VEREDICTO: el banco no cambia
+
+== ESTRATEGIAS NUEVAS: meses elegidas a ciegas y acierto propio en todo el periodo (10 min, sentido fijo) ==
+   0 · BNF distancia a la media de 25 h: 2.449 señales · tal cual 56,0 % · al revés 43,9 %
+   0 · BNF distancia a la media de 25 h · contexto a favor: 74 señales · tal cual 58,1 % · al revés 41,9 %
+   0 · BNF distancia a la media de 25 h · contexto en contra: 1.012 señales · tal cual 54,6 % · al revés 45,4 %
+   0 · MHI 1 min: 704.589 señales · tal cual 51,4 % · al revés 48,5 %
+   0 · MHI 1 min · contexto a favor: 134.279 señales · tal cual 50,6 % · al revés 49,4 %
+   2 · MHI 1 min · contexto en contra: 129.994 señales · tal cual 52,0 % · al revés 47,9 %
+   0 · MHI 5 min: 143.059 señales · tal cual 51,9 % · al revés 48,0 %
+   0 · MHI 5 min · contexto a favor: 26.987 señales · tal cual 51,3 % · al revés 48,6 %
+   0 · MHI 5 min · contexto en contra: 26.645 señales · tal cual 52,9 % · al revés 47,0 %
+   5 · REV15 · contexto a favor: 4.920 señales · tal cual 55,8 % · al revés 44,1 %
+  13 · REV15 · contexto en contra: 5.878 señales · tal cual 55,7 % · al revés 44,3 %
+   0 · REV5 · contexto a favor: 16.321 señales · tal cual 54,3 % · al revés 45,6 %
+   1 · REV5 · contexto en contra: 16.868 señales · tal cual 54,6 % · al revés 45,3 %
+   3 · five flip: 17.965 señales · tal cual 55,8 % · al revés 44,1 %
+   4 · five flip · contexto a favor: 3.317 señales · tal cual 55,0 % · al revés 45,0 %
+   1 · five flip · contexto en contra: 3.400 señales · tal cual 55,1 % · al revés 44,8 %
+  25 · rompimiento de 20 velas · contexto a favor: 9.080 señales · tal cual 43,1 % · al revés 56,9 %
+  41 · rompimiento de 20 velas · contexto en contra: 8.581 señales · tal cual 40,6 % · al revés 59,4 %
+   6 · seven flip: 3.468 señales · tal cual 57,0 % · al revés 42,8 %
+   0 · seven flip · contexto a favor: 621 señales · tal cual 56,0 % · al revés 44,0 %
+   0 · seven flip · contexto en contra: 740 señales · tal cual 58,0 % · al revés 41,9 %
+   0 · torres gemelas: 11.047 señales · tal cual 50,0 % · al revés 50,0 %
+   0 · torres gemelas · contexto a favor: 2.037 señales · tal cual 48,6 % · al revés 51,4 %
+   2 · torres gemelas · contexto en contra: 2.023 señales · tal cual 50,6 % · al revés 49,3 %
+
+== ELEGIDAS POR MES CON EL BANCO AMPLIADO ==
+2021-01: rompimiento de 20 velas · contexto en contra [al revés, 10 min, a favor del contexto, América]; E03 banda de ruido de Concretum (30 min) [al revés, 10 min, a favor del contexto, Asia]; rompimiento de 20 velas [al revés, 10 min, a favor del contexto, volatilidad alta]
+2021-02: rompimiento de 20 velas · contexto en contra [al revés, 10 min, a favor del contexto, América]; REV15 · contexto a favor [normal, 10 min, a favor del contexto, volatilidad alta]; E03 banda de ruido de Concretum (30 min) [al revés, 10 min, a favor del contexto, Asia]
+2021-03: rompimiento de 20 velas · contexto en contra [al revés, 10 min, a favor del contexto]; REV15 · contexto a favor [normal, 10 min, a favor del contexto, volatilidad alta]; E03 banda de ruido de Concretum (30 min) [al revés, 10 min, a favor del contexto, Asia]
+2021-04: rompimiento de 20 velas · contexto en contra [al revés, 10 min, a favor del contexto, América]; REV15 · contexto a favor [normal, 10 min, a favor del contexto]; rompimiento de 20 velas [al revés, 10 min, a favor del contexto]
+2021-05: rompimiento de 20 velas · contexto en contra [al revés, 10 min, a favor del contexto, América]; E03 banda de ruido de Concretum (30 min) [al revés, 10 min, a favor del contexto, volatilidad baja]; REV15 · contexto a favor [normal, 10 min, a favor del contexto]
+2021-06: rompimiento de 20 velas · contexto en contra [al revés, 10 min, a favor del contexto, América]; E03 banda de ruido de Concretum (30 min) [al revés, 10 min, a favor del contexto]; rompimiento de 20 velas [al revés, 10 min, a favor del contexto]
+2021-07: rompimiento de 20 velas · contexto en contra [al revés, 10 min, a favor del contexto, América]; E03 banda de ruido de Concretum (30 min) [al revés, 10 min, a favor del contexto, volatilidad baja]; rompimiento de 20 velas [al revés, 10 min, a favor del contexto]
+2021-08: rompimiento de 20 velas · contexto en contra [al revés, 10 min, a favor del contexto, América, volatilidad alta]; techo y piso de 24 h [normal, 30 min, a favor del contexto, América, volatilidad baja]; rompimiento de 20 velas [al revés, 10 min, a favor del contexto, volatilidad alta]
+2021-09: rompimiento de 20 velas · contexto en contra [al revés, 10 min, a favor del contexto]; techo y piso de 24 h [normal, 30 min, a favor del contexto, América, volatilidad baja]; rompimiento de 20 velas [al revés, 10 min, a favor del contexto]
+2021-10: rompimiento de 20 velas · contexto en contra [al revés, 10 min, América]; E03 banda de ruido de Concretum (30 min) [al revés, 10 min, Asia, volatilidad baja]; techo y piso de 24 h [normal, 30 min, a favor del contexto, América, volatilidad baja]
+2021-11: rompimiento de 20 velas · contexto en contra [al revés, 10 min, América, volatilidad baja]; REV15 · contexto a favor [normal, 10 min, a favor del contexto, Asia]; rompimiento de 20 velas [al revés, 10 min, a favor del contexto]
+2021-12: rompimiento de 20 velas · contexto en contra [al revés, 10 min, volatilidad baja]; rompimiento de 20 velas [al revés, 10 min]; rompimiento de 20 velas · contexto a favor [al revés, 30 min, a favor del contexto]
+2022-01: rompimiento de 20 velas · contexto en contra [al revés, 10 min, a favor del contexto, volatilidad baja]; rompimiento de 20 velas [al revés, 10 min]; rompimiento de 20 velas · contexto a favor [al revés, 60 min, a favor del contexto]
+2022-02: rompimiento de 20 velas · contexto en contra [al revés, 10 min, a favor del contexto]; rompimiento de 20 velas [al revés, 10 min, volatilidad baja]; rompimiento de 20 velas · contexto a favor [al revés, 60 min, a favor del contexto]
+2022-03: rompimiento de 20 velas · contexto en contra [al revés, 10 min, a favor del contexto, volatilidad baja]; rompimiento de 20 velas [al revés, 10 min, a favor del contexto]; five flip · contexto a favor [normal, 10 min, a favor del contexto, Asia]
+2022-04: rompimiento de 20 velas · contexto en contra [al revés, 10 min, América, volatilidad baja]; five flip · contexto a favor [normal, 10 min, a favor del contexto, Asia]; rompimiento de 20 velas [al revés, 10 min, a favor del contexto]
+2022-05: rompimiento de 20 velas · contexto en contra [al revés, 10 min, a favor del contexto, volatilidad baja]; rompimiento de 20 velas [al revés, 10 min, a favor del contexto]; five flip · contexto a favor [normal, 10 min, a favor del contexto, Asia]
+2022-06: rompimiento de 20 velas · contexto en contra [al revés, 10 min, a favor del contexto]; rompimiento de 20 velas [al revés, 10 min, a favor del contexto]; rompimiento de 20 velas · contexto a favor [al revés, 60 min, a favor del contexto]
+2022-07: rompimiento de 20 velas · contexto en contra [al revés, 10 min, a favor del contexto, Asia, volatilidad baja]; rompimiento de 20 velas [al revés, 10 min, a favor del contexto]; five flip · contexto a favor [normal, 10 min, a favor del contexto, volatilidad baja]
+2022-08: rompimiento de 20 velas · contexto en contra [al revés, 10 min, a favor del contexto, Asia, volatilidad baja]; rompimiento de 20 velas [al revés, 10 min, a favor del contexto, Asia, volatilidad baja]; REV15 · contexto en contra [normal, 60 min, a favor del contexto]
+2022-09: rompimiento de 20 velas · contexto en contra [al revés, 10 min, a favor del contexto, Asia, volatilidad baja]; rompimiento de 20 velas [al revés, 10 min, a favor del contexto, Asia, volatilidad baja]; MHI 1 min · contexto en contra [normal, 60 min, Europa, volatilidad baja]
+2022-10: rompimiento de 20 velas · contexto en contra [al revés, 10 min, a favor del contexto, Asia]; five flip [normal, 10 min, a favor del contexto, Asia, volatilidad alta]; rompimiento de 20 velas [al revés, 10 min, a favor del contexto]
+2022-11: rompimiento de 20 velas · contexto en contra [al revés, 10 min]; rompimiento de 20 velas [al revés, 10 min, a favor del contexto]; REV15 · contexto en contra [normal, 60 min, a favor del contexto]
+2022-12: rompimiento de 20 velas · contexto en contra [al revés, 10 min, volatilidad alta]; rompimiento de 20 velas · contexto a favor [al revés, 10 min, a favor del contexto, volatilidad alta]; rompimiento de 20 velas [al revés, 10 min, a favor del contexto]
+2023-01: rompimiento de 20 velas [al revés, 10 min, a favor del contexto, Europa]; rompimiento de 20 velas · contexto en contra [al revés, 10 min]; rompimiento de 20 velas · contexto a favor [al revés, 10 min, a favor del contexto]
+2023-02: rompimiento de 20 velas [al revés, 10 min, a favor del contexto, Europa]; rompimiento de 20 velas · contexto a favor [al revés, 10 min, a favor del contexto]; rompimiento de 20 velas · contexto en contra [al revés, 10 min]
+2023-03: rompimiento de 20 velas · contexto a favor [al revés, 10 min, a favor del contexto]; E03 banda de ruido de Concretum (30 min) [al revés, 10 min, volatilidad baja]; rompimiento de 20 velas [al revés, 10 min, a favor del contexto, Europa]
+2023-04: rompimiento de 20 velas [al revés, 10 min, a favor del contexto, Europa]; E19 EMA 12/26 con RSI 14 (1 h) [al revés, 60 min]; seven flip [normal, 10 min, a favor del contexto, volatilidad baja]
+2023-05: rompimiento de 20 velas [al revés, 10 min, Europa, volatilidad baja]; seven flip [normal, 10 min, a favor del contexto, volatilidad baja]; techo y piso de 24 h [normal, 30 min, a favor del contexto, Europa]
+2023-06: techo y piso de 24 h [normal, 30 min, a favor del contexto, Europa]; rompimiento de 20 velas [al revés, 30 min, Europa]; E19 EMA 12/26 con RSI 14 (1 h) [al revés, 60 min, a favor del contexto]
+2023-07: rompimiento de 20 velas [al revés, 30 min, Europa]; rompimiento de 20 velas · contexto a favor [al revés, 10 min, volatilidad baja]; REV5 · contexto en contra [normal, 10 min, volatilidad baja]
+2023-08: rompimiento de 20 velas [al revés, 10 min, Europa, volatilidad baja]; rompimiento de 20 velas · contexto a favor [al revés, 10 min, volatilidad baja]; REV15 [normal, 30 min, a favor del contexto, volatilidad baja]
+2023-09: rompimiento de 20 velas [al revés, 10 min, Europa]; seven flip [normal, 10 min, a favor del contexto]; techo y piso de 24 h [normal, 10 min, volatilidad baja]
+2023-10: REV15 [normal, 10 min, a favor del contexto, volatilidad baja]; seven flip [normal, 10 min, a favor del contexto, volatilidad baja]; rompimiento de 20 velas · contexto a favor [al revés, 30 min, a favor del contexto, volatilidad baja]
+2023-11: rompimiento de 20 velas · contexto a favor [al revés, 30 min, a favor del contexto, volatilidad baja]; REV15 [normal, 30 min, a favor del contexto, Asia, volatilidad baja]; rompimiento de 20 velas [al revés, 30 min, a favor del contexto, volatilidad baja]
+2023-12: rompimiento de 20 velas · contexto a favor [al revés, 30 min, a favor del contexto, volatilidad baja]; REV15 [normal, 30 min, a favor del contexto, Asia, volatilidad baja]; rompimiento de 20 velas [al revés, 30 min, a favor del contexto, volatilidad baja]
+2024-01: rompimiento de 20 velas · contexto a favor [al revés, 60 min, a favor del contexto, volatilidad baja]; rompimiento de 20 velas [al revés, 30 min, a favor del contexto, volatilidad baja]; REV15 [normal, 30 min, a favor del contexto, volatilidad baja]
+2024-02: rompimiento de 20 velas · contexto a favor [al revés, 60 min, a favor del contexto, volatilidad baja]; rompimiento de 20 velas [al revés, 30 min, a favor del contexto, volatilidad baja]; rompimiento de 20 velas · contexto en contra [al revés, 30 min, a favor del contexto, América]
+2024-03: rompimiento de 20 velas · contexto en contra [al revés, 30 min, a favor del contexto, volatilidad alta]; rompimiento de 20 velas · contexto a favor [al revés, 60 min, a favor del contexto, volatilidad baja]; REV15 [normal, 30 min, a favor del contexto, volatilidad baja]
+2024-04: rompimiento de 20 velas · contexto en contra [al revés, 30 min, a favor del contexto, volatilidad alta]; rompimiento de 20 velas [al revés, 30 min, a favor del contexto, volatilidad baja]; rompimiento de 20 velas · contexto a favor [al revés, 60 min, a favor del contexto, volatilidad baja]
+2024-05: rompimiento de 20 velas · contexto a favor [al revés, 60 min, a favor del contexto, volatilidad baja]; rompimiento de 20 velas [al revés, 30 min, a favor del contexto, volatilidad baja]; rompimiento de 20 velas · contexto en contra [al revés, 10 min, a favor del contexto]
+2024-06: rompimiento de 20 velas · contexto a favor [al revés, 60 min, a favor del contexto]; rompimiento de 20 velas · contexto en contra [al revés, 30 min, a favor del contexto, volatilidad alta]; rompimiento de 20 velas [al revés, 30 min, a favor del contexto, volatilidad baja]
+2024-07: rompimiento de 20 velas · contexto a favor [al revés, 60 min, a favor del contexto]; rompimiento de 20 velas [al revés, 30 min, a favor del contexto, volatilidad baja]; rompimiento de 20 velas · contexto en contra [al revés, 30 min, a favor del contexto, volatilidad alta]
+2024-08: rompimiento de 20 velas · contexto a favor [al revés, 60 min, a favor del contexto]; rompimiento de 20 velas [al revés, 30 min, a favor del contexto, volatilidad baja]; MHI 1 min · contexto en contra [normal, 30 min, a favor del contexto, Asia, volatilidad baja]
+2024-09: rompimiento de 20 velas [al revés, 10 min, a favor del contexto, América, volatilidad baja]; rompimiento de 20 velas · contexto a favor [al revés, 60 min, a favor del contexto]; techo y piso de 24 h [normal, 30 min, a favor del contexto, América, volatilidad alta]
+2024-10: rompimiento de 20 velas [al revés, 10 min, a favor del contexto]; rompimiento de 20 velas · contexto a favor [al revés, 60 min, a favor del contexto]; rompimiento de 20 velas · contexto en contra [al revés, 30 min, a favor del contexto, volatilidad alta]
+2024-11: rompimiento de 20 velas [al revés, 10 min, a favor del contexto]; rompimiento de 20 velas · contexto en contra [al revés, 30 min, a favor del contexto]; REV15 [normal, 30 min, a favor del contexto, Europa]
+2024-12: rompimiento de 20 velas [al revés, 10 min, a favor del contexto]; five flip · contexto en contra [normal, 10 min, volatilidad alta]; REV15 · contexto en contra [normal, 10 min, Europa]
+2025-01: rompimiento de 20 velas · contexto en contra [al revés, 10 min, a favor del contexto, Asia]; rompimiento de 20 velas [al revés, 10 min, a favor del contexto]; rompimiento de 20 velas · contexto a favor [al revés, 10 min, Europa]
+2025-02: REV15 · contexto en contra [normal, 60 min, a favor del contexto]; rompimiento de 20 velas · contexto en contra [al revés, 10 min, a favor del contexto, Asia]; rompimiento de 20 velas [al revés, 10 min, a favor del contexto]
+2025-03: E01 retroceso alcista y techo extremo (1 h) [normal, 60 min, Europa, volatilidad baja]; rompimiento de 20 velas · contexto en contra [al revés, 10 min, a favor del contexto, Asia]; REV15 · contexto en contra [normal, 10 min, Europa]
+2025-04: E01 retroceso alcista y techo extremo (1 h) [normal, 60 min, Europa, volatilidad baja]; rompimiento de 20 velas [al revés, 10 min, a favor del contexto, Europa]; rompimiento de 20 velas · contexto en contra [al revés, 10 min, a favor del contexto, Asia]
+2025-05: rompimiento de 20 velas [al revés, 10 min, a favor del contexto]; rompimiento de 20 velas · contexto a favor [al revés, 10 min, a favor del contexto, Asia]; techo y piso de 24 h [normal, 60 min, Asia, volatilidad baja]
+2025-06: rompimiento de 20 velas [al revés, 10 min, a favor del contexto]; E01 retroceso alcista y techo extremo (1 h) [normal, 60 min, Europa, volatilidad baja]; E19 EMA 12/26 con RSI 14 (1 h) [al revés, 30 min, a favor del contexto]
+2025-07: rompimiento de 20 velas [al revés, 10 min, a favor del contexto]; patrón harami bajista [normal, 10 min, a favor del contexto, Asia, volatilidad baja]; E19 EMA 12/26 con RSI 14 (1 h) [al revés, 30 min, a favor del contexto]
+2025-08: techo y piso de 24 h [normal, 60 min, Asia, volatilidad baja]; REV15 · contexto en contra [normal, 10 min, volatilidad baja]; rompimiento de 20 velas [al revés, 10 min, a favor del contexto, Europa]
+2025-09: rompimiento de 20 velas [al revés, 10 min, a favor del contexto, Europa]; techo y piso de 24 h [normal, 60 min, Asia]; rompimiento de 20 velas · contexto en contra [al revés, 10 min, a favor del contexto, Asia, volatilidad alta]
+2025-10: techo y piso de 24 h [normal, 60 min, Asia, volatilidad baja]; rompimiento de 20 velas · contexto en contra [al revés, 10 min, Asia, volatilidad alta]; rompimiento de 20 velas [al revés, 10 min, a favor del contexto, Europa]
+2025-11: techo y piso de 24 h [normal, 60 min, Asia, volatilidad baja]; rompimiento de 20 velas [al revés, 10 min, Europa]; seven flip [normal, 10 min, Europa, volatilidad baja]
+2025-12: techo y piso de 24 h [normal, 60 min, Asia, volatilidad baja]; rompimiento de 20 velas [al revés, 10 min, a favor del contexto, Europa, volatilidad alta]; patrón martillo [normal, 10 min, a favor del contexto, Asia]
+2026-01: techo y piso de 24 h [normal, 60 min, Asia, volatilidad baja]; seven flip [normal, 10 min, Europa, volatilidad baja]; rompimiento de 20 velas [al revés, 10 min, a favor del contexto, Europa]
+2026-02: torres gemelas · contexto en contra [normal, 10 min, volatilidad alta]; rompimiento de 20 velas [al revés, 10 min, a favor del contexto, Europa]; five flip [normal, 30 min, a favor del contexto, Europa, volatilidad baja]
+2026-03: five flip [normal, 30 min, a favor del contexto, Europa, volatilidad baja]; torres gemelas · contexto en contra [normal, 10 min, volatilidad alta]; REV15 · contexto en contra [normal, 10 min, América]
+2026-04: E19 EMA 12/26 con RSI 14 (1 h) [al revés, 10 min, volatilidad baja]; REV15 · contexto en contra [normal, 10 min, América]; patrón estrella manana [al revés, 60 min, Europa, volatilidad baja]
+2026-05: E19 EMA 12/26 con RSI 14 (1 h) [al revés, 10 min, volatilidad baja]; rompimiento de 20 velas · contexto en contra [al revés, 10 min]; REV15 · contexto en contra [normal, 10 min, América]
+2026-06: E19 EMA 12/26 con RSI 14 (1 h) [al revés, 10 min, a favor del contexto]; REV15 · contexto en contra [normal, 10 min, volatilidad baja]; REV15 [normal, 10 min, Europa]
+2026-07: E19 EMA 12/26 con RSI 14 (1 h) [al revés, 10 min, a favor del contexto]; patrón estrella manana [al revés, 60 min, Europa, volatilidad baja]; REV15 · contexto en contra [normal, 10 min]
+2026-08: E19 EMA 12/26 con RSI 14 (1 h) [al revés, 10 min, a favor del contexto]; patrón estrella manana [al revés, 60 min, Europa, volatilidad baja]; patrón hombre colgado [normal, 10 min, Asia, volatilidad alta]
+2026-09: E19 EMA 12/26 con RSI 14 (1 h) [al revés, 10 min, a favor del contexto]; REV15 · contexto en contra [normal, 10 min, a favor del contexto, volatilidad alta]; patrón hombre colgado [normal, 10 min, Asia]
+2026-10: E19 EMA 12/26 con RSI 14 (1 h) [al revés, 10 min, a favor del contexto]; patrón hombre colgado [normal, 10 min, Asia]; REV15 · contexto en contra [normal, 10 min, a favor del contexto, volatilidad alta]

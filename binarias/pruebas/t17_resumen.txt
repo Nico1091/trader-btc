@@ -1,0 +1,466 @@
+T17 · 42 estrategias · binarias por tiempo. 16 % del saldo. sin stop. pago 0.85. hasta 16 al día · 7 plazos × 5 preventivas · 551.665 pruebas
+Saldos topados en 100.000 × e^25 para que se lean; 0 = la cuenta se acabó.
+
+== POR PLAZO Y PREVENTIVA: la mejor elegida con 2024-26, cómo le fue en el mes, y cuántas ganan en los dos ==
+
+[5 min · sin preventiva] 15757 mezclas probadas · 41 ganan en los dos periodos
+   mejor en 2024-26: patrón tres cuervos + rompimiento de 20 velas + P05b (T95H) + N9 (T95H) + E03 banda de ruido de Concre + E19 EMA 12/26 con RSI 14 (1 
+      2024-26: 2077 apuestas (2.1 al día). 1225 aciertos y 850 fallos (59.0 %). 100.000 → 299.122.503
+      mes:     72 apuestas (2.4 al día). 36 aciertos y 36 fallos (50.0 %). 100.000 → 18.521
+   mejor del mes:    patrón estrella manana + pullback en tendencia + E12 MACD diario y horario
+      2024-26: 2979 apuestas (3.0 al día). 1551 aciertos y 1425 fallos (52.1 %). 100.000 → 0
+      mes:     103 apuestas (3.4 al día). 65 aciertos y 38 fallos (63.1 %). 100.000 → 527.478
+
+[5 min · para el día tras 2 fallos seguidos] 15769 mezclas probadas · 64 ganan en los dos periodos
+   mejor en 2024-26: rompimiento de 20 velas + P05b (T95H) + N9 (T95H) + tres cuervos AL REVÉS + E19 EMA 12/26 con RSI 14 (1 
+      2024-26: 1443 apuestas (1.4 al día). 858 aciertos y 583 fallos (59.5 %). 100.000 → 234.116.538
+      mes:     52 apuestas (1.7 al día). 26 aciertos y 26 fallos (50.0 %). 100.000 → 29.587
+   mejor del mes:    pullback en tendencia + N9 (T95H) + E12 MACD diario y horario
+      2024-26: 2407 apuestas (2.4 al día). 1275 aciertos y 1130 fallos (53.0 %). 100.000 → 0
+      mes:     89 apuestas (3.0 al día). 58 aciertos y 31 fallos (65.2 %). 100.000 → 732.152
+
+[5 min · solo a favor de la tendencia del día] 15759 mezclas probadas · 1 ganan en los dos periodos
+   mejor en 2024-26: rompimiento de 20 velas + E03 banda de ruido de Concre + E19 EMA 12/26 con RSI 14 (1 
+      2024-26: 1028 apuestas (1.0 al día). 607 aciertos y 421 fallos (59.0 %). 100.000 → 5.447.868
+      mes:     34 apuestas (1.1 al día). 15 aciertos y 19 fallos (44.1 %). 100.000 → 24.659
+   mejor del mes:    patrón estrella manana + pullback en tendencia + E12 MACD diario y horario
+      2024-26: 2979 apuestas (3.0 al día). 1551 aciertos y 1425 fallos (52.1 %). 100.000 → 0
+      mes:     103 apuestas (3.4 al día). 65 aciertos y 38 fallos (63.1 %). 100.000 → 527.478
+
+[5 min · solo con volatilidad baja] 15757 mezclas probadas · 104 ganan en los dos periodos
+   mejor en 2024-26: P05b (T95H) + P05c (T95H) + N9 (T95H) + E03 banda de ruido de Concre + E19 EMA 12/26 con RSI 14 (1 
+      2024-26: 825 apuestas (0.8 al día). 498 aciertos y 325 fallos (60.5 %). 100.000 → 93.148.742
+      mes:     25 apuestas (0.8 al día). 13 aciertos y 12 fallos (52.0 %). 100.000 → 64.754
+   mejor del mes:    patrón estrella manana + pullback en tendencia + techo y piso de 24 h + P05c (T95H) + E01 retroceso alcista y tech
+      2024-26: 2408 apuestas (2.4 al día). 1290 aciertos y 1113 fallos (53.7 %). 100.000 → 0
+      mes:     74 apuestas (2.5 al día). 51 aciertos y 22 fallos (69.9 %). 100.000 → 1.440.254
+
+[5 min · tendencia del día + para tras 2 fallos] 15762 mezclas probadas · 5 ganan en los dos periodos
+   mejor en 2024-26: patrón tres cuervos + rompimiento de 20 velas + E03 banda de ruido de Concre + E19 EMA 12/26 con RSI 14 (1 
+      2024-26: 1156 apuestas (1.2 al día). 680 aciertos y 476 fallos (58.8 %). 100.000 → 4.113.443
+      mes:     41 apuestas (1.4 al día). 18 aciertos y 23 fallos (43.9 %). 100.000 → 17.998
+   mejor del mes:    23 estrategias
+      2024-26: 6063 apuestas (6.0 al día). 3080 aciertos y 2967 fallos (50.9 %). 100.000 → 0
+      mes:     243 apuestas (8.1 al día). 151 aciertos y 91 fallos (62.4 %). 100.000 → 2.961.714
+
+[10 min · sin preventiva] 15754 mezclas probadas · 31 ganan en los dos periodos
+   mejor en 2024-26: rompimiento de 20 velas + P05b (T95H) + N9 (T95H) + E19 EMA 12/26 con RSI 14 (1 
+      2024-26: 1200 apuestas (1.2 al día). 720 aciertos y 479 fallos (60.1 %). 100.000 → 400.107.428
+      mes:     47 apuestas (1.6 al día). 21 aciertos y 26 fallos (44.7 %). 100.000 → 15.639
+   mejor del mes:    patrón estrella tarde + patrón hombre colgado + E12 MACD diario y horario
+      2024-26: 1099 apuestas (1.1 al día). 602 aciertos y 496 fallos (54.8 %). 100.000 → 6
+      mes:     41 apuestas (1.4 al día). 27 aciertos y 14 fallos (65.9 %). 100.000 → 272.348
+
+[10 min · para el día tras 2 fallos seguidos] 15771 mezclas probadas · 35 ganan en los dos periodos
+   mejor en 2024-26: patrón doji lapida + rompimiento de 20 velas + P05b (T95H) + N9 (T95H) + tres soldados AL REVÉS + E19 EMA 12/26 con RSI 14 (1 
+      2024-26: 2118 apuestas (2.1 al día). 1259 aciertos y 857 fallos (59.5 %). 100.000 → 6.740.115.770
+      mes:     68 apuestas (2.3 al día). 28 aciertos y 40 fallos (41.2 %). 100.000 → 3.325
+   mejor del mes:    21 estrategias
+      2024-26: 6170 apuestas (6.2 al día). 3218 aciertos y 2947 fallos (52.2 %). 100.000 → 0
+      mes:     264 apuestas (8.8 al día). 161 aciertos y 103 fallos (61.0 %). 100.000 → 1.308.211
+
+[10 min · solo a favor de la tendencia del día] 15750 mezclas probadas · 16 ganan en los dos periodos
+   mejor en 2024-26: rompimiento de 20 velas + E03 banda de ruido de Concre + E19 EMA 12/26 con RSI 14 (1 
+      2024-26: 1013 apuestas (1.0 al día). 596 aciertos y 416 fallos (58.9 %). 100.000 → 3.203.823
+      mes:     34 apuestas (1.1 al día). 15 aciertos y 19 fallos (44.1 %). 100.000 → 24.659
+   mejor del mes:    patrón pinzas arriba + tres resistencias 5 min + alineación de medias 9/21/50
+      2024-26: 4345 apuestas (4.3 al día). 2362 aciertos y 1980 fallos (54.4 %). 100.000 → 0
+      mes:     113 apuestas (3.8 al día). 71 aciertos y 42 fallos (62.8 %). 100.000 → 564.406
+
+[10 min · solo con volatilidad baja] 15762 mezclas probadas · 295 ganan en los dos periodos
+   mejor en 2024-26: P05b (T95H) + N9 (T95H) + E19 EMA 12/26 con RSI 14 (1 
+      2024-26: 454 apuestas (0.5 al día). 281 aciertos y 173 fallos (61.9 %). 100.000 → 28.948.603
+      mes:     18 apuestas (0.6 al día). 11 aciertos y 7 fallos (61.1 %). 100.000 → 119.982
+   mejor del mes:    patrón martillo invertido + patrón hombre colgado + E12 MACD diario y horario
+      2024-26: 1555 apuestas (1.6 al día). 852 aciertos y 700 fallos (54.9 %). 100.000 → 0
+      mes:     45 apuestas (1.5 al día). 31 aciertos y 14 fallos (68.9 %). 100.000 → 453.564
+
+[10 min · tendencia del día + para tras 2 fallos] 15761 mezclas probadas · 16 ganan en los dos periodos
+   mejor en 2024-26: rompimiento de 20 velas + E03 banda de ruido de Concre + E19 EMA 12/26 con RSI 14 (1 
+      2024-26: 940 apuestas (0.9 al día). 559 aciertos y 380 fallos (59.5 %). 100.000 → 15.227.056
+      mes:     33 apuestas (1.1 al día). 14 aciertos y 19 fallos (42.4 %). 100.000 → 21.707
+   mejor del mes:    30 estrategias
+      2024-26: 6040 apuestas (6.0 al día). 3062 aciertos y 2974 fallos (50.7 %). 100.000 → 0
+      mes:     248 apuestas (8.3 al día). 151 aciertos y 97 fallos (60.9 %). 100.000 → 1.040.444
+
+[15 min · sin preventiva] 15755 mezclas probadas · 74 ganan en los dos periodos
+   mejor en 2024-26: patrón estrella manana + P05b (T95H) + N9 (T95H) + E19 EMA 12/26 con RSI 14 (1 
+      2024-26: 973 apuestas (1.0 al día). 605 aciertos y 368 fallos (62.2 %). 100.000 → 43.517.882.241
+      mes:     40 apuestas (1.3 al día). 19 aciertos y 21 fallos (47.5 %). 100.000 → 28.977
+   mejor del mes:    pendiente de la media 48 (Qu + E12 MACD diario y horario + E19 EMA 12/26 con RSI 14 (1 
+      2024-26: 1988 apuestas (2.0 al día). 1088 aciertos y 898 fallos (54.8 %). 100.000 → 0
+      mes:     76 apuestas (2.5 al día). 50 aciertos y 26 fallos (65.8 %). 100.000 → 631.216
+
+[15 min · para el día tras 2 fallos seguidos] 15762 mezclas probadas · 97 ganan en los dos periodos
+   mejor en 2024-26: patrón estrella manana + P05b (T95H) + N9 (T95H) + E03 banda de ruido de Concre + E19 EMA 12/26 con RSI 14 (1 
+      2024-26: 1430 apuestas (1.4 al día). 872 aciertos y 558 fallos (61.0 %). 100.000 → 109.080.364.759
+      mes:     46 apuestas (1.5 al día). 23 aciertos y 23 fallos (50.0 %). 100.000 → 34.051
+   mejor del mes:    techo y piso de 24 h + E12 MACD diario y horario + E19 EMA 12/26 con RSI 14 (1 
+      2024-26: 943 apuestas (0.9 al día). 525 aciertos y 417 fallos (55.7 %). 100.000 → 315
+      mes:     45 apuestas (1.5 al día). 32 aciertos y 13 fallos (71.1 %). 100.000 → 613.391
+
+[15 min · solo a favor de la tendencia del día] 15759 mezclas probadas · 38 ganan en los dos periodos
+   mejor en 2024-26: patrón estrella manana + E03 banda de ruido de Concre + E19 EMA 12/26 con RSI 14 (1 
+      2024-26: 793 apuestas (0.8 al día). 472 aciertos y 321 fallos (59.5 %). 100.000 → 6.795.528
+      mes:     26 apuestas (0.9 al día). 12 aciertos y 14 fallos (46.2 %). 100.000 → 40.221
+   mejor del mes:    alineación de medias 9/21/50 + REV5 + E12 MACD diario y horario
+      2024-26: 5036 apuestas (5.0 al día). 2741 aciertos y 2291 fallos (54.5 %). 100.000 → 0
+      mes:     146 apuestas (4.9 al día). 95 aciertos y 51 fallos (65.1 %). 100.000 → 2.507.177
+
+[15 min · solo con volatilidad baja] 15762 mezclas probadas · 107 ganan en los dos periodos
+   mejor en 2024-26: patrón estrella manana + P05b (T95H) + N9 (T95H) + E19 EMA 12/26 con RSI 14 (1 
+      2024-26: 671 apuestas (0.7 al día). 417 aciertos y 254 fallos (62.1 %). 100.000 → 723.940.449
+      mes:     29 apuestas (1.0 al día). 15 aciertos y 14 fallos (51.7 %). 100.000 → 58.964
+   mejor del mes:    pendiente de la media 48 (Qu + E12 MACD diario y horario + E19 EMA 12/26 con RSI 14 (1 
+      2024-26: 1805 apuestas (1.8 al día). 982 aciertos y 821 fallos (54.5 %). 100.000 → 0
+      mes:     63 apuestas (2.1 al día). 42 aciertos y 21 fallos (66.7 %). 100.000 → 544.195
+
+[15 min · tendencia del día + para tras 2 fallos] 15765 mezclas probadas · 28 ganan en los dos periodos
+   mejor en 2024-26: patrón estrella manana + E03 banda de ruido de Concre + E19 EMA 12/26 con RSI 14 (1 
+      2024-26: 783 apuestas (0.8 al día). 465 aciertos y 318 fallos (59.4 %). 100.000 → 4.696.097
+      mes:     24 apuestas (0.8 al día). 11 aciertos y 13 fallos (45.8 %). 100.000 → 42.149
+   mejor del mes:    alineación de medias 9/21/50 + techo y piso de 24 h + REV5
+      2024-26: 3647 apuestas (3.6 al día). 1982 aciertos y 1661 fallos (54.4 %). 100.000 → 0
+      mes:     117 apuestas (3.9 al día). 77 aciertos y 40 fallos (65.8 %). 100.000 → 1.719.107
+
+[20 min · sin preventiva] 15752 mezclas probadas · 158 ganan en los dos periodos
+   mejor en 2024-26: rompimiento de 20 velas + P05b (T95H) + N9 (T95H) + E19 EMA 12/26 con RSI 14 (1 
+      2024-26: 1118 apuestas (1.1 al día). 692 aciertos y 426 fallos (61.9 %). 100.000 → 116.086.354.701
+      mes:     44 apuestas (1.5 al día). 26 aciertos y 18 fallos (59.1 %). 100.000 → 119.361
+   mejor del mes:    patrón doji lapida + E12 MACD diario y horario + E19 EMA 12/26 con RSI 14 (1 
+      2024-26: 1177 apuestas (1.2 al día). 617 aciertos y 560 fallos (52.4 %). 100.000 → 0
+      mes:     39 apuestas (1.3 al día). 28 aciertos y 11 fallos (71.8 %). 100.000 → 521.994
+
+[20 min · para el día tras 2 fallos seguidos] 15768 mezclas probadas · 96 ganan en los dos periodos
+   mejor en 2024-26: techo y piso de 24 h + rompimiento de 20 velas + P05b (T95H) + N9 (T95H)
+      2024-26: 1241 apuestas (1.2 al día). 761 aciertos y 480 fallos (61.3 %). 100.000 → 62.656.695.431
+      mes:     51 apuestas (1.7 al día). 30 aciertos y 21 fallos (58.8 %). 100.000 → 117.819
+   mejor del mes:    patrón doji lapida + E12 MACD diario y horario + E19 EMA 12/26 con RSI 14 (1 
+      2024-26: 1095 apuestas (1.1 al día). 571 aciertos y 524 fallos (52.1 %). 100.000 → 0
+      mes:     39 apuestas (1.3 al día). 28 aciertos y 11 fallos (71.8 %). 100.000 → 521.994
+
+[20 min · solo a favor de la tendencia del día] 15758 mezclas probadas · 194 ganan en los dos periodos
+   mejor en 2024-26: rompimiento de 20 velas + E19 EMA 12/26 con RSI 14 (1 
+      2024-26: 665 apuestas (0.7 al día). 395 aciertos y 270 fallos (59.4 %). 100.000 → 2.690.594
+      mes:     26 apuestas (0.9 al día). 18 aciertos y 8 fallos (69.2 %). 100.000 → 246.062
+   mejor del mes:    patrón doji lapida + patrón pinzas arriba + E19 EMA 12/26 con RSI 14 (1 
+      2024-26: 1506 apuestas (1.5 al día). 774 aciertos y 732 fallos (51.4 %). 100.000 → 0
+      mes:     23 apuestas (0.8 al día). 20 aciertos y 3 fallos (87.0 %). 100.000 → 759.284
+
+[20 min · solo con volatilidad baja] 15763 mezclas probadas · 143 ganan en los dos periodos
+   mejor en 2024-26: P05b (T95H) + N9 (T95H) + E19 EMA 12/26 con RSI 14 (1 
+      2024-26: 454 apuestas (0.5 al día). 287 aciertos y 167 fallos (63.2 %). 100.000 → 177.101.352
+      mes:     18 apuestas (0.6 al día). 10 aciertos y 8 fallos (55.6 %). 100.000 → 88.719
+   mejor del mes:    patrón doji lapida + patrón martillo invertido + E19 EMA 12/26 con RSI 14 (1 
+      2024-26: 1461 apuestas (1.5 al día). 782 aciertos y 678 fallos (53.6 %). 100.000 → 0
+      mes:     37 apuestas (1.2 al día). 26 aciertos y 11 fallos (70.3 %). 100.000 → 404.491
+
+[20 min · tendencia del día + para tras 2 fallos] 15767 mezclas probadas · 119 ganan en los dos periodos
+   mejor en 2024-26: rompimiento de 20 velas + E19 EMA 12/26 con RSI 14 (1 
+      2024-26: 628 apuestas (0.6 al día). 371 aciertos y 257 fallos (59.1 %). 100.000 → 1.216.571
+      mes:     26 apuestas (0.9 al día). 18 aciertos y 8 fallos (69.2 %). 100.000 → 246.062
+   mejor del mes:    17 estrategias
+      2024-26: 4530 apuestas (4.5 al día). 2352 aciertos y 2176 fallos (51.9 %). 100.000 → 0
+      mes:     150 apuestas (5.0 al día). 94 aciertos y 56 fallos (62.7 %). 100.000 → 923.003
+
+[30 min · sin preventiva] 15754 mezclas probadas · 98 ganan en los dos periodos
+   mejor en 2024-26: techo y piso de 24 h + P05b (T95H) + N9 (T95H) + E19 EMA 12/26 con RSI 14 (1 
+      2024-26: 1026 apuestas (1.0 al día). 655 aciertos y 371 fallos (63.8 %). 100.000 → 15.150.333.033.874
+      mes:     36 apuestas (1.2 al día). 20 aciertos y 16 fallos (55.6 %). 100.000 → 78.711
+   mejor del mes:    patrón harami alcista + E03 banda de ruido de Concre + E12 MACD diario y horario
+      2024-26: 1709 apuestas (1.7 al día). 918 aciertos y 790 fallos (53.7 %). 100.000 → 0
+      mes:     63 apuestas (2.1 al día). 40 aciertos y 23 fallos (63.5 %). 100.000 → 297.548
+
+[30 min · para el día tras 2 fallos seguidos] 15759 mezclas probadas · 123 ganan en los dos periodos
+   mejor en 2024-26: P05b (T95H) + N9 (T95H) + E19 EMA 12/26 con RSI 14 (1 
+      2024-26: 669 apuestas (0.7 al día). 446 aciertos y 223 fallos (66.7 %). 100.000 → 6.501.545.182.871
+      mes:     23 apuestas (0.8 al día). 13 aciertos y 10 fallos (56.5 %). 100.000 → 91.772
+   mejor del mes:    REV5 + E03 banda de ruido de Concre + E19 EMA 12/26 con RSI 14 (1 
+      2024-26: 2510 apuestas (2.5 al día). 1408 aciertos y 1101 fallos (56.1 %). 100.000 → 0
+      mes:     71 apuestas (2.4 al día). 45 aciertos y 26 fallos (63.4 %). 100.000 → 333.646
+
+[30 min · solo a favor de la tendencia del día] 15758 mezclas probadas · 27 ganan en los dos periodos
+   mejor en 2024-26: techo y piso de 24 h + E03 banda de ruido de Concre + E19 EMA 12/26 con RSI 14 (1 
+      2024-26: 857 apuestas (0.9 al día). 510 aciertos y 347 fallos (59.5 %). 100.000 → 9.286.697
+      mes:     22 apuestas (0.7 al día). 12 aciertos y 10 fallos (54.5 %). 100.000 → 80.785
+   mejor del mes:    patrón doji lapida + patrón pinzas arriba + alineación de medias 9/21/50
+      2024-26: 4214 apuestas (4.2 al día). 2205 aciertos y 2007 fallos (52.4 %). 100.000 → 0
+      mes:     97 apuestas (3.2 al día). 60 aciertos y 37 fallos (61.9 %). 100.000 → 331.920
+
+[30 min · solo con volatilidad baja] 15765 mezclas probadas · 146 ganan en los dos periodos
+   mejor en 2024-26: patrón estrella manana + techo y piso de 24 h + P05b (T95H) + N9 (T95H) + E19 EMA 12/26 con RSI 14 (1 
+      2024-26: 1015 apuestas (1.0 al día). 625 aciertos y 390 fallos (61.6 %). 100.000 → 12.033.131.798
+      mes:     39 apuestas (1.3 al día). 21 aciertos y 18 fallos (53.8 %). 100.000 → 63.092
+   mejor del mes:    patrón harami alcista + patrón martillo invertido + E12 MACD diario y horario
+      2024-26: 1800 apuestas (1.8 al día). 961 aciertos y 837 fallos (53.4 %). 100.000 → 0
+      mes:     59 apuestas (2.0 al día). 37 aciertos y 22 fallos (62.7 %). 100.000 → 241.625
+
+[30 min · tendencia del día + para tras 2 fallos] 15764 mezclas probadas · 39 ganan en los dos periodos
+   mejor en 2024-26: E03 banda de ruido de Concre + E19 EMA 12/26 con RSI 14 (1 
+      2024-26: 501 apuestas (0.5 al día). 301 aciertos y 200 fallos (60.1 %). 100.000 → 3.347.611
+      mes:     11 apuestas (0.4 al día). 7 aciertos y 4 fallos (63.6 %). 100.000 → 121.553
+   mejor del mes:    patrón doji lapida + patrón pinzas arriba + alineación de medias 9/21/50
+      2024-26: 3267 apuestas (3.3 al día). 1705 aciertos y 1560 fallos (52.2 %). 100.000 → 0
+      mes:     85 apuestas (2.8 al día). 53 aciertos y 32 fallos (62.4 %). 100.000 → 325.079
+
+[60 min · sin preventiva] 15759 mezclas probadas · 317 ganan en los dos periodos
+   mejor en 2024-26: tres resistencias 5 min + P05b (T95H) + N9 (T95H)
+      2024-26: 1074 apuestas (1.1 al día). 658 aciertos y 415 fallos (61.3 %). 100.000 → 10.347.746.015
+      mes:     40 apuestas (1.3 al día). 26 aciertos y 14 fallos (65.0 %). 100.000 → 239.743
+   mejor del mes:    17 estrategias
+      2024-26: 4107 apuestas (4.1 al día). 2269 aciertos y 1837 fallos (55.3 %). 100.000 → 0
+      mes:     149 apuestas (5.0 al día). 100 aciertos y 48 fallos (67.6 %). 100.000 → 8.002.743
+
+[60 min · para el día tras 2 fallos seguidos] 15756 mezclas probadas · 336 ganan en los dos periodos
+   mejor en 2024-26: tres resistencias 5 min + P05b (T95H) + N9 (T95H)
+      2024-26: 1056 apuestas (1.1 al día). 647 aciertos y 408 fallos (61.3 %). 100.000 → 8.624.404.408
+      mes:     38 apuestas (1.3 al día). 24 aciertos y 14 fallos (63.2 %). 100.000 → 185.776
+   mejor del mes:    18 estrategias
+      2024-26: 3580 apuestas (3.6 al día). 1963 aciertos y 1616 fallos (54.8 %). 100.000 → 0
+      mes:     150 apuestas (5.0 al día). 101 aciertos y 48 fallos (67.8 %). 100.000 → 9.091.116
+
+[60 min · solo a favor de la tendencia del día] 15763 mezclas probadas · 4 ganan en los dos periodos
+   mejor en 2024-26: tres resistencias 5 min
+      2024-26: 294 apuestas (0.3 al día). 171 aciertos y 122 fallos (58.4 %). 100.000 → 170.517
+      mes:     12 apuestas (0.4 al día). 8 aciertos y 4 fallos (66.7 %). 100.000 → 138.084
+   mejor del mes:    20 estrategias
+      2024-26: 3582 apuestas (3.6 al día). 1895 aciertos y 1686 fallos (52.9 %). 100.000 → 0
+      mes:     128 apuestas (4.3 al día). 85 aciertos y 43 fallos (66.4 %). 100.000 → 2.825.969
+
+[60 min · solo con volatilidad baja] 15765 mezclas probadas · 809 ganan en los dos periodos
+   mejor en 2024-26: patrón doji libelula + tres resistencias 5 min + P05b (T95H) + P11 (T95H) + N9 (T95H)
+      2024-26: 1052 apuestas (1.0 al día). 642 aciertos y 409 fallos (61.1 %). 100.000 → 3.829.276.637
+      mes:     44 apuestas (1.5 al día). 27 aciertos y 17 fallos (61.4 %). 100.000 → 161.422
+   mejor del mes:    22 estrategias
+      2024-26: 3163 apuestas (3.2 al día). 1746 aciertos y 1416 fallos (55.2 %). 100.000 → 0
+      mes:     113 apuestas (3.8 al día). 74 aciertos y 38 fallos (66.1 %). 100.000 → 1.661.917
+
+[60 min · tendencia del día + para tras 2 fallos] 15761 mezclas probadas · 4 ganan en los dos periodos
+   mejor en 2024-26: tres resistencias 5 min
+      2024-26: 293 apuestas (0.3 al día). 170 aciertos y 122 fallos (58.2 %). 100.000 → 150.103
+      mes:     12 apuestas (0.4 al día). 8 aciertos y 4 fallos (66.7 %). 100.000 → 138.084
+   mejor del mes:    20 estrategias
+      2024-26: 2961 apuestas (3.0 al día). 1578 aciertos y 1383 fallos (53.3 %). 100.000 → 0
+      mes:     118 apuestas (3.9 al día). 79 aciertos y 39 fallos (66.9 %). 100.000 → 2.641.073
+
+[1440 min · sin preventiva] 15777 mezclas probadas · 55 ganan en los dos periodos
+   mejor en 2024-26: patrón estrella manana + patrón estrella fugaz + techo y piso de 24 h + P05b (T95H) + P11 (T95H) + N8 (T95H) + N9 (T95H) + E18 SMA 10/200 (4 h)
+      2024-26: 608 apuestas (0.6 al día). 360 aciertos y 248 fallos (59.2 %). 100.000 → 1.437.018
+      mes:     20 apuestas (0.7 al día). 11 aciertos y 9 fallos (55.0 %). 100.000 → 84.659
+   mejor del mes:    patrón doji lapida + tres resistencias 5 min + E01 retroceso alcista y tech
+      2024-26: 631 apuestas (0.6 al día). 308 aciertos y 323 fallos (48.8 %). 100.000 → 0
+      mes:     17 apuestas (0.6 al día). 16 aciertos y 1 fallos (94.1 %). 100.000 → 646.149
+
+[1440 min · para el día tras 2 fallos seguidos] 15772 mezclas probadas · 55 ganan en los dos periodos
+   mejor en 2024-26: patrón estrella manana + patrón estrella fugaz + techo y piso de 24 h + P05b (T95H) + P11 (T95H) + N8 (T95H) + N9 (T95H) + E18 SMA 10/200 (4 h)
+      2024-26: 608 apuestas (0.6 al día). 360 aciertos y 248 fallos (59.2 %). 100.000 → 1.437.018
+      mes:     20 apuestas (0.7 al día). 11 aciertos y 9 fallos (55.0 %). 100.000 → 84.659
+   mejor del mes:    13 estrategias
+      2024-26: 944 apuestas (0.9 al día). 519 aciertos y 425 fallos (55.0 %). 100.000 → 36
+      mes:     29 apuestas (1.0 al día). 23 aciertos y 6 fallos (79.3 %). 100.000 → 659.747
+
+[1440 min · solo a favor de la tendencia del día] 15768 mezclas probadas · 0 ganan en los dos periodos
+   mejor en 2024-26: patrón doji libelula + P05c (T95H) + N8 (T95H)
+      2024-26: 239 apuestas (0.2 al día). 140 aciertos y 99 fallos (58.6 %). 100.000 → 180.558
+      mes:     11 apuestas (0.4 al día). 5 aciertos y 6 fallos (45.5 %). 100.000 → 66.461
+   mejor del mes:    patrón doji lapida + patrón tres cuervos + tres resistencias 15 min
+      2024-26: 476 apuestas (0.5 al día). 233 aciertos y 243 fallos (48.9 %). 100.000 → 0
+      mes:     16 apuestas (0.5 al día). 14 aciertos y 2 fallos (87.5 %). 100.000 → 420.586
+
+[1440 min · solo con volatilidad baja] 15761 mezclas probadas · 369 ganan en los dos periodos
+   mejor en 2024-26: patrón estrella manana + techo y piso de 24 h + P05b (T95H) + P11 (T95H) + N8 (T95H) + N9 (T95H)
+      2024-26: 415 apuestas (0.4 al día). 253 aciertos y 162 fallos (61.0 %). 100.000 → 5.545.774
+      mes:     15 apuestas (0.5 al día). 10 aciertos y 5 fallos (66.7 %). 100.000 → 149.686
+   mejor del mes:    tres resistencias 5 min + 50 SMA + precio + REV5
+      2024-26: 860 apuestas (0.9 al día). 446 aciertos y 414 fallos (51.9 %). 100.000 → 0
+      mes:     26 apuestas (0.9 al día). 22 aciertos y 4 fallos (84.6 %). 100.000 → 823.077
+
+[1440 min · tendencia del día + para tras 2 fallos] 15770 mezclas probadas · 0 ganan en los dos periodos
+   mejor en 2024-26: patrón doji libelula + P05c (T95H) + N8 (T95H)
+      2024-26: 239 apuestas (0.2 al día). 140 aciertos y 99 fallos (58.6 %). 100.000 → 180.558
+      mes:     11 apuestas (0.4 al día). 5 aciertos y 6 fallos (45.5 %). 100.000 → 66.461
+   mejor del mes:    patrón doji lapida + patrón tres cuervos + tres resistencias 15 min
+      2024-26: 476 apuestas (0.5 al día). 233 aciertos y 243 fallos (48.9 %). 100.000 → 0
+      mes:     16 apuestas (0.5 al día). 14 aciertos y 2 fallos (87.5 %). 100.000 → 420.586
+
+== LAS QUE GANAN EN LOS DOS PERIODOS CON EL 16 % (4044 en total; las 60 que más dejan en el mes) ==
+[60 min · sin preventiva] patrón harami alcista + tres resistencias 5 min + techo y piso de 24 h + P05b (T95H) + N9 (T95H)
+      2024-26: 1875 apuestas (1.9 al día). 1086 aciertos y 788 fallos (58.0 %). 100.000 → 297.129
+      mes:     71 apuestas (2.4 al día). 48 aciertos y 23 fallos (67.6 %). 100.000 → 825.246
+[60 min · sin preventiva] patrón harami alcista + tres resistencias 5 min + P05b (T95H) + N9 (T95H)
+      2024-26: 1565 apuestas (1.6 al día). 909 aciertos y 655 fallos (58.1 %). 100.000 → 551.868
+      mes:     61 apuestas (2.0 al día). 42 aciertos y 19 fallos (68.9 %). 100.000 → 771.252
+[60 min · para el día tras 2 fallos seguidos] patrón harami alcista + tres resistencias 5 min + techo y piso de 24 h + P05b (T95H) + N9 (T95H) + E18 SMA 10/200 (4 h)
+      2024-26: 1813 apuestas (1.8 al día). 1053 aciertos y 759 fallos (58.1 %). 100.000 → 694.003
+      mes:     68 apuestas (2.3 al día). 46 aciertos y 22 fallos (67.6 %). 100.000 → 761.285
+[60 min · para el día tras 2 fallos seguidos] patrón harami alcista + patrón estrella fugaz + tres resistencias 5 min + techo y piso de 24 h + P05b (T95H) + N9 (T95H)
+      2024-26: 1994 apuestas (2.0 al día). 1156 aciertos y 837 fallos (58.0 %). 100.000 → 435.626
+      mes:     75 apuestas (2.5 al día). 50 aciertos y 25 fallos (66.7 %). 100.000 → 751.448
+[60 min · para el día tras 2 fallos seguidos] patrón harami alcista + patrón doji libelula + tres resistencias 5 min + techo y piso de 24 h + P05b (T95H) + N9 (T95H) + E19 EMA 12/26 con RSI 14 (1 
+      2024-26: 2085 apuestas (2.1 al día). 1204 aciertos y 880 fallos (57.8 %). 100.000 → 109.972
+      mes:     82 apuestas (2.7 al día). 54 aciertos y 28 fallos (65.9 %). 100.000 → 741.737
+[60 min · para el día tras 2 fallos seguidos] patrón harami alcista + tres resistencias 5 min + P05b (T95H) + N9 (T95H) + E18 SMA 10/200 (4 h)
+      2024-26: 1540 apuestas (1.5 al día). 896 aciertos y 643 fallos (58.2 %). 100.000 → 852.248
+      mes:     60 apuestas (2.0 al día). 41 aciertos y 19 fallos (68.3 %). 100.000 → 678.919
+[60 min · para el día tras 2 fallos seguidos] patrón harami alcista + tres resistencias 5 min + techo y piso de 24 h + P05b (T95H) + N9 (T95H)
+      2024-26: 1762 apuestas (1.8 al día). 1028 aciertos y 733 fallos (58.4 %). 100.000 → 2.664.657
+      mes:     67 apuestas (2.2 al día). 45 aciertos y 22 fallos (67.2 %). 100.000 → 670.146
+[60 min · solo con volatilidad baja] 11 estrategias
+      2024-26: 1841 apuestas (1.8 al día). 1066 aciertos y 774 fallos (57.9 %). 100.000 → 266.360
+      mes:     74 apuestas (2.5 al día). 49 aciertos y 25 fallos (66.2 %). 100.000 → 661.486
+[60 min · solo con volatilidad baja] 12 estrategias
+      2024-26: 1842 apuestas (1.8 al día). 1065 aciertos y 776 fallos (57.8 %). 100.000 → 165.443
+      mes:     74 apuestas (2.5 al día). 49 aciertos y 25 fallos (66.2 %). 100.000 → 661.486
+[60 min · solo con volatilidad baja] 11 estrategias
+      2024-26: 1841 apuestas (1.8 al día). 1066 aciertos y 774 fallos (57.9 %). 100.000 → 266.360
+      mes:     74 apuestas (2.5 al día). 49 aciertos y 25 fallos (66.2 %). 100.000 → 661.486
+[60 min · solo con volatilidad baja] 12 estrategias
+      2024-26: 1841 apuestas (1.8 al día). 1066 aciertos y 774 fallos (57.9 %). 100.000 → 266.360
+      mes:     74 apuestas (2.5 al día). 49 aciertos y 25 fallos (66.2 %). 100.000 → 661.486
+[60 min · solo con volatilidad baja] 13 estrategias
+      2024-26: 1842 apuestas (1.8 al día). 1065 aciertos y 776 fallos (57.8 %). 100.000 → 165.443
+      mes:     74 apuestas (2.5 al día). 49 aciertos y 25 fallos (66.2 %). 100.000 → 661.486
+[60 min · solo con volatilidad baja] patrón harami alcista + tres resistencias 5 min + P05b (T95H) + P11 (T95H) + N9 (T95H)
+      2024-26: 1367 apuestas (1.4 al día). 789 aciertos y 577 fallos (57.8 %). 100.000 → 100.612
+      mes:     55 apuestas (1.8 al día). 38 aciertos y 17 fallos (69.1 %). 100.000 → 656.333
+[60 min · sin preventiva] patrón harami alcista + tres resistencias 5 min + N9 (T95H)
+      2024-26: 1371 apuestas (1.4 al día). 793 aciertos y 577 fallos (57.9 %). 100.000 → 167.558
+      mes:     57 apuestas (1.9 al día). 39 aciertos y 18 fallos (68.4 %). 100.000 → 626.300
+[60 min · para el día tras 2 fallos seguidos] patrón harami alcista + tres resistencias 5 min + P05b (T95H) + N9 (T95H)
+      2024-26: 1487 apuestas (1.5 al día). 870 aciertos y 616 fallos (58.5 %). 100.000 → 3.429.166
+      mes:     59 apuestas (2.0 al día). 40 aciertos y 19 fallos (67.8 %). 100.000 → 597.640
+[60 min · sin preventiva] patrón harami alcista + patrón doji libelula + tres resistencias 5 min + techo y piso de 24 h + P05b (T95H) + N9 (T95H)
+      2024-26: 2094 apuestas (2.1 al día). 1212 aciertos y 881 fallos (57.9 %). 100.000 → 256.206
+      mes:     85 apuestas (2.8 al día). 55 aciertos y 30 fallos (64.7 %). 100.000 → 594.548
+[60 min · para el día tras 2 fallos seguidos] patrón harami alcista + patrón doji libelula + tres resistencias 5 min + techo y piso de 24 h + P05b (T95H) + N9 (T95H) + E18 SMA 10/200 (4 h)
+      2024-26: 2003 apuestas (2.0 al día). 1159 aciertos y 843 fallos (57.9 %). 100.000 → 224.349
+      mes:     80 apuestas (2.7 al día). 52 aciertos y 28 fallos (65.0 %). 100.000 → 574.769
+[60 min · para el día tras 2 fallos seguidos] patrón harami alcista + patrón doji libelula + patrón estrella fugaz + tres resistencias 5 min + techo y piso de 24 h + P05b (T95H) + N9 (T95H)
+      2024-26: 2177 apuestas (2.2 al día). 1259 aciertos y 917 fallos (57.9 %). 100.000 → 192.941
+      mes:     87 apuestas (2.9 al día). 56 aciertos y 31 fallos (64.4 %). 100.000 → 567.341
+[60 min · para el día tras 2 fallos seguidos] patrón harami alcista + tres resistencias 5 min + techo y piso de 24 h + N9 (T95H)
+      2024-26: 1588 apuestas (1.6 al día). 921 aciertos y 666 fallos (58.0 %). 100.000 → 374.496
+      mes:     63 apuestas (2.1 al día). 42 aciertos y 21 fallos (66.7 %). 100.000 → 544.195
+[60 min · solo con volatilidad baja] patrón harami alcista + patrón doji libelula + tres resistencias 5 min + P05b (T95H) + N9 (T95H) + tres cuervos AL REVÉS
+      2024-26: 1536 apuestas (1.5 al día). 890 aciertos y 645 fallos (58.0 %). 100.000 → 279.804
+      mes:     65 apuestas (2.2 al día). 43 aciertos y 22 fallos (66.2 %). 100.000 → 519.293
+[60 min · solo con volatilidad baja] patrón harami alcista + patrón doji libelula + tres resistencias 5 min + P05b (T95H) + N9 (T95H) + REV15
+      2024-26: 1536 apuestas (1.5 al día). 890 aciertos y 645 fallos (58.0 %). 100.000 → 279.804
+      mes:     65 apuestas (2.2 al día). 43 aciertos y 22 fallos (66.2 %). 100.000 → 519.293
+[60 min · solo con volatilidad baja] patrón harami alcista + patrón doji libelula + tres resistencias 5 min + P05b (T95H) + N9 (T95H)
+      2024-26: 1536 apuestas (1.5 al día). 890 aciertos y 645 fallos (58.0 %). 100.000 → 279.804
+      mes:     65 apuestas (2.2 al día). 43 aciertos y 22 fallos (66.2 %). 100.000 → 519.293
+[60 min · solo con volatilidad baja] patrón harami alcista + patrón doji libelula + tres resistencias 5 min + P05b (T95H) + P11 (T95H) + N9 (T95H) + tres cuervos AL REVÉS
+      2024-26: 1546 apuestas (1.5 al día). 896 aciertos y 649 fallos (58.0 %). 100.000 → 299.393
+      mes:     65 apuestas (2.2 al día). 43 aciertos y 22 fallos (66.2 %). 100.000 → 519.293
+[60 min · solo con volatilidad baja] patrón harami alcista + patrón doji libelula + tres resistencias 5 min + P05b (T95H) + P11 (T95H) + N9 (T95H) + REV15 + tres cuervos AL REVÉS
+      2024-26: 1546 apuestas (1.5 al día). 896 aciertos y 649 fallos (58.0 %). 100.000 → 299.393
+      mes:     65 apuestas (2.2 al día). 43 aciertos y 22 fallos (66.2 %). 100.000 → 519.293
+[60 min · solo con volatilidad baja] patrón harami alcista + patrón doji libelula + tres resistencias 5 min + P05b (T95H) + P11 (T95H) + N9 (T95H) + REV15
+      2024-26: 1546 apuestas (1.5 al día). 896 aciertos y 649 fallos (58.0 %). 100.000 → 299.393
+      mes:     65 apuestas (2.2 al día). 43 aciertos y 22 fallos (66.2 %). 100.000 → 519.293
+[60 min · solo con volatilidad baja] patrón harami alcista + patrón doji libelula + tres resistencias 5 min + P05b (T95H) + P11 (T95H) + N9 (T95H)
+      2024-26: 1546 apuestas (1.5 al día). 896 aciertos y 649 fallos (58.0 %). 100.000 → 299.393
+      mes:     65 apuestas (2.2 al día). 43 aciertos y 22 fallos (66.2 %). 100.000 → 519.293
+[60 min · solo con volatilidad baja] 8 estrategias
+      2024-26: 1546 apuestas (1.5 al día). 896 aciertos y 649 fallos (58.0 %). 100.000 → 299.393
+      mes:     65 apuestas (2.2 al día). 43 aciertos y 22 fallos (66.2 %). 100.000 → 519.293
+[60 min · solo con volatilidad baja] 9 estrategias
+      2024-26: 1546 apuestas (1.5 al día). 896 aciertos y 649 fallos (58.0 %). 100.000 → 299.393
+      mes:     65 apuestas (2.2 al día). 43 aciertos y 22 fallos (66.2 %). 100.000 → 519.293
+[60 min · solo con volatilidad baja] patrón harami alcista + patrón doji libelula + tres resistencias 5 min + rompimiento de 20 velas + P05b (T95H) + P11 (T95H) + N9 (T95H) + REV15
+      2024-26: 1546 apuestas (1.5 al día). 896 aciertos y 649 fallos (58.0 %). 100.000 → 299.393
+      mes:     65 apuestas (2.2 al día). 43 aciertos y 22 fallos (66.2 %). 100.000 → 519.293
+[60 min · solo con volatilidad baja] patrón harami alcista + patrón doji libelula + tres resistencias 5 min + rompimiento de 20 velas + P05b (T95H) + P11 (T95H) + N9 (T95H)
+      2024-26: 1546 apuestas (1.5 al día). 896 aciertos y 649 fallos (58.0 %). 100.000 → 299.393
+      mes:     65 apuestas (2.2 al día). 43 aciertos y 22 fallos (66.2 %). 100.000 → 519.293
+[60 min · solo con volatilidad baja] 9 estrategias
+      2024-26: 1546 apuestas (1.5 al día). 896 aciertos y 649 fallos (58.0 %). 100.000 → 299.393
+      mes:     65 apuestas (2.2 al día). 43 aciertos y 22 fallos (66.2 %). 100.000 → 519.293
+[60 min · solo con volatilidad baja] 9 estrategias
+      2024-26: 1546 apuestas (1.5 al día). 896 aciertos y 649 fallos (58.0 %). 100.000 → 299.393
+      mes:     65 apuestas (2.2 al día). 43 aciertos y 22 fallos (66.2 %). 100.000 → 519.293
+[60 min · solo con volatilidad baja] 10 estrategias
+      2024-26: 1546 apuestas (1.5 al día). 896 aciertos y 649 fallos (58.0 %). 100.000 → 299.393
+      mes:     65 apuestas (2.2 al día). 43 aciertos y 22 fallos (66.2 %). 100.000 → 519.293
+[60 min · solo con volatilidad baja] 10 estrategias
+      2024-26: 1546 apuestas (1.5 al día). 896 aciertos y 649 fallos (58.0 %). 100.000 → 299.393
+      mes:     65 apuestas (2.2 al día). 43 aciertos y 22 fallos (66.2 %). 100.000 → 519.293
+[60 min · solo con volatilidad baja] 10 estrategias
+      2024-26: 1546 apuestas (1.5 al día). 896 aciertos y 649 fallos (58.0 %). 100.000 → 299.393
+      mes:     65 apuestas (2.2 al día). 43 aciertos y 22 fallos (66.2 %). 100.000 → 519.293
+[60 min · solo con volatilidad baja] 11 estrategias
+      2024-26: 1546 apuestas (1.5 al día). 896 aciertos y 649 fallos (58.0 %). 100.000 → 299.393
+      mes:     65 apuestas (2.2 al día). 43 aciertos y 22 fallos (66.2 %). 100.000 → 519.293
+[60 min · solo con volatilidad baja] 12 estrategias
+      2024-26: 1547 apuestas (1.5 al día). 895 aciertos y 651 fallos (57.9 %). 100.000 → 185.961
+      mes:     65 apuestas (2.2 al día). 43 aciertos y 22 fallos (66.2 %). 100.000 → 519.293
+[60 min · para el día tras 2 fallos seguidos] patrón harami alcista + patrón doji libelula + tres resistencias 5 min + techo y piso de 24 h + P05b (T95H) + N9 (T95H)
+      2024-26: 1953 apuestas (1.9 al día). 1135 aciertos y 817 fallos (58.1 %). 100.000 → 978.550
+      mes:     79 apuestas (2.6 al día). 51 aciertos y 28 fallos (64.6 %). 100.000 → 505.959
+[60 min · sin preventiva] tres resistencias 5 min + techo y piso de 24 h + P05b (T95H) + N9 (T95H) + E04 estacionalidad 21-23 UTC + E18 SMA 10/200 (4 h)
+      2024-26: 1890 apuestas (1.9 al día). 1100 aciertos y 789 fallos (58.2 %). 100.000 → 1.487.720
+      mes:     67 apuestas (2.2 al día). 44 aciertos y 23 fallos (65.7 %). 100.000 → 495.530
+[60 min · sin preventiva] 8 estrategias
+      2024-26: 2028 apuestas (2.0 al día). 1178 aciertos y 849 fallos (58.1 %). 100.000 → 888.768
+      mes:     74 apuestas (2.5 al día). 48 aciertos y 26 fallos (64.9 %). 100.000 → 489.127
+[60 min · para el día tras 2 fallos seguidos] patrón harami alcista + tres resistencias 5 min + N9 (T95H)
+      2024-26: 1310 apuestas (1.3 al día). 761 aciertos y 548 fallos (58.1 %). 100.000 → 444.589
+      mes:     55 apuestas (1.8 al día). 37 aciertos y 18 fallos (67.3 %). 100.000 → 485.317
+[60 min · para el día tras 2 fallos seguidos] patrón estrella fugaz + tres resistencias 5 min + techo y piso de 24 h + P05b (T95H) + N9 (T95H) + E04 estacionalidad 21-23 UTC
+      2024-26: 1982 apuestas (2.0 al día). 1155 aciertos y 826 fallos (58.3 %). 100.000 → 2.610.135
+      mes:     69 apuestas (2.3 al día). 45 aciertos y 24 fallos (65.2 %). 100.000 → 472.855
+[60 min · sin preventiva] patrón harami alcista + patrón doji libelula + tres resistencias 5 min + P05b (T95H) + N9 (T95H)
+      2024-26: 1802 apuestas (1.8 al día). 1044 aciertos y 757 fallos (58.0 %). 100.000 → 312.175
+      mes:     76 apuestas (2.5 al día). 49 aciertos y 27 fallos (64.5 %). 100.000 → 466.744
+[60 min · para el día tras 2 fallos seguidos] 9 estrategias
+      2024-26: 2131 apuestas (2.1 al día). 1234 aciertos y 896 fallos (57.9 %). 100.000 → 309.814
+      mes:     76 apuestas (2.5 al día). 49 aciertos y 27 fallos (64.5 %). 100.000 → 466.744
+[60 min · sin preventiva] tres resistencias 5 min + P05b (T95H) + N9 (T95H) + E04 estacionalidad 21-23 UTC + E18 SMA 10/200 (4 h)
+      2024-26: 1581 apuestas (1.6 al día). 924 aciertos y 656 fallos (58.5 %). 100.000 → 3.138.989
+      mes:     57 apuestas (1.9 al día). 38 aciertos y 19 fallos (66.7 %). 100.000 → 463.109
+[60 min · sin preventiva] tres resistencias 5 min + tres resistencias 15 min + techo y piso de 24 h + P05b (T95H) + N9 (T95H) + E18 SMA 10/200 (4 h)
+      2024-26: 1656 apuestas (1.7 al día). 970 aciertos y 685 fallos (58.6 %). 100.000 → 7.051.677
+      mes:     57 apuestas (1.9 al día). 38 aciertos y 19 fallos (66.7 %). 100.000 → 463.109
+[60 min · para el día tras 2 fallos seguidos] 9 estrategias
+      2024-26: 2347 apuestas (2.3 al día). 1357 aciertos y 989 fallos (57.8 %). 100.000 → 182.226
+      mes:     83 apuestas (2.8 al día). 53 aciertos y 30 fallos (63.9 %). 100.000 → 460.713
+[60 min · para el día tras 2 fallos seguidos] tres resistencias 5 min + techo y piso de 24 h + P05b (T95H) + N9 (T95H) + E04 estacionalidad 21-23 UTC + E18 SMA 10/200 (4 h)
+      2024-26: 1806 apuestas (1.8 al día). 1056 aciertos y 749 fallos (58.5 %). 100.000 → 5.817.055
+      mes:     64 apuestas (2.1 al día). 42 aciertos y 22 fallos (65.6 %). 100.000 → 457.124
+[60 min · sin preventiva] 8 estrategias
+      2024-26: 1905 apuestas (1.9 al día). 1108 aciertos y 796 fallos (58.2 %). 100.000 → 1.217.595
+      mes:     71 apuestas (2.4 al día). 46 aciertos y 25 fallos (64.8 %). 100.000 → 451.217
+[60 min · sin preventiva] tres resistencias 5 min + P05b (T95H) + N9 (T95H) + E03 banda de ruido de Concre + E18 SMA 10/200 (4 h)
+      2024-26: 1596 apuestas (1.6 al día). 937 aciertos y 658 fallos (58.7 %). 100.000 → 11.621.622
+      mes:     52 apuestas (1.7 al día). 35 aciertos y 17 fallos (67.3 %). 100.000 → 447.702
+[60 min · sin preventiva] 8 estrategias
+      2024-26: 2277 apuestas (2.3 al día). 1322 aciertos y 954 fallos (58.1 %). 100.000 → 938.843
+      mes:     78 apuestas (2.6 al día). 50 aciertos y 28 fallos (64.1 %). 100.000 → 445.386
+[15 min · para el día tras 2 fallos seguidos] P05b (T95H) + E12 MACD diario y horario + E19 EMA 12/26 con RSI 14 (1 
+      2024-26: 797 apuestas (0.8 al día). 472 aciertos y 325 fallos (59.2 %). 100.000 → 3.383.299
+      mes:     33 apuestas (1.1 al día). 24 aciertos y 9 fallos (72.7 %). 100.000 → 444.215
+[60 min · para el día tras 2 fallos seguidos] tres resistencias 5 min + techo y piso de 24 h + P05b (T95H) + N9 (T95H) + E03 banda de ruido de Concre + E18 SMA 10/200 (4 h)
+      2024-26: 1805 apuestas (1.8 al día). 1053 aciertos y 751 fallos (58.4 %). 100.000 → 2.799.798
+      mes:     59 apuestas (2.0 al día). 39 aciertos y 20 fallos (66.1 %). 100.000 → 441.917
+[60 min · sin preventiva] tres resistencias 5 min + techo y piso de 24 h + P05b (T95H) + N9 (T95H) + E04 estacionalidad 21-23 UTC
+      2024-26: 1831 apuestas (1.8 al día). 1074 aciertos y 756 fallos (58.7 %). 100.000 → 17.039.944
+      mes:     66 apuestas (2.2 al día). 43 aciertos y 23 fallos (65.2 %). 100.000 → 436.206
+[60 min · para el día tras 2 fallos seguidos] patrón estrella fugaz + tres resistencias 5 min + techo y piso de 24 h + P05b (T95H) + N9 (T95H) + E03 banda de ruido de Concre
+      2024-26: 1985 apuestas (2.0 al día). 1157 aciertos y 827 fallos (58.3 %). 100.000 → 2.829.430
+      mes:     66 apuestas (2.2 al día). 43 aciertos y 23 fallos (65.2 %). 100.000 → 436.206
+[60 min · sin preventiva] 7 estrategias
+      2024-26: 1971 apuestas (2.0 al día). 1152 aciertos y 818 fallos (58.5 %). 100.000 → 7.182.799
+      mes:     73 apuestas (2.4 al día). 47 aciertos y 26 fallos (64.4 %). 100.000 → 430.569
+[60 min · sin preventiva] 8 estrategias
+      2024-26: 2009 apuestas (2.0 al día). 1165 aciertos y 843 fallos (58.0 %). 100.000 → 482.163
+      mes:     73 apuestas (2.4 al día). 47 aciertos y 26 fallos (64.4 %). 100.000 → 430.569
+[60 min · para el día tras 2 fallos seguidos] patrón estrella fugaz + tres resistencias 5 min + techo y piso de 24 h + P05b (T95H) + N9 (T95H) + REV15
+      2024-26: 2053 apuestas (2.0 al día). 1195 aciertos y 857 fallos (58.2 %). 100.000 → 1.925.104
+      mes:     73 apuestas (2.4 al día). 47 aciertos y 26 fallos (64.4 %). 100.000 → 430.569
+[60 min · sin preventiva] tres resistencias 5 min + techo y piso de 24 h + P05b (T95H) + P11 (T95H) + N9 (T95H) + E18 SMA 10/200 (4 h)
+      2024-26: 1523 apuestas (1.5 al día). 895 aciertos y 627 fallos (58.8 %). 100.000 → 12.210.092
+      mes:     54 apuestas (1.8 al día). 36 aciertos y 18 fallos (66.7 %). 100.000 → 427.216
+[60 min · sin preventiva] 8 estrategias
+      2024-26: 2113 apuestas (2.1 al día). 1226 aciertos y 886 fallos (58.0 %). 100.000 → 638.678
+      mes:     80 apuestas (2.7 al día). 51 aciertos y 29 fallos (63.7 %). 100.000 → 425.005

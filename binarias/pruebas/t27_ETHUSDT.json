@@ -1,0 +1,81 @@
+{
+ "simbolo": "ETHUSDT",
+ "base": [
+  {
+   "apuestas": 4504,
+   "acierto": 0.5741563055062167,
+   "arriba_30d": 0.3799249530956848,
+   "por_dia": 4.114625032513466
+  },
+  {
+   "apuestas": 6491,
+   "acierto": 0.5598521029117239,
+   "arriba_30d": 0.2954091816367265,
+   "por_dia": 6.297105984549351
+  }
+ ],
+ "defensas": {
+  "D1 sin volumen bajo": [
+   {
+    "apuestas": 3268,
+    "acierto": 0.5798653610771114,
+    "arriba_30d": 0.4793621013133208,
+    "por_dia": 2.98547837616652
+   },
+   {
+    "apuestas": 4847,
+    "acierto": 0.5605529193315453,
+    "arriba_30d": 0.35728542914171657,
+    "por_dia": 4.702214251596165
+   }
+  ],
+  "D1 sin volumen alto": [
+   {
+    "apuestas": 3048,
+    "acierto": 0.568241469816273,
+    "arriba_30d": 0.42120075046904315,
+    "por_dia": 2.7844975797293614
+   },
+   {
+    "apuestas": 3751,
+    "acierto": 0.5577179418821647,
+    "arriba_30d": 0.3273453093812375,
+    "por_dia": 3.63895309629404
+   }
+  ],
+  "D2 solo 2 primeras horas del bloque de 3 h": [
+   {
+    "apuestas": 3008,
+    "acierto": 0.573470744680851,
+    "arriba_30d": 0.47842401500938087,
+    "por_dia": 2.747955616740787
+   },
+   {
+    "apuestas": 4269,
+    "acierto": 0.5638322792223003,
+    "arriba_30d": 0.34865134865134867,
+    "por_dia": 4.141479810205081
+   }
+  ],
+  "D3 sin movimiento de 3 h extremo": [
+   {
+    "apuestas": 4085,
+    "acierto": 0.5701346389228886,
+    "arriba_30d": 0.400562851782364,
+    "por_dia": 3.73184797020815
+   },
+   {
+    "apuestas": 5672,
+    "acierto": 0.5553596614950634,
+    "arriba_30d": 0.2884231536926148,
+    "por_dia": 5.50257050444676
+   }
+  ]
+ },
+ "d1_elegida": "D1 sin volumen bajo",
+ "veredicto": {
+  "D1 sin volumen bajo": false,
+  "D2 solo 2 primeras horas del bloque de 3 h": false,
+  "D3 sin movimiento de 3 h extremo": false
+ }
+}

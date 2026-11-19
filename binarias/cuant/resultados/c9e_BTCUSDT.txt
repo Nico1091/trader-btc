@@ -1,0 +1,8 @@
+C9e · P17, su regla del 76 % sobre el SÍ · BTCUSDT · entrada 60 s tarde · pago 0,85 · empate = fallo
+  SÍ actual (sin la regla del 76 %)                2021-2023: 1289 apuestas en 584 de 1096 días, 58,0 % · 2024-sep 2026: 1788 apuestas en 777 de 1005 días, 55,5 % · oct 2026: 57 apuestas en 26 de 30 días, 66,7 %
+  SÍ y últimas 25 con 19 o más (76 %, por defecto) 2021-2023: 83 apuestas en 48 de 1096 días, 48,2 % · 2024-sep 2026: 81 apuestas en 44 de 1005 días, 51,9 % · oct 2026: 1 apuestas en 1 de 30 días, 100,0 %
+  SÍ y últimas 10 con 8 o más                      2021-2023: 315 apuestas en 167 de 1096 días, 51,7 % · 2024-sep 2026: 482 apuestas en 224 de 1005 días, 55,4 % · oct 2026: 19 apuestas en 12 de 30 días, 63,2 %
+  SÍ y últimas 50 con 38 o más                     2021-2023: 11 apuestas en 6 de 1096 días, 63,6 % · 2024-sep 2026: 6 apuestas en 5 de 1005 días, 16,7 % · oct 2026: 0 apuestas en 0 de 30 días, –
+  SÍ y papel de hoy con 76 % (5 cerradas o más)    2021-2023: 239 apuestas en 139 de 1096 días, 49,0 % · 2024-sep 2026: 319 apuestas en 157 de 1005 días, 54,9 % · oct 2026: 8 apuestas en 4 de 30 días, 87,5 %
+  Núcleo tras 19 de 25 o más: 57,1 % en 436 señales de 2024-sep 2026 (sin la condición: 54,4 %)
+  Núcleo tras 8 de 10 o más: 56,5 % en 1652 señales de 2024-sep 2026 (sin la condición: 54,4 %)

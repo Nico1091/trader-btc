@@ -1,0 +1,23 @@
+P14 (margen 300 s en el archivo)
+interés abierto: 517.108 instantáneas de 5 min; días que faltan: 0
+señales con interés abierto: dic 2021-2023 8.844 (56.5 %); 2024-sep 2026 15.171 (54,4 %); oct 2026 402 (60,7 %)
+P14 percentil 50 (cambio <= 0,019 %) · elegir 56,8 % (5,8/día, 0,28 pts, p 0,320) · juzgar 55,4 % (9,0/día, 1,02 pts, p 0,001) · oct 64,9 % (8,2/día, 4,20 pts, p 0,022)
+P14 percentil 30 (cambio <= -0,068 %) · elegir 56,8 % (3,5/día, 0,29 pts, p 0,351) · juzgar 54,7 % (5,5/día, 0,38 pts, p 0,234) · oct 63,8 % (4,3/día, 3,15 pts, p 0,203)
+  informativo, interés abierto que sube (sobre el percentil 50), elegir: 56,2 % en 4419
+  informativo, interés abierto que sube (sobre el percentil 50), juzgar: 52,8 % en 6092
+  informativo, interés abierto que sube (sobre el percentil 50), oct: 54,5 % en 156
+Veredicto P14 percentil 50: 1,02 pts, p 0,001, 9,0/día → ENTRA
+Veredicto P14 percentil 30: 0,38 pts, p 0,234, 5,5/día → no entra
+código 0
+
+P14b (margen 600 s en el archivo, 04/11 00:31)
+interés abierto: 517.108 instantáneas de 5 min; días que faltan: 0
+margen 600 s
+señales con interés abierto: dic 2021-2023 8.844 (56.5 %); 2024-sep 2026 15.171 (54,4 %); oct 2026 402 (60,7 %)
+P14 percentil 50 (cambio <= 0,022 %) · elegir 56,3 % (5,8/día, -0,17 pts, p 0,626) · juzgar 55,2 % (8,5/día, 0,83 pts, p 0,011) · oct 65,5 % (7,5/día, 4,79 pts, p 0,018)
+P14 percentil 30 (cambio <= -0,054 %) · elegir 57,2 % (3,5/día, 0,70 pts, p 0,188) · juzgar 55,3 % (4,5/día, 0,89 pts, p 0,075) · oct 65,0 % (3,3/día, 4,30 pts, p 0,167)
+  informativo, interés abierto que sube (sobre el percentil 50), elegir: 56,6 % en 4419
+  informativo, interés abierto que sube (sobre el percentil 50), juzgar: 53,3 % en 6662
+  informativo, interés abierto que sube (sobre el percentil 50), oct: 54,9 % en 175
+Veredicto P14 percentil 50: 0,83 pts, p 0,011, 8,5/día → ENTRA
+Veredicto P14 percentil 30: 0,89 pts, p 0,075, 4,5/día → no entra

@@ -1,0 +1,50 @@
+C6 · BTCUSDT · CRT, ICT y libro de órdenes · binaria de 10 min, una decisión cada 10 min, empate = fallo
+acierto entrenamiento / prueba / adelante (apuestas); sentido de cada estado elegido en entrenamiento
+
+CRT en velas de 1 h:
+  CRT 1 h        barrió máximo y volvió         BAJA: 50,6 % / 49,7 % / 49,9 %  (27.040 / 23.856 / 709)
+  CRT 1 h        barrió mínimo y volvió         SUBE: 50,5 % / 49,8 % / 47,6 %  (27.388 / 23.574 / 683)
+  CRT 1 h        sin CRT                        BAJA: 50,0 % / 49,8 % / 50,1 %  (103.252 / 97.146 / 2.804)
+CRT en velas de 4 h:
+  CRT 4 h        barrió máximo y volvió         BAJA: 50,3 % / 49,7 % / 50,5 %  (26.345 / 22.885 / 645)
+  CRT 4 h        barrió mínimo y volvió         SUBE: 50,0 % / 50,1 % / 52,6 %  (25.981 / 21.291 / 648)
+  CRT 4 h        sin CRT                        SUBE: 50,0 % / 50,0 % / 48,8 %  (105.354 / 100.400 / 2.903)
+
+ICT · killzones (hora de Nueva York, con horario de verano):
+  killzone       Asia (20-24 NY)                BAJA: 50,0 % / 50,3 % / 50,3 %  (26.280 / 24.096 / 716)
+  killzone       Londres (2-5 NY)               BAJA: 50,6 % / 49,9 % / 49,8 %  (19.692 / 18.054 / 522)
+  killzone       NY AM (7-10 NY)                BAJA: 50,4 % / 50,3 % / 52,3 %  (19.710 / 18.072 / 522)
+  killzone       silver bullet (10-11 NY)       BAJA: 50,5 % / 48,9 % / 45,4 %  (6.570 / 6.024 / 174)
+  killzone       NY PM (13:30-16 NY)            SUBE: 50,5 % / 50,5 % / 50,8 %  (16.425 / 15.060 / 435)
+  killzone       fuera de killzone              SUBE: 50,1 % / 50,2 % / 48,9 %  (69.003 / 63.270 / 1.827)
+  reversión de 15 min por killzone (prueba): Asia 53,8 % · Londres 51,1 % · NY AM 53,6 % · silver bullet 51,2 % · NY PM 53,7 % · fuera 54,5 %
+
+ICT · premium / discount (posición en el rango de 24 h):
+  zona           premium (>55 %)                BAJA: 51,2 % / 51,1 % / 51,6 %  (72.722 / 70.507 / 1.917)
+  zona           discount (<45 %)               SUBE: 51,3 % / 51,4 % / 50,7 %  (67.196 / 59.747 / 1.898)
+  zona           equilibrio (45-55 %)           BAJA: 50,3 % / 49,1 % / 50,7 %  (17.762 / 14.322 / 381)
+
+ICT · OTE (retroceso de 62-79 % del último tramo de 5 min):
+  OTE            OTE de compra (tramo al alza)  SUBE: 51,9 % / 50,1 % / 49,6 %  (8.543 / 7.566 / 232)
+  OTE            OTE de venta (tramo a la baja) BAJA: 51,1 % / 50,4 % / 51,6 %  (9.236 / 8.105 / 219)
+  OTE            sin OTE                        BAJA: 50,0 % / 49,8 % / 50,4 %  (139.901 / 128.905 / 3.745)
+
+ICT · divergencia SMT con ETH (uno barre el extremo de la hora previa y el otro no):
+  SMT            SMT en máximos                 BAJA: 52,7 % / 52,0 % / 54,5 %  (21.726 / 21.852 / 552)
+  SMT            SMT en mínimos                 SUBE: 52,6 % / 51,7 % / 48,2 %  (18.150 / 19.023 / 514)
+  SMT            sin SMT                        SUBE: 50,0 % / 50,2 % / 50,4 %  (117.804 / 103.701 / 3.130)
+
+LIBRO DE ÓRDENES (bookDepth de Binance. 197.099 decisiones con foto; entrenamiento = 2023):
+  deseq. ±0,2 %: sin datos suficientes en el entrenamiento (0); Binance lo publica desde después
+  deseq. ±1 %: cortes de entrenamiento -0,039 y 0,077 (positivo = más compras en el libro)
+  deseq. ±1 %    tercio bajo (más ventas)       BAJA: 53,7 % / 52,1 % / 52,2 %  (16.994 / 49.860 / 1.412)
+  deseq. ±1 %    tercio medio                   SUBE: 49,9 % / 50,3 % / 51,1 %  (17.044 / 41.110 / 1.125)
+  deseq. ±1 %    tercio alto (más compras)      SUBE: 54,1 % / 52,1 % / 50,3 %  (16.994 / 51.197 / 1.363)
+  deseq. ±5 %: cortes de entrenamiento 0,048 y 0,127 (positivo = más compras en el libro)
+  deseq. ±5 %    tercio bajo (más ventas)       BAJA: 51,4 % / 50,8 % / 51,9 %  (16.994 / 59.527 / 940)
+  deseq. ±5 %    tercio medio                   SUBE: 50,3 % / 50,2 % / 49,3 %  (17.044 / 35.150 / 1.100)
+  deseq. ±5 %    tercio alto (más compras)      SUBE: 51,6 % / 51,2 % / 50,6 %  (16.994 / 47.490 / 1.860)
+  cambio ±1 % 10 min: cortes de entrenamiento -0,022 y 0,022 (positivo = más compras en el libro)
+  cambio ±1 % 10 min tercio bajo (más ventas)       BAJA: 51,9 % / 50,9 % / 52,9 %  (16.929 / 47.120 / 1.257)
+  cambio ±1 % 10 min tercio medio                   SUBE: 50,0 % / 49,6 % / 49,5 %  (16.979 / 45.162 / 1.379)
+  cambio ±1 % 10 min tercio alto (más compras)      SUBE: 52,2 % / 51,6 % / 52,2 %  (16.929 / 47.783 / 1.263)

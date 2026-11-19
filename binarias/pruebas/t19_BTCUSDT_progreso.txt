@@ -1,0 +1,5 @@
+BTCUSDT: 717,107 muestras × 53 rasgos · 12 s
+plazo 10: 19643 apuestas · 62 s
+plazo 30: 13013 apuestas · 108 s
+plazo 60: 10508 apuestas · 163 s
+listo · 163 s

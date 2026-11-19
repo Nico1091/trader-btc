@@ -1,0 +1,102 @@
+C1 · BTCUSDT · cruce de las seis dimensiones · binaria de 10 min, una decisión cada 10 min, empate = fallo
+decisiones: entrenamiento 157.680 · prueba 144.576 · adelante 4.196
+base (apostar siempre SUBE): entrenamiento 49,9 % · prueba 50,1 % · adelante 49,5 %
+equilibrio con pago 0,85: 54,1 % · con 0,80: 55,6 % · con 0,90: 52,6 %
+
+Celdas probadas: 15.863 con 30+ apuestas; 14.638 con 300+ (las únicas elegibles). Sobreviven a Benjamini-Hochberg: 7.075. Elegidas (además Wilson > equilibrio): 1.457.
+
+UNA SOLA VARIABLE (sentido elegido en entrenamiento) · acierto entrenamiento / prueba / adelante (apuestas)
+  D1 semana                       BAJA: 50.0 % / 49.9 % / 50.6 % (112.464 / 103.392 / 3.024)
+  D1 fin de semana                BAJA: 50.0 % / 49.8 % / 50.3 % (45.216 / 41.184 / 1.172)
+  D1 Asia                         BAJA: 50.0 % / 50.2 % / 50.4 % (52.560 / 48.192 / 1.412)
+  D1 Europa                       BAJA: 50.3 % / 49.9 % / 50.8 % (32.850 / 30.120 / 870)
+  D1 EE. UU.                      SUBE: 50.0 % / 50.3 % / 50.1 % (52.560 / 48.192 / 1.392)
+  D1 cierre                       SUBE: 50.5 % / 50.6 % / 48.1 % (19.710 / 18.072 / 522)
+  D2 alcista 1h-4h-1d             BAJA: 53.7 % / 53.0 % / 52.9 % (32.050 / 30.208 / 904)
+  D2 bajista 1h-4h-1d             SUBE: 53.8 % / 52.8 % / 54.6 % (30.528 / 27.029 / 877)
+  D2 mixta                        BAJA: 49.9 % / 49.6 % / 51.4 % (95.102 / 87.339 / 2.415)
+  D2 cayó en 15 min               SUBE: 55.7 % / 54.1 % / 53.4 % (15.429 / 15.636 / 436)
+  D2 subió en 15 min              BAJA: 55.1 % / 53.1 % / 51.0 % (15.519 / 15.841 / 439)
+  D2 plano                        BAJA: 50.0 % / 49.9 % / 50.9 % (126.732 / 113.099 / 3.321)
+  D3 contracción                  BAJA: 50.0 % / 50.0 % / 49.1 % (34.645 / 30.604 / 880)
+  D3 ancho normal                 BAJA: 50.0 % / 49.9 % / 51.1 % (91.003 / 84.537 / 2.502)
+  D3 expansión                    SUBE: 50.2 % / 50.3 % / 50.0 % (32.032 / 29.435 / 814)
+  D3 ruptura alcista              BAJA: 59.4 % / 56.1 % / 61.7 % (6.626 / 7.619 / 193)
+  D3 ruptura bajista              SUBE: 59.2 % / 55.8 % / 55.0 % (6.526 / 7.557 / 209)
+  D3 sin ruptura                  BAJA: 49.9 % / 49.8 % / 50.2 % (144.528 / 129.400 / 3.794)
+  D3 vol. baja                    BAJA: 50.0 % / 50.0 % / 49.8 % (53.020 / 49.491 / 1.567)
+  D3 vol. normal                  BAJA: 50.4 % / 50.0 % / 51.6 % (53.666 / 45.555 / 1.457)
+  D3 vol. alta                    SUBE: 50.5 % / 50.4 % / 50.0 % (50.994 / 49.530 / 1.172)
+  D4 barrió arriba                BAJA: 52.5 % / 50.7 % / 53.7 % (19.159 / 17.759 / 546)
+  D4 barrió abajo                 SUBE: 52.3 % / 51.1 % / 48.9 % (19.197 / 17.842 / 538)
+  D4 sin barrido                  BAJA: 49.9 % / 49.9 % / 49.8 % (119.324 / 108.975 / 3.112)
+  D4 compradores                  BAJA: 53.2 % / 52.0 % / 51.0 % (42.565 / 44.568 / 1.399)
+  D4 vendedores                   SUBE: 53.1 % / 52.2 % / 50.4 % (45.926 / 49.362 / 1.593)
+  D4 flujo parejo                 BAJA: 50.2 % / 50.0 % / 51.1 % (69.189 / 50.646 / 1.204)
+  D4 volumen bajo                 BAJA: 50.0 % / 49.9 % / 50.4 % (55.107 / 52.678 / 1.504)
+  D4 volumen normal               BAJA: 50.0 % / 49.8 % / 50.0 % (51.175 / 41.505 / 1.101)
+  D4 volumen alto                 SUBE: 50.0 % / 50.1 % / 49.2 % (51.398 / 50.393 / 1.591)
+  D5 barrió alto de Asia          BAJA: 50.1 % / 50.2 % / 52.4 % (32.490 / 31.759 / 1.000)
+  D5 barrió bajo de Asia          SUBE: 50.1 % / 50.9 % / 50.9 % (31.487 / 28.127 / 740)
+  D5 barrió ambos                 SUBE: 50.2 % / 50.8 % / 49.5 % (15.609 / 14.113 / 541)
+  D5 sin barrido de Asia          BAJA: 50.1 % / 50.0 % / 49.1 % (25.534 / 22.385 / 503)
+  D5 en Asia                      BAJA: 50.0 % / 50.2 % / 50.4 % (52.560 / 48.192 / 1.412)
+  D5 encima del VAH               BAJA: 50.7 % / 51.3 % / 51.0 % (35.839 / 35.214 / 731)
+  D5 dentro del área de valor     BAJA: 50.3 % / 49.6 % / 50.8 % (88.337 / 79.226 / 2.449)
+  D5 debajo del VAL               SUBE: 51.6 % / 51.1 % / 50.7 % (33.504 / 30.136 / 1.016)
+  D5 CHoCH alcista                BAJA: 53.1 % / 51.2 % / 49.6 % (25.755 / 23.689 / 655)
+  D5 CHoCH bajista                SUBE: 52.8 % / 52.4 % / 52.0 % (25.574 / 23.578 / 656)
+  D5 sin CHoCH                    SUBE: 50.0 % / 49.8 % / 48.8 % (106.351 / 97.309 / 2.885)
+  D5 estructura alcista           BAJA: 52.7 % / 51.7 % / 52.0 % (80.011 / 73.111 / 2.046)
+  D5 estructura bajista           SUBE: 52.7 % / 52.0 % / 51.0 % (77.669 / 71.465 / 2.150)
+  D5 en FVG alcista               SUBE: 51.5 % / 51.8 % / 51.4 % (8.734 / 9.507 / 346)
+  D5 en FVG bajista               BAJA: 50.3 % / 50.3 % / 46.2 % (8.127 / 8.699 / 312)
+  D5 sin FVG                      BAJA: 50.0 % / 49.9 % / 51.0 % (140.819 / 126.370 / 3.538)
+  D5 en OB alcista                BAJA: 50.8 % / 50.4 % / 51.2 % (29.509 / 25.654 / 674)
+  D5 en OB bajista                SUBE: 51.3 % / 51.0 % / 48.5 % (22.925 / 19.857 / 633)
+  D5 sin OB                       BAJA: 50.0 % / 49.9 % / 50.1 % (105.246 / 99.065 / 2.889)
+
+LAS 25 ELEGIDAS DE MAYOR LÍMITE DE WILSON EN ENTRENAMIENTO · entrenamiento → prueba → adelante
+  BAJA si fin de semana + ruptura alcista + en OB alcista: 68.3 % (n 515) → 55.0 % (n 505) → 54.5 % (n 11)
+  BAJA si mixta + ruptura alcista + flujo parejo: 67.7 % (n 572) → 56.3 % (n 718) → 62.5 % (n 16)
+  SUBE si Europa + fin de semana + ruptura bajista: 67.7 % (n 412) → 62.7 % (n 408) → 50.0 % (n 12)
+  BAJA si fin de semana + ruptura alcista + flujo parejo: 67.7 % (n 316) → 56.3 % (n 364) → 83.3 % (n 6)
+  BAJA si vol. alta + ruptura alcista + flujo parejo: 67.0 % (n 406) → 55.7 % (n 557) → 46.2 % (n 13)
+  SUBE si Europa + ruptura bajista + en OB bajista: 66.9 % (n 405) → 54.6 % (n 372) → 23.1 % (n 13)
+  BAJA si fin de semana + mixta + ruptura alcista: 65.2 % (n 894) → 58.5 % (n 1.066) → 76.0 % (n 25)
+  BAJA si vol. baja + ruptura alcista + barrió bajo de Asia: 67.1 % (n 328) → 56.9 % (n 369) → 57.1 % (n 14)
+  BAJA si plano + ruptura alcista + flujo parejo: 65.2 % (n 684) → 57.6 % (n 835) → 78.6 % (n 14)
+  BAJA si plano + ruptura alcista + barrió bajo de Asia: 66.3 % (n 403) → 56.0 % (n 514) → 72.7 % (n 11)
+  SUBE si fin de semana + ruptura bajista + vendedores: 63.9 % (n 1.540) → 57.7 % (n 1.746) → 54.7 % (n 53)
+  BAJA si ancho normal + ruptura alcista + flujo parejo: 65.1 % (n 637) → 58.3 % (n 763) → 66.7 % (n 15)
+  SUBE si fin de semana + ancho normal + ruptura bajista: 64.2 % (n 1.066) → 58.8 % (n 1.058) → 51.5 % (n 33)
+  SUBE si ruptura bajista + en OB bajista + sin barrido de Asia: 66.4 % (n 336) → 53.4 % (n 277) → 36.4 % (n 11)
+  SUBE si fin de semana + ruptura bajista + sin barrido de Asia: 66.2 % (n 346) → 59.6 % (n 344) → 50.0 % (n 10)
+  BAJA si EE. UU. + mixta + ruptura alcista: 64.2 % (n 905) → 53.4 % (n 995) → 48.1 % (n 27)
+  BAJA si EE. UU. + ruptura alcista + flujo parejo: 66.0 % (n 373) → 54.8 % (n 524) → 57.1 % (n 14)
+  SUBE si Europa + ruptura bajista + vendedores: 63.8 % (n 1.179) → 57.4 % (n 1.301) → 52.8 % (n 36)
+  SUBE si cayó en 15 min + ruptura bajista + en OB bajista: 64.1 % (n 895) → 57.0 % (n 800) → 33.3 % (n 24)
+  SUBE si fin de semana + ruptura bajista + sin FVG: 63.1 % (n 1.796) → 57.4 % (n 2.008) → 58.1 % (n 62)
+  SUBE si fin de semana + ruptura bajista + en OB bajista: 65.0 % (n 526) → 55.5 % (n 519) → 50.0 % (n 18)
+  BAJA si mixta + ruptura alcista + barrió bajo de Asia: 64.1 % (n 866) → 55.4 % (n 971) → 56.0 % (n 25)
+  BAJA si ruptura alcista + flujo parejo + dentro del área de valor: 64.7 % (n 598) → 56.8 % (n 710) → 61.5 % (n 13)
+  BAJA si ruptura alcista + flujo parejo + estructura alcista: 63.7 % (n 1.104) → 57.5 % (n 1.341) → 61.5 % (n 26)
+  SUBE si Europa + mixta + ruptura bajista: 64.5 % (n 662) → 57.6 % (n 813) → 46.7 % (n 15)
+De las 1457 elegidas, 1092 siguen sobre el equilibrio en la prueba (con 100+ apuestas).
+
+CARTERA (todas las elegidas; se apuesta si las que disparan coinciden)
+  entrenamiento   87.568 apuestas ·  80.0 al día · acierto 54.5 % (IC 95 %: 54.2 % a 54.8 %) · expectativa por apuesta con 0.85: 0.85 %
+  prueba          88.097 apuestas ·  87.7 al día · acierto 52.8 % (IC 95 %: 52.4 % a 53.1 %) · expectativa por apuesta con 0.85: -2.38 %
+  adelante         2.684 apuestas ·  92.1 al día · acierto 51.4 % (IC 95 %: 49.5 % a 53.3 %) · expectativa por apuesta con 0.85: -4.88 %
+     2024: 31.058 apuestas · acierto 53.2 %
+     2025: 32.634 apuestas · acierto 52.6 %
+     2026: 27.089 apuestas · acierto 52.4 %
+  Rachas en la prueba: acierto tras acertar 51.8 % (n 46.487). tras fallar 53.9 %. tras 3 aciertos seguidos 51.0 % (n 12.342); z de Wald-Wolfowitz 6.14; peor racha de fallos 14.
+  300 apuestas al 2 % del saldo desde 100.000 COP (remuestreo por bloques): quiebra 82,7 %, caída mediana 100,0 %
+  300 apuestas al 5 % del saldo desde 100.000 COP (remuestreo por bloques): quiebra 83,0 %, caída mediana 100,0 %
+
+SOBREAJUSTE: PBO por CSCV con 16 bloques y 29.284 estrategias (celda y sentido) = 0.1 % (mediana del logit 6.63). Un PBO alto dice que la mejor celda del pasado suele quedar en la mitad de abajo en el futuro.
+
+META DE 85,7 %: 0 celdas la tienen en entrenamiento (todas con pocas apuestas: máximo 0). De ellas, 0 tienen 10+ apuestas en la prueba, con acierto medio – y 0 siguen en 85,7 % o más.
+La mejor celda en la PRUEBA (mirando el resultado. o sea. con trampa) con 100+ apuestas: 66.5 % en 191 (SUBE si cierre + cayó en 15 min + en OB bajista); el azar daría hasta 69.1 % con 15.528 celdas de 100 apuestas.
+Apuestas necesarias para distinguir 85.7 % de 54.05 % con 95 % y potencia 80 %: 13; para distinguir 57 % de 54.05 %: 1.762.

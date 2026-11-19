@@ -1,0 +1,9 @@
+T31 · SU REGLA DE DOS VELAS SOBRE LAS DOS LÍNEAS (giro 30) · BTCUSDT · velas de 1 min de futuros, 31/12/2019 a 26/10/2026
+Regla fijada antes (PLAN.md, sección 17): 2024-26 ≥ 54,1 % con ≥ 300 apuestas y Wilson 95 % de 2021-26 > 54,1 %, en el sentido que él usa.
+
+10 min · a favor de la ruptura (como él): 2021-26 34.846 apuestas, 43,0 % (Wilson 42,4 %) · 2021-23 41,3 % · 2024-26 45,2 % en 14.760 · 13,99 al día
+10 min · contra la ruptura: 2021-26 34.846 apuestas, 57,0 % (Wilson 56,5 %) · 2021-23 58,6 % · 2024-26 54,7 % en 14.760 · 13,99 al día · CUMPLE
+30 min · a favor de la ruptura (como él): 2021-26 24.652 apuestas, 44,0 % (Wilson 43,4 %) · 2021-23 42,6 % · 2024-26 46,0 % en 10.274 · 9,90 al día
+30 min · contra la ruptura: 2021-26 24.652 apuestas, 56,0 % (Wilson 55,4 %) · 2021-23 57,4 % · 2024-26 54,0 % en 10.274 · 9,90 al día
+
+VEREDICTO: no entra al banco (solo cuenta el sentido que él usa)
