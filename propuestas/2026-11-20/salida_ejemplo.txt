@@ -1,0 +1,26 @@
+VERIFICADOR DE CIERRES · velas contra ganador oficial
+Velas leídas: 1440 minutos.
+Ventanas oficiales comparadas: 384  (coinciden 344, difieren 40)
+Discordancia: 10.42 %  (IC 95 %: 7.74 a 13.87 %)
+  W=5 min: comparadas 288, coinciden 257, difieren 31, sin velas 0
+  W=15 min: comparadas 96, coinciden 87, difieren 9, sin velas 0
+Sin ganador oficial (no cuentan): 0
+Ventanas desalineadas (no se comparan): 0
+Otra duración de ventana (no se compara): 0
+Conflictos dentro del registro (no se comparan): 0
+Filas de velas del operador recalculadas: coinciden 384, difieren 0, sin datos 0
+Filas malas del registro (no se leyeron): 0
+
+VEREDICTO: LAS VELAS NO SIRVEN: con 95 % de confianza la regla de velas difiere del oficial en al menos 7.7 % de las ventanas. Las cifras de acierto medidas con velas están sesgadas.
+
+Primeras discordancias (W, inicio UTC, oficial, velas):
+  W=5  2026-11-18 00:35  oficial -1  velas +1
+  W=5  2026-11-18 02:15  oficial +1  velas -1
+  W=5  2026-11-18 03:45  oficial -1  velas +1
+  W=5  2026-11-18 04:30  oficial +1  velas -1
+  W=5  2026-11-18 04:55  oficial +1  velas -1
+  W=5  2026-11-18 05:20  oficial -1  velas +1
+  W=5  2026-11-18 05:40  oficial +1  velas -1
+  W=5  2026-11-18 05:55  oficial +1  velas -1
+  W=5  2026-11-18 06:40  oficial +1  velas -1
+  W=5  2026-11-18 09:05  oficial +1  velas -1

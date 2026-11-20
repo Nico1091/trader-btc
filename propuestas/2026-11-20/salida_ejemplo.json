@@ -1,0 +1,10 @@
+{
+  "comparadas": 384,
+  "difieren": 40,
+  "discordancia": 0.10416666666666667,
+  "ic95": [
+    0.07743374653883486,
+    0.13874081902496882
+  ],
+  "veredicto": "LAS VELAS NO SIRVEN: con 95 % de confianza la regla de velas difiere del oficial en al menos 7.7 % de las ventanas. Las cifras de acierto medidas con velas están sesgadas."
+}
