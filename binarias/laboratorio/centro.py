@@ -30,6 +30,24 @@ EQUILIBRIO = PRECIO_REF / (1 - COMISION)      # 52,04 %
 UMBRAL_OI = 0.00022                           # igual que semaforo.UMBRAL_OI y reglas.CFG
 DIAS_HISTORIA, DIAS_E5 = 30, 5                # E5 calcula sus líneas en cada cierre de 5 min: se siembra con menos días
 NAN = float("nan")
+# Plan v9 · por ganancia de dinero (20/11/2026; orden del dueño: «que ya no utilicemos esta de acierto, sino otra cosa que sea
+# por ganancia de dinero»). Si el nodo del mismo equipo escribe ganancia.json (en el teléfono), los avisos muestran el dinero de
+# cada estrategia a precio real y con el ganador oficial en vez de «k de 25», y se apagan los avisos de 75 % y 82 % (acierto):
+# los de dinero los manda el nodo. Sin ese archivo (la Mesa del PC) todo queda como estaba.
+GANANCIA = os.environ.get("BINARIAS_GANANCIA") or os.path.join(AQUI, "..", "nodo", "ganancia.json")
+
+
+def linea_dinero(d):
+    """El dinero de una estrategia en una línea (lo mismo que escribe el nodo)."""
+    if not d or not d.get("n"):
+        return "en dinero: todavía sin apuestas con precio real"
+    p = d.get("prueba") or 0.0
+    pr = (f"{p:.2f}" if p < 10 else f"{p:.0f}").replace(".", ",")
+    neto = f"{d.get('neto') or 0.0:+.2f}".replace(".", ",")
+    por = f"{100 * (d.get('por_usdt') or 0.0):+.0f} %"
+    estado = d.get("estado", "") + (", EN PAUSA" if d.get("pausa") else "")
+    return (f"en dinero: {d['n']} apuestas a precio real, neto {neto} USDT por cada USDT ({por} por apuesta), cuenta de prueba "
+            f"{pr} de {d.get('umbral_prueba') or 160:.0f} · {estado}")
 
 ESTRATEGIAS = (
     {"id": "E1", "nombre": "Ruptura de 20 velas, al revés", "marco": "5 min", "largo": 54.6, "n_largo": 18503, "wilson": 53.8, "oct": 56.5,
@@ -404,6 +422,31 @@ class Centro:
     def _est(self, k):
         return next((e for e in self.foto.get("estrategias", []) if e["id"] == k), None)
 
+    def _ganancia(self):
+        """ganancia.json del nodo (plan v9), releído solo si cambió; None si no existe (la Mesa del PC). La marca lleva el inodo,
+        la hora en ns y el tamaño: dos escrituras seguidas pueden compartir el tic del reloj (lo mismo que en el nodo, 17/11)."""
+        try:
+            st = os.stat(GANANCIA)
+            m = (st.st_ino, st.st_mtime_ns, st.st_size)
+        except OSError:
+            self._g = (None, None)
+            return None
+        if getattr(self, "_g", (None, None))[0] != m:
+            try:
+                with open(GANANCIA, encoding="utf-8") as f:
+                    d = json.load(f)
+            except (OSError, ValueError):
+                d = None
+            self._g = (m, d if isinstance(d, dict) else None)
+        return self._g[1]
+
+    def _dinero(self, k):
+        """El dinero de la estrategia k según el nodo, o None si no hay ganancia.json."""
+        g = self._ganancia()
+        if g is None:
+            return None
+        return (g.get("fuentes") or {}).get(f"centro|{k}") or {}
+
     def _aviso(self, k, tipo, corto, largo, color, op=None, editar=None):
         """Lo pone en la franja en vivo y, si la Mesa conectó el notificador, en Windows y en Telegram."""
         self.avisos.append({"t": time.time(), "id": k, "tipo": tipo, "texto": corto, "color": color})
@@ -435,6 +478,20 @@ class Centro:
                 motivos.append("el interés abierto subió")
             regla = "NO por su regla: " + (" y ".join(motivos) or "no cumple") + "."
         apta = r["n25"] >= VENTANA and r["k25"] >= FILTRO
+        d = self._dinero(k)
+        if d is not None:     # plan v9: dinero, no aciertos
+            largo = "\n".join(x for x in (
+                f"{k} · {e['nombre']}",
+                f"{sent} · BTC en {f(precio)} · entra {hora(op['t'] + 60)} · vence {hora(op['t'] + 60 + PLAZO)}",
+                linea_dinero(d)[0].upper() + linea_dinero(d)[1:],
+                regla,
+                "Coincide con un mercado de 15 min de la Mesa." if op["t"] % 900 == 0 else "",
+                "Papel: el Centro no compra; a la IA solo pasa con ganancia de dinero demostrada.") if x)
+            neto = f"{d.get('neto') or 0.0:+.2f}".replace(".", ",") if d.get("n") else "sin precio real"
+            corto = (f"{k} {sent} a las {hora(op['t'])} · dinero {neto} en {d.get('n') or 0} · "
+                     f"{'SÍ' if op.get('si') else 'NO'} por su regla")
+            self._aviso(k, "señal", corto, largo, "sube" if op["dir"] == 1 else "baja", op=op)
+            return
         largo = "\n".join(x for x in (
             ("APTA (82 %) · " if apta else "") + f"{k} · {e['nombre']}",
             f"{sent} · BTC en {f(precio)} · entra {hora(op['t'] + 60)} · vence {hora(op['t'] + 60 + PLAZO)}",
@@ -450,16 +507,26 @@ class Centro:
         bien = op["res"] == 1
         r = self._resumen(k, op["t"] + 60 + PLAZO + 1)
         pct = round(100 * r["k25"] / r["n25"]) if r["n25"] else 0
-        fin = (f"→ {'ACIERTO' if bien else 'FALLO'}: entró en {f(op['base'])} y cerró en {f(op['salida'])}. "
-               f"Quedan {r['k25']} de {r['n25']} ({pct} %), racha {r['racha']}.")
-        corto = f"{k} {'acertó' if bien else 'falló'} la de las {hora(op['t'])} · {r['k25']} de {r['n25']} ({pct} %)"
+        d = self._dinero(k)
+        if d is not None:     # plan v9: el resultado propio se dice como lo que es, y el dinero manda
+            fin = (f"→ por su medida propia, {'ACIERTO' if bien else 'FALLO'}: entró en {f(op['base'])} y cerró en "
+                   f"{f(op['salida'])}. {linea_dinero(d)[0].upper() + linea_dinero(d)[1:]}.")
+            neto = f"{d.get('neto') or 0.0:+.2f}".replace(".", ",") if d.get("n") else "sin precio real"
+            corto = f"{k} {'acertó' if bien else 'falló'} (medida propia) la de las {hora(op['t'])} · dinero {neto} en {d.get('n') or 0}"
+        else:
+            fin = (f"→ {'ACIERTO' if bien else 'FALLO'}: entró en {f(op['base'])} y cerró en {f(op['salida'])}. "
+                   f"Quedan {r['k25']} de {r['n25']} ({pct} %), racha {r['racha']}.")
+            corto = f"{k} {'acertó' if bien else 'falló'} la de las {hora(op['t'])} · {r['k25']} de {r['n25']} ({pct} %)"
         base = op.get("tg_txt")
         largo = (base + "\n" + fin) if base else (f"{k} · {ESTRATEGIA[k]['nombre']}\n" + ("▲ SUBE" if op["dir"] == 1 else "▼ BAJA") + f" de las {hora(op['t'])}\n" + fin)
         self._aviso(k, "resultado", corto, largo, "verde" if bien else "rojo", op=op, editar=op.get("tg"))
 
     def _niveles(self):
         """Mira en cada vuelta el nivel de cada una: 75 % o más es lo pedido; 21 de 25 (82 %) es apta. Avisa al cambiar y,
-        la primera vez, si ya está arriba (07/11: el agente nunca miraba cuando ya había más de lo pedido)."""
+        la primera vez, si ya está arriba (07/11: el agente nunca miraba cuando ya había más de lo pedido). Plan v9 (20/11): con
+        ganancia.json del nodo, estos avisos de acierto se apagan; los cambios de dinero los avisa el nodo."""
+        if self._ganancia() is not None:
+            return False
         cambio = False
         for est in self.foto.get("estrategias", []):
             k = est["id"]
@@ -569,7 +636,7 @@ class Centro:
                       "mesa": abierta["t"] % 900 == 0}
             est.append({**e, **r, "pct25": round(100 * r["k25"] / r["n25"]) if r["n25"] else 0,
                         "pct_total": round(100 * r["kt"] / r["nt"], 1) if r["nt"] else 0, "wilson_vivo": round(wilson(r["kt"], r["nt"]), 1),
-                        "apta": apta, "azar": azar, "abierta": ab, **detalle})
+                        "apta": apta, "azar": azar, "abierta": ab, "dinero": self._dinero(k), **detalle})
         marcas = []
         t_ini = v5[-96][0] - 300 if len(v5) >= 96 else 0
         for k in IDS:

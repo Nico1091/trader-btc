@@ -37,27 +37,66 @@ import nucleo as N  # noqa: E402
 import papel as PA  # noqa: E402
 from comunes import con_signo, dia, escribir_json, hora, leer_json, num, pct, sentido, temperatura  # noqa: E402
 
-VERSION = "3 · 18/11/2026 (ordena la IA, al precio que vio)"
+VERSION = "4 · 20/11/2026 (se arma por ganancia de dinero demostrada; ordena la IA, al precio que vio)"
 PUERTO = 8794                # candado de instancia única (el 8792 y el 8793 son del centinela)
 HORA_PARTE = 7               # hora de Colombia del parte diario
 JUICIO_CADA_S = 6 * 3600
 ARMAR_VENCE_S = 600
 MENSAJE_VIEJO_S = 600
 ESPERA_MERCADO_S = 30        # si Binance no publica el mercado en este tiempo, la ventana se mide solo con velas
-# 18/11/2026, orden del dueño: «cuando esté en el 70 % o por encima, que se arme solo y empiece a moverse solo». Con el archivo
-# ARMAR_AL_70 en esta carpeta, una vez por minuto se mira el Centro (las cinco estrategias, últimas 25 cerradas): si alguna va en
-# 18 de 25 o más (72 %, el primer valor que llega al 70 %) y la llave y la billetera están bien, se arma solo y se le avisa.
+# 18/11/2026, orden del dueño: «cuando esté en el 70 % o por encima, que se arme solo y empiece a moverse solo» (ARMAR_AL_70:
+# una estrategia del Centro en 18 de 25). 20/11/2026, plan v9, orden del dueño: «que ya no utilicemos esta de acierto, sino otra
+# cosa que sea por ganancia de dinero», siguiendo a la rutina vigilante (18 de 25 armaba por azar el 99,3 % de los meses). Con el
+# archivo ARMAR_POR_GANANCIA en esta carpeta, una vez por minuto se lee ganancia.json del nodo: si una fuente está en GANA DINERO
+# (demostrado) y no en pausa, y la llave y la billetera están bien, se arma solo el mercado de esa fuente y se le avisa. Sin
+# ganancia.json fresco (15 min) no se arma. ARMAR_AL_70 es la misma orden suya de armarse solo: se convierte una vez.
 # «operador parar» desarma y quita la regla (nunca se vuelve a armar contra su orden); «operador automático» la vuelve a poner.
-REGLA_ARMAR = "ARMAR_AL_70"
-UMBRAL_ARMAR = 18
+REGLA_ARMAR = "ARMAR_POR_GANANCIA"
+REGLA_VIEJA = "ARMAR_AL_70"
+UMBRAL_ARMAR = 18            # solo historia: la regla del 70 % del 18/11; desde el plan v9 no decide nada
+GANANCIA_FRESCA_S = 900      # ganancia.json más viejo que esto = el nodo no está midiendo: no se arma
+GANANCIA_RUTA = None         # las pruebas la fijan; en el equipo es ../nodo/ganancia.json
 CENTRO_API = "http://127.0.0.1:8797/api/centro"
 NOMBRE_ESTADO = {0: "arrancando", 1: "sin llave que pase", 2: "papel con precios reales",
                  3: "ARMADO: ejecuta de verdad las órdenes de la IA"}
-AYUDA = ("Operador · órdenes: «operador estado» (cómo va ahora), «operador parte» (el parte completo), «operador armar» "
-         "(compras reales en los dos mercados; «operador armar 15» o «operador armar 5» para uno solo), «operador armar igual» "
-         "(confirma un armado cuando el papel todavía no es apto), «operador parar» (no más compras; lo ya comprado se sigue "
-         "leyendo y cobrando; también quita la regla de armarse solo), «operador automático» (se arma solo cuando una "
-         "estrategia del Centro llega a 18 de 25, el 70 % o más) y «operador prueba» (la prueba sin fondos contra Binance).")
+AYUDA = ("Operador · órdenes: «operador estado» (cómo va ahora), «operador parte» (el parte completo), «operador dinero» (lo "
+         "que gana o pierde cada fuente a precio real y si lo demuestra), «operador armar» (compras reales en los dos mercados; "
+         "«operador armar 15» o «operador armar 5» para uno solo), «operador armar igual» (confirma un armado cuando el papel "
+         "todavía no es apto), «operador parar» (no más compras; lo ya comprado se sigue leyendo y cobrando; también quita la "
+         "regla de armarse solo), «operador automático» (se arma solo cuando una fuente demuestra ganancia de dinero, plan v9) "
+         "y «operador prueba» (la prueba sin fondos contra Binance).")
+
+
+def ruta_ganancia(carpeta):
+    return GANANCIA_RUTA or os.path.join(os.path.dirname(os.path.abspath(carpeta)), "nodo", "ganancia.json")
+
+
+def leer_ganancia(carpeta, ahora):
+    """(datos, problema): ganancia.json del nodo, o None con el motivo si falta, no se lee o está viejo (falla cerrado)."""
+    r = ruta_ganancia(carpeta)
+    if not os.path.exists(r):
+        return None, "el nodo todavía no escribió ganancia.json"
+    d = leer_json(r)
+    if not isinstance(d, dict) or not isinstance(d.get("fuentes"), dict):
+        return None, "ganancia.json no se puede leer"
+    edad = ahora - float(d.get("hora") or 0)
+    if edad > GANANCIA_FRESCA_S:
+        return None, f"ganancia.json tiene {round(edad / 60)} min: el nodo no está midiendo"
+    return d, None
+
+
+def mercado_de_fuente(k, d):
+    """El mercado donde una fuente demostró su ganancia: 5 min solo el papel de 5 min del operador; el resto, 15 min."""
+    w = d.get("mercado")
+    return int(w) if w in (5, 15) else (5 if k == "operador|operador5" else 15)
+
+
+def linea_fuente(d):
+    p = d.get("prueba") or 0.0
+    pr = (f"{p:.2f}" if p < 10 else f"{p:.0f}").replace(".", ",")
+    e = d.get("estado", "?") + (", EN PAUSA (sus últimas 25 pierden)" if d.get("pausa") else "")
+    return (f"{d.get('nombre', '?')}: {d.get('n', 0)} apuestas a precio real, neto {con_signo(d.get('neto') or 0.0)} USDT por "
+            f"cada USDT, cuenta de prueba {pr} de {num(d.get('umbral_prueba') or 160, 0)} · {e}")
 
 
 def estrategias_centro(plazo=5):
@@ -489,11 +528,14 @@ class Operador:
             return None
         if cmd in ("parar", "pare", "desarmar", "alto"):
             self.pend_armar = None
-            regla = os.path.exists(self.ruta_regla())
-            if regla:   # su orden de parar manda sobre la regla: no se vuelve a armar solo
-                os.remove(self.ruta_regla())
-                self.fila({"tipo": "regla del 70 %", "hora": round(ahora, 2), "puesta": False, "por": f"mensaje {msg['id']}"})
-            extra = (" La regla de armarse solo al 70 % quedó quitada; para volver a ponerla: «operador automático»."
+            regla = False
+            for r in (self.ruta_regla(), os.path.join(self.carpeta, REGLA_VIEJA)):
+                if os.path.exists(r):   # su orden de parar manda sobre la regla: no se vuelve a armar solo
+                    os.remove(r)
+                    regla = True
+            if regla:
+                self.fila({"tipo": "regla de armarse solo", "hora": round(ahora, 2), "puesta": False, "por": f"mensaje {msg['id']}"})
+            extra = (" La regla de armarse solo por ganancia de dinero quedó quitada; para volver a ponerla: «operador automático»."
                      if regla else "")
             if self.ej.desarmar(ahora, f"su orden por Telegram (mensaje {msg['id']})"):
                 return ("Operador · desarmado: no hay más compras reales. Lo ya comprado se sigue leyendo, liquidando y cobrando. "
@@ -501,11 +543,15 @@ class Operador:
             return "Operador · ya estaba desarmado: no hay compras reales. El papel sigue midiendo." + extra
         if cmd in ("automatico", "auto", "solo"):
             with open(self.ruta_regla(), "w", encoding="utf-8") as f:
-                f.write(f"Regla puesta por su orden por Telegram (mensaje {msg['id']}), {hora(ahora, '%d/%m/%Y %H:%M')}.\n")
+                f.write(f"Regla puesta por su orden por Telegram (mensaje {msg['id']}), {hora(ahora, '%d/%m/%Y %H:%M')}: armarse "
+                        "solo cuando una fuente demuestre ganancia de dinero (plan v9).\n")
             self.t_regla, self.regla_motivo = -1e9, None
-            self.fila({"tipo": "regla del 70 %", "hora": round(ahora, 2), "puesta": True, "por": f"mensaje {msg['id']}"})
-            return ("Operador · regla puesta: me armo solo cuando una estrategia del Centro llegue a 18 de 25 (72 %, el 70 % o "
-                    "más) y después ejecuto solo las órdenes de la IA. «operador parar» me desarma y quita la regla.")
+            self.fila({"tipo": "regla de armarse solo", "hora": round(ahora, 2), "puesta": True, "por": f"mensaje {msg['id']}"})
+            return ("Operador · regla puesta: me armo solo cuando una fuente demuestre GANANCIA DE DINERO al precio real (plan v9: "
+                    "100 apuestas o más, límites de la vigilante por encima de 0 y cuenta de prueba en 160 o más), solo en el mercado "
+                    "de esa fuente, y después ejecuto solo las órdenes de la IA. «operador parar» me desarma y quita la regla.")
+        if cmd == "dinero":
+            return self.texto_dinero(ahora)
         if cmd == "prueba":
             if not self.llave["ok"]:
                 return "Operador · no hay una llave que pase en Binance: la prueba sin fondos espera a la llave. " + self.linea_llave()
@@ -593,8 +639,8 @@ class Operador:
         elif e == 2:
             t += self.linea_llave() + " Llevo el papel con los precios reales del libro. No ejecuto órdenes de la IA: falta " + (
                 "su orden «operador armar»." if self.llave["tipo"] == "operar" else "la llave de operar y su orden de armar.")
-            if os.path.exists(self.ruta_regla()):
-                t += " Regla puesta: me armo solo cuando una estrategia del Centro llegue a 18 de 25 (72 %)."
+            if os.path.exists(self.ruta_regla()) or os.path.exists(os.path.join(self.carpeta, REGLA_VIEJA)):
+                t += " Regla puesta: me armo solo cuando una fuente demuestre ganancia de dinero (plan v9)."
         elif e == 3:
             a = self.ej.armado() or {}
             t += (f"Armado desde el {a.get('cuando', '?')} para {' y '.join(str(w) + ' min' for w in a.get('mercados', []))}. "
@@ -698,38 +744,86 @@ class Operador:
                 f"{W} min: {self.papel[W].cont['miradas']} miradas, {self.papel[W].cont['perdidas']} perdidas" for W in N.VENTANAS))
         self._armar_solo(ahora)
 
-    # ------------------------------------------------------------ la regla del 70 % (18/11/2026)
+    # ------------------------------------------------------------ armarse solo por ganancia de dinero (plan v9, 20/11/2026)
     def ruta_regla(self):
         return os.path.join(self.carpeta, REGLA_ARMAR)
 
+    def _migrar_regla(self, ahora):
+        """ARMAR_AL_70 (18/11) es la misma orden suya de armarse solo: pasa a ARMAR_POR_GANANCIA con el criterio del plan v9 y
+        se le avisa una sola vez. Si están las dos, manda la nueva y la vieja se quita."""
+        vieja = os.path.join(self.carpeta, REGLA_VIEJA)
+        if not os.path.exists(vieja):
+            return
+        if os.path.exists(self.ruta_regla()):
+            os.remove(vieja)
+            return
+        with open(vieja, encoding="utf-8", errors="replace") as f:
+            antes = f.read().strip()
+        with open(self.ruta_regla() + ".tmp", "w", encoding="utf-8") as f:
+            f.write(f"{antes}\n{hora(ahora, '%d/%m/%Y %H:%M')}: plan v9 por orden del dueño («que ya no utilicemos esta de "
+                    "acierto, sino otra cosa que sea por ganancia de dinero»): la misma regla de armarse solo, ahora cuando una "
+                    "fuente demuestre ganancia de dinero, no con 18 de 25.\n")
+        os.replace(self.ruta_regla() + ".tmp", self.ruta_regla())
+        os.remove(vieja)
+        self.fila({"tipo": "regla de armarse solo", "hora": round(ahora, 2), "puesta": True, "por": "plan v9 (20/11/2026)",
+                   "antes": REGLA_VIEJA})
+        g, problema = leer_ganancia(self.carpeta, ahora)
+        hoy = ("Hoy ninguna fuente lo demuestra, así que no me armo." if g and not g.get("demostradas") else
+               (f"Hoy lo demuestra: {', '.join(g['demostradas'])}." if g else f"Todavía no puedo leer el dinero: {problema}."))
+        self.avisar("Operador · versión 4 (plan v9): su regla de armarse solo sigue puesta, pero ya no mira aciertos (18 de 25 "
+                    "armaba por azar casi todos los meses, según la rutina vigilante). Ahora me armo solo cuando una fuente demuestre "
+                    "GANANCIA DE DINERO al precio real, y solo en el mercado de esa fuente. " + hoy
+                    + " «operador dinero» le muestra cómo va cada una.")
+
     def _armar_solo(self, ahora):
-        """Si la regla está puesta y el operador no está armado: una vez por minuto mira el Centro y, con una estrategia en 18 de
-        25 o más, arma los dos mercados y le avisa. Si la llave o la billetera no están bien, no arma y lo dice una vez."""
-        if not os.path.exists(self.ruta_regla()) or self.ej.armado() or ahora - self.t_regla < 60:
+        """Si la regla está puesta y el operador no está armado: una vez por minuto lee ganancia.json del nodo y, con una fuente
+        en GANA DINERO (demostrado) y fuera de pausa, arma solo el mercado de esa fuente y le avisa. Sin ganancia.json fresco no
+        arma. Si la llave o la billetera no están bien, no arma y lo dice una vez."""
+        if ahora - self.t_regla < 60:
             return
         self.t_regla = ahora
-        es = estrategias_centro()
-        if not es:
+        self._migrar_regla(ahora)
+        if not os.path.exists(self.ruta_regla()) or self.ej.armado():
             return
-        buenas = sorted([e for e in es if e["n25"] >= 25 and e["k25"] >= UMBRAL_ARMAR], key=lambda e: -e["k25"])
+        g, problema = leer_ganancia(self.carpeta, ahora)
+        if not g:
+            if self.regla_motivo != problema and "todavía no escribió" not in problema:
+                self.regla_motivo = problema
+                self.log(f"regla de armarse solo: no me armo: {problema}")
+            return
+        buenas = sorted([(k, d) for k, d in g["fuentes"].items() if isinstance(d, dict) and d.get("alto")
+                         and d.get("estado") == "GANA DINERO (demostrado)" and not d.get("pausa")],
+                        key=lambda kd: -float(kd[1].get("prueba") or 0))
         if not buenas:
             self.regla_motivo = None
             return
-        mejor = buenas[0]
+        mercados = sorted({mercado_de_fuente(k, d) for k, d in buenas})
+        que = "; ".join(linea_fuente(d) for _k, d in buenas)
         falta = self._falta_para_armar(ahora)
         if falta:
             if self.regla_motivo != falta:
                 self.regla_motivo = falta
-                self.avisar(f"Operador · su regla del 70 % se cumplió ({mejor['id']} va en {mejor['k25']} de 25), pero no "
-                            f"me armo: {falta}")
+                self.avisar(f"Operador · una fuente demostró ganancia de dinero ({que}), pero no me armo: {falta}")
             return
         apto = {str(W): bool((self.juicio.get(str(W)) or {}).get("apto")) for W in N.VENTANAS}
-        que = f"{mejor['nombre']} ({mejor['id']}) va en {mejor['k25']} de 25 ({round(100 * mejor['k25'] / 25)} %)"
-        d = self.ej.armar(ahora, list(N.VENTANAS), "su regla del 18/11/2026: armarse solo con una estrategia del Centro en "
-                          "el 70 % o más", apto, que)
+        d = self.ej.armar(ahora, mercados, "su regla de armarse solo, plan v9 del 20/11/2026: una fuente demostró ganancia de "
+                          "dinero al precio real", apto, que)
         self.regla_motivo = None
-        self.avisar(f"Operador · su regla del 70 % se cumplió: {que}. Me armé solo; desde ahora ejecuto solo las órdenes de la "
-                    "IA, sin que usted escriba nada.\n" + self._texto_armado(ahora, d))
+        self.avisar(f"Operador · una fuente demostró GANANCIA DE DINERO al precio real: {que}. Me armé solo para "
+                    f"{' y '.join(str(w) + ' min' for w in d['mercados'])}; desde ahora ejecuto solo las órdenes de la IA, sin que "
+                    "usted escriba nada.\n" + self._texto_armado(ahora, d))
+
+    def texto_dinero(self, ahora):
+        """«operador dinero»: lo que gana o pierde cada fuente a precio real y si lo demuestra (ganancia.json del nodo)."""
+        g, problema = leer_ganancia(self.carpeta, ahora)
+        if not g:
+            return f"Operador · todavía no puedo leer el dinero de las fuentes: {problema}."
+        orden = sorted(g["fuentes"].values(), key=lambda d: (not d.get("alto"), -(d.get("n") or 0)))
+        L = [f"Operador · dinero de cada fuente a precio real y con el ganador oficial (plan v9, del nodo a las "
+             f"{g.get('cuando', '?')}):"] + ["- " + linea_fuente(d) for d in orden]
+        L.append("Demuestran ganancia: " + ", ".join(g["demostradas"]) + "." if g.get("demostradas") else
+                 "Ninguna fuente demuestra ganancia de dinero: no me armo y no hay dinero real en juego.")
+        return "\n".join(L)
 
 
 def main(argv):

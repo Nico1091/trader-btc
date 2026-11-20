@@ -45,6 +45,13 @@ Qué hace, sin tocar a los demás programas (solo LEE sus archivos, y solo lo nu
   Nunca un precio supuesto. La medida propia de la estrategia queda aparte, solo para mirar. La IA ve de los dos lados el
   precio real, lo que paga por USDT y el equilibrio; sin precio real no se la consulta. La decisión guarda los precios que
   vio, y el operador solo compra hasta 0,02 por encima de ellos, durante 2 min. La demora baja a unos 25 s.
+- Plan v9 · por ganancia de dinero (20/11/2026; orden del dueño: «que ya no utilicemos esta de acierto, sino otra cosa que sea
+  por ganancia de dinero», siguiendo a la rutina vigilante; ver binarias-papel/ganancia). Ya no hay «19 de 25»: un punto es
+  ALTO solo si su fuente está en GANA DINERO (demostrado) sobre toda su cuenta a mano (precio real pagado y ganador oficial,
+  una apuesta por ventana): 100 apuestas o más, límites inferiores normal y bootstrap de lo que deja cada USDT por encima de
+  0 con alfa 0,05 repartido entre 8 fuentes (la regla de la vigilante del 20/11) y la cuenta de prueba en 160 o más (vale
+  aunque se mire cada minuto: la advertencia de la vigilante del 19/11). Si sus últimas 25 apuestas pierden dinero, queda en
+  pausa. Todo queda en ganancia.json, que leen el operador (para armarse solo) y el Centro (para mostrar dinero).
 
 Uso:  python3 -I nodo.py            (bucle; lo lanza arrancar_nodo.sh con su vigía)
       python3 -I nodo.py --una      (una vuelta y sale; para probar)
@@ -54,7 +61,9 @@ Parar: crear el archivo PARAR en esta carpeta.
 import hashlib
 import hmac
 import json
+import math
 import os
+import random
 import re
 import socket
 import subprocess
@@ -62,6 +71,7 @@ import sys
 import threading
 import time
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
+from statistics import NormalDist
 
 AQUI = os.path.dirname(os.path.abspath(__file__))
 HOME = os.path.expanduser("~")
@@ -116,6 +126,24 @@ RUTINA_TOKEN = os.path.join(CONF_DIR, "rutina")   # línea 1: token de disparo d
 GITHUB_TOKEN = os.path.join(CONF_DIR, "github")   # línea 1: acceso de GitHub del dueño, para leer las decisiones
 GITHUB_API = "https://api.github.com"
 REPO_DECISIONES = "Nico1091/binarias-aprobador"
+# Plan v9 · por ganancia de dinero (20/11/2026): la regla de la vigilante (rama claude/proyectos-2026-11-20-ganancia) más su
+# cuenta de prueba. Ver binarias-papel/ganancia/3-PROMPT-PLAN-v9-GANANCIA.md, sección 5.
+VERSION = "v9 · 20/11/2026 (por ganancia)"
+ALFA = 0.05                 # error tolerado para todas las fuentes juntas
+K_FUENTES = 8               # E1 a E5, vigía, operador de 5 y de 15 min: alfa / 8 = 0,00625 por fuente (Bonferroni)
+MINIMO = 100                # apuestas (ventanas) mínimas para decidir, como la vigilante
+REMUESTRAS = 2000           # bootstrap de la vigilante
+SEMILLA = 20261120          # su semilla fija: el mismo registro da el mismo resultado
+FRACCIONES = (0.02, 0.05, 0.10, 0.20)   # la cuenta de prueba: mezcla de cuentas que apuestan esa parte de lo que tienen
+UMBRAL_PRUEBA = K_FUENTES / ALFA         # 160: sin ganancia real, llegar ahí alguna vez pasa menos de 1 en 160 por fuente
+RECIENTES = 25              # protección: si las últimas 25 apuestas de una fuente pierden dinero, queda en pausa
+REFRESCO_GANANCIA = 300     # ganancia.json se reescribe al cambiar algo o cada 5 min (el operador lo exige fresco)
+BOOT_PIERDE_S = 3600        # el bootstrap de «pierde» (solo informa) se rehace como mucho una vez por hora por fuente
+GANA = "GANA DINERO (demostrado)"
+PIERDE = "PIERDE DINERO (demostrado)"
+NO_DEMOSTRADO = "NO DEMOSTRADO"
+POCA = "MUESTRA INSUFICIENTE"
+MERCADO_FUENTE = {"operador|operador5": 5}   # el mercado donde se mide cada fuente; las demás, el de 15 min
 ESPERA_RUTINA = 360    # segundos que se espera la decisión de la rutina; sin ella, no se compra
 MIRAR_DECISION = 3     # segundos entre lecturas de cada decisión pendiente en GitHub (era 10)
 TOPE_DISPAROS = 25     # disparos por hora (la rutina admite 30 por hora)
@@ -264,13 +292,191 @@ def cuenta(entradas):
             "precio_supuesto": 0, "cuenta": "a mano"}
 
 
+# ---------------------------------------------------------------- plan v9: la ganancia de dinero de cada fuente (20/11/2026)
+def r_de(e):
+    """Lo que dejó una entrada de la cuenta a mano por cada USDT, al precio real pagado y con el ganador oficial: 0,98 / q − 1
+    si acertó, la mitad del pago menos 1 si hubo empate y −1 si falló (lo mismo que paga la app)."""
+    q = float(e["q"])
+    if e["g"] == e["dir"]:
+        return PAGO / q - 1
+    if e["g"] == 0:
+        return PAGO / 2 / q - 1
+    return -1.0
+
+
+def ventana_de(e, W=15):
+    """El inicio (en segundos) de la ventana del mercado donde cayó una entrada."""
+    v = e.get("v")
+    if isinstance(v, int) and not isinstance(v, bool):
+        return v
+    t = int(e.get("t") or 0)
+    w = int(e.get("W") or W) * 60
+    return t - t % w
+
+
+def retornos(entradas, W=15):
+    """Una apuesta por ventana, en orden: [(ventana, r, aciertos, entradas, precio medio)]. Si una fuente tiene varias entradas
+    en la misma ventana, comparten resultado y cuentan como una sola apuesta (la media de sus r). Solo entradas con precio real
+    y ganador oficial: nunca un precio supuesto."""
+    por_v = {}
+    for e in entradas:
+        if not (_precio_real(e) and e.get("g") in (1, -1, 0) and e.get("dir") in (1, -1)):
+            continue
+        x = por_v.setdefault(ventana_de(e, W), [0.0, 0, 0, 0.0])
+        x[0] += r_de(e)
+        x[1] += 1 if e["g"] == e["dir"] else 0
+        x[2] += 1
+        x[3] += float(e["q"])
+    return [(v, x[0] / x[2], x[1], x[2], x[3] / x[2]) for v, x in sorted(por_v.items())]
+
+
+def cuenta_de_prueba(rs):
+    """La cuenta de prueba: cuentas imaginarias que empiezan en 1 y en cada apuesta de la fuente apuestan una parte fija f de lo
+    que tienen (se multiplican por 1 + f·r), promediadas entre FRACCIONES. Si la fuente no gana dinero, la probabilidad de que
+    llegue alguna vez a UMBRAL_PRUEBA es menor que 1 / UMBRAL_PRUEBA (desigualdad de Ville), aunque se mire después de cada
+    apuesta y para siempre. Se lleva en logaritmos para que no se desborde."""
+    logs = []
+    for f in FRACCIONES:
+        s = 0.0
+        for r in rs:                 # en bucle, no sum(): igual en 3.11 y 3.14
+            s += math.log1p(f * r)
+        logs.append(s)
+    m = max(logs)
+    tot = 0.0
+    for s in logs:
+        tot += math.exp(s - m)
+    return math.exp(min(700.0, m + math.log(tot / len(FRACCIONES))))
+
+
+def _media(xs):
+    s = 0.0
+    for x in xs:
+        s += x
+    return s / len(xs)
+
+
+def _desv(xs, m):
+    """Desviación típica de la muestra (con n − 1), como statistics.stdev del medidor de la vigilante."""
+    if len(xs) < 2:
+        return 0.0
+    s = 0.0
+    for x in xs:
+        s += (x - m) * (x - m)
+    return math.sqrt(s / (len(xs) - 1))
+
+
+def remuestreo(rs, alfa, B=REMUESTRAS, semilla=SEMILLA):
+    """Límites bootstrap unilaterales de la media (percentiles) con la forma, la semilla y los cortes del medidor de la
+    vigilante (propuestas/2026-11-20-ganancia/medidor_ganancia.py, remuestreo)."""
+    rng = random.Random(semilla)
+    n = len(rs)
+    medias = []
+    for _ in range(B):
+        s = 0.0
+        for x in rng.choices(rs, k=n):
+            s += x
+        medias.append(s / n)
+    medias.sort()
+    return medias[max(0, int(math.floor(alfa * B)))], medias[min(B - 1, int(math.ceil((1 - alfa) * B)) - 1)]
+
+
+def dia_col(t):
+    return time.strftime("%Y%m%d", time.gmtime(t + COL))
+
+
+def ganancia_de(entradas, W=15, k=K_FUENTES, alfa=ALFA, minimo=MINIMO, previo=None, ahora=None):
+    """El estado de dinero de una fuente sobre toda su cuenta a mano (plan v9). «regla_vigilante» es la decisión exacta del
+    medidor de la vigilante (100 apuestas, límites inferiores normal y bootstrap mayores que 0, alfa / k); «estado» le suma la
+    cuenta de prueba en UMBRAL_PRUEBA o más. Es ALTO si está en GANA DINERO (demostrado) y sus últimas 25 no pierden dinero.
+    Con «previo» (el resultado anterior de la misma fuente) el bootstrap de «pierde», que solo informa, se rehace como mucho una
+    vez por hora."""
+    ahora = ahora or time.time()
+    ap = retornos(entradas, W)
+    rs = [x[1] for x in ap]
+    n = len(rs)
+    neto = ult = neto_hoy = 0.0
+    a = n_hoy = 0
+    hoy = dia_col(ahora)
+    for v, r, _k, _c, _q in ap:
+        neto += r
+        a += 1 if r > 0 else 0
+        if dia_col(v) == hoy:
+            n_hoy += 1
+            neto_hoy += r
+    for r in rs[-RECIENTES:]:
+        ult += r
+    umbral = k / alfa
+    prueba = cuenta_de_prueba(rs) if rs else 1.0
+    res = {"n": n, "aciertos": a, "neto": round(neto, 3), "por_usdt": round(neto / n, 4) if n else None,
+           "precio": round(_media([x[4] for x in ap]), 3) if ap else None, "prueba": round(prueba, 4),
+           "umbral_prueba": round(umbral, 2), "minimo": minimo, "ult25": round(ult, 3), "de25": min(n, RECIENTES),
+           "hoy": {"n": n_hoy, "neto": round(neto_hoy, 3)}, "mercado": W}
+    vig = POCA
+    if n >= minimo:
+        alfa_k = alfa / max(1, k)
+        z = NormalDist().inv_cdf(1 - alfa_k)
+        m = neto / n
+        se = _desv(rs, m) / math.sqrt(n)
+        inf_n, sup_n = m - z * se, m + z * se
+        res.update(inf_normal=round(inf_n, 4), sup_normal=round(sup_n, 4))
+        vig = NO_DEMOSTRADO
+        if inf_n > 0:                         # puede ganar: el bootstrap se hace siempre
+            inf_b, sup_b = remuestreo(rs, alfa_k)
+            res.update(inf_boot=round(inf_b, 4), sup_boot=round(sup_b, 4), boot_n=n, boot_t=int(ahora))
+            if inf_b > 0:
+                vig = GANA
+        elif sup_n < 0:                       # puede perder: solo informa, como mucho una vez por hora
+            p = previo or {}
+            if "sup_boot" in p and p.get("boot_n", 0) >= minimo and ahora - p.get("boot_t", 0) < BOOT_PIERDE_S:
+                inf_b, sup_b, bn, bt = p.get("inf_boot"), p["sup_boot"], p["boot_n"], p["boot_t"]
+            else:
+                inf_b, sup_b = remuestreo(rs, alfa_k)
+                bn, bt = n, int(ahora)
+            res.update(inf_boot=None if inf_b is None else round(inf_b, 4), sup_boot=round(sup_b, 4), boot_n=bn, boot_t=bt)
+            if sup_b < 0:
+                vig = PIERDE
+    estado = vig
+    if vig == GANA and prueba < umbral:
+        estado = NO_DEMOSTRADO                # la regla fija pasa, pero mirando cada minuto todavía podría ser azar
+        res["falta"] = f"la cuenta de prueba va en {prueba:.1f} de {umbral:.0f}"
+    elif estado == POCA:
+        res["falta"] = f"faltan {minimo - n} apuestas para decidir"
+    demostrada = estado == GANA
+    pausa = demostrada and ult < 0
+    res.update(estado=estado, regla_vigilante=vig, demostrada=demostrada, pausa=pausa, alto=demostrada and not pausa)
+    return res
+
+
+def pct_usdt(x):
+    return "—" if x is None else f"{100 * x:+.0f} %"
+
+
+def usdt(x):
+    return "—" if x is None else f"{x:+.2f}".replace(".", ",")
+
+
+def linea_dinero(d):
+    """El dinero de una fuente en una línea, como lo lee el dueño."""
+    if not d or not d.get("n"):
+        return "sin apuestas con precio real todavía"
+    estado = d.get("estado", "")
+    if d.get("pausa"):
+        estado += ", EN PAUSA: sus últimas 25 pierden dinero"
+    prueba = d.get("prueba") or 0.0
+    pr = (f"{prueba:.2f}" if prueba < 10 else f"{prueba:.0f}").replace(".", ",")
+    return (f"{d['n']} apuestas a precio real, neto {usdt(d.get('neto'))} USDT por cada USDT ({pct_usdt(d.get('por_usdt'))} por "
+            f"apuesta), cuenta de prueba {pr} de {d.get('umbral_prueba', UMBRAL_PRUEBA):.0f} · {estado}")
+
+
 class Libreta:
     """La cuenta a mano de cada estrategia del Centro y del vigía (18/11/2026, paridad con la apuesta del dueño). Cada señal
     cerrada se apunta como si él hubiera comprado ese lado con el botón: en el mercado de 15 min donde cae la señal, al precio
     real del libro en el minuto de entrada (el de la señal más uno, como el Centro, que entra 60 s tarde; si esa mirada del
     operador se perdió, la del minuto siguiente) y con el ganador oficial. Sin las dos cosas no se apunta. Queda en
-    dinero.json y sobrevive a los reinicios; de cada estrategia se guardan las últimas MAXIMO."""
-    MAXIMO = 200
+    dinero.json y sobrevive a los reinicios; de cada estrategia se guardan las últimas MAXIMO. Desde el plan v9 (20/11/2026)
+    también se apuntan las compras de papel del operador («operador|operador5» y «operador|operador15»), y MAXIMO pasa de 200 a
+    5.000: la ganancia de dinero se mide sobre toda la historia, no sobre las últimas 25."""
+    MAXIMO = 5000
     REVISAR = 60   # últimas cerradas de cada estrategia que se intentan apuntar en cada vuelta
 
     def __init__(self, ruta_archivo):
@@ -296,7 +502,7 @@ class Libreta:
             x = miradas.get(m)
             q = x[0 if d == 1 else 1] if x else None
             if _real(q):
-                return {"t": t, "dir": d, "v": v, "m": m, "q": float(q), "g": g}
+                return {"t": t, "dir": d, "v": v, "m": m, "q": float(q), "g": g, "W": 15}
         return None
 
     def apuntar(self, fuente, est, ops, libros, ganadores):
@@ -310,6 +516,22 @@ class Libreta:
             if e:
                 nuevas.append(e)
                 self.vistas.add((k, e["t"], e["dir"]))
+        if nuevas:
+            lista = sorted(self.por.get(k, []) + nuevas, key=lambda e: e.get("t") or 0)
+            self.por[k] = lista[-self.MAXIMO:]
+            self.cambio = True
+        return len(nuevas)
+
+    def apuntar_hechas(self, fuente, est, entradas):
+        """Las compras de papel del operador ya traen su precio real pagado y su ganador oficial: se apuntan tal cual (plan v9,
+        20/11/2026), para que su historia sobreviva a los reinicios como la del Centro. Devuelve cuántas son nuevas."""
+        k = f"{fuente}|{est}"
+        nuevas = []
+        for e in entradas:
+            if (k, e.get("t"), e.get("dir")) in self.vistas or not (_precio_real(e) and e.get("g") in (1, -1, 0)):
+                continue
+            nuevas.append({c: e.get(c) for c in ("t", "dir", "v", "m", "q", "g", "W")})
+            self.vistas.add((k, e.get("t"), e.get("dir")))
         if nuevas:
             lista = sorted(self.por.get(k, []) + nuevas, key=lambda e: e.get("t") or 0)
             self.por[k] = lista[-self.MAXIMO:]
@@ -422,6 +644,10 @@ class Fuentes:
         self.libreta = Libreta(os.path.join(c.get("carpeta", AQUI), "dinero.json"))
         self.leidos = 0           # bytes leídos en la última vuelta
         self.t_operador = 0.0     # última fila útil del operador
+        # plan v9: el dinero de cada fuente se rehace solo si cambió su libreta (o el día); queda en ganancia.json
+        self.dinero_cache = {}    # "fuente|estrategia" -> (marca, resultado de ganancia_de)
+        self.ganancia = None      # lo último escrito en ganancia.json
+        self.g_firma, self.g_hora = None, 0.0
 
     def _resumenes(self, n, fuente):
         """Los resúmenes de un archivo del Centro o del vigía; solo se rehacen si el archivo cambió."""
@@ -474,10 +700,27 @@ class Fuentes:
                 if t >= ahora - 1800:
                     self.miradas[(W, t)] = r
         self.leidos += self.cola.leidos - antes
+        self._apuntar_antes_de_podar()
         for d, n in ((self.llenados, 600), (self.ganadores, 600), (self.miradas, 8), (self.libros, 600)):
             if len(d) > n:
                 for k in sorted(d, key=lambda k: k[1])[:len(d) - n]:
                     del d[k]
+
+    def _apuntar_antes_de_podar(self):
+        """20/11/2026, plan v9: lo que ya tiene precio real y ganador oficial se apunta en la libreta ANTES de podar la memoria
+        (600 ventanas). Al arrancar se leen tres días de una vez y, sin esto, se perdían las compras de papel y las señales más
+        viejas (en el teléfono, el papel de 5 min quedaba con 85 de 123)."""
+        for W in (15, 5):
+            ent = []
+            for (w, t, lado), o in self.llenados.items():
+                g = self.ganadores.get((w, t))
+                if w == W and g in (1, -1, 0):
+                    ent.append({"t": t, "dir": lado, "v": t, "m": o.get("m"), "q": o.get("base"), "g": g, "W": W})
+            if ent:
+                self.libreta.apuntar_hechas("operador", f"operador{W}", ent)
+        for (fuente, est), ops in list(self.ops.items()):
+            if fuente in ("centro", "quince"):
+                self.libreta.apuntar(fuente, est, ops, self.libros, self.ganadores)
 
     def operador_vivo(self, ahora=None):
         """El operador anotó algo útil en los últimos 5 minutos (si no, no se espera su vector)."""
@@ -503,19 +746,67 @@ class Fuentes:
                     # «base» del llenado es el precio real pagado (q) y g el ganador oficial: su cuenta ya es a mano
                     ops.append(dict(o, q=o.get("base"), g=g, res=None if g is None else (1 if g == lado else 0)))
                 if ops:
+                    # plan v9: sus compras de papel cerradas también van a la libreta (sobreviven a los reinicios)
+                    self.libreta.apuntar_hechas("operador", f"operador{W}", [
+                        {"t": o["t"], "dir": o["dir"], "v": o["t"], "m": o.get("m"), "q": o.get("q"), "g": o.get("g"), "W": W}
+                        for o in ops if o.get("g") in (1, -1, 0)])
                     out.append(("operador", f"operador{W}", W, resumen(ops)))
         # 18/11/2026, paridad: el Centro y el vigía se cuentan como a mano (precio real del libro y ganador oficial)
+        # 20/11/2026, plan v9: todas las fuentes, con su dinero sobre toda la libreta
         for i, (fuente, est, W, r) in enumerate(out):
             if fuente in ("centro", "quince"):
                 self.libreta.apuntar(fuente, est, self.ops.get((fuente, est)) or [], self.libros, self.ganadores)
-                out[i] = (fuente, est, W, dict(r, **cuenta(self.libreta.entradas(fuente, est))))
+            entradas = self.libreta.entradas(fuente, est)
+            out[i] = (fuente, est, W, dict(r, **cuenta(entradas), dinero=self.dinero(fuente, est, W, entradas, ahora)))
         self.libreta.guardar()
+        self.escribir_ganancia(out, ahora)
         return out
+
+    def dinero(self, fuente, est, W, entradas, ahora):
+        """El estado de dinero de una fuente; solo se rehace si cambió su libreta o el día (el bootstrap cuesta)."""
+        k = f"{fuente}|{est}"
+        marca = (len(entradas), entradas[-1].get("t") if entradas else None, entradas[0].get("t") if entradas else None,
+                 dia_col(ahora))
+        hay = self.dinero_cache.get(k)
+        if hay and hay[0] == marca:
+            return hay[1]
+        d = ganancia_de(entradas, W, previo=hay[1] if hay else None, ahora=ahora)
+        self.dinero_cache[k] = (marca, d)
+        return d
+
+    def escribir_ganancia(self, out, ahora):
+        """ganancia.json: lo que leen el operador (para armarse solo) y el Centro (para mostrar dinero). Se escribe cuando algo
+        cambia o cada REFRESCO_GANANCIA segundos, para que quien lo lea sepa que el nodo sigue vivo."""
+        fuentes = {}
+        for fuente, est, W, r in out:
+            d = r.get("dinero")
+            if d:
+                fuentes[f"{fuente}|{est}"] = dict(d, fuente=fuente, estrategia=est, nombre=NOMBRES.get(est, est))
+        cuerpo = {"version": VERSION, "regla": "GANA DINERO (demostrado): 100 apuestas o más a precio real con ganador "
+                  "oficial, límites inferiores normal y bootstrap de lo que deja cada USDT mayores que 0 (alfa 0,05 entre 8 "
+                  "fuentes) y cuenta de prueba en 160 o más; en pausa si sus últimas 25 pierden dinero",
+                  "alfa": ALFA, "k": K_FUENTES, "minimo": MINIMO, "umbral_prueba": UMBRAL_PRUEBA, "recientes": RECIENTES,
+                  "fuentes": fuentes, "demostradas": sorted(k for k, d in fuentes.items() if d.get("alto"))}
+        firma = json.dumps(cuerpo, sort_keys=True, ensure_ascii=False)
+        cuerpo.update(hora=int(ahora), cuando=hora(ahora))
+        self.ganancia = cuerpo
+        if firma != self.g_firma or ahora - self.g_hora >= REFRESCO_GANANCIA:
+            escribir_json(os.path.join(self.c.get("carpeta", AQUI), "ganancia.json"), cuerpo)
+            self.g_firma, self.g_hora = firma, ahora
 
 
 def leer_fuentes(c):
     """Compatibilidad: una lectura completa (para probar a mano)."""
     return [(f, e, r) for f, e, _W, r in Fuentes(c).leer()]
+
+
+def dinero_corto(d):
+    """Lo que viaja con cada punto (a la IA, al otro equipo y a Telegram) del estado de dinero de su fuente."""
+    if not d:
+        return None
+    return {k: d.get(k) for k in ("estado", "regla_vigilante", "alto", "pausa", "n", "aciertos", "neto", "por_usdt", "precio",
+                                  "prueba", "umbral_prueba", "minimo", "ult25", "de25", "inf_normal", "inf_boot", "falta")
+            if d.get(k) is not None}
 
 
 def puntos_nuevos(c, estado, fuentes):
@@ -541,9 +832,11 @@ def puntos_nuevos(c, estado, fuentes):
              "vivo": r["vivo"], "neto": r["neto"], "precio": r["precio"], "equilibrio": r["equilibrio"],
              "con_ganancias": r["con_ganancias"], "precio_supuesto": r["precio_supuesto"], "cuenta": r.get("cuenta"),
              "aciertos_propios": r.get("aciertos_propios"), "de_propios": r.get("de_propios"),
-             # alto: 76 % o más de las últimas 25 Y con ganancias (orden del dueño, 17/11, 18:40), las dos cosas contadas como
-             # a mano: precio real del libro y ganador oficial del mercado (18/11/2026, paridad)
-             "alto": r["de"] >= VENTANA and r["aciertos"] >= c["umbral"] and r["con_ganancias"], "visto": int(time.time())}
+             # plan v9 (20/11/2026, orden del dueño: «que ya no utilicemos esta de acierto, sino otra cosa que sea por ganancia
+             # de dinero»): alto SOLO si su fuente está en GANA DINERO (demostrado) y no en pausa. Reemplaza «19 de 25 con
+             # ganancias», que armaba por azar (rutina vigilante, 18 y 19/11).
+             "dinero": dinero_corto(r.get("dinero")), "alto": bool((r.get("dinero") or {}).get("alto")),
+             "visto": int(time.time())}
         if fuente == "centro":
             p["si_regla"], p["oi_no_sube"] = o.get("si"), (None if o.get("doi") is None else o["doi"] <= 0.00022)
         nuevos.append(p)
@@ -842,9 +1135,9 @@ def vector_corto(v):
 def paquete(clave, puntos, en_contra, vector):
     """Lo que Claude recibe de un grupo: el mercado, los puntos, los que van en contra y el vector del operador."""
     W, ventana, d = clave
-    campos = ("fuente", "estrategia", "nombre", "equipo", "alto", "aciertos", "de", "racha", "fondo", "vivo", "minuto",
-              "alineado", "si_regla", "oi_no_sube", "neto", "precio", "equilibrio", "con_ganancias", "precio_supuesto",
-              "cuenta", "aciertos_propios", "de_propios")
+    campos = ("fuente", "estrategia", "nombre", "equipo", "alto", "dinero", "aciertos", "de", "racha", "fondo", "vivo",
+              "minuto", "alineado", "si_regla", "oi_no_sube", "neto", "precio", "equilibrio", "con_ganancias",
+              "precio_supuesto", "cuenta", "aciertos_propios", "de_propios")
 
     def corto(p):
         x = {k: p.get(k) for k in campos if p.get(k) is not None}
@@ -862,15 +1155,10 @@ def mensaje(clave, grupo, r, quien, en_contra=(), vector=None, hoy=None):
               f"a las {hhmm(ventana + 60 * W)}",
               f"Coinciden {len(grupo)} · equipos: {', '.join(sorted({p['equipo'] for p in grupo}))}"]
     for p in grupo:
-        pc = round(100 * p["aciertos"] / p["de"]) if p["de"] else 0
-        extra = f", fondo {str(p['fondo']).replace('.', ',')} %" if p.get("fondo") is not None else ""
-        if p.get("neto") is not None and p.get("de"):
-            extra += (f", neto {p['neto']:+.2f} por USDT a {precio(p.get('precio'))} "
-                      f"({'con ganancias' if p.get('con_ganancias') else 'con pérdidas'})").replace(".", ",")
-        if p.get("de_propios") is not None and p.get("fuente") != "operador":
-            extra += f"; su medida propia, {p.get('aciertos_propios')} de {p.get('de_propios')}"
-        lineas.append(f"- {p['nombre']} ({p['equipo']}): a mano {p['aciertos']} de {p['de']} ({pc} %), racha {p['racha']}{extra} · "
-                      f"señal {hhmm(p['t']) if p.get('t') else '?'}" + ("" if p.get("alineado", True) else " (a mitad de ventana)"))
+        # plan v9 (20/11/2026): el dueño ve dinero, no aciertos
+        lineas.append(f"- {p['nombre']} ({p['equipo']}), señal {hhmm(p['t']) if p.get('t') else '?'}"
+                      + ("" if p.get("alineado", True) else " (a mitad de ventana)") + ": " + linea_dinero(p.get("dinero"))
+                      + (f" · {p['nota']}" if p.get("nota") else ""))
     if en_contra:
         lineas.append("En contra en la misma ventana: " + ", ".join(f"{p['nombre']} {flecha(p['dir'])}" for p in en_contra))
     v = vector_corto(vector)
@@ -936,6 +1224,9 @@ class Central:
                 # 18/11/2026: un nodo sin la cuenta a mano (la caja con el código de antes) mide con precio supuesto: su
                 # punto se muestra, pero no es alto
                 p = dict(p, alto=False, nota="nodo sin la cuenta a mano: no cuenta como alto")
+            elif p.get("alto") and not (p.get("dinero") or {}).get("alto"):
+                # 20/11/2026, plan v9: un nodo que todavía mide por acierto (sin el estado de dinero) no da puntos altos
+                p = dict(p, alto=False, nota="nodo sin la regla de dinero del plan v9: no cuenta como alto")
             k = (int(p["W"]), int(p["ventana"]), p["dir"])
             g = self.grupos.setdefault(k, {"desde": time.time(), "puntos": [], "pendiente": True, "envios": 0})
             if all(x["clave"] != p["clave"] for x in g["puntos"]):
@@ -980,7 +1271,7 @@ class Central:
         for k, g in listos:
             grupo = list(g["puntos"])
             if not any(p["alto"] for p in grupo):
-                continue                       # solo se sube lo de aciertos altos con ganancias
+                continue                       # plan v9: solo se sube lo de una fuente con ganancia de dinero demostrada
             vector = self.vector_de(k[0], k[1])
             if not precios_vistos(vector):
                 # 18/11/2026, paridad: sin el precio real del libro la IA decidiría a ciegas y el operador no compraría
@@ -1137,8 +1428,60 @@ def servidor(central):
     return srv
 
 
+AVISOS_DINERO = True    # las pruebas que no miden estos avisos lo apagan
+
+
+def estado_visible(d):
+    return f"{GANA}, EN PAUSA" if d.get("pausa") else d.get("estado")
+
+
+def avisos_dinero(c, estado, ganancia, enviar=None):
+    """Plan v9: la primera vez, un resumen del dinero de cada fuente; después, un aviso solo cuando una fuente entra o sale de
+    GANA DINERO (demostrado), entra o sale de la pausa, o entra en PIERDE DINERO (demostrado). Devuelve el texto enviado."""
+    fuentes = (ganancia or {}).get("fuentes") or {}
+    if not fuentes:
+        return None
+    previos = estado.get("dinero_estados")
+    actuales = {k: estado_visible(d) for k, d in fuentes.items()}
+    lineas = []
+    orden = sorted(fuentes, key=lambda k: (not fuentes[k].get("alto"), -(fuentes[k].get("n") or 0)))
+    if previos is None:
+        lineas = ["[Nodo] Plan v9 · por ganancia de dinero (20/11/2026). Ya no se mira el acierto: un punto pasa a la IA, y el "
+                  "operador se arma solo, únicamente cuando su fuente demuestra GANA DINERO (demostrado) al precio real pagado y "
+                  "con el ganador oficial: 100 apuestas o más, límites de la vigilante por encima de 0 y cuenta de prueba en 160 "
+                  "o más."]
+        lineas += [f"- {fuentes[k]['nombre']}: {linea_dinero(fuentes[k])}" for k in orden]
+        dem = [fuentes[k]["nombre"] for k in orden if fuentes[k].get("alto")]
+        lineas.append("Demuestran ganancia: " + ", ".join(dem) + "." if dem else
+                      "Ninguna fuente demuestra ganancia de dinero: no se le pasa nada a la IA y no hay dinero real en juego.")
+    else:
+        for k in orden:
+            e, p = actuales[k], previos.get(k)
+            if e == p:
+                continue
+            importa = {e, p} & {GANA, f"{GANA}, EN PAUSA"} or e == PIERDE
+            if importa:
+                lineas.append(f"- {fuentes[k]['nombre']}: {p or 'sin dato'} → {e}. {linea_dinero(fuentes[k])}")
+        if lineas:
+            lineas.insert(0, "[Nodo] Cambio en el dinero de las fuentes (plan v9):")
+    if actuales != previos:
+        estado["dinero_estados"] = actuales
+        estado["_cambio"] = True
+    if not lineas:
+        return None
+    texto = "\n".join(lineas)
+    if AVISOS_DINERO:
+        (enviar or telegram)(texto)
+    return texto
+
+
 def vuelta(c, estado, central, fuentes):
     nuevos = puntos_nuevos(c, estado, fuentes)
+    if central.principal() or central.activo():      # solo el que hace de central avisa
+        try:
+            avisos_dinero(c, estado, fuentes.ganancia)
+        except Exception as e:
+            log(f"aviso de dinero con error: {type(e).__name__}: {e}")
     if estado.pop("_cambio", False):
         escribir_json(en(c, "estado.json"), estado)
     if not nuevos:
@@ -1167,10 +1510,11 @@ def main():
               f"{'listo' if leer_token(RUTINA_TOKEN) else 'FALTA'}, GitHub {'listo' if leer_token(GITHUB_TOKEN) else 'FALTA'})"
               if c["decisor"] == "rutina" else
               f"Claude {MODELO} (esfuerzo {c['esfuerzo']}, rutas {', '.join(r[0] for r in c['rutas_claude'])})")
-    log(f"nodo arrancó: rol {c['rol']} ({'central' if central.principal() else 'respaldo'}), "
-        f"centinela {c['centinela']}, operador {c['operador']}, umbral {c['umbral']} de {VENTANA} con ganancias, {decide}; "
-        f"cuenta a mano (precio real del libro y ganador oficial), compra hasta {TOLERANCIA_IA} sobre lo que vio la IA, "
-        f"órdenes de {CADUCIDAD_S} s")
+    log(f"nodo arrancó ({VERSION}): rol {c['rol']} ({'central' if central.principal() else 'respaldo'}), "
+        f"centinela {c['centinela']}, operador {c['operador']}, {decide}; punto alto solo con GANA DINERO (demostrado): "
+        f"{MINIMO} apuestas o más, alfa {ALFA} entre {K_FUENTES} fuentes, cuenta de prueba {UMBRAL_PRUEBA:.0f}, en pausa si "
+        f"las últimas {RECIENTES} pierden; cuenta a mano (precio real del libro y ganador oficial), compra hasta "
+        f"{TOLERANCIA_IA} sobre lo que vio la IA, órdenes de {CADUCIDAD_S} s")
     ultimo_latido, latia = 0.0, None
     medida = {"n": 0, "ms": 0.0, "max_ms": 0.0, "bytes": 0, "max_bytes": 0, "desde": time.time()}
     while not os.path.exists(ruta("PARAR")):

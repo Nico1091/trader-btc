@@ -34,6 +34,15 @@ def ops(aciertos, total=25, abierta=None, t0=1794900000):
     return lista
 
 
+def ops_dinero(aciertos=80, total=100, abierta=None, t0=1794900000):
+    """Plan v9: una fuente que de verdad gana dinero (a 0,50, 80 de 100 dejan +0,57 por USDT), con los aciertos repartidos
+    para que sus últimas 25 tampoco pierdan."""
+    lista = [{"t": t0 + i * 900, "dir": -1, "res": 1 if (i * aciertos) % total < aciertos else 0} for i in range(total)]
+    if abierta:
+        lista.append({"t": abierta[0], "dir": abierta[1], "base": 65000.0, "res": None})
+    return lista
+
+
 # Ventanas propias de cada estrategia de la prueba, para que sus mercados no se pisen (un mercado tiene un solo ganador)
 T_E2, T_E4, T_E1, T_Q = 1794900000, 1794000000, 1794600000, 1794300000
 
@@ -101,6 +110,8 @@ N.telegram = lambda texto: enviados.append(texto) or True
 claude_verdadero = N.decision_claude
 N.decision_claude = claude_falso
 N.ESPERA_JUNTAR = 0
+N.AVISOS_DINERO = False         # los avisos de dinero del plan v9 se prueban en prueba_ganancia.py
+N.Libreta.REVISAR = 100000      # las libretas de la prueba llegan de golpe (en el equipo llegan de a una)
 N.SECRETO = os.path.join(BASE, "secreto")
 open(N.SECRETO, "w").write("prueba-secreta")
 T = 1794930300   # múltiplo de 900
@@ -126,9 +137,10 @@ est_t = {}
 ok(N.puntos_nuevos(tel, est_t, ft) == [], "primera vuelta: lo abierto al arrancar no se reenvía")
 N.escribir_json(os.path.join(tel["centinela"], "datos", "centro.json"), {"ops": {"E2": ops(20, abierta=(T + 900, -1))}})
 nuevos = N.puntos_nuevos(tel, est_t, ft)
-ok(len(nuevos) == 1 and nuevos[0]["alto"] and nuevos[0]["W"] == 15 and nuevos[0]["ventana"] == T + 900
-   and nuevos[0]["cuenta"] == "a mano" and nuevos[0]["aciertos"] == 20 and nuevos[0]["de"] == 25,
-   "señal nueva con 20 de 25 a mano (precio real y ganador oficial): punto ALTO en el mercado de 15 min de su ventana")
+ok(len(nuevos) == 1 and not nuevos[0]["alto"] and nuevos[0]["W"] == 15 and nuevos[0]["ventana"] == T + 900
+   and nuevos[0]["cuenta"] == "a mano" and nuevos[0]["aciertos"] == 20 and nuevos[0]["de"] == 25
+   and nuevos[0]["dinero"]["estado"] == N.POCA and nuevos[0]["dinero"]["n"] == 25,
+   "plan v9: 20 de 25 a mano (precio real y ganador oficial) ya NO es punto alto: 25 apuestas no demuestran dinero")
 ok(N.puntos_nuevos(tel, est_t, ft) == [], "la misma señal no se repite")
 con_libro(tel, ops(16, t0=T_E4))
 N.escribir_json(os.path.join(tel["centinela"], "datos", "centro.json"), {"ops": {"E4": ops(16, abierta=(T + 1800, 1), t0=T_E4)}})
@@ -147,17 +159,18 @@ ok(len(ps) == 1 and not ps[0]["alto"] and ps[0]["de"] == 0 and ps[0]["aciertos_p
 # 4) EL TELÉFONO SOLO (la caja apagada): sube él mismo, sin depender de nadie
 ct = N.Central(tel, est_t, lambda W, t: ft.vector(W, t) or VEC, ft.operador_vivo)
 ok(ct.principal() and ct.activo(), "el teléfono es el nodo central")
-con_libro(tel, ops(21, t0=T_E1))
-N.escribir_json(os.path.join(tel["centinela"], "datos", "centro.json"), {"ops": {"E1": ops(21, abierta=(T + 2700, -1), t0=T_E1)}})
+con_libro(tel, ops_dinero(80, 100, t0=T_E1))
+N.escribir_json(os.path.join(tel["centinela"], "datos", "centro.json"), {"ops": {"E1": ops_dinero(80, 100, abierta=(T + 2700, -1), t0=T_E1)}})
 N.vuelta(tel, est_t, ct, ft)
 ct.despachar()
 ok(len(enviados) == 1 and "el teléfono (nodo central)" in enviados[0] and "COMPRAR BAJA" in enviados[0],
-   "caja apagada: el teléfono sube solo a Telegram y a Claude")
+   "caja apagada: el teléfono sube solo a Telegram y a Claude (E1 con ganancia de dinero demostrada)")
 dec = lineas(tel, "decisiones.jsonl")
 ok(len(dec) == 1 and dec[0]["W"] == 15 and dec[0]["ventana"] == T + 2700 and dec[0]["dir"] == -1 and dec[0]["decision"] == "COMPRAR BAJA",
    "la decisión queda en el teléfono con su mercado, ventana y sentido")
-ok(dec[0].get("precios") == {"1": 0.40, "-1": 0.62} and "paga 1,58 por USDT" in enviados[0] and "a mano 21 de 25" in enviados[0],
-   "paridad: la decisión guarda los precios que vio la IA y el aviso dice lo que paga cada lado y la cuenta a mano")
+ok(dec[0].get("precios") == {"1": 0.40, "-1": 0.62} and "paga 1,58 por USDT" in enviados[0]
+   and "100 apuestas a precio real" in enviados[0] and N.GANA in enviados[0] and "de 25" not in enviados[0],
+   "paridad y plan v9: la decisión guarda los precios que vio la IA; el aviso dice lo que paga cada lado y el dinero, no aciertos")
 ok(dec[0]["costo_usd"] == 0.0052 and dec[0]["uso"]["cache_read_input_tokens"] == 2600 and est_t["claude_hoy"]["consultas"] == 1,
    "la decisión guarda tokens y costo, y se suma al gasto del día")
 ct.recibir(dict(bajo[0], clave="bajo-otro", t=T + 3600, ventana=T + 3600))
@@ -165,8 +178,8 @@ ct.despachar()
 ok(len(enviados) == 1, "grupo sin puntos altos: no se sube")
 
 # 5) LOS DOS ENCENDIDOS: el teléfono late, la caja aprende su IP y le entrega sus puntos; sube el teléfono
-caja = equipo("caja", 18802, 18801, quince=ops(19, abierta=(T + 5400, -1), t0=T_Q))
-con_libro(caja, ops(19, t0=T_Q))
+caja = equipo("caja", 18802, 18801, quince=ops_dinero(80, 100, abierta=(T + 5400, -1), t0=T_Q))
+con_libro(caja, ops_dinero(80, 100, t0=T_Q))
 fc = N.Fuentes(caja)
 est_c = {}
 cc = N.Central(caja, est_c, lambda W, t: fc.vector(W, t) or VEC, fc.operador_vivo)
@@ -176,8 +189,8 @@ time.sleep(0.3)
 ok(N.enviar_par(tel, "127.0.0.1", "/latido", {"rol": "telefono"}), "latido del teléfono a la caja")
 ok(not cc.activo() and cc.par["ip"] == "127.0.0.1", "con latido, la caja deja de ser central y conoce la IP del teléfono")
 N.puntos_nuevos(caja, est_c, fc)                  # primera vuelta de la caja
-N.escribir_json(os.path.join(caja["centinela"], "quince.json"), {"ops": ops(19, abierta=(T + 6300, -1), t0=T_Q)})
-N.escribir_json(os.path.join(tel["centinela"], "datos", "centro.json"), {"ops": {"E1": ops(21, abierta=(T + 6300, -1), t0=T_E1)}})
+N.escribir_json(os.path.join(caja["centinela"], "quince.json"), {"ops": ops_dinero(80, 100, abierta=(T + 6300, -1), t0=T_Q)})
+N.escribir_json(os.path.join(tel["centinela"], "datos", "centro.json"), {"ops": {"E1": ops_dinero(80, 100, abierta=(T + 6300, -1), t0=T_E1)}})
 antes = len(enviados)
 N.vuelta(caja, est_c, cc, fc)                     # la caja entrega al teléfono
 N.vuelta(tel, est_t, ct, ft)                      # el teléfono suma lo suyo
@@ -197,7 +210,7 @@ ok((15, T + 7200, 1) in ct.grupos, "punto de un nodo viejo: se pone en el mercad
 # 7) EL TELÉFONO CAÍDO: la caja no lo encuentra y sube lo suyo
 srv_t.shutdown()
 srv_t.server_close()
-N.escribir_json(os.path.join(caja["centinela"], "quince.json"), {"ops": ops(19, abierta=(T + 8100, 1), t0=T_Q)})
+N.escribir_json(os.path.join(caja["centinela"], "quince.json"), {"ops": ops_dinero(80, 100, abierta=(T + 8100, 1), t0=T_Q)})
 antes = len(enviados)
 N.vuelta(caja, est_c, cc, fc)
 cc.despachar()
@@ -249,7 +262,9 @@ est3 = {}
 c3 = N.Central(tel, est3, lambda W, t: ft2.vector(W, t) or (VEC if t < V else None), ft2.operador_vivo)
 p15 = {"clave": "a", "equipo": "telefono", "fuente": "centro", "estrategia": "E1", "nombre": N.NOMBRES["E1"], "t": V,
        "dir": 1, "W": 15, "ventana": V, "minuto": 0, "alineado": True, "aciertos": 20, "de": 25, "racha": 2,
-       "fondo": 55.0, "vivo": [69, 121], "alto": True, "cuenta": "a mano", "aciertos_propios": 20, "de_propios": 25}
+       "fondo": 55.0, "vivo": [69, 121], "alto": True, "cuenta": "a mano", "aciertos_propios": 20, "de_propios": 25,
+       "dinero": {"estado": N.GANA, "alto": True, "pausa": False, "n": 300, "neto": 60.0, "por_usdt": 0.2, "prueba": 5000.0,
+                  "umbral_prueba": 160.0}}
 c3.recibir(p15)
 c3.recibir(dict(p15, clave="b", W=5, ventana=V))
 c3.recibir(dict(p15, clave="c", estrategia="E5", dir=-1, alto=False))
@@ -296,7 +311,8 @@ sys.path.insert(0, os.path.join(os.path.dirname(AQUI), "operador"))
 import aprobacion as A  # noqa: E402
 A.RUTAS = (N.en(tel, "decisiones.jsonl"),)
 v15 = V
-ok(A.falta(15, v15, 1, time.time()) is None, "el candado del operador acepta el COMPRAR SUBE del nodo para su mercado y sentido")
+_f = A.falta(15, v15, 1, time.time())
+ok(_f is None, "el candado del operador acepta el COMPRAR SUBE del nodo para su mercado y sentido" + (f" (dice: {_f})" if _f else ""))
 ok(A.falta(15, v15, -1, time.time()) is not None and A.falta(5, v15, 1, time.time()) is not None,
    "el candado no acepta el otro sentido ni el otro mercado")
 

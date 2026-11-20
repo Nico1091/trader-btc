@@ -1,0 +1,35 @@
+PEDIDO DEL DUEÑO PARA ESTA PASADA (20/11/2026, 17:05, hora de Colombia; lo transmite su sesión de Claude en el PC). Manda sobre los pasos 2, 3 y 4 de «QUÉ HACER» de hoy: hoy NO construya ninguna herramienta nueva.
+
+El dueño quiere de usted, la rutina que vigila las binarias, una RETROALIMENTACIÓN EXACTA de todo lo que vio en sus pasadas del 17 al 20/11/2026 (sus ramas claude/proyectos-2026-11-17 hasta -17-f, -18, -18-regla70, -19, -19-b y -20, más la rama binarias/plan-v7-2026-11-04). Según el dueño, usted recomienda dejar el criterio de ACIERTO (18 de 25 para que el operador se arme solo; 19 de 25 con neto positivo para que el nodo le pase un punto a la IA) y pasar a un criterio de GANANCIA DE DINERO. Él está de acuerdo y va a ejecutar lo que usted diga; por eso necesita su recomendación exacta y completa, con cifras.
+
+Entregue, en este orden, con cifras y con archivo:línea cuando cite código:
+1. Cada hallazgo suyo del 17 al 20/11, con su evidencia (código, cifra o simulación) y si sigue vigente con los datos de abajo.
+2. Por qué el acierto no sirve para decidir y cuál es el criterio de ganancia de dinero que propone en su lugar, con la regla exacta: qué se mide (neto por USDT al precio real pagado y con el ganador oficial), con qué prueba (Wilson corregido, Wald o prueba por apuestas), sus umbrales (alfa, delta, número de fuentes, muestra mínima), qué pasa mientras no se demuestre y cuándo se vuelve a medir.
+3. Qué debe cambiar en cada pieza: nodo (cuándo un punto es alto), operador (_armar_solo y la regla ARMAR_AL_70), Centro de estrategias (lo que muestra y avisa: hoy dice «12 de 25»), rutina aprobadora (qué ve la IA y con qué criterio decide) y laboratorio de la ESP32 (hoy busca estrategias por acierto con velas). Y qué NO debe cambiar: los topes de dinero del dueño (2 USDT por orden, 16 % del saldo, freno del día, 20 órdenes al día, una por mercado, ARMADO), nunca apalancamiento ni préstamos, todo en el teléfono, IP de la casa y nada de Tor.
+4. Su lectura de los DATOS REALES de abajo, que usted ve por primera vez: ¿alguna fuente gana dinero? ¿qué explica las pérdidas (precio pagado, lado barato, desalineación entre la señal y el precio de apertura de la ventana)? ¿qué haría con cada fuente?
+5. Riesgos y lo que no pudo verificar.
+6. Su veredicto en tres líneas.
+
+DATOS REALES DEL TELÉFONO (20/11/2026, 16:55; solo cifras agregadas; 1 USDT por señal; pago 0,98 / precio si acierta, −1 si falla)
+
+A. Cuenta a mano del nodo (nodo.py, Libreta, dinero.json): cada señal cerrada del Centro y del vigía comprada en el mercado de 15 min donde cae, al precio real del libro en el minuto de entrada (el de la señal más uno) y con el ganador oficial. Del 18/11 11:15 al 20/11 16:35.
+- E1 (ruptura de 20 velas al revés): 41 señales, 9 aciertos (22,0 %), neto −8,64 USDT, precio medio 0,198.
+- E2 (ruptura de 50 velas al revés): 19 señales, 2 aciertos (10,5 %), neto −12,22, precio medio 0,217.
+- E5 (rechazo en techo o piso): 37 señales, 14 aciertos (37,8 %), neto −9,20, precio medio 0,380.
+- Vigía de 15 min: 18 señales, 10 aciertos (55,6 %), neto 0,00, precio medio 0,516.
+- E3 (Gemini 1 al revés): 4 señales, 3 aciertos, neto +1,02, precio medio 0,605.
+- E4 (Gemini 3 al revés): 2 señales, 1 acierto, neto +0,04.
+- Total: 121 señales, neto ≈ −29,0 USDT (−24 % por apuesta).
+- La medida propia del Centro (acierto contra su propio precio de entrada, con velas) dice otra cosa: E1 57,5 % en 736 señales; E2 57,4 % en 399; en las últimas 25, E1 11 y E2 10.
+
+B. Papel del operador de Fable 5.2 (compras de papel con precio real del libro, llenado de 5 s, ganador oficial), del 18/11 11:40 al 20/11 16:40:
+- 5 min: 116 compras, 20 aciertos (17,2 %), neto −21,13 USDT (−18,2 % por compra), precio medio 0,191; su modelo esperaba +34 % de ganancia prudente media. Por precio: 0,00-0,10: 46 compras, 2 aciertos, +3,0; 0,10-0,20: 33, 1 acierto, −24,8; 0,20-0,30: 12, 3, −1,1; 0,30-0,40: 8, 3, +0,6; 0,40-0,50: 3, 2, +1,3; 0,50-0,60: 5, 2, −1,5; 0,60-0,70: 6, 5, +1,6; 0,70-0,80: 3, 2, −0,3.
+- 15 min: 34 compras, 5 aciertos (14,7 %), neto −13,09 (−38,5 %), precio medio 0,233; esperaba +36 %.
+
+C. Calibración del propio mercado (todas las miradas por minuto del operador, los dos lados, con el ganador oficial; las miradas de una misma ventana no son independientes):
+- 5 min (633 ventanas; los dos precios suman 1,010 en promedio): cada tramo gana más o menos lo que cuesta y todos pierden un poco: 0,30-0,40 gana 34,5 % a 0,344 (−1,0 %); 0,50-0,60 gana 54,6 % a 0,543 (−1,4 %); 0,80-0,90 gana 84,9 % a 0,847 (−1,7 %). Los lados muy baratos pierden más: 0,00-0,05 gana 1,5 % a 0,019 (−17,3 %); 0,05-0,10 gana 5,7 % a 0,069 (−15,2 %).
+- 15 min (solo 210 ventanas; los dos precios suman 1,012): 0,10-0,20 gana 17,8 % a 0,143 (+19,9 %); 0,30-0,40 gana 43,3 % a 0,347 (+22,9 %); 0,60-0,70 gana 56,5 % a 0,643 (−13,8 %); 0,00-0,05 gana 0,7 % a 0,019 (−83,8 %). Muestra corta y dependiente: el 18/11 BTC bajó de 64.947 a 62.348.
+
+D. Estado: el operador NUNCA se armó; no hay ninguna orden real (no existe operador/datos/ordenes.json); 20,50 USDT en la billetera de predicción; la regla ARMAR_AL_70 sigue puesta desde el 18/11 16:26; ninguna estrategia llegó a 18 de 25 en el Centro ni a 19 de 25 con neto positivo en la cuenta a mano, así que la IA no ha recibido ningún punto desde el 18/11. Los ganadores del papel son todos oficiales (843 ventanas); los de velas solo están en la serie sin_llave (357).
+
+ENTREGA: rama nueva claude/proyectos-2026-11-20-retro de Nico1091/trader-btc, archivo propuestas/2026-11-20-retro/RETROALIMENTACION.md, y el informe al Telegram como siempre, empezando con «[Proyectos] Retroalimentación exacta». ATENCIÓN: el repositorio trader-btc es PÚBLICO desde el 25/10/2026: no suba registros, IP, rutas del PC ni nombres; solo cifras agregadas como las de arriba.

@@ -1,4 +1,6 @@
-# Plan total de las binarias · BTC/USDT (v8, congruente)
+# Plan total de las binarias · BTC/USDT (v9, por ganancia de dinero)
+
+v9 del 20/11/2026, 18:00: por orden del dueño («que ya no utilicemos esta de acierto, sino otra cosa que sea por ganancia de dinero»), siguiendo a la rutina vigilante, nada se decide ya por porcentaje de aciertos. Sección 7e nueva y nota en la 8. Prompt, retroalimentación y pruebas en `ganancia\`.
 
 v8 del 04/11/2026, 18:30: suma la sección 7c (Mesa de binarias y vigía de 15 min, P19). Lo demás sigue como en el v7.
 
@@ -148,7 +150,19 @@ Base común: el núcleo en BTC, entrada 60 s tarde, empate = fallo, pago 0,85 (g
 
 - Placa ESP32 y pérdida (11/11, 21:05, pedidos suyos): la ESP32-S3 corre la misma red y la pérdida, con su programa en la placa. Regla de la pérdida, escrita antes de ver resultados: ventanas de 15 min de Predict.fun; miradas en los minutos 3 a 14; z = ln(precio/apertura)/(σ60·√(15−m)); se compra en papel el lado perdedor en la primera mirada con |z| ≥ 1 y, con el precio real del libro (solo en el PC), a lo último cuando cuesta 0,02, 0,05 o 0,10 o menos; precio máximo que vale la pena = 0,98 × acierto a ciegas. Es devolución; «apta» no autoriza dinero.
 
+### 7e. Plan v9 · por ganancia de dinero (20/11/2026, orden del dueño; regla escrita antes de instalar; prompt en ganancia\3-PROMPT-PLAN-v9-GANANCIA.md)
+
+- Por qué: la rutina vigilante midió que «18 de 25» arma por azar el 99,3 % de los meses (18/11) y que mirar cada minuto infla el error (19/11); y con los datos reales del teléfono (18 al 20/11, 271 apuestas a precio real con ganador oficial) ninguna fuente gana dinero: −63,2 USDT por cada USDT apostado (−23 %). El acierto no dice dinero cuando el precio cambia de una apuesta a otra.
+- Medida única: lo que deja cada USDT al precio real pagado y con el ganador oficial (0,98 / q − 1 si acierta, 0,49 / q − 1 si empata, −1 si falla), una apuesta por ventana y fuente, sobre toda la cuenta a mano (hasta 5.000 por fuente). Fuentes: E1 a E5, vigía, operador de 5 y de 15 min.
+- GANA DINERO (demostrado), las cuatro a la vez: 100 apuestas o más; límite inferior normal y límite inferior bootstrap (2.000 remuestras, semilla 20261120) de lo que deja cada USDT, los dos por encima de 0, con alfa 0,05 repartido entre 8 fuentes (la regla de la vigilante del 20/11); y cuenta de prueba en 160 o más (cuentas imaginarias que apuestan 2, 5, 10 y 20 % de lo que tienen en cada señal; sin ganancia real, llegar a 160 pasa menos de 1 en 160 aunque se mire cada minuto). En pausa si las últimas 25 apuestas de esa fuente pierden dinero.
+- Qué cambia: el nodo solo le pasa a la IA puntos de fuentes en GANA DINERO (demostrado) y fuera de pausa; el operador se arma solo (regla ARMAR_POR_GANANCIA, antes ARMAR_AL_70) únicamente con una fuente así, y solo en el mercado de esa fuente; el Centro y los avisos muestran dinero, no «k de 25». Todo lo lee de `nodo\ganancia.json`; sin ese archivo fresco, nadie arma.
+- Qué no cambia: 2 USDT por orden, 16 % del saldo, freno del día, 20 órdenes al día, una por mercado, ARMADO, nunca apalancamiento ni préstamos, todo en el teléfono, IP de la casa sin Tor, y «operador parar» manda sobre la regla.
+- Simulación (prueba_ganancia.py, A5): sin ventaja y mirando después de cada apuesta, la regla v9 arma por azar en el 3,0 % de 200 meses de 8 fuentes y 1.000 apuestas; la regla fija sola lo haría en el 35,5 %.
+- Pendiente (fase 2): el laboratorio de la ESP32 busca por acierto con velas; debe medir contra el precio de apertura de la ventana y el precio del libro, con esta misma regla de dinero.
+
 ## 8. Criterios para el dinero real (todos, y su orden expresa)
+
+Plan v9 (20/11/2026, su orden): el 76 % (19 de las últimas 25) y el 70 % (18 de 25) quedan reemplazados por GANA DINERO (demostrado) de la sección 7e. Sigue sin apalancamiento y con tope del 16 %. Lo de abajo queda como historia del plan de los Contratos de Evento de 10 min.
 
 Su orden del 04/11 (01:30): el real corre solo cuando el SÍ coincide con su 76 % (19 de las últimas 25 de papel), sin apalancamiento y con tope del 16 %. Los criterios de abajo quedan como recomendación; P1 (pago y demora reales) sigue siendo el que más vale.
 

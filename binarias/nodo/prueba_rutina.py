@@ -100,11 +100,22 @@ N.puntos_nuevos(c0, est, FuentesFalsas([]))          # primera vuelta: marca el 
 abierta = {"t": 1794931200, "dir": -1, "base": 65000.0, "res": None}
 caro = N.resumen(ops(20, q=0.86) + [abierta])
 barato = N.resumen(ops(20, q=0.544) + [abierta])
-pts = N.puntos_nuevos(c0, est, FuentesFalsas([("operador", "operador15", 15, caro), ("centro", "E1", 15, barato)]))
+# plan v9 (20/11/2026): el estado de dinero sobre toda la libreta decide; 25 apuestas nunca alcanzan para demostrar
+caro["dinero"] = N.ganancia_de(ops(20, q=0.86))
+barato["dinero"] = N.ganancia_de(ops(20, q=0.544))
+largo = N.resumen(ops(20, q=0.544) + [dict(abierta, t=abierta["t"] + 900)])
+largo["dinero"] = N.ganancia_de([dict(o, res=1 if (i * 3) % 4 < 3 else 0, g=-1 if (i * 3) % 4 < 3 else 1)
+                                 for i, o in enumerate(ops(150, total=200, q=0.544, t0=1794000000))])
+pts = N.puntos_nuevos(c0, est, FuentesFalsas([("operador", "operador15", 15, caro), ("centro", "E1", 15, barato),
+                                              ("centro", "E3", 15, largo)]))
 p_caro = next(p for p in pts if p["fuente"] == "operador")
-p_barato = next(p for p in pts if p["fuente"] == "centro")
+p_barato = next(p for p in pts if p["estrategia"] == "E1")
+p_largo = next(p for p in pts if p["estrategia"] == "E3")
 ok(not p_caro["alto"] and p_caro["con_ganancias"] is False, "punto: 80 % con pérdidas NO es alto (no se le manda a la rutina)")
-ok(p_barato["alto"] and p_barato["neto"] > 0, "punto: 80 % con ganancias sí es alto")
+ok(not p_barato["alto"] and p_barato["neto"] > 0 and p_barato["dinero"]["estado"] == N.POCA,
+   "plan v9: 80 % de 25 con ganancias ya NO es alto (25 apuestas no demuestran dinero)")
+ok(p_largo["alto"] and p_largo["dinero"]["estado"] == N.GANA and p_largo["dinero"]["n"] == 200,
+   "plan v9: 150 de 200 comprados a 0,544 (repartidos) sí demuestran dinero: punto alto")
 
 
 # 2) servidor falso: rutina (/fire) y GitHub (contents)
@@ -165,7 +176,9 @@ def punto(W, ventana, d, alto=True, est="E1", t=None):
             "nombre": N.NOMBRES.get(est, est), "t": t or ventana, "dir": d, "base": 65000.0, "W": W, "ventana": ventana,
             "minuto": 0, "alineado": True, "aciertos": 20, "de": 25, "racha": 3, "fondo": 56.0, "vivo": [60, 100],
             "neto": 11.029, "precio": 0.544, "equilibrio": 0.555, "con_ganancias": True, "precio_supuesto": 0, "alto": alto,
-            "cuenta": "a mano", "aciertos_propios": 20, "de_propios": 25}
+            "cuenta": "a mano", "aciertos_propios": 20, "de_propios": 25,
+            "dinero": {"estado": N.GANA if alto else N.NO_DEMOSTRADO, "alto": alto, "pausa": False, "n": 200, "neto": 70.3,
+                       "por_usdt": 0.35, "prueba": 9000.0 if alto else 3.0, "umbral_prueba": 160.0}}
 
 
 def con_libro(W, t):

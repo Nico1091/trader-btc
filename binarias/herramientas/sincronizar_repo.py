@@ -44,7 +44,10 @@ NUEVAS_CARPETAS = [("herramientas", (".py",)), ("herramientas/fixtures_lineas", 
                    # 17/11/2026: el nodo puente (une los puntos de la caja y el teléfono); solo código y documentos.
                    ("nodo", (".py", ".md", ".sh")),
                    # 18/11/2026: la paridad con la apuesta a mano (revisión, análisis, consolidación, pruebas y su resultado).
-                   ("paridad", (".py", ".md")), ("paridad/resultados", (".txt",))]
+                   ("paridad", (".py", ".md")), ("paridad/resultados", (".txt",)),
+                   # 20/11/2026: el plan v9 por ganancia (pedido a la vigilante, retroalimentación, meta-prompt, prompt, revisión,
+                   # paridad con la vigilante y su medidor). Solo cifras agregadas: el repositorio es PÚBLICO desde el 25/10.
+                   ("ganancia", (".py", ".md", ".txt")), ("ganancia/vigilante", (".py", ".md"))]
 NUEVOS_PULSO = ["caja-prueba.sh"]
 # Firma del commit: el modelo que hace el trabajo (18/11/2026: Opus 5.5). Otra sesión la cambia con la variable COAUTOR.
 COAUTOR = os.environ.get("COAUTOR") or "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>"

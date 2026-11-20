@@ -18,6 +18,9 @@ sys.path.insert(0, os.path.join(os.path.dirname(AQUI), "nodo"))
 import analisis_paridad as AP  # noqa: E402
 import nodo as N  # noqa: E402
 
+N.Libreta.REVISAR = 100000   # 20/11/2026: los datos de la prueba llegan de golpe (días enteros); en el equipo llegan de a una
+N.AVISOS_DINERO = False
+
 FALLOS, CUENTA = [], [0]
 
 
@@ -36,16 +39,18 @@ def equipo(raiz):
     return c
 
 
-def comparar(carpeta_datos, c, titulo):
+def comparar(carpeta_datos, c, titulo, fu=None):
     """Corre los dos caminos con los mismos datos y compara cada señal con precio real y ganador oficial."""
     _r, precios, ganador, _l = AP.leer_registros(carpeta_datos)
     filas = AP.cruzar(AP.leer_senales(carpeta_datos), precios, ganador)
     analisis = {(f["est"], f["t"], f["dir"]): f for f in filas}
-    fu = N.Fuentes(c)
+    fu = fu or N.Fuentes(c)
     resumenes = {(f, e): r for f, e, _W, r in fu.leer()}
     nodo = {}
     for k, lista in fu.libreta.por.items():
         fuente, est = k.split("|", 1)
+        if fuente not in ("centro", "quince"):   # plan v9 (20/11): la libreta lleva también el papel del operador; aquí no
+            continue
         for e in lista:
             nodo[(est, e["t"], e["dir"])] = e
     iguales = [k for k in analisis if k in nodo and abs(analisis[k]["q"] - nodo[k]["q"]) < 1e-12 and analisis[k]["g"] == nodo[k]["g"]
@@ -123,14 +128,35 @@ if len(sys.argv) > 1:
     real = sys.argv[1]
     base = tempfile.mkdtemp(prefix="paridad_real_")
     c = equipo(base)
-    for r in sorted(glob.glob(os.path.join(real, "*registro*.jsonl"))):
-        shutil.copy(r, os.path.join(c["operador"], "registro", os.path.basename(r).rsplit("_", 1)[-1]))
     for patron, destino in (("*centro.json", os.path.join(c["centinela"], "datos", "centro.json")),
                             ("*quince.json", os.path.join(c["centinela"], "quince.json"))):
         hallados = glob.glob(os.path.join(real, patron))
         if hallados:
             shutil.copy(hallados[0], destino)
-    comparar(real, c, "datos reales del teléfono")
+    # 20/11/2026: el registro se entrega día por día, como llega en el equipo; de golpe, el nodo poda de su memoria los libros
+    # más viejos (600 ventanas) antes de apuntarlos, y con más de dos días de datos se perdían los primeros
+    fu = N.Fuentes(c)
+    for r in sorted(glob.glob(os.path.join(real, "*registro*.jsonl"))):
+        shutil.copy(r, os.path.join(c["operador"], "registro", os.path.basename(r).rsplit("_", 1)[-1]))
+        fu.leer()
+    comparar(real, c, "datos reales del teléfono", fu)
+    # 20/11/2026, plan v9: de golpe (como al arrancar el nodo con tres días de registro) la libreta queda igual que día por día
+    base2 = tempfile.mkdtemp(prefix="paridad_golpe_")
+    c2 = equipo(base2)
+    for patron, destino in (("*centro.json", os.path.join(c2["centinela"], "datos", "centro.json")),
+                            ("*quince.json", os.path.join(c2["centinela"], "quince.json"))):
+        hallados = glob.glob(os.path.join(real, patron))
+        if hallados:
+            shutil.copy(hallados[0], destino)
+    for r in sorted(glob.glob(os.path.join(real, "*registro*.jsonl"))):
+        shutil.copy(r, os.path.join(c2["operador"], "registro", os.path.basename(r).rsplit("_", 1)[-1]))
+    fu2 = N.Fuentes(c2)
+    fu2.leer()
+    cuentas = {k: (len(v), len(fu2.libreta.por.get(k, []))) for k, v in fu.libreta.por.items()}
+    ok(cuentas and all(a == b for a, b in cuentas.values()) and any(k.startswith("operador|") for k in cuentas),
+       "plan v9: con tres días de golpe la libreta guarda lo mismo que día por día, también el papel del operador "
+       + ", ".join(f"{k} {a}" + ("" if a == b else f" ≠ {b}") for k, (a, b) in sorted(cuentas.items())))
+    shutil.rmtree(base2, ignore_errors=True)
     shutil.rmtree(base, ignore_errors=True)
 
 print(f"\n{'TODO BIEN' if not FALLOS else str(len(FALLOS)) + ' FALLO(S)'}: {CUENTA[0] - len(FALLOS)} de {CUENTA[0]}")
