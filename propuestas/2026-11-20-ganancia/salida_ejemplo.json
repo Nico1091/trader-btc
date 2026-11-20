@@ -1,0 +1,76 @@
+{
+  "malas": 0,
+  "resultados": {
+    "A_moneda_al_50": {
+      "n": 400,
+      "aciertos": 200,
+      "tasa": 0.5,
+      "precio_medio": 0.4988,
+      "equilibrio": 0.5086831562615962,
+      "usdt_por_apuesta": -0.015373944193061878,
+      "neto_usdt": -6.149577677224736,
+      "alfa_por_estrategia": 0.01,
+      "inf_normal": -0.13011526294672635,
+      "sup_normal": 0.09936737456060259,
+      "inf_boot": -0.1244885369532427,
+      "sup_boot": 0.10267456636500766,
+      "decision": "NO DEMOSTRADO"
+    },
+    "B_acierta_caro": {
+      "n": 400,
+      "aciertos": 296,
+      "tasa": 0.74,
+      "precio_medio": 0.800125,
+      "equilibrio": 0.8162610713789226,
+      "usdt_por_apuesta": -0.0937053556899575,
+      "neto_usdt": -37.482142275982945,
+      "alfa_por_estrategia": 0.01,
+      "inf_normal": -0.15629856010171006,
+      "sup_normal": -0.031112151278204936,
+      "inf_boot": -0.1581961544105596,
+      "sup_boot": -0.034840422196010454,
+      "decision": "PIERDE DINERO (demostrado)"
+    },
+    "C_barato_gana": {
+      "n": 1000,
+      "aciertos": 250,
+      "tasa": 0.25,
+      "precio_medio": 0.20022,
+      "equilibrio": 0.2035074778882255,
+      "usdt_por_apuesta": 0.22452216905901115,
+      "neto_usdt": 224.52216905901187,
+      "alfa_por_estrategia": 0.01,
+      "inf_normal": 0.06799705926319574,
+      "sup_normal": 0.3810472788548266,
+      "inf_boot": 0.07648761297182338,
+      "sup_boot": 0.3803988835725676,
+      "decision": "GANA DINERO (demostrado)"
+    },
+    "D_barato_azar": {
+      "n": 400,
+      "aciertos": 80,
+      "tasa": 0.2,
+      "precio_medio": 0.199225,
+      "equilibrio": 0.2025356963108058,
+      "usdt_por_apuesta": -0.026452020202020234,
+      "neto_usdt": -10.580808080808172,
+      "alfa_por_estrategia": 0.01,
+      "inf_normal": -0.2536922574011744,
+      "sup_normal": 0.20078821699713392,
+      "inf_boot": -0.24747301967038798,
+      "sup_boot": 0.1908363902179692,
+      "decision": "NO DEMOSTRADO"
+    },
+    "E_pocas": {
+      "n": 60,
+      "aciertos": 36,
+      "tasa": 0.6,
+      "precio_medio": 0.30016666666666664,
+      "equilibrio": 0.3058118423755582,
+      "usdt_por_apuesta": 0.952218977876653,
+      "neto_usdt": 57.13313867259919,
+      "alfa_por_estrategia": 0.01,
+      "decision": "MUESTRA INSUFICIENTE"
+    }
+  }
+}

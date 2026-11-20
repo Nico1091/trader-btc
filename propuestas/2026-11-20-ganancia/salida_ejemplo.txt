@@ -1,0 +1,10 @@
+Filas válidas: 2260 · filas malas (no entran): 0
+Convención: acierta = 0.98 / precio - 1 ; falla = -1 (por USDT). Corrección por 5 estrategias, alfa 0.050.
+estrategia  n  acierto  equilibrio  precio  USDT/apuesta  IC95 inf-sup (boot)  decisión
+A_moneda_al_50       400    50.0 %     50.9 %   0.499        -0.015       -0.124 ; +0.103  NO DEMOSTRADO
+B_acierta_caro       400    74.0 %     81.6 %   0.800        -0.094       -0.158 ; -0.035  PIERDE DINERO (demostrado)
+C_barato_gana       1000    25.0 %     20.4 %   0.200        +0.225       +0.076 ; +0.380  GANA DINERO (demostrado)
+D_barato_azar        400    20.0 %     20.3 %   0.199        -0.026       -0.247 ; +0.191  NO DEMOSTRADO
+E_pocas               60    60.0 %     30.6 %   0.300        +0.952                     -  MUESTRA INSUFICIENTE
+Estrategias con acierto de 72 % o más: 1 · de ellas con ganancia por USDT positiva: 0
+Decisión final: C_barato_gana
