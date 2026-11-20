@@ -1,0 +1,9 @@
+{"tipo": "orden leída", "id": "A1", "orden": "ord-1", "estado": "FILLED", "final": true, "comprado": 4.62, "precio": 0.55, "contratos": 8.232, "hora": 1794527100.0}
+{"tipo": "liquidación", "id": "A1", "orden": "ord-1", "ganador": 2, "res": 0, "comprado": 4.62, "pago": 0.0, "neto": -4.62, "hora": 1794527400.0}
+{"tipo": "orden leída", "id": "A2", "orden": "ord-2", "estado": "FILLED", "final": true, "comprado": 4.11, "precio": 0.86, "contratos": 4.6835, "hora": 1794527100.0}
+{"tipo": "liquidación", "id": "A2", "orden": "ord-2", "ganador": 1, "res": 1, "comprado": 4.11, "pago": 4.6835, "neto": 0.5735, "hora": 1794527400.0}
+{"tipo": "cobro", "id": "A2", "orden": "ord-2", "estado": "cobrado", "monto": 4.6835, "hora": 1794527420.0}
+{"tipo": "orden leída", "id": "A3", "orden": "ord-3", "estado": "SIN CIERRE", "final": true, "comprado": 5.0, "precio": 0.5, "contratos": 0.0, "hora": 1794528000.0}
+{"tipo": "orden leída", "id": "A4", "orden": "ord-4", "estado": "FILLED", "final": true, "comprado": 3.0, "precio": 0.52, "contratos": 5.6538, "hora": 1794525000.0}
+{"tipo": "liquidación", "id": "A4", "orden": "ord-4", "ganador": 1, "res": 1, "comprado": 3.0, "pago": 5.6538, "neto": 2.6538, "hora": 1794525100.0}
+{"tipo": "cobro", "id": "A4", "orden": "ord-4", "estado": "pedido", "monto": 5.6538, "hora": 1794525200.0}
