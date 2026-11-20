@@ -1,0 +1,20 @@
+Simulador del dinero real de binarias (solo lectura, biblioteca estándar)
+Reglas: armado 18 de 25 · compuerta 19 de 25 con ganancia · orden 2 USDT · tope por orden 16% del saldo · freno del día 16% · máx. 20 órdenes al día
+Escenario: saldo 20,50 USDT · 30 días · 16 señales al día en total · 1000 réplicas · IA aprueba 100 % · llenado 100 % · tope total 25 %
+Referencia: con moneda justa, P(18 o más aciertos de 25) = 2,16 % (la regla de armado mira las cinco estrategias y repite la prueba cada vez que cierra una señal).
+Montos en USDT. «acierto» = precio + ventaja. «equil.» = acierto que hace falta (precio ÷ 0,98). «EV/orden» = valor esperado de una orden de 2 USDT.
+Con ventaja 0 el mercado es justo: el acierto iguala al precio y cada orden pierde la comisión (EV/orden −0,04).
+
+ventaja  precio  acierto  equil.  EV/orden  P(armado)  órdenes  P(≥1 orden)  pnl medio  pnl P5  pnl P95  P(pérdida)  peor día P95
+-------  ------  -------  ------  --------  ---------  -------  -----------  ---------  ------  -------  ----------  ------------
+0,0 pts   0,460  46,00 %   0,469     -0,04       44 %     0,74         19 %      -0,07   -2,00     0,52        11 %          2,00
+0,0 pts   0,544  54,40 %   0,555     -0,04       95 %     6,61         75 %      -0,06   -6,00     8,84        48 %          4,00
+0,0 pts   0,580  58,00 %   0,592     -0,04      100 %    13,34         94 %      -0,23   -6,48    11,45        60 %          4,62
+2,0 pts   0,460  48,00 %   0,469      0,05       61 %     1,30         29 %      -0,07   -2,00     2,52        18 %          2,00
+2,0 pts   0,544  56,40 %   0,555      0,03       99 %    10,01         87 %       0,60   -6,38    13,25        52 %          4,40
+2,0 pts   0,580  60,00 %   0,592      0,03      100 %    18,99         98 %       0,83   -6,48    16,07        58 %          4,62
+4,0 pts   0,460  50,00 %   0,469      0,13       75 %     2,30         42 %       0,30   -3,74     5,83        23 %          4,00
+4,0 pts   0,544  58,40 %   0,555      0,10      100 %    15,13         96 %       1,95   -6,40    18,91        52 %          4,79
+4,0 pts   0,580  62,00 %   0,592      0,10      100 %    26,66         99 %       2,50   -6,62    22,83        54 %          6,00
+
+Cómo leer la tabla: «P(armado)» es la probabilidad de que el operador se arme solo en el periodo. «pnl» es la ganancia o pérdida del periodo, en USDT. «peor día P95» es la pérdida del peor día, en el 95 % de las réplicas, con el freno del 16 % contado como lo cuenta el ejecutor.

@@ -1,0 +1,38 @@
+test_17_de_25_no_arma (__main__.Armado.test_17_de_25_no_arma) ... ok
+test_18_de_25_arma (__main__.Armado.test_18_de_25_arma) ... ok
+test_cualquier_estrategia_basta (__main__.Armado.test_cualquier_estrategia_basta) ... ok
+test_menos_de_25_cerradas_no_cuentan (__main__.Armado.test_menos_de_25_cerradas_no_cuentan) ... ok
+test_19_de_25_es_el_minimo (__main__.Compuerta.test_19_de_25_es_el_minimo) ... ok
+test_el_precio_alto_anula_la_ganancia (__main__.Compuerta.test_el_precio_alto_anula_la_ganancia) ... ok
+test_precio_bajo_deja_pasar (__main__.Compuerta.test_precio_bajo_deja_pasar) ... ok
+test_azar_18_de_25 (__main__.Economia.test_azar_18_de_25) ... ok
+test_cobro_0_98_entre_precio (__main__.Economia.test_cobro_0_98_entre_precio) ... ok
+test_equilibrio_precio_entre_0_98 (__main__.Economia.test_equilibrio_precio_entre_0_98) ... ok
+test_mercado_justo_pierde_la_comision (__main__.Economia.test_mercado_justo_pierde_la_comision) ... ok
+test_montecarlo_coincide_con_la_formula (__main__.Economia.test_montecarlo_coincide_con_la_formula) ... ok
+test_valor_esperado_cero_en_el_equilibrio (__main__.Economia.test_valor_esperado_cero_en_el_equilibrio) ... ok
+test_valor_esperado_formula_a_mano (__main__.Economia.test_valor_esperado_formula_a_mano) ... ok
+test_con_una_orden_abierta_no_cabe_otra (__main__.Frenos.test_con_una_orden_abierta_no_cabe_otra) ... ok
+test_cupo_inicial_es_16_por_ciento (__main__.Frenos.test_cupo_inicial_es_16_por_ciento) ... ok
+test_dia_nuevo_reinicia_el_freno (__main__.Frenos.test_dia_nuevo_reinicia_el_freno) ... ok
+test_el_perdido_nunca_pasa_del_freno (__main__.Frenos.test_el_perdido_nunca_pasa_del_freno) ... ok
+test_sin_armar_no_compra (__main__.Frenos.test_sin_armar_no_compra) ... ok
+test_tope_de_20_ordenes_al_dia (__main__.Frenos.test_tope_de_20_ordenes_al_dia) ... ok
+test_tope_por_orden_16_por_ciento_del_saldo (__main__.Frenos.test_tope_por_orden_16_por_ciento_del_saldo) ... ok
+test_una_ganancia_restaura_el_cupo (__main__.Frenos.test_una_ganancia_restaura_el_cupo) ... ok
+test_una_perdida_apaga_el_dia (__main__.Frenos.test_una_perdida_apaga_el_dia) ... ok
+test_cli_corre_y_escribe_tabla (__main__.Interfaz.test_cli_corre_y_escribe_tabla) ... ok
+test_cli_rechaza_numeros_malos (__main__.Interfaz.test_cli_rechaza_numeros_malos) ... ok
+test_cli_rechaza_precio_fuera_de_rango (__main__.Interfaz.test_cli_rechaza_precio_fuera_de_rango) ... ok
+test_listas_con_punto_y_coma_y_coma_decimal (__main__.Interfaz.test_listas_con_punto_y_coma_y_coma_decimal) ... ok
+test_correr_es_repetible (__main__.Replicas.test_correr_es_repetible) ... ok
+test_el_freno_nunca_se_rompe (__main__.Replicas.test_el_freno_nunca_se_rompe) ... ok
+test_misma_semilla_mismo_resultado (__main__.Replicas.test_misma_semilla_mismo_resultado) ... ok
+test_pnl_cuadra_con_aciertos_y_fallos (__main__.Replicas.test_pnl_cuadra_con_aciertos_y_fallos) ... ok
+test_sin_aprobacion_de_la_ia_no_hay_ordenes (__main__.Replicas.test_sin_aprobacion_de_la_ia_no_hay_ordenes) ... ok
+test_tope_total_detiene_las_compras (__main__.Replicas.test_tope_total_detiene_las_compras) ... ok
+
+----------------------------------------------------------------------
+Ran 33 tests in 0.768s
+
+OK
