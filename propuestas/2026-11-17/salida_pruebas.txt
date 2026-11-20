@@ -1,0 +1,28 @@
+# Salida real de prueba_verificador_llave.py (22 pruebas)
+test_archivo_inexistente_es_entrada_mala (__main__.PruebasVerificador.test_archivo_inexistente_es_entrada_mala) ... ok
+test_cada_bandera_prohibida_en_verdadero_da_no_apta (__main__.PruebasVerificador.test_cada_bandera_prohibida_en_verdadero_da_no_apta) ... ok
+test_campo_que_falta_da_no_apta (__main__.PruebasVerificador.test_campo_que_falta_da_no_apta) ... ok
+test_ejemplo_con_prediccion_confirmada_es_apta (__main__.PruebasVerificador.test_ejemplo_con_prediccion_confirmada_es_apta) ... ok
+test_ejemplo_sin_confirmar_prediccion_queda_pendiente (__main__.PruebasVerificador.test_ejemplo_sin_confirmar_prediccion_queda_pendiente) ... ok
+test_informe_json_sin_valores_del_archivo (__main__.PruebasVerificador.test_informe_json_sin_valores_del_archivo) ... ok
+test_ip_de_la_caja_fuera_de_la_lista_da_no_apta (__main__.PruebasVerificador.test_ip_de_la_caja_fuera_de_la_lista_da_no_apta) ... ok
+test_ip_invalida_es_entrada_mala (__main__.PruebasVerificador.test_ip_invalida_es_entrada_mala) ... ok
+test_json_que_no_es_objeto_es_entrada_mala (__main__.PruebasVerificador.test_json_que_no_es_objeto_es_entrada_mala) ... ok
+test_json_roto_es_entrada_mala (__main__.PruebasVerificador.test_json_roto_es_entrada_mala) ... ok
+test_las_banderas_nombradas_son_las_del_endpoint_oficial (__main__.PruebasVerificador.test_las_banderas_nombradas_son_las_del_endpoint_oficial) ... ok
+test_lectura_apagada_da_no_apta (__main__.PruebasVerificador.test_lectura_apagada_da_no_apta) ... ok
+test_lista_con_varias_ips_acepta_la_de_la_caja (__main__.PruebasVerificador.test_lista_con_varias_ips_acepta_la_de_la_caja) ... ok
+test_lista_vacia_es_entrada_mala (__main__.PruebasVerificador.test_lista_vacia_es_entrada_mala) ... ok
+test_ninguna_bandera_esta_en_las_dos_listas (__main__.PruebasVerificador.test_ninguna_bandera_esta_en_las_dos_listas) ... ok
+test_red_con_barra_no_se_acepta (__main__.PruebasVerificador.test_red_con_barra_no_se_acepta) ... ok
+test_retiros_es_la_falla_mas_grave_y_se_dice_con_claridad (__main__.PruebasVerificador.test_retiros_es_la_falla_mas_grave_y_se_dice_con_claridad) ... ok
+test_sin_restriccion_de_ip_da_no_apta (__main__.PruebasVerificador.test_sin_restriccion_de_ip_da_no_apta) ... ok
+test_texto_corto_no_dispara_la_guarda (__main__.PruebasVerificador.test_texto_corto_no_dispara_la_guarda) ... ok
+test_texto_largo_se_niega_y_no_se_muestra (__main__.PruebasVerificador.test_texto_largo_se_niega_y_no_se_muestra) ... ok
+test_valor_que_no_es_booleano_es_entrada_mala (__main__.PruebasVerificador.test_valor_que_no_es_booleano_es_entrada_mala) ... ok
+test_varias_fallas_se_listan_todas (__main__.PruebasVerificador.test_varias_fallas_se_listan_todas) ... ok
+
+----------------------------------------------------------------------
+Ran 22 tests in 0.012s
+
+OK

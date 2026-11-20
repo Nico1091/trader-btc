@@ -1,0 +1,69 @@
+# Salidas reales de verificador_llave.py con datos SINTETICOS (sin llaves; IP de documentación RFC 5737)
+
+### 1) Ejemplo, sin confirmar Predicción
+Verificador de llave de Binance · versión 1
+Banderas leídas: 11 de 11 requeridas
+
+  OK     Lectura activada (saldos, libro y mercado): enableReading = true
+  OK     Restricción por IP activada: ipRestrict = true
+  OK     Retiros por API: enableWithdrawals = false
+  OK     Transferencias internas: enableInternalTransfer = false
+  OK     Transferencia universal: permitsUniversalTransfer = false
+  OK     Futuros: enableFutures = false
+  OK     Margen: enableMargin = false
+  OK     Spot y margen: enableSpotAndMarginTrading = false
+  OK     Opciones: enableVanillaOptions = false
+  OK     Margen de cartera: enablePortfolioMarginTrading = false
+  OK     Operar por FIX: enableFixApiTrade = false
+  OK     IP de la caja (203.0.113.10) está en la lista que usted escribió
+  PENDIENTE  Predicción: este endpoint no la muestra. Confírmela a mano en la app de Binance y vuelva a correr con --confirmo-prediccion.
+
+VEREDICTO: PENDIENTE
+codigo de salida: 1
+
+### 2) Mismo ejemplo, con Predicción confirmada a mano
+Verificador de llave de Binance · versión 1
+Banderas leídas: 11 de 11 requeridas
+
+  OK     Lectura activada (saldos, libro y mercado): enableReading = true
+  OK     Restricción por IP activada: ipRestrict = true
+  OK     Retiros por API: enableWithdrawals = false
+  OK     Transferencias internas: enableInternalTransfer = false
+  OK     Transferencia universal: permitsUniversalTransfer = false
+  OK     Futuros: enableFutures = false
+  OK     Margen: enableMargin = false
+  OK     Spot y margen: enableSpotAndMarginTrading = false
+  OK     Opciones: enableVanillaOptions = false
+  OK     Margen de cartera: enablePortfolioMarginTrading = false
+  OK     Operar por FIX: enableFixApiTrade = false
+  OK     IP de la caja (203.0.113.10) está en la lista que usted escribió
+
+VEREDICTO: APTA
+La llave cumple la regla. Eso no dice nada de ventaja: solo de permisos.
+codigo de salida: 0
+
+### 3) IP de la caja distinta de la lista escrita (el fallo que causa el error -2015)
+Verificador de llave de Binance · versión 1
+Banderas leídas: 11 de 11 requeridas
+
+  OK     Lectura activada (saldos, libro y mercado): enableReading = true
+  OK     Restricción por IP activada: ipRestrict = true
+  OK     Retiros por API: enableWithdrawals = false
+  OK     Transferencias internas: enableInternalTransfer = false
+  OK     Transferencia universal: permitsUniversalTransfer = false
+  OK     Futuros: enableFutures = false
+  OK     Margen: enableMargin = false
+  OK     Spot y margen: enableSpotAndMarginTrading = false
+  OK     Opciones: enableVanillaOptions = false
+  OK     Margen de cartera: enablePortfolioMarginTrading = false
+  OK     Operar por FIX: enableFixApiTrade = false
+  FALLA  la IP de la caja (203.0.113.10) no está en la lista de IP que usted indicó. Con esa IP Binance rechaza las consultas (error −2015).
+
+VEREDICTO: NO APTA
+No la use hasta corregirla en la app de Binance y volver a verificar.
+codigo de salida: 2
+
+### 4) Texto largo en el archivo (simulado): se niega y no lo muestra
+Verificador de llave · versión 1
+ENTRADA MALA: el campo «x» trae un texto largo; podría ser una llave. Esta respuesta no debe contener textos así. Se detiene sin mostrarlo. No se juzga la llave.
+codigo de salida: 3
