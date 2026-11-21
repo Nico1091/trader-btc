@@ -1,0 +1,34 @@
+--- a/binarias/operador/ejecutor.py
++++ b/binarias/operador/ejecutor.py
+@@ -307,10 +307,13 @@
+                  saldo_inicial_dia=hoy["saldo_inicial"])
+         self.ordenes.append(o)
+         self._guardar()
++        ex_llave = None
+         try:
+             r = self.C.ordenar(w["walletAddress"], w["walletId"], q["quoteId"], DESLIZAMIENTO_BPS, FUENTE)
+         except Exception as ex:
+             codigo = getattr(ex, "codigo", None)
++            if codigo in LLAVE_MALA:
++                ex_llave = ex                 # 21/11/2026: −2015 al ordenar también sube al operador tras anotar la orden
+             if isinstance(codigo, int) and codigo < 0:   # Binance contestó que no: esa orden no existe
+                 o.update(estado="RECHAZADA", final=True, motivo=str(ex)[:200])
+             else:                                         # sin respuesta, o respuesta rota: no se sabe si llegó
+@@ -324,6 +327,8 @@
+         self.fila({"tipo": "orden", "enviada": True, **{k: o.get(k) for k in CAMPOS_ORDEN}})
+         self.log(f"ORDEN REAL {o['id']}: {sentido(lado)} {usdt} USDT a {precio} en el mercado de {W} min · estado {o['estado']}"
+                  + (f" · {o.get('motivo')}" if o.get("motivo") else ""))
++        if ex_llave is not None:
++            raise ex_llave
+         if o["estado"] == "ENVIADA":
+             texto += f"Binance la recibió (orden {o['orden']}); le aviso cuando la confirme."
+         elif o["estado"] == "RECHAZADA":
+@@ -398,6 +403,8 @@
+         try:
+             q = self.C.cotizar(w["walletAddress"], token, usdt, DESLIZAMIENTO_BPS, FUENTE)
+         except Exception as ex:
++            if getattr(ex, "codigo", None) in LLAVE_MALA:
++                raise                       # 21/11/2026: −2015 sube al operador (estado 1 y aviso), no se traga
+             return self._no_ia(v, base, f"sin cotización ({texto_error(ex)})")
+         precio = float(q.get("averagePrice") or 0)
+         com_cot = float(q.get("feeRateBps") or 0) / 10000 or base["comision"]

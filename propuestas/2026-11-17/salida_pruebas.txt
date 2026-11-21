@@ -1,0 +1,65 @@
+### Operador tal como está en el commit 29ecb39 (sin cambios)
+Operador probado: /tmp/claude-0/-home-user-trader-btc/80e614b7-350f-56f3-95d8-44baa194bfa2/scratchpad/op-src/binarias/operador
+Carpeta temporal: /tmp/sim_ejecutor_cq_45vqj
+Binance simulado; sin red, sin llaves, sin fondos.
+
+[OK   ] E01 Sin archivo ARMADO no hay ninguna compra
+[OK   ] E02 ARMADO por mercado: solo el que dice
+[OK   ] E03 PARAR corta la compra
+[OK   ] E04 Llave con retiros permitidos: no compra
+[OK   ] E05 Llave sin restricción de IP: no compra
+[OK   ] E06 Sin decisión de la IA: nada
+[OK   ] E07 Decisión sin precio visto: no compra a ciegas
+[OK   ] E08 Precio 0,06 sobre lo visto: no ordena
+[OK   ] E09 Precio en la frontera (visto + 0,02): ordena
+[OK   ] E10 Ciclo completo: compra, lectura y liquidación
+[OK   ] E11 Freno del día: no pasa del 16 % del saldo
+[OK   ] E12 Saldo chico: 2 USDT pasan el 16 %, no compra
+[OK   ] E13 Tope de 20 órdenes por día
+[OK   ] E14 Rechazo claro: máximo dos envíos por mercado
+[OK   ] E15 Sin respuesta y no llegó: no se duplica
+[OK   ] E16 Sin respuesta pero la orden llegó: se reconoce
+[FALLO] E17 Compra ajena del mismo mercado no se adopta
+         - no se cumple: orden ajena del dueño (10 USDT, mismo mercado y minutos después) NO se adopta como nuestra
+[FALLO] E18 −2015 al cotizar llega al operador
+         - no se cumple: −2015 al cotizar sube al operador (que pasa al estado 1 y avisa), no se traga
+[FALLO] E19 −2015 al ordenar llega al operador
+         - no se cumple: −2015 al ordenar sube al operador, no se registra como rechazo normal
+[OK   ] E20 Cotización fuera de 0,01–0,90: no ordena
+[OK   ] E21 Menos de 10 s para el cierre: no cotiza
+[OK   ] E22 ARMADO por defecto cubre los dos mercados
+
+Escenarios: 22. Con fallo: 3. Cumplen: 19.
+codigo_salida=1
+
+### Operador con el parche propuesto (copia de trabajo, no el repositorio)
+Operador probado: /tmp/claude-0/-home-user-trader-btc/80e614b7-350f-56f3-95d8-44baa194bfa2/scratchpad/op-fix
+Carpeta temporal: /tmp/sim_ejecutor_m8xpd396
+Binance simulado; sin red, sin llaves, sin fondos.
+
+[OK   ] E01 Sin archivo ARMADO no hay ninguna compra
+[OK   ] E02 ARMADO por mercado: solo el que dice
+[OK   ] E03 PARAR corta la compra
+[OK   ] E04 Llave con retiros permitidos: no compra
+[OK   ] E05 Llave sin restricción de IP: no compra
+[OK   ] E06 Sin decisión de la IA: nada
+[OK   ] E07 Decisión sin precio visto: no compra a ciegas
+[OK   ] E08 Precio 0,06 sobre lo visto: no ordena
+[OK   ] E09 Precio en la frontera (visto + 0,02): ordena
+[OK   ] E10 Ciclo completo: compra, lectura y liquidación
+[OK   ] E11 Freno del día: no pasa del 16 % del saldo
+[OK   ] E12 Saldo chico: 2 USDT pasan el 16 %, no compra
+[OK   ] E13 Tope de 20 órdenes por día
+[OK   ] E14 Rechazo claro: máximo dos envíos por mercado
+[OK   ] E15 Sin respuesta y no llegó: no se duplica
+[OK   ] E16 Sin respuesta pero la orden llegó: se reconoce
+[FALLO] E17 Compra ajena del mismo mercado no se adopta
+         - no se cumple: orden ajena del dueño (10 USDT, mismo mercado y minutos después) NO se adopta como nuestra
+[OK   ] E18 −2015 al cotizar llega al operador
+[OK   ] E19 −2015 al ordenar llega al operador
+[OK   ] E20 Cotización fuera de 0,01–0,90: no ordena
+[OK   ] E21 Menos de 10 s para el cierre: no cotiza
+[OK   ] E22 ARMADO por defecto cubre los dos mercados
+
+Escenarios: 22. Con fallo: 1. Cumplen: 21.
+codigo_salida=1
