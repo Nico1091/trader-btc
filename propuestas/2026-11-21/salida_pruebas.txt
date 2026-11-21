@@ -1,0 +1,26 @@
+test_binarios_omitidos_y_salida_limpia (__main__.PruebasRepositorio.test_binarios_omitidos_y_salida_limpia) ... ok
+test_clave_anthropic_y_asignacion (__main__.PruebasRepositorio.test_clave_anthropic_y_asignacion) ... ok
+test_clave_solo_en_otra_rama_se_encuentra (__main__.PruebasRepositorio.test_clave_solo_en_otra_rama_se_encuentra) ... ok
+test_codigo_de_salida_con_criticos (__main__.PruebasRepositorio.test_codigo_de_salida_con_criticos) ... ok
+test_correo_sin_los_de_robot (__main__.PruebasRepositorio.test_correo_sin_los_de_robot) ... ok
+test_ip_publica_si_privada_no (__main__.PruebasRepositorio.test_ip_publica_si_privada_no) ... ok
+test_lista_de_sensibles (__main__.PruebasRepositorio.test_lista_de_sensibles) ... ok
+test_marcadores_y_cortos_no_se_marcan (__main__.PruebasRepositorio.test_marcadores_y_cortos_no_se_marcan) ... ok
+test_repositorio_limpio_da_cero (__main__.PruebasRepositorio.test_repositorio_limpio_da_cero) ... ok
+test_ruta_de_usuario_enmascarada (__main__.PruebasRepositorio.test_ruta_de_usuario_enmascarada) ... ok
+test_secreto_borrado_sigue_en_el_historial (__main__.PruebasRepositorio.test_secreto_borrado_sigue_en_el_historial) ... ok
+test_analizar_texto_solo_patrones_validos (__main__.PruebasUnitarias.test_analizar_texto_solo_patrones_validos) ... ok
+test_asignacion (__main__.PruebasUnitarias.test_asignacion) ... ok
+test_correo_con_extension_de_archivo_no_cuenta (__main__.PruebasUnitarias.test_correo_con_extension_de_archivo_no_cuenta) ... ok
+test_enmascarar_nunca_muestra_el_valor_completo (__main__.PruebasUnitarias.test_enmascarar_nunca_muestra_el_valor_completo) ... ok
+test_entropia (__main__.PruebasUnitarias.test_entropia) ... ok
+test_etiquetas_no_muestran_el_dato (__main__.PruebasUnitarias.test_etiquetas_no_muestran_el_dato) ... ok
+test_hash_hexadecimal_no_es_clave_binance (__main__.PruebasUnitarias.test_hash_hexadecimal_no_es_clave_binance) ... ok
+test_ip_publica_y_privada (__main__.PruebasUnitarias.test_ip_publica_y_privada) ... ok
+test_marcadores_no_son_credenciales (__main__.PruebasUnitarias.test_marcadores_no_son_credenciales) ... ok
+test_token_publico_conocido_no_se_marca (__main__.PruebasUnitarias.test_token_publico_conocido_no_se_marca) ... ok
+
+----------------------------------------------------------------------
+Ran 21 tests in 0.387s
+
+OK
